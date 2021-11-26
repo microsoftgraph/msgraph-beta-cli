@@ -35,7 +35,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         MESSAGE_TITLE: Generated beta models and request builders using Kiota
         MESSAGE_BODY: "This pull request was automatically created by the GitHub Action, **${{github.workflow}}**. \n\n The commit hash is _${{github.sha}}_. \n\n **Important** Check for unexpected deletions or changes in this PR."
-        ASSIGNEDTO: baywet
+        ASSIGNEDTO: calebkiage
         LABELS: generated
         BASE: main
       run: |

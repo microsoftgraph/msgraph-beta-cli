@@ -73,7 +73,7 @@ namespace Microsoft.Graph.Cli.Beta
             {
                 var message = ex switch
                 {
-                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc login command first to get an access token.",
+                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc-beta login command first to get an access token.",
                     _ when ex is TaskCanceledException => string.Empty,
                     ODataError _e when ex is ODataError => $"Error {_e.ResponseStatusCode}({_e.Error?.Code}) from API:\n  {_e.Error?.Message}",
                     ApiException _e when ex is ApiException => $"Error {_e.ResponseStatusCode} from API.",

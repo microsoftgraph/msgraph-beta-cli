@@ -132,8 +132,8 @@ stages:
               targetType: inline
               script: |
                 New-Item $(outputDir) -ItemType Directory -Force
-                echo "Test file" > $(outputDir)/mgc
-                echo "Test file2" > $(outputDir)/mgc.txt
+                echo "Test file" > $(outputDir)/mgc-beta
+                echo "Test file2" > $(outputDir)/mgc-beta.txt
               verbosePreference: '$(OUTPUT_PREFERENCE)'
               debugPreference: '$(OUTPUT_PREFERENCE)'
               informationPreference: '$(OUTPUT_PREFERENCE)'
@@ -356,7 +356,7 @@ stages:
                 $extractPath = Join-Path -Path '$(WORKING_DIR)' -ChildPath artifacts
                 Expand-EsrpArtifacts -SourceDir $downloadDir -OutputDir $extractPath -FileNameTemplate '$(fileNameTemplate)' -BranchOrTagName '$(branchOrTagName)' -RuntimeIdentifier '$(rid)' -PackageType $(packageType) -TarCompression $(compressionProgram) -Cleanup
 
-                Move-NonExecutableItems -SourcePath $extractPath -ExecutableItemNames mgc,mgc.exe
+                Move-NonExecutableItems -SourcePath $extractPath -ExecutableItemNames mgc-beta,mgc-beta.exe
                 Write-Host "##vso[task.setvariable variable=ARTIFACTS_PATH]$extractPath"
               verbosePreference: '$(OUTPUT_PREFERENCE)'
               debugPreference: '$(OUTPUT_PREFERENCE)'
@@ -367,7 +367,7 @@ stages:
           - template: templates/prepare-unsigned-executable-darwin.yaml
             parameters:
               executablePath: $(ARTIFACTS_PATH)
-              executableName: mgc
+              executableName: mgc-beta
               zipName: $(ZIP_NAME)
               targetRuntime: $(rid)
 
@@ -459,7 +459,7 @@ stages:
                 . $(powershellScriptsDir)/BuildTools.ps1
                 $zipPath = Join-Path -Path '$(ARTIFACTS_PATH)' -ChildPath '$(ZIP_NAME)'
                 $fileName = Get-FileName -FileNameTemplate '$(fileNameTemplate)' -BranchOrTagName '$(branchOrTagName)' -RuntimeIdentifier '$(rid)'
-                Update-SignedArchive -InputFile $zipPath -ReportDir '$(WORKING_DIR)' -OutputDir '$(WORKING_DIR)' -OutputFileName "$fileName" -ExeNames mgc -Cleanup
+                Update-SignedArchive -InputFile $zipPath -ReportDir '$(WORKING_DIR)' -OutputDir '$(WORKING_DIR)' -OutputFileName "$fileName" -ExeNames mgc-beta -Cleanup
               verbosePreference: '$(OUTPUT_PREFERENCE)'
               debugPreference: '$(OUTPUT_PREFERENCE)'
               informationPreference: '$(OUTPUT_PREFERENCE)'

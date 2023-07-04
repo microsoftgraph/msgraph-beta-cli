@@ -1,0 +1,11 @@
+**/.git/
+**/.github/
+**/.vs/
+**/.vscode/
+**/[Bb]in/
+**/[Oo]bj/
+**/*.sample.*
+tmp/
+**/.env
+**/*.md
+docker-compose.yml

@@ -150,9 +150,9 @@ namespace Microsoft.Graph.Cli.Beta
                     {
                         GraphProductPrefix = "graph-cli",
                         GraphServiceLibraryClientVersion = $"{assemblyVersion?.Major ?? 0}.{assemblyVersion?.Minor ?? 0}.{assemblyVersion?.Build ?? 0}",
-                        GraphServiceTargetVersion = "1.0"
+                        GraphServiceTargetVersion = "beta"
                     };
-                    return GraphCliClientFactory.GetDefaultClient(options, loggingHandler: p.GetRequiredService<LoggingHandler>());
+                    return GraphCliClientFactory.GetDefaultClient(options, version: "beta", loggingHandler: p.GetRequiredService<LoggingHandler>());
                 });
                 services.AddSingleton<IAuthenticationProvider>(p =>
                 {

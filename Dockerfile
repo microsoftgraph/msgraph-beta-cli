@@ -9,8 +9,8 @@ ARG MSGRAPH_NUGET_URL=https://nuget.pkg.github.com/microsoftgraph/index.json
 
 WORKDIR /app
 
-COPY ./src ./msgraph-cli-beta/src
-WORKDIR /app/msgraph-cli-beta
+COPY ./src ./msgraph-beta-cli/src
+WORKDIR /app/msgraph-beta-cli
 
 # RUN apk add gcc --no-cache # Uncomment this if PublishAot is enabled
 

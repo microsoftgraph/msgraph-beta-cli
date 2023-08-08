@@ -20,7 +20,7 @@ variables:
   - name: repositoryConnection
     value: 'GitHub - calebkiage'
   - name: fileNameTemplate
-    value: msgraph-cli-beta-{0}-{1}
+    value: msgraph-beta-cli-{0}-{1}
   - name: buildConfiguration
     value: 'Release'
   - name: outputDir

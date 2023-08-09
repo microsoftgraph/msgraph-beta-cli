@@ -10,7 +10,7 @@ $ docker-compose run -it mgc-beta sh
 
 Otherwise use docker to run the container.
 ```sh
-$ docker run -it --cap-add=IPC_LOCK --rm msgraph-cli-beta sh
+$ docker run -it --cap-add=IPC_LOCK --rm msgraph-beta-cli sh
 ```
 
 > The IPC_LOCK capability is required by the `gnome-keyring-daemon` process which
@@ -24,7 +24,7 @@ GitHub organizations' package registries.
 
 To build an image in windows powershell:
 ```powershell
-$ docker build \\?\$(Get-Location) -f . -t msgraph-cli-beta --secret id=user,src=./tmp/nuget_user.txt --secret id=token,src=./tmp/nuget_token.txt
+$ docker build \\?\$(Get-Location) -f . -t msgraph-beta-cli --secret id=user,src=./tmp/nuget_user.txt --secret id=token,src=./tmp/nuget_token.txt
 ```
 
 > The `\\?\$(Get-Location)` section of the command is used to get around the 260 character
@@ -34,5 +34,5 @@ $ docker build \\?\$(Get-Location) -f . -t msgraph-cli-beta --secret id=user,src
 
 To build an image in linux or WSL:
 ```sh
-$ docker build -t msgraph-cli-beta --secret id=user,src=./tmp/nuget_user.txt --secret id=token,src=./tmp/nuget_token.txt .
+$ docker build -t msgraph-beta-cli --secret id=user,src=./tmp/nuget_user.txt --secret id=token,src=./tmp/nuget_token.txt .
 ```

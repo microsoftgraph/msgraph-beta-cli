@@ -10,7 +10,7 @@ trigger:
     include:
     - .azure-pipelines
     - src
-    - msgraph-cli-beta.sln
+    - msgraph-beta-cli.sln
 
 pool:
   name: Azure Pipelines
@@ -20,7 +20,7 @@ variables:
   - name: repositoryConnection
     value: 'GitHub - calebkiage'
   - name: fileNameTemplate
-    value: msgraph-cli-beta-{0}-{1}
+    value: msgraph-beta-cli-{0}-{1}
   - name: buildConfiguration
     value: 'Release'
   - name: outputDir
@@ -120,7 +120,7 @@ stages:
               parameters:
                 vstsFeedName: ${{variables.internalFeed}}
 
-          - pwsh: dotnet publish ./src/msgraph-cli-beta.csproj --no-restore --runtime $(rid) --self-contained true --configuration $(buildConfiguration) --output $(outputDir)
+          - pwsh: dotnet publish ./src/msgraph-beta-cli.csproj --no-restore --runtime $(rid) --self-contained true --configuration $(buildConfiguration) --output $(outputDir)
             workingDirectory: $(Build.SourcesDirectory)
             condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'))
             displayName: DotNet publish

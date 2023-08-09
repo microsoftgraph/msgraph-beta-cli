@@ -14,7 +14,7 @@ WORKDIR /app/msgraph-beta-cli
 
 # RUN apk add gcc --no-cache # Uncomment this if PublishAot is enabled
 
-RUN dotnet publish -p:PublishSingleFile=false -p:PublishReadyToRun=true -p:PublishReadyToRunShowWarnings=true ./src/msgraph-cli-beta.csproj --configuration Release --no-self-contained --runtime linux-musl-x64 --output /app/output
+RUN dotnet publish -p:PublishSingleFile=false -p:PublishReadyToRun=true -p:PublishReadyToRunShowWarnings=true ./src/msgraph-beta-cli.csproj --configuration Release --no-self-contained --runtime linux-musl-x64 --output /app/output
 
 FROM mcr.microsoft.com/dotnet/runtime:7.0-alpine as runtime
 

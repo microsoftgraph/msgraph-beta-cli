@@ -1,4 +1,4 @@
 {
     "omnisharp.organizeImportsOnFormat": true,
-    "dotnet.defaultSolution": "msgraph-cli-beta.sln"
+    "dotnet.defaultSolution": "msgraph-beta-cli.sln"
 }

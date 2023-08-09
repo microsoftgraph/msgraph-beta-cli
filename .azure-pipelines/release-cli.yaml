@@ -10,7 +10,7 @@ trigger:
     include:
     - .azure-pipelines
     - src
-    - msgraph-cli-beta.sln
+    - msgraph-beta-cli.sln
 
 pool:
   name: Azure Pipelines

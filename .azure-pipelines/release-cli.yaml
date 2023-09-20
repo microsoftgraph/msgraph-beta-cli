@@ -493,7 +493,7 @@ stages:
                 Write-Verbose "Moved $destDir to $sourceDir"
 
                 Move-NonExecutableItems -SourcePath $sourceDir -ExecutableItemNames mgc,mgc.exe
-                Get-ChildItem -Path $sourceDir | ForEach-Object Name | Write-Verbose
+                Write-Verbose $(Get-ChildItem | ForEach-Object Name)
               verbosePreference: '$(OUTPUT_PREFERENCE)'
               debugPreference: '$(OUTPUT_PREFERENCE)'
               informationPreference: '$(OUTPUT_PREFERENCE)'

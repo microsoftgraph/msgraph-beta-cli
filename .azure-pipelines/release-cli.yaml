@@ -490,6 +490,7 @@ stages:
                 $sourceDir = '$(ARTIFACTS_PATH)'
                 Expand-EsrpArtifacts -SourceDir $sourceDir -OutputDir $destDir -FileNameTemplate '$(fileNameTemplate)' -BranchOrTagName '$(branchOrTagName)' -RuntimeIdentifier '$(rid)' -PackageType $(packageType) -TarCompression $(compressionProgram) -Cleanup
                 Move-Item -Path $destDir -Destination $sourceDir
+                Write-Verbose "Moved $destDir to $sourceDir"
 
                 Move-NonExecutableItems -SourcePath $sourceDir -ExecutableItemNames mgc,mgc.exe
               verbosePreference: '$(OUTPUT_PREFERENCE)'

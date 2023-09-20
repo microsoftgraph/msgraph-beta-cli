@@ -23,7 +23,7 @@ parameters:
 steps:
   - pwsh: |
       Write-Host "##vso[task.setvariable variable=IS_ENABLED]${{ parameters.enabled }}"
-    displayName: Check enabled
+    displayName: Check prepare-unsigned-executable-darwin.yaml enabled
     condition: and(succeeded(), eq(variables['SHOULD_SIGN'], 'True'))
 
   - pwsh: |

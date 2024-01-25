@@ -70,9 +70,9 @@ stages:
         condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'))
         steps:
         - task: UseDotNet@2
-          displayName: 'Use .NET 7'
+          displayName: 'Use .NET 8'
           inputs:
-            version: 7.x
+            version: 8.x
 
         # Restore NuGet packages (enables cache by default)
         - template: templates/nuget-packages.yaml
@@ -114,10 +114,10 @@ stages:
           # maxParallel: 2
         steps:
           - task: UseDotNet@2
-            displayName: 'Use .NET 7'
+            displayName: 'Use .NET 8'
             condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'))
             inputs:
-              version: 7.x
+              version: 8.x
 
           - ${{ if ne(parameters.simulate, 'true') }}:
             - template: templates/nuget-packages.yaml
@@ -179,9 +179,9 @@ stages:
         condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'))
         steps:
         - task: UseDotNet@2
-          displayName: 'Use .NET 7'
+          displayName: 'Use .NET 8'
           inputs:
-            version: 7.x
+            version: 8.x
 
         # Restore NuGet packages (enables cache by default)
         - template: templates/nuget-packages.yaml
@@ -410,10 +410,10 @@ stages:
 
           # Nuget tool doesn't work with multi-stage builds
           - task: UseDotNet@2
-            displayName: 'Use .NET 7'
-            condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
+            displayName: 'Use .NET 8'
+            condition: and(false, succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
             inputs:
-              version: 7.x
+              version: 8.x
 
           - ${{ if ne(parameters.simulate, 'true') }}:
             - template: templates/nuget-packages.yaml
@@ -426,13 +426,13 @@ stages:
             inputs:
               projects: './src/msgraph-beta-cli.csproj'
               arguments: " --no-restore --configuration $(buildConfiguration) --no-incremental"
-            condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
+            condition: and(false, succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
 
           - pwsh: |
               New-Item '$(ARTIFACTS_PATH)' -ItemType Directory -Force
               echo "Test file" > '$(ARTIFACTS_PATH)/mgc-beta.dll'
               echo "Test file2" > '$(ARTIFACTS_PATH)/mgc-beta.txt'
-            condition: and(succeeded(), eq('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
+            condition: and(false, succeeded(), eq('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
             displayName: Simulate nuget build
 
           - task: DownloadPipelineArtifact@2
@@ -448,7 +448,7 @@ stages:
               script: |
                 $path = '$(ARTIFACTS_PATH)'
                 if ('$(IS_NUGET)'.ToLower() -eq 'true' -and ('${{ parameters.simulate }}'.ToLower() -ne 'true')) {
-                  $path = './src/obj/$(buildConfiguration)/net7.0'
+                  $path = './src/obj/$(buildConfiguration)/net8.0'
                 }
                 Write-Verbose "Checking if $path has files"
                 $hasArtifacts = Test-Path $path/* -PathType Leaf
@@ -489,7 +489,7 @@ stages:
                 $destDir = '$(ARTIFACTS_PATH)-src'
                 $sourceDir = '$(ARTIFACTS_PATH)'
                 Expand-EsrpArtifacts -SourceDir $sourceDir -OutputDir $destDir -FileNameTemplate '$(fileNameTemplate)' -BranchOrTagName '$(branchOrTagName)' -RuntimeIdentifier '$(rid)' -PackageType $(packageType) -TarCompression $(compressionProgram) -Cleanup
-                Move-Item -Path $destDir -Destination $sourceDir -Verbose
+                Move-Item -Path $destDir -Destination $sourceDir
 
                 Move-NonExecutableItems -SourcePath $sourceDir -ExecutableItemNames mgc-beta,mgc-beta.exe
               verbosePreference: '$(OUTPUT_PREFERENCE)'
@@ -514,12 +514,12 @@ stages:
           - pwsh: |
               Write-Host "##vso[task.setvariable variable=ESRP_FILE_PATTERN]$(pattern)"
             displayName: Compute ESRP filter pattern Windows/Nuget
-            condition: and(succeeded(), eq(variables['SHOULD_SIGN'], 'True'), or(startsWith(variables['RUNTIME_ID'], 'win'), eq(variables['IS_NUGET'], 'true')))
+            condition: and(false, succeeded(), eq(variables['SHOULD_SIGN'], 'True'), or(startsWith(variables['RUNTIME_ID'], 'win'), eq(variables['IS_NUGET'], 'true')))
 
           # ESRP needs .NET 6
           - task: UseDotNet@2
             displayName: 'Change to .NET 6'
-            condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
+            condition: and(false, succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
             inputs:
               version: 6.x
 
@@ -553,7 +553,7 @@ stages:
               dotnet pack ./src/msgraph-beta-cli.csproj --configuration $(buildConfiguration) --output $(SIGN_PATH) --no-build --include-symbols --include-source /p:SymbolPackageFormat=snupkg -v d
             workingDirectory: $(Build.SourcesDirectory)
             displayName: DotNet pack (nuget)
-            condition: and(succeeded(), eq(variables['SHOULD_SIGN'], 'True'), ne('${{ parameters.simulate }}', 'true'), eq(variables['Is_NUGET'], 'true'))
+            condition: and(false, succeeded(), eq(variables['SHOULD_SIGN'], 'True'), ne('${{ parameters.simulate }}', 'true'), eq(variables['IS_NUGET'], 'true'))
 
           - task: EsrpCodeSigning@2
             displayName: 'ESRP CodeSigning (Sign Nuget)'
@@ -566,12 +566,12 @@ stages:
               Pattern: "*.nupkg"
               inlineOperation: $(inlineNugetSignOperation)
               SessionTimeout: 20
-            condition: and(succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['SHOULD_SIGN'], 'True'), eq(variables['IS_NUGET'], 'true'))
+            condition: and(false, succeeded(), ne('${{ parameters.simulate }}', 'true'), eq(variables['SHOULD_SIGN'], 'True'), eq(variables['IS_NUGET'], 'true'))
 
           - pwsh: |
               $artifactsPath = '$(SIGN_PATH)'
               Write-Host "##vso[task.setvariable variable=WORKING_DIR]$artifactsPath"
-            condition: and(succeeded(), eq(variables['SHOULD_SIGN'], 'True'), eq(variables['IS_NUGET'], 'true'))
+            condition: and(false, succeeded(), eq(variables['SHOULD_SIGN'], 'True'), eq(variables['IS_NUGET'], 'true'))
 
           - task: PowerShell@2
             displayName: Simulate ESRP
@@ -691,7 +691,9 @@ stages:
         displayName: Deploy Nuget
         dependsOn: []
         environment: microsoftgraph-nuget-org
-        condition: and(succeeded(), or(startsWith(variables['Build.SourceBranch'], 'refs/tags/v'), eq('${{ parameters.forceNugetPublish }}', 'true')))
+        # Disable nuget deployment until performance is improved.
+        condition: false
+        # condition: and(succeeded(), or(startsWith(variables['Build.SourceBranch'], 'refs/tags/v'), eq('${{ parameters.forceNugetPublish }}', 'true')))
         strategy:
           runOnce:
             deploy:

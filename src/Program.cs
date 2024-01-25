@@ -28,6 +28,8 @@ using Microsoft.Graph.Cli.Core.IO;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Cli.Commons.Extensions;
+using Microsoft.Kiota.Cli.Commons.Http;
+using Microsoft.Kiota.Cli.Commons.Http.Headers;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
@@ -42,10 +44,51 @@ namespace Microsoft.Graph.Cli.Beta
 
         static async Task<int> Main(string[] args)
         {
-            Console.InputEncoding = Encoding.Unicode;
-            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+            // Replace `me ...` with `users ... --user-id me`
+            if (args.Length > 0 && args[0] == "me")
+            {
+                var hasHelp = Array.Exists(args, static x => x == "--help" || x == "-h" || x == "/?");
+                var newArgs = hasHelp ? args : new string[args.Length + 2];
+                newArgs[0] = "users";
+                for (var i = 1; i < args.Length; i++)
+                {
+                    newArgs[i] = args[i];
+                }
+                if (newArgs.Length > args.Length)
+                {
+                    newArgs[args.Length] = "--user-id";
+                    newArgs[args.Length + 1] = "me";
+                    args = newArgs;
+                }
+            }
+
             var builder = BuildCommandLine()
-                .UseDefaults()
+                .UseVersionOption()
+                .UseHelp()
+                .UseEnvironmentVariableDirective()
+                .UseParseDirective()
+                .UseSuggestDirective()
+                .RegisterWithDotnetSuggest()
+                .UseTypoCorrections()
+                .UseParseErrorReporting()
+                .CancelOnProcessTermination()
+                .UseExceptionHandler((ex, context) =>
+                {
+                    var message = GetExceptionMessage(ex);
+                    var exitCode = GetExceptionExitCode(ex);
+
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        context.Console.Error.WriteLine(message);
+                        Console.ResetColor();
+                    }
+
+                    context.ExitCode = exitCode;
+                })
                 .UseHost(CreateHostBuilder)
                 .UseRequestAdapter(ic =>
                 {
@@ -58,7 +101,9 @@ namespace Microsoft.Graph.Cli.Beta
                     }
                     adapter.BaseUrl = adapter.BaseUrl?.TrimEnd('/');
                     return adapter;
-                }).RegisterCommonServices();
+                })
+                .RegisterCommonServices()
+                .RegisterHeadersOption(() => InMemoryHeadersStore.Instance);
             builder.AddMiddleware(async (ic, next) =>
             {
                 var host = ic.GetHost();
@@ -68,34 +113,6 @@ namespace Microsoft.Graph.Cli.Beta
                 // Needed by LogoutCommand
                 ic.BindingContext.AddService(_ => host.Services.GetRequiredService<LogoutService>());
                 await next(ic);
-            });
-            builder.UseExceptionHandler((ex, context) =>
-            {
-                var message = ex switch
-                {
-                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc-beta login command first to get an access token.",
-                    _ when ex is TaskCanceledException => string.Empty,
-                    ODataError _e when ex is ODataError => $"Error {_e.ResponseStatusCode}({_e.Error?.Code}) from API:\n  {_e.Error?.Message}",
-                    ApiException _e when ex is ApiException => $"Error {_e.ResponseStatusCode} from API.",
-                    _ => ex.Message
-                };
-
-                var exitCode = ex switch
-                {
-                    _ when ex is AuthenticationRequiredException => 1,
-                    _ when ex is TaskCanceledException => 0,
-                    _ => -1
-                };
-
-                if (!string.IsNullOrEmpty(message))
-                {
-                    Console.ResetColor();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    context.Console.Error.WriteLine(message);
-                    Console.ResetColor();
-                }
-
-                context.ExitCode = exitCode;
             });
 
             try
@@ -109,6 +126,26 @@ namespace Microsoft.Graph.Cli.Beta
             }
         }
 
+        static string? GetExceptionMessage<E>(E ex) where E: Exception {
+            return ex switch
+                {
+                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc-beta login command first to get an access token.",
+                    _ when ex is TaskCanceledException => string.Empty,
+                    ODataError _e when ex is ODataError => $"Error {_e.ResponseStatusCode}({_e.Error?.Code}) from API:\n  {_e.Error?.Message}",
+                    ApiException _e when ex is ApiException => $"Error {_e.ResponseStatusCode} from API.",
+                    AuthenticationFailedException e => $"Authentication failed: {e.Message}",
+                    Identity.Client.MsalException e => $"Authentication failed: {e.Message}",
+                    _ => ex.Message
+                };
+        }
+
+        static int GetExceptionExitCode<E>(E ex) where E: Exception => ex switch
+                {
+                    _ when ex is AuthenticationRequiredException => 1,
+                    _ when ex is TaskCanceledException => 0,
+                    _ => -1
+                };
+
         static CommandLineBuilder BuildCommandLine()
         {
             var rootCommand = new GraphClient().BuildRootCommand();
@@ -120,7 +157,14 @@ namespace Microsoft.Graph.Cli.Beta
             builder.AddMiddleware(async (ic, next) =>
             {
                 debugEnabled = ic.ParseResult.GetValueForOption<bool>(debugOption);
-                listener = AzureEventSourceListener.CreateConsoleLogger(debugEnabled ? EventLevel.LogAlways : EventLevel.Warning);
+                if (debugEnabled)
+                {
+                    listener = CreateStdErrLogger(EventLevel.LogAlways);
+                }
+                else
+                {
+                    listener = CreateStdErrLogger(EventLevel.Error);
+                }
                 await next(ic);
             });
 
@@ -152,7 +196,8 @@ namespace Microsoft.Graph.Cli.Beta
                         GraphServiceLibraryClientVersion = $"{assemblyVersion?.Major ?? 0}.{assemblyVersion?.Minor ?? 0}.{assemblyVersion?.Build ?? 0}",
                         GraphServiceTargetVersion = "beta"
                     };
-                    return GraphCliClientFactory.GetDefaultClient(options, version: "beta", loggingHandler: p.GetRequiredService<LoggingHandler>());
+                    var headersHandler = new NativeHttpHeadersHandler(() => InMemoryHeadersStore.Instance, p.GetService<ILogger<NativeHttpHeadersHandler>>());
+                    return GraphCliClientFactory.GetDefaultClient(options, version: options.GraphServiceTargetVersion, loggingHandler: p.GetRequiredService<LoggingHandler>(), middlewares: new[] { headersHandler });
                 });
                 services.AddSingleton<IAuthenticationProvider>(p =>
                 {
@@ -193,6 +238,9 @@ namespace Microsoft.Graph.Cli.Beta
             }).ConfigureLogging((ctx, logBuilder) =>
             {
                 logBuilder.SetMinimumLevel(LogLevel.Warning);
+                logBuilder.ClearProviders();
+                // Log everything to stderr.
+                logBuilder.AddConsole(c => c.LogToStandardErrorThreshold = LogLevel.Trace);
                 // Allow runtime selection of log level
                 logBuilder.AddFilter("Microsoft.Graph.Cli", level => level >= (debugEnabled ? LogLevel.Debug : LogLevel.Warning));
             });
@@ -208,6 +256,15 @@ namespace Microsoft.Graph.Cli.Beta
             builder.AddJsonFile(userConfigPath, optional: true);
             builder.AddJsonFile(authCache.GetAuthenticationCacheFilePath(), optional: true, reloadOnChange: true);
             builder.AddEnvironmentVariables(prefix: "MGC_");
+        }
+
+        static AzureEventSourceListener CreateStdErrLogger(EventLevel level = EventLevel.Informational)
+        {
+            return new AzureEventSourceListener(delegate (EventWrittenEventArgs eventData, string text)
+            {
+                // By default, AzureEventSourceListener.CreateConsoleLogger logs to stdout. Use stderr instead.
+                Console.Error.WriteLine("[{1}] {0}: {2}", eventData.EventSource.Name, eventData.Level, text);
+            }, level);
         }
     }
 }

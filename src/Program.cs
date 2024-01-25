@@ -129,7 +129,7 @@ namespace Microsoft.Graph.Cli.Beta
         static string? GetExceptionMessage<E>(E ex) where E: Exception {
             return ex switch
                 {
-                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc login command first to get an access token.",
+                    _ when ex is AuthenticationRequiredException => "Token acquisition failed. Run mgc-beta login command first to get an access token.",
                     _ when ex is TaskCanceledException => string.Empty,
                     ODataError _e when ex is ODataError => $"Error {_e.ResponseStatusCode}({_e.Error?.Code}) from API:\n  {_e.Error?.Message}",
                     ApiException _e when ex is ApiException => $"Error {_e.ResponseStatusCode} from API.",
@@ -197,7 +197,7 @@ namespace Microsoft.Graph.Cli.Beta
                         GraphServiceTargetVersion = "beta"
                     };
                     var headersHandler = new NativeHttpHeadersHandler(() => InMemoryHeadersStore.Instance, p.GetService<ILogger<NativeHttpHeadersHandler>>());
-                    return GraphCliClientFactory.GetDefaultClient(options, loggingHandler: p.GetRequiredService<LoggingHandler>(), middlewares: new[] { headersHandler });
+                    return GraphCliClientFactory.GetDefaultClient(options, version: options.GraphServiceTargetVersion, loggingHandler: p.GetRequiredService<LoggingHandler>(), middlewares: new[] { headersHandler });
                 });
                 services.AddSingleton<IAuthenticationProvider>(p =>
                 {

@@ -17,6 +17,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
+  - group: ESRP
   - name: repositoryConnection
     value: 'GitHub - calebkiage'
   - name: fileNameTemplate
@@ -505,6 +506,7 @@ stages:
               zipName: $(ZIP_NAME)
               targetRuntime: $(rid)
               enabled: $(IS_MACOS)
+              certificateName: $(CERTIFICATE_ID)
 
           - pwsh: |
               Write-Host "##vso[task.setvariable variable=ESRP_FILE_PATTERN]$(ZIP_NAME)"
@@ -668,24 +670,19 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               path: $(artifactsDownloadLocation)
-          - pwsh: |
-              $isPreview = '$(branchOrTagName)'.Contains("preview")
-              Write-Host "##vso[task.setvariable variable=IS_PREVIEW]$isPreview"
           - task: GithubRelease@1
-            displayName: 'Create GitHub Draft Release'
+            displayName: 'Upload Artifacts to GitHub Release'
             inputs:
               gitHubConnection: $(repositoryConnection)
               repositoryName: '$(Build.Repository.Name)'
-              action: create
-              tagSource: 'gitTag'
-              isDraft: true
-              addChangeLog: true
-              changeLogCompareToRelease: lastNonDraftRelease
+              action: edit
+              tag: $(branchOrTagName)
+              addChangeLog: false
+              assetUploadMode: replace
               assets: |
                 $(artifactsDownloadLocation)/build-output-linux-*/*.tar*
                 $(artifactsDownloadLocation)/sign-output-*/*.tar*
                 $(artifactsDownloadLocation)/sign-output-*/*.zip
-              isPreRelease: $(IS_PREVIEW)
 
       - deployment: deployNuget
         displayName: Deploy Nuget

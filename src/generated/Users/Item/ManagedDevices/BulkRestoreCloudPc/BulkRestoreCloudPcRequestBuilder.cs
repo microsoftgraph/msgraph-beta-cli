@@ -30,7 +30,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc {
         {
             var command = new Command("post");
             command.Description = "Restore multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices and a restore point date and time.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-bulkrestorecloudpc?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

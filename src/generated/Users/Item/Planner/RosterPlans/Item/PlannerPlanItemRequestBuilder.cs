@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Planner.RosterPlans.Item {
         {
             var command = new Command("get");
             command.Description = "Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

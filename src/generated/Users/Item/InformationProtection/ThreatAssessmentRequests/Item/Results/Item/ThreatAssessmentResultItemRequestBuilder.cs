@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests.Item.
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property results for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -75,7 +75,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests.Item.
         {
             var command = new Command("get");
             command.Description = "A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -139,7 +139,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests.Item.
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property results in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

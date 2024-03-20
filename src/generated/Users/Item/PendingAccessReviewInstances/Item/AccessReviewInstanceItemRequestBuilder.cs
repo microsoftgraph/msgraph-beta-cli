@@ -163,7 +163,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property pendingAccessReviewInstances for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -204,7 +204,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item {
         {
             var command = new Command("get");
             command.Description = "Navigation property to get a list of access reviews pending approval by the reviewer.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -262,7 +262,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property pendingAccessReviewInstances in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

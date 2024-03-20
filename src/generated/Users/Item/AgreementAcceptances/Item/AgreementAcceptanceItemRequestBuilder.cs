@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.AgreementAcceptances.Item {
         {
             var command = new Command("get");
             command.Description = "The user's terms of use acceptance statuses. Read-only. Nullable.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

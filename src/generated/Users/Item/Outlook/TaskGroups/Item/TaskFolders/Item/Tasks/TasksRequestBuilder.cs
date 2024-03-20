@@ -65,7 +65,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
         {
             var command = new Command("create");
             command.Description = "Create an Outlook task in the specified task folder. The POST method always ignores the time portion of startDateTime and dueDateTime in the request body, and assumes the time to be always midnight in the specified time zone.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-post-tasks?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -130,7 +130,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
         {
             var command = new Command("list");
             command.Description = "Get all the Outlook tasks in the specified folder. By default, this operation (and the POST, PATCH, and complete task operations) returnsdate-related properties in UTC.  You can use a Prefer: outlook.timezone request header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks. If there is more than one task group, and you want to get all the tasks in a specific task group, firstget all the task folders in that task group,and then get the tasks in each of these task folders.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-list-tasks?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

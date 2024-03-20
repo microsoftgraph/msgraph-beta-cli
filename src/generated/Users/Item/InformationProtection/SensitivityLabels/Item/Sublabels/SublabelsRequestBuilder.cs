@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityLabels.Item.Sublabe
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to sublabels for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -135,7 +135,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityLabels.Item.Sublabe
         {
             var command = new Command("list");
             command.Description = "Get sublabels from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -59,7 +59,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.Mentions {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to mentions for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -122,7 +122,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.Mentions {
         {
             var command = new Command("list");
             command.Description = "A collection of mentions in the message, ordered by the createdDateTime from the newest to the oldest. By default, a GET /messages does not return this property unless you apply $expand on the property.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

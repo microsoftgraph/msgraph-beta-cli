@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.IsManagedAppUserBlocked {
         {
             var command = new Command("get");
             command.Description = "Gets the blocked state of a managed app user.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property licenseDetails for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -69,7 +69,7 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
         {
             var command = new Command("get");
             command.Description = "Get licenseDetails from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -127,7 +127,7 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property licenseDetails in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

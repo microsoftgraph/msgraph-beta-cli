@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item.TeamsApp {
         {
             var command = new Command("get");
             command.Description = "The app that is installed.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

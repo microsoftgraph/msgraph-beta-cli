@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc {
         {
             var command = new Command("post");
             command.Description = "Restore a Cloud PC device to a previous state with an Intune managed device ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

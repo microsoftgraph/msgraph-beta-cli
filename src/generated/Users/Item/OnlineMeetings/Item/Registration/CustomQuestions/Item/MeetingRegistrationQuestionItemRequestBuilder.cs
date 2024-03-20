@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions.Ite
         {
             var command = new Command("delete");
             command.Description = "Delete a custom registration question from a meetingRegistration object on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistrationquestion-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions.Ite
         {
             var command = new Command("get");
             command.Description = "Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistrationquestion-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -142,7 +142,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions.Ite
         {
             var command = new Command("patch");
             command.Description = "Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistrationquestion-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

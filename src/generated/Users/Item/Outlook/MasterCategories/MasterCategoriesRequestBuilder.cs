@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Outlook.MasterCategories {
         {
             var command = new Command("create");
             command.Description = "Create an outlookCategory object in the user's master list of categories.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Outlook.MasterCategories {
         {
             var command = new Command("list");
             command.Description = "Get all the categories that have been defined for the user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

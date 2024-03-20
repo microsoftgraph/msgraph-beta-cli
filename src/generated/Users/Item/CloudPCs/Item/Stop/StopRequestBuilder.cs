@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.Stop {
         {
             var command = new Command("post");
             command.Description = "Stop a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-stop?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

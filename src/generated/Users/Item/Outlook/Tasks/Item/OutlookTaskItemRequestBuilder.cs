@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete the specified Outlook task in the user's mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -120,7 +120,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         {
             var command = new Command("get");
             command.Description = "Get the properties and relationships of an Outlook task in the user's mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -173,7 +173,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         {
             var command = new Command("patch");
             command.Description = "Change writable properties of an Outlook task. The completedDateTime property can be set by the complete action, or explicitly by a PATCH operation. If you use PATCH to set completedDateTime, make sure you set status to completed as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.AttendanceReports {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to attendanceReports for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -119,7 +119,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.AttendanceReports {
         {
             var command = new Command("list");
             command.Description = "The attendance reports of an online meeting. Read-only.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

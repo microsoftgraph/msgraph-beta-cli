@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Profile.Publications {
         {
             var command = new Command("create");
             command.Description = "Create a new itemPublication object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-publications?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Profile.Publications {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of itemPublication objects from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-publications?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

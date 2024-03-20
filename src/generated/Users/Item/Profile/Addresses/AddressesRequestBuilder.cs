@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
         {
             var command = new Command("create");
             command.Description = "Create a new itemAddress object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
         {
             var command = new Command("list");
             command.Description = "Get the itemAddress resources from the addresses navigation property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

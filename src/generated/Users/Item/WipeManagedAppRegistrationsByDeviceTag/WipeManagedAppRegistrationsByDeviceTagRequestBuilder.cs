@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByDeviceTag {
         {
             var command = new Command("post");
             command.Description = "Issues a wipe operation on an app registration with specified device tag.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

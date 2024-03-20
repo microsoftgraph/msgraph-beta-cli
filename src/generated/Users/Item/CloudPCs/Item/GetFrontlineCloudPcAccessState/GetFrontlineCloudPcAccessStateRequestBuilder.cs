@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetFrontlineCloudPcAccessState {
         {
             var command = new Command("get");
             command.Description = "Invoke function getFrontlineCloudPcAccessState";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

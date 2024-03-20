@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Analytics.ActivityStatistics.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property activityStatistics for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -69,7 +69,7 @@ namespace ApiSdk.Users.Item.Analytics.ActivityStatistics.Item {
         {
             var command = new Command("get");
             command.Description = "The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -127,7 +127,7 @@ namespace ApiSdk.Users.Item.Analytics.ActivityStatistics.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property activityStatistics in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

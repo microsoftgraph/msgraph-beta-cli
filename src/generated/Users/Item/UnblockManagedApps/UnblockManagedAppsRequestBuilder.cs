@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.UnblockManagedApps {
         {
             var command = new Command("post");
             command.Description = "Unblocks the managed app user from app check-in.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

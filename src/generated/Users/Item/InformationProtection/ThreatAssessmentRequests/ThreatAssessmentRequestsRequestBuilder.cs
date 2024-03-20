@@ -63,7 +63,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
         {
             var command = new Command("create");
             command.Description = "Create a new threat assessment request. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -115,7 +115,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

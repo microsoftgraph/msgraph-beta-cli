@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Devices.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property devices for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -130,7 +130,7 @@ namespace ApiSdk.Users.Item.Devices.Item {
         {
             var command = new Command("get");
             command.Description = "Get devices from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -216,7 +216,7 @@ namespace ApiSdk.Users.Item.Devices.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property devices in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

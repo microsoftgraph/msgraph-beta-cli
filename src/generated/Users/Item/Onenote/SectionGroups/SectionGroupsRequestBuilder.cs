@@ -65,7 +65,7 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to sectionGroups for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -117,7 +117,7 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of sectionGroup objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onenote-list-sectiongroups?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

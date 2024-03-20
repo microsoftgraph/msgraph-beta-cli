@@ -60,7 +60,7 @@ namespace ApiSdk.Users.Item.CloudClipboard.Items {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to items for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -112,7 +112,7 @@ namespace ApiSdk.Users.Item.CloudClipboard.Items {
         {
             var command = new Command("list");
             command.Description = "Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn't support using another user's credentials to get a cloudClipboardItem for a user. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudclipboardroot-list-items?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Profile.Account {
         {
             var command = new Command("create");
             command.Description = "Create a new userAccountInformation object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-accounts?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Profile.Account {
         {
             var command = new Command("list");
             command.Description = "Retrieves properties related to the user's accounts from the profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-accounts?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

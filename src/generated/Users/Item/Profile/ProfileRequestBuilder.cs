@@ -183,7 +183,7 @@ namespace ApiSdk.Users.Item.Profile {
         {
             var command = new Command("delete");
             command.Description = "Deletes a profile object from a user's account.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -273,7 +273,7 @@ namespace ApiSdk.Users.Item.Profile {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -433,7 +433,7 @@ namespace ApiSdk.Users.Item.Profile {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property profile in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

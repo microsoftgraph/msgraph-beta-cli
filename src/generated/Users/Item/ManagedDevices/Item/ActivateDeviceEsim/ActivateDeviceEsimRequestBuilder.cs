@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim {
         {
             var command = new Command("post");
             command.Description = "Activate eSIM on the device.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

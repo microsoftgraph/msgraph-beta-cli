@@ -60,7 +60,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item.Sett
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to settingStates for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -123,7 +123,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item.Sett
         {
             var command = new Command("list");
             command.Description = "The security baseline state for different settings for a device";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

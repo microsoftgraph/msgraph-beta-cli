@@ -67,7 +67,7 @@ namespace ApiSdk.Users.Item.Calendars {
         {
             var command = new Command("create");
             command.Description = "Create a new calendar for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-calendars?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -119,7 +119,7 @@ namespace ApiSdk.Users.Item.Calendars {
         {
             var command = new Command("list");
             command.Description = "Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-calendars?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

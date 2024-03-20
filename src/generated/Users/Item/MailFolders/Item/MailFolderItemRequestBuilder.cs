@@ -80,7 +80,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -122,7 +122,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item {
         {
             var command = new Command("get");
             command.Description = "The user's mail folders. Read-only. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -259,7 +259,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the properties of mailFolder object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -59,7 +59,7 @@ namespace ApiSdk.Users.Item.Oauth2PermissionGrants {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of oAuth2PermissionGrant entities, which represent delegated permissions granted to enable a client application to access an API on behalf of the user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-oauth2permissiongrants?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

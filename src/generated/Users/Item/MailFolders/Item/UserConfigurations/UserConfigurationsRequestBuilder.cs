@@ -58,7 +58,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.UserConfigurations {
         {
             var command = new Command("list");
             command.Description = "Get userConfigurations from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

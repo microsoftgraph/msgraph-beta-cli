@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.BroadcastRecording {
         {
             var command = new Command("get");
             command.Description = "Get broadcastRecording for the navigation property onlineMeetings from users\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -74,7 +74,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.BroadcastRecording {
         {
             var command = new Command("put");
             command.Description = "Update broadcastRecording for the navigation property onlineMeetings in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

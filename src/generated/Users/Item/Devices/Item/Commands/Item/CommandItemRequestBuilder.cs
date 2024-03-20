@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Devices.Item.Commands.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property commands for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -76,7 +76,7 @@ namespace ApiSdk.Users.Item.Devices.Item.Commands.Item {
         {
             var command = new Command("get");
             command.Description = "Set of commands sent to this device.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -140,7 +140,7 @@ namespace ApiSdk.Users.Item.Devices.Item.Commands.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property commands in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

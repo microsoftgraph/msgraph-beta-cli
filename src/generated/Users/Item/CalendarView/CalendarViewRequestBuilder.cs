@@ -90,7 +90,7 @@ namespace ApiSdk.Users.Item.CalendarView {
         {
             var command = new Command("list");
             command.Description = "The calendar view for the calendar. Read-only. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-calendarview?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

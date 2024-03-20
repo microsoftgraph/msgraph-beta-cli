@@ -68,7 +68,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders {
         {
             var command = new Command("create");
             command.Description = "Use this API to create a new child mailFolder. If you intend a new folder to be hidden, you must set the isHidden property to true on creation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-post-childfolders?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -143,7 +143,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders {
         {
             var command = new Command("list");
             command.Description = "The collection of child folders in the mailFolder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-list-childfolders?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

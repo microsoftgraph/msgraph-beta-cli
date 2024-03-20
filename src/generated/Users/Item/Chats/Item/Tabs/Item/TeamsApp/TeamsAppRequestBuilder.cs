@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item.TeamsApp {
         {
             var command = new Command("get");
             command.Description = "The application that is linked to the tab.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

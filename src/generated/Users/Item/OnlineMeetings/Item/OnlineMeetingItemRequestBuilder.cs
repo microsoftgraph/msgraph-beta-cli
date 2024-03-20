@@ -122,7 +122,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete an onlineMeeting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -163,7 +163,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item {
         {
             var command = new Command("get");
             command.Description = "Information about a meeting, including the URL used to join a meeting, the attendees list, and the description.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -264,7 +264,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -73,7 +73,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to pendingAccessReviewInstances for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -142,7 +142,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances {
         {
             var command = new Command("list");
             command.Description = "Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-pendingaccessreviewinstances?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

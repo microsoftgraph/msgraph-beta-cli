@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Chats.Item.SendActivityNotification {
         {
             var command = new Command("post");
             command.Description = "Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-sendactivitynotification?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

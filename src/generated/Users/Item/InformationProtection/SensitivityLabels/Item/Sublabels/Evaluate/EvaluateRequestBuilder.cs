@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityLabels.Item.Sublabe
         {
             var command = new Command("post");
             command.Description = "Invoke action evaluate";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

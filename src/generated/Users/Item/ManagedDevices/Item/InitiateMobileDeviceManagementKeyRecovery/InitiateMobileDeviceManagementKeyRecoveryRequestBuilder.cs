@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateMobileDeviceManagementKe
         {
             var command = new Command("post");
             command.Description = "Perform MDM key recovery and TPM attestation";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Settings.Windows {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to windows for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -114,7 +114,7 @@ namespace ApiSdk.Users.Item.Settings.Windows {
         {
             var command = new Command("list");
             command.Description = "Get a list of windowsSetting objects and their properties for the signed in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/usersettings-list-windows?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

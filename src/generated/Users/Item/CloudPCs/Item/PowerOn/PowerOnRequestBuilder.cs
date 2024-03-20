@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.PowerOn {
         {
             var command = new Command("post");
             command.Description = "Power on a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered on, it is allocated to a user, and licenses are assigned immediately. Only IT admin users can perform this action. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-poweron?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

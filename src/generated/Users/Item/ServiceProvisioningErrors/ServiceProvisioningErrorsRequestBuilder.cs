@@ -46,7 +46,7 @@ namespace ApiSdk.Users.Item.ServiceProvisioningErrors {
         {
             var command = new Command("get");
             command.Description = "Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

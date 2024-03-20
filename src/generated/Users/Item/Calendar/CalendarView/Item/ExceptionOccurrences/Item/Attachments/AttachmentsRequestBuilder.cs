@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarView.Item.ExceptionOccurrences.Item
         {
             var command = new Command("create");
             command.Description = "Use this API to add an attachment to an existing event. This operation limits the size of the attachment you can add to under 3 MB. If an organizer adds an attachment to a meeting event, the organizer can subsequently update the event to send the attachment and update the event for each attendee as well.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-post-attachments?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -142,7 +142,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarView.Item.ExceptionOccurrences.Item
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of attachment objects attached to an event.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-list-attachments?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

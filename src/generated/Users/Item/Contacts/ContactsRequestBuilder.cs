@@ -65,7 +65,7 @@ namespace ApiSdk.Users.Item.Contacts {
         {
             var command = new Command("create");
             command.Description = "Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-contacts?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -134,7 +134,7 @@ namespace ApiSdk.Users.Item.Contacts {
         {
             var command = new Command("list");
             command.Description = "Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-contacts?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

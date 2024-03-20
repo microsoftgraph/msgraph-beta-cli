@@ -162,7 +162,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property instance for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -215,7 +215,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
         {
             var command = new Command("get");
             command.Description = "There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -285,7 +285,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property instance in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

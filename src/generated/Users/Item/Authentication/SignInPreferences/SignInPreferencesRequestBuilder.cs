@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
         {
             var command = new Command("get");
             command.Description = "The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -80,7 +80,7 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
         {
             var command = new Command("patch");
             command.Description = "Update property signInPreferences value.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

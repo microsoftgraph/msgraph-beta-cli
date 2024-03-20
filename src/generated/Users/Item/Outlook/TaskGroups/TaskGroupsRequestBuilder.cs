@@ -64,7 +64,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
         {
             var command = new Command("create");
             command.Description = "Create an Outlook task group in the user's mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-post-taskgroups?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -117,7 +117,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
         {
             var command = new Command("list");
             command.Description = "Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

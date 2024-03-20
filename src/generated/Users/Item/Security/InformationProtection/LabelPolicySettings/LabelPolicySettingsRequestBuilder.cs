@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property labelPolicySettings for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -64,7 +64,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
         {
             var command = new Command("get");
             command.Description = "Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the moreInfoUrl property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-informationprotectionpolicysetting-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -116,7 +116,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property labelPolicySettings in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

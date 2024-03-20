@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item.Attachments.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property attachments for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item.Attachments.Item {
         {
             var command = new Command("get");
             command.Description = "The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

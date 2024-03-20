@@ -63,7 +63,7 @@ namespace ApiSdk.Users.Item.Activities {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to activities for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -114,7 +114,7 @@ namespace ApiSdk.Users.Item.Activities {
         {
             var command = new Command("list");
             command.Description = "The user's activities across devices. Read-only. Nullable.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

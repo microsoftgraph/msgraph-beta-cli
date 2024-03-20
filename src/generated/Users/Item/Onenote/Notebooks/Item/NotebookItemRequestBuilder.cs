@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.Onenote.Notebooks.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property notebooks for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -90,7 +90,7 @@ namespace ApiSdk.Users.Item.Onenote.Notebooks.Item {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a notebook object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/notebook-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -148,7 +148,7 @@ namespace ApiSdk.Users.Item.Onenote.Notebooks.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property notebooks in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

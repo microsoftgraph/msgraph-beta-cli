@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Profile.Anniversaries.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete a personAnniversary object from the user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personanniversary-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -71,7 +71,7 @@ namespace ApiSdk.Users.Item.Profile.Anniversaries.Item {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a personAnniversary object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personanniversary-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -130,7 +130,7 @@ namespace ApiSdk.Users.Item.Profile.Anniversaries.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the properties of a personAnniversary object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personanniversary-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

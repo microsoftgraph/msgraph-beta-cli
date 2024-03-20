@@ -68,7 +68,7 @@ namespace ApiSdk.Users.Item.Chats.Item.Messages.Item.Replies {
         {
             var command = new Command("create");
             command.Description = "Send a new reply to a chatMessage in a specified channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -149,7 +149,7 @@ namespace ApiSdk.Users.Item.Chats.Item.Messages.Item.Replies {
         {
             var command = new Command("list");
             command.Description = "List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, call get channel message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-list-replies?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

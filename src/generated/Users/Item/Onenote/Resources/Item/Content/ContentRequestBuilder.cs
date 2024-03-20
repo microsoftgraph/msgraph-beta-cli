@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Onenote.Resources.Item.Content {
         {
             var command = new Command("get");
             command.Description = "Get content for the navigation property resources from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -74,7 +74,7 @@ namespace ApiSdk.Users.Item.Onenote.Resources.Item.Content {
         {
             var command = new Command("put");
             command.Description = "Update content for the navigation property resources in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -30,7 +30,7 @@ namespace ApiSdk.Users.Item.Devices.Item.MemberOf.Item {
         {
             var command = new Command("get");
             command.Description = "Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

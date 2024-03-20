@@ -100,7 +100,7 @@ namespace ApiSdk.Users.Item.CloudPCs {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to cloudPCs for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -169,7 +169,7 @@ namespace ApiSdk.Users.Item.CloudPCs {
         {
             var command = new Command("list");
             command.Description = "List the cloudPC devices that are attributed to the signed-in user. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-cloudpcs?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

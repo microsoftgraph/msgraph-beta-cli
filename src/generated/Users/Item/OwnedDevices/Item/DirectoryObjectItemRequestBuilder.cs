@@ -30,7 +30,7 @@ namespace ApiSdk.Users.Item.OwnedDevices.Item {
         {
             var command = new Command("get");
             command.Description = "Devices owned by the user. Read-only. Nullable. Supports $expand.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

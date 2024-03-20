@@ -87,7 +87,7 @@ namespace ApiSdk.Users.Item.ContactFolders.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete contactFolder other than the default contactFolder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -129,7 +129,7 @@ namespace ApiSdk.Users.Item.ContactFolders.Item {
         {
             var command = new Command("get");
             command.Description = "Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -188,7 +188,7 @@ namespace ApiSdk.Users.Item.ContactFolders.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the properties of contactfolder object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contactfolder-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

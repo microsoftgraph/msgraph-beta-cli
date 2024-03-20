@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.Ite
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property parent for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -69,7 +69,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.Ite
         {
             var command = new Command("get");
             command.Description = "The parent label associated with a child label. Null if the label has no parent.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -127,7 +127,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.Ite
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property parent in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

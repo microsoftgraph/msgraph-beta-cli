@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkSetCloudPcReviewStatus {
         {
             var command = new Command("post");
             command.Description = "Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-bulksetcloudpcreviewstatus?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings {
         {
             var command = new Command("create");
             command.Description = "Create an online meeting on behalf of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -180,7 +180,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings {
         {
             var command = new Command("list");
             command.Description = "Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) and Teams live event recordings (deprecated) are online meeting artifacts. For details, see Online meeting artifacts and permissions. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

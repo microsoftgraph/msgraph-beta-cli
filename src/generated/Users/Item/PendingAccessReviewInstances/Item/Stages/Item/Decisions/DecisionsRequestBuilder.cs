@@ -65,7 +65,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to decisions for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -146,7 +146,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
         {
             var command = new Command("list");
             command.Description = "Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

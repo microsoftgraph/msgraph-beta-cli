@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.GetPasswordSingleSignOnCredentials {
         {
             var command = new Command("post");
             command.Description = "Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

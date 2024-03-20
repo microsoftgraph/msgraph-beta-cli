@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceConfigurationStates.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property deviceConfigurationStates for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -75,7 +75,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceConfigurationStates.Item {
         {
             var command = new Command("get");
             command.Description = "Device configuration states for this device.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -139,7 +139,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceConfigurationStates.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property deviceConfigurationStates in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

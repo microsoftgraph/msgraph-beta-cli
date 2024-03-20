@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete calendarPermission.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -71,7 +71,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
         {
             var command = new Command("get");
             command.Description = "Get the specified permissions object of a user or group calendar that has been shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -123,7 +123,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the permissions assigned to an existing share recipient or delegate, through the corresponding calendarPermission object for a calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

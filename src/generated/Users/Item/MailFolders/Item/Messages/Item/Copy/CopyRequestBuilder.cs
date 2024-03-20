@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.Copy {
         {
             var command = new Command("post");
             command.Description = "Copy a message to a folder within the user's mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-copy?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

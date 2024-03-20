@@ -65,7 +65,7 @@ namespace ApiSdk.Users.Item.Chats.Item.InstalledApps {
         {
             var command = new Command("create");
             command.Description = "Install a teamsApp to the specified chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post-installedapps?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -123,7 +123,7 @@ namespace ApiSdk.Users.Item.Chats.Item.InstalledApps {
         {
             var command = new Command("list");
             command.Description = "List all app installations within a chat. If the chat is associated with an onlineMeeting instance, then, effectively, the teamsApps installed in the meeting will be listed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-installedapps?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

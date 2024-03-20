@@ -58,7 +58,7 @@ namespace ApiSdk.Users.Item.Teamwork {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property teamwork for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -94,7 +94,7 @@ namespace ApiSdk.Users.Item.Teamwork {
         {
             var command = new Command("get");
             command.Description = "Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -173,7 +173,7 @@ namespace ApiSdk.Users.Item.Teamwork {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property teamwork in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

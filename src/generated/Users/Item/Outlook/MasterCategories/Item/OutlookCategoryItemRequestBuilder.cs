@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Outlook.MasterCategories.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete the specified outlookCategory object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookcategory-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -71,7 +71,7 @@ namespace ApiSdk.Users.Item.Outlook.MasterCategories.Item {
         {
             var command = new Command("get");
             command.Description = "Get the properties and relationships of the specified outlookCategory object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookcategory-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -123,7 +123,7 @@ namespace ApiSdk.Users.Item.Outlook.MasterCategories.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the writable property, color, of the specified outlookCategory object. You can't modify the displayName propertyonce you have created the category.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookcategory-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

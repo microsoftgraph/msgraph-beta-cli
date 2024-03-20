@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Profile.Awards {
         {
             var command = new Command("create");
             command.Description = "Create a new personAward object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-awards?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Profile.Awards {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of personAward objects from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-awards?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

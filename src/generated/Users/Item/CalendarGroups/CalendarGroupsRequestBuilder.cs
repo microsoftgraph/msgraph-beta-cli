@@ -63,7 +63,7 @@ namespace ApiSdk.Users.Item.CalendarGroups {
         {
             var command = new Command("create");
             command.Description = "Use this API to create a new CalendarGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-calendargroups?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -115,7 +115,7 @@ namespace ApiSdk.Users.Item.CalendarGroups {
         {
             var command = new Command("list");
             command.Description = "Get the user's calendar groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-calendargroups?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

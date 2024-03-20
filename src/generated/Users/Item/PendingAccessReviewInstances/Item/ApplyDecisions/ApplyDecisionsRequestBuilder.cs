@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ApplyDecisions {
         {
             var command = new Command("post");
             command.Description = "Apply review decisions on an accessReviewInstance if the decisions were not applied automatically because the autoApplyDecisionsEnabled property is false in the review's accessReviewScheduleSettings. The status of the accessReviewInstance must be Completed to call this method.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-applydecisions?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans.Item {
         {
             var command = new Command("get");
             command.Description = "Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

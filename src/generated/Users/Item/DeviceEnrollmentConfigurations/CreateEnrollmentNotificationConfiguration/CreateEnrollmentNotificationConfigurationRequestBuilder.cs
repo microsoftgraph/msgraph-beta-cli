@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotif
         {
             var command = new Command("post");
             command.Description = "Invoke action createEnrollmentNotificationConfiguration";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

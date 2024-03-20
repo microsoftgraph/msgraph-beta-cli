@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Authentication.PasswordMethods.Item {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a password authentication method object. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

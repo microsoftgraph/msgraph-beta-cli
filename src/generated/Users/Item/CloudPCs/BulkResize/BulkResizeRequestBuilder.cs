@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.CloudPCs.BulkResize {
         {
             var command = new Command("post");
             command.Description = "Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices can't be resized, those devices indicate 'resize failed'. The remaining devices are provisioned for the resize process.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

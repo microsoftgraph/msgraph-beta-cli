@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType {
         {
             var command = new Command("post");
             command.Description = "Change the account type of the user on a specific Cloud PC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-changeuseraccounttype?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

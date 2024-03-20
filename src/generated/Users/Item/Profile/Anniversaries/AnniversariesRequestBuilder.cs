@@ -61,7 +61,7 @@ namespace ApiSdk.Users.Item.Profile.Anniversaries {
         {
             var command = new Command("create");
             command.Description = "Use this API to create a new personAnniversary object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-anniversaries?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -113,7 +113,7 @@ namespace ApiSdk.Users.Item.Profile.Anniversaries {
         {
             var command = new Command("list");
             command.Description = "Retrieve a list of personAnniversary objects for the given user from their profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-anniversaries?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

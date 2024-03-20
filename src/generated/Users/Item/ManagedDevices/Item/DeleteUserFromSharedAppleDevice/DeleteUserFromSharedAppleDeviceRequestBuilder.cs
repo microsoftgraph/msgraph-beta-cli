@@ -27,7 +27,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.DeleteUserFromSharedAppleDevice 
         {
             var command = new Command("post");
             command.Description = "Delete user from shared Apple device";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

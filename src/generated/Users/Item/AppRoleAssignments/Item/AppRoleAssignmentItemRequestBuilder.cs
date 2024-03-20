@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete an appRoleAssignment that has been granted to a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-delete-approleassignments?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -70,7 +70,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments.Item {
         {
             var command = new Command("get");
             command.Description = "Represents the app roles a user has been granted for an application. Supports $expand.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -135,7 +135,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property appRoleAssignments in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

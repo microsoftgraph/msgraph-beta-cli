@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityPolicySettings {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property sensitivityPolicySettings for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -63,7 +63,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityPolicySettings {
         {
             var command = new Command("get");
             command.Description = "Get sensitivityPolicySettings from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -115,7 +115,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityPolicySettings {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property sensitivityPolicySettings in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

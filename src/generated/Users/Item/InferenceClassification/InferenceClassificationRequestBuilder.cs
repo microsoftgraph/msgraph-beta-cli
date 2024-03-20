@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.InferenceClassification {
         {
             var command = new Command("get");
             command.Description = "Relevance classification of the user's messages based on explicit designations that override inferred relevance or importance.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -101,7 +101,7 @@ namespace ApiSdk.Users.Item.InferenceClassification {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property inferenceClassification in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

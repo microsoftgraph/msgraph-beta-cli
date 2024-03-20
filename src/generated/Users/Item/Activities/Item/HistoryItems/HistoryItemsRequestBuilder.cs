@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to historyItems for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -119,7 +119,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems {
         {
             var command = new Command("list");
             command.Description = "Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

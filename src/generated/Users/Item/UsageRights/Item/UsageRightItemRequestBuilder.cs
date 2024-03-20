@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.UsageRights.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property usageRights for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -69,7 +69,7 @@ namespace ApiSdk.Users.Item.UsageRights.Item {
         {
             var command = new Command("get");
             command.Description = "Represents the usage rights a user has been granted.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -127,7 +127,7 @@ namespace ApiSdk.Users.Item.UsageRights.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property usageRights in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

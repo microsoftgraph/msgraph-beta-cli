@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item.Sett
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property settingStates for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -81,7 +81,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item.Sett
         {
             var command = new Command("get");
             command.Description = "The security baseline state for different settings for a device";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -151,7 +151,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item.Sett
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property settingStates in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Profile.Languages.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete a languageProficiency object from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/languageproficiency-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -71,7 +71,7 @@ namespace ApiSdk.Users.Item.Profile.Languages.Item {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a languageProficiency object within a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/languageproficiency-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -130,7 +130,7 @@ namespace ApiSdk.Users.Item.Profile.Languages.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the properties of a languageProficiency object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/languageproficiency-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

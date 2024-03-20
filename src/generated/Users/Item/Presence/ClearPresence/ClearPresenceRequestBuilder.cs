@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Presence.ClearPresence {
         {
             var command = new Command("post");
             command.Description = "Clear a presence session of an application for a user. If it is the user's only presence session, a successful clearPresence changes the user's presence to Offline/Offline. Read more about presence sessions and their time-out and expiration. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Chats.Item.MarkChatUnreadForUser {
         {
             var command = new Command("post");
             command.Description = "Mark a chat as unread for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-markchatunreadforuser?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

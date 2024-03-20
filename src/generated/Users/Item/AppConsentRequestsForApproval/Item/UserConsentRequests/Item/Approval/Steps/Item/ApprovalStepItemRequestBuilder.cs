@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property steps for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -82,7 +82,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties of an approvalStep object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -153,7 +153,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
             var command = new Command("patch");
             command.Description = "Apply approve or deny decision on an approvalStep object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approvalstep-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

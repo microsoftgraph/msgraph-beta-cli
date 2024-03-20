@@ -63,7 +63,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityLabels {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to sensitivityLabels for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -131,7 +131,7 @@ namespace ApiSdk.Users.Item.InformationProtection.SensitivityLabels {
         {
             var command = new Command("list");
             command.Description = "Get sensitivityLabels from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

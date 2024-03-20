@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item.Tasks.Item.Attachments {
         {
             var command = new Command("create");
             command.Description = "Use this API to add an attachment to an outlookTask. The attachment can be a file (of fileAttachment type) or Outlook item (itemAttachment type).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-post-attachments?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -144,7 +144,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item.Tasks.Item.Attachments {
         {
             var command = new Command("list");
             command.Description = "Get a list of attachment objects attached to an Outlook task.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-list-attachments?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

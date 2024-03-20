@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property regionalAndLanguageSettings for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -64,7 +64,7 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
         {
             var command = new Command("get");
             command.Description = "Retrieve the properties of a user's regionalAndLanguageSettings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -117,7 +117,7 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
         {
             var command = new Command("patch");
             command.Description = "Update some or all of the properties of a regionalAndLanguageSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

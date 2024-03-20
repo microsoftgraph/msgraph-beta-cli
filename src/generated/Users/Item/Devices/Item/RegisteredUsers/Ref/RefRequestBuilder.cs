@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         {
             var command = new Command("delete");
             command.Description = "Remove a user as a registered user of the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete-registeredusers?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         {
             var command = new Command("get");
             command.Description = "Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list-registeredusers?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -177,7 +177,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         {
             var command = new Command("post");
             command.Description = "Add a registered user for the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-post-registeredusers?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

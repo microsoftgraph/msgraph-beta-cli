@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Planner.FavoritePlans.Item {
         {
             var command = new Command("get");
             command.Description = "Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);

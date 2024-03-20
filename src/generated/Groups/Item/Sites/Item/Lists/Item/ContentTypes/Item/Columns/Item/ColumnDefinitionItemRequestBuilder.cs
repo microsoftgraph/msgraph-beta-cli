@@ -19,14 +19,17 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.contentType entity.
     /// </summary>
-    public class ColumnDefinitionItemRequestBuilder : BaseCliRequestBuilder {
+    public class ColumnDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
+        /// Delete columnDefinition
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0";
+            command.Description = "Delete columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -79,12 +82,14 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
             return command;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
+        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -154,12 +159,14 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
             return command;
         }
         /// <summary>
-        /// Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
+        /// Update columnDefinition
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0";
+            command.Description = "Update columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -230,7 +237,9 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
         /// <summary>
         /// Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
         /// </summary>
-        public Command BuildSourceColumnNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSourceColumnNavCommand()
+        {
             var command = new Command("source-column");
             command.Description = "Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.";
             var builder = new SourceColumnRequestBuilder(PathParameters);
@@ -243,43 +252,51 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
             return command;
         }
         /// <summary>
-        /// Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ColumnDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}", pathParameters) {
+        public ColumnDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ColumnDefinitionItemRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}", rawUrl) {
+        public ColumnDefinitionItemRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
+        /// Delete columnDefinition
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
+        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -287,27 +304,31 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Columns.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
+        /// Update columnDefinition
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
+        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
         /// </summary>
-        public class ColumnDefinitionItemRequestBuilderGetQueryParameters {
+        public class ColumnDefinitionItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

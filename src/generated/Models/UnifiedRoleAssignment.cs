@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class UnifiedRoleAssignment : Entity, IParsable {
-        /// <summary>Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.</summary>
+    public class UnifiedRoleAssignment : Entity, IParsable 
+    {
+        /// <summary>Details of the app specific scope when the assignment scope is app specific. Containment entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.AppScope? AppScope { get; set; }
@@ -30,7 +31,7 @@ namespace ApiSdk.Models {
 #else
         public string Condition { get; set; }
 #endif
-        /// <summary>The directory object that is the scope of the assignment. Read-only. Supports $expand.</summary>
+        /// <summary>The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? DirectoryScope { get; set; }
@@ -46,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public string DirectoryScopeId { get; set; }
 #endif
-        /// <summary>Referencing the assigned principal. Read-only. Supports $expand.</summary>
+        /// <summary>The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? Principal { get; set; }
@@ -62,7 +63,23 @@ namespace ApiSdk.Models {
 #else
         public string PrincipalId { get; set; }
 #endif
-        /// <summary>The roleDefinition the assignment is for.  Supports $expand.</summary>
+        /// <summary>Identifier of the home tenant for the principal to which the assignment is granted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrincipalOrganizationId { get; set; }
+#nullable restore
+#else
+        public string PrincipalOrganizationId { get; set; }
+#endif
+        /// <summary>The scope at which the unifiedRoleAssignment applies. This is / for service-wide. DO NOT USE. This property will be deprecated soon.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceScope { get; set; }
+#nullable restore
+#else
+        public string ResourceScope { get; set; }
+#endif
+        /// <summary>The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UnifiedRoleDefinition? RoleDefinition { get; set; }
@@ -81,16 +98,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="UnifiedRoleAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleAssignment CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new UnifiedRoleAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRoleAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
                 {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
                 {"condition", n => { Condition = n.GetStringValue(); } },
@@ -98,6 +120,8 @@ namespace ApiSdk.Models {
                 {"directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
                 {"principal", n => { Principal = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"principalId", n => { PrincipalId = n.GetStringValue(); } },
+                {"principalOrganizationId", n => { PrincipalOrganizationId = n.GetStringValue(); } },
+                {"resourceScope", n => { ResourceScope = n.GetStringValue(); } },
                 {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
                 {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
             };
@@ -106,7 +130,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.AppScope>("appScope", AppScope);
@@ -116,6 +141,8 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("directoryScopeId", DirectoryScopeId);
             writer.WriteObjectValue<DirectoryObject>("principal", Principal);
             writer.WriteStringValue("principalId", PrincipalId);
+            writer.WriteStringValue("principalOrganizationId", PrincipalOrganizationId);
+            writer.WriteStringValue("resourceScope", ResourceScope);
             writer.WriteObjectValue<UnifiedRoleDefinition>("roleDefinition", RoleDefinition);
             writer.WriteStringValue("roleDefinitionId", RoleDefinitionId);
         }

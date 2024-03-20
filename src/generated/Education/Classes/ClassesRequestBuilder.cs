@@ -21,11 +21,14 @@ namespace ApiSdk.Education.Classes {
     /// <summary>
     /// Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class ClassesRequestBuilder : BaseCliRequestBuilder {
+    public class ClassesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new EducationClassItemRequestBuilder(PathParameters);
@@ -37,6 +40,7 @@ namespace ApiSdk.Education.Classes {
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildGroupNavCommand());
             commands.Add(builder.BuildMembersNavCommand());
+            commands.Add(builder.BuildModulesNavCommand());
             executables.Add(builder.BuildPatchCommand());
             commands.Add(builder.BuildSchoolsNavCommand());
             commands.Add(builder.BuildTeachersNavCommand());
@@ -45,7 +49,9 @@ namespace ApiSdk.Education.Classes {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -58,12 +64,14 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Create a new educationClass object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-post?view=graph-rest-1.0" />
+        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
-            command.Description = "Create a new educationClass object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-post?view=graph-rest-1.0";
+            command.Description = "Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-1.0";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -104,7 +112,9 @@ namespace ApiSdk.Education.Classes {
         /// <summary>
         /// Provides operations to call the delta method.
         /// </summary>
-        public Command BuildDeltaNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeltaNavCommand()
+        {
             var command = new Command("delta");
             command.Description = "Provides operations to call the delta method.";
             var builder = new DeltaRequestBuilder(PathParameters);
@@ -117,12 +127,14 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Get a list of the educationClass objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list?view=graph-rest-1.0" />
+        /// Retrieve a list of all class objects. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Get a list of the educationClass objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of all class objects. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,27 +222,32 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ClassesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ClassesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ClassesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ClassesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ClassesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ClassesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ClassesRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ClassesRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Get a list of the educationClass objects and their properties.
+        /// Retrieve a list of all class objects. 
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ClassesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ClassesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ClassesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ClassesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -238,27 +255,31 @@ namespace ApiSdk.Education.Classes {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new educationClass object.
+        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(EducationClass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(EducationClass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(EducationClass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(EducationClass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/classes", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the educationClass objects and their properties.
+        /// Retrieve a list of all class objects. 
         /// </summary>
-        public class ClassesRequestBuilderGetQueryParameters {
+        public class ClassesRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

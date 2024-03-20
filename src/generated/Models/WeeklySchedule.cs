@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Possible values for a weekly schedule.</summary>
-    public enum WeeklySchedule {
+    public enum WeeklySchedule
+    {
         /// <summary>User Defined, default value, no intent.</summary>
         [EnumMember(Value = "userDefined")]
         UserDefined,
@@ -31,5 +32,8 @@ namespace ApiSdk.Models {
         /// <summary>Saturday.</summary>
         [EnumMember(Value = "saturday")]
         Saturday,
+        /// <summary>No Scheduled Scan</summary>
+        [EnumMember(Value = "noScheduledScan")]
+        NoScheduledScan,
     }
 }

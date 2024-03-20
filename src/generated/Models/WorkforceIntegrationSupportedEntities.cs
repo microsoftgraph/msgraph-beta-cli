@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     [Flags]
-    public enum WorkforceIntegrationSupportedEntities {
+    public enum WorkforceIntegrationSupportedEntities
+    {
         [EnumMember(Value = "none")]
         None = 1,
         [EnumMember(Value = "shift")]
@@ -20,5 +21,13 @@ namespace ApiSdk.Models {
         OfferShiftRequest = 64,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue = 128,
+        [EnumMember(Value = "timeCard")]
+        TimeCard = 256,
+        [EnumMember(Value = "timeOffReason")]
+        TimeOffReason = 512,
+        [EnumMember(Value = "timeOff")]
+        TimeOff = 1024,
+        [EnumMember(Value = "timeOffRequest")]
+        TimeOffRequest = 2048,
     }
 }

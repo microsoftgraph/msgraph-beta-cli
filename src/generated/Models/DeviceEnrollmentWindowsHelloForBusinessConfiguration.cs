@@ -8,9 +8,12 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later.
     /// </summary>
-    public class DeviceEnrollmentWindowsHelloForBusinessConfiguration : DeviceEnrollmentConfiguration, IParsable {
+    public class DeviceEnrollmentWindowsHelloForBusinessConfiguration : DeviceEnrollmentConfiguration, IParsable 
+    {
         /// <summary>Possible values of a property</summary>
         public Enablement? EnhancedBiometricsState { get; set; }
+        /// <summary>Setting to configure Enhanced sign-in security. Default is Not Configured</summary>
+        public int? EnhancedSignInSecurity { get; set; }
         /// <summary>Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user&apos;s PIN will never expire</summary>
         public int? PinExpirationInDays { get; set; }
         /// <summary>Windows Hello for Business pin usage options</summary>
@@ -30,29 +33,38 @@ namespace ApiSdk.Models {
         /// <summary>Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.</summary>
         public bool? SecurityDeviceRequired { get; set; }
         /// <summary>Possible values of a property</summary>
+        public Enablement? SecurityKeyForSignIn { get; set; }
+        /// <summary>Possible values of a property</summary>
         public Enablement? State { get; set; }
         /// <summary>Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.</summary>
         public bool? UnlockWithBiometricsEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new deviceEnrollmentWindowsHelloForBusinessConfiguration and sets the default values.
+        /// Instantiates a new <see cref="DeviceEnrollmentWindowsHelloForBusinessConfiguration"/> and sets the default values.
         /// </summary>
-        public DeviceEnrollmentWindowsHelloForBusinessConfiguration() : base() {
+        public DeviceEnrollmentWindowsHelloForBusinessConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DeviceEnrollmentWindowsHelloForBusinessConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceEnrollmentWindowsHelloForBusinessConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DeviceEnrollmentWindowsHelloForBusinessConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceEnrollmentWindowsHelloForBusinessConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"enhancedBiometricsState", n => { EnhancedBiometricsState = n.GetEnumValue<Enablement>(); } },
+                {"enhancedSignInSecurity", n => { EnhancedSignInSecurity = n.GetIntValue(); } },
                 {"pinExpirationInDays", n => { PinExpirationInDays = n.GetIntValue(); } },
                 {"pinLowercaseCharactersUsage", n => { PinLowercaseCharactersUsage = n.GetEnumValue<WindowsHelloForBusinessPinUsage>(); } },
                 {"pinMaximumLength", n => { PinMaximumLength = n.GetIntValue(); } },
@@ -62,6 +74,7 @@ namespace ApiSdk.Models {
                 {"pinUppercaseCharactersUsage", n => { PinUppercaseCharactersUsage = n.GetEnumValue<WindowsHelloForBusinessPinUsage>(); } },
                 {"remotePassportEnabled", n => { RemotePassportEnabled = n.GetBoolValue(); } },
                 {"securityDeviceRequired", n => { SecurityDeviceRequired = n.GetBoolValue(); } },
+                {"securityKeyForSignIn", n => { SecurityKeyForSignIn = n.GetEnumValue<Enablement>(); } },
                 {"state", n => { State = n.GetEnumValue<Enablement>(); } },
                 {"unlockWithBiometricsEnabled", n => { UnlockWithBiometricsEnabled = n.GetBoolValue(); } },
             };
@@ -70,10 +83,12 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<Enablement>("enhancedBiometricsState", EnhancedBiometricsState);
+            writer.WriteIntValue("enhancedSignInSecurity", EnhancedSignInSecurity);
             writer.WriteIntValue("pinExpirationInDays", PinExpirationInDays);
             writer.WriteEnumValue<WindowsHelloForBusinessPinUsage>("pinLowercaseCharactersUsage", PinLowercaseCharactersUsage);
             writer.WriteIntValue("pinMaximumLength", PinMaximumLength);
@@ -83,6 +98,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<WindowsHelloForBusinessPinUsage>("pinUppercaseCharactersUsage", PinUppercaseCharactersUsage);
             writer.WriteBoolValue("remotePassportEnabled", RemotePassportEnabled);
             writer.WriteBoolValue("securityDeviceRequired", SecurityDeviceRequired);
+            writer.WriteEnumValue<Enablement>("securityKeyForSignIn", SecurityKeyForSignIn);
             writer.WriteEnumValue<Enablement>("state", State);
             writer.WriteBoolValue("unlockWithBiometricsEnabled", UnlockWithBiometricsEnabled);
         }

@@ -18,11 +18,14 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder {
+    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property settings for admin
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property settings for admin";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -50,7 +53,9 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
         /// Get the tenant-level settings for SharePoint and OneDrive.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get the tenant-level settings for SharePoint and OneDrive.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -95,7 +100,9 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
         /// Update one or more tenant-level settings for SharePoint and OneDrive.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update one or more tenant-level settings for SharePoint and OneDrive.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -136,29 +143,34 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SettingsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/sharepoint/settings{?%24select,%24expand}", pathParameters) {
+        public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/sharepoint/settings{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SettingsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/admin/sharepoint/settings{?%24select,%24expand}", rawUrl) {
+        public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/admin/sharepoint/settings{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property settings for admin
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/sharepoint/settings", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -166,13 +178,16 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
         /// <summary>
         /// Get the tenant-level settings for SharePoint and OneDrive.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -182,17 +197,20 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
         /// <summary>
         /// Update one or more tenant-level settings for SharePoint and OneDrive.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/sharepoint/settings", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -200,7 +218,8 @@ namespace ApiSdk.Admin.Sharepoint.Settings {
         /// <summary>
         /// Get the tenant-level settings for SharePoint and OneDrive.
         /// </summary>
-        public class SettingsRequestBuilderGetQueryParameters {
+        public class SettingsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

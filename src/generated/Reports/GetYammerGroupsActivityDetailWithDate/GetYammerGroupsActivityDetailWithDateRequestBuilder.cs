@@ -17,11 +17,14 @@ namespace ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate {
     /// <summary>
     /// Provides operations to call the getYammerGroupsActivityDetail method.
     /// </summary>
-    public class GetYammerGroupsActivityDetailWithDateRequestBuilder : BaseCliRequestBuilder {
+    public class GetYammerGroupsActivityDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke function getYammerGroupsActivityDetail
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Invoke function getYammerGroupsActivityDetail";
             var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
@@ -57,27 +60,32 @@ namespace ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate {
             return command;
         }
         /// <summary>
-        /// Instantiates a new GetYammerGroupsActivityDetailWithDateRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetYammerGroupsActivityDetailWithDateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GetYammerGroupsActivityDetailWithDateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getYammerGroupsActivityDetail(date={date})", pathParameters) {
+        public GetYammerGroupsActivityDetailWithDateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getYammerGroupsActivityDetail(date={date})", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GetYammerGroupsActivityDetailWithDateRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetYammerGroupsActivityDetailWithDateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GetYammerGroupsActivityDetailWithDateRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getYammerGroupsActivityDetail(date={date})", rawUrl) {
+        public GetYammerGroupsActivityDetailWithDateRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getYammerGroupsActivityDetail(date={date})", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke function getYammerGroupsActivityDetail
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

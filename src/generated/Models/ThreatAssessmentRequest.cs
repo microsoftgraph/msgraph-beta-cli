@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ThreatAssessmentRequest : Entity, IParsable {
+    public class ThreatAssessmentRequest : Entity, IParsable 
+    {
         /// <summary>The category property</summary>
         public ThreatCategory? Category { get; set; }
         /// <summary>The content type of threat assessment. Possible values are: mail, url, file.</summary>
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The expectedAssessment property</summary>
         public ThreatExpectedAssessment? ExpectedAssessment { get; set; }
-        /// <summary>The source of the threat assessment request. Possible values are: administrator.</summary>
+        /// <summary>The source of the threat assessment request. Possible values are: user, administrator.</summary>
         public ThreatAssessmentRequestSource? RequestSource { get; set; }
         /// <summary>A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,11 +38,14 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ThreatAssessmentRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ThreatAssessmentRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ThreatAssessmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.emailFileAssessmentRequest" => new EmailFileAssessmentRequest(),
                 "#microsoft.graph.fileAssessmentRequest" => new FileAssessmentRequest(),
                 "#microsoft.graph.mailAssessmentRequest" => new MailAssessmentRequest(),
@@ -52,8 +56,11 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"category", n => { Category = n.GetEnumValue<ThreatCategory>(); } },
                 {"contentType", n => { ContentType = n.GetEnumValue<ThreatAssessmentContentType>(); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
@@ -68,7 +75,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<ThreatCategory>("category", Category);

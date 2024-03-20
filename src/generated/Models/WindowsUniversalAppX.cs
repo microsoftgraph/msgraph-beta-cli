@@ -8,12 +8,13 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Contains properties and inherited properties for Windows Universal AppX Line Of Business apps. Inherits from `mobileLobApp`.
     /// </summary>
-    public class WindowsUniversalAppX : MobileLobApp, IParsable {
+    public class WindowsUniversalAppX : MobileLobApp, IParsable 
+    {
         /// <summary>Contains properties for Windows architecture.</summary>
         public WindowsArchitecture? ApplicableArchitectures { get; set; }
         /// <summary>Contains properties for Windows device type. Multiple values can be selected. Default value is `none`.</summary>
         public WindowsDeviceType? ApplicableDeviceTypes { get; set; }
-        /// <summary>The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.</summary>
+        /// <summary>The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MobileContainedApp>? CommittedContainedApps { get; set; }
@@ -21,7 +22,7 @@ namespace ApiSdk.Models {
 #else
         public List<MobileContainedApp> CommittedContainedApps { get; set; }
 #endif
-        /// <summary>The Identity Name.</summary>
+        /// <summary>The Identity Name of the app, parsed from the appx file when it is uploaded through the Intune MEM console. For example: &apos;Contoso.DemoApp&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityName { get; set; }
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
 #else
         public string IdentityName { get; set; }
 #endif
-        /// <summary>The Identity Publisher Hash.</summary>
+        /// <summary>The Identity Publisher Hash of the app, parsed from the appx file when it is uploaded through the Intune MEM console. For example: &apos;AB82CD0XYZ&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityPublisherHash { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
 #else
         public string IdentityPublisherHash { get; set; }
 #endif
-        /// <summary>The Identity Resource Identifier.</summary>
+        /// <summary>The Identity Resource Identifier of the app, parsed from the appx file when it is uploaded through the Intune MEM console. For example: &apos;TestResourceId&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityResourceIdentifier { get; set; }
@@ -45,7 +46,7 @@ namespace ApiSdk.Models {
 #else
         public string IdentityResourceIdentifier { get; set; }
 #endif
-        /// <summary>The identity version.</summary>
+        /// <summary>The Identity Version of the app, parsed from the appx file when it is uploaded through the Intune MEM console.  For example: &apos;1.0.0.0&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityVersion { get; set; }
@@ -53,7 +54,7 @@ namespace ApiSdk.Models {
 #else
         public string IdentityVersion { get; set; }
 #endif
-        /// <summary>Whether or not the app is a bundle.</summary>
+        /// <summary>Whether or not the app is a bundle. If TRUE, app is a bundle; if FALSE, app is not a bundle.</summary>
         public bool? IsBundle { get; set; }
         /// <summary>The minimum operating system required for a Windows mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,24 +65,30 @@ namespace ApiSdk.Models {
         public WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new windowsUniversalAppX and sets the default values.
+        /// Instantiates a new <see cref="WindowsUniversalAppX"/> and sets the default values.
         /// </summary>
-        public WindowsUniversalAppX() : base() {
+        public WindowsUniversalAppX() : base()
+        {
             OdataType = "#microsoft.graph.windowsUniversalAppX";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="WindowsUniversalAppX"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsUniversalAppX CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new WindowsUniversalAppX CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new WindowsUniversalAppX();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
                 {"applicableDeviceTypes", n => { ApplicableDeviceTypes = n.GetEnumValue<WindowsDeviceType>(); } },
                 {"committedContainedApps", n => { CommittedContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -97,7 +104,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);

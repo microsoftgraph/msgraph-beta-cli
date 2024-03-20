@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Participant : Entity, IParsable {
+    public class Participant : Entity, IParsable 
+    {
         /// <summary>The info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,6 +15,8 @@ namespace ApiSdk.Models {
 #else
         public ParticipantInfo Info { get; set; }
 #endif
+        /// <summary>The isIdentityAnonymized property</summary>
+        public bool? IsIdentityAnonymized { get; set; }
         /// <summary>true if the participant is in lobby.</summary>
         public bool? IsInLobby { get; set; }
         /// <summary>true if the participant is muted (client or server muted).</summary>
@@ -34,7 +37,15 @@ namespace ApiSdk.Models {
 #else
         public string Metadata { get; set; }
 #endif
-        /// <summary>Information about whether the participant has recording capability.</summary>
+        /// <summary>The participant&apos;s preferred display name that overrides the original display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PreferredDisplayName { get; set; }
+#nullable restore
+#else
+        public string PreferredDisplayName { get; set; }
+#endif
+        /// <summary>Information on whether the participant has recording capability.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.RecordingInfo? RecordingInfo { get; set; }
@@ -50,7 +61,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.RemovedState RemovedState { get; set; }
 #endif
-        /// <summary>Indicates the reason or reasons media content from this participant is restricted.</summary>
+        /// <summary>Indicates the reason or reasons why media content from this participant is restricted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OnlineMeetingRestricted? RestrictedExperience { get; set; }
@@ -58,26 +69,33 @@ namespace ApiSdk.Models {
 #else
         public OnlineMeetingRestricted RestrictedExperience { get; set; }
 #endif
-        /// <summary>Indicates the roster sequence number in which the participant was last updated.</summary>
+        /// <summary>Indicates the roster sequence number the participant was last updated in.</summary>
         public long? RosterSequenceNumber { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Participant"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Participant CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Participant CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Participant();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"info", n => { Info = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
+                {"isIdentityAnonymized", n => { IsIdentityAnonymized = n.GetBoolValue(); } },
                 {"isInLobby", n => { IsInLobby = n.GetBoolValue(); } },
                 {"isMuted", n => { IsMuted = n.GetBoolValue(); } },
                 {"mediaStreams", n => { MediaStreams = n.GetCollectionOfObjectValues<MediaStream>(MediaStream.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"metadata", n => { Metadata = n.GetStringValue(); } },
+                {"preferredDisplayName", n => { PreferredDisplayName = n.GetStringValue(); } },
                 {"recordingInfo", n => { RecordingInfo = n.GetObjectValue<ApiSdk.Models.RecordingInfo>(ApiSdk.Models.RecordingInfo.CreateFromDiscriminatorValue); } },
                 {"removedState", n => { RemovedState = n.GetObjectValue<ApiSdk.Models.RemovedState>(ApiSdk.Models.RemovedState.CreateFromDiscriminatorValue); } },
                 {"restrictedExperience", n => { RestrictedExperience = n.GetObjectValue<OnlineMeetingRestricted>(OnlineMeetingRestricted.CreateFromDiscriminatorValue); } },
@@ -88,14 +106,17 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ParticipantInfo>("info", Info);
+            writer.WriteBoolValue("isIdentityAnonymized", IsIdentityAnonymized);
             writer.WriteBoolValue("isInLobby", IsInLobby);
             writer.WriteBoolValue("isMuted", IsMuted);
             writer.WriteCollectionOfObjectValues<MediaStream>("mediaStreams", MediaStreams);
             writer.WriteStringValue("metadata", Metadata);
+            writer.WriteStringValue("preferredDisplayName", PreferredDisplayName);
             writer.WriteObjectValue<ApiSdk.Models.RecordingInfo>("recordingInfo", RecordingInfo);
             writer.WriteObjectValue<ApiSdk.Models.RemovedState>("removedState", RemovedState);
             writer.WriteObjectValue<OnlineMeetingRestricted>("restrictedExperience", RestrictedExperience);

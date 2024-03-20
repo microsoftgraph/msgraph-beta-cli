@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Post : OutlookItem, IParsable {
-        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+    public class Post : OutlookItem, IParsable 
+    {
+        /// <summary>The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Attachment>? Attachments { get; set; }
@@ -56,13 +57,23 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates whether the post has at least one attachment. This is a default property.</summary>
         public bool? HasAttachments { get; set; }
-        /// <summary>Read-only. Supports $expand.</summary>
+        /// <summary>The importance of a group post: low, normal, high.</summary>
+        public ApiSdk.Models.Importance? Importance { get; set; }
+        /// <summary>The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Post? InReplyTo { get; set; }
 #nullable restore
 #else
         public Post InReplyTo { get; set; }
+#endif
+        /// <summary>The mentions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Mention>? Mentions { get; set; }
+#nullable restore
+#else
+        public List<Mention> Mentions { get; set; }
 #endif
         /// <summary>The collection of multi-value extended properties defined for the post. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,24 +110,30 @@ namespace ApiSdk.Models {
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new post and sets the default values.
+        /// Instantiates a new <see cref="Post"/> and sets the default values.
         /// </summary>
-        public Post() : base() {
+        public Post() : base()
+        {
             OdataType = "#microsoft.graph.post";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Post"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Post CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Post CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Post();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"conversationId", n => { ConversationId = n.GetStringValue(); } },
@@ -124,7 +141,9 @@ namespace ApiSdk.Models {
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"from", n => { From = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
                 {"hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
+                {"importance", n => { Importance = n.GetEnumValue<Importance>(); } },
                 {"inReplyTo", n => { InReplyTo = n.GetObjectValue<Post>(Post.CreateFromDiscriminatorValue); } },
+                {"mentions", n => { Mentions = n.GetCollectionOfObjectValues<Mention>(Mention.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"newParticipants", n => { NewParticipants = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"receivedDateTime", n => { ReceivedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -136,7 +155,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Attachment>("attachments", Attachments);
@@ -146,7 +166,9 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteObjectValue<Recipient>("from", From);
             writer.WriteBoolValue("hasAttachments", HasAttachments);
+            writer.WriteEnumValue<Importance>("importance", Importance);
             writer.WriteObjectValue<Post>("inReplyTo", InReplyTo);
+            writer.WriteCollectionOfObjectValues<Mention>("mentions", Mentions);
             writer.WriteCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
             writer.WriteCollectionOfObjectValues<Recipient>("newParticipants", NewParticipants);
             writer.WriteDateTimeOffsetValue("receivedDateTime", ReceivedDateTime);

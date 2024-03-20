@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DirectoryAudit : Entity, IParsable {
+    public class DirectoryAudit : Entity, IParsable 
+    {
         /// <summary>Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and $orderby.</summary>
         public DateTimeOffset? ActivityDateTime { get; set; }
-        /// <summary>Indicates the activity name or the operation name (examples: &apos;Create User&apos; and &apos;Add member to group&apos;). For a list of activities logged, refer to Microsoft Entra audit log categories and activities. Supports $filter (eq, startswith).</summary>
+        /// <summary>Indicates the activity name or the operation name (for example &apos;Create User&apos;, &apos;Add member to group&apos;). For a list of activities logged, refer to Microsoft Entra audit log categories and activities. Supports $filter (eq, startswith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActivityDisplayName { get; set; }
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public string ActivityDisplayName { get; set; }
 #endif
-        /// <summary>Indicates additional details on the activity.</summary>
+        /// <summary>Indicates more details on the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<KeyValue>? AdditionalDetails { get; set; }
@@ -56,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public string LoggedByService { get; set; }
 #endif
-        /// <summary>Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.</summary>
+        /// <summary>Indicates the type of operation that was performed. The possible values include but aren&apos;t limited to the following: Add, Assign, Update, Unassign, and Delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OperationType { get; set; }
@@ -74,7 +75,7 @@ namespace ApiSdk.Models {
 #else
         public string ResultReason { get; set; }
 #endif
-        /// <summary>Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other. Supports $filter (eq) for id and displayName; and $filter (startswith) for displayName.</summary>
+        /// <summary>Information about the resource that changed due to the activity. Supports $filter (eq) for id and displayName; and $filter (startswith) for displayName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TargetResource>? TargetResources { get; set; }
@@ -82,19 +83,32 @@ namespace ApiSdk.Models {
 #else
         public List<TargetResource> TargetResources { get; set; }
 #endif
+        /// <summary>Type of user agent used by a user in the activity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAgent { get; set; }
+#nullable restore
+#else
+        public string UserAgent { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DirectoryAudit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DirectoryAudit CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DirectoryAudit CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DirectoryAudit();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 {"activityDisplayName", n => { ActivityDisplayName = n.GetStringValue(); } },
                 {"additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -106,13 +120,15 @@ namespace ApiSdk.Models {
                 {"result", n => { Result = n.GetEnumValue<OperationResult>(); } },
                 {"resultReason", n => { ResultReason = n.GetStringValue(); } },
                 {"targetResources", n => { TargetResources = n.GetCollectionOfObjectValues<TargetResource>(TargetResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"userAgent", n => { UserAgent = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("activityDateTime", ActivityDateTime);
@@ -126,6 +142,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<OperationResult>("result", Result);
             writer.WriteStringValue("resultReason", ResultReason);
             writer.WriteCollectionOfObjectValues<TargetResource>("targetResources", TargetResources);
+            writer.WriteStringValue("userAgent", UserAgent);
         }
     }
 }

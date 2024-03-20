@@ -18,11 +18,14 @@ namespace ApiSdk.Education.Me.Schools.Item {
     /// <summary>
     /// Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class EducationSchoolItemRequestBuilder : BaseCliRequestBuilder {
+    public class EducationSchoolItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Schools to which the user belongs. Nullable.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Schools to which the user belongs. Nullable.";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
@@ -70,27 +73,32 @@ namespace ApiSdk.Education.Me.Schools.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new EducationSchoolItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EducationSchoolItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public EducationSchoolItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/me/schools/{educationSchool%2Did}{?%24select,%24expand}", pathParameters) {
+        public EducationSchoolItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/me/schools/{educationSchool%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new EducationSchoolItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EducationSchoolItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public EducationSchoolItemRequestBuilder(string rawUrl) : base("{+baseurl}/education/me/schools/{educationSchool%2Did}{?%24select,%24expand}", rawUrl) {
+        public EducationSchoolItemRequestBuilder(string rawUrl) : base("{+baseurl}/education/me/schools/{educationSchool%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Schools to which the user belongs. Nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.Education.Me.Schools.Item {
         /// <summary>
         /// Schools to which the user belongs. Nullable.
         /// </summary>
-        public class EducationSchoolItemRequestBuilderGetQueryParameters {
+        public class EducationSchoolItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

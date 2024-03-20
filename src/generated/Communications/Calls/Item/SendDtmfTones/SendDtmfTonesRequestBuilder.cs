@@ -18,11 +18,14 @@ namespace ApiSdk.Communications.Calls.Item.SendDtmfTones {
     /// <summary>
     /// Provides operations to call the sendDtmfTones method.
     /// </summary>
-    public class SendDtmfTonesRequestBuilder : BaseCliRequestBuilder {
+    public class SendDtmfTonesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action sendDtmfTones
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action sendDtmfTones";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
@@ -69,28 +72,33 @@ namespace ApiSdk.Communications.Calls.Item.SendDtmfTones {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SendDtmfTonesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SendDtmfTonesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SendDtmfTonesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones", pathParameters) {
+        public SendDtmfTonesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SendDtmfTonesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SendDtmfTonesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SendDtmfTonesRequestBuilder(string rawUrl) : base("{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones", rawUrl) {
+        public SendDtmfTonesRequestBuilder(string rawUrl) : base("{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action sendDtmfTones
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SendDtmfTonesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SendDtmfTonesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SendDtmfTonesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SendDtmfTonesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

@@ -21,11 +21,14 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
     /// <summary>
     /// Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
     /// </summary>
-    public class AgreementItemRequestBuilder : BaseCliRequestBuilder {
+    public class AgreementItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
         /// </summary>
-        public Command BuildAcceptancesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAcceptancesNavCommand()
+        {
             var command = new Command("acceptances");
             command.Description = "Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.";
             var builder = new AcceptancesRequestBuilder(PathParameters);
@@ -51,7 +54,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// Delete an agreement object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete an agreement object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
@@ -84,7 +89,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// <summary>
         /// Provides operations to manage the file property of the microsoft.graph.agreement entity.
         /// </summary>
-        public Command BuildFileNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFileNavCommand()
+        {
             var command = new Command("file");
             command.Description = "Provides operations to manage the file property of the microsoft.graph.agreement entity.";
             var builder = new FileRequestBuilder(PathParameters);
@@ -107,7 +114,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// <summary>
         /// Provides operations to manage the files property of the microsoft.graph.agreement entity.
         /// </summary>
-        public Command BuildFilesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFilesNavCommand()
+        {
             var command = new Command("files");
             command.Description = "Provides operations to manage the files property of the microsoft.graph.agreement entity.";
             var builder = new FilesRequestBuilder(PathParameters);
@@ -133,7 +142,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// Retrieve the properties and relationships of an agreement object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of an agreement object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
@@ -184,7 +195,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// Update the properties of an agreement object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of an agreement object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-update?view=graph-rest-1.0";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
@@ -231,29 +244,34 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AgreementItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AgreementItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AgreementItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24select,%24expand}", pathParameters) {
+        public AgreementItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AgreementItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AgreementItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AgreementItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24select,%24expand}", rawUrl) {
+        public AgreementItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete an agreement object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -261,13 +279,16 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// <summary>
         /// Retrieve the properties and relationships of an agreement object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -277,17 +298,20 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// <summary>
         /// Update the properties of an agreement object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Agreement body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(Agreement body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Agreement body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(Agreement body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -295,7 +319,8 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// <summary>
         /// Retrieve the properties and relationships of an agreement object.
         /// </summary>
-        public class AgreementItemRequestBuilderGetQueryParameters {
+        public class AgreementItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

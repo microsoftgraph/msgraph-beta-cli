@@ -17,11 +17,14 @@ namespace ApiSdk.Chats.Item.Messages.Item.SetReaction {
     /// <summary>
     /// Provides operations to call the setReaction method.
     /// </summary>
-    public class SetReactionRequestBuilder : BaseCliRequestBuilder {
+    public class SetReactionRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action setReaction
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action setReaction";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
@@ -64,28 +67,33 @@ namespace ApiSdk.Chats.Item.Messages.Item.SetReaction {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SetReactionRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SetReactionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SetReactionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}/setReaction", pathParameters) {
+        public SetReactionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}/setReaction", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SetReactionRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SetReactionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SetReactionRequestBuilder(string rawUrl) : base("{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}/setReaction", rawUrl) {
+        public SetReactionRequestBuilder(string rawUrl) : base("{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}/setReaction", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action setReaction
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

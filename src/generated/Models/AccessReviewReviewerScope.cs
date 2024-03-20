@@ -5,17 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class AccessReviewReviewerScope : IAdditionalDataHolder, IParsable {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The OdataType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OdataType { get; set; }
-#nullable restore
-#else
-        public string OdataType { get; set; }
-#endif
+    public class AccessReviewReviewerScope : AccessReviewScope, IParsable 
+    {
         /// <summary>The query specifying who will be the reviewer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,25 +32,30 @@ namespace ApiSdk.Models {
         public string QueryType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new accessReviewReviewerScope and sets the default values.
+        /// Instantiates a new <see cref="AccessReviewReviewerScope"/> and sets the default values.
         /// </summary>
-        public AccessReviewReviewerScope() {
-            AdditionalData = new Dictionary<string, object>();
+        public AccessReviewReviewerScope() : base()
+        {
+            OdataType = "#microsoft.graph.accessReviewReviewerScope";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AccessReviewReviewerScope"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccessReviewReviewerScope CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AccessReviewReviewerScope CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessReviewReviewerScope();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"query", n => { Query = n.GetStringValue(); } },
                 {"queryRoot", n => { QueryRoot = n.GetStringValue(); } },
                 {"queryType", n => { QueryType = n.GetStringValue(); } },
@@ -69,13 +65,13 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("@odata.type", OdataType);
+            base.Serialize(writer);
             writer.WriteStringValue("query", Query);
             writer.WriteStringValue("queryRoot", QueryRoot);
             writer.WriteStringValue("queryType", QueryType);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

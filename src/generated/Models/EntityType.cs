@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum EntityType {
+    public enum EntityType
+    {
         [EnumMember(Value = "event")]
         Event,
         [EnumMember(Value = "message")]
@@ -29,5 +30,7 @@ namespace ApiSdk.Models {
         ChatMessage,
         [EnumMember(Value = "person")]
         Person,
+        [EnumMember(Value = "qna")]
+        Qna,
     }
 }

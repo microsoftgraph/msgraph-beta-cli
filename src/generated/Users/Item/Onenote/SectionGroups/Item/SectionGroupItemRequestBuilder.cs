@@ -22,11 +22,14 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
     /// <summary>
     /// Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class SectionGroupItemRequestBuilder : BaseCliRequestBuilder {
+    public class SectionGroupItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property sectionGroups for users
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property sectionGroups for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -66,7 +69,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// Retrieve the properties and relationships of a sectionGroup object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/sectiongroup-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a sectionGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/sectiongroup-get?view=graph-rest-1.0";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -122,7 +127,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity.
         /// </summary>
-        public Command BuildParentNotebookNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildParentNotebookNavCommand()
+        {
             var command = new Command("parent-notebook");
             command.Description = "Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity.";
             var builder = new ParentNotebookRequestBuilder(PathParameters);
@@ -137,7 +144,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Provides operations to manage the parentSectionGroup property of the microsoft.graph.sectionGroup entity.
         /// </summary>
-        public Command BuildParentSectionGroupNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildParentSectionGroupNavCommand()
+        {
             var command = new Command("parent-section-group");
             command.Description = "Provides operations to manage the parentSectionGroup property of the microsoft.graph.sectionGroup entity.";
             var builder = new ParentSectionGroupRequestBuilder(PathParameters);
@@ -152,7 +161,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Update the navigation property sectionGroups in users
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property sectionGroups in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -207,7 +218,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
         /// </summary>
-        public Command BuildSectionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSectionsNavCommand()
+        {
             var command = new Command("sections");
             command.Description = "Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.";
             var builder = new SectionsRequestBuilder(PathParameters);
@@ -232,7 +245,9 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
         /// </summary>
-        public Command BuildSubSectionGroupsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSubSectionGroupsNavCommand()
+        {
             var command = new Command("sub-section-groups");
             command.Description = "Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.";
             var builder = new ApiSdk.Users.Item.Onenote.SectionGroups.Item.SectionGroups.SectionGroupsRequestBuilder(PathParameters);
@@ -254,29 +269,34 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SectionGroupItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SectionGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SectionGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}", pathParameters) {
+        public SectionGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SectionGroupItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SectionGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SectionGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}", rawUrl) {
+        public SectionGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property sectionGroups for users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -284,13 +304,16 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Retrieve the properties and relationships of a sectionGroup object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SectionGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SectionGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SectionGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SectionGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -300,17 +323,20 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Update the navigation property sectionGroups in users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SectionGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SectionGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SectionGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SectionGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -318,7 +344,8 @@ namespace ApiSdk.Users.Item.Onenote.SectionGroups.Item {
         /// <summary>
         /// Retrieve the properties and relationships of a sectionGroup object.
         /// </summary>
-        public class SectionGroupItemRequestBuilderGetQueryParameters {
+        public class SectionGroupItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

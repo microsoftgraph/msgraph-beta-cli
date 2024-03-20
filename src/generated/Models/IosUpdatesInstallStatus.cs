@@ -2,9 +2,14 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum IosUpdatesInstallStatus {
+    public enum IosUpdatesInstallStatus
+    {
+        [EnumMember(Value = "updateScanFailed")]
+        UpdateScanFailed,
         [EnumMember(Value = "deviceOsHigherThanDesiredOsVersion")]
         DeviceOsHigherThanDesiredOsVersion,
+        [EnumMember(Value = "updateError")]
+        UpdateError,
         [EnumMember(Value = "sharedDeviceUserLoggedInError")]
         SharedDeviceUserLoggedInError,
         [EnumMember(Value = "notSupportedOperation")]
@@ -31,6 +36,10 @@ namespace ApiSdk.Models {
         DownloadFailed,
         [EnumMember(Value = "downloading")]
         Downloading,
+        [EnumMember(Value = "timeout")]
+        Timeout,
+        [EnumMember(Value = "mdmClientCrashed")]
+        MdmClientCrashed,
         [EnumMember(Value = "success")]
         Success,
         [EnumMember(Value = "available")]

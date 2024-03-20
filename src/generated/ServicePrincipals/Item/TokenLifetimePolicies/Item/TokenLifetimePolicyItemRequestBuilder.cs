@@ -18,13 +18,16 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies.Item {
     /// <summary>
     /// Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class TokenLifetimePolicyItemRequestBuilder : BaseCliRequestBuilder {
+    public class TokenLifetimePolicyItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal.
+        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "The tokenLifetimePolicies assigned to this service principal.";
+            command.Description = "The tokenLifetimePolicies assigned to this service principal. Supports $expand.";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -76,27 +79,32 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TokenLifetimePolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TokenLifetimePolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TokenLifetimePolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenLifetimePolicies/{tokenLifetimePolicy%2Did}{?%24select,%24expand}", pathParameters) {
+        public TokenLifetimePolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenLifetimePolicies/{tokenLifetimePolicy%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TokenLifetimePolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TokenLifetimePolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TokenLifetimePolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenLifetimePolicies/{tokenLifetimePolicy%2Did}{?%24select,%24expand}", rawUrl) {
+        public TokenLifetimePolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenLifetimePolicies/{tokenLifetimePolicy%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal.
+        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -104,9 +112,10 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal.
+        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
         /// </summary>
-        public class TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
+        public class TokenLifetimePolicyItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

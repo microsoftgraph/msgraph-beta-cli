@@ -8,10 +8,14 @@ using ApiSdk.Users.Item.Messages.Item.CreateReply;
 using ApiSdk.Users.Item.Messages.Item.CreateReplyAll;
 using ApiSdk.Users.Item.Messages.Item.Extensions;
 using ApiSdk.Users.Item.Messages.Item.Forward;
+using ApiSdk.Users.Item.Messages.Item.MarkAsJunk;
+using ApiSdk.Users.Item.Messages.Item.MarkAsNotJunk;
+using ApiSdk.Users.Item.Messages.Item.Mentions;
 using ApiSdk.Users.Item.Messages.Item.Move;
 using ApiSdk.Users.Item.Messages.Item.Reply;
 using ApiSdk.Users.Item.Messages.Item.ReplyAll;
 using ApiSdk.Users.Item.Messages.Item.Send;
+using ApiSdk.Users.Item.Messages.Item.Unsubscribe;
 using ApiSdk.Users.Item.Messages.Item.Value;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -30,11 +34,14 @@ namespace ApiSdk.Users.Item.Messages.Item {
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.user entity.
     /// </summary>
-    public class MessageItemRequestBuilder : BaseCliRequestBuilder {
+    public class MessageItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the attachments property of the microsoft.graph.message entity.
         /// </summary>
-        public Command BuildAttachmentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAttachmentsNavCommand()
+        {
             var command = new Command("attachments");
             command.Description = "Provides operations to manage the attachments property of the microsoft.graph.message entity.";
             var builder = new AttachmentsRequestBuilder(PathParameters);
@@ -60,7 +67,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to manage the media for the user entity.
         /// </summary>
-        public Command BuildContentNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildContentNavCommand()
+        {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the user entity.";
             var builder = new ContentRequestBuilder(PathParameters);
@@ -76,7 +85,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the copy method.
         /// </summary>
-        public Command BuildCopyNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCopyNavCommand()
+        {
             var command = new Command("copy");
             command.Description = "Provides operations to call the copy method.";
             var builder = new CopyRequestBuilder(PathParameters);
@@ -91,7 +102,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the createForward method.
         /// </summary>
-        public Command BuildCreateForwardNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateForwardNavCommand()
+        {
             var command = new Command("create-forward");
             command.Description = "Provides operations to call the createForward method.";
             var builder = new CreateForwardRequestBuilder(PathParameters);
@@ -106,7 +119,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the createReplyAll method.
         /// </summary>
-        public Command BuildCreateReplyAllNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateReplyAllNavCommand()
+        {
             var command = new Command("create-reply-all");
             command.Description = "Provides operations to call the createReplyAll method.";
             var builder = new CreateReplyAllRequestBuilder(PathParameters);
@@ -121,7 +136,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the createReply method.
         /// </summary>
-        public Command BuildCreateReplyNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateReplyNavCommand()
+        {
             var command = new Command("create-reply");
             command.Description = "Provides operations to call the createReply method.";
             var builder = new CreateReplyRequestBuilder(PathParameters);
@@ -134,12 +151,14 @@ namespace ApiSdk.Users.Item.Messages.Item {
             return command;
         }
         /// <summary>
-        /// Delete eventMessage.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0" />
+        /// Delete a message in the specified user&apos;s mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Delete eventMessage.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0";
+            command.Description = "Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
             };
             userIdOption.IsRequired = true;
@@ -176,7 +195,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to manage the extensions property of the microsoft.graph.message entity.
         /// </summary>
-        public Command BuildExtensionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildExtensionsNavCommand()
+        {
             var command = new Command("extensions");
             command.Description = "Provides operations to manage the extensions property of the microsoft.graph.message entity.";
             var builder = new ExtensionsRequestBuilder(PathParameters);
@@ -201,7 +222,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the forward method.
         /// </summary>
-        public Command BuildForwardNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildForwardNavCommand()
+        {
             var command = new Command("forward");
             command.Description = "Provides operations to call the forward method.";
             var builder = new ForwardRequestBuilder(PathParameters);
@@ -215,11 +238,13 @@ namespace ApiSdk.Users.Item.Messages.Item {
         }
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/eventmessage-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "The messages in a mailbox or folder. Read-only. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-get?view=graph-rest-1.0";
+            command.Description = "The messages in a mailbox or folder. Read-only. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/eventmessage-get?view=graph-rest-1.0";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
             };
             userIdOption.IsRequired = true;
@@ -277,9 +302,72 @@ namespace ApiSdk.Users.Item.Messages.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the markAsJunk method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMarkAsJunkNavCommand()
+        {
+            var command = new Command("mark-as-junk");
+            command.Description = "Provides operations to call the markAsJunk method.";
+            var builder = new MarkAsJunkRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the markAsNotJunk method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMarkAsNotJunkNavCommand()
+        {
+            var command = new Command("mark-as-not-junk");
+            command.Description = "Provides operations to call the markAsNotJunk method.";
+            var builder = new MarkAsNotJunkRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the mentions property of the microsoft.graph.message entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMentionsNavCommand()
+        {
+            var command = new Command("mentions");
+            command.Description = "Provides operations to manage the mentions property of the microsoft.graph.message entity.";
+            var builder = new MentionsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the move method.
         /// </summary>
-        public Command BuildMoveNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMoveNavCommand()
+        {
             var command = new Command("move");
             command.Description = "Provides operations to call the move method.";
             var builder = new MoveRequestBuilder(PathParameters);
@@ -292,12 +380,14 @@ namespace ApiSdk.Users.Item.Messages.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an eventMessage object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0" />
+        /// Update the properties of a message object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of an eventMessage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of a message object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-update?view=graph-rest-1.0";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
             };
             userIdOption.IsRequired = true;
@@ -350,7 +440,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the replyAll method.
         /// </summary>
-        public Command BuildReplyAllNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildReplyAllNavCommand()
+        {
             var command = new Command("reply-all");
             command.Description = "Provides operations to call the replyAll method.";
             var builder = new ReplyAllRequestBuilder(PathParameters);
@@ -365,7 +457,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the reply method.
         /// </summary>
-        public Command BuildReplyNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildReplyNavCommand()
+        {
             var command = new Command("reply");
             command.Description = "Provides operations to call the reply method.";
             var builder = new ReplyRequestBuilder(PathParameters);
@@ -380,7 +474,9 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// Provides operations to call the send method.
         /// </summary>
-        public Command BuildSendNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSendNavCommand()
+        {
             var command = new Command("send");
             command.Description = "Provides operations to call the send method.";
             var builder = new SendRequestBuilder(PathParameters);
@@ -393,29 +489,51 @@ namespace ApiSdk.Users.Item.Messages.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new MessageItemRequestBuilder and sets the default values.
+        /// Provides operations to call the unsubscribe method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUnsubscribeNavCommand()
+        {
+            var command = new Command("unsubscribe");
+            command.Description = "Provides operations to call the unsubscribe method.";
+            var builder = new UnsubscribeRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="MessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public MessageItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}", pathParameters) {
+        public MessageItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new MessageItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public MessageItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}", rawUrl) {
+        public MessageItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}", rawUrl)
+        {
         }
         /// <summary>
-        /// Delete eventMessage.
+        /// Delete a message in the specified user&apos;s mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -423,13 +541,16 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -437,19 +558,22 @@ namespace ApiSdk.Users.Item.Messages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an eventMessage object.
+        /// Update the properties of a message object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Message body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Message body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Message body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Message body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -457,7 +581,8 @@ namespace ApiSdk.Users.Item.Messages.Item {
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
         /// </summary>
-        public class MessageItemRequestBuilderGetQueryParameters {
+        public class MessageItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

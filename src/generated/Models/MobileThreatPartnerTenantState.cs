@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Partner state of this tenant.</summary>
-    public enum MobileThreatPartnerTenantState {
+    public enum MobileThreatPartnerTenantState
+    {
         /// <summary>Partner is unavailable.</summary>
         [EnumMember(Value = "unavailable")]
         Unavailable,
@@ -16,5 +17,14 @@ namespace ApiSdk.Models {
         /// <summary>Partner is unresponsive.</summary>
         [EnumMember(Value = "unresponsive")]
         Unresponsive,
+        /// <summary>Indicates that the partner connector is not set up. This can occur when the connector is not provisioned and Intune has not received a heartbeat for the connector. Please see https://go.microsoft.com/fwlink/?linkid=2239039 for more information on connector states.</summary>
+        [EnumMember(Value = "notSetUp")]
+        NotSetUp,
+        /// <summary>Indicates that the partner connector is in an error state. This can occur when the connector has a non-zero error code set due to an internal error in processing. Please see https://go.microsoft.com/fwlink/?linkid=2239039 for more information on connector states.</summary>
+        [EnumMember(Value = "error")]
+        Error,
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
+        [EnumMember(Value = "unknownFutureValue")]
+        UnknownFutureValue,
     }
 }

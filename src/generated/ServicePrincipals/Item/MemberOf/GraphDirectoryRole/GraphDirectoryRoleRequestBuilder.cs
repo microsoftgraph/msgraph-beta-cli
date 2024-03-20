@@ -19,11 +19,14 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf.GraphDirectoryRole {
     /// <summary>
     /// Casts the previous resource to directoryRole.
     /// </summary>
-    public class GraphDirectoryRoleRequestBuilder : BaseCliRequestBuilder {
+    public class GraphDirectoryRoleRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -38,7 +41,9 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf.GraphDirectoryRole {
         /// <summary>
         /// Get the items of type microsoft.graph.directoryRole in the microsoft.graph.directoryObject collection
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get the items of type microsoft.graph.directoryRole in the microsoft.graph.directoryObject collection";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
@@ -141,27 +146,32 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf.GraphDirectoryRole {
             return command;
         }
         /// <summary>
-        /// Instantiates a new GraphDirectoryRoleRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GraphDirectoryRoleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GraphDirectoryRoleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/graph.directoryRole{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public GraphDirectoryRoleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/graph.directoryRole{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GraphDirectoryRoleRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GraphDirectoryRoleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GraphDirectoryRoleRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/graph.directoryRole{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public GraphDirectoryRoleRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/graph.directoryRole{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Get the items of type microsoft.graph.directoryRole in the microsoft.graph.directoryObject collection
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -171,7 +181,8 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf.GraphDirectoryRole {
         /// <summary>
         /// Get the items of type microsoft.graph.directoryRole in the microsoft.graph.directoryObject collection
         /// </summary>
-        public class GraphDirectoryRoleRequestBuilderGetQueryParameters {
+        public class GraphDirectoryRoleRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

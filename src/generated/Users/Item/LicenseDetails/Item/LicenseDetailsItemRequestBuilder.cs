@@ -18,11 +18,14 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
     /// <summary>
     /// Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
     /// </summary>
-    public class LicenseDetailsItemRequestBuilder : BaseCliRequestBuilder {
+    public class LicenseDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property licenseDetails for users
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property licenseDetails for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -59,11 +62,13 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
             return command;
         }
         /// <summary>
-        /// A collection of this user&apos;s license details. Read-only.
+        /// Get licenseDetails from users
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "A collection of this user's license details. Read-only.";
+            command.Description = "Get licenseDetails from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
             };
             userIdOption.IsRequired = true;
@@ -117,7 +122,9 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
         /// <summary>
         /// Update the navigation property licenseDetails in users
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property licenseDetails in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -170,43 +177,51 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LicenseDetailsItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LicenseDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LicenseDetailsItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24select,%24expand}", pathParameters) {
+        public LicenseDetailsItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LicenseDetailsItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LicenseDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LicenseDetailsItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24select,%24expand}", rawUrl) {
+        public LicenseDetailsItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property licenseDetails for users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// A collection of this user&apos;s license details. Read-only.
+        /// Get licenseDetails from users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LicenseDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LicenseDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LicenseDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LicenseDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -216,25 +231,29 @@ namespace ApiSdk.Users.Item.LicenseDetails.Item {
         /// <summary>
         /// Update the navigation property licenseDetails in users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.LicenseDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.LicenseDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.LicenseDetails body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.LicenseDetails body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// A collection of this user&apos;s license details. Read-only.
+        /// Get licenseDetails from users
         /// </summary>
-        public class LicenseDetailsItemRequestBuilderGetQueryParameters {
+        public class LicenseDetailsItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

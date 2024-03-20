@@ -8,9 +8,18 @@ namespace ApiSdk.Models {
     /// <summary>
     /// intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
     /// </summary>
-    public class IntuneBrand : IAdditionalDataHolder, IParsable {
+    public class IntuneBrand : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Collection of blocked actions on the company portal as per platform and device ownership types.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CompanyPortalBlockedAction>? CompanyPortalBlockedActions { get; set; }
+#nullable restore
+#else
+        public List<CompanyPortalBlockedAction> CompanyPortalBlockedActions { get; set; }
+#endif
         /// <summary>Email address of the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,6 +52,30 @@ namespace ApiSdk.Models {
 #else
         public string ContactITPhoneNumber { get; set; }
 #endif
+        /// <summary>The custom privacy message used to explain what the organization can see and do on managed devices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomCanSeePrivacyMessage { get; set; }
+#nullable restore
+#else
+        public string CustomCanSeePrivacyMessage { get; set; }
+#endif
+        /// <summary>The custom privacy message used to explain what the organization can’t see or do on managed devices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomCantSeePrivacyMessage { get; set; }
+#nullable restore
+#else
+        public string CustomCantSeePrivacyMessage { get; set; }
+#endif
+        /// <summary>The custom privacy message used to explain what the organization can’t see or do on managed devices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomPrivacyMessage { get; set; }
+#nullable restore
+#else
+        public string CustomPrivacyMessage { get; set; }
+#endif
         /// <summary>Logo image displayed in Company Portal apps which have a dark background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +84,10 @@ namespace ApiSdk.Models {
 #else
         public MimeContent DarkBackgroundLogo { get; set; }
 #endif
+        /// <summary>Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.</summary>
+        public bool? DisableClientTelemetry { get; set; }
+        /// <summary>Boolean that indicates if Device Category Selection will be shown in Company Portal</summary>
+        public bool? DisableDeviceCategorySelection { get; set; }
         /// <summary>Company/organization name that is displayed to end users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +95,20 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string DisplayName { get; set; }
+#endif
+        /// <summary>Options available for enrollment flow customization</summary>
+        public EnrollmentAvailabilityOptions? EnrollmentAvailability { get; set; }
+        /// <summary>Boolean that represents whether the adminsistrator has disabled the &apos;Factory Reset&apos; action on corporate owned devices.</summary>
+        public bool? IsFactoryResetDisabled { get; set; }
+        /// <summary>Boolean that represents whether the adminsistrator has disabled the &apos;Remove Device&apos; action on corporate owned devices.</summary>
+        public bool? IsRemoveDeviceDisabled { get; set; }
+        /// <summary>Customized image displayed in Company Portal app landing page</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? LandingPageCustomizedImage { get; set; }
+#nullable restore
+#else
+        public MimeContent LandingPageCustomizedImage { get; set; }
 #endif
         /// <summary>Logo image displayed in Company Portal apps which have a light background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,12 +150,28 @@ namespace ApiSdk.Models {
 #else
         public string PrivacyUrl { get; set; }
 #endif
+        /// <summary>List of scope tags assigned to the default branding profile</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RoleScopeTagIds { get; set; }
+#nullable restore
+#else
+        public List<string> RoleScopeTagIds { get; set; }
+#endif
+        /// <summary>Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate</summary>
+        public bool? SendDeviceOwnershipChangePushNotification { get; set; }
+        /// <summary>Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal</summary>
+        public bool? ShowAzureADEnterpriseApps { get; set; }
+        /// <summary>Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal</summary>
+        public bool? ShowConfigurationManagerApps { get; set; }
         /// <summary>Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.</summary>
         public bool? ShowDisplayNameNextToLogo { get; set; }
         /// <summary>Boolean that represents whether the administrator-supplied logo images are shown or not shown.</summary>
         public bool? ShowLogo { get; set; }
         /// <summary>Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.</summary>
         public bool? ShowNameNextToLogo { get; set; }
+        /// <summary>Boolean that indicates if Office WebApps will be shown in Company Portal</summary>
+        public bool? ShowOfficeWebApps { get; set; }
         /// <summary>Primary theme color used in the Company Portal applications and web portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,38 +181,59 @@ namespace ApiSdk.Models {
         public RgbColor ThemeColor { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new intuneBrand and sets the default values.
+        /// Instantiates a new <see cref="IntuneBrand"/> and sets the default values.
         /// </summary>
-        public IntuneBrand() {
+        public IntuneBrand()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IntuneBrand"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IntuneBrand CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static IntuneBrand CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IntuneBrand();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
+                {"companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<CompanyPortalBlockedAction>(CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
                 {"contactITName", n => { ContactITName = n.GetStringValue(); } },
                 {"contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
                 {"contactITPhoneNumber", n => { ContactITPhoneNumber = n.GetStringValue(); } },
+                {"customCanSeePrivacyMessage", n => { CustomCanSeePrivacyMessage = n.GetStringValue(); } },
+                {"customCantSeePrivacyMessage", n => { CustomCantSeePrivacyMessage = n.GetStringValue(); } },
+                {"customPrivacyMessage", n => { CustomPrivacyMessage = n.GetStringValue(); } },
                 {"darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                {"disableClientTelemetry", n => { DisableClientTelemetry = n.GetBoolValue(); } },
+                {"disableDeviceCategorySelection", n => { DisableDeviceCategorySelection = n.GetBoolValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<EnrollmentAvailabilityOptions>(); } },
+                {"isFactoryResetDisabled", n => { IsFactoryResetDisabled = n.GetBoolValue(); } },
+                {"isRemoveDeviceDisabled", n => { IsRemoveDeviceDisabled = n.GetBoolValue(); } },
+                {"landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
                 {"lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
                 {"onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
                 {"privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
+                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"sendDeviceOwnershipChangePushNotification", n => { SendDeviceOwnershipChangePushNotification = n.GetBoolValue(); } },
+                {"showAzureADEnterpriseApps", n => { ShowAzureADEnterpriseApps = n.GetBoolValue(); } },
+                {"showConfigurationManagerApps", n => { ShowConfigurationManagerApps = n.GetBoolValue(); } },
                 {"showDisplayNameNextToLogo", n => { ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
                 {"showLogo", n => { ShowLogo = n.GetBoolValue(); } },
                 {"showNameNextToLogo", n => { ShowNameNextToLogo = n.GetBoolValue(); } },
+                {"showOfficeWebApps", n => { ShowOfficeWebApps = n.GetBoolValue(); } },
                 {"themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
             };
         }
@@ -153,22 +241,38 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<CompanyPortalBlockedAction>("companyPortalBlockedActions", CompanyPortalBlockedActions);
             writer.WriteStringValue("contactITEmailAddress", ContactITEmailAddress);
             writer.WriteStringValue("contactITName", ContactITName);
             writer.WriteStringValue("contactITNotes", ContactITNotes);
             writer.WriteStringValue("contactITPhoneNumber", ContactITPhoneNumber);
+            writer.WriteStringValue("customCanSeePrivacyMessage", CustomCanSeePrivacyMessage);
+            writer.WriteStringValue("customCantSeePrivacyMessage", CustomCantSeePrivacyMessage);
+            writer.WriteStringValue("customPrivacyMessage", CustomPrivacyMessage);
             writer.WriteObjectValue<MimeContent>("darkBackgroundLogo", DarkBackgroundLogo);
+            writer.WriteBoolValue("disableClientTelemetry", DisableClientTelemetry);
+            writer.WriteBoolValue("disableDeviceCategorySelection", DisableDeviceCategorySelection);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteEnumValue<EnrollmentAvailabilityOptions>("enrollmentAvailability", EnrollmentAvailability);
+            writer.WriteBoolValue("isFactoryResetDisabled", IsFactoryResetDisabled);
+            writer.WriteBoolValue("isRemoveDeviceDisabled", IsRemoveDeviceDisabled);
+            writer.WriteObjectValue<MimeContent>("landingPageCustomizedImage", LandingPageCustomizedImage);
             writer.WriteObjectValue<MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("onlineSupportSiteName", OnlineSupportSiteName);
             writer.WriteStringValue("onlineSupportSiteUrl", OnlineSupportSiteUrl);
             writer.WriteStringValue("privacyUrl", PrivacyUrl);
+            writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
+            writer.WriteBoolValue("sendDeviceOwnershipChangePushNotification", SendDeviceOwnershipChangePushNotification);
+            writer.WriteBoolValue("showAzureADEnterpriseApps", ShowAzureADEnterpriseApps);
+            writer.WriteBoolValue("showConfigurationManagerApps", ShowConfigurationManagerApps);
             writer.WriteBoolValue("showDisplayNameNextToLogo", ShowDisplayNameNextToLogo);
             writer.WriteBoolValue("showLogo", ShowLogo);
             writer.WriteBoolValue("showNameNextToLogo", ShowNameNextToLogo);
+            writer.WriteBoolValue("showOfficeWebApps", ShowOfficeWebApps);
             writer.WriteObjectValue<RgbColor>("themeColor", ThemeColor);
             writer.WriteAdditionalData(AdditionalData);
         }

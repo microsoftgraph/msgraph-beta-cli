@@ -18,14 +18,17 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
     /// <summary>
     /// Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
     /// </summary>
-    public class BookingCustomQuestionItemRequestBuilder : BaseCliRequestBuilder {
+    public class BookingCustomQuestionItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Delete a bookingCustomQuestion object.
+        /// Delete the specified bookingCustomQuestion object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Delete a bookingCustomQuestion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0";
+            command.Description = "Delete the specified bookingCustomQuestion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -63,7 +66,9 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
         /// Read the properties and relationships of a bookingCustomQuestion object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Read the properties and relationships of a bookingCustomQuestion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
@@ -120,7 +125,9 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
         /// Update the properties of a bookingCustomQuestion object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of a bookingCustomQuestion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
@@ -173,29 +180,34 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new BookingCustomQuestionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BookingCustomQuestionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public BookingCustomQuestionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24select,%24expand}", pathParameters) {
+        public BookingCustomQuestionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new BookingCustomQuestionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BookingCustomQuestionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public BookingCustomQuestionItemRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24select,%24expand}", rawUrl) {
+        public BookingCustomQuestionItemRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Delete a bookingCustomQuestion object.
+        /// Delete the specified bookingCustomQuestion object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -203,13 +215,16 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
         /// <summary>
         /// Read the properties and relationships of a bookingCustomQuestion object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -219,17 +234,20 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
         /// <summary>
         /// Update the properties of a bookingCustomQuestion object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BookingCustomQuestion body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(BookingCustomQuestion body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BookingCustomQuestion body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(BookingCustomQuestion body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -237,7 +255,8 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions.Item {
         /// <summary>
         /// Read the properties and relationships of a bookingCustomQuestion object.
         /// </summary>
-        public class BookingCustomQuestionItemRequestBuilderGetQueryParameters {
+        public class BookingCustomQuestionItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

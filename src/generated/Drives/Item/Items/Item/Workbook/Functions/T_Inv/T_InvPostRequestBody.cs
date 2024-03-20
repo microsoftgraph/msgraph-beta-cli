@@ -6,7 +6,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.T_Inv {
-    public class T_InvPostRequestBody : IAdditionalDataHolder, IParsable {
+    public class T_InvPostRequestBody : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The degFreedom property</summary>
@@ -26,24 +27,30 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.T_Inv {
         public Json Probability { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new t_InvPostRequestBody and sets the default values.
+        /// Instantiates a new <see cref="T_InvPostRequestBody"/> and sets the default values.
         /// </summary>
-        public T_InvPostRequestBody() {
+        public T_InvPostRequestBody()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="T_InvPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static T_InvPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static T_InvPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new T_InvPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"degFreedom", n => { DegFreedom = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
                 {"probability", n => { Probability = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
@@ -52,7 +59,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.T_Inv {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<Json>("degFreedom", DegFreedom);
             writer.WriteObjectValue<Json>("probability", Probability);

@@ -18,51 +18,14 @@ namespace ApiSdk.Groups.Item.Team.IncomingChannels.Item {
     /// <summary>
     /// Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
     /// </summary>
-    public class ChannelItemRequestBuilder : BaseCliRequestBuilder {
-        /// <summary>
-        /// Remove an incoming channel (a channel shared with a team) from a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-delete-incomingchannels?view=graph-rest-1.0" />
-        /// </summary>
-        public Command BuildDeleteCommand() {
-            var command = new Command("delete");
-            command.Description = "Remove an incoming channel (a channel shared with a team) from a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-delete-incomingchannels?view=graph-rest-1.0";
-            var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
-            };
-            groupIdOption.IsRequired = true;
-            command.AddOption(groupIdOption);
-            var channelIdOption = new Option<string>("--channel-id", description: "The unique identifier of channel") {
-            };
-            channelIdOption.IsRequired = true;
-            command.AddOption(channelIdOption);
-            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
-                Arity = ArgumentArity.ZeroOrMore
-            };
-            ifMatchOption.IsRequired = false;
-            command.AddOption(ifMatchOption);
-            command.SetHandler(async (invocationContext) => {
-                var groupId = invocationContext.ParseResult.GetValueForOption(groupIdOption);
-                var channelId = invocationContext.ParseResult.GetValueForOption(channelIdOption);
-                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
-                var cancellationToken = invocationContext.GetCancellationToken();
-                var reqAdapter = invocationContext.GetRequestAdapter();
-                var requestInfo = ToDeleteRequestInformation(q => {
-                });
-                if (groupId is not null) requestInfo.PathParameters.Add("group%2Did", groupId);
-                if (channelId is not null) requestInfo.PathParameters.Add("channel%2Did", channelId);
-                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
-                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                    {"4XX", ODataError.CreateFromDiscriminatorValue},
-                    {"5XX", ODataError.CreateFromDiscriminatorValue},
-                };
-                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
-                Console.WriteLine("Success");
-            });
-            return command;
-        }
+    public class ChannelItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// List of channels shared with the team.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "List of channels shared with the team.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
@@ -116,43 +79,32 @@ namespace ApiSdk.Groups.Item.Team.IncomingChannels.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ChannelItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChannelItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ChannelItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24select,%24expand}", pathParameters) {
+        public ChannelItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ChannelItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChannelItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ChannelItemRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24select,%24expand}", rawUrl) {
-        }
-        /// <summary>
-        /// Remove an incoming channel (a channel shared with a team) from a team.
-        /// </summary>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
-#nullable restore
-#else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
-#endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
+        public ChannelItemRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// List of channels shared with the team.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -162,7 +114,8 @@ namespace ApiSdk.Groups.Item.Team.IncomingChannels.Item {
         /// <summary>
         /// List of channels shared with the team.
         /// </summary>
-        public class ChannelItemRequestBuilderGetQueryParameters {
+        public class ChannelItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

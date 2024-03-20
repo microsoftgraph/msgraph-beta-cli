@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class EdiscoveryReviewTag : Tag, IParsable {
+    public class EdiscoveryReviewTag : Tag, IParsable 
+    {
         /// <summary>Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.</summary>
         public ApiSdk.Models.Security.ChildSelectability? ChildSelectability { get; set; }
         /// <summary>Returns the tags that are a child of a tag.</summary>
@@ -25,24 +26,30 @@ namespace ApiSdk.Models.Security {
         public EdiscoveryReviewTag Parent { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new ediscoveryReviewTag and sets the default values.
+        /// Instantiates a new <see cref="EdiscoveryReviewTag"/> and sets the default values.
         /// </summary>
-        public EdiscoveryReviewTag() : base() {
+        public EdiscoveryReviewTag() : base()
+        {
             OdataType = "#microsoft.graph.security.ediscoveryReviewTag";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EdiscoveryReviewTag"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoveryReviewTag CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EdiscoveryReviewTag CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryReviewTag();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"childSelectability", n => { ChildSelectability = n.GetEnumValue<ChildSelectability>(); } },
                 {"childTags", n => { ChildTags = n.GetCollectionOfObjectValues<EdiscoveryReviewTag>(EdiscoveryReviewTag.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"parent", n => { Parent = n.GetObjectValue<EdiscoveryReviewTag>(EdiscoveryReviewTag.CreateFromDiscriminatorValue); } },
@@ -52,7 +59,8 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<ChildSelectability>("childSelectability", ChildSelectability);

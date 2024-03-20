@@ -17,11 +17,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.Creat
     /// <summary>
     /// Provides operations to call the createDownloadUrl method.
     /// </summary>
-    public class CreateDownloadUrlRequestBuilder : BaseCliRequestBuilder {
+    public class CreateDownloadUrlRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action createDownloadUrl
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action createDownloadUrl";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
@@ -67,27 +70,32 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.Creat
             return command;
         }
         /// <summary>
-        /// Instantiates a new CreateDownloadUrlRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreateDownloadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CreateDownloadUrlRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl", pathParameters) {
+        public CreateDownloadUrlRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CreateDownloadUrlRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreateDownloadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CreateDownloadUrlRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl", rawUrl) {
+        public CreateDownloadUrlRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action createDownloadUrl
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

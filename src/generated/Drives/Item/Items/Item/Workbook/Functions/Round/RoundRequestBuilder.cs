@@ -18,11 +18,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Round {
     /// <summary>
     /// Provides operations to call the round method.
     /// </summary>
-    public class RoundRequestBuilder : BaseCliRequestBuilder {
+    public class RoundRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action round
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action round";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -75,28 +78,33 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Round {
             return command;
         }
         /// <summary>
-        /// Instantiates a new RoundRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RoundRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RoundRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/round", pathParameters) {
+        public RoundRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/round", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new RoundRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RoundRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RoundRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/round", rawUrl) {
+        public RoundRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/round", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action round
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RoundPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RoundPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RoundPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RoundPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

@@ -21,11 +21,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
     /// <summary>
     /// Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
     /// </summary>
-    public class TaskReportItemRequestBuilder : BaseCliRequestBuilder {
+    public class TaskReportItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Represents the aggregation of task execution data for tasks within a workflow object.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Represents the aggregation of task execution data for tasks within a workflow object.";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
@@ -81,7 +84,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
         /// <summary>
         /// Provides operations to manage the taskDefinition property of the microsoft.graph.identityGovernance.taskReport entity.
         /// </summary>
-        public Command BuildTaskDefinitionNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTaskDefinitionNavCommand()
+        {
             var command = new Command("task-definition");
             command.Description = "Provides operations to manage the taskDefinition property of the microsoft.graph.identityGovernance.taskReport entity.";
             var builder = new TaskDefinitionRequestBuilder(PathParameters);
@@ -96,7 +101,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
         /// <summary>
         /// Provides operations to manage the task property of the microsoft.graph.identityGovernance.taskReport entity.
         /// </summary>
-        public Command BuildTaskNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTaskNavCommand()
+        {
             var command = new Command("task");
             command.Description = "Provides operations to manage the task property of the microsoft.graph.identityGovernance.taskReport entity.";
             var builder = new TaskRequestBuilder(PathParameters);
@@ -111,7 +118,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
         /// <summary>
         /// Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.
         /// </summary>
-        public Command BuildTaskProcessingResultsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTaskProcessingResultsNavCommand()
+        {
             var command = new Command("task-processing-results");
             command.Description = "Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.";
             var builder = new TaskProcessingResultsRequestBuilder(PathParameters);
@@ -133,27 +142,32 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
             return command;
         }
         /// <summary>
-        /// Instantiates a new TaskReportItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TaskReportItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TaskReportItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/{taskReport%2Did}{?%24select,%24expand}", pathParameters) {
+        public TaskReportItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/{taskReport%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TaskReportItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TaskReportItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TaskReportItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/{taskReport%2Did}{?%24select,%24expand}", rawUrl) {
+        public TaskReportItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/{taskReport%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Represents the aggregation of task execution data for tasks within a workflow object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -163,7 +177,8 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
         /// <summary>
         /// Represents the aggregation of task execution data for tasks within a workflow object.
         /// </summary>
-        public class TaskReportItemRequestBuilderGetQueryParameters {
+        public class TaskReportItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

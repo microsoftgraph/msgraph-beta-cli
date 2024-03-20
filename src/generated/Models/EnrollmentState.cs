@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum EnrollmentState {
+    public enum EnrollmentState
+    {
         /// <summary>Device enrollment state is unknown</summary>
         [EnumMember(Value = "unknown")]
         Unknown,
@@ -18,5 +19,8 @@ namespace ApiSdk.Models {
         /// <summary>Device is imported but not enrolled.</summary>
         [EnumMember(Value = "notContacted")]
         NotContacted,
+        /// <summary>Device is enrolled as userless, but is blocked from moving to user enrollment because the app failed to install.</summary>
+        [EnumMember(Value = "blocked")]
+        Blocked,
     }
 }

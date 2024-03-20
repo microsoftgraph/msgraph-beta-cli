@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class EducationAssignment : Entity, IParsable {
+    public class EducationAssignment : Entity, IParsable 
+    {
         /// <summary>Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment shouldn&apos;t be assigned to new students.</summary>
         public EducationAddedStudentAction? AddedStudentAction { get; set; }
         /// <summary>Optional field to control the assignment behavior  for adding assignments to students&apos; and teachers&apos; calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.</summary>
@@ -88,7 +89,15 @@ namespace ApiSdk.Models {
 #else
         public EducationGradingCategory GradingCategory { get; set; }
 #endif
-        /// <summary>Instructions for the assignment.  The instructsions and the display name tell the student what to do.</summary>
+        /// <summary>The gradingScheme property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationGradingScheme? GradingScheme { get; set; }
+#nullable restore
+#else
+        public EducationGradingScheme GradingScheme { get; set; }
+#endif
+        /// <summary>Instructions for the assignment. This property and the display name tell the student what to do.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EducationItemBody? Instructions { get; set; }
@@ -106,6 +115,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
+        /// <summary>The URL of the module from which to access the assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ModuleUrl { get; set; }
+#nullable restore
+#else
+        public string ModuleUrl { get; set; }
+#endif
         /// <summary>Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn&apos;t allowed after the assignment has been published.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -138,9 +155,9 @@ namespace ApiSdk.Models {
 #else
         public EducationRubric Rubric { get; set; }
 #endif
-        /// <summary>Status of the Assignment.  You can&apos;t PATCH this value.  Possible values are: draft, scheduled, published, assigned.</summary>
+        /// <summary>Status of the assignment. You can&apos;t PATCH this value. Possible values are: draft, scheduled, published, assigned, unknownFutureValue, inactive. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.</summary>
         public EducationAssignmentStatus? Status { get; private set; }
-        /// <summary>Once published, there&apos;s a submission object for each student representing their work and grade.  Read-only. Nullable.</summary>
+        /// <summary>Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationSubmission>? Submissions { get; set; }
@@ -159,16 +176,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EducationAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationAssignment CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EducationAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EducationAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"addToCalendarAction", n => { AddToCalendarAction = n.GetEnumValue<EducationAddToCalendarOptions>(); } },
                 {"addedStudentAction", n => { AddedStudentAction = n.GetEnumValue<EducationAddedStudentAction>(); } },
                 {"allowLateSubmissions", n => { AllowLateSubmissions = n.GetBoolValue(); } },
@@ -186,9 +208,11 @@ namespace ApiSdk.Models {
                 {"feedbackResourcesFolderUrl", n => { FeedbackResourcesFolderUrl = n.GetStringValue(); } },
                 {"grading", n => { Grading = n.GetObjectValue<EducationAssignmentGradeType>(EducationAssignmentGradeType.CreateFromDiscriminatorValue); } },
                 {"gradingCategory", n => { GradingCategory = n.GetObjectValue<EducationGradingCategory>(EducationGradingCategory.CreateFromDiscriminatorValue); } },
+                {"gradingScheme", n => { GradingScheme = n.GetObjectValue<EducationGradingScheme>(EducationGradingScheme.CreateFromDiscriminatorValue); } },
                 {"instructions", n => { Instructions = n.GetObjectValue<EducationItemBody>(EducationItemBody.CreateFromDiscriminatorValue); } },
                 {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"moduleUrl", n => { ModuleUrl = n.GetStringValue(); } },
                 {"notificationChannelUrl", n => { NotificationChannelUrl = n.GetStringValue(); } },
                 {"resources", n => { Resources = n.GetCollectionOfObjectValues<EducationAssignmentResource>(EducationAssignmentResource.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"resourcesFolderUrl", n => { ResourcesFolderUrl = n.GetStringValue(); } },
@@ -202,7 +226,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<EducationAddedStudentAction>("addedStudentAction", AddedStudentAction);
@@ -217,7 +242,9 @@ namespace ApiSdk.Models {
             writer.WriteDateTimeOffsetValue("dueDateTime", DueDateTime);
             writer.WriteObjectValue<EducationAssignmentGradeType>("grading", Grading);
             writer.WriteObjectValue<EducationGradingCategory>("gradingCategory", GradingCategory);
+            writer.WriteObjectValue<EducationGradingScheme>("gradingScheme", GradingScheme);
             writer.WriteObjectValue<EducationItemBody>("instructions", Instructions);
+            writer.WriteStringValue("moduleUrl", ModuleUrl);
             writer.WriteStringValue("notificationChannelUrl", NotificationChannelUrl);
             writer.WriteCollectionOfObjectValues<EducationAssignmentResource>("resources", Resources);
             writer.WriteObjectValue<EducationRubric>("rubric", Rubric);

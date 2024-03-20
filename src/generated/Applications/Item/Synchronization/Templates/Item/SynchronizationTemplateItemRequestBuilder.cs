@@ -19,11 +19,14 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
     /// <summary>
     /// Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
     /// </summary>
-    public class SynchronizationTemplateItemRequestBuilder : BaseCliRequestBuilder {
+    public class SynchronizationTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property templates for applications
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property templates for applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
@@ -60,11 +63,13 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
             return command;
         }
         /// <summary>
-        /// Preconfigured synchronization settings for a particular application.
+        /// Pre-configured synchronization settings for a particular application.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Preconfigured synchronization settings for a particular application.";
+            command.Description = "Pre-configured synchronization settings for a particular application.";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -119,7 +124,9 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
         /// Update (override) the synchronization template associated with a given application.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update (override) the synchronization template associated with a given application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
@@ -174,7 +181,9 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
         /// <summary>
         /// Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
         /// </summary>
-        public Command BuildSchemaNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSchemaNavCommand()
+        {
             var command = new Command("schema");
             command.Description = "Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.";
             var builder = new SchemaRequestBuilder(PathParameters);
@@ -198,43 +207,51 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SynchronizationTemplateItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SynchronizationTemplateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SynchronizationTemplateItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}{?%24select,%24expand}", pathParameters) {
+        public SynchronizationTemplateItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SynchronizationTemplateItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SynchronizationTemplateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SynchronizationTemplateItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}{?%24select,%24expand}", rawUrl) {
+        public SynchronizationTemplateItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property templates for applications
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Preconfigured synchronization settings for a particular application.
+        /// Pre-configured synchronization settings for a particular application.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -244,25 +261,29 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
         /// <summary>
         /// Update (override) the synchronization template associated with a given application.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SynchronizationTemplate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SynchronizationTemplate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SynchronizationTemplate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SynchronizationTemplate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Preconfigured synchronization settings for a particular application.
+        /// Pre-configured synchronization settings for a particular application.
         /// </summary>
-        public class SynchronizationTemplateItemRequestBuilderGetQueryParameters {
+        public class SynchronizationTemplateItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

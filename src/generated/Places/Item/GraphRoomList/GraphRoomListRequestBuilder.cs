@@ -2,6 +2,9 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Places.Item.GraphRoomList.Rooms;
+using ApiSdk.Places.Item.GraphRoomList.RoomsWithPlaceId;
+using ApiSdk.Places.Item.GraphRoomList.Workspaces;
+using ApiSdk.Places.Item.GraphRoomList.WorkspacesWithPlaceId;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -19,11 +22,14 @@ namespace ApiSdk.Places.Item.GraphRoomList {
     /// <summary>
     /// Casts the previous resource to roomList.
     /// </summary>
-    public class GraphRoomListRequestBuilder : BaseCliRequestBuilder {
+    public class GraphRoomListRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Get the item of type microsoft.graph.place as microsoft.graph.roomList
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get the item of type microsoft.graph.place as microsoft.graph.roomList";
             var placeIdOption = new Option<string>("--place-id", description: "The unique identifier of place") {
@@ -73,7 +79,9 @@ namespace ApiSdk.Places.Item.GraphRoomList {
         /// <summary>
         /// Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
         /// </summary>
-        public Command BuildRoomsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoomsNavCommand()
+        {
             var command = new Command("rooms");
             command.Description = "Provides operations to manage the rooms property of the microsoft.graph.roomList entity.";
             var builder = new RoomsRequestBuilder(PathParameters);
@@ -96,27 +104,97 @@ namespace ApiSdk.Places.Item.GraphRoomList {
             return command;
         }
         /// <summary>
-        /// Instantiates a new GraphRoomListRequestBuilder and sets the default values.
+        /// Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public GraphRoomListRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/places/{place%2Did}/graph.roomList{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoomsWithPlaceIdRbCommand()
+        {
+            var command = new Command("rooms-with-place-id");
+            command.Description = "Provides operations to manage the rooms property of the microsoft.graph.roomList entity.";
+            var builder = new RoomsWithPlaceIdRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new GraphRoomListRequestBuilder and sets the default values.
+        /// Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkspacesNavCommand()
+        {
+            var command = new Command("workspaces");
+            command.Description = "Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.";
+            var builder = new WorkspacesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkspacesWithPlaceIdRbCommand()
+        {
+            var command = new Command("workspaces-with-place-id");
+            command.Description = "Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.";
+            var builder = new WorkspacesWithPlaceIdRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="GraphRoomListRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public GraphRoomListRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/places/{place%2Did}/graph.roomList{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="GraphRoomListRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GraphRoomListRequestBuilder(string rawUrl) : base("{+baseurl}/places/{place%2Did}/graph.roomList{?%24select,%24expand}", rawUrl) {
+        public GraphRoomListRequestBuilder(string rawUrl) : base("{+baseurl}/places/{place%2Did}/graph.roomList{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get the item of type microsoft.graph.place as microsoft.graph.roomList
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -126,7 +204,8 @@ namespace ApiSdk.Places.Item.GraphRoomList {
         /// <summary>
         /// Get the item of type microsoft.graph.place as microsoft.graph.roomList
         /// </summary>
-        public class GraphRoomListRequestBuilderGetQueryParameters {
+        public class GraphRoomListRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

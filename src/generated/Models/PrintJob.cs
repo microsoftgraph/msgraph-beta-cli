@@ -5,7 +5,12 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PrintJob : Entity, IParsable {
+    public class PrintJob : Entity, IParsable 
+    {
+        /// <summary>The acknowledgedDateTime property</summary>
+        public DateTimeOffset? AcknowledgedDateTime { get; set; }
+        /// <summary>The completedDateTime property</summary>
+        public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>The configuration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,6 +29,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The DateTimeOffset when the job was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>The name of the print job.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
         /// <summary>The documents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,6 +45,8 @@ namespace ApiSdk.Models {
 #else
         public List<PrintDocument> Documents { get; set; }
 #endif
+        /// <summary>The errorCode property</summary>
+        public int? ErrorCode { get; set; }
         /// <summary>If true, document can be fetched by printer.</summary>
         public bool? IsFetchable { get; set; }
         /// <summary>Contains the source job URL, if the job has been redirected from another printer.</summary>
@@ -69,20 +84,29 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PrintJob"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrintJob CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new PrintJob CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PrintJob();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"acknowledgedDateTime", n => { AcknowledgedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"configuration", n => { Configuration = n.GetObjectValue<PrintJobConfiguration>(PrintJobConfiguration.CreateFromDiscriminatorValue); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"documents", n => { Documents = n.GetCollectionOfObjectValues<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
                 {"isFetchable", n => { IsFetchable = n.GetBoolValue(); } },
                 {"redirectedFrom", n => { RedirectedFrom = n.GetStringValue(); } },
                 {"redirectedTo", n => { RedirectedTo = n.GetStringValue(); } },
@@ -94,13 +118,18 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("acknowledgedDateTime", AcknowledgedDateTime);
+            writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
             writer.WriteObjectValue<PrintJobConfiguration>("configuration", Configuration);
             writer.WriteObjectValue<UserIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<PrintDocument>("documents", Documents);
+            writer.WriteIntValue("errorCode", ErrorCode);
             writer.WriteBoolValue("isFetchable", IsFetchable);
             writer.WriteStringValue("redirectedFrom", RedirectedFrom);
             writer.WriteStringValue("redirectedTo", RedirectedTo);

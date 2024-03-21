@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class MeetingParticipantInfo : IAdditionalDataHolder, IParsable {
+    public class MeetingParticipantInfo : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identity information of the participant.</summary>
+        /// <summary>Identity information of the participant. Only the user property is used for onlineMeeting participants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? Identity { get; set; }
@@ -35,24 +36,35 @@ namespace ApiSdk.Models {
         public string Upn { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new meetingParticipantInfo and sets the default values.
+        /// Instantiates a new <see cref="MeetingParticipantInfo"/> and sets the default values.
         /// </summary>
-        public MeetingParticipantInfo() {
+        public MeetingParticipantInfo()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MeetingParticipantInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MeetingParticipantInfo CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static MeetingParticipantInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MeetingParticipantInfo();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "#microsoft.graph.virtualEventPresenterInfo" => new VirtualEventPresenterInfo(),
+                _ => new MeetingParticipantInfo(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"role", n => { Role = n.GetEnumValue<OnlineMeetingRole>(); } },
@@ -63,7 +75,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<IdentitySet>("identity", Identity);
             writer.WriteStringValue("@odata.type", OdataType);

@@ -18,11 +18,14 @@ namespace ApiSdk.Security.ThreatIntelligence.PassiveDnsRecords.Item.ParentHost {
     /// <summary>
     /// Provides operations to manage the parentHost property of the microsoft.graph.security.passiveDnsRecord entity.
     /// </summary>
-    public class ParentHostRequestBuilder : BaseCliRequestBuilder {
+    public class ParentHostRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The parent host related to this passiveDnsRecord entry. Generally, this is the value that you can search to discover this passiveDnsRecord value.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The parent host related to this passiveDnsRecord entry. Generally, this is the value that you can search to discover this passiveDnsRecord value.";
             var passiveDnsRecordIdOption = new Option<string>("--passive-dns-record-id", description: "The unique identifier of passiveDnsRecord") {
@@ -70,27 +73,32 @@ namespace ApiSdk.Security.ThreatIntelligence.PassiveDnsRecords.Item.ParentHost {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ParentHostRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ParentHostRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ParentHostRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24select,%24expand}", pathParameters) {
+        public ParentHostRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ParentHostRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ParentHostRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ParentHostRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24select,%24expand}", rawUrl) {
+        public ParentHostRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The parent host related to this passiveDnsRecord entry. Generally, this is the value that you can search to discover this passiveDnsRecord value.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentHostRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentHostRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentHostRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentHostRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.Security.ThreatIntelligence.PassiveDnsRecords.Item.ParentHost {
         /// <summary>
         /// The parent host related to this passiveDnsRecord entry. Generally, this is the value that you can search to discover this passiveDnsRecord value.
         /// </summary>
-        public class ParentHostRequestBuilderGetQueryParameters {
+        public class ParentHostRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

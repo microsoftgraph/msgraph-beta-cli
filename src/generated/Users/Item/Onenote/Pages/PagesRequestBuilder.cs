@@ -20,11 +20,14 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
     /// <summary>
     /// Provides operations to manage the pages property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class PagesRequestBuilder : BaseCliRequestBuilder {
+    public class PagesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the pages property of the microsoft.graph.onenote entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new OnenotePageItemRequestBuilder(PathParameters);
@@ -42,7 +45,9 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -55,13 +60,14 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
             return command;
         }
         /// <summary>
-        /// Create a new OneNote page in the default section of the default notebook. To create a page in a different section in the default notebook, you can use the sectionName query parameter.  Example: ../onenote/pages?sectionName=My%20section The POST /onenote/pages operation is used only to create pages in the current user&apos;s default notebook. If you&apos;re targeting other notebooks, you can create pages in a specified section.  
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onenote-post-pages?view=graph-rest-1.0" />
+        /// Create new navigation property to pages for users
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
-            command.Description = "Create a new OneNote page in the default section of the default notebook. To create a page in a different section in the default notebook, you can use the sectionName query parameter.  Example: ../onenote/pages?sectionName=My%20section The POST /onenote/pages operation is used only to create pages in the current user's default notebook. If you're targeting other notebooks, you can create pages in a specified section.  \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onenote-post-pages?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Create new navigation property to pages for users";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -105,13 +111,14 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of page objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onenote-list-pages?view=graph-rest-1.0" />
+        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieve a list of page objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onenote-list-pages?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -204,27 +211,32 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PagesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PagesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onenote/pages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public PagesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onenote/pages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new PagesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PagesRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onenote/pages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public PagesRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onenote/pages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Retrieve a list of page objects.
+        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PagesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PagesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PagesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PagesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -232,27 +244,31 @@ namespace ApiSdk.Users.Item.Onenote.Pages {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new OneNote page in the default section of the default notebook. To create a page in a different section in the default notebook, you can use the sectionName query parameter.  Example: ../onenote/pages?sectionName=My%20section The POST /onenote/pages operation is used only to create pages in the current user&apos;s default notebook. If you&apos;re targeting other notebooks, you can create pages in a specified section.  
+        /// Create new navigation property to pages for users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(OnenotePage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(OnenotePage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(OnenotePage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(OnenotePage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/onenote/pages", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of page objects.
+        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
-        public class PagesRequestBuilderGetQueryParameters {
+        public class PagesRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

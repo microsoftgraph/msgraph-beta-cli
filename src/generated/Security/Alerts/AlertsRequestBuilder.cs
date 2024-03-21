@@ -3,6 +3,7 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Security.Alerts.Count;
 using ApiSdk.Security.Alerts.Item;
+using ApiSdk.Security.Alerts.UpdateAlerts;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -20,11 +21,14 @@ namespace ApiSdk.Security.Alerts {
     /// <summary>
     /// Provides operations to manage the alerts property of the microsoft.graph.security entity.
     /// </summary>
-    public class AlertsRequestBuilder : BaseCliRequestBuilder {
+    public class AlertsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the alerts property of the microsoft.graph.security entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new AlertItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildGetCommand());
@@ -34,7 +38,9 @@ namespace ApiSdk.Security.Alerts {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -49,7 +55,9 @@ namespace ApiSdk.Security.Alerts {
         /// <summary>
         /// Create new navigation property to alerts for security
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to alerts for security";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -70,7 +78,7 @@ namespace ApiSdk.Security.Alerts {
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<Alert>(Alert.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Alert>(ApiSdk.Models.Alert.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -93,7 +101,9 @@ namespace ApiSdk.Security.Alerts {
         /// Retrieve a list of alert objects.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/alert-list?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
             command.Description = "Retrieve a list of alert objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/alert-list?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
@@ -183,27 +193,49 @@ namespace ApiSdk.Security.Alerts {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AlertsRequestBuilder and sets the default values.
+        /// Provides operations to call the updateAlerts method.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/alerts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUpdateAlertsNavCommand()
+        {
+            var command = new Command("update-alerts");
+            command.Description = "Provides operations to call the updateAlerts method.";
+            var builder = new UpdateAlertsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new AlertsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AlertsRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/alerts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="AlertsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AlertsRequestBuilder(string rawUrl) : base("{+baseurl}/security/alerts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public AlertsRequestBuilder(string rawUrl) : base("{+baseurl}/security/alerts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Retrieve a list of alert objects.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -213,17 +245,20 @@ namespace ApiSdk.Security.Alerts {
         /// <summary>
         /// Create new navigation property to alerts for security
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Alert body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.Alert body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Alert body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.Alert body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/alerts", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -231,7 +266,8 @@ namespace ApiSdk.Security.Alerts {
         /// <summary>
         /// Retrieve a list of alert objects.
         /// </summary>
-        public class AlertsRequestBuilderGetQueryParameters {
+        public class AlertsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

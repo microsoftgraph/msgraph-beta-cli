@@ -18,11 +18,14 @@ namespace ApiSdk.Sites.Item.Onenote.Notebooks.Item.SectionGroups.Item.Sections.I
     /// <summary>
     /// Provides operations to manage the parentSectionGroup property of the microsoft.graph.onenoteSection entity.
     /// </summary>
-    public class ParentSectionGroupRequestBuilder : BaseCliRequestBuilder {
+    public class ParentSectionGroupRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The section group that contains the section.  Read-only.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The section group that contains the section.  Read-only.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
@@ -88,27 +91,32 @@ namespace ApiSdk.Sites.Item.Onenote.Notebooks.Item.SectionGroups.Item.Sections.I
             return command;
         }
         /// <summary>
-        /// Instantiates a new ParentSectionGroupRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ParentSectionGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ParentSectionGroupRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24select,%24expand}", pathParameters) {
+        public ParentSectionGroupRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ParentSectionGroupRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ParentSectionGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ParentSectionGroupRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24select,%24expand}", rawUrl) {
+        public ParentSectionGroupRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The section group that contains the section.  Read-only.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -118,7 +126,8 @@ namespace ApiSdk.Sites.Item.Onenote.Notebooks.Item.SectionGroups.Item.Sections.I
         /// <summary>
         /// The section group that contains the section.  Read-only.
         /// </summary>
-        public class ParentSectionGroupRequestBuilderGetQueryParameters {
+        public class ParentSectionGroupRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

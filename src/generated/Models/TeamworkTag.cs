@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class TeamworkTag : Entity, IParsable {
-        /// <summary>The description of the tag as it appears to the user in Microsoft Teams. A teamworkTag can&apos;t have more than 200 teamworkTagMembers.</summary>
+    public class TeamworkTag : Entity, IParsable 
+    {
+        /// <summary>Tag description as it appears to the user in Microsoft Teams. A teamworkTag can&apos;t have more than 200 teamworkTagMembers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The name of the tag as it appears to the user in Microsoft Teams.</summary>
+        /// <summary>Tag name as it appears to the user in Microsoft Teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -32,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public List<TeamworkTagMember> Members { get; set; }
 #endif
-        /// <summary>The type of the tag. Default is standard.</summary>
+        /// <summary>The type of tag. Default is standard.</summary>
         public TeamworkTagType? TagType { get; set; }
         /// <summary>ID of the team in which the tag is defined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,16 +46,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="TeamworkTag"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TeamworkTag CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new TeamworkTag CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TeamworkTag();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"memberCount", n => { MemberCount = n.GetIntValue(); } },
@@ -67,7 +73,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);

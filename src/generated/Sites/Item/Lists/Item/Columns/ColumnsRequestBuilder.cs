@@ -20,11 +20,14 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.list entity.
     /// </summary>
-    public class ColumnsRequestBuilder : BaseCliRequestBuilder {
+    public class ColumnsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the columns property of the microsoft.graph.list entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new ColumnDefinitionItemRequestBuilder(PathParameters);
@@ -37,7 +40,9 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -50,12 +55,14 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
+        /// Create columnDefinition
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
-            command.Description = "Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0";
+            command.Description = "Create columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -106,12 +113,14 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list].
+        /// The collection of field definitions for this list.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of field definitions for this list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -211,27 +220,32 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list].
+        /// The collection of field definitions for this list.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -239,27 +253,31 @@ namespace ApiSdk.Sites.Item.Lists.Item.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
+        /// Create columnDefinition
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/columns", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list].
+        /// The collection of field definitions for this list.
         /// </summary>
-        public class ColumnsRequestBuilderGetQueryParameters {
+        public class ColumnsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

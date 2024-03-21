@@ -18,11 +18,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics.LastSevenDays {
     /// <summary>
     /// Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
     /// </summary>
-    public class LastSevenDaysRequestBuilder : BaseCliRequestBuilder {
+    public class LastSevenDaysRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Get lastSevenDays from drives
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get lastSevenDays from drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -76,27 +79,32 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics.LastSevenDays {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LastSevenDaysRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LastSevenDaysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LastSevenDaysRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24select,%24expand}", pathParameters) {
+        public LastSevenDaysRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LastSevenDaysRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LastSevenDaysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LastSevenDaysRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24select,%24expand}", rawUrl) {
+        public LastSevenDaysRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get lastSevenDays from drives
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LastSevenDaysRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LastSevenDaysRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LastSevenDaysRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LastSevenDaysRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -106,7 +114,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics.LastSevenDays {
         /// <summary>
         /// Get lastSevenDays from drives
         /// </summary>
-        public class LastSevenDaysRequestBuilderGetQueryParameters {
+        public class LastSevenDaysRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

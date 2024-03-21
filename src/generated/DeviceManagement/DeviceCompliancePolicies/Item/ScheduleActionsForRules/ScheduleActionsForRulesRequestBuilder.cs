@@ -17,14 +17,16 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsF
     /// <summary>
     /// Provides operations to call the scheduleActionsForRules method.
     /// </summary>
-    public class ScheduleActionsForRulesRequestBuilder : BaseCliRequestBuilder {
+    public class ScheduleActionsForRulesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Not yet documented
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-scheduleactionsforrules?view=graph-rest-1.0" />
+        /// Invoke action scheduleActionsForRules
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Not yet documented\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-scheduleactionsforrules?view=graph-rest-1.0";
+            command.Description = "Invoke action scheduleActionsForRules";
             var deviceCompliancePolicyIdOption = new Option<string>("--device-compliance-policy-id", description: "The unique identifier of deviceCompliancePolicy") {
             };
             deviceCompliancePolicyIdOption.IsRequired = true;
@@ -59,28 +61,33 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsF
             return command;
         }
         /// <summary>
-        /// Instantiates a new ScheduleActionsForRulesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ScheduleActionsForRulesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ScheduleActionsForRulesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduleActionsForRules", pathParameters) {
+        public ScheduleActionsForRulesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduleActionsForRules", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ScheduleActionsForRulesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ScheduleActionsForRulesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ScheduleActionsForRulesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduleActionsForRules", rawUrl) {
+        public ScheduleActionsForRulesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduleActionsForRules", rawUrl)
+        {
         }
         /// <summary>
-        /// Not yet documented
+        /// Invoke action scheduleActionsForRules
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ScheduleActionsForRulesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ScheduleActionsForRulesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ScheduleActionsForRulesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ScheduleActionsForRulesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

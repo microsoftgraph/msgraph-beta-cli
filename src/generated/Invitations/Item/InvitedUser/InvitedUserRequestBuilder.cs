@@ -20,11 +20,14 @@ namespace ApiSdk.Invitations.Item.InvitedUser {
     /// <summary>
     /// Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
     /// </summary>
-    public class InvitedUserRequestBuilder : BaseCliRequestBuilder {
+    public class InvitedUserRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The user created as part of the invitation creation. Read-Only
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The user created as part of the invitation creation. Read-Only";
             var invitationIdOption = new Option<string>("--invitation-id", description: "The unique identifier of invitation") {
@@ -74,7 +77,9 @@ namespace ApiSdk.Invitations.Item.InvitedUser {
         /// <summary>
         /// The mailboxSettings property
         /// </summary>
-        public Command BuildMailboxSettingsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMailboxSettingsNavCommand()
+        {
             var command = new Command("mailbox-settings");
             command.Description = "The mailboxSettings property";
             var builder = new MailboxSettingsRequestBuilder(PathParameters);
@@ -90,7 +95,9 @@ namespace ApiSdk.Invitations.Item.InvitedUser {
         /// <summary>
         /// The serviceProvisioningErrors property
         /// </summary>
-        public Command BuildServiceProvisioningErrorsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildServiceProvisioningErrorsNavCommand()
+        {
             var command = new Command("service-provisioning-errors");
             command.Description = "The serviceProvisioningErrors property";
             var builder = new ServiceProvisioningErrorsRequestBuilder(PathParameters);
@@ -109,27 +116,32 @@ namespace ApiSdk.Invitations.Item.InvitedUser {
             return command;
         }
         /// <summary>
-        /// Instantiates a new InvitedUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InvitedUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public InvitedUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24select,%24expand}", pathParameters) {
+        public InvitedUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new InvitedUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InvitedUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public InvitedUserRequestBuilder(string rawUrl) : base("{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24select,%24expand}", rawUrl) {
+        public InvitedUserRequestBuilder(string rawUrl) : base("{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The user created as part of the invitation creation. Read-Only
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -139,7 +151,8 @@ namespace ApiSdk.Invitations.Item.InvitedUser {
         /// <summary>
         /// The user created as part of the invitation creation. Read-Only
         /// </summary>
-        public class InvitedUserRequestBuilderGetQueryParameters {
+        public class InvitedUserRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

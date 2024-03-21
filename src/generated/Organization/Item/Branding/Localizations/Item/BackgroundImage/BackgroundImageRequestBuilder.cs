@@ -17,12 +17,15 @@ namespace ApiSdk.Organization.Item.Branding.Localizations.Item.BackgroundImage {
     /// <summary>
     /// Provides operations to manage the media for the organization entity.
     /// </summary>
-    public class BackgroundImageRequestBuilder : BaseCliRequestBuilder {
+    public class BackgroundImageRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
@@ -66,7 +69,9 @@ namespace ApiSdk.Organization.Item.Branding.Localizations.Item.BackgroundImage {
         /// <summary>
         /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
         /// </summary>
-        public Command BuildPutCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPutCommand()
+        {
             var command = new Command("put");
             command.Description = "Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
@@ -123,27 +128,32 @@ namespace ApiSdk.Organization.Item.Branding.Localizations.Item.BackgroundImage {
             return command;
         }
         /// <summary>
-        /// Instantiates a new BackgroundImageRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BackgroundImageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public BackgroundImageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/backgroundImage", pathParameters) {
+        public BackgroundImageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/backgroundImage", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new BackgroundImageRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BackgroundImageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public BackgroundImageRequestBuilder(string rawUrl) : base("{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/backgroundImage", rawUrl) {
+        public BackgroundImageRequestBuilder(string rawUrl) : base("{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/backgroundImage", rawUrl)
+        {
         }
         /// <summary>
         /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -153,15 +163,18 @@ namespace ApiSdk.Organization.Item.Branding.Localizations.Item.BackgroundImage {
         /// <summary>
         /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
         /// <param name="contentType">The request body content type.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));

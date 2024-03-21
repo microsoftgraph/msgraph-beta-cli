@@ -18,14 +18,17 @@ namespace ApiSdk.Communications.Calls.Item.Mute {
     /// <summary>
     /// Provides operations to call the mute method.
     /// </summary>
-    public class MuteRequestBuilder : BaseCliRequestBuilder {
+    public class MuteRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Allows the application to mute itself. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more details about how to handle mute operations, see muteParticipantOperation
+        /// Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-mute?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Allows the application to mute itself. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more details about how to handle mute operations, see muteParticipantOperation\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-mute?view=graph-rest-1.0";
+            command.Description = "Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-mute?view=graph-rest-1.0";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -70,28 +73,33 @@ namespace ApiSdk.Communications.Calls.Item.Mute {
             return command;
         }
         /// <summary>
-        /// Instantiates a new MuteRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MuteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public MuteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/calls/{call%2Did}/mute", pathParameters) {
+        public MuteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/calls/{call%2Did}/mute", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new MuteRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MuteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public MuteRequestBuilder(string rawUrl) : base("{+baseurl}/communications/calls/{call%2Did}/mute", rawUrl) {
+        public MuteRequestBuilder(string rawUrl) : base("{+baseurl}/communications/calls/{call%2Did}/mute", rawUrl)
+        {
         }
         /// <summary>
-        /// Allows the application to mute itself. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more details about how to handle mute operations, see muteParticipantOperation
+        /// Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MutePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(MutePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MutePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(MutePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

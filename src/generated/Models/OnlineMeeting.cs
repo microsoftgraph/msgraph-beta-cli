@@ -5,7 +5,16 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OnlineMeeting : OnlineMeetingBase, IParsable {
+    public class OnlineMeeting : OnlineMeetingBase, IParsable 
+    {
+        /// <summary>The alternativeRecording property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? AlternativeRecording { get; set; }
+#nullable restore
+#else
+        public byte[] AlternativeRecording { get; set; }
+#endif
         /// <summary>The attendeeReport property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -13,6 +22,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public byte[] AttendeeReport { get; set; }
+#endif
+        /// <summary>The broadcastRecording property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? BroadcastRecording { get; set; }
+#nullable restore
+#else
+        public byte[] BroadcastRecording { get; set; }
 #endif
         /// <summary>The broadcastSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,11 +39,19 @@ namespace ApiSdk.Models {
 #else
         public BroadcastMeetingSettings BroadcastSettings { get; set; }
 #endif
+        /// <summary>The capabilities property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MeetingCapabilities?>? Capabilities { get; set; }
+#nullable restore
+#else
+        public List<MeetingCapabilities?> Capabilities { get; set; }
+#endif
         /// <summary>The meeting creation time in UTC. Read-only.</summary>
         public DateTimeOffset? CreationDateTime { get; set; }
-        /// <summary>The meeting end time in UTC.</summary>
+        /// <summary>The meeting end time in UTC. Required when you create an online meeting.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
-        /// <summary>The externalId property</summary>
+        /// <summary>The external ID. A custom ID. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalId { get; set; }
@@ -36,6 +61,30 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The isBroadcast property</summary>
         public bool? IsBroadcast { get; set; }
+        /// <summary>The joinUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JoinUrl { get; set; }
+#nullable restore
+#else
+        public string JoinUrl { get; set; }
+#endif
+        /// <summary>The meetingAttendanceReport property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.MeetingAttendanceReport? MeetingAttendanceReport { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.MeetingAttendanceReport MeetingAttendanceReport { get; set; }
+#endif
+        /// <summary>The ID of the meeting template.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MeetingTemplateId { get; set; }
+#nullable restore
+#else
+        public string MeetingTemplateId { get; set; }
+#endif
         /// <summary>The participants associated with the online meeting, including the organizer and the attendees.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,6 +92,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public MeetingParticipants Participants { get; set; }
+#endif
+        /// <summary>The recording property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Recording { get; set; }
+#nullable restore
+#else
+        public byte[] Recording { get; set; }
 #endif
         /// <summary>The recordings of an online meeting. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +109,15 @@ namespace ApiSdk.Models {
 #else
         public List<CallRecording> Recordings { get; set; }
 #endif
-        /// <summary>The meeting start time in UTC.</summary>
+        /// <summary>The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MeetingRegistration? Registration { get; set; }
+#nullable restore
+#else
+        public MeetingRegistration Registration { get; set; }
+#endif
+        /// <summary>The meeting start time in UTC. Required when you create an online meeting.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The transcripts of an online meeting. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,32 +128,46 @@ namespace ApiSdk.Models {
         public List<CallTranscript> Transcripts { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new onlineMeeting and sets the default values.
+        /// Instantiates a new <see cref="OnlineMeeting"/> and sets the default values.
         /// </summary>
-        public OnlineMeeting() : base() {
+        public OnlineMeeting() : base()
+        {
             OdataType = "#microsoft.graph.onlineMeeting";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OnlineMeeting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnlineMeeting CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new OnlineMeeting CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new OnlineMeeting();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"alternativeRecording", n => { AlternativeRecording = n.GetByteArrayValue(); } },
                 {"attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
+                {"broadcastRecording", n => { BroadcastRecording = n.GetByteArrayValue(); } },
                 {"broadcastSettings", n => { BroadcastSettings = n.GetObjectValue<BroadcastMeetingSettings>(BroadcastMeetingSettings.CreateFromDiscriminatorValue); } },
+                {"capabilities", n => { Capabilities = n.GetCollectionOfEnumValues<MeetingCapabilities>()?.ToList(); } },
                 {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"externalId", n => { ExternalId = n.GetStringValue(); } },
                 {"isBroadcast", n => { IsBroadcast = n.GetBoolValue(); } },
+                {"joinUrl", n => { JoinUrl = n.GetStringValue(); } },
+                {"meetingAttendanceReport", n => { MeetingAttendanceReport = n.GetObjectValue<ApiSdk.Models.MeetingAttendanceReport>(ApiSdk.Models.MeetingAttendanceReport.CreateFromDiscriminatorValue); } },
+                {"meetingTemplateId", n => { MeetingTemplateId = n.GetStringValue(); } },
                 {"participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
+                {"recording", n => { Recording = n.GetByteArrayValue(); } },
                 {"recordings", n => { Recordings = n.GetCollectionOfObjectValues<CallRecording>(CallRecording.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"registration", n => { Registration = n.GetObjectValue<MeetingRegistration>(MeetingRegistration.CreateFromDiscriminatorValue); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"transcripts", n => { Transcripts = n.GetCollectionOfObjectValues<CallTranscript>(CallTranscript.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -97,17 +176,26 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteByteArrayValue("alternativeRecording", AlternativeRecording);
             writer.WriteByteArrayValue("attendeeReport", AttendeeReport);
+            writer.WriteByteArrayValue("broadcastRecording", BroadcastRecording);
             writer.WriteObjectValue<BroadcastMeetingSettings>("broadcastSettings", BroadcastSettings);
+            writer.WriteCollectionOfEnumValues<MeetingCapabilities>("capabilities", Capabilities);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteStringValue("externalId", ExternalId);
             writer.WriteBoolValue("isBroadcast", IsBroadcast);
+            writer.WriteStringValue("joinUrl", JoinUrl);
+            writer.WriteObjectValue<ApiSdk.Models.MeetingAttendanceReport>("meetingAttendanceReport", MeetingAttendanceReport);
+            writer.WriteStringValue("meetingTemplateId", MeetingTemplateId);
             writer.WriteObjectValue<MeetingParticipants>("participants", Participants);
+            writer.WriteByteArrayValue("recording", Recording);
             writer.WriteCollectionOfObjectValues<CallRecording>("recordings", Recordings);
+            writer.WriteObjectValue<MeetingRegistration>("registration", Registration);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteCollectionOfObjectValues<CallTranscript>("transcripts", Transcripts);
         }

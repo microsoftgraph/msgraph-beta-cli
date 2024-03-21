@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// iOS Device Features Configuration Profile.
     /// </summary>
-    public class IosDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable {
+    public class IosDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable 
+    {
         /// <summary>Asset tag information for the device, displayed on the login window and lock screen.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -16,6 +17,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string AssetTagTemplate { get; set; }
+#endif
+        /// <summary>Gets or sets iOS Web Content Filter settings, supervised mode only</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosWebContentFilterBase? ContentFilterSettings { get; set; }
+#nullable restore
+#else
+        public IosWebContentFilterBase ContentFilterSettings { get; set; }
 #endif
         /// <summary>A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -25,6 +34,10 @@ namespace ApiSdk.Models {
 #else
         public List<IosHomeScreenItem> HomeScreenDockIcons { get; set; }
 #endif
+        /// <summary>Gets or sets the number of rows to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridWidth must be configured as well.</summary>
+        public int? HomeScreenGridHeight { get; set; }
+        /// <summary>Gets or sets the number of columns to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridHeight must be configured as well.</summary>
+        public int? HomeScreenGridWidth { get; set; }
         /// <summary>A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,6 +45,22 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<IosHomeScreenPage> HomeScreenPages { get; set; }
+#endif
+        /// <summary>Identity Certificate for the renewal of Kerberos ticket used in single sign-on settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosCertificateProfileBase? IdentityCertificateForClientAuthentication { get; set; }
+#nullable restore
+#else
+        public IosCertificateProfileBase IdentityCertificateForClientAuthentication { get; set; }
+#endif
+        /// <summary>Gets or sets a single sign-on extension profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.IosSingleSignOnExtension? IosSingleSignOnExtension { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.IosSingleSignOnExtension IosSingleSignOnExtension { get; set; }
 #endif
         /// <summary>A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,44 +78,105 @@ namespace ApiSdk.Models {
 #else
         public List<IosNotificationSettings> NotificationSettings { get; set; }
 #endif
+        /// <summary>Gets or sets a single sign-on extension profile. Deprecated: use IOSSingleSignOnExtension instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.SingleSignOnExtension? SingleSignOnExtension { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.SingleSignOnExtension SingleSignOnExtension { get; set; }
+#endif
+        /// <summary>PKINIT Certificate for the authentication with single sign-on extension settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosCertificateProfileBase? SingleSignOnExtensionPkinitCertificate { get; set; }
+#nullable restore
+#else
+        public IosCertificateProfileBase SingleSignOnExtensionPkinitCertificate { get; set; }
+#endif
+        /// <summary>The Kerberos login settings that enable apps on receiving devices to authenticate smoothly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosSingleSignOnSettings? SingleSignOnSettings { get; set; }
+#nullable restore
+#else
+        public IosSingleSignOnSettings SingleSignOnSettings { get; set; }
+#endif
+        /// <summary>An enum type for wallpaper display location specifier.</summary>
+        public IosWallpaperDisplayLocation? WallpaperDisplayLocation { get; set; }
+        /// <summary>A wallpaper image must be in either PNG or JPEG format. It requires a supervised device with iOS 8 or later version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? WallpaperImage { get; set; }
+#nullable restore
+#else
+        public MimeContent WallpaperImage { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new iosDeviceFeaturesConfiguration and sets the default values.
+        /// Instantiates a new <see cref="IosDeviceFeaturesConfiguration"/> and sets the default values.
         /// </summary>
-        public IosDeviceFeaturesConfiguration() : base() {
+        public IosDeviceFeaturesConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.iosDeviceFeaturesConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IosDeviceFeaturesConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosDeviceFeaturesConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new IosDeviceFeaturesConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IosDeviceFeaturesConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"assetTagTemplate", n => { AssetTagTemplate = n.GetStringValue(); } },
+                {"contentFilterSettings", n => { ContentFilterSettings = n.GetObjectValue<IosWebContentFilterBase>(IosWebContentFilterBase.CreateFromDiscriminatorValue); } },
                 {"homeScreenDockIcons", n => { HomeScreenDockIcons = n.GetCollectionOfObjectValues<IosHomeScreenItem>(IosHomeScreenItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"homeScreenGridHeight", n => { HomeScreenGridHeight = n.GetIntValue(); } },
+                {"homeScreenGridWidth", n => { HomeScreenGridWidth = n.GetIntValue(); } },
                 {"homeScreenPages", n => { HomeScreenPages = n.GetCollectionOfObjectValues<IosHomeScreenPage>(IosHomeScreenPage.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                {"iosSingleSignOnExtension", n => { IosSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.IosSingleSignOnExtension>(ApiSdk.Models.IosSingleSignOnExtension.CreateFromDiscriminatorValue); } },
                 {"lockScreenFootnote", n => { LockScreenFootnote = n.GetStringValue(); } },
                 {"notificationSettings", n => { NotificationSettings = n.GetCollectionOfObjectValues<IosNotificationSettings>(IosNotificationSettings.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
+                {"singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                {"singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<IosSingleSignOnSettings>(IosSingleSignOnSettings.CreateFromDiscriminatorValue); } },
+                {"wallpaperDisplayLocation", n => { WallpaperDisplayLocation = n.GetEnumValue<IosWallpaperDisplayLocation>(); } },
+                {"wallpaperImage", n => { WallpaperImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("assetTagTemplate", AssetTagTemplate);
+            writer.WriteObjectValue<IosWebContentFilterBase>("contentFilterSettings", ContentFilterSettings);
             writer.WriteCollectionOfObjectValues<IosHomeScreenItem>("homeScreenDockIcons", HomeScreenDockIcons);
+            writer.WriteIntValue("homeScreenGridHeight", HomeScreenGridHeight);
+            writer.WriteIntValue("homeScreenGridWidth", HomeScreenGridWidth);
             writer.WriteCollectionOfObjectValues<IosHomeScreenPage>("homeScreenPages", HomeScreenPages);
+            writer.WriteObjectValue<IosCertificateProfileBase>("identityCertificateForClientAuthentication", IdentityCertificateForClientAuthentication);
+            writer.WriteObjectValue<ApiSdk.Models.IosSingleSignOnExtension>("iosSingleSignOnExtension", IosSingleSignOnExtension);
             writer.WriteStringValue("lockScreenFootnote", LockScreenFootnote);
             writer.WriteCollectionOfObjectValues<IosNotificationSettings>("notificationSettings", NotificationSettings);
+            writer.WriteObjectValue<ApiSdk.Models.SingleSignOnExtension>("singleSignOnExtension", SingleSignOnExtension);
+            writer.WriteObjectValue<IosCertificateProfileBase>("singleSignOnExtensionPkinitCertificate", SingleSignOnExtensionPkinitCertificate);
+            writer.WriteObjectValue<IosSingleSignOnSettings>("singleSignOnSettings", SingleSignOnSettings);
+            writer.WriteEnumValue<IosWallpaperDisplayLocation>("wallpaperDisplayLocation", WallpaperDisplayLocation);
+            writer.WriteObjectValue<MimeContent>("wallpaperImage", WallpaperImage);
         }
     }
 }

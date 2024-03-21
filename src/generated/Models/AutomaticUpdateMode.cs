@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Possible values for automatic update mode.</summary>
-    public enum AutomaticUpdateMode {
+    public enum AutomaticUpdateMode
+    {
         /// <summary>User Defined, default value, no intent.</summary>
         [EnumMember(Value = "userDefined")]
         UserDefined,
@@ -22,5 +23,8 @@ namespace ApiSdk.Models {
         /// <summary>Auto-install and restart without end-user control</summary>
         [EnumMember(Value = "autoInstallAndRebootWithoutEndUserControl")]
         AutoInstallAndRebootWithoutEndUserControl,
+        /// <summary>Reset to Windows default value.</summary>
+        [EnumMember(Value = "windowsDefault")]
+        WindowsDefault,
     }
 }

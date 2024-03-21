@@ -18,18 +18,29 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.site entity.
     /// </summary>
-    public class ColumnsRequestBuilder : BaseCliRequestBuilder {
+    public class ColumnsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+        /// The collection of column definitions reusable across lists under this site.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of column definitions reusable across lists under this site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
             command.AddOption(siteIdOption);
+            var pathOption = new Option<string>("--path", description: "Usage: path='{path}'") {
+            };
+            pathOption.IsRequired = true;
+            command.AddOption(pathOption);
+            var path1Option = new Option<string>("--path1", description: "Usage: path='{path1}'") {
+            };
+            path1Option.IsRequired = true;
+            command.AddOption(path1Option);
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -73,6 +84,8 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
             command.AddOption(allOption);
             command.SetHandler(async (invocationContext) => {
                 var siteId = invocationContext.ParseResult.GetValueForOption(siteIdOption);
+                var path = invocationContext.ParseResult.GetValueForOption(pathOption);
+                var path1 = invocationContext.ParseResult.GetValueForOption(path1Option);
                 var top = invocationContext.ParseResult.GetValueForOption(topOption);
                 var skip = invocationContext.ParseResult.GetValueForOption(skipOption);
                 var search = invocationContext.ParseResult.GetValueForOption(searchOption);
@@ -100,6 +113,8 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
                     q.QueryParameters.Expand = expand;
                 });
                 if (siteId is not null) requestInfo.PathParameters.Add("site%2Did", siteId);
+                if (path is not null) requestInfo.PathParameters.Add("path", path);
+                if (path1 is not null) requestInfo.PathParameters.Add("path1", path1);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                     {"4XX", ODataError.CreateFromDiscriminatorValue},
                     {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -119,16 +134,26 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
             return command;
         }
         /// <summary>
-        /// Create a column for a [site][site] with a request that specifies a [columnDefinition][columnDefinition].
+        /// Create columnDefinition for a site
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Create a column for a [site][site] with a request that specifies a [columnDefinition][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0";
+            command.Description = "Create columnDefinition for a site\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
             command.AddOption(siteIdOption);
+            var pathOption = new Option<string>("--path", description: "Usage: path='{path}'") {
+            };
+            pathOption.IsRequired = true;
+            command.AddOption(pathOption);
+            var path1Option = new Option<string>("--path1", description: "Usage: path='{path1}'") {
+            };
+            path1Option.IsRequired = true;
+            command.AddOption(path1Option);
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -139,6 +164,8 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
             command.AddOption(queryOption);
             command.SetHandler(async (invocationContext) => {
                 var siteId = invocationContext.ParseResult.GetValueForOption(siteIdOption);
+                var path = invocationContext.ParseResult.GetValueForOption(pathOption);
+                var path1 = invocationContext.ParseResult.GetValueForOption(path1Option);
                 var body = invocationContext.ParseResult.GetValueForOption(bodyOption) ?? string.Empty;
                 var output = invocationContext.ParseResult.GetValueForOption(outputOption);
                 var query = invocationContext.ParseResult.GetValueForOption(queryOption);
@@ -156,6 +183,8 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
                 var requestInfo = ToPostRequestInformation(model, q => {
                 });
                 if (siteId is not null) requestInfo.PathParameters.Add("site%2Did", siteId);
+                if (path is not null) requestInfo.PathParameters.Add("path", path);
+                if (path1 is not null) requestInfo.PathParameters.Add("path1", path1);
                 requestInfo.SetContentFromParsable(reqAdapter, "application/json", model);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                     {"4XX", ODataError.CreateFromDiscriminatorValue},
@@ -169,27 +198,32 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+        /// The collection of column definitions reusable across lists under this site.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -197,27 +231,31 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create a column for a [site][site] with a request that specifies a [columnDefinition][columnDefinition].
+        /// Create columnDefinition for a site
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ColumnDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+        /// The collection of column definitions reusable across lists under this site.
         /// </summary>
-        public class ColumnsRequestBuilderGetQueryParameters {
+        public class ColumnsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

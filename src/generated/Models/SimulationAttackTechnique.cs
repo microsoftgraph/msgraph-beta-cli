@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum SimulationAttackTechnique {
+    public enum SimulationAttackTechnique
+    {
         [EnumMember(Value = "unknown")]
         Unknown,
         [EnumMember(Value = "credentialHarvesting")]
@@ -17,5 +18,9 @@ namespace ApiSdk.Models {
         LinkToMalwareFile,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
+        [EnumMember(Value = "oAuthConsentGrant")]
+        OAuthConsentGrant,
+        [EnumMember(Value = "phishTraining")]
+        PhishTraining,
     }
 }

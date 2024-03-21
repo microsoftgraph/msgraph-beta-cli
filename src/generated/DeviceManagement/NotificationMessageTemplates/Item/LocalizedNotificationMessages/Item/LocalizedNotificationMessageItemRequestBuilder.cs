@@ -18,14 +18,16 @@ namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNot
     /// <summary>
     /// Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
     /// </summary>
-    public class LocalizedNotificationMessageItemRequestBuilder : BaseCliRequestBuilder {
+    public class LocalizedNotificationMessageItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Deletes a localizedNotificationMessage.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-delete?view=graph-rest-1.0" />
+        /// Delete navigation property localizedNotificationMessages for deviceManagement
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Deletes a localizedNotificationMessage.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property localizedNotificationMessages for deviceManagement";
             var notificationMessageTemplateIdOption = new Option<string>("--notification-message-template-id", description: "The unique identifier of notificationMessageTemplate") {
             };
             notificationMessageTemplateIdOption.IsRequired = true;
@@ -60,12 +62,13 @@ namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNot
             return command;
         }
         /// <summary>
-        /// Read properties and relationships of the localizedNotificationMessage object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-get?view=graph-rest-1.0" />
+        /// The list of localized messages for this Notification Message Template.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Read properties and relationships of the localizedNotificationMessage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-get?view=graph-rest-1.0";
+            command.Description = "The list of localized messages for this Notification Message Template.";
             var notificationMessageTemplateIdOption = new Option<string>("--notification-message-template-id", description: "The unique identifier of notificationMessageTemplate") {
             };
             notificationMessageTemplateIdOption.IsRequired = true;
@@ -117,12 +120,13 @@ namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNot
             return command;
         }
         /// <summary>
-        /// Update the properties of a localizedNotificationMessage object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0" />
+        /// Update the navigation property localizedNotificationMessages in deviceManagement
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of a localizedNotificationMessage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property localizedNotificationMessages in deviceManagement";
             var notificationMessageTemplateIdOption = new Option<string>("--notification-message-template-id", description: "The unique identifier of notificationMessageTemplate") {
             };
             notificationMessageTemplateIdOption.IsRequired = true;
@@ -173,43 +177,51 @@ namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNot
             return command;
         }
         /// <summary>
-        /// Instantiates a new LocalizedNotificationMessageItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LocalizedNotificationMessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LocalizedNotificationMessageItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24select,%24expand}", pathParameters) {
+        public LocalizedNotificationMessageItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LocalizedNotificationMessageItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LocalizedNotificationMessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LocalizedNotificationMessageItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24select,%24expand}", rawUrl) {
+        public LocalizedNotificationMessageItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Deletes a localizedNotificationMessage.
+        /// Delete navigation property localizedNotificationMessages for deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the localizedNotificationMessage object.
+        /// The list of localized messages for this Notification Message Template.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -217,27 +229,31 @@ namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNot
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a localizedNotificationMessage object.
+        /// Update the navigation property localizedNotificationMessages in deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(LocalizedNotificationMessage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LocalizedNotificationMessage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(LocalizedNotificationMessage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LocalizedNotificationMessage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the localizedNotificationMessage object.
+        /// The list of localized messages for this Notification Message Template.
         /// </summary>
-        public class LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
+        public class LocalizedNotificationMessageItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

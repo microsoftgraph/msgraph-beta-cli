@@ -23,11 +23,14 @@ namespace ApiSdk.Groups.Item.Calendar {
     /// <summary>
     /// Provides operations to manage the calendar property of the microsoft.graph.group entity.
     /// </summary>
-    public class CalendarRequestBuilder : BaseCliRequestBuilder {
+    public class CalendarRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to call the allowedCalendarSharingRoles method.
         /// </summary>
-        public Command BuildAllowedCalendarSharingRolesWithUserRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAllowedCalendarSharingRolesWithUserRbCommand()
+        {
             var command = new Command("allowed-calendar-sharing-roles-with-user");
             command.Description = "Provides operations to call the allowedCalendarSharingRoles method.";
             var builder = new AllowedCalendarSharingRolesWithUserRequestBuilder(PathParameters);
@@ -42,7 +45,9 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
         /// </summary>
-        public Command BuildCalendarPermissionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCalendarPermissionsNavCommand()
+        {
             var command = new Command("calendar-permissions");
             command.Description = "Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.";
             var builder = new CalendarPermissionsRequestBuilder(PathParameters);
@@ -67,7 +72,9 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
         /// </summary>
-        public Command BuildCalendarViewNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCalendarViewNavCommand()
+        {
             var command = new Command("calendar-view");
             command.Description = "Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.";
             var builder = new CalendarViewRequestBuilder(PathParameters);
@@ -92,7 +99,9 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// Provides operations to manage the events property of the microsoft.graph.calendar entity.
         /// </summary>
-        public Command BuildEventsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildEventsNavCommand()
+        {
             var command = new Command("events");
             command.Description = "Provides operations to manage the events property of the microsoft.graph.calendar entity.";
             var builder = new EventsRequestBuilder(PathParameters);
@@ -118,7 +127,9 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// The group&apos;s calendar. Read-only.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The group's calendar. Read-only.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
@@ -161,7 +172,9 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// Provides operations to call the getSchedule method.
         /// </summary>
-        public Command BuildGetScheduleNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetScheduleNavCommand()
+        {
             var command = new Command("get-schedule");
             command.Description = "Provides operations to call the getSchedule method.";
             var builder = new GetScheduleRequestBuilder(PathParameters);
@@ -174,27 +187,32 @@ namespace ApiSdk.Groups.Item.Calendar {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CalendarRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CalendarRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CalendarRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/calendar{?%24select}", pathParameters) {
+        public CalendarRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/calendar{?%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CalendarRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CalendarRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CalendarRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/calendar{?%24select}", rawUrl) {
+        public CalendarRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/calendar{?%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The group&apos;s calendar. Read-only.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CalendarRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CalendarRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CalendarRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CalendarRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -204,7 +222,8 @@ namespace ApiSdk.Groups.Item.Calendar {
         /// <summary>
         /// The group&apos;s calendar. Read-only.
         /// </summary>
-        public class CalendarRequestBuilderGetQueryParameters {
+        public class CalendarRequestBuilderGetQueryParameters 
+        {
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

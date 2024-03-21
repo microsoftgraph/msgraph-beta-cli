@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PrinterDefaults : IAdditionalDataHolder, IParsable {
+    public class PrinterDefaults : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The default color mode to use when printing the document. Valid values are described in the following table.</summary>
@@ -20,8 +21,18 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The default number of copies printed per job.</summary>
         public int? CopiesPerJob { get; set; }
+        /// <summary>The documentMimeType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DocumentMimeType { get; set; }
+#nullable restore
+#else
+        public string DocumentMimeType { get; set; }
+#endif
         /// <summary>The default resolution in DPI to use when printing the job.</summary>
         public int? Dpi { get; set; }
+        /// <summary>The duplexConfiguration property</summary>
+        public PrintDuplexConfiguration? DuplexConfiguration { get; set; }
         /// <summary>The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.</summary>
         public PrintDuplexMode? DuplexMode { get; set; }
         /// <summary>The default set of finishings to apply to print jobs. Valid values are described in the following table.</summary>
@@ -34,7 +45,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions.</summary>
         public bool? FitPdfToPage { get; set; }
-        /// <summary>The inputBin property</summary>
+        /// <summary>The default input bin that serves as the paper source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InputBin { get; set; }
@@ -88,33 +99,49 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The default number of document pages to print on each sheet.</summary>
         public int? PagesPerSheet { get; set; }
+        /// <summary>The pdfFitToPage property</summary>
+        public bool? PdfFitToPage { get; set; }
+        /// <summary>The presentationDirection property</summary>
+        public PrintPresentationDirection? PresentationDirection { get; set; }
+        /// <summary>The printColorConfiguration property</summary>
+        public ApiSdk.Models.PrintColorConfiguration? PrintColorConfiguration { get; set; }
+        /// <summary>The printQuality property</summary>
+        public ApiSdk.Models.PrintQuality? PrintQuality { get; set; }
         /// <summary>The default quality to use when printing the document. Valid values are described in the following table.</summary>
-        public PrintQuality? Quality { get; set; }
+        public ApiSdk.Models.PrintQuality? Quality { get; set; }
         /// <summary>Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.</summary>
         public PrintScaling? Scaling { get; set; }
         /// <summary>
-        /// Instantiates a new printerDefaults and sets the default values.
+        /// Instantiates a new <see cref="PrinterDefaults"/> and sets the default values.
         /// </summary>
-        public PrinterDefaults() {
+        public PrinterDefaults()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PrinterDefaults"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PrinterDefaults CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static PrinterDefaults CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PrinterDefaults();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"colorMode", n => { ColorMode = n.GetEnumValue<PrintColorMode>(); } },
                 {"contentType", n => { ContentType = n.GetStringValue(); } },
                 {"copiesPerJob", n => { CopiesPerJob = n.GetIntValue(); } },
+                {"documentMimeType", n => { DocumentMimeType = n.GetStringValue(); } },
                 {"dpi", n => { Dpi = n.GetIntValue(); } },
+                {"duplexConfiguration", n => { DuplexConfiguration = n.GetEnumValue<PrintDuplexConfiguration>(); } },
                 {"duplexMode", n => { DuplexMode = n.GetEnumValue<PrintDuplexMode>(); } },
                 {"finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
                 {"fitPdfToPage", n => { FitPdfToPage = n.GetBoolValue(); } },
@@ -127,6 +154,10 @@ namespace ApiSdk.Models {
                 {"orientation", n => { Orientation = n.GetEnumValue<PrintOrientation>(); } },
                 {"outputBin", n => { OutputBin = n.GetStringValue(); } },
                 {"pagesPerSheet", n => { PagesPerSheet = n.GetIntValue(); } },
+                {"pdfFitToPage", n => { PdfFitToPage = n.GetBoolValue(); } },
+                {"presentationDirection", n => { PresentationDirection = n.GetEnumValue<PrintPresentationDirection>(); } },
+                {"printColorConfiguration", n => { PrintColorConfiguration = n.GetEnumValue<PrintColorConfiguration>(); } },
+                {"printQuality", n => { PrintQuality = n.GetEnumValue<PrintQuality>(); } },
                 {"quality", n => { Quality = n.GetEnumValue<PrintQuality>(); } },
                 {"scaling", n => { Scaling = n.GetEnumValue<PrintScaling>(); } },
             };
@@ -135,12 +166,15 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<PrintColorMode>("colorMode", ColorMode);
             writer.WriteStringValue("contentType", ContentType);
             writer.WriteIntValue("copiesPerJob", CopiesPerJob);
+            writer.WriteStringValue("documentMimeType", DocumentMimeType);
             writer.WriteIntValue("dpi", Dpi);
+            writer.WriteEnumValue<PrintDuplexConfiguration>("duplexConfiguration", DuplexConfiguration);
             writer.WriteEnumValue<PrintDuplexMode>("duplexMode", DuplexMode);
             writer.WriteCollectionOfEnumValues<PrintFinishing>("finishings", Finishings);
             writer.WriteBoolValue("fitPdfToPage", FitPdfToPage);
@@ -153,6 +187,10 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<PrintOrientation>("orientation", Orientation);
             writer.WriteStringValue("outputBin", OutputBin);
             writer.WriteIntValue("pagesPerSheet", PagesPerSheet);
+            writer.WriteBoolValue("pdfFitToPage", PdfFitToPage);
+            writer.WriteEnumValue<PrintPresentationDirection>("presentationDirection", PresentationDirection);
+            writer.WriteEnumValue<PrintColorConfiguration>("printColorConfiguration", PrintColorConfiguration);
+            writer.WriteEnumValue<PrintQuality>("printQuality", PrintQuality);
             writer.WriteEnumValue<PrintQuality>("quality", Quality);
             writer.WriteEnumValue<PrintScaling>("scaling", Scaling);
             writer.WriteAdditionalData(AdditionalData);

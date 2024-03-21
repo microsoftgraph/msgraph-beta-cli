@@ -20,11 +20,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
     /// <summary>
     /// Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
     /// </summary>
-    public class ServiceManagementDetailsRequestBuilder : BaseCliRequestBuilder {
+    public class ServiceManagementDetailsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new DelegatedAdminServiceManagementDetailItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
@@ -35,7 +38,9 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -50,7 +55,9 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         /// <summary>
         /// Create new navigation property to serviceManagementDetails for tenantRelationships
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to serviceManagementDetails for tenantRelationships";
             var delegatedAdminCustomerIdOption = new Option<string>("--delegated-admin-customer-id", description: "The unique identifier of delegatedAdminCustomer") {
@@ -100,7 +107,9 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
             command.Description = "Get a list of the delegatedAdminServiceManagementDetail objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0";
             var delegatedAdminCustomerIdOption = new Option<string>("--delegated-admin-customer-id", description: "The unique identifier of delegatedAdminCustomer") {
@@ -196,27 +205,32 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
             return command;
         }
         /// <summary>
-        /// Instantiates a new ServiceManagementDetailsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ServiceManagementDetailsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ServiceManagementDetailsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ServiceManagementDetailsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ServiceManagementDetailsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ServiceManagementDetailsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ServiceManagementDetailsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ServiceManagementDetailsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -226,17 +240,20 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         /// <summary>
         /// Create new navigation property to serviceManagementDetails for tenantRelationships
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(DelegatedAdminServiceManagementDetail body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(DelegatedAdminServiceManagementDetail body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(DelegatedAdminServiceManagementDetail body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(DelegatedAdminServiceManagementDetail body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -244,7 +261,8 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         /// <summary>
         /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
         /// </summary>
-        public class ServiceManagementDetailsRequestBuilderGetQueryParameters {
+        public class ServiceManagementDetailsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

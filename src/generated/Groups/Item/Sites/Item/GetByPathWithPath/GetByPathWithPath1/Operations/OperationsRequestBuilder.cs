@@ -18,14 +18,17 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.site entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder {
+    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Get a list of rich long-running operations associated with a site.
+        /// Get the list of richLongRunningOperations associated with a site.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Get a list of rich long-running operations associated with a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0";
+            command.Description = "Get the list of richLongRunningOperations associated with a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -34,6 +37,14 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
             };
             siteIdOption.IsRequired = true;
             command.AddOption(siteIdOption);
+            var pathOption = new Option<string>("--path", description: "Usage: path='{path}'") {
+            };
+            pathOption.IsRequired = true;
+            command.AddOption(pathOption);
+            var path1Option = new Option<string>("--path1", description: "Usage: path='{path1}'") {
+            };
+            path1Option.IsRequired = true;
+            command.AddOption(path1Option);
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -78,6 +89,8 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
             command.SetHandler(async (invocationContext) => {
                 var groupId = invocationContext.ParseResult.GetValueForOption(groupIdOption);
                 var siteId = invocationContext.ParseResult.GetValueForOption(siteIdOption);
+                var path = invocationContext.ParseResult.GetValueForOption(pathOption);
+                var path1 = invocationContext.ParseResult.GetValueForOption(path1Option);
                 var top = invocationContext.ParseResult.GetValueForOption(topOption);
                 var skip = invocationContext.ParseResult.GetValueForOption(skipOption);
                 var search = invocationContext.ParseResult.GetValueForOption(searchOption);
@@ -106,6 +119,8 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
                 });
                 if (groupId is not null) requestInfo.PathParameters.Add("group%2Did", groupId);
                 if (siteId is not null) requestInfo.PathParameters.Add("site%2Did", siteId);
+                if (path is not null) requestInfo.PathParameters.Add("path", path);
+                if (path1 is not null) requestInfo.PathParameters.Add("path1", path1);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                     {"4XX", ODataError.CreateFromDiscriminatorValue},
                     {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -127,7 +142,9 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
         /// <summary>
         /// Create new navigation property to operations for groups
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Create new navigation property to operations for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
@@ -138,6 +155,14 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
             };
             siteIdOption.IsRequired = true;
             command.AddOption(siteIdOption);
+            var pathOption = new Option<string>("--path", description: "Usage: path='{path}'") {
+            };
+            pathOption.IsRequired = true;
+            command.AddOption(pathOption);
+            var path1Option = new Option<string>("--path1", description: "Usage: path='{path1}'") {
+            };
+            path1Option.IsRequired = true;
+            command.AddOption(path1Option);
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -149,6 +174,8 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
             command.SetHandler(async (invocationContext) => {
                 var groupId = invocationContext.ParseResult.GetValueForOption(groupIdOption);
                 var siteId = invocationContext.ParseResult.GetValueForOption(siteIdOption);
+                var path = invocationContext.ParseResult.GetValueForOption(pathOption);
+                var path1 = invocationContext.ParseResult.GetValueForOption(path1Option);
                 var body = invocationContext.ParseResult.GetValueForOption(bodyOption) ?? string.Empty;
                 var output = invocationContext.ParseResult.GetValueForOption(outputOption);
                 var query = invocationContext.ParseResult.GetValueForOption(queryOption);
@@ -167,6 +194,8 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
                 });
                 if (groupId is not null) requestInfo.PathParameters.Add("group%2Did", groupId);
                 if (siteId is not null) requestInfo.PathParameters.Add("site%2Did", siteId);
+                if (path is not null) requestInfo.PathParameters.Add("path", path);
+                if (path1 is not null) requestInfo.PathParameters.Add("path1", path1);
                 requestInfo.SetContentFromParsable(reqAdapter, "application/json", model);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                     {"4XX", ODataError.CreateFromDiscriminatorValue},
@@ -180,27 +209,32 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
             return command;
         }
         /// <summary>
-        /// Instantiates a new OperationsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="OperationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public OperationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public OperationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new OperationsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="OperationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public OperationsRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public OperationsRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Get a list of rich long-running operations associated with a site.
+        /// Get the list of richLongRunningOperations associated with a site.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -210,25 +244,29 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ope
         /// <summary>
         /// Create new navigation property to operations for groups
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RichLongRunningOperation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RichLongRunningOperation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RichLongRunningOperation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RichLongRunningOperation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/operations", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of rich long-running operations associated with a site.
+        /// Get the list of richLongRunningOperations associated with a site.
         /// </summary>
-        public class OperationsRequestBuilderGetQueryParameters {
+        public class OperationsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

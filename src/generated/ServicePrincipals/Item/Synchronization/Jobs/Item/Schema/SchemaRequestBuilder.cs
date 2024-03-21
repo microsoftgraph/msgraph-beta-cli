@@ -22,11 +22,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
     /// <summary>
     /// Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
     /// </summary>
-    public class SchemaRequestBuilder : BaseCliRequestBuilder {
+    public class SchemaRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property schema for servicePrincipals
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property schema for servicePrincipals";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
@@ -65,7 +68,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
         /// </summary>
-        public Command BuildDirectoriesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDirectoriesNavCommand()
+        {
             var command = new Command("directories");
             command.Description = "Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.";
             var builder = new DirectoriesRequestBuilder(PathParameters);
@@ -90,7 +95,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Provides operations to call the filterOperators method.
         /// </summary>
-        public Command BuildFilterOperatorsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFilterOperatorsNavCommand()
+        {
             var command = new Command("filter-operators");
             command.Description = "Provides operations to call the filterOperators method.";
             var builder = new FilterOperatorsRequestBuilder(PathParameters);
@@ -105,7 +112,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Provides operations to call the functions method.
         /// </summary>
-        public Command BuildFunctionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFunctionsNavCommand()
+        {
             var command = new Command("functions");
             command.Description = "Provides operations to call the functions method.";
             var builder = new FunctionsRequestBuilder(PathParameters);
@@ -121,7 +130,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// Retrieve the schema for a given synchronization job or template.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Retrieve the schema for a given synchronization job or template.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-1.0";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
@@ -177,7 +188,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Provides operations to call the parseExpression method.
         /// </summary>
-        public Command BuildParseExpressionNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildParseExpressionNavCommand()
+        {
             var command = new Command("parse-expression");
             command.Description = "Provides operations to call the parseExpression method.";
             var builder = new ParseExpressionRequestBuilder(PathParameters);
@@ -193,7 +206,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-update?view=graph-rest-1.0";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
@@ -246,29 +261,34 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SchemaRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SchemaRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SchemaRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema{?%24select,%24expand}", pathParameters) {
+        public SchemaRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SchemaRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SchemaRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SchemaRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema{?%24select,%24expand}", rawUrl) {
+        public SchemaRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property schema for servicePrincipals
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -276,13 +296,16 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Retrieve the schema for a given synchronization job or template.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SchemaRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SchemaRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SchemaRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SchemaRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -292,17 +315,20 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SynchronizationSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SynchronizationSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SynchronizationSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SynchronizationSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -310,7 +336,8 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
         /// <summary>
         /// Retrieve the schema for a given synchronization job or template.
         /// </summary>
-        public class SchemaRequestBuilderGetQueryParameters {
+        public class SchemaRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -4,7 +4,8 @@ using System;
 namespace ApiSdk.Models {
     /// <summary>Contains properties for Windows architecture.</summary>
     [Flags]
-    public enum WindowsArchitecture {
+    public enum WindowsArchitecture
+    {
         /// <summary>No flags set.</summary>
         [EnumMember(Value = "none")]
         None = 1,
@@ -20,5 +21,8 @@ namespace ApiSdk.Models {
         /// <summary>Whether or not the Neutral Windows architecture type is supported.</summary>
         [EnumMember(Value = "neutral")]
         Neutral = 16,
+        /// <summary>Whether or not the Arm64 Windows architecture type is supported.</summary>
+        [EnumMember(Value = "arm64")]
+        Arm64 = 32,
     }
 }

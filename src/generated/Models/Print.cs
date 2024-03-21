@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Print : IAdditionalDataHolder, IParsable {
+    public class Print : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of available print connectors.</summary>
@@ -24,7 +25,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The list of print long running operations.</summary>
+        /// <summary>The operations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrintOperation>? Operations { get; set; }
@@ -39,6 +40,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<Printer> Printers { get; set; }
+#endif
+        /// <summary>The printerShares property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PrinterShare>? PrinterShares { get; set; }
+#nullable restore
+#else
+        public List<PrinterShare> PrinterShares { get; set; }
 #endif
         /// <summary>The list of available Universal Print service endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +73,7 @@ namespace ApiSdk.Models {
 #else
         public List<PrinterShare> Shares { get; set; }
 #endif
-        /// <summary>List of abstract definition for a task that can be triggered when various events occur within Universal Print.</summary>
+        /// <summary>The taskDefinitions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrintTaskDefinition>? TaskDefinitions { get; set; }
@@ -73,27 +82,34 @@ namespace ApiSdk.Models {
         public List<PrintTaskDefinition> TaskDefinitions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new print and sets the default values.
+        /// Instantiates a new <see cref="Print"/> and sets the default values.
         /// </summary>
-        public Print() {
+        public Print()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Print"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Print CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static Print CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Print();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"connectors", n => { Connectors = n.GetCollectionOfObjectValues<PrintConnector>(PrintConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<PrintOperation>(PrintOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"printerShares", n => { PrinterShares = n.GetCollectionOfObjectValues<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"printers", n => { Printers = n.GetCollectionOfObjectValues<Printer>(Printer.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"services", n => { Services = n.GetCollectionOfObjectValues<PrintService>(PrintService.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"settings", n => { Settings = n.GetObjectValue<PrintSettings>(PrintSettings.CreateFromDiscriminatorValue); } },
@@ -105,12 +121,14 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<PrintConnector>("connectors", Connectors);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<PrintOperation>("operations", Operations);
             writer.WriteCollectionOfObjectValues<Printer>("printers", Printers);
+            writer.WriteCollectionOfObjectValues<PrinterShare>("printerShares", PrinterShares);
             writer.WriteCollectionOfObjectValues<PrintService>("services", Services);
             writer.WriteObjectValue<PrintSettings>("settings", Settings);
             writer.WriteCollectionOfObjectValues<PrinterShare>("shares", Shares);

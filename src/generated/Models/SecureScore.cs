@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class SecureScore : Entity, IParsable {
+    public class SecureScore : Entity, IParsable 
+    {
         /// <summary>Active user count of the given tenant.</summary>
         public int? ActiveUserCount { get; set; }
         /// <summary>Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Tenant current attained score on specified date.</summary>
         public double? CurrentScore { get; set; }
-        /// <summary>Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).</summary>
+        /// <summary>Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? EnabledServices { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
         public int? LicensedUserCount { get; set; }
         /// <summary>Tenant maximum possible score on specified date.</summary>
         public double? MaxScore { get; set; }
-        /// <summary>Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.</summary>
+        /// <summary>The vendorInformation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public SecurityVendorInformation? VendorInformation { get; set; }
@@ -59,16 +60,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SecureScore"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecureScore CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new SecureScore CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SecureScore();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"activeUserCount", n => { ActiveUserCount = n.GetIntValue(); } },
                 {"averageComparativeScores", n => { AverageComparativeScores = n.GetCollectionOfObjectValues<AverageComparativeScore>(AverageComparativeScore.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
@@ -85,7 +91,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("activeUserCount", ActiveUserCount);

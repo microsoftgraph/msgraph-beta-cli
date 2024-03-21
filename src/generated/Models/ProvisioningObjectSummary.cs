@@ -5,8 +5,17 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ProvisioningObjectSummary : Entity, IParsable {
-        /// <summary>Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  SUpports $filter (eq, gt, lt) and orderby.</summary>
+    public class ProvisioningObjectSummary : Entity, IParsable 
+    {
+        /// <summary>The action property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Action { get; set; }
+#nullable restore
+#else
+        public string Action { get; set; }
+#endif
+        /// <summary>Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, gt, lt) and orderby.</summary>
         public DateTimeOffset? ActivityDateTime { get; set; }
         /// <summary>Unique ID of this change in this cycle. Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public string CycleId { get; set; }
 #endif
-        /// <summary>Indicates how long this provisioning action took to finish. Measured in milliseconds.</summary>
+        /// <summary>Indicates how long this provisioning action took to finish. Measured in milliseconds. Supports $filter (eq, gt, lt).</summary>
         public int? DurationInMilliseconds { get; set; }
         /// <summary>Details of who initiated this provisioning. Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +61,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Microsoft Entra activity list. Supports $filter (eq, contains).</summary>
         public ApiSdk.Models.ProvisioningAction? ProvisioningAction { get; set; }
-        /// <summary>Details of provisioning status.</summary>
+        /// <summary>Details of provisioning status. Supports $filter (eq, contains) for status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.ProvisioningStatusInfo? ProvisioningStatusInfo { get; set; }
@@ -92,6 +101,14 @@ namespace ApiSdk.Models {
 #else
         public ProvisioningSystem SourceSystem { get; set; }
 #endif
+        /// <summary>The statusInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public StatusBase? StatusInfo { get; set; }
+#nullable restore
+#else
+        public StatusBase StatusInfo { get; set; }
+#endif
         /// <summary>Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,16 +136,22 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ProvisioningObjectSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProvisioningObjectSummary CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ProvisioningObjectSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ProvisioningObjectSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"action", n => { Action = n.GetStringValue(); } },
                 {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 {"changeId", n => { ChangeId = n.GetStringValue(); } },
                 {"cycleId", n => { CycleId = n.GetStringValue(); } },
@@ -142,6 +165,7 @@ namespace ApiSdk.Models {
                 {"servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ProvisioningServicePrincipal>(ProvisioningServicePrincipal.CreateFromDiscriminatorValue); } },
                 {"sourceIdentity", n => { SourceIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
                 {"sourceSystem", n => { SourceSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
+                {"statusInfo", n => { StatusInfo = n.GetObjectValue<StatusBase>(StatusBase.CreateFromDiscriminatorValue); } },
                 {"targetIdentity", n => { TargetIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
                 {"targetSystem", n => { TargetSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
@@ -151,9 +175,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("action", Action);
             writer.WriteDateTimeOffsetValue("activityDateTime", ActivityDateTime);
             writer.WriteStringValue("changeId", ChangeId);
             writer.WriteStringValue("cycleId", CycleId);
@@ -167,6 +193,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ProvisioningServicePrincipal>("servicePrincipal", ServicePrincipal);
             writer.WriteObjectValue<ProvisionedIdentity>("sourceIdentity", SourceIdentity);
             writer.WriteObjectValue<ProvisioningSystem>("sourceSystem", SourceSystem);
+            writer.WriteObjectValue<StatusBase>("statusInfo", StatusInfo);
             writer.WriteObjectValue<ProvisionedIdentity>("targetIdentity", TargetIdentity);
             writer.WriteObjectValue<ProvisioningSystem>("targetSystem", TargetSystem);
             writer.WriteStringValue("tenantId", TenantId);

@@ -22,11 +22,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class ColumnsRequestBuilder : BaseCliRequestBuilder {
+    public class ColumnsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to call the add method.
         /// </summary>
-        public Command BuildAddNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAddNavCommand()
+        {
             var command = new Command("add");
             command.Description = "Provides operations to call the add method.";
             var builder = new AddRequestBuilder(PathParameters);
@@ -41,7 +44,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// <summary>
         /// Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new WorkbookTableColumnItemRequestBuilder(PathParameters);
@@ -58,7 +63,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// <summary>
         /// Provides operations to call the count method.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to call the count method.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -74,7 +81,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// Use this API to create a new TableColumn.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Use this API to create a new TableColumn.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -135,7 +144,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// <summary>
         /// Provides operations to call the itemAt method.
         /// </summary>
-        public Command BuildItemAtWithIndexRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildItemAtWithIndexRbCommand()
+        {
             var command = new Command("item-at-with-index");
             command.Description = "Provides operations to call the itemAt method.";
             var builder = new ItemAtWithIndexRequestBuilder(PathParameters);
@@ -159,11 +170,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         }
         /// <summary>
         /// Retrieve a list of tablecolumn objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieve a list of tablecolumn objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of tablecolumn objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -269,27 +282,32 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ColumnsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ColumnsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ColumnsRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Retrieve a list of tablecolumn objects.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ColumnsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -299,17 +317,20 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// <summary>
         /// Use this API to create a new TableColumn.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(WorkbookTableColumn body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WorkbookTableColumn body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(WorkbookTableColumn body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WorkbookTableColumn body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -317,7 +338,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         /// <summary>
         /// Retrieve a list of tablecolumn objects.
         /// </summary>
-        public class ColumnsRequestBuilderGetQueryParameters {
+        public class ColumnsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

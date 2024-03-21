@@ -20,11 +20,14 @@ namespace ApiSdk.Security.SecureScores {
     /// <summary>
     /// Provides operations to manage the secureScores property of the microsoft.graph.security entity.
     /// </summary>
-    public class SecureScoresRequestBuilder : BaseCliRequestBuilder {
+    public class SecureScoresRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the secureScores property of the microsoft.graph.security entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new SecureScoreItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
@@ -35,7 +38,9 @@ namespace ApiSdk.Security.SecureScores {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -50,7 +55,9 @@ namespace ApiSdk.Security.SecureScores {
         /// <summary>
         /// Create new navigation property to secureScores for security
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to secureScores for security";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -91,12 +98,14 @@ namespace ApiSdk.Security.SecureScores {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0" />
+        /// Retrieve the properties and relationships of a secureScores object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieve a list of secureScore objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a secureScores object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -184,27 +193,32 @@ namespace ApiSdk.Security.SecureScores {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SecureScoresRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SecureScoresRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SecureScoresRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public SecureScoresRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/secureScores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SecureScoresRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SecureScoresRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SecureScoresRequestBuilder(string rawUrl) : base("{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public SecureScoresRequestBuilder(string rawUrl) : base("{+baseurl}/security/secureScores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
+        /// Retrieve the properties and relationships of a secureScores object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -214,25 +228,29 @@ namespace ApiSdk.Security.SecureScores {
         /// <summary>
         /// Create new navigation property to secureScores for security
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SecureScore body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SecureScore body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SecureScore body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SecureScore body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/secureScores", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
+        /// Retrieve the properties and relationships of a secureScores object.
         /// </summary>
-        public class SecureScoresRequestBuilderGetQueryParameters {
+        public class SecureScoresRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

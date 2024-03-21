@@ -17,12 +17,15 @@ namespace ApiSdk.Groups.Item.AddFavorite {
     /// <summary>
     /// Provides operations to call the addFavorite method.
     /// </summary>
-    public class AddFavoriteRequestBuilder : BaseCliRequestBuilder {
+    public class AddFavoriteRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Add the group to the list of the current user&apos;s favorite groups. Supported for Microsoft 365 groups only.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Add the group to the list of the current user's favorite groups. Supported for Microsoft 365 groups only.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
@@ -46,27 +49,32 @@ namespace ApiSdk.Groups.Item.AddFavorite {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AddFavoriteRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AddFavoriteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AddFavoriteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/addFavorite", pathParameters) {
+        public AddFavoriteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/addFavorite", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AddFavoriteRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AddFavoriteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AddFavoriteRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/addFavorite", rawUrl) {
+        public AddFavoriteRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/addFavorite", rawUrl)
+        {
         }
         /// <summary>
         /// Add the group to the list of the current user&apos;s favorite groups. Supported for Microsoft 365 groups only.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

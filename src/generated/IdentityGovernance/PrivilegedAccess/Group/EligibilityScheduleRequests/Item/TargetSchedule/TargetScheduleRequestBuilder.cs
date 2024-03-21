@@ -18,11 +18,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
     /// <summary>
     /// Provides operations to manage the targetSchedule property of the microsoft.graph.privilegedAccessGroupEligibilityScheduleRequest entity.
     /// </summary>
-    public class TargetScheduleRequestBuilder : BaseCliRequestBuilder {
+    public class TargetScheduleRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Schedule created by this request.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Schedule created by this request.";
             var privilegedAccessGroupEligibilityScheduleRequestIdOption = new Option<string>("--privileged-access-group-eligibility-schedule-request-id", description: "The unique identifier of privilegedAccessGroupEligibilityScheduleRequest") {
@@ -70,27 +73,32 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return command;
         }
         /// <summary>
-        /// Instantiates a new TargetScheduleRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TargetScheduleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TargetScheduleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24select,%24expand}", pathParameters) {
+        public TargetScheduleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TargetScheduleRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TargetScheduleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TargetScheduleRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24select,%24expand}", rawUrl) {
+        public TargetScheduleRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Schedule created by this request.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
         /// <summary>
         /// Schedule created by this request.
         /// </summary>
-        public class TargetScheduleRequestBuilderGetQueryParameters {
+        public class TargetScheduleRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

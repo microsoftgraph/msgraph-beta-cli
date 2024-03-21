@@ -21,14 +21,17 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
     /// <summary>
     /// Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder {
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+        /// Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -88,7 +91,9 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
         /// <summary>
         /// Casts the previous resource to application.
         /// </summary>
-        public Command BuildGraphApplicationByIdNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphApplicationByIdNavCommand()
+        {
             var command = new Command("graph-application-by-id");
             command.Description = "Casts the previous resource to application.";
             var builder = new GraphApplicationRequestBuilder(PathParameters);
@@ -103,7 +108,9 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
         /// <summary>
         /// Casts the previous resource to group.
         /// </summary>
-        public Command BuildGraphGroupByIdNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphGroupByIdNavCommand()
+        {
             var command = new Command("graph-group-by-id");
             command.Description = "Casts the previous resource to group.";
             var builder = new GraphGroupRequestBuilder(PathParameters);
@@ -118,7 +125,9 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
         /// <summary>
         /// Casts the previous resource to servicePrincipal.
         /// </summary>
-        public Command BuildGraphServicePrincipalByIdNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphServicePrincipalByIdNavCommand()
+        {
             var command = new Command("graph-service-principal-by-id");
             command.Description = "Casts the previous resource to servicePrincipal.";
             var builder = new GraphServicePrincipalRequestBuilder(PathParameters);
@@ -131,27 +140,32 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DirectoryObjectItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public DirectoryObjectItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}{?%24select,%24expand}", pathParameters) {
+        public DirectoryObjectItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DirectoryObjectItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public DirectoryObjectItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}{?%24select,%24expand}", rawUrl) {
+        public DirectoryObjectItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+        /// Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -159,9 +173,10 @@ namespace ApiSdk.Users.Item.OwnedObjects.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+        /// Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
-        public class DirectoryObjectItemRequestBuilderGetQueryParameters {
+        public class DirectoryObjectItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -18,11 +18,14 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsBaselines.Item.BatteryH
     /// <summary>
     /// Provides operations to manage the batteryHealthMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     /// </summary>
-    public class BatteryHealthMetricsRequestBuilder : BaseCliRequestBuilder {
+    public class BatteryHealthMetricsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The scores and insights for the battery health metrics.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The scores and insights for the battery health metrics.";
             var userExperienceAnalyticsBaselineIdOption = new Option<string>("--user-experience-analytics-baseline-id", description: "The unique identifier of userExperienceAnalyticsBaseline") {
@@ -70,27 +73,32 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsBaselines.Item.BatteryH
             return command;
         }
         /// <summary>
-        /// Instantiates a new BatteryHealthMetricsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BatteryHealthMetricsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public BatteryHealthMetricsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/batteryHealthMetrics{?%24select,%24expand}", pathParameters) {
+        public BatteryHealthMetricsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/batteryHealthMetrics{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new BatteryHealthMetricsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BatteryHealthMetricsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public BatteryHealthMetricsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/batteryHealthMetrics{?%24select,%24expand}", rawUrl) {
+        public BatteryHealthMetricsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/batteryHealthMetrics{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The scores and insights for the battery health metrics.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BatteryHealthMetricsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BatteryHealthMetricsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BatteryHealthMetricsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BatteryHealthMetricsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsBaselines.Item.BatteryH
         /// <summary>
         /// The scores and insights for the battery health metrics.
         /// </summary>
-        public class BatteryHealthMetricsRequestBuilderGetQueryParameters {
+        public class BatteryHealthMetricsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

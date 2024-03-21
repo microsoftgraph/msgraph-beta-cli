@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OpenShift : ChangeTrackedEntity, IParsable {
-        /// <summary>An unpublished open shift.</summary>
+    public class OpenShift : ChangeTrackedEntity, IParsable 
+    {
+        /// <summary>Draft changes in the openShift are only visible to managers until they&apos;re shared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OpenShiftItem? DraftOpenShift { get; set; }
@@ -14,7 +15,9 @@ namespace ApiSdk.Models {
 #else
         public OpenShiftItem DraftOpenShift { get; set; }
 #endif
-        /// <summary>ID for the scheduling group that the open shift belongs to.</summary>
+        /// <summary>The openShift is marked for deletion, a process that is finalized when the schedule is shared.</summary>
+        public bool? IsStagedForDeletion { get; set; }
+        /// <summary>The ID of the schedulingGroup that contains the openShift.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SchedulingGroupId { get; set; }
@@ -22,7 +25,15 @@ namespace ApiSdk.Models {
 #else
         public string SchedulingGroupId { get; set; }
 #endif
-        /// <summary>A published open shift.</summary>
+        /// <summary>Information about the scheduling group to which the shift belongs.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.SchedulingGroupInfo? SchedulingGroupInfo { get; private set; }
+#nullable restore
+#else
+        public ApiSdk.Models.SchedulingGroupInfo SchedulingGroupInfo { get; private set; }
+#endif
+        /// <summary>The shared version of this openShift that is viewable by both employees and managers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OpenShiftItem? SharedOpenShift { get; set; }
@@ -30,38 +41,57 @@ namespace ApiSdk.Models {
 #else
         public OpenShiftItem SharedOpenShift { get; set; }
 #endif
+        /// <summary>Information of the team that the openShift is in.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ShiftsTeamInfo? TeamInfo { get; private set; }
+#nullable restore
+#else
+        public ShiftsTeamInfo TeamInfo { get; private set; }
+#endif
         /// <summary>
-        /// Instantiates a new openShift and sets the default values.
+        /// Instantiates a new <see cref="OpenShift"/> and sets the default values.
         /// </summary>
-        public OpenShift() : base() {
+        public OpenShift() : base()
+        {
             OdataType = "#microsoft.graph.openShift";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OpenShift"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OpenShift CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new OpenShift CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new OpenShift();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"draftOpenShift", n => { DraftOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
+                {"isStagedForDeletion", n => { IsStagedForDeletion = n.GetBoolValue(); } },
                 {"schedulingGroupId", n => { SchedulingGroupId = n.GetStringValue(); } },
+                {"schedulingGroupInfo", n => { SchedulingGroupInfo = n.GetObjectValue<ApiSdk.Models.SchedulingGroupInfo>(ApiSdk.Models.SchedulingGroupInfo.CreateFromDiscriminatorValue); } },
                 {"sharedOpenShift", n => { SharedOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
+                {"teamInfo", n => { TeamInfo = n.GetObjectValue<ShiftsTeamInfo>(ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<OpenShiftItem>("draftOpenShift", DraftOpenShift);
+            writer.WriteBoolValue("isStagedForDeletion", IsStagedForDeletion);
             writer.WriteStringValue("schedulingGroupId", SchedulingGroupId);
             writer.WriteObjectValue<OpenShiftItem>("sharedOpenShift", SharedOpenShift);
         }

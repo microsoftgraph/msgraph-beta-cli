@@ -20,11 +20,14 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
     /// <summary>
     /// Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
     /// </summary>
-    public class ProtectedAppLockerFilesRequestBuilder : BaseCliRequestBuilder {
+    public class ProtectedAppLockerFilesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new WindowsInformationProtectionAppLockerFileItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
@@ -35,7 +38,9 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -50,7 +55,9 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
         /// <summary>
         /// Create new navigation property to protectedAppLockerFiles for deviceAppManagement
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to protectedAppLockerFiles for deviceAppManagement";
             var windowsInformationProtectionPolicyIdOption = new Option<string>("--windows-information-protection-policy-id", description: "The unique identifier of windowsInformationProtectionPolicy") {
@@ -99,7 +106,9 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
         /// <summary>
         /// Another way to input protected apps through xml files
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
             command.Description = "Another way to input protected apps through xml files";
             var windowsInformationProtectionPolicyIdOption = new Option<string>("--windows-information-protection-policy-id", description: "The unique identifier of windowsInformationProtectionPolicy") {
@@ -195,27 +204,32 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
             return command;
         }
         /// <summary>
-        /// Instantiates a new ProtectedAppLockerFilesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ProtectedAppLockerFilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ProtectedAppLockerFilesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}/protectedAppLockerFiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ProtectedAppLockerFilesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}/protectedAppLockerFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ProtectedAppLockerFilesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ProtectedAppLockerFilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ProtectedAppLockerFilesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}/protectedAppLockerFiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ProtectedAppLockerFilesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}/protectedAppLockerFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Another way to input protected apps through xml files
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProtectedAppLockerFilesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProtectedAppLockerFilesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProtectedAppLockerFilesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProtectedAppLockerFilesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -225,17 +239,20 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
         /// <summary>
         /// Create new navigation property to protectedAppLockerFiles for deviceAppManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(WindowsInformationProtectionAppLockerFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WindowsInformationProtectionAppLockerFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(WindowsInformationProtectionAppLockerFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WindowsInformationProtectionAppLockerFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}/protectedAppLockerFiles", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -243,7 +260,8 @@ namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item.P
         /// <summary>
         /// Another way to input protected apps through xml files
         /// </summary>
-        public class ProtectedAppLockerFilesRequestBuilderGetQueryParameters {
+        public class ProtectedAppLockerFilesRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

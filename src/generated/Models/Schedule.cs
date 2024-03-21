@@ -5,9 +5,24 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Schedule : Entity, IParsable {
+    public class Schedule : Entity, IParsable 
+    {
+        /// <summary>Indicates whether copied shifts should include the activities.</summary>
+        public bool? ActivitiesIncludedWhenCopyingShiftsEnabled { get; set; }
+        /// <summary>The day notes in the schedule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DayNote>? DayNotes { get; set; }
+#nullable restore
+#else
+        public List<DayNote> DayNotes { get; set; }
+#endif
         /// <summary>Indicates whether the schedule is enabled for the team. Required.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Indicates whether approval is required by a manager of this schedule for cross location shift requests.</summary>
+        public bool? IsCrossLocationShiftRequestApprovalRequired { get; set; }
+        /// <summary>Indicates whether the cross-location marketplace feature is enabled for this schedule.</summary>
+        public bool? IsCrossLocationShiftsEnabled { get; set; }
         /// <summary>The offer requests for shifts in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +77,16 @@ namespace ApiSdk.Models {
 #else
         public List<Shift> Shifts { get; set; }
 #endif
+        /// <summary>The definitions of the roles in the schedule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ShiftsRoleDefinition>? ShiftsRoleDefinitions { get; set; }
+#nullable restore
+#else
+        public List<ShiftsRoleDefinition> ShiftsRoleDefinitions { get; set; }
+#endif
+        /// <summary>Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.</summary>
+        public DayOfWeekObject? StartDayOfWeek { get; set; }
         /// <summary>The swap requests for shifts in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,8 +97,24 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates whether swap shifts requests are enabled for the schedule.</summary>
         public bool? SwapShiftsRequestsEnabled { get; set; }
+        /// <summary>The time cards in the schedule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TimeCard>? TimeCards { get; set; }
+#nullable restore
+#else
+        public List<TimeCard> TimeCards { get; set; }
+#endif
         /// <summary>Indicates whether time clock is enabled for the schedule.</summary>
         public bool? TimeClockEnabled { get; set; }
+        /// <summary>The time clock location settings for this schedule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.TimeClockSettings? TimeClockSettings { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.TimeClockSettings TimeClockSettings { get; set; }
+#endif
         /// <summary>The set of reasons for a time off in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +149,7 @@ namespace ApiSdk.Models {
 #else
         public string TimeZone { get; set; }
 #endif
-        /// <summary>The workforceIntegrationIds property</summary>
+        /// <summary>The IDs for the workforce integrations associated with this schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? WorkforceIntegrationIds { get; set; }
@@ -119,17 +160,26 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Schedule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Schedule CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Schedule CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Schedule();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"activitiesIncludedWhenCopyingShiftsEnabled", n => { ActivitiesIncludedWhenCopyingShiftsEnabled = n.GetBoolValue(); } },
+                {"dayNotes", n => { DayNotes = n.GetCollectionOfObjectValues<DayNote>(DayNote.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"enabled", n => { Enabled = n.GetBoolValue(); } },
+                {"isCrossLocationShiftRequestApprovalRequired", n => { IsCrossLocationShiftRequestApprovalRequired = n.GetBoolValue(); } },
+                {"isCrossLocationShiftsEnabled", n => { IsCrossLocationShiftsEnabled = n.GetBoolValue(); } },
                 {"offerShiftRequests", n => { OfferShiftRequests = n.GetCollectionOfObjectValues<OfferShiftRequest>(OfferShiftRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"offerShiftRequestsEnabled", n => { OfferShiftRequestsEnabled = n.GetBoolValue(); } },
                 {"openShiftChangeRequests", n => { OpenShiftChangeRequests = n.GetCollectionOfObjectValues<OpenShiftChangeRequest>(OpenShiftChangeRequest.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -139,9 +189,13 @@ namespace ApiSdk.Models {
                 {"provisionStatusCode", n => { ProvisionStatusCode = n.GetStringValue(); } },
                 {"schedulingGroups", n => { SchedulingGroups = n.GetCollectionOfObjectValues<SchedulingGroup>(SchedulingGroup.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"shifts", n => { Shifts = n.GetCollectionOfObjectValues<Shift>(Shift.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"shiftsRoleDefinitions", n => { ShiftsRoleDefinitions = n.GetCollectionOfObjectValues<ShiftsRoleDefinition>(ShiftsRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"startDayOfWeek", n => { StartDayOfWeek = n.GetEnumValue<DayOfWeekObject>(); } },
                 {"swapShiftsChangeRequests", n => { SwapShiftsChangeRequests = n.GetCollectionOfObjectValues<SwapShiftsChangeRequest>(SwapShiftsChangeRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"swapShiftsRequestsEnabled", n => { SwapShiftsRequestsEnabled = n.GetBoolValue(); } },
+                {"timeCards", n => { TimeCards = n.GetCollectionOfObjectValues<TimeCard>(TimeCard.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"timeClockEnabled", n => { TimeClockEnabled = n.GetBoolValue(); } },
+                {"timeClockSettings", n => { TimeClockSettings = n.GetObjectValue<ApiSdk.Models.TimeClockSettings>(ApiSdk.Models.TimeClockSettings.CreateFromDiscriminatorValue); } },
                 {"timeOffReasons", n => { TimeOffReasons = n.GetCollectionOfObjectValues<TimeOffReason>(TimeOffReason.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"timeOffRequests", n => { TimeOffRequests = n.GetCollectionOfObjectValues<TimeOffRequest>(TimeOffRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"timeOffRequestsEnabled", n => { TimeOffRequestsEnabled = n.GetBoolValue(); } },
@@ -154,10 +208,15 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteBoolValue("activitiesIncludedWhenCopyingShiftsEnabled", ActivitiesIncludedWhenCopyingShiftsEnabled);
+            writer.WriteCollectionOfObjectValues<DayNote>("dayNotes", DayNotes);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteBoolValue("isCrossLocationShiftRequestApprovalRequired", IsCrossLocationShiftRequestApprovalRequired);
+            writer.WriteBoolValue("isCrossLocationShiftsEnabled", IsCrossLocationShiftsEnabled);
             writer.WriteCollectionOfObjectValues<OfferShiftRequest>("offerShiftRequests", OfferShiftRequests);
             writer.WriteBoolValue("offerShiftRequestsEnabled", OfferShiftRequestsEnabled);
             writer.WriteCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", OpenShiftChangeRequests);
@@ -165,9 +224,13 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("openShiftsEnabled", OpenShiftsEnabled);
             writer.WriteCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", SchedulingGroups);
             writer.WriteCollectionOfObjectValues<Shift>("shifts", Shifts);
+            writer.WriteCollectionOfObjectValues<ShiftsRoleDefinition>("shiftsRoleDefinitions", ShiftsRoleDefinitions);
+            writer.WriteEnumValue<DayOfWeekObject>("startDayOfWeek", StartDayOfWeek);
             writer.WriteCollectionOfObjectValues<SwapShiftsChangeRequest>("swapShiftsChangeRequests", SwapShiftsChangeRequests);
             writer.WriteBoolValue("swapShiftsRequestsEnabled", SwapShiftsRequestsEnabled);
+            writer.WriteCollectionOfObjectValues<TimeCard>("timeCards", TimeCards);
             writer.WriteBoolValue("timeClockEnabled", TimeClockEnabled);
+            writer.WriteObjectValue<ApiSdk.Models.TimeClockSettings>("timeClockSettings", TimeClockSettings);
             writer.WriteCollectionOfObjectValues<TimeOffReason>("timeOffReasons", TimeOffReasons);
             writer.WriteCollectionOfObjectValues<TimeOffRequest>("timeOffRequests", TimeOffRequests);
             writer.WriteBoolValue("timeOffRequestsEnabled", TimeOffRequestsEnabled);

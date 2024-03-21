@@ -2,6 +2,10 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.AttendanceReports;
+using ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.Presenters;
+using ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.Registrations;
+using ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.RegistrationsWithEmail;
+using ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.RegistrationsWithUserId;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -19,11 +23,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder {
+    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
         /// </summary>
-        public Command BuildAttendanceReportsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAttendanceReportsNavCommand()
+        {
             var command = new Command("attendance-reports");
             command.Description = "Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.";
             var builder = new AttendanceReportsRequestBuilder(PathParameters);
@@ -48,7 +55,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Delete navigation property sessions for solutions
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property sessions for solutions";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
@@ -87,7 +96,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Sessions for the virtual event.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Sessions for the virtual event.";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
@@ -143,7 +154,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Update the navigation property sessions in solutions
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property sessions in solutions";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
@@ -196,29 +209,120 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new VirtualEventSessionItemRequestBuilder and sets the default values.
+        /// Provides operations to manage the presenters property of the microsoft.graph.virtualEventSession entity.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public VirtualEventSessionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPresentersNavCommand()
+        {
+            var command = new Command("presenters");
+            command.Description = "Provides operations to manage the presenters property of the microsoft.graph.virtualEventSession entity.";
+            var builder = new PresentersRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new VirtualEventSessionItemRequestBuilder and sets the default values.
+        /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRegistrationsNavCommand()
+        {
+            var command = new Command("registrations");
+            command.Description = "Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.";
+            var builder = new RegistrationsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRegistrationsWithEmailRbCommand()
+        {
+            var command = new Command("registrations-with-email");
+            command.Description = "Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.";
+            var builder = new RegistrationsWithEmailRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRegistrationsWithUserIdRbCommand()
+        {
+            var command = new Command("registrations-with-user-id");
+            command.Description = "Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.";
+            var builder = new RegistrationsWithUserIdRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="VirtualEventSessionItemRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public VirtualEventSessionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="VirtualEventSessionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public VirtualEventSessionItemRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}{?%24select,%24expand}", rawUrl) {
+        public VirtualEventSessionItemRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property sessions for solutions
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -226,13 +330,16 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Sessions for the virtual event.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -242,17 +349,20 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Update the navigation property sessions in solutions
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(VirtualEventSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(VirtualEventSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(VirtualEventSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(VirtualEventSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -260,7 +370,8 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item {
         /// <summary>
         /// Sessions for the virtual event.
         /// </summary>
-        public class VirtualEventSessionItemRequestBuilderGetQueryParameters {
+        public class VirtualEventSessionItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

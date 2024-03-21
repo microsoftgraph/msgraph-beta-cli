@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Represents a custom question of the business.
     /// </summary>
-    public class BookingCustomQuestion : Entity, IParsable {
+    public class BookingCustomQuestion : Entity, IParsable 
+    {
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
         public ApiSdk.Models.AnswerInputType? AnswerInputType { get; set; }
         /// <summary>List of possible answer values.</summary>
@@ -19,7 +20,9 @@ namespace ApiSdk.Models {
 #else
         public List<string> AnswerOptions { get; set; }
 #endif
-        /// <summary>The question.</summary>
+        /// <summary>The date, time and timezone when the custom question was created.</summary>
+        public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>Display name of this entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -27,34 +30,46 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>The date, time and timezone when the custom question was last updated.</summary>
+        public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="BookingCustomQuestion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingCustomQuestion CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new BookingCustomQuestion CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingCustomQuestion();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"answerInputType", n => { AnswerInputType = n.GetEnumValue<AnswerInputType>(); } },
                 {"answerOptions", n => { AnswerOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<AnswerInputType>("answerInputType", AnswerInputType);
             writer.WriteCollectionOfPrimitiveValues<string>("answerOptions", AnswerOptions);
+            writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
         }
     }
 }

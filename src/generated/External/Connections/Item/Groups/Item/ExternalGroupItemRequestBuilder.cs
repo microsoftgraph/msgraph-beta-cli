@@ -19,12 +19,15 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
     /// <summary>
     /// Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class ExternalGroupItemRequestBuilder : BaseCliRequestBuilder {
+    public class ExternalGroupItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete an externalGroup object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete an externalGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
@@ -61,12 +64,13 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
             return command;
         }
         /// <summary>
-        /// Get an externalGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0" />
+        /// Get groups from external
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Get an externalGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0";
+            command.Description = "Get groups from external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -120,7 +124,9 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
         /// <summary>
         /// Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
         /// </summary>
-        public Command BuildMembersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMembersNavCommand()
+        {
             var command = new Command("members");
             command.Description = "Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.";
             var builder = new MembersRequestBuilder(PathParameters);
@@ -143,12 +149,13 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an externalGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0" />
+        /// Update the navigation property groups in external
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of an externalGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property groups in external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -199,43 +206,51 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ExternalGroupItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ExternalGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ExternalGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24select,%24expand}", pathParameters) {
+        public ExternalGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ExternalGroupItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ExternalGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ExternalGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24select,%24expand}", rawUrl) {
+        public ExternalGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete an externalGroup object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an externalGroup object.
+        /// Get groups from external
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -243,27 +258,31 @@ namespace ApiSdk.External.Connections.Item.Groups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an externalGroup object.
+        /// Update the navigation property groups in external
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ExternalGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ExternalGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ExternalGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ExternalGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an externalGroup object.
+        /// Get groups from external
         /// </summary>
-        public class ExternalGroupItemRequestBuilderGetQueryParameters {
+        public class ExternalGroupItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

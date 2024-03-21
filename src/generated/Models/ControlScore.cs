@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ControlScore : IAdditionalDataHolder, IParsable {
+    public class ControlScore : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
+        /// <summary>The controlCategory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ControlCategory { get; set; }
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public string ControlCategory { get; set; }
 #endif
-        /// <summary>Control unique name.</summary>
+        /// <summary>The controlName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ControlName { get; set; }
@@ -24,7 +25,7 @@ namespace ApiSdk.Models {
 #else
         public string ControlName { get; set; }
 #endif
-        /// <summary>Description of the control.</summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -40,27 +41,33 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).</summary>
+        /// <summary>The score property</summary>
         public double? Score { get; set; }
         /// <summary>
-        /// Instantiates a new controlScore and sets the default values.
+        /// Instantiates a new <see cref="ControlScore"/> and sets the default values.
         /// </summary>
-        public ControlScore() {
+        public ControlScore()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ControlScore"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ControlScore CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ControlScore CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ControlScore();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"controlCategory", n => { ControlCategory = n.GetStringValue(); } },
                 {"controlName", n => { ControlName = n.GetStringValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
@@ -72,7 +79,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("controlCategory", ControlCategory);
             writer.WriteStringValue("controlName", ControlName);

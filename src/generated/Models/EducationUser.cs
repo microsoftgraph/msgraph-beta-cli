@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class EducationUser : Entity, IParsable {
-        /// <summary>True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.</summary>
+    public class EducationUser : Entity, IParsable 
+    {
+        /// <summary>True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter.</summary>
         public bool? AccountEnabled { get; set; }
         /// <summary>The licenses that are assigned to the user. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,7 +25,7 @@ namespace ApiSdk.Models {
 #else
         public List<AssignedPlan> AssignedPlans { get; set; }
 #endif
-        /// <summary>Assignments belonging to the user.</summary>
+        /// <summary>List of assignments for the user. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationAssignment>? Assignments { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public List<EducationClass> Classes { get; set; }
 #endif
-        /// <summary>The entity who created the user.</summary>
+        /// <summary>Entity who created the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? CreatedBy { get; set; }
@@ -56,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public IdentitySet CreatedBy { get; set; }
 #endif
-        /// <summary>The name for the department in which the user works. Supports $filter.</summary>
+        /// <summary>The name for the department in which the user works. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Department { get; set; }
@@ -64,7 +65,7 @@ namespace ApiSdk.Models {
 #else
         public string Department { get; set; }
 #endif
-        /// <summary>The name displayed in the address book for the user. This is usually the combination of the user&apos;s first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.</summary>
+        /// <summary>The name displayed in the address book for the user. Supports $filter and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -72,7 +73,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Where this user was created from. Possible values are: sis, manual.</summary>
+        /// <summary>The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.</summary>
         public EducationExternalSource? ExternalSource { get; set; }
         /// <summary>The name of the external source this resource was generated from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +83,7 @@ namespace ApiSdk.Models {
 #else
         public string ExternalSourceDetail { get; set; }
 #endif
-        /// <summary>The given name (first name) of the user. Supports $filter.</summary>
+        /// <summary>The given name (first name) of the user. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GivenName { get; set; }
@@ -90,7 +91,7 @@ namespace ApiSdk.Models {
 #else
         public string GivenName { get; set; }
 #endif
-        /// <summary>The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Read-Only. Supports $filter.</summary>
+        /// <summary>The SMTP address for the user; for example, &apos;jeff@contoso.com&apos;. Read-Only. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mail { get; set; }
@@ -98,7 +99,7 @@ namespace ApiSdk.Models {
 #else
         public string Mail { get; set; }
 #endif
-        /// <summary>The mail address of the user.</summary>
+        /// <summary>Mail address of user. Note: type and postOfficeBox aren&apos;t supported for educationUser resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PhysicalAddress? MailingAddress { get; set; }
@@ -106,7 +107,7 @@ namespace ApiSdk.Models {
 #else
         public PhysicalAddress MailingAddress { get; set; }
 #endif
-        /// <summary>The mail alias for the user. This property must be specified when a user is created. Supports $filter.</summary>
+        /// <summary>The mail alias for the user. This property must be specified when a user is created. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MailNickname { get; set; }
@@ -114,7 +115,7 @@ namespace ApiSdk.Models {
 #else
         public string MailNickname { get; set; }
 #endif
-        /// <summary>The middle name of the user.</summary>
+        /// <summary>The middle name of user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MiddleName { get; set; }
@@ -146,7 +147,7 @@ namespace ApiSdk.Models {
 #else
         public EducationOnPremisesInfo OnPremisesInfo { get; set; }
 #endif
-        /// <summary>Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two can be specified together; for example: DisablePasswordExpiration, DisableStrongPassword.</summary>
+        /// <summary>Specifies password policies for the user. See standard [user] resource for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PasswordPolicies { get; set; }
@@ -154,7 +155,7 @@ namespace ApiSdk.Models {
 #else
         public string PasswordPolicies { get; set; }
 #endif
-        /// <summary>Specifies the password profile for the user. The profile contains the user&apos;s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required.</summary>
+        /// <summary>Specifies the password profile for the user. The profile contains the user&apos;s password. This property is required when a user is created. See standard [user] resource for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.PasswordProfile? PasswordProfile { get; set; }
@@ -162,7 +163,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.PasswordProfile PasswordProfile { get; set; }
 #endif
-        /// <summary>The preferred language for the user that should follow the ISO 639-1 code, for example, en-US.</summary>
+        /// <summary>The preferred language for the user. Should follow ISO 639-1 Code; for example, &apos;en-US&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredLanguage { get; set; }
@@ -182,7 +183,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The refreshTokensValidFromDateTime property</summary>
         public DateTimeOffset? RefreshTokensValidFromDateTime { get; set; }
-        /// <summary>Related records associated with the user. Read-only.</summary>
+        /// <summary>Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<RelatedContact>? RelatedContacts { get; set; }
@@ -190,7 +191,7 @@ namespace ApiSdk.Models {
 #else
         public List<RelatedContact> RelatedContacts { get; set; }
 #endif
-        /// <summary>The address where the user lives.</summary>
+        /// <summary>Address where user lives. Note: type and postOfficeBox aren&apos;t supported for educationUser resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PhysicalAddress? ResidenceAddress { get; set; }
@@ -214,9 +215,9 @@ namespace ApiSdk.Models {
 #else
         public List<EducationSchool> Schools { get; set; }
 #endif
-        /// <summary>True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.</summary>
+        /// <summary>The showInAddressList property</summary>
         public bool? ShowInAddressList { get; set; }
-        /// <summary>If the primary role is student, this block will contain student specific data.</summary>
+        /// <summary>If the primary role is student, this block contains student specific data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EducationStudent? Student { get; set; }
@@ -224,7 +225,7 @@ namespace ApiSdk.Models {
 #else
         public EducationStudent Student { get; set; }
 #endif
-        /// <summary>The user&apos;s surname (family name or last name). Supports $filter.</summary>
+        /// <summary>The user&apos;s surname (family name or last name). Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Surname { get; set; }
@@ -248,7 +249,7 @@ namespace ApiSdk.Models {
 #else
         public EducationTeacher Teacher { get; set; }
 #endif
-        /// <summary>A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: US, JP, and GB. Not nullable. Supports $filter.</summary>
+        /// <summary>A two-letter country code ([ISO 3166 Alpha-2]). Required for users who will be assigned licenses. Not nullable. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UsageLocation { get; set; }
@@ -256,7 +257,7 @@ namespace ApiSdk.Models {
 #else
         public string UsageLocation { get; set; }
 #endif
-        /// <summary>The directory user that corresponds to this user.</summary>
+        /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.User? User { get; set; }
@@ -264,7 +265,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.User User { get; set; }
 #endif
-        /// <summary>The user principal name (UPN) of the user. The UPN is an internet-style login name for the user based on the internet standard RFC 822. By convention, this should map to the user&apos;s email name. The general format is alias@domain, where domain must be present in the tenant&apos;s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of the organization. Supports $filter and $orderby.</summary>
+        /// <summary>The user principal name (UPN) for the user. Supports $filter and $orderby. See standard [user] resource for additional details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserPrincipalName { get; set; }
@@ -272,7 +273,7 @@ namespace ApiSdk.Models {
 #else
         public string UserPrincipalName { get; set; }
 #endif
-        /// <summary>A string value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter.</summary>
+        /// <summary>A string value that can be used to classify user types in your directory, such as &apos;Member&apos; and &apos;Guest&apos;. Supports /$filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserType { get; set; }
@@ -283,16 +284,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EducationUser"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationUser CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EducationUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EducationUser();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
                 {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<AssignedLicense>(AssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignedPlans", n => { AssignedPlans = n.GetCollectionOfObjectValues<AssignedPlan>(AssignedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -337,7 +343,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("accountEnabled", AccountEnabled);

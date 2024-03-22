@@ -94,6 +94,7 @@ stages:
     jobs:
       - job: build
         displayName: Build and publish
+        timeoutInMinutes: 120
         strategy:
           matrix:
             'Windows-x64':

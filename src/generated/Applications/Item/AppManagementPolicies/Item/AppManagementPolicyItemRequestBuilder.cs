@@ -14,12 +14,15 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Item {
     /// <summary>
     /// Builds and executes requests for operations under \applications\{application-id}\appManagementPolicies\{appManagementPolicy-id}
     /// </summary>
-    public class AppManagementPolicyItemRequestBuilder : BaseCliRequestBuilder {
+    public class AppManagementPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the collection of application entities.
         /// </summary>
-        public Command BuildRefNavCommand() {
-            var command = new Command("ref");
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRefByIdNavCommand()
+        {
+            var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of application entities.";
             var builder = new RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
@@ -31,16 +34,18 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AppManagementPolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AppManagementPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AppManagementPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}", pathParameters) {
+        public AppManagementPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AppManagementPolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AppManagementPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AppManagementPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}", rawUrl) {
+        public AppManagementPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}", rawUrl)
+        {
         }
     }
 }

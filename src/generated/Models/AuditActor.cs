@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// A class containing the properties for Audit Actor.
     /// </summary>
-    public class AuditActor : IAdditionalDataHolder, IParsable {
+    public class AuditActor : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Name of the Application.</summary>
@@ -51,6 +52,22 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>Remote Tenant Id</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RemoteTenantId { get; set; }
+#nullable restore
+#else
+        public string RemoteTenantId { get; set; }
+#endif
+        /// <summary>Remote User Id</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RemoteUserId { get; set; }
+#nullable restore
+#else
+        public string RemoteUserId { get; set; }
+#endif
         /// <summary>Service Principal Name (SPN).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +75,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string ServicePrincipalName { get; set; }
+#endif
+        /// <summary>Actor Type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
 #endif
         /// <summary>User Id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,51 +108,74 @@ namespace ApiSdk.Models {
 #else
         public string UserPrincipalName { get; set; }
 #endif
+        /// <summary>List of user scope tags when the audit was performed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RoleScopeTagInfo>? UserRoleScopeTags { get; set; }
+#nullable restore
+#else
+        public List<RoleScopeTagInfo> UserRoleScopeTags { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new auditActor and sets the default values.
+        /// Instantiates a new <see cref="AuditActor"/> and sets the default values.
         /// </summary>
-        public AuditActor() {
+        public AuditActor()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AuditActor"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuditActor CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static AuditActor CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AuditActor();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"applicationDisplayName", n => { ApplicationDisplayName = n.GetStringValue(); } },
                 {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
                 {"auditActorType", n => { AuditActorType = n.GetStringValue(); } },
                 {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"remoteTenantId", n => { RemoteTenantId = n.GetStringValue(); } },
+                {"remoteUserId", n => { RemoteUserId = n.GetStringValue(); } },
                 {"servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
+                {"type", n => { Type = n.GetStringValue(); } },
                 {"userId", n => { UserId = n.GetStringValue(); } },
                 {"userPermissions", n => { UserPermissions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                {"userRoleScopeTags", n => { UserRoleScopeTags = n.GetCollectionOfObjectValues<RoleScopeTagInfo>(RoleScopeTagInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("applicationDisplayName", ApplicationDisplayName);
             writer.WriteStringValue("applicationId", ApplicationId);
             writer.WriteStringValue("auditActorType", AuditActorType);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteStringValue("remoteTenantId", RemoteTenantId);
+            writer.WriteStringValue("remoteUserId", RemoteUserId);
             writer.WriteStringValue("servicePrincipalName", ServicePrincipalName);
+            writer.WriteStringValue("type", Type);
             writer.WriteStringValue("userId", UserId);
             writer.WriteCollectionOfPrimitiveValues<string>("userPermissions", UserPermissions);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
+            writer.WriteCollectionOfObjectValues<RoleScopeTagInfo>("userRoleScopeTags", UserRoleScopeTags);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

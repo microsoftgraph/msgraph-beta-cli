@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OnPremisesDirectorySynchronizationConfiguration : IAdditionalDataHolder, IParsable {
+    public class OnPremisesDirectorySynchronizationConfiguration : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Contains the accidental deletion prevention configuration for a tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -16,6 +17,32 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The anchor attribute allows customers to customize the property used to create source anchors for synchronization enabled objects.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AnchorAttribute { get; set; }
+#nullable restore
+#else
+        public string AnchorAttribute { get; set; }
+#endif
+        /// <summary>The identifier of the on-premises directory synchronization client application that is configured for the tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApplicationId { get; set; }
+#nullable restore
+#else
+        public string ApplicationId { get; set; }
+#endif
+        /// <summary>Data for the current export run.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OnPremisesCurrentExportData? CurrentExportData { get; set; }
+#nullable restore
+#else
+        public OnPremisesCurrentExportData CurrentExportData { get; set; }
+#endif
+        /// <summary>Interval of time that the customer requested the sync client waits between sync cycles.</summary>
+        public TimeSpan? CustomerRequestedSynchronizationInterval { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,37 +51,76 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>Indicates the version of the on-premises directory synchronization application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SynchronizationClientVersion { get; set; }
+#nullable restore
+#else
+        public string SynchronizationClientVersion { get; set; }
+#endif
+        /// <summary>Interval of time the sync client should honor between sync cycles</summary>
+        public TimeSpan? SynchronizationInterval { get; set; }
+        /// <summary>Configuration to control how cloud created or owned objects are synchronized back to the on-premises directory.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OnPremisesWritebackConfiguration? WritebackConfiguration { get; set; }
+#nullable restore
+#else
+        public OnPremisesWritebackConfiguration WritebackConfiguration { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new onPremisesDirectorySynchronizationConfiguration and sets the default values.
+        /// Instantiates a new <see cref="OnPremisesDirectorySynchronizationConfiguration"/> and sets the default values.
         /// </summary>
-        public OnPremisesDirectorySynchronizationConfiguration() {
+        public OnPremisesDirectorySynchronizationConfiguration()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OnPremisesDirectorySynchronizationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OnPremisesDirectorySynchronizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static OnPremisesDirectorySynchronizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new OnPremisesDirectorySynchronizationConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"accidentalDeletionPrevention", n => { AccidentalDeletionPrevention = n.GetObjectValue<OnPremisesAccidentalDeletionPrevention>(OnPremisesAccidentalDeletionPrevention.CreateFromDiscriminatorValue); } },
+                {"anchorAttribute", n => { AnchorAttribute = n.GetStringValue(); } },
+                {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
+                {"currentExportData", n => { CurrentExportData = n.GetObjectValue<OnPremisesCurrentExportData>(OnPremisesCurrentExportData.CreateFromDiscriminatorValue); } },
+                {"customerRequestedSynchronizationInterval", n => { CustomerRequestedSynchronizationInterval = n.GetTimeSpanValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"synchronizationClientVersion", n => { SynchronizationClientVersion = n.GetStringValue(); } },
+                {"synchronizationInterval", n => { SynchronizationInterval = n.GetTimeSpanValue(); } },
+                {"writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<OnPremisesWritebackConfiguration>(OnPremisesWritebackConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<OnPremisesAccidentalDeletionPrevention>("accidentalDeletionPrevention", AccidentalDeletionPrevention);
+            writer.WriteStringValue("anchorAttribute", AnchorAttribute);
+            writer.WriteStringValue("applicationId", ApplicationId);
+            writer.WriteObjectValue<OnPremisesCurrentExportData>("currentExportData", CurrentExportData);
+            writer.WriteTimeSpanValue("customerRequestedSynchronizationInterval", CustomerRequestedSynchronizationInterval);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteStringValue("synchronizationClientVersion", SynchronizationClientVersion);
+            writer.WriteTimeSpanValue("synchronizationInterval", SynchronizationInterval);
+            writer.WriteObjectValue<OnPremisesWritebackConfiguration>("writebackConfiguration", WritebackConfiguration);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

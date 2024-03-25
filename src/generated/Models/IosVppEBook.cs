@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// A class containing the properties for iOS Vpp eBook.
     /// </summary>
-    public class IosVppEBook : ManagedEBook, IParsable {
+    public class IosVppEBook : ManagedEBook, IParsable 
+    {
         /// <summary>The Apple ID associated with Vpp token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,6 +34,14 @@ namespace ApiSdk.Models {
 #else
         public string Language { get; set; }
 #endif
+        /// <summary>List of Scope Tags for this Entity instance.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RoleScopeTagIds { get; set; }
+#nullable restore
+#else
+        public List<string> RoleScopeTagIds { get; set; }
+#endif
         /// <summary>Seller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,27 +65,34 @@ namespace ApiSdk.Models {
         /// <summary>The Vpp token ID.</summary>
         public Guid? VppTokenId { get; set; }
         /// <summary>
-        /// Instantiates a new iosVppEBook and sets the default values.
+        /// Instantiates a new <see cref="IosVppEBook"/> and sets the default values.
         /// </summary>
-        public IosVppEBook() : base() {
+        public IosVppEBook() : base()
+        {
             OdataType = "#microsoft.graph.iosVppEBook";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IosVppEBook"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosVppEBook CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new IosVppEBook CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IosVppEBook();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"appleId", n => { AppleId = n.GetStringValue(); } },
                 {"genres", n => { Genres = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"language", n => { Language = n.GetStringValue(); } },
+                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"seller", n => { Seller = n.GetStringValue(); } },
                 {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
                 {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
@@ -88,12 +104,14 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("appleId", AppleId);
             writer.WriteCollectionOfPrimitiveValues<string>("genres", Genres);
             writer.WriteStringValue("language", Language);
+            writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteStringValue("seller", Seller);
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);
             writer.WriteIntValue("usedLicenseCount", UsedLicenseCount);

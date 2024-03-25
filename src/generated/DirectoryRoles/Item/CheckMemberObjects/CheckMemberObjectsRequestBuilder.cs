@@ -17,11 +17,14 @@ namespace ApiSdk.DirectoryRoles.Item.CheckMemberObjects {
     /// <summary>
     /// Provides operations to call the checkMemberObjects method.
     /// </summary>
-    public class CheckMemberObjectsRequestBuilder : BaseCliRequestBuilder {
+    public class CheckMemberObjectsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action checkMemberObjects
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action checkMemberObjects";
             var directoryRoleIdOption = new Option<string>("--directory-role-id", description: "The unique identifier of directoryRole") {
@@ -79,28 +82,33 @@ namespace ApiSdk.DirectoryRoles.Item.CheckMemberObjects {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CheckMemberObjectsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CheckMemberObjectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CheckMemberObjectsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directoryRoles/{directoryRole%2Did}/checkMemberObjects", pathParameters) {
+        public CheckMemberObjectsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directoryRoles/{directoryRole%2Did}/checkMemberObjects", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CheckMemberObjectsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CheckMemberObjectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CheckMemberObjectsRequestBuilder(string rawUrl) : base("{+baseurl}/directoryRoles/{directoryRole%2Did}/checkMemberObjects", rawUrl) {
+        public CheckMemberObjectsRequestBuilder(string rawUrl) : base("{+baseurl}/directoryRoles/{directoryRole%2Did}/checkMemberObjects", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action checkMemberObjects
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(CheckMemberObjectsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(CheckMemberObjectsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(CheckMemberObjectsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(CheckMemberObjectsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

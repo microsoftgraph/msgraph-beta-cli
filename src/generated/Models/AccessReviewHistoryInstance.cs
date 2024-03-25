@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class AccessReviewHistoryInstance : Entity, IParsable {
+    public class AccessReviewHistoryInstance : Entity, IParsable 
+    {
         /// <summary>Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -16,11 +17,11 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Timestamp when this instance and associated data expires and the history is deleted. Required.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
-        /// <summary>Timestamp when all of the available data for this instance was collected and is set after this instance&apos;s status is set to done. Required.</summary>
+        /// <summary>Timestamp when all of the available data for this instance was collected. This will be set after this instance&apos;s status is set to done. Required.</summary>
         public DateTimeOffset? FulfilledDateTime { get; set; }
-        /// <summary>Timestamp reviews ending on or before this date will be included in the fetched history data.</summary>
+        /// <summary>Timestamp, reviews ending on or before this date are in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodEndDateTime { get; set; }
-        /// <summary>Timestamp reviews starting on or after this date will be included in the fetched history data.</summary>
+        /// <summary>Timestamp, reviews starting on or after this date are in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodStartDateTime { get; set; }
         /// <summary>Timestamp when the instance&apos;s history data is scheduled to be generated.</summary>
         public DateTimeOffset? RunDateTime { get; set; }
@@ -29,16 +30,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AccessReviewHistoryInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReviewHistoryInstance CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AccessReviewHistoryInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessReviewHistoryInstance();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"downloadUri", n => { DownloadUri = n.GetStringValue(); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"fulfilledDateTime", n => { FulfilledDateTime = n.GetDateTimeOffsetValue(); } },
@@ -52,7 +58,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("downloadUri", DownloadUri);

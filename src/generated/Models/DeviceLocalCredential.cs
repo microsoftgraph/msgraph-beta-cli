@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DeviceLocalCredential : Entity, IParsable {
+    public class DeviceLocalCredential : Entity, IParsable 
+    {
         /// <summary>The name of the local admin account for which LAPS is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,9 +23,9 @@ namespace ApiSdk.Models {
 #else
         public string AccountSid { get; set; }
 #endif
-        /// <summary>When the local administrator account credential for the device object was backed up to Azure Active Directory.</summary>
+        /// <summary>When the local adminstrator account credential for the device object was backed up to Microsoft Entra ID.</summary>
         public DateTimeOffset? BackupDateTime { get; set; }
-        /// <summary>The password for the local administrator account that is backed up to Azure Active Directory and returned as a Base64 encoded value.</summary>
+        /// <summary>The password for the local administrator account that is backed up to Microsoft Entra ID and returned as a base 64 encoded value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PasswordBase64 { get; set; }
@@ -35,16 +36,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DeviceLocalCredential"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceLocalCredential CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DeviceLocalCredential CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceLocalCredential();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountName", n => { AccountName = n.GetStringValue(); } },
                 {"accountSid", n => { AccountSid = n.GetStringValue(); } },
                 {"backupDateTime", n => { BackupDateTime = n.GetDateTimeOffsetValue(); } },
@@ -55,7 +61,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("accountName", AccountName);

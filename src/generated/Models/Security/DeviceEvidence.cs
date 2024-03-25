@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class DeviceEvidence : AlertEvidence, IParsable {
+    public class DeviceEvidence : AlertEvidence, IParsable 
+    {
         /// <summary>A unique identifier assigned to a device by Microsoft Entra ID when device is Microsoft Entra joined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,9 +65,9 @@ namespace ApiSdk.Models.Security {
 #else
         public string OsPlatform { get; set; }
 #endif
-        /// <summary>The ID of the role-based access control (RBAC) device group.</summary>
+        /// <summary>The ID of the role-based access control device group.</summary>
         public int? RbacGroupId { get; set; }
-        /// <summary>The name of the RBAC device group.</summary>
+        /// <summary>The name of the role-based access control device group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RbacGroupName { get; set; }
@@ -93,24 +94,30 @@ namespace ApiSdk.Models.Security {
         public ApiSdk.Models.Security.VmMetadata VmMetadata { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new deviceEvidence and sets the default values.
+        /// Instantiates a new <see cref="DeviceEvidence"/> and sets the default values.
         /// </summary>
-        public DeviceEvidence() : base() {
+        public DeviceEvidence() : base()
+        {
             OdataType = "#microsoft.graph.security.deviceEvidence";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DeviceEvidence"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceEvidence CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DeviceEvidence CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceEvidence();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
                 {"defenderAvStatus", n => { DefenderAvStatus = n.GetEnumValue<DefenderAvStatus>(); } },
                 {"deviceDnsName", n => { DeviceDnsName = n.GetStringValue(); } },
@@ -133,7 +140,8 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("azureAdDeviceId", AzureAdDeviceId);

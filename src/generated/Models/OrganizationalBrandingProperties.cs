@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OrganizationalBrandingProperties : Entity, IParsable {
+    public class OrganizationalBrandingProperties : Entity, IParsable 
+    {
         /// <summary>Color that appears in place of the background image in low-bandwidth connections. We recommend that you use the primary color of your banner logo or your organization color. Specify this in hexadecimal format, for example, white is #FFFFFF.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +54,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<string> CdnList { get; set; }
+#endif
+        /// <summary>Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Microsoft Entra ID for customers tenants only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ContentCustomization? ContentCustomization { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ContentCustomization ContentCustomization { get; set; }
 #endif
         /// <summary>A custom URL for resetting account credentials. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -249,11 +258,14 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OrganizationalBrandingProperties"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OrganizationalBrandingProperties CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new OrganizationalBrandingProperties CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.organizationalBranding" => new OrganizationalBranding(),
                 "#microsoft.graph.organizationalBrandingLocalization" => new OrganizationalBrandingLocalization(),
                 _ => new OrganizationalBrandingProperties(),
@@ -262,14 +274,18 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"backgroundColor", n => { BackgroundColor = n.GetStringValue(); } },
                 {"backgroundImage", n => { BackgroundImage = n.GetByteArrayValue(); } },
                 {"backgroundImageRelativeUrl", n => { BackgroundImageRelativeUrl = n.GetStringValue(); } },
                 {"bannerLogo", n => { BannerLogo = n.GetByteArrayValue(); } },
                 {"bannerLogoRelativeUrl", n => { BannerLogoRelativeUrl = n.GetStringValue(); } },
                 {"cdnList", n => { CdnList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"contentCustomization", n => { ContentCustomization = n.GetObjectValue<ApiSdk.Models.ContentCustomization>(ApiSdk.Models.ContentCustomization.CreateFromDiscriminatorValue); } },
                 {"customAccountResetCredentialsUrl", n => { CustomAccountResetCredentialsUrl = n.GetStringValue(); } },
                 {"customCSS", n => { CustomCSS = n.GetByteArrayValue(); } },
                 {"customCSSRelativeUrl", n => { CustomCSSRelativeUrl = n.GetStringValue(); } },
@@ -300,7 +316,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("backgroundColor", BackgroundColor);
@@ -309,6 +326,7 @@ namespace ApiSdk.Models {
             writer.WriteByteArrayValue("bannerLogo", BannerLogo);
             writer.WriteStringValue("bannerLogoRelativeUrl", BannerLogoRelativeUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("cdnList", CdnList);
+            writer.WriteObjectValue<ApiSdk.Models.ContentCustomization>("contentCustomization", ContentCustomization);
             writer.WriteStringValue("customAccountResetCredentialsUrl", CustomAccountResetCredentialsUrl);
             writer.WriteStringValue("customCannotAccessYourAccountText", CustomCannotAccessYourAccountText);
             writer.WriteStringValue("customCannotAccessYourAccountUrl", CustomCannotAccessYourAccountUrl);

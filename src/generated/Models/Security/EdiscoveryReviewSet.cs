@@ -5,7 +5,16 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class EdiscoveryReviewSet : DataSet, IParsable {
+    public class EdiscoveryReviewSet : DataSet, IParsable 
+    {
+        /// <summary>Represents files within the review set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryFile>? Files { get; set; }
+#nullable restore
+#else
+        public List<EdiscoveryFile> Files { get; set; }
+#endif
         /// <summary>Represents queries within the review set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -15,24 +24,31 @@ namespace ApiSdk.Models.Security {
         public List<EdiscoveryReviewSetQuery> Queries { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new ediscoveryReviewSet and sets the default values.
+        /// Instantiates a new <see cref="EdiscoveryReviewSet"/> and sets the default values.
         /// </summary>
-        public EdiscoveryReviewSet() : base() {
+        public EdiscoveryReviewSet() : base()
+        {
             OdataType = "#microsoft.graph.security.ediscoveryReviewSet";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EdiscoveryReviewSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoveryReviewSet CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EdiscoveryReviewSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryReviewSet();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"files", n => { Files = n.GetCollectionOfObjectValues<EdiscoveryFile>(EdiscoveryFile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"queries", n => { Queries = n.GetCollectionOfObjectValues<EdiscoveryReviewSetQuery>(EdiscoveryReviewSetQuery.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -40,9 +56,11 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<EdiscoveryFile>("files", Files);
             writer.WriteCollectionOfObjectValues<EdiscoveryReviewSetQuery>("queries", Queries);
         }
     }

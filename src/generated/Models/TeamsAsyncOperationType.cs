@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum TeamsAsyncOperationType {
+    public enum TeamsAsyncOperationType
+    {
         [EnumMember(Value = "invalid")]
         Invalid,
         [EnumMember(Value = "cloneTeam")]
@@ -19,5 +20,11 @@ namespace ApiSdk.Models {
         TeamifyGroup,
         [EnumMember(Value = "createChannel")]
         CreateChannel,
+        [EnumMember(Value = "createChat")]
+        CreateChat,
+        [EnumMember(Value = "archiveChannel")]
+        ArchiveChannel,
+        [EnumMember(Value = "unarchiveChannel")]
+        UnarchiveChannel,
     }
 }

@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PrinterLocation : IAdditionalDataHolder, IParsable {
+    public class PrinterLocation : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The altitude, in meters, that the printer is located at.</summary>
@@ -50,6 +51,8 @@ namespace ApiSdk.Models {
 #else
         public string FloorDescription { get; set; }
 #endif
+        /// <summary>The floorNumber property</summary>
+        public int? FloorNumber { get; set; }
         /// <summary>The latitude that the printer is located at.</summary>
         public double? Latitude { get; set; }
         /// <summary>The longitude that the printer is located at.</summary>
@@ -94,6 +97,8 @@ namespace ApiSdk.Models {
 #else
         public string RoomName { get; set; }
 #endif
+        /// <summary>The roomNumber property</summary>
+        public int? RoomNumber { get; set; }
         /// <summary>The site that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,30 +140,37 @@ namespace ApiSdk.Models {
         public List<string> Subunit { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new printerLocation and sets the default values.
+        /// Instantiates a new <see cref="PrinterLocation"/> and sets the default values.
         /// </summary>
-        public PrinterLocation() {
+        public PrinterLocation()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PrinterLocation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PrinterLocation CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static PrinterLocation CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PrinterLocation();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"altitudeInMeters", n => { AltitudeInMeters = n.GetIntValue(); } },
                 {"building", n => { Building = n.GetStringValue(); } },
                 {"city", n => { City = n.GetStringValue(); } },
                 {"countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
                 {"floor", n => { Floor = n.GetStringValue(); } },
                 {"floorDescription", n => { FloorDescription = n.GetStringValue(); } },
+                {"floorNumber", n => { FloorNumber = n.GetIntValue(); } },
                 {"latitude", n => { Latitude = n.GetDoubleValue(); } },
                 {"longitude", n => { Longitude = n.GetDoubleValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -166,6 +178,7 @@ namespace ApiSdk.Models {
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"roomDescription", n => { RoomDescription = n.GetStringValue(); } },
                 {"roomName", n => { RoomName = n.GetStringValue(); } },
+                {"roomNumber", n => { RoomNumber = n.GetIntValue(); } },
                 {"site", n => { Site = n.GetStringValue(); } },
                 {"stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
                 {"streetAddress", n => { StreetAddress = n.GetStringValue(); } },
@@ -177,7 +190,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("altitudeInMeters", AltitudeInMeters);
             writer.WriteStringValue("building", Building);
@@ -185,6 +199,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("countryOrRegion", CountryOrRegion);
             writer.WriteStringValue("floor", Floor);
             writer.WriteStringValue("floorDescription", FloorDescription);
+            writer.WriteIntValue("floorNumber", FloorNumber);
             writer.WriteDoubleValue("latitude", Latitude);
             writer.WriteDoubleValue("longitude", Longitude);
             writer.WriteStringValue("@odata.type", OdataType);
@@ -192,6 +207,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("roomDescription", RoomDescription);
             writer.WriteStringValue("roomName", RoomName);
+            writer.WriteIntValue("roomNumber", RoomNumber);
             writer.WriteStringValue("site", Site);
             writer.WriteStringValue("stateOrProvince", StateOrProvince);
             writer.WriteStringValue("streetAddress", StreetAddress);

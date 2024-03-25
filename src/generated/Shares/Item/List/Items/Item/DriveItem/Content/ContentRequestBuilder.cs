@@ -18,13 +18,16 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DriveItem.Content {
     /// <summary>
     /// Provides operations to manage the media for the sharedDriveItem entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder {
+    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// The content stream, if the item represents a file.
+        /// Get content for the navigation property driveItem from shares
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "The content stream, if the item represents a file.";
+            command.Description = "Get content for the navigation property driveItem from shares";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -33,15 +36,21 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DriveItem.Content {
             };
             listItemIdOption.IsRequired = true;
             command.AddOption(listItemIdOption);
+            var formatOption = new Option<string>("--format", description: "Format of the content") {
+            };
+            formatOption.IsRequired = false;
+            command.AddOption(formatOption);
             var outputFileOption = new Option<FileInfo>("--output-file");
             command.AddOption(outputFileOption);
             command.SetHandler(async (invocationContext) => {
                 var sharedDriveItemId = invocationContext.ParseResult.GetValueForOption(sharedDriveItemIdOption);
                 var listItemId = invocationContext.ParseResult.GetValueForOption(listItemIdOption);
+                var format = invocationContext.ParseResult.GetValueForOption(formatOption);
                 var outputFile = invocationContext.ParseResult.GetValueForOption(outputFileOption);
                 var cancellationToken = invocationContext.GetCancellationToken();
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 var requestInfo = ToGetRequestInformation(q => {
+                    if (!string.IsNullOrEmpty(format)) q.QueryParameters.Format = format;
                 });
                 if (sharedDriveItemId is not null) requestInfo.PathParameters.Add("sharedDriveItem%2Did", sharedDriveItemId);
                 if (listItemId is not null) requestInfo.PathParameters.Add("listItem%2Did", listItemId);
@@ -64,11 +73,13 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DriveItem.Content {
             return command;
         }
         /// <summary>
-        /// The content stream, if the item represents a file.
+        /// Update content for the navigation property driveItem in shares
         /// </summary>
-        public Command BuildPutCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPutCommand()
+        {
             var command = new Command("put");
-            command.Description = "The content stream, if the item represents a file.";
+            command.Description = "Update content for the navigation property driveItem in shares";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -116,27 +127,32 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DriveItem.Content {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ContentRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ContentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem/content", pathParameters) {
+        public ContentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem/content{?%24format*}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ContentRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ContentRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem/content", rawUrl) {
+        public ContentRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem/content{?%24format*}", rawUrl)
+        {
         }
         /// <summary>
-        /// The content stream, if the item represents a file.
+        /// Get content for the navigation property driveItem from shares
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ContentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ContentRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -144,23 +160,42 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DriveItem.Content {
             return requestInfo;
         }
         /// <summary>
-        /// The content stream, if the item represents a file.
+        /// Update content for the navigation property driveItem in shares
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem/content", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");
             return requestInfo;
+        }
+        /// <summary>
+        /// Get content for the navigation property driveItem from shares
+        /// </summary>
+        public class ContentRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Format of the content</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24format")]
+            public string? Format { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24format")]
+            public string Format { get; set; }
+#endif
         }
     }
 }

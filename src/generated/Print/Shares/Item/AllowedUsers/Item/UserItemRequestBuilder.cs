@@ -16,11 +16,14 @@ namespace ApiSdk.Print.Shares.Item.AllowedUsers.Item {
     /// <summary>
     /// Builds and executes requests for operations under \print\shares\{printerShare-id}\allowedUsers\{user-id}
     /// </summary>
-    public class UserItemRequestBuilder : BaseCliRequestBuilder {
+    public class UserItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The mailboxSettings property
         /// </summary>
-        public Command BuildMailboxSettingsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMailboxSettingsNavCommand()
+        {
             var command = new Command("mailbox-settings");
             command.Description = "The mailboxSettings property";
             var builder = new MailboxSettingsRequestBuilder(PathParameters);
@@ -36,8 +39,10 @@ namespace ApiSdk.Print.Shares.Item.AllowedUsers.Item {
         /// <summary>
         /// Provides operations to manage the collection of print entities.
         /// </summary>
-        public Command BuildRefNavCommand() {
-            var command = new Command("ref");
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRefByIdNavCommand()
+        {
+            var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of print entities.";
             var builder = new RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
@@ -51,7 +56,9 @@ namespace ApiSdk.Print.Shares.Item.AllowedUsers.Item {
         /// <summary>
         /// The serviceProvisioningErrors property
         /// </summary>
-        public Command BuildServiceProvisioningErrorsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildServiceProvisioningErrorsNavCommand()
+        {
             var command = new Command("service-provisioning-errors");
             command.Description = "The serviceProvisioningErrors property";
             var builder = new ServiceProvisioningErrorsRequestBuilder(PathParameters);
@@ -70,16 +77,18 @@ namespace ApiSdk.Print.Shares.Item.AllowedUsers.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new UserItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UserItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public UserItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}", pathParameters) {
+        public UserItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new UserItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UserItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public UserItemRequestBuilder(string rawUrl) : base("{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}", rawUrl) {
+        public UserItemRequestBuilder(string rawUrl) : base("{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}", rawUrl)
+        {
         }
     }
 }

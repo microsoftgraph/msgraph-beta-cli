@@ -19,14 +19,16 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
     /// <summary>
     /// Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementPartnerItemRequestBuilder : BaseCliRequestBuilder {
+    public class DeviceManagementPartnerItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Deletes a deviceManagementPartner.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0" />
+        /// Delete navigation property deviceManagementPartners for deviceManagement
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Deletes a deviceManagementPartner.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property deviceManagementPartners for deviceManagement";
             var deviceManagementPartnerIdOption = new Option<string>("--device-management-partner-id", description: "The unique identifier of deviceManagementPartner") {
             };
             deviceManagementPartnerIdOption.IsRequired = true;
@@ -55,12 +57,13 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
             return command;
         }
         /// <summary>
-        /// Read properties and relationships of the deviceManagementPartner object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0" />
+        /// The list of Device Management Partners configured by the tenant.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Read properties and relationships of the deviceManagementPartner object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0";
+            command.Description = "The list of Device Management Partners configured by the tenant.";
             var deviceManagementPartnerIdOption = new Option<string>("--device-management-partner-id", description: "The unique identifier of deviceManagementPartner") {
             };
             deviceManagementPartnerIdOption.IsRequired = true;
@@ -106,12 +109,13 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a deviceManagementPartner object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0" />
+        /// Update the navigation property deviceManagementPartners in deviceManagement
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of a deviceManagementPartner object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property deviceManagementPartners in deviceManagement";
             var deviceManagementPartnerIdOption = new Option<string>("--device-management-partner-id", description: "The unique identifier of deviceManagementPartner") {
             };
             deviceManagementPartnerIdOption.IsRequired = true;
@@ -158,7 +162,9 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
         /// <summary>
         /// Provides operations to call the terminate method.
         /// </summary>
-        public Command BuildTerminateNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTerminateNavCommand()
+        {
             var command = new Command("terminate");
             command.Description = "Provides operations to call the terminate method.";
             var builder = new TerminateRequestBuilder(PathParameters);
@@ -171,43 +177,51 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new DeviceManagementPartnerItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DeviceManagementPartnerItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public DeviceManagementPartnerItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24select,%24expand}", pathParameters) {
+        public DeviceManagementPartnerItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new DeviceManagementPartnerItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DeviceManagementPartnerItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public DeviceManagementPartnerItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24select,%24expand}", rawUrl) {
+        public DeviceManagementPartnerItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Deletes a deviceManagementPartner.
+        /// Delete navigation property deviceManagementPartners for deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the deviceManagementPartner object.
+        /// The list of Device Management Partners configured by the tenant.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -215,27 +229,31 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a deviceManagementPartner object.
+        /// Update the navigation property deviceManagementPartners in deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementPartner body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(DeviceManagementPartner body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementPartner body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(DeviceManagementPartner body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the deviceManagementPartner object.
+        /// The list of Device Management Partners configured by the tenant.
         /// </summary>
-        public class DeviceManagementPartnerItemRequestBuilderGetQueryParameters {
+        public class DeviceManagementPartnerItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

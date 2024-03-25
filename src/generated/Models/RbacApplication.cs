@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class RbacApplication : Entity, IParsable {
+    public class RbacApplication : Entity, IParsable 
+    {
         /// <summary>The resourceNamespaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +15,15 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRbacResourceNamespace> ResourceNamespaces { get; set; }
 #endif
-        /// <summary>Resource to grant access to users or groups.</summary>
+        /// <summary>The roleAssignmentApprovals property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Approval>? RoleAssignmentApprovals { get; set; }
+#nullable restore
+#else
+        public List<Approval> RoleAssignmentApprovals { get; set; }
+#endif
+        /// <summary>The roleAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleAssignment>? RoleAssignments { get; set; }
@@ -22,7 +31,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleAssignment> RoleAssignments { get; set; }
 #endif
-        /// <summary>Instances for active role assignments.</summary>
+        /// <summary>The roleAssignmentScheduleInstances property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleAssignmentScheduleInstance>? RoleAssignmentScheduleInstances { get; set; }
@@ -30,7 +39,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleAssignmentScheduleInstance> RoleAssignmentScheduleInstances { get; set; }
 #endif
-        /// <summary>Requests for active role assignments to principals through PIM.</summary>
+        /// <summary>The roleAssignmentScheduleRequests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleAssignmentScheduleRequest>? RoleAssignmentScheduleRequests { get; set; }
@@ -38,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleAssignmentScheduleRequest> RoleAssignmentScheduleRequests { get; set; }
 #endif
-        /// <summary>Schedules for active role assignment operations.</summary>
+        /// <summary>The roleAssignmentSchedules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleAssignmentSchedule>? RoleAssignmentSchedules { get; set; }
@@ -46,7 +55,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleAssignmentSchedule> RoleAssignmentSchedules { get; set; }
 #endif
-        /// <summary>Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.</summary>
+        /// <summary>The roleDefinitions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleDefinition>? RoleDefinitions { get; set; }
@@ -54,7 +63,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleDefinition> RoleDefinitions { get; set; }
 #endif
-        /// <summary>Instances for role eligibility requests.</summary>
+        /// <summary>The roleEligibilityScheduleInstances property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleEligibilityScheduleInstance>? RoleEligibilityScheduleInstances { get; set; }
@@ -62,7 +71,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleEligibilityScheduleInstance> RoleEligibilityScheduleInstances { get; set; }
 #endif
-        /// <summary>Requests for role eligibilities for principals through PIM.</summary>
+        /// <summary>The roleEligibilityScheduleRequests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleEligibilityScheduleRequest>? RoleEligibilityScheduleRequests { get; set; }
@@ -70,7 +79,7 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleEligibilityScheduleRequest> RoleEligibilityScheduleRequests { get; set; }
 #endif
-        /// <summary>Schedules for role eligibility operations.</summary>
+        /// <summary>The roleEligibilitySchedules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<UnifiedRoleEligibilitySchedule>? RoleEligibilitySchedules { get; set; }
@@ -78,20 +87,34 @@ namespace ApiSdk.Models {
 #else
         public List<UnifiedRoleEligibilitySchedule> RoleEligibilitySchedules { get; set; }
 #endif
+        /// <summary>The transitiveRoleAssignments property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UnifiedRoleAssignment>? TransitiveRoleAssignments { get; set; }
+#nullable restore
+#else
+        public List<UnifiedRoleAssignment> TransitiveRoleAssignments { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="RbacApplication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RbacApplication CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new RbacApplication CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new RbacApplication();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"resourceNamespaces", n => { ResourceNamespaces = n.GetCollectionOfObjectValues<UnifiedRbacResourceNamespace>(UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"roleAssignmentApprovals", n => { RoleAssignmentApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleAssignmentScheduleInstances", n => { RoleAssignmentScheduleInstances = n.GetCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>(UnifiedRoleAssignmentScheduleInstance.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleAssignmentScheduleRequests", n => { RoleAssignmentScheduleRequests = n.GetCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>(UnifiedRoleAssignmentScheduleRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleAssignmentSchedules", n => { RoleAssignmentSchedules = n.GetCollectionOfObjectValues<UnifiedRoleAssignmentSchedule>(UnifiedRoleAssignmentSchedule.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -100,16 +123,19 @@ namespace ApiSdk.Models {
                 {"roleEligibilityScheduleInstances", n => { RoleEligibilityScheduleInstances = n.GetCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>(UnifiedRoleEligibilityScheduleInstance.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleEligibilityScheduleRequests", n => { RoleEligibilityScheduleRequests = n.GetCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequest>(UnifiedRoleEligibilityScheduleRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleEligibilitySchedules", n => { RoleEligibilitySchedules = n.GetCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"transitiveRoleAssignments", n => { TransitiveRoleAssignments = n.GetCollectionOfObjectValues<UnifiedRoleAssignment>(UnifiedRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", ResourceNamespaces);
+            writer.WriteCollectionOfObjectValues<Approval>("roleAssignmentApprovals", RoleAssignmentApprovals);
             writer.WriteCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", RoleAssignments);
             writer.WriteCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("roleAssignmentScheduleInstances", RoleAssignmentScheduleInstances);
             writer.WriteCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>("roleAssignmentScheduleRequests", RoleAssignmentScheduleRequests);
@@ -118,6 +144,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("roleEligibilityScheduleInstances", RoleEligibilityScheduleInstances);
             writer.WriteCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequest>("roleEligibilityScheduleRequests", RoleEligibilityScheduleRequests);
             writer.WriteCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>("roleEligibilitySchedules", RoleEligibilitySchedules);
+            writer.WriteCollectionOfObjectValues<UnifiedRoleAssignment>("transitiveRoleAssignments", TransitiveRoleAssignments);
         }
     }
 }

@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class SelfSignedCertificate : IAdditionalDataHolder, IParsable {
+    public class SelfSignedCertificate : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The customKeyIdentifier property</summary>
+        /// <summary>Custom key identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? CustomKeyIdentifier { get; set; }
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public byte[] CustomKeyIdentifier { get; set; }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The friendly name for the key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -24,9 +25,9 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The endDateTime property</summary>
+        /// <summary>The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
-        /// <summary>The key property</summary>
+        /// <summary>The value for the key credential. Should be a base-64 encoded value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Key { get; set; }
@@ -34,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public byte[] Key { get; set; }
 #endif
-        /// <summary>The keyId property</summary>
+        /// <summary>The unique identifier (GUID) for the key.</summary>
         public Guid? KeyId { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,9 +45,9 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The startDateTime property</summary>
+        /// <summary>The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
-        /// <summary>The thumbprint property</summary>
+        /// <summary>The thumbprint value for the key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Thumbprint { get; set; }
@@ -54,7 +55,7 @@ namespace ApiSdk.Models {
 #else
         public string Thumbprint { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>The type of key credential. &apos;AsymmetricX509Cert&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }
@@ -62,7 +63,7 @@ namespace ApiSdk.Models {
 #else
         public string Type { get; set; }
 #endif
-        /// <summary>The usage property</summary>
+        /// <summary>A string that describes the purpose for which the key can be used. For example, &apos;Verify&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Usage { get; set; }
@@ -71,24 +72,30 @@ namespace ApiSdk.Models {
         public string Usage { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new selfSignedCertificate and sets the default values.
+        /// Instantiates a new <see cref="SelfSignedCertificate"/> and sets the default values.
         /// </summary>
-        public SelfSignedCertificate() {
+        public SelfSignedCertificate()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SelfSignedCertificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SelfSignedCertificate CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static SelfSignedCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SelfSignedCertificate();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"customKeyIdentifier", n => { CustomKeyIdentifier = n.GetByteArrayValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
@@ -105,7 +112,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteByteArrayValue("customKeyIdentifier", CustomKeyIdentifier);
             writer.WriteStringValue("displayName", DisplayName);

@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Domain : Entity, IParsable {
+    public class Domain : Entity, IParsable 
+    {
         /// <summary>Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Microsoft Entra ID performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant&apos;s on-premises Active Directory via Active Directory Federation Services. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +31,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> DomainNameReferences { get; set; }
 #endif
-        /// <summary>Domain settings configured by a customer when federated with Microsoft Entra ID. Supports $expand.</summary>
+        /// <summary>Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<InternalDomainFederation>? FederationConfiguration { get; set; }
@@ -42,28 +43,12 @@ namespace ApiSdk.Models {
         public bool? IsAdminManaged { get; set; }
         /// <summary>true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable</summary>
         public bool? IsDefault { get; set; }
-        /// <summary>true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable</summary>
+        /// <summary>true if this is the initial domain created by Microsoft Online Services (contoso.com). There is only one initial domain per company. Not nullable</summary>
         public bool? IsInitial { get; set; }
         /// <summary>true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable</summary>
         public bool? IsRoot { get; set; }
         /// <summary>true if the domain has completed domain ownership verification. Not nullable</summary>
         public bool? IsVerified { get; set; }
-        /// <summary>The manufacturer property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Manufacturer { get; set; }
-#nullable restore
-#else
-        public string Manufacturer { get; set; }
-#endif
-        /// <summary>The model property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Model { get; set; }
-#nullable restore
-#else
-        public string Model { get; set; }
-#endif
         /// <summary>Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.</summary>
         public int? PasswordNotificationWindowInDays { get; set; }
         /// <summary>Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.</summary>
@@ -76,6 +61,14 @@ namespace ApiSdk.Models {
 #else
         public List<DomainDnsRecord> ServiceConfigurationRecords { get; set; }
 #endif
+        /// <summary>The sharedEmailDomainInvitations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SharedEmailDomainInvitation>? SharedEmailDomainInvitations { get; set; }
+#nullable restore
+#else
+        public List<SharedEmailDomainInvitation> SharedEmailDomainInvitations { get; set; }
+#endif
         /// <summary>Status of asynchronous operations scheduled for the domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +77,7 @@ namespace ApiSdk.Models {
 #else
         public DomainState State { get; set; }
 #endif
-        /// <summary>The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.</summary>
+        /// <summary>The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SupportedServices { get; set; }
@@ -103,16 +96,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Domain"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Domain CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Domain CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Domain();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"authenticationType", n => { AuthenticationType = n.GetStringValue(); } },
                 {"availabilityStatus", n => { AvailabilityStatus = n.GetStringValue(); } },
                 {"domainNameReferences", n => { DomainNameReferences = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -122,11 +120,10 @@ namespace ApiSdk.Models {
                 {"isInitial", n => { IsInitial = n.GetBoolValue(); } },
                 {"isRoot", n => { IsRoot = n.GetBoolValue(); } },
                 {"isVerified", n => { IsVerified = n.GetBoolValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
                 {"passwordNotificationWindowInDays", n => { PasswordNotificationWindowInDays = n.GetIntValue(); } },
                 {"passwordValidityPeriodInDays", n => { PasswordValidityPeriodInDays = n.GetIntValue(); } },
                 {"serviceConfigurationRecords", n => { ServiceConfigurationRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"sharedEmailDomainInvitations", n => { SharedEmailDomainInvitations = n.GetCollectionOfObjectValues<SharedEmailDomainInvitation>(SharedEmailDomainInvitation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"state", n => { State = n.GetObjectValue<DomainState>(DomainState.CreateFromDiscriminatorValue); } },
                 {"supportedServices", n => { SupportedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"verificationDnsRecords", n => { VerificationDnsRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -136,7 +133,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("authenticationType", AuthenticationType);
@@ -148,11 +146,10 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("isInitial", IsInitial);
             writer.WriteBoolValue("isRoot", IsRoot);
             writer.WriteBoolValue("isVerified", IsVerified);
-            writer.WriteStringValue("manufacturer", Manufacturer);
-            writer.WriteStringValue("model", Model);
             writer.WriteIntValue("passwordNotificationWindowInDays", PasswordNotificationWindowInDays);
             writer.WriteIntValue("passwordValidityPeriodInDays", PasswordValidityPeriodInDays);
             writer.WriteCollectionOfObjectValues<DomainDnsRecord>("serviceConfigurationRecords", ServiceConfigurationRecords);
+            writer.WriteCollectionOfObjectValues<SharedEmailDomainInvitation>("sharedEmailDomainInvitations", SharedEmailDomainInvitations);
             writer.WriteObjectValue<DomainState>("state", State);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedServices", SupportedServices);
             writer.WriteCollectionOfObjectValues<DomainDnsRecord>("verificationDnsRecords", VerificationDnsRecords);

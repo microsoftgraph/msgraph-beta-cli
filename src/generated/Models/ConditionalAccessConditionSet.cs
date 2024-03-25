@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ConditionalAccessConditionSet : IAdditionalDataHolder, IParsable {
+    public class ConditionalAccessConditionSet : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Applications and user actions included in and excluded from the policy. Required.</summary>
@@ -16,6 +17,14 @@ namespace ApiSdk.Models {
 #else
         public ConditionalAccessApplications Applications { get; set; }
 #endif
+        /// <summary>Authentication flows included in the policy scope. For more information, see Conditional Access: Authentication flows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessAuthenticationFlows? AuthenticationFlows { get; set; }
+#nullable restore
+#else
+        public ConditionalAccessAuthenticationFlows AuthenticationFlows { get; set; }
+#endif
         /// <summary>Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public ConditionalAccessClientApplications ClientApplications { get; set; }
 #endif
-        /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync which includes EAS supported and unsupported platforms.</summary>
+        /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ConditionalAccessClientApp?>? ClientAppTypes { get; set; }
@@ -40,6 +49,16 @@ namespace ApiSdk.Models {
 #else
         public ConditionalAccessDevices Devices { get; set; }
 #endif
+        /// <summary>Device states in the policy. To be deprecated and removed. Use the devices property instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessDeviceStates? DeviceStates { get; set; }
+#nullable restore
+#else
+        public ConditionalAccessDeviceStates DeviceStates { get; set; }
+#endif
+        /// <summary>The insiderRiskLevels property</summary>
+        public ConditionalAccessInsiderRiskLevels? InsiderRiskLevels { get; set; }
         /// <summary>Locations included in and excluded from the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,28 +116,37 @@ namespace ApiSdk.Models {
         public ConditionalAccessUsers Users { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new conditionalAccessConditionSet and sets the default values.
+        /// Instantiates a new <see cref="ConditionalAccessConditionSet"/> and sets the default values.
         /// </summary>
-        public ConditionalAccessConditionSet() {
+        public ConditionalAccessConditionSet()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ConditionalAccessConditionSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessConditionSet CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ConditionalAccessConditionSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ConditionalAccessConditionSet();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"applications", n => { Applications = n.GetObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications.CreateFromDiscriminatorValue); } },
+                {"authenticationFlows", n => { AuthenticationFlows = n.GetObjectValue<ConditionalAccessAuthenticationFlows>(ConditionalAccessAuthenticationFlows.CreateFromDiscriminatorValue); } },
                 {"clientAppTypes", n => { ClientAppTypes = n.GetCollectionOfEnumValues<ConditionalAccessClientApp>()?.ToList(); } },
                 {"clientApplications", n => { ClientApplications = n.GetObjectValue<ConditionalAccessClientApplications>(ConditionalAccessClientApplications.CreateFromDiscriminatorValue); } },
+                {"deviceStates", n => { DeviceStates = n.GetObjectValue<ConditionalAccessDeviceStates>(ConditionalAccessDeviceStates.CreateFromDiscriminatorValue); } },
                 {"devices", n => { Devices = n.GetObjectValue<ConditionalAccessDevices>(ConditionalAccessDevices.CreateFromDiscriminatorValue); } },
+                {"insiderRiskLevels", n => { InsiderRiskLevels = n.GetEnumValue<ConditionalAccessInsiderRiskLevels>(); } },
                 {"locations", n => { Locations = n.GetObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"platforms", n => { Platforms = n.GetObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms.CreateFromDiscriminatorValue); } },
@@ -132,12 +160,16 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ConditionalAccessApplications>("applications", Applications);
+            writer.WriteObjectValue<ConditionalAccessAuthenticationFlows>("authenticationFlows", AuthenticationFlows);
             writer.WriteObjectValue<ConditionalAccessClientApplications>("clientApplications", ClientApplications);
             writer.WriteCollectionOfEnumValues<ConditionalAccessClientApp>("clientAppTypes", ClientAppTypes);
             writer.WriteObjectValue<ConditionalAccessDevices>("devices", Devices);
+            writer.WriteObjectValue<ConditionalAccessDeviceStates>("deviceStates", DeviceStates);
+            writer.WriteEnumValue<ConditionalAccessInsiderRiskLevels>("insiderRiskLevels", InsiderRiskLevels);
             writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ConditionalAccessPlatforms>("platforms", Platforms);

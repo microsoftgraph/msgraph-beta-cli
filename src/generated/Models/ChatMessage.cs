@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ChatMessage : Entity, IParsable {
+    public class ChatMessage : Entity, IParsable 
+    {
         /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +51,7 @@ namespace ApiSdk.Models {
 #else
         public string Etag { get; set; }
 #endif
-        /// <summary>Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.</summary>
+        /// <summary>Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EventMessageDetail? EventDetail { get; set; }
@@ -88,7 +89,7 @@ namespace ApiSdk.Models {
 #else
         public string Locale { get; set; }
 #endif
-        /// <summary>List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.</summary>
+        /// <summary>List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ChatMessageMention>? Mentions { get; set; }
@@ -106,6 +107,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The messageType property</summary>
         public ChatMessageType? MessageType { get; set; }
+        /// <summary>User attribution of the message when bot sends a message on behalf of a user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ChatMessageFromIdentitySet? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public ChatMessageFromIdentitySet OnBehalfOf { get; set; }
+#endif
         /// <summary>Defines the properties of a policy violation set by a data loss prevention (DLP) application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -165,16 +174,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ChatMessage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ChatMessage CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ChatMessage CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ChatMessage();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<ChatMessageAttachment>(ChatMessageAttachment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"channelIdentity", n => { ChannelIdentity = n.GetObjectValue<ApiSdk.Models.ChannelIdentity>(ApiSdk.Models.ChannelIdentity.CreateFromDiscriminatorValue); } },
@@ -192,6 +206,7 @@ namespace ApiSdk.Models {
                 {"mentions", n => { Mentions = n.GetCollectionOfObjectValues<ChatMessageMention>(ChatMessageMention.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"messageHistory", n => { MessageHistory = n.GetCollectionOfObjectValues<ChatMessageHistoryItem>(ChatMessageHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"messageType", n => { MessageType = n.GetEnumValue<ChatMessageType>(); } },
+                {"onBehalfOf", n => { OnBehalfOf = n.GetObjectValue<ChatMessageFromIdentitySet>(ChatMessageFromIdentitySet.CreateFromDiscriminatorValue); } },
                 {"policyViolation", n => { PolicyViolation = n.GetObjectValue<ChatMessagePolicyViolation>(ChatMessagePolicyViolation.CreateFromDiscriminatorValue); } },
                 {"reactions", n => { Reactions = n.GetCollectionOfObjectValues<ChatMessageReaction>(ChatMessageReaction.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"replies", n => { Replies = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -205,7 +220,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<ChatMessageAttachment>("attachments", Attachments);
@@ -225,6 +241,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<ChatMessageMention>("mentions", Mentions);
             writer.WriteCollectionOfObjectValues<ChatMessageHistoryItem>("messageHistory", MessageHistory);
             writer.WriteEnumValue<ChatMessageType>("messageType", MessageType);
+            writer.WriteObjectValue<ChatMessageFromIdentitySet>("onBehalfOf", OnBehalfOf);
             writer.WriteObjectValue<ChatMessagePolicyViolation>("policyViolation", PolicyViolation);
             writer.WriteCollectionOfObjectValues<ChatMessageReaction>("reactions", Reactions);
             writer.WriteCollectionOfObjectValues<ChatMessage>("replies", Replies);

@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device.
     /// </summary>
-    public class ManagedDeviceMobileAppConfigurationDeviceStatus : Entity, IParsable {
+    public class ManagedDeviceMobileAppConfigurationDeviceStatus : Entity, IParsable 
+    {
         /// <summary>The DateTime when device compliance grace period expires</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; set; }
         /// <summary>Device name of the DevicePolicyStatus.</summary>
@@ -29,6 +30,8 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Last modified date time of the policy report.</summary>
         public DateTimeOffset? LastReportedDateTime { get; set; }
+        /// <summary>Platform of the device that is being reported</summary>
+        public int? Platform { get; set; }
         /// <summary>The status property</summary>
         public ComplianceStatus? Status { get; set; }
         /// <summary>The User Name that is being reported</summary>
@@ -50,20 +53,26 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ManagedDeviceMobileAppConfigurationDeviceStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedDeviceMobileAppConfigurationDeviceStatus CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ManagedDeviceMobileAppConfigurationDeviceStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ManagedDeviceMobileAppConfigurationDeviceStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"complianceGracePeriodExpirationDateTime", n => { ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
                 {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
                 {"lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"platform", n => { Platform = n.GetIntValue(); } },
                 {"status", n => { Status = n.GetEnumValue<ComplianceStatus>(); } },
                 {"userName", n => { UserName = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -73,13 +82,15 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("complianceGracePeriodExpirationDateTime", ComplianceGracePeriodExpirationDateTime);
             writer.WriteStringValue("deviceDisplayName", DeviceDisplayName);
             writer.WriteStringValue("deviceModel", DeviceModel);
             writer.WriteDateTimeOffsetValue("lastReportedDateTime", LastReportedDateTime);
+            writer.WriteIntValue("platform", Platform);
             writer.WriteEnumValue<ComplianceStatus>("status", Status);
             writer.WriteStringValue("userName", UserName);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

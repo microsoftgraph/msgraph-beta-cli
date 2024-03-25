@@ -18,11 +18,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.WeekNum {
     /// <summary>
     /// Provides operations to call the weekNum method.
     /// </summary>
-    public class WeekNumRequestBuilder : BaseCliRequestBuilder {
+    public class WeekNumRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action weekNum
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action weekNum";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -75,28 +78,33 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.WeekNum {
             return command;
         }
         /// <summary>
-        /// Instantiates a new WeekNumRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="WeekNumRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public WeekNumRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/weekNum", pathParameters) {
+        public WeekNumRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/weekNum", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new WeekNumRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="WeekNumRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public WeekNumRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/weekNum", rawUrl) {
+        public WeekNumRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/weekNum", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action weekNum
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(WeekNumPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WeekNumPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(WeekNumPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(WeekNumPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

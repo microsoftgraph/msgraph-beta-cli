@@ -17,11 +17,14 @@ namespace ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPer
     /// <summary>
     /// Provides operations to call the getSkypeForBusinessOrganizerActivityMinuteCounts method.
     /// </summary>
-    public class GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder : BaseCliRequestBuilder {
+    public class GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts";
             var periodOption = new Option<string>("--period", description: "Usage: period='{period}'") {
@@ -57,27 +60,32 @@ namespace ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPer
             return command;
         }
         /// <summary>
-        /// Instantiates a new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')", pathParameters) {
+        public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')", rawUrl) {
+        public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

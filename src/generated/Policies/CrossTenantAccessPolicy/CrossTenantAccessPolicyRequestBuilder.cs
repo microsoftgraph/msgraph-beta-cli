@@ -3,6 +3,7 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Policies.CrossTenantAccessPolicy.Default;
 using ApiSdk.Policies.CrossTenantAccessPolicy.Partners;
+using ApiSdk.Policies.CrossTenantAccessPolicy.Templates;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -20,11 +21,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
     /// <summary>
     /// Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class CrossTenantAccessPolicyRequestBuilder : BaseCliRequestBuilder {
+    public class CrossTenantAccessPolicyRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
         /// </summary>
-        public Command BuildDefaultNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDefaultNavCommand()
+        {
             var command = new Command("default");
             command.Description = "Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.";
             var builder = new DefaultRequestBuilder(PathParameters);
@@ -47,7 +51,9 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// <summary>
         /// Delete navigation property crossTenantAccessPolicy for policies
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property crossTenantAccessPolicy for policies";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -75,7 +81,9 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// Read the properties and relationships of a crossTenantAccessPolicy object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Read the properties and relationships of a crossTenantAccessPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -119,7 +127,9 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// <summary>
         /// Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
         /// </summary>
-        public Command BuildPartnersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPartnersNavCommand()
+        {
             var command = new Command("partners");
             command.Description = "Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.";
             var builder = new PartnersRequestBuilder(PathParameters);
@@ -145,7 +155,9 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// Update the properties of a cross-tenant access policy.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of a cross-tenant access policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -186,29 +198,60 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CrossTenantAccessPolicyRequestBuilder and sets the default values.
+        /// Provides operations to manage the templates property of the microsoft.graph.crossTenantAccessPolicy entity.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public CrossTenantAccessPolicyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/policies/crossTenantAccessPolicy{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTemplatesNavCommand()
+        {
+            var command = new Command("templates");
+            command.Description = "Provides operations to manage the templates property of the microsoft.graph.crossTenantAccessPolicy entity.";
+            var builder = new TemplatesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildMultiTenantOrganizationIdentitySynchronizationNavCommand());
+            nonExecCommands.Add(builder.BuildMultiTenantOrganizationPartnerConfigurationNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new CrossTenantAccessPolicyRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CrossTenantAccessPolicyRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public CrossTenantAccessPolicyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/policies/crossTenantAccessPolicy{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="CrossTenantAccessPolicyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CrossTenantAccessPolicyRequestBuilder(string rawUrl) : base("{+baseurl}/policies/crossTenantAccessPolicy{?%24select,%24expand}", rawUrl) {
+        public CrossTenantAccessPolicyRequestBuilder(string rawUrl) : base("{+baseurl}/policies/crossTenantAccessPolicy{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property crossTenantAccessPolicy for policies
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/policies/crossTenantAccessPolicy", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -216,13 +259,16 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// <summary>
         /// Read the properties and relationships of a crossTenantAccessPolicy object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -232,17 +278,20 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// <summary>
         /// Update the properties of a cross-tenant access policy.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CrossTenantAccessPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CrossTenantAccessPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CrossTenantAccessPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CrossTenantAccessPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/crossTenantAccessPolicy", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -250,7 +299,8 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy {
         /// <summary>
         /// Read the properties and relationships of a crossTenantAccessPolicy object.
         /// </summary>
-        public class CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
+        public class CrossTenantAccessPolicyRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

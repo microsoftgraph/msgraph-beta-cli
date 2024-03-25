@@ -8,7 +8,10 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Devices that are managed or pre-enrolled through Intune
     /// </summary>
-    public class ManagedDevice : Entity, IParsable {
+    public class ManagedDevice : Entity, IParsable 
+    {
+        /// <summary>Whether the device is Azure Active Directory registered. This property is read-only.</summary>
+        public bool? AadRegistered { get; private set; }
         /// <summary>The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,6 +28,24 @@ namespace ApiSdk.Models {
 #else
         public string AndroidSecurityPatchLevel { get; private set; }
 #endif
+        /// <summary>Managed device mobile app configuration states for this device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.AssignmentFilterEvaluationStatusDetails>? AssignmentFilterEvaluationStatusDetails { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.AssignmentFilterEvaluationStatusDetails> AssignmentFilterEvaluationStatusDetails { get; set; }
+#endif
+        /// <summary>Reports if the managed device is enrolled via auto-pilot. This property is read-only.</summary>
+        public bool? AutopilotEnrolled { get; private set; }
+        /// <summary>The unique identifier for the Azure Active Directory device. Read only. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureActiveDirectoryDeviceId { get; private set; }
+#nullable restore
+#else
+        public string AzureActiveDirectoryDeviceId { get; private set; }
+#endif
         /// <summary>The unique identifier for the Azure Active Directory device. Read only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,6 +56,26 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Whether the device is Azure Active Directory registered. This property is read-only.</summary>
         public bool? AzureADRegistered { get; private set; }
+        /// <summary>Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.</summary>
+        public bool? BootstrapTokenEscrowed { get; private set; }
+        /// <summary>Chassis type.</summary>
+        public ApiSdk.Models.ChassisType? ChassisType { get; set; }
+        /// <summary>List of properties of the ChromeOS Device. Default is an empty list. To retrieve actual values GET call needs to be made, with device id and included in select parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ChromeOSDeviceProperty>? ChromeOSDeviceInfo { get; set; }
+#nullable restore
+#else
+        public List<ChromeOSDeviceProperty> ChromeOSDeviceInfo { get; set; }
+#endif
+        /// <summary>The cloudPcRemoteActionResults property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CloudPcRemoteActionResult>? CloudPcRemoteActionResults { get; set; }
+#nullable restore
+#else
+        public List<CloudPcRemoteActionResult> CloudPcRemoteActionResults { get; set; }
+#endif
         /// <summary>The DateTime when device compliance grace period expires. This property is read-only.</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; private set; }
         /// <summary>Compliance state.</summary>
@@ -46,6 +87,30 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public ApiSdk.Models.ConfigurationManagerClientEnabledFeatures ConfigurationManagerClientEnabledFeatures { get; private set; }
+#endif
+        /// <summary>Configuration manager client health state, valid only for devices managed by MDM/ConfigMgr Agent</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ConfigurationManagerClientHealthState? ConfigurationManagerClientHealthState { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ConfigurationManagerClientHealthState ConfigurationManagerClientHealthState { get; set; }
+#endif
+        /// <summary>Configuration manager client information, valid only for devices managed, duel-managed or tri-managed by ConfigMgr Agent</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ConfigurationManagerClientInformation? ConfigurationManagerClientInformation { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ConfigurationManagerClientInformation ConfigurationManagerClientInformation { get; set; }
+#endif
+        /// <summary>All applications currently installed on the device</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DetectedApp>? DetectedApps { get; set; }
+#nullable restore
+#else
+        public List<DetectedApp> DetectedApps { get; set; }
 #endif
         /// <summary>List of ComplexType deviceActionResult objects. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,6 +154,8 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Possible ways of adding a mobile device to management.</summary>
         public ApiSdk.Models.DeviceEnrollmentType? DeviceEnrollmentType { get; set; }
+        /// <summary>Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.</summary>
+        public bool? DeviceFirmwareConfigurationInterfaceManaged { get; set; }
         /// <summary>The device health attestation state. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,6 +163,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public ApiSdk.Models.DeviceHealthAttestationState DeviceHealthAttestationState { get; private set; }
+#endif
+        /// <summary>Results of device health scripts that ran for this device. Default is empty list. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceHealthScriptPolicyState>? DeviceHealthScriptStates { get; set; }
+#nullable restore
+#else
+        public List<DeviceHealthScriptPolicyState> DeviceHealthScriptStates { get; set; }
 #endif
         /// <summary>Name of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +182,8 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Device registration status.</summary>
         public ApiSdk.Models.DeviceRegistrationState? DeviceRegistrationState { get; set; }
+        /// <summary>Device type.</summary>
+        public ApiSdk.Models.DeviceType? DeviceType { get; set; }
         /// <summary>Whether the device is Exchange ActiveSync activated. This property is read-only.</summary>
         public bool? EasActivated { get; private set; }
         /// <summary>Exchange ActivationSync activation time of the device. This property is read-only.</summary>
@@ -129,6 +206,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Enrollment time of the device. Supports $filter operator &apos;lt&apos; and &apos;gt&apos;. This property is read-only.</summary>
         public DateTimeOffset? EnrolledDateTime { get; private set; }
+        /// <summary>Name of the enrollment profile assigned to the device. Default value is empty string, indicating no enrollment profile was assgined. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EnrollmentProfileName { get; private set; }
+#nullable restore
+#else
+        public string EnrollmentProfileName { get; private set; }
+#endif
         /// <summary>Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,6 +230,14 @@ namespace ApiSdk.Models {
         public DateTimeOffset? ExchangeLastSuccessfulSyncDateTime { get; private set; }
         /// <summary>Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.</summary>
         public long? FreeStorageSpaceInBytes { get; private set; }
+        /// <summary>The hardward details for the device. Includes information such as storage space, manufacturer, serial number, etc. By default most property of this type are set to null/0/false and enum defaults for associated types. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.HardwareInformation? HardwareInformation { get; private set; }
+#nullable restore
+#else
+        public ApiSdk.Models.HardwareInformation HardwareInformation { get; private set; }
+#endif
         /// <summary>Integrated Circuit Card Identifier, it is A SIM card&apos;s unique identification number. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,6 +266,8 @@ namespace ApiSdk.Models {
 #else
         public string JailBroken { get; private set; }
 #endif
+        /// <summary>Device enrollment join type.</summary>
+        public ApiSdk.Models.JoinType? JoinType { get; set; }
         /// <summary>The date and time that the device last completed a successful sync with Intune. Supports $filter operator &apos;lt&apos; and &apos;gt&apos;. This property is read-only.</summary>
         public DateTimeOffset? LastSyncDateTime { get; private set; }
         /// <summary>List of log collection requests</summary>
@@ -182,6 +277,16 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<DeviceLogCollectionResponse> LogCollectionRequests { get; set; }
+#endif
+        /// <summary>State of lost mode, indicating if lost mode is enabled or disabled</summary>
+        public ApiSdk.Models.LostModeState? LostModeState { get; set; }
+        /// <summary>Managed device mobile app configuration states for this device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedDeviceMobileAppConfigurationState>? ManagedDeviceMobileAppConfigurationStates { get; set; }
+#nullable restore
+#else
+        public List<ManagedDeviceMobileAppConfigurationState> ManagedDeviceMobileAppConfigurationStates { get; set; }
 #endif
         /// <summary>Automatically generated name to identify a device. Can be overwritten to a user friendly name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -193,10 +298,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Owner type of device.</summary>
         public ApiSdk.Models.ManagedDeviceOwnerType? ManagedDeviceOwnerType { get; set; }
-        /// <summary>The managementAgent property</summary>
+        /// <summary>Management agent type.</summary>
         public ManagementAgentType? ManagementAgent { get; set; }
         /// <summary>Reports device management certificate expiration date. This property is read-only.</summary>
         public DateTimeOffset? ManagementCertificateExpirationDate { get; private set; }
+        /// <summary>Device management features.</summary>
+        public ManagedDeviceManagementFeatures? ManagementFeatures { get; set; }
+        /// <summary>Management state of device in Microsoft Intune.</summary>
+        public ApiSdk.Models.ManagementState? ManagementState { get; set; }
         /// <summary>Manufacturer of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -245,6 +354,8 @@ namespace ApiSdk.Models {
 #else
         public string OsVersion { get; private set; }
 #endif
+        /// <summary>Owner type of device.</summary>
+        public ApiSdk.Models.OwnerType? OwnerType { get; set; }
         /// <summary>Available health states for the Device Health API</summary>
         public ManagedDevicePartnerReportedHealthState? PartnerReportedThreatState { get; set; }
         /// <summary>Phone number of the device. This property is read-only.</summary>
@@ -257,6 +368,10 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Total Memory in Bytes. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. Read-only. This property is read-only.</summary>
         public long? PhysicalMemoryInBytes { get; private set; }
+        /// <summary>Reports the DateTime the preferMdmOverGroupPolicy setting was set.  When set, the Intune MDM settings will override Group Policy settings if there is a conflict. Read Only. This property is read-only.</summary>
+        public DateTimeOffset? PreferMdmOverGroupPolicyAppliedDateTime { get; private set; }
+        /// <summary>Processor architecture</summary>
+        public ManagedDeviceArchitecture? ProcessorArchitecture { get; set; }
         /// <summary>An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -275,6 +390,32 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Reports if the managed iOS device is user approval enrollment. This property is read-only.</summary>
         public bool? RequireUserEnrollmentApproval { get; private set; }
+        /// <summary>Indicates the time after when a device will be auto retired because of scheduled action. This property is read-only.</summary>
+        public DateTimeOffset? RetireAfterDateTime { get; private set; }
+        /// <summary>List of Scope Tag IDs for this Device instance.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RoleScopeTagIds { get; set; }
+#nullable restore
+#else
+        public List<string> RoleScopeTagIds { get; set; }
+#endif
+        /// <summary>Security baseline states for this device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SecurityBaselineState>? SecurityBaselineStates { get; set; }
+#nullable restore
+#else
+        public List<SecurityBaselineState> SecurityBaselineStates { get; set; }
+#endif
+        /// <summary>This indicates the security patch level of the operating system. These special updates contain important security fixes. For iOS/MacOS they are in (a) format. For android its in 2017-08-07 format. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SecurityPatchLevel { get; private set; }
+#nullable restore
+#else
+        public string SecurityPatchLevel { get; private set; }
+#endif
         /// <summary>SerialNumber. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -282,6 +423,24 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string SerialNumber { get; private set; }
+#endif
+        /// <summary>Device sku family</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SkuFamily { get; set; }
+#nullable restore
+#else
+        public string SkuFamily { get; set; }
+#endif
+        /// <summary>Device sku number, see also: https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.</summary>
+        public int? SkuNumber { get; private set; }
+        /// <summary>Specification version. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SpecificationVersion { get; private set; }
+#nullable restore
+#else
+        public string SpecificationVersion { get; private set; }
 #endif
         /// <summary>Subscriber Carrier. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -333,6 +492,14 @@ namespace ApiSdk.Models {
 #else
         public List<User> Users { get; set; }
 #endif
+        /// <summary>Indicates the last logged on users of a device. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<LoggedOnUser>? UsersLoggedOn { get; private set; }
+#nullable restore
+#else
+        public List<LoggedOnUser> UsersLoggedOn { get; private set; }
+#endif
         /// <summary>Wi-Fi MAC. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -341,6 +508,8 @@ namespace ApiSdk.Models {
 #else
         public string WiFiMacAddress { get; private set; }
 #endif
+        /// <summary>Count of active malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.</summary>
+        public int? WindowsActiveMalwareCount { get; private set; }
         /// <summary>The device protection status. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -349,69 +518,112 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.WindowsProtectionState WindowsProtectionState { get; set; }
 #endif
+        /// <summary>Count of remediated malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.</summary>
+        public int? WindowsRemediatedMalwareCount { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ManagedDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedDevice();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "#microsoft.graph.windowsManagedDevice" => new WindowsManagedDevice(),
+                _ => new ManagedDevice(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"aadRegistered", n => { AadRegistered = n.GetBoolValue(); } },
                 {"activationLockBypassCode", n => { ActivationLockBypassCode = n.GetStringValue(); } },
                 {"androidSecurityPatchLevel", n => { AndroidSecurityPatchLevel = n.GetStringValue(); } },
+                {"assignmentFilterEvaluationStatusDetails", n => { AssignmentFilterEvaluationStatusDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterEvaluationStatusDetails>(ApiSdk.Models.AssignmentFilterEvaluationStatusDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"autopilotEnrolled", n => { AutopilotEnrolled = n.GetBoolValue(); } },
                 {"azureADDeviceId", n => { AzureADDeviceId = n.GetStringValue(); } },
                 {"azureADRegistered", n => { AzureADRegistered = n.GetBoolValue(); } },
+                {"azureActiveDirectoryDeviceId", n => { AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
+                {"bootstrapTokenEscrowed", n => { BootstrapTokenEscrowed = n.GetBoolValue(); } },
+                {"chassisType", n => { ChassisType = n.GetEnumValue<ChassisType>(); } },
+                {"chromeOSDeviceInfo", n => { ChromeOSDeviceInfo = n.GetCollectionOfObjectValues<ChromeOSDeviceProperty>(ChromeOSDeviceProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"cloudPcRemoteActionResults", n => { CloudPcRemoteActionResults = n.GetCollectionOfObjectValues<CloudPcRemoteActionResult>(CloudPcRemoteActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"complianceGracePeriodExpirationDateTime", n => { ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"complianceState", n => { ComplianceState = n.GetEnumValue<ComplianceState>(); } },
                 {"configurationManagerClientEnabledFeatures", n => { ConfigurationManagerClientEnabledFeatures = n.GetObjectValue<ApiSdk.Models.ConfigurationManagerClientEnabledFeatures>(ApiSdk.Models.ConfigurationManagerClientEnabledFeatures.CreateFromDiscriminatorValue); } },
+                {"configurationManagerClientHealthState", n => { ConfigurationManagerClientHealthState = n.GetObjectValue<ApiSdk.Models.ConfigurationManagerClientHealthState>(ApiSdk.Models.ConfigurationManagerClientHealthState.CreateFromDiscriminatorValue); } },
+                {"configurationManagerClientInformation", n => { ConfigurationManagerClientInformation = n.GetObjectValue<ApiSdk.Models.ConfigurationManagerClientInformation>(ApiSdk.Models.ConfigurationManagerClientInformation.CreateFromDiscriminatorValue); } },
+                {"detectedApps", n => { DetectedApps = n.GetCollectionOfObjectValues<DetectedApp>(DetectedApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceActionResults", n => { DeviceActionResults = n.GetCollectionOfObjectValues<DeviceActionResult>(DeviceActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceCategory", n => { DeviceCategory = n.GetObjectValue<ApiSdk.Models.DeviceCategory>(ApiSdk.Models.DeviceCategory.CreateFromDiscriminatorValue); } },
                 {"deviceCategoryDisplayName", n => { DeviceCategoryDisplayName = n.GetStringValue(); } },
                 {"deviceCompliancePolicyStates", n => { DeviceCompliancePolicyStates = n.GetCollectionOfObjectValues<DeviceCompliancePolicyState>(DeviceCompliancePolicyState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationStates", n => { DeviceConfigurationStates = n.GetCollectionOfObjectValues<DeviceConfigurationState>(DeviceConfigurationState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceEnrollmentType", n => { DeviceEnrollmentType = n.GetEnumValue<DeviceEnrollmentType>(); } },
+                {"deviceFirmwareConfigurationInterfaceManaged", n => { DeviceFirmwareConfigurationInterfaceManaged = n.GetBoolValue(); } },
                 {"deviceHealthAttestationState", n => { DeviceHealthAttestationState = n.GetObjectValue<ApiSdk.Models.DeviceHealthAttestationState>(ApiSdk.Models.DeviceHealthAttestationState.CreateFromDiscriminatorValue); } },
+                {"deviceHealthScriptStates", n => { DeviceHealthScriptStates = n.GetCollectionOfObjectValues<DeviceHealthScriptPolicyState>(DeviceHealthScriptPolicyState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceName", n => { DeviceName = n.GetStringValue(); } },
                 {"deviceRegistrationState", n => { DeviceRegistrationState = n.GetEnumValue<DeviceRegistrationState>(); } },
+                {"deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
                 {"easActivated", n => { EasActivated = n.GetBoolValue(); } },
                 {"easActivationDateTime", n => { EasActivationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"easDeviceId", n => { EasDeviceId = n.GetStringValue(); } },
                 {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
                 {"enrolledDateTime", n => { EnrolledDateTime = n.GetDateTimeOffsetValue(); } },
+                {"enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
                 {"ethernetMacAddress", n => { EthernetMacAddress = n.GetStringValue(); } },
                 {"exchangeAccessState", n => { ExchangeAccessState = n.GetEnumValue<DeviceManagementExchangeAccessState>(); } },
                 {"exchangeAccessStateReason", n => { ExchangeAccessStateReason = n.GetEnumValue<DeviceManagementExchangeAccessStateReason>(); } },
                 {"exchangeLastSuccessfulSyncDateTime", n => { ExchangeLastSuccessfulSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"freeStorageSpaceInBytes", n => { FreeStorageSpaceInBytes = n.GetLongValue(); } },
+                {"hardwareInformation", n => { HardwareInformation = n.GetObjectValue<ApiSdk.Models.HardwareInformation>(ApiSdk.Models.HardwareInformation.CreateFromDiscriminatorValue); } },
                 {"iccid", n => { Iccid = n.GetStringValue(); } },
                 {"imei", n => { Imei = n.GetStringValue(); } },
                 {"isEncrypted", n => { IsEncrypted = n.GetBoolValue(); } },
                 {"isSupervised", n => { IsSupervised = n.GetBoolValue(); } },
                 {"jailBroken", n => { JailBroken = n.GetStringValue(); } },
+                {"joinType", n => { JoinType = n.GetEnumValue<JoinType>(); } },
                 {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"logCollectionRequests", n => { LogCollectionRequests = n.GetCollectionOfObjectValues<DeviceLogCollectionResponse>(DeviceLogCollectionResponse.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"lostModeState", n => { LostModeState = n.GetEnumValue<LostModeState>(); } },
+                {"managedDeviceMobileAppConfigurationStates", n => { ManagedDeviceMobileAppConfigurationStates = n.GetCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationState>(ManagedDeviceMobileAppConfigurationState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
                 {"managedDeviceOwnerType", n => { ManagedDeviceOwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
                 {"managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
                 {"managementCertificateExpirationDate", n => { ManagementCertificateExpirationDate = n.GetDateTimeOffsetValue(); } },
+                {"managementFeatures", n => { ManagementFeatures = n.GetEnumValue<ManagedDeviceManagementFeatures>(); } },
+                {"managementState", n => { ManagementState = n.GetEnumValue<ManagementState>(); } },
                 {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 {"meid", n => { Meid = n.GetStringValue(); } },
                 {"model", n => { Model = n.GetStringValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
                 {"osVersion", n => { OsVersion = n.GetStringValue(); } },
+                {"ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
                 {"partnerReportedThreatState", n => { PartnerReportedThreatState = n.GetEnumValue<ManagedDevicePartnerReportedHealthState>(); } },
                 {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 {"physicalMemoryInBytes", n => { PhysicalMemoryInBytes = n.GetLongValue(); } },
+                {"preferMdmOverGroupPolicyAppliedDateTime", n => { PreferMdmOverGroupPolicyAppliedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"processorArchitecture", n => { ProcessorArchitecture = n.GetEnumValue<ManagedDeviceArchitecture>(); } },
                 {"remoteAssistanceSessionErrorDetails", n => { RemoteAssistanceSessionErrorDetails = n.GetStringValue(); } },
                 {"remoteAssistanceSessionUrl", n => { RemoteAssistanceSessionUrl = n.GetStringValue(); } },
                 {"requireUserEnrollmentApproval", n => { RequireUserEnrollmentApproval = n.GetBoolValue(); } },
+                {"retireAfterDateTime", n => { RetireAfterDateTime = n.GetDateTimeOffsetValue(); } },
+                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"securityBaselineStates", n => { SecurityBaselineStates = n.GetCollectionOfObjectValues<SecurityBaselineState>(SecurityBaselineState.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"securityPatchLevel", n => { SecurityPatchLevel = n.GetStringValue(); } },
                 {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                {"skuFamily", n => { SkuFamily = n.GetStringValue(); } },
+                {"skuNumber", n => { SkuNumber = n.GetIntValue(); } },
+                {"specificationVersion", n => { SpecificationVersion = n.GetStringValue(); } },
                 {"subscriberCarrier", n => { SubscriberCarrier = n.GetStringValue(); } },
                 {"totalStorageSpaceInBytes", n => { TotalStorageSpaceInBytes = n.GetLongValue(); } },
                 {"udid", n => { Udid = n.GetStringValue(); } },
@@ -419,31 +631,55 @@ namespace ApiSdk.Models {
                 {"userId", n => { UserId = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
                 {"users", n => { Users = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"usersLoggedOn", n => { UsersLoggedOn = n.GetCollectionOfObjectValues<LoggedOnUser>(LoggedOnUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"wiFiMacAddress", n => { WiFiMacAddress = n.GetStringValue(); } },
+                {"windowsActiveMalwareCount", n => { WindowsActiveMalwareCount = n.GetIntValue(); } },
                 {"windowsProtectionState", n => { WindowsProtectionState = n.GetObjectValue<ApiSdk.Models.WindowsProtectionState>(ApiSdk.Models.WindowsProtectionState.CreateFromDiscriminatorValue); } },
+                {"windowsRemediatedMalwareCount", n => { WindowsRemediatedMalwareCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterEvaluationStatusDetails>("assignmentFilterEvaluationStatusDetails", AssignmentFilterEvaluationStatusDetails);
+            writer.WriteEnumValue<ChassisType>("chassisType", ChassisType);
+            writer.WriteCollectionOfObjectValues<ChromeOSDeviceProperty>("chromeOSDeviceInfo", ChromeOSDeviceInfo);
+            writer.WriteCollectionOfObjectValues<CloudPcRemoteActionResult>("cloudPcRemoteActionResults", CloudPcRemoteActionResults);
             writer.WriteEnumValue<ComplianceState>("complianceState", ComplianceState);
+            writer.WriteObjectValue<ApiSdk.Models.ConfigurationManagerClientHealthState>("configurationManagerClientHealthState", ConfigurationManagerClientHealthState);
+            writer.WriteObjectValue<ApiSdk.Models.ConfigurationManagerClientInformation>("configurationManagerClientInformation", ConfigurationManagerClientInformation);
+            writer.WriteCollectionOfObjectValues<DetectedApp>("detectedApps", DetectedApps);
             writer.WriteObjectValue<ApiSdk.Models.DeviceCategory>("deviceCategory", DeviceCategory);
             writer.WriteCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", DeviceCompliancePolicyStates);
             writer.WriteCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", DeviceConfigurationStates);
             writer.WriteEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", DeviceEnrollmentType);
+            writer.WriteBoolValue("deviceFirmwareConfigurationInterfaceManaged", DeviceFirmwareConfigurationInterfaceManaged);
+            writer.WriteCollectionOfObjectValues<DeviceHealthScriptPolicyState>("deviceHealthScriptStates", DeviceHealthScriptStates);
             writer.WriteEnumValue<DeviceRegistrationState>("deviceRegistrationState", DeviceRegistrationState);
+            writer.WriteEnumValue<DeviceType>("deviceType", DeviceType);
             writer.WriteEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", ExchangeAccessState);
             writer.WriteEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", ExchangeAccessStateReason);
+            writer.WriteEnumValue<JoinType>("joinType", JoinType);
             writer.WriteCollectionOfObjectValues<DeviceLogCollectionResponse>("logCollectionRequests", LogCollectionRequests);
+            writer.WriteEnumValue<LostModeState>("lostModeState", LostModeState);
+            writer.WriteCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationState>("managedDeviceMobileAppConfigurationStates", ManagedDeviceMobileAppConfigurationStates);
             writer.WriteStringValue("managedDeviceName", ManagedDeviceName);
             writer.WriteEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", ManagedDeviceOwnerType);
             writer.WriteEnumValue<ManagementAgentType>("managementAgent", ManagementAgent);
+            writer.WriteEnumValue<ManagedDeviceManagementFeatures>("managementFeatures", ManagementFeatures);
+            writer.WriteEnumValue<ManagementState>("managementState", ManagementState);
             writer.WriteStringValue("notes", Notes);
+            writer.WriteEnumValue<OwnerType>("ownerType", OwnerType);
             writer.WriteEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", PartnerReportedThreatState);
+            writer.WriteEnumValue<ManagedDeviceArchitecture>("processorArchitecture", ProcessorArchitecture);
+            writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
+            writer.WriteCollectionOfObjectValues<SecurityBaselineState>("securityBaselineStates", SecurityBaselineStates);
+            writer.WriteStringValue("skuFamily", SkuFamily);
             writer.WriteCollectionOfObjectValues<User>("users", Users);
             writer.WriteObjectValue<ApiSdk.Models.WindowsProtectionState>("windowsProtectionState", WindowsProtectionState);
         }

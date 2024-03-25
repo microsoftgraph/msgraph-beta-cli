@@ -5,9 +5,18 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class KeyCredentialConfiguration : IAdditionalDataHolder, IParsable {
+    public class KeyCredentialConfiguration : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Collection of GUIDs that point to the certificateBasedApplicationConfiguration that contains the collection of allowed root and intermediate certificate authorities.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? CertificateBasedApplicationConfigurationIds { get; set; }
+#nullable restore
+#else
+        public List<string> CertificateBasedApplicationConfigurationIds { get; set; }
+#endif
         /// <summary>The maxLifetime property</summary>
         public TimeSpan? MaxLifetime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -23,24 +32,31 @@ namespace ApiSdk.Models {
         /// <summary>The type of restriction being applied. Possible values are asymmetricKeyLifetime, unknownFutureValue. Each value of restrictionType can be used only once per policy.</summary>
         public AppKeyCredentialRestrictionType? RestrictionType { get; set; }
         /// <summary>
-        /// Instantiates a new keyCredentialConfiguration and sets the default values.
+        /// Instantiates a new <see cref="KeyCredentialConfiguration"/> and sets the default values.
         /// </summary>
-        public KeyCredentialConfiguration() {
+        public KeyCredentialConfiguration()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="KeyCredentialConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static KeyCredentialConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static KeyCredentialConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new KeyCredentialConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
+                {"certificateBasedApplicationConfigurationIds", n => { CertificateBasedApplicationConfigurationIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"maxLifetime", n => { MaxLifetime = n.GetTimeSpanValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"restrictForAppsCreatedAfterDateTime", n => { RestrictForAppsCreatedAfterDateTime = n.GetDateTimeOffsetValue(); } },
@@ -51,8 +67,10 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("certificateBasedApplicationConfigurationIds", CertificateBasedApplicationConfigurationIds);
             writer.WriteTimeSpanValue("maxLifetime", MaxLifetime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDateTimeOffsetValue("restrictForAppsCreatedAfterDateTime", RestrictForAppsCreatedAfterDateTime);

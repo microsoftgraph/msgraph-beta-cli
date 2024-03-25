@@ -18,13 +18,17 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Rows.Item.RangeName
     /// <summary>
     /// Provides operations to call the range method.
     /// </summary>
-    public class RangeRequestBuilder : BaseCliRequestBuilder {
+    public class RangeRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Invoke function range
+        /// Returns the range object associated with the entire row.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Invoke function range";
+            command.Description = "Returns the range object associated with the entire row.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-1.0";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -74,27 +78,32 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Rows.Item.RangeName
             return command;
         }
         /// <summary>
-        /// Instantiates a new RangeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RangeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RangeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/rows/{workbookTableRow%2Did}/range()", pathParameters) {
+        public RangeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/rows/{workbookTableRow%2Did}/range()", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new RangeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RangeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RangeRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/rows/{workbookTableRow%2Did}/range()", rawUrl) {
+        public RangeRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/rows/{workbookTableRow%2Did}/range()", rawUrl)
+        {
         }
         /// <summary>
-        /// Invoke function range
+        /// Returns the range object associated with the entire row.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

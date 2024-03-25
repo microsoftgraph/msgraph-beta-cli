@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class IdentityContainer : Entity, IParsable {
+    public class IdentityContainer : IAdditionalDataHolder, IParsable 
+    {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Represents entry point for API connectors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +17,31 @@ namespace ApiSdk.Models {
 #else
         public List<IdentityApiConnector> ApiConnectors { get; set; }
 #endif
-        /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
+        /// <summary>The authenticationEventListeners property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationEventListener>? AuthenticationEventListeners { get; set; }
+#nullable restore
+#else
+        public List<AuthenticationEventListener> AuthenticationEventListeners { get; set; }
+#endif
+        /// <summary>Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationEventsFlow>? AuthenticationEventsFlows { get; set; }
+#nullable restore
+#else
+        public List<AuthenticationEventsFlow> AuthenticationEventsFlows { get; set; }
+#endif
+        /// <summary>Represents entry point for B2C identity userflows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<B2cIdentityUserFlow>? B2cUserFlows { get; set; }
+#nullable restore
+#else
+        public List<B2cIdentityUserFlow> B2cUserFlows { get; set; }
+#endif
+        /// <summary>Represents entry point for B2X and self-service sign-up identity userflows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<B2xIdentityUserFlow>? B2xUserFlows { get; set; }
@@ -30,13 +57,37 @@ namespace ApiSdk.Models {
 #else
         public ConditionalAccessRoot ConditionalAccess { get; set; }
 #endif
-        /// <summary>The identityProviders property</summary>
+        /// <summary>Represents entry point for continuous access evaluation policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ContinuousAccessEvaluationPolicy? ContinuousAccessEvaluationPolicy { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ContinuousAccessEvaluationPolicy ContinuousAccessEvaluationPolicy { get; set; }
+#endif
+        /// <summary>The customAuthenticationExtensions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CustomAuthenticationExtension>? CustomAuthenticationExtensions { get; set; }
+#nullable restore
+#else
+        public List<CustomAuthenticationExtension> CustomAuthenticationExtensions { get; set; }
+#endif
+        /// <summary>Represents entry point for identity provider base.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<IdentityProviderBase>? IdentityProviders { get; set; }
 #nullable restore
 #else
         public List<IdentityProviderBase> IdentityProviders { get; set; }
+#endif
+        /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
+        public string OdataType { get; set; }
 #endif
         /// <summary>Represents entry point for identity userflow attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,38 +97,73 @@ namespace ApiSdk.Models {
 #else
         public List<IdentityUserFlowAttribute> UserFlowAttributes { get; set; }
 #endif
+        /// <summary>The userFlows property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityUserFlow>? UserFlows { get; set; }
+#nullable restore
+#else
+        public List<IdentityUserFlow> UserFlows { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="IdentityContainer"/> and sets the default values.
+        /// </summary>
+        public IdentityContainer()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IdentityContainer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IdentityContainer CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static IdentityContainer CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IdentityContainer();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"apiConnectors", n => { ApiConnectors = n.GetCollectionOfObjectValues<IdentityApiConnector>(IdentityApiConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"authenticationEventListeners", n => { AuthenticationEventListeners = n.GetCollectionOfObjectValues<AuthenticationEventListener>(AuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"authenticationEventsFlows", n => { AuthenticationEventsFlows = n.GetCollectionOfObjectValues<AuthenticationEventsFlow>(AuthenticationEventsFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"b2cUserFlows", n => { B2cUserFlows = n.GetCollectionOfObjectValues<B2cIdentityUserFlow>(B2cIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"b2xUserFlows", n => { B2xUserFlows = n.GetCollectionOfObjectValues<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessRoot>(ConditionalAccessRoot.CreateFromDiscriminatorValue); } },
+                {"continuousAccessEvaluationPolicy", n => { ContinuousAccessEvaluationPolicy = n.GetObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>(ApiSdk.Models.ContinuousAccessEvaluationPolicy.CreateFromDiscriminatorValue); } },
+                {"customAuthenticationExtensions", n => { CustomAuthenticationExtensions = n.GetCollectionOfObjectValues<CustomAuthenticationExtension>(CustomAuthenticationExtension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"userFlowAttributes", n => { UserFlowAttributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"userFlows", n => { UserFlows = n.GetCollectionOfObjectValues<IdentityUserFlow>(IdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<IdentityApiConnector>("apiConnectors", ApiConnectors);
+            writer.WriteCollectionOfObjectValues<AuthenticationEventListener>("authenticationEventListeners", AuthenticationEventListeners);
+            writer.WriteCollectionOfObjectValues<AuthenticationEventsFlow>("authenticationEventsFlows", AuthenticationEventsFlows);
+            writer.WriteCollectionOfObjectValues<B2cIdentityUserFlow>("b2cUserFlows", B2cUserFlows);
             writer.WriteCollectionOfObjectValues<B2xIdentityUserFlow>("b2xUserFlows", B2xUserFlows);
             writer.WriteObjectValue<ConditionalAccessRoot>("conditionalAccess", ConditionalAccess);
+            writer.WriteObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>("continuousAccessEvaluationPolicy", ContinuousAccessEvaluationPolicy);
+            writer.WriteCollectionOfObjectValues<CustomAuthenticationExtension>("customAuthenticationExtensions", CustomAuthenticationExtensions);
             writer.WriteCollectionOfObjectValues<IdentityProviderBase>("identityProviders", IdentityProviders);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", UserFlowAttributes);
+            writer.WriteCollectionOfObjectValues<IdentityUserFlow>("userFlows", UserFlows);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

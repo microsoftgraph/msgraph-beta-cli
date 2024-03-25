@@ -5,7 +5,16 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DriveItem : BaseItem, IParsable {
+    public class DriveItem : BaseItem, IParsable 
+    {
+        /// <summary>The list of recent activities that took place on this item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ItemActivityOLD>? Activities { get; set; }
+#nullable restore
+#else
+        public List<ItemActivityOLD> Activities { get; set; }
+#endif
         /// <summary>Analytics about the view activities that took place on this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public ItemAnalytics Analytics { get; set; }
 #endif
-        /// <summary>Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.</summary>
+        /// <summary>Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.Audio? Audio { get; set; }
@@ -38,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public List<DriveItem> Children { get; set; }
 #endif
-        /// <summary>The content stream, if the item represents a file.</summary>
+        /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Content { get; set; }
@@ -118,6 +127,14 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Malware Malware { get; set; }
 #endif
+        /// <summary>Information about the media (audio or video) item. Read-write. Only on OneDrive for Business and SharePoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.Media? Media { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.Media Media { get; set; }
+#endif
         /// <summary>If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +143,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Package Package { get; set; }
 #endif
-        /// <summary>If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.</summary>
+        /// <summary>If present, indicates that indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.PendingOperations? PendingOperations { get; set; }
@@ -208,6 +225,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Size of the item in bytes. Read-only.</summary>
         public long? Size { get; set; }
+        /// <summary>Information about the drive item source. Read-only. Only on OneDrive for Business and SharePoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DriveItemSource? Source { get; set; }
+#nullable restore
+#else
+        public DriveItemSource Source { get; set; }
+#endif
         /// <summary>If the current item is also available as a special folder, this facet is returned. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -265,24 +290,31 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.Workbook Workbook { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new driveItem and sets the default values.
+        /// Instantiates a new <see cref="DriveItem"/> and sets the default values.
         /// </summary>
-        public DriveItem() : base() {
+        public DriveItem() : base()
+        {
             OdataType = "#microsoft.graph.driveItem";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DriveItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DriveItem CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DriveItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DriveItem();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"activities", n => { Activities = n.GetCollectionOfObjectValues<ItemActivityOLD>(ItemActivityOLD.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"analytics", n => { Analytics = n.GetObjectValue<ItemAnalytics>(ItemAnalytics.CreateFromDiscriminatorValue); } },
                 {"audio", n => { Audio = n.GetObjectValue<ApiSdk.Models.Audio>(ApiSdk.Models.Audio.CreateFromDiscriminatorValue); } },
                 {"bundle", n => { Bundle = n.GetObjectValue<ApiSdk.Models.Bundle>(ApiSdk.Models.Bundle.CreateFromDiscriminatorValue); } },
@@ -297,6 +329,7 @@ namespace ApiSdk.Models {
                 {"listItem", n => { ListItem = n.GetObjectValue<ApiSdk.Models.ListItem>(ApiSdk.Models.ListItem.CreateFromDiscriminatorValue); } },
                 {"location", n => { Location = n.GetObjectValue<GeoCoordinates>(GeoCoordinates.CreateFromDiscriminatorValue); } },
                 {"malware", n => { Malware = n.GetObjectValue<ApiSdk.Models.Malware>(ApiSdk.Models.Malware.CreateFromDiscriminatorValue); } },
+                {"media", n => { Media = n.GetObjectValue<ApiSdk.Models.Media>(ApiSdk.Models.Media.CreateFromDiscriminatorValue); } },
                 {"package", n => { Package = n.GetObjectValue<ApiSdk.Models.Package>(ApiSdk.Models.Package.CreateFromDiscriminatorValue); } },
                 {"pendingOperations", n => { PendingOperations = n.GetObjectValue<ApiSdk.Models.PendingOperations>(ApiSdk.Models.PendingOperations.CreateFromDiscriminatorValue); } },
                 {"permissions", n => { Permissions = n.GetCollectionOfObjectValues<Permission>(Permission.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -309,6 +342,7 @@ namespace ApiSdk.Models {
                 {"shared", n => { Shared = n.GetObjectValue<ApiSdk.Models.Shared>(ApiSdk.Models.Shared.CreateFromDiscriminatorValue); } },
                 {"sharepointIds", n => { SharepointIds = n.GetObjectValue<ApiSdk.Models.SharepointIds>(ApiSdk.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"size", n => { Size = n.GetLongValue(); } },
+                {"source", n => { Source = n.GetObjectValue<DriveItemSource>(DriveItemSource.CreateFromDiscriminatorValue); } },
                 {"specialFolder", n => { SpecialFolder = n.GetObjectValue<ApiSdk.Models.SpecialFolder>(ApiSdk.Models.SpecialFolder.CreateFromDiscriminatorValue); } },
                 {"subscriptions", n => { Subscriptions = n.GetCollectionOfObjectValues<Subscription>(Subscription.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"thumbnails", n => { Thumbnails = n.GetCollectionOfObjectValues<ThumbnailSet>(ThumbnailSet.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -322,9 +356,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<ItemActivityOLD>("activities", Activities);
             writer.WriteObjectValue<ItemAnalytics>("analytics", Analytics);
             writer.WriteObjectValue<ApiSdk.Models.Audio>("audio", Audio);
             writer.WriteObjectValue<ApiSdk.Models.Bundle>("bundle", Bundle);
@@ -339,6 +375,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.ListItem>("listItem", ListItem);
             writer.WriteObjectValue<GeoCoordinates>("location", Location);
             writer.WriteObjectValue<ApiSdk.Models.Malware>("malware", Malware);
+            writer.WriteObjectValue<ApiSdk.Models.Media>("media", Media);
             writer.WriteObjectValue<ApiSdk.Models.Package>("package", Package);
             writer.WriteObjectValue<ApiSdk.Models.PendingOperations>("pendingOperations", PendingOperations);
             writer.WriteCollectionOfObjectValues<Permission>("permissions", Permissions);
@@ -351,6 +388,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.Shared>("shared", Shared);
             writer.WriteObjectValue<ApiSdk.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteLongValue("size", Size);
+            writer.WriteObjectValue<DriveItemSource>("source", Source);
             writer.WriteObjectValue<ApiSdk.Models.SpecialFolder>("specialFolder", SpecialFolder);
             writer.WriteCollectionOfObjectValues<Subscription>("subscriptions", Subscriptions);
             writer.WriteCollectionOfObjectValues<ThumbnailSet>("thumbnails", Thumbnails);

@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the windows81GeneralConfiguration resource.
     /// </summary>
-    public class Windows81GeneralConfiguration : DeviceConfiguration, IParsable {
+    public class Windows81GeneralConfiguration : DeviceConfiguration, IParsable 
+    {
         /// <summary>Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.</summary>
         public bool? AccountsBlockAddingNonMicrosoftAccountEmail { get; set; }
         /// <summary>Value indicating whether this policy only applies to Windows 8.1. This property is read-only.</summary>
@@ -63,6 +64,8 @@ namespace ApiSdk.Models {
         public bool? CellularBlockDataRoaming { get; set; }
         /// <summary>Indicates whether or not to block diagnostic data submission.</summary>
         public bool? DiagnosticsBlockDataSubmission { get; set; }
+        /// <summary>Possible values for automatic update classification.</summary>
+        public UpdateClassification? MinimumAutoInstallClassification { get; set; }
         /// <summary>Indicates whether or not to Block the user from using a pictures password and pin.</summary>
         public bool? PasswordBlockPicturePasswordAndPin { get; set; }
         /// <summary>Password expiration in days.</summary>
@@ -81,6 +84,8 @@ namespace ApiSdk.Models {
         public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
         /// <summary>Indicates whether or not to require encryption on a mobile device.</summary>
         public bool? StorageRequireDeviceEncryption { get; set; }
+        /// <summary>Possible values for automatic update classification.</summary>
+        public UpdateClassification? UpdatesMinimumAutoInstallClassification { get; set; }
         /// <summary>Indicates whether or not to require automatic updates.</summary>
         public bool? UpdatesRequireAutomaticUpdates { get; set; }
         /// <summary>Possible values for Windows user account control settings.</summary>
@@ -94,24 +99,30 @@ namespace ApiSdk.Models {
         public string WorkFoldersUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new windows81GeneralConfiguration and sets the default values.
+        /// Instantiates a new <see cref="Windows81GeneralConfiguration"/> and sets the default values.
         /// </summary>
-        public Windows81GeneralConfiguration() : base() {
+        public Windows81GeneralConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.windows81GeneralConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Windows81GeneralConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows81GeneralConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Windows81GeneralConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Windows81GeneralConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountsBlockAddingNonMicrosoftAccountEmail", n => { AccountsBlockAddingNonMicrosoftAccountEmail = n.GetBoolValue(); } },
                 {"applyOnlyToWindows81", n => { ApplyOnlyToWindows81 = n.GetBoolValue(); } },
                 {"browserBlockAutofill", n => { BrowserBlockAutofill = n.GetBoolValue(); } },
@@ -133,6 +144,7 @@ namespace ApiSdk.Models {
                 {"browserTrustedSitesSecurityLevel", n => { BrowserTrustedSitesSecurityLevel = n.GetEnumValue<SiteSecurityLevel>(); } },
                 {"cellularBlockDataRoaming", n => { CellularBlockDataRoaming = n.GetBoolValue(); } },
                 {"diagnosticsBlockDataSubmission", n => { DiagnosticsBlockDataSubmission = n.GetBoolValue(); } },
+                {"minimumAutoInstallClassification", n => { MinimumAutoInstallClassification = n.GetEnumValue<UpdateClassification>(); } },
                 {"passwordBlockPicturePasswordAndPin", n => { PasswordBlockPicturePasswordAndPin = n.GetBoolValue(); } },
                 {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
                 {"passwordMinimumCharacterSetCount", n => { PasswordMinimumCharacterSetCount = n.GetIntValue(); } },
@@ -142,6 +154,7 @@ namespace ApiSdk.Models {
                 {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
                 {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
                 {"storageRequireDeviceEncryption", n => { StorageRequireDeviceEncryption = n.GetBoolValue(); } },
+                {"updatesMinimumAutoInstallClassification", n => { UpdatesMinimumAutoInstallClassification = n.GetEnumValue<UpdateClassification>(); } },
                 {"updatesRequireAutomaticUpdates", n => { UpdatesRequireAutomaticUpdates = n.GetBoolValue(); } },
                 {"userAccountControlSettings", n => { UserAccountControlSettings = n.GetEnumValue<WindowsUserAccountControlSettings>(); } },
                 {"workFoldersUrl", n => { WorkFoldersUrl = n.GetStringValue(); } },
@@ -151,7 +164,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("accountsBlockAddingNonMicrosoftAccountEmail", AccountsBlockAddingNonMicrosoftAccountEmail);
@@ -174,6 +188,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<SiteSecurityLevel>("browserTrustedSitesSecurityLevel", BrowserTrustedSitesSecurityLevel);
             writer.WriteBoolValue("cellularBlockDataRoaming", CellularBlockDataRoaming);
             writer.WriteBoolValue("diagnosticsBlockDataSubmission", DiagnosticsBlockDataSubmission);
+            writer.WriteEnumValue<UpdateClassification>("minimumAutoInstallClassification", MinimumAutoInstallClassification);
             writer.WriteBoolValue("passwordBlockPicturePasswordAndPin", PasswordBlockPicturePasswordAndPin);
             writer.WriteIntValue("passwordExpirationDays", PasswordExpirationDays);
             writer.WriteIntValue("passwordMinimumCharacterSetCount", PasswordMinimumCharacterSetCount);
@@ -183,6 +198,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<RequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
             writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
             writer.WriteBoolValue("storageRequireDeviceEncryption", StorageRequireDeviceEncryption);
+            writer.WriteEnumValue<UpdateClassification>("updatesMinimumAutoInstallClassification", UpdatesMinimumAutoInstallClassification);
             writer.WriteBoolValue("updatesRequireAutomaticUpdates", UpdatesRequireAutomaticUpdates);
             writer.WriteEnumValue<WindowsUserAccountControlSettings>("userAccountControlSettings", UserAccountControlSettings);
             writer.WriteStringValue("workFoldersUrl", WorkFoldersUrl);

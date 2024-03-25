@@ -3,9 +3,11 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Users.Count;
 using ApiSdk.Users.Delta;
-using ApiSdk.Users.GetAvailableExtensionProperties;
 using ApiSdk.Users.GetByIds;
+using ApiSdk.Users.GetManagedAppBlockedUsers;
+using ApiSdk.Users.GetUserOwnedObjects;
 using ApiSdk.Users.Item;
+using ApiSdk.Users.ValidatePassword;
 using ApiSdk.Users.ValidateProperties;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -24,17 +26,25 @@ namespace ApiSdk.Users {
     /// <summary>
     /// Provides operations to manage the collection of user entities.
     /// </summary>
-    public class UsersRequestBuilder : BaseCliRequestBuilder {
+    public class UsersRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the collection of user entities.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new UserItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildActivitiesNavCommand());
             commands.Add(builder.BuildAgreementAcceptancesNavCommand());
+            commands.Add(builder.BuildAnalyticsNavCommand());
+            commands.Add(builder.BuildAppConsentRequestsForApprovalNavCommand());
+            commands.Add(builder.BuildAppRoleAssignedResourcesNavCommand());
+            commands.Add(builder.BuildAppRoleAssignedResourcesWithAppIdRbCommand());
             commands.Add(builder.BuildAppRoleAssignmentsNavCommand());
+            commands.Add(builder.BuildApprovalsNavCommand());
             commands.Add(builder.BuildAssignLicenseNavCommand());
             commands.Add(builder.BuildAuthenticationNavCommand());
             commands.Add(builder.BuildCalendarGroupsNavCommand());
@@ -45,11 +55,18 @@ namespace ApiSdk.Users {
             commands.Add(builder.BuildChatsNavCommand());
             commands.Add(builder.BuildCheckMemberGroupsNavCommand());
             commands.Add(builder.BuildCheckMemberObjectsNavCommand());
+            commands.Add(builder.BuildCloudClipboardNavCommand());
+            commands.Add(builder.BuildCloudPCsNavCommand());
             commands.Add(builder.BuildContactFoldersNavCommand());
             commands.Add(builder.BuildContactsNavCommand());
+            commands.Add(builder.BuildConvertExternalToInternalMemberUserNavCommand());
             commands.Add(builder.BuildCreatedObjectsNavCommand());
             executables.Add(builder.BuildDeleteCommand());
+            commands.Add(builder.BuildDeletePasswordSingleSignOnCredentialsNavCommand());
+            commands.Add(builder.BuildDeviceEnrollmentConfigurationsNavCommand());
             commands.Add(builder.BuildDeviceManagementTroubleshootingEventsNavCommand());
+            commands.Add(builder.BuildDevicesNavCommand());
+            commands.Add(builder.BuildDevicesWithDeviceIdRbCommand());
             commands.Add(builder.BuildDirectReportsNavCommand());
             commands.Add(builder.BuildDriveNavCommand());
             commands.Add(builder.BuildDrivesNavCommand());
@@ -60,16 +77,27 @@ namespace ApiSdk.Users {
             commands.Add(builder.BuildExportPersonalDataNavCommand());
             commands.Add(builder.BuildExtensionsNavCommand());
             commands.Add(builder.BuildFindMeetingTimesNavCommand());
+            commands.Add(builder.BuildFindRoomListsNavCommand());
+            commands.Add(builder.BuildFindRoomsNavCommand());
+            commands.Add(builder.BuildFindRoomsWithRoomListRbCommand());
             commands.Add(builder.BuildFollowedSitesNavCommand());
             executables.Add(builder.BuildGetCommand());
+            commands.Add(builder.BuildGetEffectiveDeviceEnrollmentConfigurationsNavCommand());
+            commands.Add(builder.BuildGetLoggedOnManagedDevicesNavCommand());
             commands.Add(builder.BuildGetMailTipsNavCommand());
             commands.Add(builder.BuildGetManagedAppDiagnosticStatusesNavCommand());
             commands.Add(builder.BuildGetManagedAppPoliciesNavCommand());
             commands.Add(builder.BuildGetManagedDevicesWithAppFailuresNavCommand());
+            commands.Add(builder.BuildGetManagedDevicesWithFailedOrPendingAppsNavCommand());
             commands.Add(builder.BuildGetMemberGroupsNavCommand());
             commands.Add(builder.BuildGetMemberObjectsNavCommand());
+            commands.Add(builder.BuildGetPasswordSingleSignOnCredentialsNavCommand());
             commands.Add(builder.BuildInferenceClassificationNavCommand());
+            commands.Add(builder.BuildInformationProtectionNavCommand());
             commands.Add(builder.BuildInsightsNavCommand());
+            commands.Add(builder.BuildInvalidateAllRefreshTokensNavCommand());
+            commands.Add(builder.BuildIsManagedAppUserBlockedNavCommand());
+            commands.Add(builder.BuildJoinedGroupsNavCommand());
             commands.Add(builder.BuildJoinedTeamsNavCommand());
             commands.Add(builder.BuildLicenseDetailsNavCommand());
             commands.Add(builder.BuildMailboxSettingsNavCommand());
@@ -79,19 +107,25 @@ namespace ApiSdk.Users {
             commands.Add(builder.BuildManagerNavCommand());
             commands.Add(builder.BuildMemberOfNavCommand());
             commands.Add(builder.BuildMessagesNavCommand());
+            commands.Add(builder.BuildMobileAppIntentAndStatesNavCommand());
+            commands.Add(builder.BuildMobileAppTroubleshootingEventsNavCommand());
+            commands.Add(builder.BuildNotificationsNavCommand());
             commands.Add(builder.BuildOauth2PermissionGrantsNavCommand());
             commands.Add(builder.BuildOnenoteNavCommand());
             commands.Add(builder.BuildOnlineMeetingsNavCommand());
+            commands.Add(builder.BuildOnlineMeetingsWithJoinWebUrlRbCommand());
             commands.Add(builder.BuildOutlookNavCommand());
             commands.Add(builder.BuildOwnedDevicesNavCommand());
             commands.Add(builder.BuildOwnedObjectsNavCommand());
             executables.Add(builder.BuildPatchCommand());
+            commands.Add(builder.BuildPendingAccessReviewInstancesNavCommand());
             commands.Add(builder.BuildPeopleNavCommand());
             commands.Add(builder.BuildPermissionGrantsNavCommand());
             commands.Add(builder.BuildPhotoNavCommand());
             commands.Add(builder.BuildPhotosNavCommand());
             commands.Add(builder.BuildPlannerNavCommand());
             commands.Add(builder.BuildPresenceNavCommand());
+            commands.Add(builder.BuildProfileNavCommand());
             commands.Add(builder.BuildRegisteredDevicesNavCommand());
             commands.Add(builder.BuildReminderViewWithStartDateTimeWithEndDateTimeRbCommand());
             commands.Add(builder.BuildRemoveAllDevicesFromManagementNavCommand());
@@ -100,20 +134,32 @@ namespace ApiSdk.Users {
             commands.Add(builder.BuildRetryServiceProvisioningNavCommand());
             commands.Add(builder.BuildRevokeSignInSessionsNavCommand());
             commands.Add(builder.BuildScopedRoleMemberOfNavCommand());
+            commands.Add(builder.BuildSecurityNavCommand());
             commands.Add(builder.BuildSendMailNavCommand());
             commands.Add(builder.BuildServiceProvisioningErrorsNavCommand());
             commands.Add(builder.BuildSettingsNavCommand());
+            commands.Add(builder.BuildSponsorsNavCommand());
             commands.Add(builder.BuildTeamworkNavCommand());
             commands.Add(builder.BuildTodoNavCommand());
             commands.Add(builder.BuildTransitiveMemberOfNavCommand());
+            commands.Add(builder.BuildTransitiveReportsNavCommand());
             commands.Add(builder.BuildTranslateExchangeIdsNavCommand());
+            commands.Add(builder.BuildUnblockManagedAppsNavCommand());
+            commands.Add(builder.BuildUsageRightsNavCommand());
+            commands.Add(builder.BuildVirtualEventsNavCommand());
+            commands.Add(builder.BuildWindowsInformationProtectionDeviceRegistrationsNavCommand());
+            commands.Add(builder.BuildWipeAndBlockManagedAppsNavCommand());
+            commands.Add(builder.BuildWipeManagedAppRegistrationByDeviceTagNavCommand());
+            commands.Add(builder.BuildWipeManagedAppRegistrationsByAzureAdDeviceIdNavCommand());
             commands.Add(builder.BuildWipeManagedAppRegistrationsByDeviceTagNavCommand());
             return new(executables, commands);
         }
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -126,12 +172,14 @@ namespace ApiSdk.Users {
             return command;
         }
         /// <summary>
-        /// Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties.
+        /// Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties. This operation returns by default only a subset of the properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
-            command.Description = "Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0";
+            command.Description = "Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties. This operation returns by default only a subset of the properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -172,7 +220,9 @@ namespace ApiSdk.Users {
         /// <summary>
         /// Provides operations to call the delta method.
         /// </summary>
-        public Command BuildDeltaNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeltaNavCommand()
+        {
             var command = new Command("delta");
             command.Description = "Provides operations to call the delta method.";
             var builder = new DeltaRequestBuilder(PathParameters);
@@ -185,24 +235,11 @@ namespace ApiSdk.Users {
             return command;
         }
         /// <summary>
-        /// Provides operations to call the getAvailableExtensionProperties method.
-        /// </summary>
-        public Command BuildGetAvailableExtensionPropertiesNavCommand() {
-            var command = new Command("get-available-extension-properties");
-            command.Description = "Provides operations to call the getAvailableExtensionProperties method.";
-            var builder = new GetAvailableExtensionPropertiesRequestBuilder(PathParameters);
-            var execCommands = new List<Command>();
-            execCommands.Add(builder.BuildPostCommand());
-            foreach (var cmd in execCommands)
-            {
-                command.AddCommand(cmd);
-            }
-            return command;
-        }
-        /// <summary>
         /// Provides operations to call the getByIds method.
         /// </summary>
-        public Command BuildGetByIdsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetByIdsNavCommand()
+        {
             var command = new Command("get-by-ids");
             command.Description = "Provides operations to call the getByIds method.";
             var builder = new GetByIdsRequestBuilder(PathParameters);
@@ -215,12 +252,48 @@ namespace ApiSdk.Users {
             return command;
         }
         /// <summary>
-        /// List properties and relationships of the user objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-user-list?view=graph-rest-1.0" />
+        /// Provides operations to call the getManagedAppBlockedUsers method.
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetManagedAppBlockedUsersNavCommand()
+        {
+            var command = new Command("get-managed-app-blocked-users");
+            command.Description = "Provides operations to call the getManagedAppBlockedUsers method.";
+            var builder = new GetManagedAppBlockedUsersRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the getUserOwnedObjects method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetUserOwnedObjectsNavCommand()
+        {
+            var command = new Command("get-user-owned-objects");
+            command.Description = "Provides operations to call the getUserOwnedObjects method.";
+            var builder = new GetUserOwnedObjectsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list?view=graph-rest-1.0" />
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "List properties and relationships of the user objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-onboarding-user-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list?view=graph-rest-1.0";
             var consistencyLevelOption = new Option<string[]>("--consistency-level", description: "Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -309,9 +382,28 @@ namespace ApiSdk.Users {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the validatePassword method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildValidatePasswordNavCommand()
+        {
+            var command = new Command("validate-password");
+            command.Description = "Provides operations to call the validatePassword method.";
+            var builder = new ValidatePasswordRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the validateProperties method.
         /// </summary>
-        public Command BuildValidatePropertiesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildValidatePropertiesNavCommand()
+        {
             var command = new Command("validate-properties");
             command.Description = "Provides operations to call the validateProperties method.";
             var builder = new ValidatePropertiesRequestBuilder(PathParameters);
@@ -324,27 +416,32 @@ namespace ApiSdk.Users {
             return command;
         }
         /// <summary>
-        /// Instantiates a new UsersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public UsersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public UsersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new UsersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public UsersRequestBuilder(string rawUrl) : base("{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public UsersRequestBuilder(string rawUrl) : base("{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// List properties and relationships of the user objects.
+        /// Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -352,27 +449,31 @@ namespace ApiSdk.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties.
+        /// Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties. This operation returns by default only a subset of the properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ApiSdk.Models.User body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.User body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ApiSdk.Models.User body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.User body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List properties and relationships of the user objects.
+        /// Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option.
         /// </summary>
-        public class UsersRequestBuilderGetQueryParameters {
+        public class UsersRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

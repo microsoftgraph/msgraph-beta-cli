@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ServicePrincipal : DirectoryObject, IParsable {
-        /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).</summary>
+    public class ServicePrincipal : DirectoryObject, IParsable 
+    {
+        /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users are able to sign in to this app, even if they&apos;re assigned to it. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled { get; set; }
-        /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.</summary>
+        /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This lets services like Microsoft 365 call the application in the context of a document the user is working on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AddIn>? AddIns { get; set; }
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public List<AddIn> AddIns { get; set; }
 #endif
-        /// <summary>Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).</summary>
+        /// <summary>Used to retrieve service principals by subscription, identify resource group and full resource IDs for managed identities. Supports $filter (eq, not, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AlternativeNames { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public string AppId { get; set; }
 #endif
-        /// <summary>Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith).</summary>
+        /// <summary>Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). Read-only. null if the app wasn&apos;t created from an application template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApplicationTemplateId { get; set; }
@@ -56,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public string ApplicationTemplateId { get; set; }
 #endif
-        /// <summary>The appManagementPolicy applied to this application.</summary>
+        /// <summary>The appManagementPolicy applied to this service principal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies { get; set; }
@@ -64,9 +65,9 @@ namespace ApiSdk.Models {
 #else
         public List<AppManagementPolicy> AppManagementPolicies { get; set; }
 #endif
-        /// <summary>Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).</summary>
+        /// <summary>Contains the tenant ID where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).</summary>
         public Guid? AppOwnerOrganizationId { get; set; }
-        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
+        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppRoleAssignment>? AppRoleAssignedTo { get; set; }
@@ -84,7 +85,7 @@ namespace ApiSdk.Models {
 #else
         public List<AppRoleAssignment> AppRoleAssignments { get; set; }
 #endif
-        /// <summary>The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable.</summary>
+        /// <summary>The roles exposed by the application, which this service principal represents. For more information, see the appRoles property definition on the application entity. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppRole>? AppRoles { get; set; }
@@ -116,7 +117,7 @@ namespace ApiSdk.Models {
 #else
         public CustomSecurityAttributeValue CustomSecurityAttributes { get; set; }
 #endif
-        /// <summary>The delegatedPermissionClassifications property</summary>
+        /// <summary>The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedPermissionClassification>? DelegatedPermissionClassifications { get; set; }
@@ -124,7 +125,7 @@ namespace ApiSdk.Models {
 #else
         public List<DelegatedPermissionClassification> DelegatedPermissionClassifications { get; set; }
 #endif
-        /// <summary>Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
+        /// <summary>Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps displays the application description in this field. The maximum allowed size is 1,024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -148,7 +149,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The endpoints property</summary>
+        /// <summary>Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Endpoint>? Endpoints { get; set; }
@@ -156,7 +157,15 @@ namespace ApiSdk.Models {
 #else
         public List<Endpoint> Endpoints { get; set; }
 #endif
-        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).</summary>
+        /// <summary>Deprecated. Don&apos;t use.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ErrorUrl { get; set; }
+#nullable restore
+#else
+        public string ErrorUrl { get; set; }
+#endif
+        /// <summary>The federatedIdentityCredentials property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<FederatedIdentityCredential>? FederatedIdentityCredentials { get; set; }
@@ -196,6 +205,14 @@ namespace ApiSdk.Models {
 #else
         public List<KeyCredential> KeyCredentials { get; set; }
 #endif
+        /// <summary>The licenseDetails property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.LicenseDetails>? LicenseDetails { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.LicenseDetails> LicenseDetails { get; set; }
+#endif
         /// <summary>Specifies the URL where the service provider redirects the user to Microsoft Entra ID to authenticate. Microsoft Entra ID uses the URL to launch the application from Microsoft 365 or the Microsoft Entra My Apps. When blank, Microsoft Entra ID performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Microsoft Entra My Apps, or the Microsoft Entra SSO URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -204,7 +221,7 @@ namespace ApiSdk.Models {
 #else
         public string LoginUrl { get; set; }
 #endif
-        /// <summary>Specifies the URL that will be used by Microsoft&apos;s authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols.</summary>
+        /// <summary>Specifies the URL that the Microsoft&apos;s authorization service uses to sign out a user using OpenId Connect front-channel, back-channel, or SAML sign out protocols.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LogoutUrl { get; set; }
@@ -220,7 +237,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> MemberOf { get; set; }
 #endif
-        /// <summary>Free text field to capture information about the service principal, typically used for operational purposes. Maximum allowed size is 1024 characters.</summary>
+        /// <summary>Free text field to capture information about the service principal, typically used for operational purposes. Maximum allowed size is 1,024 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Notes { get; set; }
@@ -244,15 +261,7 @@ namespace ApiSdk.Models {
 #else
         public List<OAuth2PermissionGrant> Oauth2PermissionGrants { get; set; }
 #endif
-        /// <summary>The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity&apos;s api property. Not nullable.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<PermissionScope>? Oauth2PermissionScopes { get; set; }
-#nullable restore
-#else
-        public List<PermissionScope> Oauth2PermissionScopes { get; set; }
-#endif
-        /// <summary>Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
+        /// <summary>Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? OwnedObjects { get; set; }
@@ -260,7 +269,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> OwnedObjects { get; set; }
 #endif
-        /// <summary>Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.</summary>
+        /// <summary>Directory objects that are owners of this servicePrincipal. The owners are a set of nonadmin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? Owners { get; set; }
@@ -268,7 +277,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> Owners { get; set; }
 #endif
-        /// <summary>The collection of password credentials associated with the application. Not nullable.</summary>
+        /// <summary>The collection of password credentials associated with the service principal. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PasswordCredential>? PasswordCredentials { get; set; }
@@ -276,7 +285,15 @@ namespace ApiSdk.Models {
 #else
         public List<PasswordCredential> PasswordCredentials { get; set; }
 #endif
-        /// <summary>Specifies the single sign-on mode configured for this application. Microsoft Entra ID uses the preferred single sign-on mode to launch the application from Microsoft 365 or the My Apps portal. The supported values are password, saml, notSupported, and oidc.</summary>
+        /// <summary>The collection for settings related to password single sign-on. Use $select=passwordSingleSignOnSettings to read the property. Read-only for applicationTemplates except for custom applicationTemplates.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.PasswordSingleSignOnSettings? PasswordSingleSignOnSettings { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.PasswordSingleSignOnSettings PasswordSingleSignOnSettings { get; set; }
+#endif
+        /// <summary>Specifies the single sign-on mode configured for this application. Microsoft Entra ID uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Microsoft Entra My Apps. The supported values are password, saml, notSupported, and oidc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredSingleSignOnMode { get; set; }
@@ -284,13 +301,31 @@ namespace ApiSdk.Models {
 #else
         public string PreferredSingleSignOnMode { get; set; }
 #endif
-        /// <summary>This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that are not SAML, do not write or otherwise rely on this property.</summary>
+        /// <summary>Specifies the expiration date of the keyCredential used for token signing, marked by preferredTokenSigningKeyThumbprint. Updating this attribute isn&apos;t currently supported. For details, see ServicePrincipal property differences.</summary>
+        public DateTimeOffset? PreferredTokenSigningKeyEndDateTime { get; set; }
+        /// <summary>This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that aren&apos;t SAML, don&apos;t write or otherwise rely on this property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredTokenSigningKeyThumbprint { get; set; }
 #nullable restore
 #else
         public string PreferredTokenSigningKeyThumbprint { get; set; }
+#endif
+        /// <summary>The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity&apos;s api property. Not nullable. Note: This property is named oauth2PermissionScopes in v1.0.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PermissionScope>? PublishedPermissionScopes { get; set; }
+#nullable restore
+#else
+        public List<PermissionScope> PublishedPermissionScopes { get; set; }
+#endif
+        /// <summary>The name of the Microsoft Entra tenant that published the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PublisherName { get; set; }
+#nullable restore
+#else
+        public string PublisherName { get; set; }
 #endif
         /// <summary>The remoteDesktopSecurityConfiguration object applied to this service principal. Supports $filter (eq) for isRemoteDesktopProtocolEnabled property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -308,13 +343,13 @@ namespace ApiSdk.Models {
 #else
         public List<string> ReplyUrls { get; set; }
 #endif
-        /// <summary>The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.</summary>
+        /// <summary>The url where the service exposes SAML metadata for federation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ResourceSpecificPermission>? ResourceSpecificApplicationPermissions { get; set; }
+        public string? SamlMetadataUrl { get; set; }
 #nullable restore
 #else
-        public List<ResourceSpecificPermission> ResourceSpecificApplicationPermissions { get; set; }
+        public string SamlMetadataUrl { get; set; }
 #endif
         /// <summary>The collection for settings related to saml single sign-on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -324,7 +359,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.SamlSingleSignOnSettings SamlSingleSignOnSettings { get; set; }
 #endif
-        /// <summary>Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Microsoft Entra ID. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the &apos;aud&apos; claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).</summary>
+        /// <summary>Contains the list of identifiersUris, copied over from the associated application. More values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Microsoft Entra ID. For example,Client apps can specify a resource URI that is based on the values of this property to acquire an access token, which is the URI returned in the &apos;aud&apos; claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ServicePrincipalNames { get; set; }
@@ -332,7 +367,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> ServicePrincipalNames { get; set; }
 #endif
-        /// <summary>Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Microsoft Entra ID internally. The servicePrincipalType property can be set to three different values: Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.SocialIdp - For internal use.</summary>
+        /// <summary>Identifies if the service principal represents an application or a managed identity. This is set by Microsoft Entra ID internally. For a service principal that represents an application this is set as Application. For a service principal that represents a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServicePrincipalType { get; set; }
@@ -340,7 +375,7 @@ namespace ApiSdk.Models {
 #else
         public string ServicePrincipalType { get; set; }
 #endif
-        /// <summary>Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization&apos;s Microsoft Entra tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization&apos;s Microsoft Entra tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization&apos;s Microsoft Entra tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.</summary>
+        /// <summary>Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization&apos;s Microsoft Entra tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization&apos;s Microsoft Entra tenant (multitenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization&apos;s Microsoft Entra tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SignInAudience { get; set; }
@@ -366,7 +401,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Microsoft Entra ID issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
         public Guid? TokenEncryptionKeyId { get; set; }
-        /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
+        /// <summary>The tokenIssuancePolicies assigned to this service principal. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TokenIssuancePolicy>? TokenIssuancePolicies { get; set; }
@@ -374,7 +409,7 @@ namespace ApiSdk.Models {
 #else
         public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
 #endif
-        /// <summary>The tokenLifetimePolicies assigned to this service principal.</summary>
+        /// <summary>The tokenLifetimePolicies assigned to this service principal. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TokenLifetimePolicy>? TokenLifetimePolicies { get; set; }
@@ -390,7 +425,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> TransitiveMemberOf { get; set; }
 #endif
-        /// <summary>Specifies the verified publisher of the application which this service principal represents.</summary>
+        /// <summary>Specifies the verified publisher of the application that&apos;s linked to this service principal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.VerifiedPublisher? VerifiedPublisher { get; set; }
@@ -399,24 +434,30 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.VerifiedPublisher VerifiedPublisher { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new servicePrincipal and sets the default values.
+        /// Instantiates a new <see cref="ServicePrincipal"/> and sets the default values.
         /// </summary>
-        public ServicePrincipal() : base() {
+        public ServicePrincipal() : base()
+        {
             OdataType = "#microsoft.graph.servicePrincipal";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ServicePrincipal"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ServicePrincipal CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ServicePrincipal CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ServicePrincipal();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
                 {"addIns", n => { AddIns = n.GetCollectionOfObjectValues<AddIn>(AddIn.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"alternativeNames", n => { AlternativeNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -438,26 +479,31 @@ namespace ApiSdk.Models {
                 {"disabledByMicrosoftStatus", n => { DisabledByMicrosoftStatus = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"errorUrl", n => { ErrorUrl = n.GetStringValue(); } },
                 {"federatedIdentityCredentials", n => { FederatedIdentityCredentials = n.GetCollectionOfObjectValues<FederatedIdentityCredential>(FederatedIdentityCredential.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"homepage", n => { Homepage = n.GetStringValue(); } },
                 {"info", n => { Info = n.GetObjectValue<InformationalUrl>(InformationalUrl.CreateFromDiscriminatorValue); } },
                 {"keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.LicenseDetails>(ApiSdk.Models.LicenseDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"loginUrl", n => { LoginUrl = n.GetStringValue(); } },
                 {"logoutUrl", n => { LogoutUrl = n.GetStringValue(); } },
                 {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"notificationEmailAddresses", n => { NotificationEmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"oauth2PermissionGrants", n => { Oauth2PermissionGrants = n.GetCollectionOfObjectValues<OAuth2PermissionGrant>(OAuth2PermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"oauth2PermissionScopes", n => { Oauth2PermissionScopes = n.GetCollectionOfObjectValues<PermissionScope>(PermissionScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"ownedObjects", n => { OwnedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"passwordCredentials", n => { PasswordCredentials = n.GetCollectionOfObjectValues<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"passwordSingleSignOnSettings", n => { PasswordSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.PasswordSingleSignOnSettings>(ApiSdk.Models.PasswordSingleSignOnSettings.CreateFromDiscriminatorValue); } },
                 {"preferredSingleSignOnMode", n => { PreferredSingleSignOnMode = n.GetStringValue(); } },
+                {"preferredTokenSigningKeyEndDateTime", n => { PreferredTokenSigningKeyEndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"preferredTokenSigningKeyThumbprint", n => { PreferredTokenSigningKeyThumbprint = n.GetStringValue(); } },
+                {"publishedPermissionScopes", n => { PublishedPermissionScopes = n.GetCollectionOfObjectValues<PermissionScope>(PermissionScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"publisherName", n => { PublisherName = n.GetStringValue(); } },
                 {"remoteDesktopSecurityConfiguration", n => { RemoteDesktopSecurityConfiguration = n.GetObjectValue<ApiSdk.Models.RemoteDesktopSecurityConfiguration>(ApiSdk.Models.RemoteDesktopSecurityConfiguration.CreateFromDiscriminatorValue); } },
                 {"replyUrls", n => { ReplyUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"resourceSpecificApplicationPermissions", n => { ResourceSpecificApplicationPermissions = n.GetCollectionOfObjectValues<ResourceSpecificPermission>(ResourceSpecificPermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"samlMetadataUrl", n => { SamlMetadataUrl = n.GetStringValue(); } },
                 {"samlSingleSignOnSettings", n => { SamlSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.SamlSingleSignOnSettings>(ApiSdk.Models.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
                 {"servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
@@ -475,7 +521,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("accountEnabled", AccountEnabled);
@@ -499,26 +546,31 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("disabledByMicrosoftStatus", DisabledByMicrosoftStatus);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<Endpoint>("endpoints", Endpoints);
+            writer.WriteStringValue("errorUrl", ErrorUrl);
             writer.WriteCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", FederatedIdentityCredentials);
             writer.WriteStringValue("homepage", Homepage);
             writer.WriteCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
             writer.WriteObjectValue<InformationalUrl>("info", Info);
             writer.WriteCollectionOfObjectValues<KeyCredential>("keyCredentials", KeyCredentials);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LicenseDetails>("licenseDetails", LicenseDetails);
             writer.WriteStringValue("loginUrl", LoginUrl);
             writer.WriteStringValue("logoutUrl", LogoutUrl);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("memberOf", MemberOf);
             writer.WriteStringValue("notes", Notes);
             writer.WriteCollectionOfPrimitiveValues<string>("notificationEmailAddresses", NotificationEmailAddresses);
             writer.WriteCollectionOfObjectValues<OAuth2PermissionGrant>("oauth2PermissionGrants", Oauth2PermissionGrants);
-            writer.WriteCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", Oauth2PermissionScopes);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("ownedObjects", OwnedObjects);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("owners", Owners);
             writer.WriteCollectionOfObjectValues<PasswordCredential>("passwordCredentials", PasswordCredentials);
+            writer.WriteObjectValue<ApiSdk.Models.PasswordSingleSignOnSettings>("passwordSingleSignOnSettings", PasswordSingleSignOnSettings);
             writer.WriteStringValue("preferredSingleSignOnMode", PreferredSingleSignOnMode);
+            writer.WriteDateTimeOffsetValue("preferredTokenSigningKeyEndDateTime", PreferredTokenSigningKeyEndDateTime);
             writer.WriteStringValue("preferredTokenSigningKeyThumbprint", PreferredTokenSigningKeyThumbprint);
+            writer.WriteCollectionOfObjectValues<PermissionScope>("publishedPermissionScopes", PublishedPermissionScopes);
+            writer.WriteStringValue("publisherName", PublisherName);
             writer.WriteObjectValue<ApiSdk.Models.RemoteDesktopSecurityConfiguration>("remoteDesktopSecurityConfiguration", RemoteDesktopSecurityConfiguration);
             writer.WriteCollectionOfPrimitiveValues<string>("replyUrls", ReplyUrls);
-            writer.WriteCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", ResourceSpecificApplicationPermissions);
+            writer.WriteStringValue("samlMetadataUrl", SamlMetadataUrl);
             writer.WriteObjectValue<ApiSdk.Models.SamlSingleSignOnSettings>("samlSingleSignOnSettings", SamlSingleSignOnSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalNames", ServicePrincipalNames);
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);

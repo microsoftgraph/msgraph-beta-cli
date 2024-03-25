@@ -21,11 +21,14 @@ namespace ApiSdk.IdentityProviders {
     /// <summary>
     /// Provides operations to manage the collection of identityProvider entities.
     /// </summary>
-    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder {
+    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to call the availableProviderTypes method.
         /// </summary>
-        public Command BuildAvailableProviderTypesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAvailableProviderTypesNavCommand()
+        {
             var command = new Command("available-provider-types");
             command.Description = "Provides operations to call the availableProviderTypes method.";
             var builder = new AvailableProviderTypesRequestBuilder(PathParameters);
@@ -40,7 +43,9 @@ namespace ApiSdk.IdentityProviders {
         /// <summary>
         /// Provides operations to manage the collection of identityProvider entities.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new IdentityProviderItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
@@ -51,7 +56,9 @@ namespace ApiSdk.IdentityProviders {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -64,13 +71,15 @@ namespace ApiSdk.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Create a new identityProvider by specifying display name, identityProvider type, client ID, and client secret.
+        /// Create a new identityProvider object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0" />
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildCreateCommand() {
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
-            command.Description = "Create a new identityProvider by specifying display name, identityProvider type, client ID, and client secret.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0";
+            command.Description = "Create a new identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -109,13 +118,15 @@ namespace ApiSdk.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Retrieve all identityProviders in the directory.
+        /// Retrieve a list of identityProviders objects.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0" />
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildListCommand() {
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieve all identityProviders in the directory.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of identityProviders objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -203,28 +214,33 @@ namespace ApiSdk.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityProvidersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public IdentityProvidersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public IdentityProvidersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityProvidersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public IdentityProvidersRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public IdentityProvidersRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Retrieve all identityProviders in the directory.
+        /// Retrieve a list of identityProviders objects.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -232,28 +248,32 @@ namespace ApiSdk.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new identityProvider by specifying display name, identityProvider type, client ID, and client secret.
+        /// Create a new identityProvider object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityProviders", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve all identityProviders in the directory.
+        /// Retrieve a list of identityProviders objects.
         /// </summary>
-        public class IdentityProvidersRequestBuilderGetQueryParameters {
+        public class IdentityProvidersRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

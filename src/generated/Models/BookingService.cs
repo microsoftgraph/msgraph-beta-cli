@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Represents a particular service offered by a booking business.
     /// </summary>
-    public class BookingService : Entity, IParsable {
+    public class BookingService : BookingNamedEntity, IParsable 
+    {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -17,6 +18,8 @@ namespace ApiSdk.Models {
 #else
         public string AdditionalInformation { get; set; }
 #endif
+        /// <summary>The date, time and timezone when the Service was created.</summary>
+        public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Contains the set of custom questions associated with a particular service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,21 +58,15 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>A service name.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DisplayName { get; set; }
-#nullable restore
-#else
-        public string DisplayName { get; set; }
-#endif
-        /// <summary>True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.</summary>
+        /// <summary>Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.</summary>
         public bool? IsAnonymousJoinEnabled { get; set; }
-        /// <summary>True means this service is not available to customers for booking.</summary>
+        /// <summary>Indicates that the customer can manage bookings created by the staff. The default value is false.</summary>
+        public bool? IsCustomerAllowedToManageBooking { get; set; }
+        /// <summary>True means this service isn&apos;t available to customers for booking.</summary>
         public bool? IsHiddenFromCustomers { get; set; }
-        /// <summary>True indicates that the appointments for the service will be held online. Default value is false.</summary>
+        /// <summary>Indicates that the appointments for the service are held online. The default value is false.</summary>
         public bool? IsLocationOnline { get; set; }
-        /// <summary>The language of the self-service booking page.</summary>
+        /// <summary>The language of the self service booking page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LanguageTag { get; set; }
@@ -77,7 +74,9 @@ namespace ApiSdk.Models {
 #else
         public string LanguageTag { get; set; }
 #endif
-        /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.</summary>
+        /// <summary>The date, time and timezone when the Service  was last updated.</summary>
+        public DateTimeOffset? LastUpdatedDateTime { get; set; }
+        /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.</summary>
         public int? MaximumAttendeesCount { get; set; }
         /// <summary>Additional information about this service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,19 +117,32 @@ namespace ApiSdk.Models {
         public string WebUrl { get; private set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="BookingService"/> and sets the default values.
+        /// </summary>
+        public BookingService() : base()
+        {
+            OdataType = "#microsoft.graph.bookingService";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="BookingService"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingService CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new BookingService CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingService();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"customQuestions", n => { CustomQuestions = n.GetCollectionOfObjectValues<BookingQuestionAssignment>(BookingQuestionAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"defaultDuration", n => { DefaultDuration = n.GetTimeSpanValue(); } },
                 {"defaultLocation", n => { DefaultLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
@@ -138,11 +150,12 @@ namespace ApiSdk.Models {
                 {"defaultPriceType", n => { DefaultPriceType = n.GetEnumValue<BookingPriceType>(); } },
                 {"defaultReminders", n => { DefaultReminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"isAnonymousJoinEnabled", n => { IsAnonymousJoinEnabled = n.GetBoolValue(); } },
+                {"isCustomerAllowedToManageBooking", n => { IsCustomerAllowedToManageBooking = n.GetBoolValue(); } },
                 {"isHiddenFromCustomers", n => { IsHiddenFromCustomers = n.GetBoolValue(); } },
                 {"isLocationOnline", n => { IsLocationOnline = n.GetBoolValue(); } },
                 {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"maximumAttendeesCount", n => { MaximumAttendeesCount = n.GetIntValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"postBuffer", n => { PostBuffer = n.GetTimeSpanValue(); } },
@@ -157,10 +170,12 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("additionalInformation", AdditionalInformation);
+            writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", CustomQuestions);
             writer.WriteTimeSpanValue("defaultDuration", DefaultDuration);
             writer.WriteObjectValue<Location>("defaultLocation", DefaultLocation);
@@ -168,11 +183,12 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<BookingPriceType>("defaultPriceType", DefaultPriceType);
             writer.WriteCollectionOfObjectValues<BookingReminder>("defaultReminders", DefaultReminders);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isAnonymousJoinEnabled", IsAnonymousJoinEnabled);
+            writer.WriteBoolValue("isCustomerAllowedToManageBooking", IsCustomerAllowedToManageBooking);
             writer.WriteBoolValue("isHiddenFromCustomers", IsHiddenFromCustomers);
             writer.WriteBoolValue("isLocationOnline", IsLocationOnline);
             writer.WriteStringValue("languageTag", LanguageTag);
+            writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteIntValue("maximumAttendeesCount", MaximumAttendeesCount);
             writer.WriteStringValue("notes", Notes);
             writer.WriteTimeSpanValue("postBuffer", PostBuffer);

@@ -18,17 +18,24 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.CreatedByUser {
     /// <summary>
     /// Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
     /// </summary>
-    public class CreatedByUserRequestBuilder : BaseCliRequestBuilder {
+    public class CreatedByUserRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from sites
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Identity of the user who created the item. Read-only.";
+            command.Description = "Get createdByUser from sites";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
             command.AddOption(siteIdOption);
+            var pathOption = new Option<string>("--path", description: "Usage: path='{path}'") {
+            };
+            pathOption.IsRequired = true;
+            command.AddOption(pathOption);
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -45,6 +52,7 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.CreatedByUser {
             command.AddOption(queryOption);
             command.SetHandler(async (invocationContext) => {
                 var siteId = invocationContext.ParseResult.GetValueForOption(siteIdOption);
+                var path = invocationContext.ParseResult.GetValueForOption(pathOption);
                 var select = invocationContext.ParseResult.GetValueForOption(selectOption);
                 var expand = invocationContext.ParseResult.GetValueForOption(expandOption);
                 var output = invocationContext.ParseResult.GetValueForOption(outputOption);
@@ -58,6 +66,7 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.CreatedByUser {
                     q.QueryParameters.Expand = expand;
                 });
                 if (siteId is not null) requestInfo.PathParameters.Add("site%2Did", siteId);
+                if (path is not null) requestInfo.PathParameters.Add("path", path);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                     {"4XX", ODataError.CreateFromDiscriminatorValue},
                     {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -70,27 +79,32 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.CreatedByUser {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CreatedByUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedByUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CreatedByUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/createdByUser{?%24select,%24expand}", pathParameters) {
+        public CreatedByUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/createdByUser{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CreatedByUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedByUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CreatedByUserRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/createdByUser{?%24select,%24expand}", rawUrl) {
+        public CreatedByUserRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/createdByUser{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from sites
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -98,9 +112,10 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.CreatedByUser {
             return requestInfo;
         }
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from sites
         /// </summary>
-        public class CreatedByUserRequestBuilderGetQueryParameters {
+        public class CreatedByUserRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

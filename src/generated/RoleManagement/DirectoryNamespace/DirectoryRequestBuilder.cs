@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces;
+using ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignmentApprovals;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignmentScheduleInstances;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignmentScheduleRequests;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignmentSchedules;
@@ -10,6 +11,9 @@ using ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstances;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleRequests;
 using ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilitySchedules;
+using ApiSdk.RoleManagement.DirectoryNamespace.RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId;
+using ApiSdk.RoleManagement.DirectoryNamespace.RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId;
+using ApiSdk.RoleManagement.DirectoryNamespace.TransitiveRoleAssignments;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -27,11 +31,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
     /// <summary>
     /// Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class DirectoryRequestBuilder : BaseCliRequestBuilder {
+    public class DirectoryRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property directory for roleManagement
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property directory for roleManagement";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -58,7 +65,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Get directory from roleManagement
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get directory from roleManagement";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -102,7 +111,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Update the navigation property directory in roleManagement
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property directory in roleManagement";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -145,7 +156,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildResourceNamespacesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildResourceNamespacesNavCommand()
+        {
             var command = new Command("resource-namespaces");
             command.Description = "Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.";
             var builder = new ResourceNamespacesRequestBuilder(PathParameters);
@@ -168,9 +181,39 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleAssignmentApprovalsNavCommand()
+        {
+            var command = new Command("role-assignment-approvals");
+            command.Description = "Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.";
+            var builder = new RoleAssignmentApprovalsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildFilterByCurrentUserWithOnRbCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleAssignmentScheduleInstancesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleAssignmentScheduleInstancesNavCommand()
+        {
             var command = new Command("role-assignment-schedule-instances");
             command.Description = "Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleAssignmentScheduleInstancesRequestBuilder(PathParameters);
@@ -196,7 +239,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleAssignmentScheduleRequestsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleAssignmentScheduleRequestsNavCommand()
+        {
             var command = new Command("role-assignment-schedule-requests");
             command.Description = "Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleAssignmentScheduleRequestsRequestBuilder(PathParameters);
@@ -222,7 +267,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleAssignmentSchedulesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleAssignmentSchedulesNavCommand()
+        {
             var command = new Command("role-assignment-schedules");
             command.Description = "Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleAssignmentSchedulesRequestBuilder(PathParameters);
@@ -248,7 +295,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleAssignmentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleAssignmentsNavCommand()
+        {
             var command = new Command("role-assignments");
             command.Description = "Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleAssignmentsRequestBuilder(PathParameters);
@@ -273,7 +322,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleDefinitionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleDefinitionsNavCommand()
+        {
             var command = new Command("role-definitions");
             command.Description = "Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleDefinitionsRequestBuilder(PathParameters);
@@ -298,7 +349,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleEligibilityScheduleInstancesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleEligibilityScheduleInstancesNavCommand()
+        {
             var command = new Command("role-eligibility-schedule-instances");
             command.Description = "Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleEligibilityScheduleInstancesRequestBuilder(PathParameters);
@@ -324,7 +377,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleEligibilityScheduleRequestsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleEligibilityScheduleRequestsNavCommand()
+        {
             var command = new Command("role-eligibility-schedule-requests");
             command.Description = "Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleEligibilityScheduleRequestsRequestBuilder(PathParameters);
@@ -350,7 +405,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
         /// </summary>
-        public Command BuildRoleEligibilitySchedulesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleEligibilitySchedulesNavCommand()
+        {
             var command = new Command("role-eligibility-schedules");
             command.Description = "Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.";
             var builder = new RoleEligibilitySchedulesRequestBuilder(PathParameters);
@@ -374,29 +431,95 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
             return command;
         }
         /// <summary>
-        /// Instantiates a new DirectoryRequestBuilder and sets the default values.
+        /// Provides operations to call the roleScheduleInstances method.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public DirectoryRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/directory{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdNavCommand()
+        {
+            var command = new Command("role-schedule-instancesdirectory-scope-id-directory-scope-id-app-scope-id-app-scope-id-principal-id-principal-id-role-definition-id-role-definition-id");
+            command.Description = "Provides operations to call the roleScheduleInstances method.";
+            var builder = new RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new DirectoryRequestBuilder and sets the default values.
+        /// Provides operations to call the roleSchedules method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdNavCommand()
+        {
+            var command = new Command("role-schedulesdirectory-scope-id-directory-scope-id-app-scope-id-app-scope-id-principal-id-principal-id-role-definition-id-role-definition-id");
+            command.Description = "Provides operations to call the roleSchedules method.";
+            var builder = new RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.rbacApplication entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTransitiveRoleAssignmentsNavCommand()
+        {
+            var command = new Command("transitive-role-assignments");
+            command.Description = "Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.rbacApplication entity.";
+            var builder = new TransitiveRoleAssignmentsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="DirectoryRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public DirectoryRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/directory{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="DirectoryRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public DirectoryRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/directory{?%24select,%24expand}", rawUrl) {
+        public DirectoryRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/directory{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property directory for roleManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/directory", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -404,13 +527,16 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Get directory from roleManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -420,17 +546,20 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Update the navigation property directory in roleManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(RbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(RbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(RbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(RbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/directory", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -438,7 +567,8 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace {
         /// <summary>
         /// Get directory from roleManagement
         /// </summary>
-        public class DirectoryRequestBuilderGetQueryParameters {
+        public class DirectoryRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

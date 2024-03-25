@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Entity which represents a connection to Mobile Threat Defense partner.
     /// </summary>
-    public class MobileThreatDefenseConnector : Entity, IParsable {
+    public class MobileThreatDefenseConnector : Entity, IParsable 
+    {
         /// <summary>When TRUE, indicates the Mobile Threat Defense partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.</summary>
         public bool? AllowPartnerToCollectIOSApplicationMetadata { get; set; }
         /// <summary>When TRUE, indicates the Mobile Threat Defense partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.</summary>
@@ -27,6 +28,10 @@ namespace ApiSdk.Models {
         public bool? IosMobileApplicationManagementEnabled { get; set; }
         /// <summary>DateTime of last Heartbeat recieved from the Mobile Threat Defense partner</summary>
         public DateTimeOffset? LastHeartbeatDateTime { get; set; }
+        /// <summary>For Mac, get or set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant</summary>
+        public bool? MacDeviceBlockedOnMissingPartnerData { get; set; }
+        /// <summary>For Mac, get or set whether data from the Mobile Threat Defense partner should be used during compliance evaluations</summary>
+        public bool? MacEnabled { get; set; }
         /// <summary>When TRUE, inidicates that configuration profile management via Microsoft Defender for Endpoint is enabled. When FALSE, inidicates that configuration profile management via Microsoft Defender for Endpoint is disabled. Default value is FALSE.</summary>
         public bool? MicrosoftDefenderForEndpointAttachEnabled { get; set; }
         /// <summary>Partner state of this tenant.</summary>
@@ -39,19 +44,26 @@ namespace ApiSdk.Models {
         public bool? WindowsDeviceBlockedOnMissingPartnerData { get; set; }
         /// <summary>When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during compliance evaluations for Windows. Default value is FALSE.</summary>
         public bool? WindowsEnabled { get; set; }
+        /// <summary>When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.</summary>
+        public bool? WindowsMobileApplicationManagementEnabled { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MobileThreatDefenseConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileThreatDefenseConnector CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new MobileThreatDefenseConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MobileThreatDefenseConnector();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"allowPartnerToCollectIOSApplicationMetadata", n => { AllowPartnerToCollectIOSApplicationMetadata = n.GetBoolValue(); } },
                 {"allowPartnerToCollectIOSPersonalApplicationMetadata", n => { AllowPartnerToCollectIOSPersonalApplicationMetadata = n.GetBoolValue(); } },
                 {"androidDeviceBlockedOnMissingPartnerData", n => { AndroidDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
@@ -61,19 +73,23 @@ namespace ApiSdk.Models {
                 {"iosEnabled", n => { IosEnabled = n.GetBoolValue(); } },
                 {"iosMobileApplicationManagementEnabled", n => { IosMobileApplicationManagementEnabled = n.GetBoolValue(); } },
                 {"lastHeartbeatDateTime", n => { LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
+                {"macDeviceBlockedOnMissingPartnerData", n => { MacDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
+                {"macEnabled", n => { MacEnabled = n.GetBoolValue(); } },
                 {"microsoftDefenderForEndpointAttachEnabled", n => { MicrosoftDefenderForEndpointAttachEnabled = n.GetBoolValue(); } },
                 {"partnerState", n => { PartnerState = n.GetEnumValue<MobileThreatPartnerTenantState>(); } },
                 {"partnerUnresponsivenessThresholdInDays", n => { PartnerUnresponsivenessThresholdInDays = n.GetIntValue(); } },
                 {"partnerUnsupportedOsVersionBlocked", n => { PartnerUnsupportedOsVersionBlocked = n.GetBoolValue(); } },
                 {"windowsDeviceBlockedOnMissingPartnerData", n => { WindowsDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
                 {"windowsEnabled", n => { WindowsEnabled = n.GetBoolValue(); } },
+                {"windowsMobileApplicationManagementEnabled", n => { WindowsMobileApplicationManagementEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("allowPartnerToCollectIOSApplicationMetadata", AllowPartnerToCollectIOSApplicationMetadata);
@@ -85,12 +101,15 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("iosEnabled", IosEnabled);
             writer.WriteBoolValue("iosMobileApplicationManagementEnabled", IosMobileApplicationManagementEnabled);
             writer.WriteDateTimeOffsetValue("lastHeartbeatDateTime", LastHeartbeatDateTime);
+            writer.WriteBoolValue("macDeviceBlockedOnMissingPartnerData", MacDeviceBlockedOnMissingPartnerData);
+            writer.WriteBoolValue("macEnabled", MacEnabled);
             writer.WriteBoolValue("microsoftDefenderForEndpointAttachEnabled", MicrosoftDefenderForEndpointAttachEnabled);
             writer.WriteEnumValue<MobileThreatPartnerTenantState>("partnerState", PartnerState);
             writer.WriteIntValue("partnerUnresponsivenessThresholdInDays", PartnerUnresponsivenessThresholdInDays);
             writer.WriteBoolValue("partnerUnsupportedOsVersionBlocked", PartnerUnsupportedOsVersionBlocked);
             writer.WriteBoolValue("windowsDeviceBlockedOnMissingPartnerData", WindowsDeviceBlockedOnMissingPartnerData);
             writer.WriteBoolValue("windowsEnabled", WindowsEnabled);
+            writer.WriteBoolValue("windowsMobileApplicationManagementEnabled", WindowsMobileApplicationManagementEnabled);
         }
     }
 }

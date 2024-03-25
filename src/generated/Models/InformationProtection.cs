@@ -5,9 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class InformationProtection : IAdditionalDataHolder, IParsable {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+    public class InformationProtection : Entity, IParsable 
+    {
         /// <summary>The bitlocker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -16,13 +15,37 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Bitlocker Bitlocker { get; set; }
 #endif
-        /// <summary>The OdataType property</summary>
+        /// <summary>The dataLossPreventionPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType { get; set; }
+        public List<DataLossPreventionPolicy>? DataLossPreventionPolicies { get; set; }
 #nullable restore
 #else
-        public string OdataType { get; set; }
+        public List<DataLossPreventionPolicy> DataLossPreventionPolicies { get; set; }
+#endif
+        /// <summary>The policy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public InformationProtectionPolicy? Policy { get; set; }
+#nullable restore
+#else
+        public InformationProtectionPolicy Policy { get; set; }
+#endif
+        /// <summary>The sensitivityLabels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SensitivityLabel>? SensitivityLabels { get; set; }
+#nullable restore
+#else
+        public List<SensitivityLabel> SensitivityLabels { get; set; }
+#endif
+        /// <summary>The sensitivityPolicySettings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.SensitivityPolicySettings? SensitivityPolicySettings { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.SensitivityPolicySettings SensitivityPolicySettings { get; set; }
 #endif
         /// <summary>The threatAssessmentRequests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,26 +56,28 @@ namespace ApiSdk.Models {
         public List<ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new informationProtection and sets the default values.
-        /// </summary>
-        public InformationProtection() {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="InformationProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new InformationProtection();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"bitlocker", n => { Bitlocker = n.GetObjectValue<ApiSdk.Models.Bitlocker>(ApiSdk.Models.Bitlocker.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"dataLossPreventionPolicies", n => { DataLossPreventionPolicies = n.GetCollectionOfObjectValues<DataLossPreventionPolicy>(DataLossPreventionPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"policy", n => { Policy = n.GetObjectValue<InformationProtectionPolicy>(InformationProtectionPolicy.CreateFromDiscriminatorValue); } },
+                {"sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"sensitivityPolicySettings", n => { SensitivityPolicySettings = n.GetObjectValue<ApiSdk.Models.SensitivityPolicySettings>(ApiSdk.Models.SensitivityPolicySettings.CreateFromDiscriminatorValue); } },
                 {"threatAssessmentRequests", n => { ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -60,12 +85,16 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.Bitlocker>("bitlocker", Bitlocker);
-            writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<DataLossPreventionPolicy>("dataLossPreventionPolicies", DataLossPreventionPolicies);
+            writer.WriteObjectValue<InformationProtectionPolicy>("policy", Policy);
+            writer.WriteCollectionOfObjectValues<SensitivityLabel>("sensitivityLabels", SensitivityLabels);
+            writer.WriteObjectValue<ApiSdk.Models.SensitivityPolicySettings>("sensitivityPolicySettings", SensitivityPolicySettings);
             writer.WriteCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", ThreatAssessmentRequests);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

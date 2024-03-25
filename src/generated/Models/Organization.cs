@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Organization : DirectoryObject, IParsable {
+    public class Organization : DirectoryObject, IParsable 
+    {
         /// <summary>The collection of service plans associated with the tenant. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public List<AssignedPlan> AssignedPlans { get; set; }
 #endif
-        /// <summary>Branding for the organization. Nullable.</summary>
+        /// <summary>Resource to manage the default branding for the organization. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OrganizationalBranding? Branding { get; set; }
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public OrganizationalBranding Branding { get; set; }
 #endif
-        /// <summary>Telephone number for the organization. Although this is a string collection, only one number can be set for this property.</summary>
+        /// <summary>Telephone number for the organization. Although this property is a string collection, only one number can be set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? BusinessPhones { get; set; }
@@ -37,6 +38,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<ApiSdk.Models.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration { get; set; }
+#endif
+        /// <summary>Certificate connector setting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.CertificateConnectorSetting? CertificateConnectorSetting { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.CertificateConnectorSetting CertificateConnectorSetting { get; set; }
 #endif
         /// <summary>City name of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +71,7 @@ namespace ApiSdk.Models {
 #else
         public string CountryLetterCode { get; set; }
 #endif
-        /// <summary>Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        /// <summary>Timestamp of when the organization was created. The value can&apos;t be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Two-letter ISO 3166 country code indicating the default service usage location of an organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,6 +81,14 @@ namespace ApiSdk.Models {
 #else
         public string DefaultUsageLocation { get; set; }
 #endif
+        /// <summary>The directory size quota information of an organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.DirectorySizeQuota? DirectorySizeQuota { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.DirectorySizeQuota DirectorySizeQuota { get; set; }
+#endif
         /// <summary>The display name for the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,7 +97,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the organization resource. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Extension>? Extensions { get; set; }
@@ -88,6 +105,8 @@ namespace ApiSdk.Models {
 #else
         public List<Extension> Extensions { get; set; }
 #endif
+        /// <summary>true if organization is Multi-Geo enabled; false if organization isn&apos;t Multi-Geo enabled; null (default). Read-only. For more information, see OneDrive Online Multi-Geo.</summary>
+        public bool? IsMultipleDataLocationsForServicesEnabled { get; set; }
         /// <summary>Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,10 +117,20 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Mobile device management authority.</summary>
         public MdmAuthority? MobileDeviceManagementAuthority { get; set; }
-        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        /// <summary>The last time a password sync request was received for the tenant.</summary>
+        public DateTimeOffset? OnPremisesLastPasswordSyncDateTime { get; set; }
+        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
-        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null, if this object isn&apos;t synced from on-premises active directory (default).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
+        /// <summary>The partnerInformation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.PartnerInformation? PartnerInformation { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.PartnerInformation PartnerInformation { get; set; }
+#endif
         /// <summary>The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.</summary>
         public ApiSdk.Models.PartnerTenantType? PartnerTenantType { get; set; }
         /// <summary>Postal code of the address for the organization.</summary>
@@ -112,7 +141,7 @@ namespace ApiSdk.Models {
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
+        /// <summary>The preferred language for the organization. Should follow ISO 639-1 code; for example, en.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredLanguage { get; set; }
@@ -152,6 +181,14 @@ namespace ApiSdk.Models {
 #else
         public List<string> SecurityComplianceNotificationPhones { get; set; }
 #endif
+        /// <summary>Retrieve the properties and relationships of organizationSettings object. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OrganizationSettings? Settings { get; set; }
+#nullable restore
+#else
+        public OrganizationSettings Settings { get; set; }
+#endif
         /// <summary>State name of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -176,7 +213,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> TechnicalNotificationMails { get; set; }
 #endif
-        /// <summary>Not nullable. The tenant type option that was selected when the tenant was created. The possible values are:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C A customer identity access management (CIAM) service that serves business-to-consumer (B2C) scenarios.</summary>
+        /// <summary>Not nullable. Can be one of the following types:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C An identity access management (IAM) service that serves business-to-consumer (B2C) scenarios.   CIAM - A customer identity &amp; access management (CIAM) solution that provides an integrated platform to serve consumers, partners, and citizen scenarios.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantType { get; set; }
@@ -193,39 +230,50 @@ namespace ApiSdk.Models {
         public List<VerifiedDomain> VerifiedDomains { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new organization and sets the default values.
+        /// Instantiates a new <see cref="Organization"/> and sets the default values.
         /// </summary>
-        public Organization() : base() {
+        public Organization() : base()
+        {
             OdataType = "#microsoft.graph.organization";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Organization"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Organization CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Organization CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Organization();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"assignedPlans", n => { AssignedPlans = n.GetCollectionOfObjectValues<AssignedPlan>(AssignedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"branding", n => { Branding = n.GetObjectValue<OrganizationalBranding>(OrganizationalBranding.CreateFromDiscriminatorValue); } },
                 {"businessPhones", n => { BusinessPhones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"certificateBasedAuthConfiguration", n => { CertificateBasedAuthConfiguration = n.GetCollectionOfObjectValues<ApiSdk.Models.CertificateBasedAuthConfiguration>(ApiSdk.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"certificateConnectorSetting", n => { CertificateConnectorSetting = n.GetObjectValue<ApiSdk.Models.CertificateConnectorSetting>(ApiSdk.Models.CertificateConnectorSetting.CreateFromDiscriminatorValue); } },
                 {"city", n => { City = n.GetStringValue(); } },
                 {"country", n => { Country = n.GetStringValue(); } },
                 {"countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"defaultUsageLocation", n => { DefaultUsageLocation = n.GetStringValue(); } },
+                {"directorySizeQuota", n => { DirectorySizeQuota = n.GetObjectValue<ApiSdk.Models.DirectorySizeQuota>(ApiSdk.Models.DirectorySizeQuota.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"isMultipleDataLocationsForServicesEnabled", n => { IsMultipleDataLocationsForServicesEnabled = n.GetBoolValue(); } },
                 {"marketingNotificationEmails", n => { MarketingNotificationEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"mobileDeviceManagementAuthority", n => { MobileDeviceManagementAuthority = n.GetEnumValue<MdmAuthority>(); } },
+                {"onPremisesLastPasswordSyncDateTime", n => { OnPremisesLastPasswordSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                {"partnerInformation", n => { PartnerInformation = n.GetObjectValue<ApiSdk.Models.PartnerInformation>(ApiSdk.Models.PartnerInformation.CreateFromDiscriminatorValue); } },
                 {"partnerTenantType", n => { PartnerTenantType = n.GetEnumValue<PartnerTenantType>(); } },
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
@@ -233,6 +281,7 @@ namespace ApiSdk.Models {
                 {"provisionedPlans", n => { ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"securityComplianceNotificationMails", n => { SecurityComplianceNotificationMails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"securityComplianceNotificationPhones", n => { SecurityComplianceNotificationPhones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"settings", n => { Settings = n.GetObjectValue<OrganizationSettings>(OrganizationSettings.CreateFromDiscriminatorValue); } },
                 {"state", n => { State = n.GetStringValue(); } },
                 {"street", n => { Street = n.GetStringValue(); } },
                 {"technicalNotificationMails", n => { TechnicalNotificationMails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -244,24 +293,30 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<AssignedPlan>("assignedPlans", AssignedPlans);
             writer.WriteObjectValue<OrganizationalBranding>("branding", Branding);
             writer.WriteCollectionOfPrimitiveValues<string>("businessPhones", BusinessPhones);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", CertificateBasedAuthConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.CertificateConnectorSetting>("certificateConnectorSetting", CertificateConnectorSetting);
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("countryLetterCode", CountryLetterCode);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("defaultUsageLocation", DefaultUsageLocation);
+            writer.WriteObjectValue<ApiSdk.Models.DirectorySizeQuota>("directorySizeQuota", DirectorySizeQuota);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
+            writer.WriteBoolValue("isMultipleDataLocationsForServicesEnabled", IsMultipleDataLocationsForServicesEnabled);
             writer.WriteCollectionOfPrimitiveValues<string>("marketingNotificationEmails", MarketingNotificationEmails);
             writer.WriteEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", MobileDeviceManagementAuthority);
+            writer.WriteDateTimeOffsetValue("onPremisesLastPasswordSyncDateTime", OnPremisesLastPasswordSyncDateTime);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);
+            writer.WriteObjectValue<ApiSdk.Models.PartnerInformation>("partnerInformation", PartnerInformation);
             writer.WriteEnumValue<PartnerTenantType>("partnerTenantType", PartnerTenantType);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
@@ -269,6 +324,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
             writer.WriteCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", SecurityComplianceNotificationMails);
             writer.WriteCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", SecurityComplianceNotificationPhones);
+            writer.WriteObjectValue<OrganizationSettings>("settings", Settings);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("street", Street);
             writer.WriteCollectionOfPrimitiveValues<string>("technicalNotificationMails", TechnicalNotificationMails);

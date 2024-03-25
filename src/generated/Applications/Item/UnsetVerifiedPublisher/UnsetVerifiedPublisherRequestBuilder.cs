@@ -17,12 +17,15 @@ namespace ApiSdk.Applications.Item.UnsetVerifiedPublisher {
     /// <summary>
     /// Provides operations to call the unsetVerifiedPublisher method.
     /// </summary>
-    public class UnsetVerifiedPublisherRequestBuilder : BaseCliRequestBuilder {
+    public class UnsetVerifiedPublisherRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
@@ -46,27 +49,32 @@ namespace ApiSdk.Applications.Item.UnsetVerifiedPublisher {
             return command;
         }
         /// <summary>
-        /// Instantiates a new UnsetVerifiedPublisherRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UnsetVerifiedPublisherRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public UnsetVerifiedPublisherRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher", pathParameters) {
+        public UnsetVerifiedPublisherRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new UnsetVerifiedPublisherRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="UnsetVerifiedPublisherRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public UnsetVerifiedPublisherRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher", rawUrl) {
+        public UnsetVerifiedPublisherRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher", rawUrl)
+        {
         }
         /// <summary>
         /// Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

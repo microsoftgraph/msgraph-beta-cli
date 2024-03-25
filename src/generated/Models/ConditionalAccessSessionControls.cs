@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ConditionalAccessSessionControls : IAdditionalDataHolder, IParsable {
+    public class ConditionalAccessSessionControls : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.</summary>
@@ -24,7 +25,15 @@ namespace ApiSdk.Models {
 #else
         public CloudAppSecuritySessionControl CloudAppSecurity { get; set; }
 #endif
-        /// <summary>Session control that determines whether it is acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not.</summary>
+        /// <summary>Session control for continuous access evaluation settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ContinuousAccessEvaluationSessionControl? ContinuousAccessEvaluation { get; set; }
+#nullable restore
+#else
+        public ContinuousAccessEvaluationSessionControl ContinuousAccessEvaluation { get; set; }
+#endif
+        /// <summary>Session control that determines whether it&apos;s acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not.</summary>
         public bool? DisableResilienceDefaults { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,6 +51,14 @@ namespace ApiSdk.Models {
 #else
         public PersistentBrowserSessionControl PersistentBrowser { get; set; }
 #endif
+        /// <summary>Session control to require sign in sessions to be bound to a device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SecureSignInSessionControl? SecureSignInSession { get; set; }
+#nullable restore
+#else
+        public SecureSignInSessionControl SecureSignInSession { get; set; }
+#endif
         /// <summary>Session control to enforce signin frequency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,29 +68,37 @@ namespace ApiSdk.Models {
         public SignInFrequencySessionControl SignInFrequency { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new conditionalAccessSessionControls and sets the default values.
+        /// Instantiates a new <see cref="ConditionalAccessSessionControls"/> and sets the default values.
         /// </summary>
-        public ConditionalAccessSessionControls() {
+        public ConditionalAccessSessionControls()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ConditionalAccessSessionControls"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessSessionControls CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ConditionalAccessSessionControls CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ConditionalAccessSessionControls();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"applicationEnforcedRestrictions", n => { ApplicationEnforcedRestrictions = n.GetObjectValue<ApplicationEnforcedRestrictionsSessionControl>(ApplicationEnforcedRestrictionsSessionControl.CreateFromDiscriminatorValue); } },
                 {"cloudAppSecurity", n => { CloudAppSecurity = n.GetObjectValue<CloudAppSecuritySessionControl>(CloudAppSecuritySessionControl.CreateFromDiscriminatorValue); } },
+                {"continuousAccessEvaluation", n => { ContinuousAccessEvaluation = n.GetObjectValue<ContinuousAccessEvaluationSessionControl>(ContinuousAccessEvaluationSessionControl.CreateFromDiscriminatorValue); } },
                 {"disableResilienceDefaults", n => { DisableResilienceDefaults = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"persistentBrowser", n => { PersistentBrowser = n.GetObjectValue<PersistentBrowserSessionControl>(PersistentBrowserSessionControl.CreateFromDiscriminatorValue); } },
+                {"secureSignInSession", n => { SecureSignInSession = n.GetObjectValue<SecureSignInSessionControl>(SecureSignInSessionControl.CreateFromDiscriminatorValue); } },
                 {"signInFrequency", n => { SignInFrequency = n.GetObjectValue<SignInFrequencySessionControl>(SignInFrequencySessionControl.CreateFromDiscriminatorValue); } },
             };
         }
@@ -81,13 +106,16 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", ApplicationEnforcedRestrictions);
             writer.WriteObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", CloudAppSecurity);
+            writer.WriteObjectValue<ContinuousAccessEvaluationSessionControl>("continuousAccessEvaluation", ContinuousAccessEvaluation);
             writer.WriteBoolValue("disableResilienceDefaults", DisableResilienceDefaults);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<PersistentBrowserSessionControl>("persistentBrowser", PersistentBrowser);
+            writer.WriteObjectValue<SecureSignInSessionControl>("secureSignInSession", SecureSignInSession);
             writer.WriteObjectValue<SignInFrequencySessionControl>("signInFrequency", SignInFrequency);
             writer.WriteAdditionalData(AdditionalData);
         }

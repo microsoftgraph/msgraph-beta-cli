@@ -5,6 +5,8 @@ using ApiSdk.TenantRelationships.DelegatedAdminCustomers;
 using ApiSdk.TenantRelationships.DelegatedAdminRelationships;
 using ApiSdk.TenantRelationships.FindTenantInformationByDomainNameWithDomainName;
 using ApiSdk.TenantRelationships.FindTenantInformationByTenantIdWithTenantId;
+using ApiSdk.TenantRelationships.ManagedTenants;
+using ApiSdk.TenantRelationships.MultiTenantOrganization;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -22,11 +24,14 @@ namespace ApiSdk.TenantRelationships {
     /// <summary>
     /// Provides operations to manage the tenantRelationship singleton.
     /// </summary>
-    public class TenantRelationshipsRequestBuilder : BaseCliRequestBuilder {
+    public class TenantRelationshipsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
         /// </summary>
-        public Command BuildDelegatedAdminCustomersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDelegatedAdminCustomersNavCommand()
+        {
             var command = new Command("delegated-admin-customers");
             command.Description = "Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.";
             var builder = new DelegatedAdminCustomersRequestBuilder(PathParameters);
@@ -51,7 +56,9 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
         /// </summary>
-        public Command BuildDelegatedAdminRelationshipsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDelegatedAdminRelationshipsNavCommand()
+        {
             var command = new Command("delegated-admin-relationships");
             command.Description = "Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.";
             var builder = new DelegatedAdminRelationshipsRequestBuilder(PathParameters);
@@ -76,7 +83,9 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Provides operations to call the findTenantInformationByDomainName method.
         /// </summary>
-        public Command BuildFindTenantInformationByDomainNameWithDomainNameRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFindTenantInformationByDomainNameWithDomainNameRbCommand()
+        {
             var command = new Command("find-tenant-information-by-domain-name-with-domain-name");
             command.Description = "Provides operations to call the findTenantInformationByDomainName method.";
             var builder = new FindTenantInformationByDomainNameWithDomainNameRequestBuilder(PathParameters);
@@ -91,7 +100,9 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Provides operations to call the findTenantInformationByTenantId method.
         /// </summary>
-        public Command BuildFindTenantInformationByTenantIdWithTenantIdRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFindTenantInformationByTenantIdWithTenantIdRbCommand()
+        {
             var command = new Command("find-tenant-information-by-tenant-id-with-tenant-id");
             command.Description = "Provides operations to call the findTenantInformationByTenantId method.";
             var builder = new FindTenantInformationByTenantIdWithTenantIdRequestBuilder(PathParameters);
@@ -106,7 +117,9 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Get tenantRelationships
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get tenantRelationships";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -148,9 +161,97 @@ namespace ApiSdk.TenantRelationships {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the managedTenants property of the microsoft.graph.tenantRelationship entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildManagedTenantsNavCommand()
+        {
+            var command = new Command("managed-tenants");
+            command.Description = "Provides operations to manage the managedTenants property of the microsoft.graph.tenantRelationship entity.";
+            var builder = new ManagedTenantsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildAggregatedPolicyCompliancesNavCommand());
+            nonExecCommands.Add(builder.BuildAppPerformancesNavCommand());
+            nonExecCommands.Add(builder.BuildAuditEventsNavCommand());
+            nonExecCommands.Add(builder.BuildCloudPcConnectionsNavCommand());
+            nonExecCommands.Add(builder.BuildCloudPcDevicesNavCommand());
+            nonExecCommands.Add(builder.BuildCloudPcsOverviewNavCommand());
+            nonExecCommands.Add(builder.BuildConditionalAccessPolicyCoveragesNavCommand());
+            nonExecCommands.Add(builder.BuildCredentialUserRegistrationsSummariesNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
+            nonExecCommands.Add(builder.BuildDeviceAppPerformancesNavCommand());
+            nonExecCommands.Add(builder.BuildDeviceCompliancePolicySettingStateSummariesNavCommand());
+            nonExecCommands.Add(builder.BuildDeviceHealthStatusesNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildManagedDeviceCompliancesNavCommand());
+            nonExecCommands.Add(builder.BuildManagedDeviceComplianceTrendsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantAlertLogsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantAlertRuleDefinitionsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantAlertRulesNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantAlertsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantApiNotificationsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantEmailNotificationsNavCommand());
+            nonExecCommands.Add(builder.BuildManagedTenantTicketingEndpointsNavCommand());
+            nonExecCommands.Add(builder.BuildManagementActionsNavCommand());
+            nonExecCommands.Add(builder.BuildManagementActionTenantDeploymentStatusesNavCommand());
+            nonExecCommands.Add(builder.BuildManagementIntentsNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplateCollectionsNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplateCollectionTenantSummariesNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplatesNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplateStepsNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplateStepTenantSummariesNavCommand());
+            nonExecCommands.Add(builder.BuildManagementTemplateStepVersionsNavCommand());
+            nonExecCommands.Add(builder.BuildMyRolesNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildTenantGroupsNavCommand());
+            nonExecCommands.Add(builder.BuildTenantsCustomizedInformationNavCommand());
+            nonExecCommands.Add(builder.BuildTenantsDetailedInformationNavCommand());
+            nonExecCommands.Add(builder.BuildTenantsNavCommand());
+            nonExecCommands.Add(builder.BuildTenantTagsNavCommand());
+            nonExecCommands.Add(builder.BuildWindowsDeviceMalwareStatesNavCommand());
+            nonExecCommands.Add(builder.BuildWindowsProtectionStatesNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMultiTenantOrganizationNavCommand()
+        {
+            var command = new Command("multi-tenant-organization");
+            command.Description = "Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.";
+            var builder = new MultiTenantOrganizationRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildJoinRequestNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildTenantsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Update tenantRelationships
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update tenantRelationships";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -191,27 +292,32 @@ namespace ApiSdk.TenantRelationships {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TenantRelationshipsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TenantRelationshipsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TenantRelationshipsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships{?%24select,%24expand}", pathParameters) {
+        public TenantRelationshipsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TenantRelationshipsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TenantRelationshipsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TenantRelationshipsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships{?%24select,%24expand}", rawUrl) {
+        public TenantRelationshipsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get tenantRelationships
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -221,17 +327,20 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Update tenantRelationships
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -239,7 +348,8 @@ namespace ApiSdk.TenantRelationships {
         /// <summary>
         /// Get tenantRelationships
         /// </summary>
-        public class TenantRelationshipsRequestBuilderGetQueryParameters {
+        public class TenantRelationshipsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

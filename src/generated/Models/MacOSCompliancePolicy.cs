@@ -8,7 +8,10 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This class contains compliance settings for Mac OS.
     /// </summary>
-    public class MacOSCompliancePolicy : DeviceCompliancePolicy, IParsable {
+    public class MacOSCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    {
+        /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
+        public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Require that devices have enabled device threat protection.</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
@@ -19,6 +22,16 @@ namespace ApiSdk.Models {
         public bool? FirewallEnabled { get; set; }
         /// <summary>Corresponds to &apos;Enable stealth mode.&apos;</summary>
         public bool? FirewallEnableStealthMode { get; set; }
+        /// <summary>App source options for macOS Gatekeeper.</summary>
+        public MacOSGatekeeperAppSources? GatekeeperAllowedAppSource { get; set; }
+        /// <summary>Maximum MacOS build version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumBuildVersion { get; set; }
+#nullable restore
+#else
+        public string OsMaximumBuildVersion { get; set; }
+#endif
         /// <summary>Maximum MacOS version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,6 +39,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string OsMaximumVersion { get; set; }
+#endif
+        /// <summary>Minimum MacOS build version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumBuildVersion { get; set; }
+#nullable restore
+#else
+        public string OsMinimumBuildVersion { get; set; }
 #endif
         /// <summary>Minimum MacOS version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,30 +77,40 @@ namespace ApiSdk.Models {
         /// <summary>Require that devices have enabled system integrity protection.</summary>
         public bool? SystemIntegrityProtectionEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new macOSCompliancePolicy and sets the default values.
+        /// Instantiates a new <see cref="MacOSCompliancePolicy"/> and sets the default values.
         /// </summary>
-        public MacOSCompliancePolicy() : base() {
+        public MacOSCompliancePolicy() : base()
+        {
             OdataType = "#microsoft.graph.macOSCompliancePolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MacOSCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new MacOSCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MacOSCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
                 {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"firewallBlockAllIncoming", n => { FirewallBlockAllIncoming = n.GetBoolValue(); } },
                 {"firewallEnableStealthMode", n => { FirewallEnableStealthMode = n.GetBoolValue(); } },
                 {"firewallEnabled", n => { FirewallEnabled = n.GetBoolValue(); } },
+                {"gatekeeperAllowedAppSource", n => { GatekeeperAllowedAppSource = n.GetEnumValue<MacOSGatekeeperAppSources>(); } },
+                {"osMaximumBuildVersion", n => { OsMaximumBuildVersion = n.GetStringValue(); } },
                 {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                {"osMinimumBuildVersion", n => { OsMinimumBuildVersion = n.GetStringValue(); } },
                 {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
                 {"passwordBlockSimple", n => { PasswordBlockSimple = n.GetBoolValue(); } },
                 {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
@@ -97,15 +128,20 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
             writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("firewallBlockAllIncoming", FirewallBlockAllIncoming);
             writer.WriteBoolValue("firewallEnabled", FirewallEnabled);
             writer.WriteBoolValue("firewallEnableStealthMode", FirewallEnableStealthMode);
+            writer.WriteEnumValue<MacOSGatekeeperAppSources>("gatekeeperAllowedAppSource", GatekeeperAllowedAppSource);
+            writer.WriteStringValue("osMaximumBuildVersion", OsMaximumBuildVersion);
             writer.WriteStringValue("osMaximumVersion", OsMaximumVersion);
+            writer.WriteStringValue("osMinimumBuildVersion", OsMinimumBuildVersion);
             writer.WriteStringValue("osMinimumVersion", OsMinimumVersion);
             writer.WriteBoolValue("passwordBlockSimple", PasswordBlockSimple);
             writer.WriteIntValue("passwordExpirationDays", PasswordExpirationDays);

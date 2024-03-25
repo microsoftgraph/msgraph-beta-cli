@@ -17,11 +17,14 @@ namespace ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod {
     /// <summary>
     /// Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.
     /// </summary>
-    public class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder : BaseCliRequestBuilder {
+    public class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke function getMailboxUsageQuotaStatusMailboxCounts
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Invoke function getMailboxUsageQuotaStatusMailboxCounts";
             var periodOption = new Option<string>("--period", description: "Usage: period='{period}'") {
@@ -57,27 +60,32 @@ namespace ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod {
             return command;
         }
         /// <summary>
-        /// Instantiates a new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getMailboxUsageQuotaStatusMailboxCounts(period='{period}')", pathParameters) {
+        public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getMailboxUsageQuotaStatusMailboxCounts(period='{period}')", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getMailboxUsageQuotaStatusMailboxCounts(period='{period}')", rawUrl) {
+        public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getMailboxUsageQuotaStatusMailboxCounts(period='{period}')", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke function getMailboxUsageQuotaStatusMailboxCounts
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

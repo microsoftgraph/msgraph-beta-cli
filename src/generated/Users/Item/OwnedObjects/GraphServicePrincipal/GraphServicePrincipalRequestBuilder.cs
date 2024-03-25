@@ -19,11 +19,14 @@ namespace ApiSdk.Users.Item.OwnedObjects.GraphServicePrincipal {
     /// <summary>
     /// Casts the previous resource to servicePrincipal.
     /// </summary>
-    public class GraphServicePrincipalRequestBuilder : BaseCliRequestBuilder {
+    public class GraphServicePrincipalRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -38,10 +41,12 @@ namespace ApiSdk.Users.Item.OwnedObjects.GraphServicePrincipal {
         /// <summary>
         /// Get the items of type microsoft.graph.servicePrincipal in the microsoft.graph.directoryObject collection
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get the items of type microsoft.graph.servicePrincipal in the microsoft.graph.directoryObject collection";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -141,27 +146,32 @@ namespace ApiSdk.Users.Item.OwnedObjects.GraphServicePrincipal {
             return command;
         }
         /// <summary>
-        /// Instantiates a new GraphServicePrincipalRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GraphServicePrincipalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GraphServicePrincipalRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/ownedObjects/graph.servicePrincipal{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public GraphServicePrincipalRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/ownedObjects/graph.servicePrincipal{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GraphServicePrincipalRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GraphServicePrincipalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GraphServicePrincipalRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/ownedObjects/graph.servicePrincipal{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public GraphServicePrincipalRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/ownedObjects/graph.servicePrincipal{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Get the items of type microsoft.graph.servicePrincipal in the microsoft.graph.directoryObject collection
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphServicePrincipalRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphServicePrincipalRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphServicePrincipalRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GraphServicePrincipalRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -171,7 +181,8 @@ namespace ApiSdk.Users.Item.OwnedObjects.GraphServicePrincipal {
         /// <summary>
         /// Get the items of type microsoft.graph.servicePrincipal in the microsoft.graph.directoryObject collection
         /// </summary>
-        public class GraphServicePrincipalRequestBuilderGetQueryParameters {
+        public class GraphServicePrincipalRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

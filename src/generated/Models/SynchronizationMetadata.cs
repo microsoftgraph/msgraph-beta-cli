@@ -2,24 +2,25 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum SynchronizationMetadata {
-        [EnumMember(Value = "GalleryApplicationIdentifier")]
+    public enum SynchronizationMetadata
+    {
+        [EnumMember(Value = "galleryApplicationIdentifier")]
         GalleryApplicationIdentifier,
-        [EnumMember(Value = "GalleryApplicationKey")]
+        [EnumMember(Value = "galleryApplicationKey")]
         GalleryApplicationKey,
-        [EnumMember(Value = "IsOAuthEnabled")]
+        [EnumMember(Value = "isOAuthEnabled")]
         IsOAuthEnabled,
         [EnumMember(Value = "IsSynchronizationAgentAssignmentRequired")]
         IsSynchronizationAgentAssignmentRequired,
-        [EnumMember(Value = "IsSynchronizationAgentRequired")]
+        [EnumMember(Value = "isSynchronizationAgentRequired")]
         IsSynchronizationAgentRequired,
-        [EnumMember(Value = "IsSynchronizationInPreview")]
+        [EnumMember(Value = "isSynchronizationInPreview")]
         IsSynchronizationInPreview,
-        [EnumMember(Value = "OAuthSettings")]
+        [EnumMember(Value = "oAuthSettings")]
         OAuthSettings,
-        [EnumMember(Value = "SynchronizationLearnMoreIbizaFwLink")]
+        [EnumMember(Value = "synchronizationLearnMoreIbizaFwLink")]
         SynchronizationLearnMoreIbizaFwLink,
-        [EnumMember(Value = "ConfigurationFields")]
+        [EnumMember(Value = "configurationFields")]
         ConfigurationFields,
     }
 }

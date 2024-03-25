@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Channel : Entity, IParsable {
+    public class Channel : Entity, IParsable 
+    {
         /// <summary>Read only. Timestamp at which the channel was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Optional textual description for the channel.</summary>
@@ -40,6 +41,8 @@ namespace ApiSdk.Models {
 #else
         public DriveItem FilesFolder { get; set; }
 #endif
+        /// <summary>The isArchived property</summary>
+        public bool? IsArchived { get; set; }
         /// <summary>Indicates whether the channel should automatically be marked &apos;favorite&apos; for all members of the team. Can only be set programmatically with Create team. Default: false.</summary>
         public bool? IsFavoriteByDefault { get; set; }
         /// <summary>A collection of membership records associated with the channel.</summary>
@@ -60,6 +63,14 @@ namespace ApiSdk.Models {
 #else
         public List<ChatMessage> Messages { get; set; }
 #endif
+        /// <summary>Settings to configure channel moderation to control who can start new posts and reply to posts in that channel.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ChannelModerationSettings? ModerationSettings { get; set; }
+#nullable restore
+#else
+        public ChannelModerationSettings ModerationSettings { get; set; }
+#endif
         /// <summary>A collection of teams with which a channel is shared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +79,7 @@ namespace ApiSdk.Models {
 #else
         public List<SharedWithChannelTeamInfo> SharedWithTeams { get; set; }
 #endif
-        /// <summary>Contains summary information about the channel, including number of owners, members, guests, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.</summary>
+        /// <summary>Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ChannelSummary? Summary { get; set; }
@@ -103,25 +114,32 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Channel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Channel CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Channel CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Channel();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"email", n => { Email = n.GetStringValue(); } },
                 {"filesFolder", n => { FilesFolder = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
+                {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 {"isFavoriteByDefault", n => { IsFavoriteByDefault = n.GetBoolValue(); } },
                 {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
                 {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"moderationSettings", n => { ModerationSettings = n.GetObjectValue<ChannelModerationSettings>(ChannelModerationSettings.CreateFromDiscriminatorValue); } },
                 {"sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<SharedWithChannelTeamInfo>(SharedWithChannelTeamInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"summary", n => { Summary = n.GetObjectValue<ChannelSummary>(ChannelSummary.CreateFromDiscriminatorValue); } },
                 {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -133,7 +151,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
@@ -141,10 +160,12 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);
             writer.WriteObjectValue<DriveItem>("filesFolder", FilesFolder);
+            writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteBoolValue("isFavoriteByDefault", IsFavoriteByDefault);
             writer.WriteCollectionOfObjectValues<ConversationMember>("members", Members);
             writer.WriteEnumValue<ChannelMembershipType>("membershipType", MembershipType);
             writer.WriteCollectionOfObjectValues<ChatMessage>("messages", Messages);
+            writer.WriteObjectValue<ChannelModerationSettings>("moderationSettings", ModerationSettings);
             writer.WriteCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", SharedWithTeams);
             writer.WriteObjectValue<ChannelSummary>("summary", Summary);
             writer.WriteCollectionOfObjectValues<TeamsTab>("tabs", Tabs);

@@ -5,7 +5,42 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class AccessPackageResource : Entity, IParsable {
+    public class AccessPackageResource : Entity, IParsable 
+    {
+        /// <summary>Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment&apos;s originId. Supports $expand.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.AccessPackageResourceEnvironment? AccessPackageResourceEnvironment { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.AccessPackageResourceEnvironment AccessPackageResourceEnvironment { get; set; }
+#endif
+        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackageResourceRole>? AccessPackageResourceRoles { get; set; }
+#nullable restore
+#else
+        public List<AccessPackageResourceRole> AccessPackageResourceRoles { get; set; }
+#endif
+        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackageResourceScope>? AccessPackageResourceScopes { get; set; }
+#nullable restore
+#else
+        public List<AccessPackageResourceScope> AccessPackageResourceScopes { get; set; }
+#endif
+        /// <summary>The name of the user or application that first added this resource. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddedBy { get; set; }
+#nullable restore
+#else
+        public string AddedBy { get; set; }
+#endif
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        public DateTimeOffset? AddedOn { get; set; }
         /// <summary>Contains information about the attributes to be collected from the requestor and sent to the resource application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,8 +49,6 @@ namespace ApiSdk.Models {
 #else
         public List<AccessPackageResourceAttribute> Attributes { get; set; }
 #endif
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>A description for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The display name of the resource, such as the application name, group name or site name.</summary>
+        /// <summary>The display name of the resource, such as the application name, group name, or site name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -32,17 +65,9 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment&apos;s originId.Supports $expand.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public AccessPackageResourceEnvironment? Environment { get; set; }
-#nullable restore
-#else
-        public AccessPackageResourceEnvironment Environment { get; set; }
-#endif
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
-        public DateTimeOffset? ModifiedDateTime { get; set; }
-        /// <summary>The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, this is the identifier of the group.</summary>
+        /// <summary>True if the resource is not yet available for assignment. Read-only.</summary>
+        public bool? IsPendingOnboarding { get; set; }
+        /// <summary>The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, originId is the identifier of the group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OriginId { get; set; }
@@ -50,7 +75,7 @@ namespace ApiSdk.Models {
 #else
         public string OriginId { get; set; }
 #endif
-        /// <summary>The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.</summary>
+        /// <summary>The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OriginSystem { get; set; }
@@ -58,64 +83,76 @@ namespace ApiSdk.Models {
 #else
         public string OriginSystem { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The type of the resource, such as Application if it is a Microsoft Entra connected application, or SharePoint Online Site for a SharePoint Online site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceRole>? Roles { get; set; }
+        public string? ResourceType { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceRole> Roles { get; set; }
+        public string ResourceType { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>A unique resource locator for the resource, such as the URL for signing a user into an application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceScope>? Scopes { get; set; }
+        public string? Url { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceScope> Scopes { get; set; }
+        public string Url { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AccessPackageResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageResource CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AccessPackageResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessPackageResource();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"accessPackageResourceEnvironment", n => { AccessPackageResourceEnvironment = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>(ApiSdk.Models.AccessPackageResourceEnvironment.CreateFromDiscriminatorValue); } },
+                {"accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"addedBy", n => { AddedBy = n.GetStringValue(); } },
+                {"addedOn", n => { AddedOn = n.GetDateTimeOffsetValue(); } },
                 {"attributes", n => { Attributes = n.GetCollectionOfObjectValues<AccessPackageResourceAttribute>(AccessPackageResourceAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"environment", n => { Environment = n.GetObjectValue<AccessPackageResourceEnvironment>(AccessPackageResourceEnvironment.CreateFromDiscriminatorValue); } },
-                {"modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"isPendingOnboarding", n => { IsPendingOnboarding = n.GetBoolValue(); } },
                 {"originId", n => { OriginId = n.GetStringValue(); } },
                 {"originSystem", n => { OriginSystem = n.GetStringValue(); } },
-                {"roles", n => { Roles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"scopes", n => { Scopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
+                {"url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>("accessPackageResourceEnvironment", AccessPackageResourceEnvironment);
+            writer.WriteCollectionOfObjectValues<AccessPackageResourceRole>("accessPackageResourceRoles", AccessPackageResourceRoles);
+            writer.WriteCollectionOfObjectValues<AccessPackageResourceScope>("accessPackageResourceScopes", AccessPackageResourceScopes);
+            writer.WriteStringValue("addedBy", AddedBy);
+            writer.WriteDateTimeOffsetValue("addedOn", AddedOn);
             writer.WriteCollectionOfObjectValues<AccessPackageResourceAttribute>("attributes", Attributes);
-            writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<AccessPackageResourceEnvironment>("environment", Environment);
-            writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
+            writer.WriteBoolValue("isPendingOnboarding", IsPendingOnboarding);
             writer.WriteStringValue("originId", OriginId);
             writer.WriteStringValue("originSystem", OriginSystem);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceRole>("roles", Roles);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceScope>("scopes", Scopes);
+            writer.WriteStringValue("resourceType", ResourceType);
+            writer.WriteStringValue("url", Url);
         }
     }
 }

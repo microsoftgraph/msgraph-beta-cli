@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum StagedFeatureName {
+    public enum StagedFeatureName
+    {
         [EnumMember(Value = "passthroughAuthentication")]
         PassthroughAuthentication,
         [EnumMember(Value = "seamlessSso")]
@@ -15,7 +16,5 @@ namespace ApiSdk.Models {
         UnknownFutureValue,
         [EnumMember(Value = "certificateBasedAuthentication")]
         CertificateBasedAuthentication,
-        [EnumMember(Value = "multiFactorAuthentication")]
-        MultiFactorAuthentication,
     }
 }

@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Device compliance setting State for a given device.
     /// </summary>
-    public class DeviceComplianceSettingState : Entity, IParsable {
+    public class DeviceComplianceSettingState : Entity, IParsable 
+    {
         /// <summary>The DateTime when device compliance grace period expires</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; set; }
         /// <summary>The Device Id that is being reported</summary>
@@ -35,6 +36,8 @@ namespace ApiSdk.Models {
 #else
         public string DeviceName { get; set; }
 #endif
+        /// <summary>Device type.</summary>
+        public DeviceType? PlatformType { get; set; }
         /// <summary>The setting class name and property name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,20 +91,26 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DeviceComplianceSettingState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceComplianceSettingState CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DeviceComplianceSettingState CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceComplianceSettingState();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"complianceGracePeriodExpirationDateTime", n => { ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"deviceId", n => { DeviceId = n.GetStringValue(); } },
                 {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
                 {"deviceName", n => { DeviceName = n.GetStringValue(); } },
+                {"platformType", n => { PlatformType = n.GetEnumValue<DeviceType>(); } },
                 {"setting", n => { Setting = n.GetStringValue(); } },
                 {"settingName", n => { SettingName = n.GetStringValue(); } },
                 {"state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
@@ -115,13 +124,15 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("complianceGracePeriodExpirationDateTime", ComplianceGracePeriodExpirationDateTime);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceModel", DeviceModel);
             writer.WriteStringValue("deviceName", DeviceName);
+            writer.WriteEnumValue<DeviceType>("platformType", PlatformType);
             writer.WriteStringValue("setting", Setting);
             writer.WriteStringValue("settingName", SettingName);
             writer.WriteEnumValue<ComplianceStatus>("state", State);

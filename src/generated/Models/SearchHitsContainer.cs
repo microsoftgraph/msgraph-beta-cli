@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class SearchHitsContainer : IAdditionalDataHolder, IParsable {
+    public class SearchHitsContainer : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The aggregations property</summary>
+        /// <summary>Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<SearchAggregation>? Aggregations { get; set; }
@@ -34,27 +35,33 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The total number of results. Note this isn&apos;t the number of results on the page, but the total number of results satisfying the query.</summary>
+        /// <summary>The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.</summary>
         public int? Total { get; set; }
         /// <summary>
-        /// Instantiates a new searchHitsContainer and sets the default values.
+        /// Instantiates a new <see cref="SearchHitsContainer"/> and sets the default values.
         /// </summary>
-        public SearchHitsContainer() {
+        public SearchHitsContainer()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SearchHitsContainer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SearchHitsContainer CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static SearchHitsContainer CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SearchHitsContainer();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<SearchAggregation>(SearchAggregation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"hits", n => { Hits = n.GetCollectionOfObjectValues<SearchHit>(SearchHit.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"moreResultsAvailable", n => { MoreResultsAvailable = n.GetBoolValue(); } },
@@ -66,7 +73,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<SearchAggregation>("aggregations", Aggregations);
             writer.WriteCollectionOfObjectValues<SearchHit>("hits", Hits);

@@ -5,7 +5,24 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class EdiscoveryExportOperation : CaseOperation, IParsable {
+    public class EdiscoveryExportOperation : CaseOperation, IParsable 
+    {
+        /// <summary>The azureBlobContainer property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureBlobContainer { get; set; }
+#nullable restore
+#else
+        public string AzureBlobContainer { get; set; }
+#endif
+        /// <summary>The azureBlobToken property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureBlobToken { get; set; }
+#nullable restore
+#else
+        public string AzureBlobToken { get; set; }
+#endif
         /// <summary>The description provided for the export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,10 +39,18 @@ namespace ApiSdk.Models.Security {
 #else
         public List<ApiSdk.Models.Security.ExportFileMetadata> ExportFileMetadata { get; set; }
 #endif
-        /// <summary>The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement,  tags.</summary>
+        /// <summary>The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.</summary>
         public ApiSdk.Models.Security.ExportOptions? ExportOptions { get; set; }
-        /// <summary>The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.</summary>
+        /// <summary>The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.</summary>
         public ExportFileStructure? ExportStructure { get; set; }
+        /// <summary>The outputFolderId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OutputFolderId { get; set; }
+#nullable restore
+#else
+        public string OutputFolderId { get; set; }
+#endif
         /// <summary>The name provided for the export.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,20 +78,28 @@ namespace ApiSdk.Models.Security {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EdiscoveryExportOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoveryExportOperation CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EdiscoveryExportOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryExportOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
+                {"azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
                 {"exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
+                {"outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
                 {"outputName", n => { OutputName = n.GetStringValue(); } },
                 {"reviewSet", n => { ReviewSet = n.GetObjectValue<EdiscoveryReviewSet>(EdiscoveryReviewSet.CreateFromDiscriminatorValue); } },
                 {"reviewSetQuery", n => { ReviewSetQuery = n.GetObjectValue<EdiscoveryReviewSetQuery>(EdiscoveryReviewSetQuery.CreateFromDiscriminatorValue); } },
@@ -76,13 +109,17 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("azureBlobContainer", AzureBlobContainer);
+            writer.WriteStringValue("azureBlobToken", AzureBlobToken);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>("exportFileMetadata", ExportFileMetadata);
             writer.WriteEnumValue<ExportOptions>("exportOptions", ExportOptions);
             writer.WriteEnumValue<ExportFileStructure>("exportStructure", ExportStructure);
+            writer.WriteStringValue("outputFolderId", OutputFolderId);
             writer.WriteStringValue("outputName", OutputName);
             writer.WriteObjectValue<EdiscoveryReviewSet>("reviewSet", ReviewSet);
             writer.WriteObjectValue<EdiscoveryReviewSetQuery>("reviewSetQuery", ReviewSetQuery);

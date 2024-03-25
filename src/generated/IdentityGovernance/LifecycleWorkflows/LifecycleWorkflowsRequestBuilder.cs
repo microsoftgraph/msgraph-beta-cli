@@ -24,11 +24,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
     /// <summary>
     /// Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
     /// </summary>
-    public class LifecycleWorkflowsRequestBuilder : BaseCliRequestBuilder {
+    public class LifecycleWorkflowsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildCustomTaskExtensionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCustomTaskExtensionsNavCommand()
+        {
             var command = new Command("custom-task-extensions");
             command.Description = "Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new CustomTaskExtensionsRequestBuilder(PathParameters);
@@ -53,7 +56,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Delete navigation property lifecycleWorkflows for identityGovernance
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property lifecycleWorkflows for identityGovernance";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -80,7 +85,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Provides operations to manage the deletedItems property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildDeletedItemsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeletedItemsNavCommand()
+        {
             var command = new Command("deleted-items");
             command.Description = "Provides operations to manage the deletedItems property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new DeletedItemsRequestBuilder(PathParameters);
@@ -102,7 +109,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Get lifecycleWorkflows from identityGovernance
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get lifecycleWorkflows from identityGovernance";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -146,7 +155,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Update the navigation property lifecycleWorkflows in identityGovernance
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property lifecycleWorkflows in identityGovernance";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -189,7 +200,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Provides operations to manage the settings property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildSettingsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSettingsNavCommand()
+        {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new SettingsRequestBuilder(PathParameters);
@@ -205,7 +218,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildTaskDefinitionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTaskDefinitionsNavCommand()
+        {
             var command = new Command("task-definitions");
             command.Description = "Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new TaskDefinitionsRequestBuilder(PathParameters);
@@ -229,7 +244,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildWorkflowsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkflowsNavCommand()
+        {
             var command = new Command("workflows");
             command.Description = "Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new WorkflowsRequestBuilder(PathParameters);
@@ -254,7 +271,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
         /// </summary>
-        public Command BuildWorkflowTemplatesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkflowTemplatesNavCommand()
+        {
             var command = new Command("workflow-templates");
             command.Description = "Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.";
             var builder = new WorkflowTemplatesRequestBuilder(PathParameters);
@@ -276,29 +295,34 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LifecycleWorkflowsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LifecycleWorkflowsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LifecycleWorkflowsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows{?%24select,%24expand}", pathParameters) {
+        public LifecycleWorkflowsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LifecycleWorkflowsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LifecycleWorkflowsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LifecycleWorkflowsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows{?%24select,%24expand}", rawUrl) {
+        public LifecycleWorkflowsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property lifecycleWorkflows for identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/lifecycleWorkflows", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -306,13 +330,16 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Get lifecycleWorkflows from identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LifecycleWorkflowsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LifecycleWorkflowsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LifecycleWorkflowsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LifecycleWorkflowsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -322,17 +349,20 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Update the navigation property lifecycleWorkflows in identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(LifecycleWorkflowsContainer body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LifecycleWorkflowsContainer body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(LifecycleWorkflowsContainer body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LifecycleWorkflowsContainer body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/lifecycleWorkflows", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -340,7 +370,8 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows {
         /// <summary>
         /// Get lifecycleWorkflows from identityGovernance
         /// </summary>
-        public class LifecycleWorkflowsRequestBuilderGetQueryParameters {
+        public class LifecycleWorkflowsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

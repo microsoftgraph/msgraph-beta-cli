@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class EdiscoveryCase : Case, IParsable {
+    public class EdiscoveryCase : Case, IParsable 
+    {
         /// <summary>The user who closed the case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,6 +32,14 @@ namespace ApiSdk.Models.Security {
 #nullable restore
 #else
         public string ExternalId { get; set; }
+#endif
+        /// <summary>Returns a list of case eDiscoveryHoldPolicy objects for this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryHoldPolicy>? LegalHolds { get; set; }
+#nullable restore
+#else
+        public List<EdiscoveryHoldPolicy> LegalHolds { get; set; }
 #endif
         /// <summary>Returns a list of case ediscoveryNoncustodialDataSource objects for this case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,28 +90,35 @@ namespace ApiSdk.Models.Security {
         public List<EdiscoveryReviewTag> Tags { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new ediscoveryCase and sets the default values.
+        /// Instantiates a new <see cref="EdiscoveryCase"/> and sets the default values.
         /// </summary>
-        public EdiscoveryCase() : base() {
+        public EdiscoveryCase() : base()
+        {
             OdataType = "#microsoft.graph.security.ediscoveryCase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EdiscoveryCase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoveryCase CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EdiscoveryCase CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryCase();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"closedBy", n => { ClosedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"closedDateTime", n => { ClosedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"custodians", n => { Custodians = n.GetCollectionOfObjectValues<EdiscoveryCustodian>(EdiscoveryCustodian.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"externalId", n => { ExternalId = n.GetStringValue(); } },
+                {"legalHolds", n => { LegalHolds = n.GetCollectionOfObjectValues<EdiscoveryHoldPolicy>(EdiscoveryHoldPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"noncustodialDataSources", n => { NoncustodialDataSources = n.GetCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>(EdiscoveryNoncustodialDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<CaseOperation>(CaseOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"reviewSets", n => { ReviewSets = n.GetCollectionOfObjectValues<EdiscoveryReviewSet>(EdiscoveryReviewSet.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -115,13 +131,15 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("closedBy", ClosedBy);
             writer.WriteDateTimeOffsetValue("closedDateTime", ClosedDateTime);
             writer.WriteCollectionOfObjectValues<EdiscoveryCustodian>("custodians", Custodians);
             writer.WriteStringValue("externalId", ExternalId);
+            writer.WriteCollectionOfObjectValues<EdiscoveryHoldPolicy>("legalHolds", LegalHolds);
             writer.WriteCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>("noncustodialDataSources", NoncustodialDataSources);
             writer.WriteCollectionOfObjectValues<CaseOperation>("operations", Operations);
             writer.WriteCollectionOfObjectValues<EdiscoveryReviewSet>("reviewSets", ReviewSets);

@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class UserRegistrationDetails : Entity, IParsable {
+    public class UserRegistrationDetails : Entity, IParsable 
+    {
+        /// <summary>The method the user or admin selected as default for performing multifactor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.</summary>
+        public DefaultMfaMethodType? DefaultMfaMethod { get; set; }
         /// <summary>Indicates whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.</summary>
         public bool? IsAdmin { get; set; }
         /// <summary>Indicates whether the user has registered a strong authentication method for multifactor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).</summary>
@@ -48,7 +51,7 @@ namespace ApiSdk.Models {
 #else
         public string UserDisplayName { get; set; }
 #endif
-        /// <summary>The method the user selected as the default second-factor for performing multifactor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. This property is used as preferred MFA method when isSystemPreferredAuthenticationMethodEnabled is false. Supports $filter (any with eq).</summary>
+        /// <summary>The method the user selected as the default second-factor for performing multifactor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue.</summary>
         public UserDefaultAuthenticationMethod? UserPreferredMethodForSecondaryAuthentication { get; set; }
         /// <summary>The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,16 +66,22 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="UserRegistrationDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserRegistrationDetails CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new UserRegistrationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UserRegistrationDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"defaultMfaMethod", n => { DefaultMfaMethod = n.GetEnumValue<DefaultMfaMethodType>(); } },
                 {"isAdmin", n => { IsAdmin = n.GetBoolValue(); } },
                 {"isMfaCapable", n => { IsMfaCapable = n.GetBoolValue(); } },
                 {"isMfaRegistered", n => { IsMfaRegistered = n.GetBoolValue(); } },
@@ -94,9 +103,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<DefaultMfaMethodType>("defaultMfaMethod", DefaultMfaMethod);
             writer.WriteBoolValue("isAdmin", IsAdmin);
             writer.WriteBoolValue("isMfaCapable", IsMfaCapable);
             writer.WriteBoolValue("isMfaRegistered", IsMfaRegistered);

@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class SecureScoreControlProfile : Entity, IParsable {
+    public class SecureScoreControlProfile : Entity, IParsable 
+    {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +39,7 @@ namespace ApiSdk.Models {
 #else
         public List<ApiSdk.Models.ComplianceInformation> ComplianceInformation { get; set; }
 #endif
-        /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
+        /// <summary>Control action category (Account, Data, Device, Apps, Infrastructure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ControlCategory { get; set; }
@@ -46,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public string ControlCategory { get; set; }
 #endif
-        /// <summary>Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).</summary>
+        /// <summary>Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<SecureScoreControlStateUpdate>? ControlStateUpdates { get; set; }
@@ -64,9 +65,9 @@ namespace ApiSdk.Models {
 #else
         public string ImplementationCost { get; set; }
 #endif
-        /// <summary>Time at which the control profile entity was last modified. The Timestamp type represents date and time</summary>
+        /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>max attainable score for the control.</summary>
+        /// <summary>Current obtained max score on specified date.</summary>
         public double? MaxScore { get; set; }
         /// <summary>Microsoft&apos;s stack ranking of control.</summary>
         public int? Rank { get; set; }
@@ -94,7 +95,7 @@ namespace ApiSdk.Models {
 #else
         public string Service { get; set; }
 #endif
-        /// <summary>List of threats the control mitigates (accountBreach, dataDeletion, dataExfiltration, dataSpillage,</summary>
+        /// <summary>List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Threats { get; set; }
@@ -102,7 +103,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> Threats { get; set; }
 #endif
-        /// <summary>The tier property</summary>
+        /// <summary>Control tier (Core, Defense in Depth, Advanced.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Tier { get; set; }
@@ -110,7 +111,7 @@ namespace ApiSdk.Models {
 #else
         public string Tier { get; set; }
 #endif
-        /// <summary>The title property</summary>
+        /// <summary>Title of the control.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -118,7 +119,7 @@ namespace ApiSdk.Models {
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>The userImpact property</summary>
+        /// <summary>User impact of implementing control (low, moderate, high).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserImpact { get; set; }
@@ -137,16 +138,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SecureScoreControlProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecureScoreControlProfile CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new SecureScoreControlProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SecureScoreControlProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"actionType", n => { ActionType = n.GetStringValue(); } },
                 {"actionUrl", n => { ActionUrl = n.GetStringValue(); } },
                 {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
@@ -172,7 +178,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("actionType", ActionType);

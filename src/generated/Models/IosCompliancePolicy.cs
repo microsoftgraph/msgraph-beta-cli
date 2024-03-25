@@ -8,13 +8,24 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This class contains compliance settings for IOS.
     /// </summary>
-    public class IosCompliancePolicy : DeviceCompliancePolicy, IParsable {
+    public class IosCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    {
+        /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
+        public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Require that devices have enabled device threat protection .</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
         public DeviceThreatProtectionLevel? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Indicates whether or not to require a managed email profile.</summary>
         public bool? ManagedEmailProfileRequired { get; set; }
+        /// <summary>Maximum IOS build version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumBuildVersion { get; set; }
+#nullable restore
+#else
+        public string OsMaximumBuildVersion { get; set; }
+#endif
         /// <summary>Maximum IOS version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +33,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string OsMaximumVersion { get; set; }
+#endif
+        /// <summary>Minimum IOS build version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumBuildVersion { get; set; }
+#nullable restore
+#else
+        public string OsMinimumBuildVersion { get; set; }
 #endif
         /// <summary>Minimum IOS version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,46 +60,67 @@ namespace ApiSdk.Models {
         public int? PasscodeMinimumLength { get; set; }
         /// <summary>Minutes of inactivity before a passcode is required.</summary>
         public int? PasscodeMinutesOfInactivityBeforeLock { get; set; }
+        /// <summary>Minutes of inactivity before the screen times out.</summary>
+        public int? PasscodeMinutesOfInactivityBeforeScreenTimeout { get; set; }
         /// <summary>Number of previous passcodes to block. Valid values 1 to 24</summary>
         public int? PasscodePreviousPasscodeBlockCount { get; set; }
         /// <summary>Indicates whether or not to require a passcode.</summary>
         public bool? PasscodeRequired { get; set; }
         /// <summary>Possible values of required passwords.</summary>
         public RequiredPasswordType? PasscodeRequiredType { get; set; }
+        /// <summary>Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppListItem>? RestrictedApps { get; set; }
+#nullable restore
+#else
+        public List<AppListItem> RestrictedApps { get; set; }
+#endif
         /// <summary>Devices must not be jailbroken or rooted.</summary>
         public bool? SecurityBlockJailbrokenDevices { get; set; }
         /// <summary>
-        /// Instantiates a new iosCompliancePolicy and sets the default values.
+        /// Instantiates a new <see cref="IosCompliancePolicy"/> and sets the default values.
         /// </summary>
-        public IosCompliancePolicy() : base() {
+        public IosCompliancePolicy() : base()
+        {
             OdataType = "#microsoft.graph.iosCompliancePolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IosCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new IosCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IosCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
                 {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"managedEmailProfileRequired", n => { ManagedEmailProfileRequired = n.GetBoolValue(); } },
+                {"osMaximumBuildVersion", n => { OsMaximumBuildVersion = n.GetStringValue(); } },
                 {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                {"osMinimumBuildVersion", n => { OsMinimumBuildVersion = n.GetStringValue(); } },
                 {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
                 {"passcodeBlockSimple", n => { PasscodeBlockSimple = n.GetBoolValue(); } },
                 {"passcodeExpirationDays", n => { PasscodeExpirationDays = n.GetIntValue(); } },
                 {"passcodeMinimumCharacterSetCount", n => { PasscodeMinimumCharacterSetCount = n.GetIntValue(); } },
                 {"passcodeMinimumLength", n => { PasscodeMinimumLength = n.GetIntValue(); } },
                 {"passcodeMinutesOfInactivityBeforeLock", n => { PasscodeMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
+                {"passcodeMinutesOfInactivityBeforeScreenTimeout", n => { PasscodeMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
                 {"passcodePreviousPasscodeBlockCount", n => { PasscodePreviousPasscodeBlockCount = n.GetIntValue(); } },
                 {"passcodeRequired", n => { PasscodeRequired = n.GetBoolValue(); } },
                 {"passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
+                {"restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
             };
         }
@@ -88,22 +128,28 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
             writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("managedEmailProfileRequired", ManagedEmailProfileRequired);
+            writer.WriteStringValue("osMaximumBuildVersion", OsMaximumBuildVersion);
             writer.WriteStringValue("osMaximumVersion", OsMaximumVersion);
+            writer.WriteStringValue("osMinimumBuildVersion", OsMinimumBuildVersion);
             writer.WriteStringValue("osMinimumVersion", OsMinimumVersion);
             writer.WriteBoolValue("passcodeBlockSimple", PasscodeBlockSimple);
             writer.WriteIntValue("passcodeExpirationDays", PasscodeExpirationDays);
             writer.WriteIntValue("passcodeMinimumCharacterSetCount", PasscodeMinimumCharacterSetCount);
             writer.WriteIntValue("passcodeMinimumLength", PasscodeMinimumLength);
             writer.WriteIntValue("passcodeMinutesOfInactivityBeforeLock", PasscodeMinutesOfInactivityBeforeLock);
+            writer.WriteIntValue("passcodeMinutesOfInactivityBeforeScreenTimeout", PasscodeMinutesOfInactivityBeforeScreenTimeout);
             writer.WriteIntValue("passcodePreviousPasscodeBlockCount", PasscodePreviousPasscodeBlockCount);
             writer.WriteBoolValue("passcodeRequired", PasscodeRequired);
             writer.WriteEnumValue<RequiredPasswordType>("passcodeRequiredType", PasscodeRequiredType);
+            writer.WriteCollectionOfObjectValues<AppListItem>("restrictedApps", RestrictedApps);
             writer.WriteBoolValue("securityBlockJailbrokenDevices", SecurityBlockJailbrokenDevices);
         }
     }

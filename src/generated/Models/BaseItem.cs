@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class BaseItem : Entity, IParsable {
+    public class BaseItem : Entity, IParsable 
+    {
         /// <summary>Identity of the user, device, or application that created the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public IdentitySet CreatedBy { get; set; }
 #endif
-        /// <summary>Identity of the user who created the item. Read-only.</summary>
+        /// <summary>The createdByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public User? CreatedByUser { get; set; }
@@ -24,7 +25,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Date and time of item creation. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>Provides a user-visible description of the item. Optional.</summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public IdentitySet LastModifiedBy { get; set; }
 #endif
-        /// <summary>Identity of the user who last modified the item. Read-only.</summary>
+        /// <summary>The lastModifiedByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public User? LastModifiedByUser { get; set; }
@@ -85,25 +86,35 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="BaseItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BaseItem CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new BaseItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
+                "#microsoft.graph.baseSitePage" => new BaseSitePage(),
                 "#microsoft.graph.drive" => new Drive(),
                 "#microsoft.graph.driveItem" => new DriveItem(),
                 "#microsoft.graph.list" => new List(),
                 "#microsoft.graph.listItem" => new ListItem(),
+                "#microsoft.graph.recycleBin" => new RecycleBin(),
+                "#microsoft.graph.recycleBinItem" => new RecycleBinItem(),
                 "#microsoft.graph.sharedDriveItem" => new SharedDriveItem(),
                 "#microsoft.graph.site" => new Site(),
+                "#microsoft.graph.sitePage" => new SitePage(),
                 _ => new BaseItem(),
             };
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdByUser", n => { CreatedByUser = n.GetObjectValue<User>(User.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -121,7 +132,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);

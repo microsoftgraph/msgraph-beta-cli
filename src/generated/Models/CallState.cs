@@ -2,11 +2,14 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum CallState {
+    public enum CallState
+    {
         [EnumMember(Value = "incoming")]
         Incoming,
         [EnumMember(Value = "establishing")]
         Establishing,
+        [EnumMember(Value = "ringing")]
+        Ringing,
         [EnumMember(Value = "established")]
         Established,
         [EnumMember(Value = "hold")]

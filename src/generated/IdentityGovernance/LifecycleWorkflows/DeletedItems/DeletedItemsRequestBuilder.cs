@@ -19,11 +19,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
     /// <summary>
     /// Provides operations to manage the deletedItems property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     /// </summary>
-    public class DeletedItemsRequestBuilder : BaseCliRequestBuilder {
+    public class DeletedItemsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property deletedItems for identityGovernance
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property deletedItems for identityGovernance";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -50,7 +53,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
         /// <summary>
         /// Deleted workflows in your lifecycle workflows instance.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Deleted workflows in your lifecycle workflows instance.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -94,7 +99,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
         /// <summary>
         /// Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
         /// </summary>
-        public Command BuildWorkflowsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkflowsNavCommand()
+        {
             var command = new Command("workflows");
             command.Description = "Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.";
             var builder = new WorkflowsRequestBuilder(PathParameters);
@@ -116,29 +123,34 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
             return command;
         }
         /// <summary>
-        /// Instantiates a new DeletedItemsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DeletedItemsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public DeletedItemsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24select,%24expand}", pathParameters) {
+        public DeletedItemsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new DeletedItemsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DeletedItemsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public DeletedItemsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24select,%24expand}", rawUrl) {
+        public DeletedItemsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property deletedItems for identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -146,13 +158,16 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
         /// <summary>
         /// Deleted workflows in your lifecycle workflows instance.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeletedItemsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeletedItemsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeletedItemsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeletedItemsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -162,7 +177,8 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems {
         /// <summary>
         /// Deleted workflows in your lifecycle workflows instance.
         /// </summary>
-        public class DeletedItemsRequestBuilderGetQueryParameters {
+        public class DeletedItemsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

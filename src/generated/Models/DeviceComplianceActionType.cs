@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Scheduled Action Type Enum</summary>
-    public enum DeviceComplianceActionType {
+    public enum DeviceComplianceActionType
+    {
         /// <summary>No Action</summary>
         [EnumMember(Value = "noAction")]
         NoAction,
@@ -25,5 +26,8 @@ namespace ApiSdk.Models {
         /// <summary>Send push notification to device</summary>
         [EnumMember(Value = "pushNotification")]
         PushNotification,
+        /// <summary>Remotely lock the device</summary>
+        [EnumMember(Value = "remoteLock")]
+        RemoteLock,
     }
 }

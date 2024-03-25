@@ -5,9 +5,16 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class UnifiedRoleEligibilityScheduleRequest : Request, IParsable {
-        /// <summary>Represents the type of operation on the role eligibility request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign eligible roles to principals.adminRemove: For administrators to remove eligible roles from principals. adminUpdate: For administrators to change existing role eligibilities.adminExtend: For administrators to extend expiring role eligibilities.adminRenew: For administrators to renew expired eligibilities.selfActivate: For users to activate their assignments.selfDeactivate: For users to deactivate their active assignments.selfExtend: For users to request to extend their expiring assignments.selfRenew: For users to request to renew their expired assignments.</summary>
-        public UnifiedRoleScheduleRequestActions? Action { get; set; }
+    public class UnifiedRoleEligibilityScheduleRequest : Request, IParsable 
+    {
+        /// <summary>Represents the type of operation on the role eligibility request. The possible values are: AdminAssign: For administrators to assign eligible roles to principals.AdminRemove: For administrators to remove eligible roles from principals. AdminUpdate: For administrators to change existing role eligibilities.AdminExtend: For administrators to extend expiring role eligibilities.AdminRenew: For administrators to renew expired eligibilities.UserAdd: For users to activate their eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRenew: For users to request to renew their expired eligible assignments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Action { get; set; }
+#nullable restore
+#else
+        public string Action { get; set; }
+#endif
         /// <summary>Read-only property with details of the app-specific scope when the role eligibility is scoped to an app. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +65,7 @@ namespace ApiSdk.Models {
 #else
         public DirectoryObject Principal { get; set; }
 #endif
-        /// <summary>Identifier of the principal that has been granted the role eligibility. Can be a user or a role-assignable group. You can grant only active assignments service principals.Supports $filter (eq, ne).</summary>
+        /// <summary>Identifier of the principal that has been granted the role eligibility. Can be a user or a role-assignable group. You can grant only active assignments service principals. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrincipalId { get; set; }
@@ -115,19 +122,31 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.TicketInfo TicketInfo { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="UnifiedRoleEligibilityScheduleRequest"/> and sets the default values.
+        /// </summary>
+        public UnifiedRoleEligibilityScheduleRequest() : base()
+        {
+            OdataType = "#microsoft.graph.unifiedRoleEligibilityScheduleRequest";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="UnifiedRoleEligibilityScheduleRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleEligibilityScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new UnifiedRoleEligibilityScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRoleEligibilityScheduleRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"action", n => { Action = n.GetEnumValue<UnifiedRoleScheduleRequestActions>(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"action", n => { Action = n.GetStringValue(); } },
                 {"appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
                 {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
                 {"directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
@@ -148,10 +167,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<UnifiedRoleScheduleRequestActions>("action", Action);
+            writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<ApiSdk.Models.AppScope>("appScope", AppScope);
             writer.WriteStringValue("appScopeId", AppScopeId);
             writer.WriteObjectValue<DirectoryObject>("directoryScope", DirectoryScope);

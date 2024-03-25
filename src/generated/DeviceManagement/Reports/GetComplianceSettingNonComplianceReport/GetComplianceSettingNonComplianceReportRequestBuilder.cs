@@ -17,14 +17,16 @@ namespace ApiSdk.DeviceManagement.Reports.GetComplianceSettingNonComplianceRepor
     /// <summary>
     /// Provides operations to call the getComplianceSettingNonComplianceReport method.
     /// </summary>
-    public class GetComplianceSettingNonComplianceReportRequestBuilder : BaseCliRequestBuilder {
+    public class GetComplianceSettingNonComplianceReportRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Not yet documented
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcompliancesettingnoncompliancereport?view=graph-rest-1.0" />
+        /// Invoke action getComplianceSettingNonComplianceReport
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Not yet documented\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcompliancesettingnoncompliancereport?view=graph-rest-1.0";
+            command.Description = "Invoke action getComplianceSettingNonComplianceReport";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -65,28 +67,33 @@ namespace ApiSdk.DeviceManagement.Reports.GetComplianceSettingNonComplianceRepor
             return command;
         }
         /// <summary>
-        /// Instantiates a new GetComplianceSettingNonComplianceReportRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetComplianceSettingNonComplianceReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GetComplianceSettingNonComplianceReportRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports/getComplianceSettingNonComplianceReport", pathParameters) {
+        public GetComplianceSettingNonComplianceReportRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports/getComplianceSettingNonComplianceReport", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GetComplianceSettingNonComplianceReportRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetComplianceSettingNonComplianceReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GetComplianceSettingNonComplianceReportRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports/getComplianceSettingNonComplianceReport", rawUrl) {
+        public GetComplianceSettingNonComplianceReportRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports/getComplianceSettingNonComplianceReport", rawUrl)
+        {
         }
         /// <summary>
-        /// Not yet documented
+        /// Invoke action getComplianceSettingNonComplianceReport
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetComplianceSettingNonComplianceReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(GetComplianceSettingNonComplianceReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetComplianceSettingNonComplianceReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(GetComplianceSettingNonComplianceReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

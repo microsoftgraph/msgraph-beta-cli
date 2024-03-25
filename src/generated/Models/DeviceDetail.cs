@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DeviceDetail : IAdditionalDataHolder, IParsable {
+    public class DeviceDetail : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Indicates the browser information of the used for signing in.</summary>
+        /// <summary>Indicates the browser information of the used for signing-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Browser { get; set; }
@@ -16,7 +17,15 @@ namespace ApiSdk.Models {
 #else
         public string Browser { get; set; }
 #endif
-        /// <summary>Refers to the UniqueID of the device used for signing in.</summary>
+        /// <summary>The browserId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BrowserId { get; set; }
+#nullable restore
+#else
+        public string BrowserId { get; set; }
+#endif
+        /// <summary>Refers to the UniqueID of the device used for signing-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DeviceId { get; set; }
@@ -24,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public string DeviceId { get; set; }
 #endif
-        /// <summary>Refers to the name of the device used for signing in.</summary>
+        /// <summary>Refers to the name of the device used for signing-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -32,9 +41,9 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Indicates whether the device is compliant.</summary>
+        /// <summary>Indicates whether the device is compliant or not.</summary>
         public bool? IsCompliant { get; set; }
-        /// <summary>Indicates whether the device is managed.</summary>
+        /// <summary>Indicates if the device is managed or not.</summary>
         public bool? IsManaged { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +53,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Indicates the operating system name and version used for signing in.</summary>
+        /// <summary>Indicates the OS name and version used for signing-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OperatingSystem { get; set; }
@@ -52,7 +61,7 @@ namespace ApiSdk.Models {
 #else
         public string OperatingSystem { get; set; }
 #endif
-        /// <summary>Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.</summary>
+        /// <summary>Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrustType { get; set; }
@@ -61,25 +70,32 @@ namespace ApiSdk.Models {
         public string TrustType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new deviceDetail and sets the default values.
+        /// Instantiates a new <see cref="DeviceDetail"/> and sets the default values.
         /// </summary>
-        public DeviceDetail() {
+        public DeviceDetail()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DeviceDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceDetail CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static DeviceDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"browser", n => { Browser = n.GetStringValue(); } },
+                {"browserId", n => { BrowserId = n.GetStringValue(); } },
                 {"deviceId", n => { DeviceId = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
@@ -93,9 +109,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("browser", Browser);
+            writer.WriteStringValue("browserId", BrowserId);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isCompliant", IsCompliant);

@@ -2,7 +2,10 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum UserPurpose {
+    public enum UserPurpose
+    {
+        [EnumMember(Value = "unknown")]
+        Unknown,
         [EnumMember(Value = "user")]
         User,
         [EnumMember(Value = "linked")]

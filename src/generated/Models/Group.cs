@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Group : DirectoryObject, IParsable {
-        /// <summary>The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here are allowed to post.</summary>
+    public class Group : DirectoryObject, IParsable 
+    {
+        /// <summary>The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here can post.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? AcceptedSenders { get; set; }
@@ -14,6 +15,8 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> AcceptedSenders { get; set; }
 #endif
+        /// <summary>The accessType property</summary>
+        public GroupAccessType? AccessType { get; set; }
         /// <summary>Indicates if people external to the organization can send messages to the group. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? AllowExternalSenders { get; set; }
         /// <summary>Represents the app roles a group has been granted for an application. Supports $expand.</summary>
@@ -32,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public List<AssignedLabel> AssignedLabels { get; set; }
 #endif
-        /// <summary>The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.</summary>
+        /// <summary>The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AssignedLicense>? AssignedLicenses { get; set; }
@@ -40,7 +43,7 @@ namespace ApiSdk.Models {
 #else
         public List<AssignedLicense> AssignedLicenses { get; set; }
 #endif
-        /// <summary>Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>Indicates if new members added to the group are auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; don&apos;t set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? AutoSubscribeNewMembers { get; set; }
         /// <summary>The group&apos;s calendar. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,9 +77,17 @@ namespace ApiSdk.Models {
 #else
         public List<Conversation> Conversations { get; set; }
 #endif
-        /// <summary>Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.</summary>
+        /// <summary>App ID of the app used to create the group. Can be null for some groups. Returned by default. Read-only. Supports $filter (eq, ne, not, in, startsWith).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedByAppId { get; set; }
+#nullable restore
+#else
+        public string CreatedByAppId { get; set; }
+#endif
+        /// <summary>Timestamp of when the group was created. The value can&apos;t be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.</summary>
+        /// <summary>The user (or application) that created the group. Note: This isn&apos;t set if the user is an administrator. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? CreatedOnBehalfOf { get; set; }
@@ -92,7 +103,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The display name for the group. This property is required when a group is created and cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.</summary>
+        /// <summary>The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -116,7 +127,15 @@ namespace ApiSdk.Models {
 #else
         public List<ApiSdk.Models.Drive> Drives { get; set; }
 #endif
-        /// <summary>The group&apos;s calendar events.</summary>
+        /// <summary>Endpoints for the group. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Endpoint>? Endpoints { get; set; }
+#nullable restore
+#else
+        public List<Endpoint> Endpoints { get; set; }
+#endif
+        /// <summary>The group&apos;s events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Event>? Events { get; set; }
@@ -150,19 +169,31 @@ namespace ApiSdk.Models {
 #else
         public List<string> GroupTypes { get; set; }
 #endif
-        /// <summary>Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example. Supports $filter (eq).</summary>
+        /// <summary>Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).</summary>
         public bool? HasMembersWithLicenseErrors { get; set; }
-        /// <summary>True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>true if the group isn&apos;t displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? HideFromAddressLists { get; set; }
-        /// <summary>True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>true if the group isn&apos;t displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? HideFromOutlookClients { get; set; }
-        /// <summary>When a group is associated with a team, this property determines whether the team is in read-only mode.To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
+        /// <summary>Identifies the info segments assigned to the group. Returned by default. Supports $filter (eq, not, ge, le, startsWith).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InfoCatalogs { get; set; }
+#nullable restore
+#else
+        public List<string> InfoCatalogs { get; set; }
+#endif
+        /// <summary>When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
         public bool? IsArchived { get; set; }
-        /// <summary>Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true, visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes can&apos;t contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).</summary>
         public bool? IsAssignableToRole { get; set; }
+        /// <summary>The isFavorite property</summary>
+        public bool? IsFavorite { get; set; }
+        /// <summary>Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. The default value is false. Read-only.  To manage a group member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.</summary>
+        public bool? IsManagementRestricted { get; set; }
         /// <summary>Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? IsSubscribedByMail { get; set; }
-        /// <summary>Indicates the status of the group license assignment to all group members. The default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.</summary>
+        /// <summary>Indicates the status of the group license assignment to all group members. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.LicenseProcessingState? LicenseProcessingState { get; set; }
@@ -170,7 +201,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.LicenseProcessingState LicenseProcessingState { get; set; }
 #endif
-        /// <summary>The SMTP address for the group, for example, &apos;serviceadmins@contoso.onmicrosoft.com&apos;. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
+        /// <summary>The SMTP address for the group, for example, &apos;serviceadmins@contoso.com&apos;. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mail { get; set; }
@@ -178,9 +209,9 @@ namespace ApiSdk.Models {
 #else
         public string Mail { get; set; }
 #endif
-        /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).</summary>
         public bool? MailEnabled { get; set; }
-        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : &lt;&gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
+        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : &lt;&gt; , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MailNickname { get; set; }
@@ -188,7 +219,7 @@ namespace ApiSdk.Models {
 #else
         public string MailNickname { get; set; }
 #endif
-        /// <summary>Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? MemberOf { get; set; }
@@ -196,7 +227,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> MemberOf { get; set; }
 #endif
-        /// <summary>The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).</summary>
+        /// <summary>Direct group members, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? Members { get; set; }
@@ -220,6 +251,14 @@ namespace ApiSdk.Models {
 #else
         public string MembershipRuleProcessingState { get; set; }
 #endif
+        /// <summary>Describes the processing status for rules-based dynamic groups. The property is null for non-rule-based dynamic groups or if the dynamic group processing has been paused. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.MembershipRuleProcessingStatus? MembershipRuleProcessingStatus { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.MembershipRuleProcessingStatus MembershipRuleProcessingStatus { get; set; }
+#endif
         /// <summary>A list of group members with license errors from this group-based license assignment. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -236,7 +275,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Onenote Onenote { get; set; }
 #endif
-        /// <summary>The onPremisesDomainName property</summary>
+        /// <summary>Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnPremisesDomainName { get; set; }
@@ -244,9 +283,9 @@ namespace ApiSdk.Models {
 #else
         public string OnPremisesDomainName { get; set; }
 #endif
-        /// <summary>Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).</summary>
+        /// <summary>Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
-        /// <summary>The onPremisesNetBiosName property</summary>
+        /// <summary>Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnPremisesNetBiosName { get; set; }
@@ -280,7 +319,15 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
-        /// <summary>The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=owners($select=id,userPrincipalName,displayName).</summary>
+        /// <summary>The organizationId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
+        /// <summary>The owners of the group who can be users or service principals. Nullable. If this property isn&apos;t specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=owners($select=id,userPrincipalName,displayName).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? Owners { get; set; }
@@ -288,7 +335,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> Owners { get; set; }
 #endif
-        /// <summary>The permissionGrants property</summary>
+        /// <summary>The permissions granted for a group to a specific application. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ResourceSpecificPermissionGrant>? PermissionGrants { get; set; }
@@ -296,7 +343,7 @@ namespace ApiSdk.Models {
 #else
         public List<ResourceSpecificPermissionGrant> PermissionGrants { get; set; }
 #endif
-        /// <summary>The group&apos;s profile photo</summary>
+        /// <summary>The group&apos;s profile photo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ProfilePhoto? Photo { get; set; }
@@ -312,7 +359,7 @@ namespace ApiSdk.Models {
 #else
         public List<ProfilePhoto> Photos { get; set; }
 #endif
-        /// <summary>Entry-point to Planner resource that might exist for a Unified Group.</summary>
+        /// <summary>Selective Planner services available to the group. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerGroup? Planner { get; set; }
@@ -320,7 +367,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerGroup Planner { get; set; }
 #endif
-        /// <summary>The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator&apos;s preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.</summary>
+        /// <summary>The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator&apos;s preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo and Create a Microsoft 365 group with a specific PDL. Nullable. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredDataLocation { get; set; }
@@ -336,7 +383,7 @@ namespace ApiSdk.Models {
 #else
         public string PreferredLanguage { get; set; }
 #endif
-        /// <summary>Email addresses for the group that direct to the same group mailbox. For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).</summary>
+        /// <summary>Email addresses for the group that direct to the same group mailbox. For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ProxyAddresses { get; set; }
@@ -354,7 +401,23 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.</summary>
         public DateTimeOffset? RenewedDateTime { get; set; }
-        /// <summary>Specifies whether the group is a security group. Required. Returned by default. Supports $filter (eq, ne, not, in).</summary>
+        /// <summary>Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This property can be set only as part of creation (POST). For the list of possible values, see Microsoft 365 group behaviors and provisioning options.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ResourceBehaviorOptions { get; set; }
+#nullable restore
+#else
+        public List<string> ResourceBehaviorOptions { get; set; }
+#endif
+        /// <summary>Specifies the group resources that are associated with the Microsoft 365 group. The possible value is Team. For more information, see Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ResourceProvisioningOptions { get; set; }
+#nullable restore
+#else
+        public List<string> ResourceProvisioningOptions { get; set; }
+#endif
+        /// <summary>Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).</summary>
         public bool? SecurityEnabled { get; set; }
         /// <summary>Security identifier of the group, used in Windows scenarios. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -364,7 +427,7 @@ namespace ApiSdk.Models {
 #else
         public string SecurityIdentifier { get; set; }
 #endif
-        /// <summary>Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object .  Supports $filter (eq, not, for isResolved and serviceInstance).</summary>
+        /// <summary>Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a group object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ServiceProvisioningError>? ServiceProvisioningErrors { get; set; }
@@ -375,10 +438,10 @@ namespace ApiSdk.Models {
         /// <summary>Settings that can govern this group&apos;s behavior, like whether members can invite guest users to the group. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupSetting>? Settings { get; set; }
+        public List<DirectorySetting>? Settings { get; set; }
 #nullable restore
 #else
-        public List<GroupSetting> Settings { get; set; }
+        public List<DirectorySetting> Settings { get; set; }
 #endif
         /// <summary>The list of SharePoint sites in this group. Access the default site with /sites/root.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -412,7 +475,7 @@ namespace ApiSdk.Models {
 #else
         public List<ConversationThread> Threads { get; set; }
 #endif
-        /// <summary>The groups that a group is a member of, either directly or through nested membership. Nullable.</summary>
+        /// <summary>The groups a group is a member of, either directly or through nested membership. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? TransitiveMemberOf { get; set; }
@@ -428,9 +491,21 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> TransitiveMembers { get; set; }
 #endif
-        /// <summary>Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>The unique identifier that can be assigned to a group and used as an alternate key. Immutable. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueName { get; set; }
+#nullable restore
+#else
+        public string UniqueName { get; set; }
+#endif
+        /// <summary>Count of conversations delivered one or more new posts since the signed-in user&apos;s last visit to the group. This property is the same as unseenCount. Returned only on $select.</summary>
+        public int? UnseenConversationsCount { get; set; }
+        /// <summary>Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public int? UnseenCount { get; set; }
-        /// <summary>Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups when the groups are created. It can&apos;t be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default, and the Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.</summary>
+        /// <summary>Count of new posts that have been delivered to the group&apos;s conversations since the signed-in user&apos;s last visit to the group. Returned only on $select.</summary>
+        public int? UnseenMessagesCount { get; set; }
+        /// <summary>Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups when the groups are created. It can&apos;t be updated later. Other values of visibility can be updated after group creation. If visibility value isn&apos;t specified during group creation on Microsoft Graph, a security group is created as Private by default, and Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }
@@ -438,26 +513,41 @@ namespace ApiSdk.Models {
 #else
         public string Visibility { get; set; }
 #endif
+        /// <summary>Specifies whether or not a group is configured to write back group object properties to on-premises Active Directory. These properties are used when group writeback is configured in the Microsoft Entra Connect sync client.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GroupWritebackConfiguration? WritebackConfiguration { get; set; }
+#nullable restore
+#else
+        public GroupWritebackConfiguration WritebackConfiguration { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new group and sets the default values.
+        /// Instantiates a new <see cref="Group"/> and sets the default values.
         /// </summary>
-        public Group() : base() {
+        public Group() : base()
+        {
             OdataType = "#microsoft.graph.group";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Group"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Group CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Group CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Group();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"acceptedSenders", n => { AcceptedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"accessType", n => { AccessType = n.GetEnumValue<GroupAccessType>(); } },
                 {"allowExternalSenders", n => { AllowExternalSenders = n.GetBoolValue(); } },
                 {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignedLabels", n => { AssignedLabels = n.GetCollectionOfObjectValues<AssignedLabel>(AssignedLabel.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -467,12 +557,14 @@ namespace ApiSdk.Models {
                 {"calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"classification", n => { Classification = n.GetStringValue(); } },
                 {"conversations", n => { Conversations = n.GetCollectionOfObjectValues<Conversation>(Conversation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"createdByAppId", n => { CreatedByAppId = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"drive", n => { Drive = n.GetObjectValue<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue); } },
                 {"drives", n => { Drives = n.GetCollectionOfObjectValues<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -481,8 +573,11 @@ namespace ApiSdk.Models {
                 {"hasMembersWithLicenseErrors", n => { HasMembersWithLicenseErrors = n.GetBoolValue(); } },
                 {"hideFromAddressLists", n => { HideFromAddressLists = n.GetBoolValue(); } },
                 {"hideFromOutlookClients", n => { HideFromOutlookClients = n.GetBoolValue(); } },
+                {"infoCatalogs", n => { InfoCatalogs = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 {"isAssignableToRole", n => { IsAssignableToRole = n.GetBoolValue(); } },
+                {"isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
+                {"isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
                 {"isSubscribedByMail", n => { IsSubscribedByMail = n.GetBoolValue(); } },
                 {"licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<ApiSdk.Models.LicenseProcessingState>(ApiSdk.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
                 {"mail", n => { Mail = n.GetStringValue(); } },
@@ -493,6 +588,7 @@ namespace ApiSdk.Models {
                 {"membersWithLicenseErrors", n => { MembersWithLicenseErrors = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"membershipRule", n => { MembershipRule = n.GetStringValue(); } },
                 {"membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
+                {"membershipRuleProcessingStatus", n => { MembershipRuleProcessingStatus = n.GetObjectValue<ApiSdk.Models.MembershipRuleProcessingStatus>(ApiSdk.Models.MembershipRuleProcessingStatus.CreateFromDiscriminatorValue); } },
                 {"onPremisesDomainName", n => { OnPremisesDomainName = n.GetStringValue(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesNetBiosName", n => { OnPremisesNetBiosName = n.GetStringValue(); } },
@@ -501,6 +597,7 @@ namespace ApiSdk.Models {
                 {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
                 {"onenote", n => { Onenote = n.GetObjectValue<ApiSdk.Models.Onenote>(ApiSdk.Models.Onenote.CreateFromDiscriminatorValue); } },
+                {"organizationId", n => { OrganizationId = n.GetStringValue(); } },
                 {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"permissionGrants", n => { PermissionGrants = n.GetCollectionOfObjectValues<ResourceSpecificPermissionGrant>(ResourceSpecificPermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
@@ -511,28 +608,36 @@ namespace ApiSdk.Models {
                 {"proxyAddresses", n => { ProxyAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"rejectedSenders", n => { RejectedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"renewedDateTime", n => { RenewedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"resourceBehaviorOptions", n => { ResourceBehaviorOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"resourceProvisioningOptions", n => { ResourceProvisioningOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"securityEnabled", n => { SecurityEnabled = n.GetBoolValue(); } },
                 {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
                 {"serviceProvisioningErrors", n => { ServiceProvisioningErrors = n.GetCollectionOfObjectValues<ServiceProvisioningError>(ServiceProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"settings", n => { Settings = n.GetCollectionOfObjectValues<GroupSetting>(GroupSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"settings", n => { Settings = n.GetCollectionOfObjectValues<DirectorySetting>(DirectorySetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sites", n => { Sites = n.GetCollectionOfObjectValues<Site>(Site.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"team", n => { Team = n.GetObjectValue<ApiSdk.Models.Team>(ApiSdk.Models.Team.CreateFromDiscriminatorValue); } },
                 {"theme", n => { Theme = n.GetStringValue(); } },
                 {"threads", n => { Threads = n.GetCollectionOfObjectValues<ConversationThread>(ConversationThread.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMembers", n => { TransitiveMembers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"uniqueName", n => { UniqueName = n.GetStringValue(); } },
+                {"unseenConversationsCount", n => { UnseenConversationsCount = n.GetIntValue(); } },
                 {"unseenCount", n => { UnseenCount = n.GetIntValue(); } },
+                {"unseenMessagesCount", n => { UnseenMessagesCount = n.GetIntValue(); } },
                 {"visibility", n => { Visibility = n.GetStringValue(); } },
+                {"writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<GroupWritebackConfiguration>(GroupWritebackConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("acceptedSenders", AcceptedSenders);
+            writer.WriteEnumValue<GroupAccessType>("accessType", AccessType);
             writer.WriteBoolValue("allowExternalSenders", AllowExternalSenders);
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", AppRoleAssignments);
             writer.WriteCollectionOfObjectValues<AssignedLabel>("assignedLabels", AssignedLabels);
@@ -542,12 +647,14 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<Event>("calendarView", CalendarView);
             writer.WriteStringValue("classification", Classification);
             writer.WriteCollectionOfObjectValues<Conversation>("conversations", Conversations);
+            writer.WriteStringValue("createdByAppId", CreatedByAppId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<DirectoryObject>("createdOnBehalfOf", CreatedOnBehalfOf);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.Drive>("drive", Drive);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.Drive>("drives", Drives);
+            writer.WriteCollectionOfObjectValues<Endpoint>("endpoints", Endpoints);
             writer.WriteCollectionOfObjectValues<Event>("events", Events);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
@@ -556,8 +663,11 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("hasMembersWithLicenseErrors", HasMembersWithLicenseErrors);
             writer.WriteBoolValue("hideFromAddressLists", HideFromAddressLists);
             writer.WriteBoolValue("hideFromOutlookClients", HideFromOutlookClients);
+            writer.WriteCollectionOfPrimitiveValues<string>("infoCatalogs", InfoCatalogs);
             writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteBoolValue("isAssignableToRole", IsAssignableToRole);
+            writer.WriteBoolValue("isFavorite", IsFavorite);
+            writer.WriteBoolValue("isManagementRestricted", IsManagementRestricted);
             writer.WriteBoolValue("isSubscribedByMail", IsSubscribedByMail);
             writer.WriteObjectValue<ApiSdk.Models.LicenseProcessingState>("licenseProcessingState", LicenseProcessingState);
             writer.WriteStringValue("mail", Mail);
@@ -567,6 +677,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<DirectoryObject>("members", Members);
             writer.WriteStringValue("membershipRule", MembershipRule);
             writer.WriteStringValue("membershipRuleProcessingState", MembershipRuleProcessingState);
+            writer.WriteObjectValue<ApiSdk.Models.MembershipRuleProcessingStatus>("membershipRuleProcessingStatus", MembershipRuleProcessingStatus);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", MembersWithLicenseErrors);
             writer.WriteObjectValue<ApiSdk.Models.Onenote>("onenote", Onenote);
             writer.WriteStringValue("onPremisesDomainName", OnPremisesDomainName);
@@ -576,6 +687,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("onPremisesSamAccountName", OnPremisesSamAccountName);
             writer.WriteStringValue("onPremisesSecurityIdentifier", OnPremisesSecurityIdentifier);
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);
+            writer.WriteStringValue("organizationId", OrganizationId);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("owners", Owners);
             writer.WriteCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", PermissionGrants);
             writer.WriteObjectValue<ProfilePhoto>("photo", Photo);
@@ -586,18 +698,24 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("proxyAddresses", ProxyAddresses);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("rejectedSenders", RejectedSenders);
             writer.WriteDateTimeOffsetValue("renewedDateTime", RenewedDateTime);
+            writer.WriteCollectionOfPrimitiveValues<string>("resourceBehaviorOptions", ResourceBehaviorOptions);
+            writer.WriteCollectionOfPrimitiveValues<string>("resourceProvisioningOptions", ResourceProvisioningOptions);
             writer.WriteBoolValue("securityEnabled", SecurityEnabled);
             writer.WriteStringValue("securityIdentifier", SecurityIdentifier);
             writer.WriteCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", ServiceProvisioningErrors);
-            writer.WriteCollectionOfObjectValues<GroupSetting>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<DirectorySetting>("settings", Settings);
             writer.WriteCollectionOfObjectValues<Site>("sites", Sites);
             writer.WriteObjectValue<ApiSdk.Models.Team>("team", Team);
             writer.WriteStringValue("theme", Theme);
             writer.WriteCollectionOfObjectValues<ConversationThread>("threads", Threads);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMembers", TransitiveMembers);
+            writer.WriteStringValue("uniqueName", UniqueName);
+            writer.WriteIntValue("unseenConversationsCount", UnseenConversationsCount);
             writer.WriteIntValue("unseenCount", UnseenCount);
+            writer.WriteIntValue("unseenMessagesCount", UnseenMessagesCount);
             writer.WriteStringValue("visibility", Visibility);
+            writer.WriteObjectValue<GroupWritebackConfiguration>("writebackConfiguration", WritebackConfiguration);
         }
     }
 }

@@ -8,7 +8,16 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Policy used to configure detailed management settings for a specified set of apps
     /// </summary>
-    public class ManagedAppProtection : ManagedAppPolicy, IParsable {
+    public class ManagedAppProtection : ManagedAppPolicy, IParsable 
+    {
+        /// <summary>Data storage locations where a user may store managed data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedAppDataIngestionLocation?>? AllowedDataIngestionLocations { get; set; }
+#nullable restore
+#else
+        public List<ManagedAppDataIngestionLocation?> AllowedDataIngestionLocations { get; set; }
+#endif
         /// <summary>Data storage locations where a user may store managed data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -19,26 +28,66 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Data can be transferred from/to these classes of apps</summary>
         public ManagedAppDataTransferLevel? AllowedInboundDataTransferSources { get; set; }
+        /// <summary>Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of &apos;0&apos; means no exception is allowed.</summary>
+        public int? AllowedOutboundClipboardSharingExceptionLength { get; set; }
         /// <summary>Represents the level to which the device&apos;s clipboard may be shared between apps</summary>
         public ManagedAppClipboardSharingLevel? AllowedOutboundClipboardSharingLevel { get; set; }
         /// <summary>Data can be transferred from/to these classes of apps</summary>
         public ManagedAppDataTransferLevel? AllowedOutboundDataTransferDestinations { get; set; }
+        /// <summary>An admin initiated action to be applied on a managed app.</summary>
+        public ManagedAppRemediationAction? AppActionIfDeviceComplianceRequired { get; set; }
+        /// <summary>An admin initiated action to be applied on a managed app.</summary>
+        public ManagedAppRemediationAction? AppActionIfMaximumPinRetriesExceeded { get; set; }
+        /// <summary>If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn.</summary>
+        public ManagedAppRemediationAction? AppActionIfUnableToAuthenticateUser { get; set; }
+        /// <summary>Indicates whether a user can bring data into org documents.</summary>
+        public bool? BlockDataIngestionIntoOrganizationDocuments { get; set; }
         /// <summary>Indicates whether contacts can be synced to the user&apos;s device.</summary>
         public bool? ContactSyncBlocked { get; set; }
         /// <summary>Indicates whether the backup of a managed app&apos;s data is blocked.</summary>
         public bool? DataBackupBlocked { get; set; }
         /// <summary>Indicates whether device compliance is required.</summary>
         public bool? DeviceComplianceRequired { get; set; }
+        /// <summary>The classes of apps that are allowed to click-to-open a phone number, for making phone calls or sending text messages.</summary>
+        public ManagedAppPhoneNumberRedirectLevel? DialerRestrictionLevel { get; set; }
         /// <summary>Indicates whether use of the app pin is required if the device pin is set.</summary>
         public bool? DisableAppPinIfDevicePinIsSet { get; set; }
         /// <summary>Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.</summary>
         public bool? FingerprintBlocked { get; set; }
+        /// <summary>A grace period before blocking app access during off clock hours.</summary>
+        public TimeSpan? GracePeriodToBlockAppsDuringOffClockHours { get; set; }
         /// <summary>Type of managed browser</summary>
         public ManagedBrowserType? ManagedBrowser { get; set; }
         /// <summary>Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)</summary>
         public bool? ManagedBrowserToOpenLinksRequired { get; set; }
+        /// <summary>The maxium threat level allowed for an app to be compliant.</summary>
+        public ManagedAppDeviceThreatLevel? MaximumAllowedDeviceThreatLevel { get; set; }
         /// <summary>Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.</summary>
         public int? MaximumPinRetries { get; set; }
+        /// <summary>Versions bigger than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MaximumRequiredOsVersion { get; set; }
+#nullable restore
+#else
+        public string MaximumRequiredOsVersion { get; set; }
+#endif
+        /// <summary>Versions bigger than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MaximumWarningOsVersion { get; set; }
+#nullable restore
+#else
+        public string MaximumWarningOsVersion { get; set; }
+#endif
+        /// <summary>Versions bigger than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MaximumWipeOsVersion { get; set; }
+#nullable restore
+#else
+        public string MaximumWipeOsVersion { get; set; }
+#endif
         /// <summary>Minimum pin length required for an app-level pin if PinRequired is set to True</summary>
         public int? MinimumPinLength { get; set; }
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
@@ -73,6 +122,28 @@ namespace ApiSdk.Models {
 #else
         public string MinimumWarningOsVersion { get; set; }
 #endif
+        /// <summary>Versions less than or equal to the specified version will wipe the managed app and the associated company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumWipeAppVersion { get; set; }
+#nullable restore
+#else
+        public string MinimumWipeAppVersion { get; set; }
+#endif
+        /// <summary>Versions less than or equal to the specified version will wipe the managed app and the associated company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumWipeOsVersion { get; set; }
+#nullable restore
+#else
+        public string MinimumWipeOsVersion { get; set; }
+#endif
+        /// <summary>Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.</summary>
+        public ApiSdk.Models.MobileThreatDefensePartnerPriority? MobileThreatDefensePartnerPriority { get; set; }
+        /// <summary>An admin initiated action to be applied on a managed app.</summary>
+        public ManagedAppRemediationAction? MobileThreatDefenseRemediationAction { get; set; }
+        /// <summary>Restrict managed app notification</summary>
+        public ManagedAppNotificationRestriction? NotificationRestriction { get; set; }
         /// <summary>Indicates whether organizational credentials are required for app use.</summary>
         public bool? OrganizationalCredentialsRequired { get; set; }
         /// <summary>TimePeriod before the all-level pin must be reset if PinRequired is set to True.</summary>
@@ -87,26 +158,36 @@ namespace ApiSdk.Models {
         public ManagedAppPinCharacterSet? PinCharacterSet { get; set; }
         /// <summary>Indicates whether an app-level pin is required.</summary>
         public bool? PinRequired { get; set; }
+        /// <summary>Timeout in minutes for an app pin instead of non biometrics passcode</summary>
+        public TimeSpan? PinRequiredInsteadOfBiometricTimeout { get; set; }
+        /// <summary>Requires a pin to be unique from the number specified in this property.</summary>
+        public int? PreviousPinBlockCount { get; set; }
         /// <summary>Indicates whether printing is allowed from managed apps.</summary>
         public bool? PrintBlocked { get; set; }
+        /// <summary>Defines how app messaging redirection is protected by an App Protection Policy. Default is anyApp.</summary>
+        public MessagingRedirectAppType? ProtectedMessagingRedirectAppType { get; set; }
         /// <summary>Indicates whether users may use the &apos;Save As&apos; menu item to save a copy of protected files.</summary>
         public bool? SaveAsBlocked { get; set; }
         /// <summary>Indicates whether simplePin is blocked.</summary>
         public bool? SimplePinBlocked { get; set; }
         /// <summary>
-        /// Instantiates a new managedAppProtection and sets the default values.
+        /// Instantiates a new <see cref="ManagedAppProtection"/> and sets the default values.
         /// </summary>
-        public ManagedAppProtection() : base() {
+        public ManagedAppProtection() : base()
+        {
             OdataType = "#microsoft.graph.managedAppProtection";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ManagedAppProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.androidManagedAppProtection" => new AndroidManagedAppProtection(),
                 "#microsoft.graph.defaultManagedAppProtection" => new DefaultManagedAppProtection(),
                 "#microsoft.graph.iosManagedAppProtection" => new IosManagedAppProtection(),
@@ -117,25 +198,45 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"allowedDataIngestionLocations", n => { AllowedDataIngestionLocations = n.GetCollectionOfEnumValues<ManagedAppDataIngestionLocation>()?.ToList(); } },
                 {"allowedDataStorageLocations", n => { AllowedDataStorageLocations = n.GetCollectionOfEnumValues<ManagedAppDataStorageLocation>()?.ToList(); } },
                 {"allowedInboundDataTransferSources", n => { AllowedInboundDataTransferSources = n.GetEnumValue<ManagedAppDataTransferLevel>(); } },
+                {"allowedOutboundClipboardSharingExceptionLength", n => { AllowedOutboundClipboardSharingExceptionLength = n.GetIntValue(); } },
                 {"allowedOutboundClipboardSharingLevel", n => { AllowedOutboundClipboardSharingLevel = n.GetEnumValue<ManagedAppClipboardSharingLevel>(); } },
                 {"allowedOutboundDataTransferDestinations", n => { AllowedOutboundDataTransferDestinations = n.GetEnumValue<ManagedAppDataTransferLevel>(); } },
+                {"appActionIfDeviceComplianceRequired", n => { AppActionIfDeviceComplianceRequired = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                {"appActionIfMaximumPinRetriesExceeded", n => { AppActionIfMaximumPinRetriesExceeded = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                {"appActionIfUnableToAuthenticateUser", n => { AppActionIfUnableToAuthenticateUser = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                {"blockDataIngestionIntoOrganizationDocuments", n => { BlockDataIngestionIntoOrganizationDocuments = n.GetBoolValue(); } },
                 {"contactSyncBlocked", n => { ContactSyncBlocked = n.GetBoolValue(); } },
                 {"dataBackupBlocked", n => { DataBackupBlocked = n.GetBoolValue(); } },
                 {"deviceComplianceRequired", n => { DeviceComplianceRequired = n.GetBoolValue(); } },
+                {"dialerRestrictionLevel", n => { DialerRestrictionLevel = n.GetEnumValue<ManagedAppPhoneNumberRedirectLevel>(); } },
                 {"disableAppPinIfDevicePinIsSet", n => { DisableAppPinIfDevicePinIsSet = n.GetBoolValue(); } },
                 {"fingerprintBlocked", n => { FingerprintBlocked = n.GetBoolValue(); } },
+                {"gracePeriodToBlockAppsDuringOffClockHours", n => { GracePeriodToBlockAppsDuringOffClockHours = n.GetTimeSpanValue(); } },
                 {"managedBrowser", n => { ManagedBrowser = n.GetEnumValue<ManagedBrowserType>(); } },
                 {"managedBrowserToOpenLinksRequired", n => { ManagedBrowserToOpenLinksRequired = n.GetBoolValue(); } },
+                {"maximumAllowedDeviceThreatLevel", n => { MaximumAllowedDeviceThreatLevel = n.GetEnumValue<ManagedAppDeviceThreatLevel>(); } },
                 {"maximumPinRetries", n => { MaximumPinRetries = n.GetIntValue(); } },
+                {"maximumRequiredOsVersion", n => { MaximumRequiredOsVersion = n.GetStringValue(); } },
+                {"maximumWarningOsVersion", n => { MaximumWarningOsVersion = n.GetStringValue(); } },
+                {"maximumWipeOsVersion", n => { MaximumWipeOsVersion = n.GetStringValue(); } },
                 {"minimumPinLength", n => { MinimumPinLength = n.GetIntValue(); } },
                 {"minimumRequiredAppVersion", n => { MinimumRequiredAppVersion = n.GetStringValue(); } },
                 {"minimumRequiredOsVersion", n => { MinimumRequiredOsVersion = n.GetStringValue(); } },
                 {"minimumWarningAppVersion", n => { MinimumWarningAppVersion = n.GetStringValue(); } },
                 {"minimumWarningOsVersion", n => { MinimumWarningOsVersion = n.GetStringValue(); } },
+                {"minimumWipeAppVersion", n => { MinimumWipeAppVersion = n.GetStringValue(); } },
+                {"minimumWipeOsVersion", n => { MinimumWipeOsVersion = n.GetStringValue(); } },
+                {"mobileThreatDefensePartnerPriority", n => { MobileThreatDefensePartnerPriority = n.GetEnumValue<MobileThreatDefensePartnerPriority>(); } },
+                {"mobileThreatDefenseRemediationAction", n => { MobileThreatDefenseRemediationAction = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                {"notificationRestriction", n => { NotificationRestriction = n.GetEnumValue<ManagedAppNotificationRestriction>(); } },
                 {"organizationalCredentialsRequired", n => { OrganizationalCredentialsRequired = n.GetBoolValue(); } },
                 {"periodBeforePinReset", n => { PeriodBeforePinReset = n.GetTimeSpanValue(); } },
                 {"periodOfflineBeforeAccessCheck", n => { PeriodOfflineBeforeAccessCheck = n.GetTimeSpanValue(); } },
@@ -143,7 +244,10 @@ namespace ApiSdk.Models {
                 {"periodOnlineBeforeAccessCheck", n => { PeriodOnlineBeforeAccessCheck = n.GetTimeSpanValue(); } },
                 {"pinCharacterSet", n => { PinCharacterSet = n.GetEnumValue<ManagedAppPinCharacterSet>(); } },
                 {"pinRequired", n => { PinRequired = n.GetBoolValue(); } },
+                {"pinRequiredInsteadOfBiometricTimeout", n => { PinRequiredInsteadOfBiometricTimeout = n.GetTimeSpanValue(); } },
+                {"previousPinBlockCount", n => { PreviousPinBlockCount = n.GetIntValue(); } },
                 {"printBlocked", n => { PrintBlocked = n.GetBoolValue(); } },
+                {"protectedMessagingRedirectAppType", n => { ProtectedMessagingRedirectAppType = n.GetEnumValue<MessagingRedirectAppType>(); } },
                 {"saveAsBlocked", n => { SaveAsBlocked = n.GetBoolValue(); } },
                 {"simplePinBlocked", n => { SimplePinBlocked = n.GetBoolValue(); } },
             };
@@ -152,26 +256,44 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfEnumValues<ManagedAppDataIngestionLocation>("allowedDataIngestionLocations", AllowedDataIngestionLocations);
             writer.WriteCollectionOfEnumValues<ManagedAppDataStorageLocation>("allowedDataStorageLocations", AllowedDataStorageLocations);
             writer.WriteEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", AllowedInboundDataTransferSources);
+            writer.WriteIntValue("allowedOutboundClipboardSharingExceptionLength", AllowedOutboundClipboardSharingExceptionLength);
             writer.WriteEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", AllowedOutboundClipboardSharingLevel);
             writer.WriteEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", AllowedOutboundDataTransferDestinations);
+            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfDeviceComplianceRequired", AppActionIfDeviceComplianceRequired);
+            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfMaximumPinRetriesExceeded", AppActionIfMaximumPinRetriesExceeded);
+            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfUnableToAuthenticateUser", AppActionIfUnableToAuthenticateUser);
+            writer.WriteBoolValue("blockDataIngestionIntoOrganizationDocuments", BlockDataIngestionIntoOrganizationDocuments);
             writer.WriteBoolValue("contactSyncBlocked", ContactSyncBlocked);
             writer.WriteBoolValue("dataBackupBlocked", DataBackupBlocked);
             writer.WriteBoolValue("deviceComplianceRequired", DeviceComplianceRequired);
+            writer.WriteEnumValue<ManagedAppPhoneNumberRedirectLevel>("dialerRestrictionLevel", DialerRestrictionLevel);
             writer.WriteBoolValue("disableAppPinIfDevicePinIsSet", DisableAppPinIfDevicePinIsSet);
             writer.WriteBoolValue("fingerprintBlocked", FingerprintBlocked);
+            writer.WriteTimeSpanValue("gracePeriodToBlockAppsDuringOffClockHours", GracePeriodToBlockAppsDuringOffClockHours);
             writer.WriteEnumValue<ManagedBrowserType>("managedBrowser", ManagedBrowser);
             writer.WriteBoolValue("managedBrowserToOpenLinksRequired", ManagedBrowserToOpenLinksRequired);
+            writer.WriteEnumValue<ManagedAppDeviceThreatLevel>("maximumAllowedDeviceThreatLevel", MaximumAllowedDeviceThreatLevel);
             writer.WriteIntValue("maximumPinRetries", MaximumPinRetries);
+            writer.WriteStringValue("maximumRequiredOsVersion", MaximumRequiredOsVersion);
+            writer.WriteStringValue("maximumWarningOsVersion", MaximumWarningOsVersion);
+            writer.WriteStringValue("maximumWipeOsVersion", MaximumWipeOsVersion);
             writer.WriteIntValue("minimumPinLength", MinimumPinLength);
             writer.WriteStringValue("minimumRequiredAppVersion", MinimumRequiredAppVersion);
             writer.WriteStringValue("minimumRequiredOsVersion", MinimumRequiredOsVersion);
             writer.WriteStringValue("minimumWarningAppVersion", MinimumWarningAppVersion);
             writer.WriteStringValue("minimumWarningOsVersion", MinimumWarningOsVersion);
+            writer.WriteStringValue("minimumWipeAppVersion", MinimumWipeAppVersion);
+            writer.WriteStringValue("minimumWipeOsVersion", MinimumWipeOsVersion);
+            writer.WriteEnumValue<MobileThreatDefensePartnerPriority>("mobileThreatDefensePartnerPriority", MobileThreatDefensePartnerPriority);
+            writer.WriteEnumValue<ManagedAppRemediationAction>("mobileThreatDefenseRemediationAction", MobileThreatDefenseRemediationAction);
+            writer.WriteEnumValue<ManagedAppNotificationRestriction>("notificationRestriction", NotificationRestriction);
             writer.WriteBoolValue("organizationalCredentialsRequired", OrganizationalCredentialsRequired);
             writer.WriteTimeSpanValue("periodBeforePinReset", PeriodBeforePinReset);
             writer.WriteTimeSpanValue("periodOfflineBeforeAccessCheck", PeriodOfflineBeforeAccessCheck);
@@ -179,7 +301,10 @@ namespace ApiSdk.Models {
             writer.WriteTimeSpanValue("periodOnlineBeforeAccessCheck", PeriodOnlineBeforeAccessCheck);
             writer.WriteEnumValue<ManagedAppPinCharacterSet>("pinCharacterSet", PinCharacterSet);
             writer.WriteBoolValue("pinRequired", PinRequired);
+            writer.WriteTimeSpanValue("pinRequiredInsteadOfBiometricTimeout", PinRequiredInsteadOfBiometricTimeout);
+            writer.WriteIntValue("previousPinBlockCount", PreviousPinBlockCount);
             writer.WriteBoolValue("printBlocked", PrintBlocked);
+            writer.WriteEnumValue<MessagingRedirectAppType>("protectedMessagingRedirectAppType", ProtectedMessagingRedirectAppType);
             writer.WriteBoolValue("saveAsBlocked", SaveAsBlocked);
             writer.WriteBoolValue("simplePinBlocked", SimplePinBlocked);
         }

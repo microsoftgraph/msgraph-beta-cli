@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum EducationUserRole {
+    public enum EducationUserRole
+    {
         [EnumMember(Value = "student")]
         Student,
         [EnumMember(Value = "teacher")]
@@ -11,5 +12,7 @@ namespace ApiSdk.Models {
         None,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
+        [EnumMember(Value = "faculty")]
+        Faculty,
     }
 }

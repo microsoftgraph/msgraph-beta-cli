@@ -18,14 +18,17 @@ namespace ApiSdk.Users.Item.People.Item {
     /// <summary>
     /// Provides operations to manage the people property of the microsoft.graph.user entity.
     /// </summary>
-    public class PersonItemRequestBuilder : BaseCliRequestBuilder {
+    public class PersonItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user&apos;s communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "People that are relevant to the user. Read-only. Nullable.";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -69,27 +72,32 @@ namespace ApiSdk.Users.Item.People.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PersonItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PersonItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PersonItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}", pathParameters) {
+        public PersonItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new PersonItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PersonItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PersonItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}", rawUrl) {
+        public PersonItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user&apos;s communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PersonItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PersonItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PersonItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PersonItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -97,9 +105,10 @@ namespace ApiSdk.Users.Item.People.Item {
             return requestInfo;
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user&apos;s communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.
         /// </summary>
-        public class PersonItemRequestBuilderGetQueryParameters {
+        public class PersonItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

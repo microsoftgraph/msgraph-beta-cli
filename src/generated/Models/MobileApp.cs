@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications.
     /// </summary>
-    public class MobileApp : Entity, IParsable {
+    public class MobileApp : Entity, IParsable 
+    {
         /// <summary>The list of group assignments for this mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,8 +26,10 @@ namespace ApiSdk.Models {
 #else
         public List<MobileAppCategory> Categories { get; set; }
 #endif
-        /// <summary>The date and time the app was created.</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>The date and time the app was created. This property is read-only.</summary>
+        public DateTimeOffset? CreatedDateTime { get; private set; }
+        /// <summary>The total number of dependencies the child app has. This property is read-only.</summary>
+        public int? DependentAppCount { get; private set; }
         /// <summary>The description of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,6 +62,8 @@ namespace ApiSdk.Models {
 #else
         public string InformationUrl { get; set; }
 #endif
+        /// <summary>The value indicating whether the app is assigned to at least one group. This property is read-only.</summary>
+        public bool? IsAssigned { get; private set; }
         /// <summary>The value indicating whether the app is marked as featured by the admin.</summary>
         public bool? IsFeatured { get; set; }
         /// <summary>The large icon, to be displayed in the app details and used for upload of the icon.</summary>
@@ -69,8 +74,8 @@ namespace ApiSdk.Models {
 #else
         public MimeContent LargeIcon { get; set; }
 #endif
-        /// <summary>The date and time the app was last modified.</summary>
-        public DateTimeOffset? LastModifiedDateTime { get; set; }
+        /// <summary>The date and time the app was last modified. This property is read-only.</summary>
+        public DateTimeOffset? LastModifiedDateTime { get; private set; }
         /// <summary>Notes for the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,15 +110,43 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates the publishing state of an app.</summary>
         public MobileAppPublishingState? PublishingState { get; set; }
+        /// <summary>The set of direct relationships for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileAppRelationship>? Relationships { get; set; }
+#nullable restore
+#else
+        public List<MobileAppRelationship> Relationships { get; set; }
+#endif
+        /// <summary>List of scope tag ids for this mobile app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RoleScopeTagIds { get; set; }
+#nullable restore
+#else
+        public List<string> RoleScopeTagIds { get; set; }
+#endif
+        /// <summary>The total number of apps this app is directly or indirectly superseded by. This property is read-only.</summary>
+        public int? SupersededAppCount { get; private set; }
+        /// <summary>The total number of apps this app directly or indirectly supersedes. This property is read-only.</summary>
+        public int? SupersedingAppCount { get; private set; }
+        /// <summary>The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.</summary>
+        public int? UploadState { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MobileApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileApp CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new MobileApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
+                "#microsoft.graph.androidForWorkApp" => new AndroidForWorkApp(),
                 "#microsoft.graph.androidLobApp" => new AndroidLobApp(),
+                "#microsoft.graph.androidManagedStoreApp" => new AndroidManagedStoreApp(),
+                "#microsoft.graph.androidManagedStoreWebApp" => new AndroidManagedStoreWebApp(),
                 "#microsoft.graph.androidStoreApp" => new AndroidStoreApp(),
                 "#microsoft.graph.iosiPadOSWebClip" => new IosiPadOSWebClip(),
                 "#microsoft.graph.iosLobApp" => new IosLobApp(),
@@ -124,6 +157,9 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.macOSMicrosoftDefenderApp" => new MacOSMicrosoftDefenderApp(),
                 "#microsoft.graph.macOSMicrosoftEdgeApp" => new MacOSMicrosoftEdgeApp(),
                 "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
+                "#microsoft.graph.macOSPkgApp" => new MacOSPkgApp(),
+                "#microsoft.graph.macOsVppApp" => new MacOsVppApp(),
+                "#microsoft.graph.macOSWebClip" => new MacOSWebClip(),
                 "#microsoft.graph.managedAndroidLobApp" => new ManagedAndroidLobApp(),
                 "#microsoft.graph.managedAndroidStoreApp" => new ManagedAndroidStoreApp(),
                 "#microsoft.graph.managedApp" => new ManagedApp(),
@@ -132,28 +168,41 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.managedMobileLobApp" => new ManagedMobileLobApp(),
                 "#microsoft.graph.microsoftStoreForBusinessApp" => new MicrosoftStoreForBusinessApp(),
                 "#microsoft.graph.mobileLobApp" => new MobileLobApp(),
+                "#microsoft.graph.officeSuiteApp" => new OfficeSuiteApp(),
                 "#microsoft.graph.webApp" => new WebApp(),
+                "#microsoft.graph.win32CatalogApp" => new Win32CatalogApp(),
                 "#microsoft.graph.win32LobApp" => new Win32LobApp(),
                 "#microsoft.graph.windowsAppX" => new WindowsAppX(),
                 "#microsoft.graph.windowsMicrosoftEdgeApp" => new WindowsMicrosoftEdgeApp(),
                 "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
+                "#microsoft.graph.windowsPhone81AppX" => new WindowsPhone81AppX(),
+                "#microsoft.graph.windowsPhone81AppXBundle" => new WindowsPhone81AppXBundle(),
+                "#microsoft.graph.windowsPhone81StoreApp" => new WindowsPhone81StoreApp(),
+                "#microsoft.graph.windowsPhoneXAP" => new WindowsPhoneXAP(),
+                "#microsoft.graph.windowsStoreApp" => new WindowsStoreApp(),
                 "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
                 "#microsoft.graph.windowsWebApp" => new WindowsWebApp(),
+                "#microsoft.graph.winGetApp" => new WinGetApp(),
                 _ => new MobileApp(),
             };
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<MobileAppAssignment>(MobileAppAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"categories", n => { Categories = n.GetCollectionOfObjectValues<MobileAppCategory>(MobileAppCategory.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"developer", n => { Developer = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"informationUrl", n => { InformationUrl = n.GetStringValue(); } },
+                {"isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
                 {"isFeatured", n => { IsFeatured = n.GetBoolValue(); } },
                 {"largeIcon", n => { LargeIcon = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -162,30 +211,36 @@ namespace ApiSdk.Models {
                 {"privacyInformationUrl", n => { PrivacyInformationUrl = n.GetStringValue(); } },
                 {"publisher", n => { Publisher = n.GetStringValue(); } },
                 {"publishingState", n => { PublishingState = n.GetEnumValue<MobileAppPublishingState>(); } },
+                {"relationships", n => { Relationships = n.GetCollectionOfObjectValues<MobileAppRelationship>(MobileAppRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"supersededAppCount", n => { SupersededAppCount = n.GetIntValue(); } },
+                {"supersedingAppCount", n => { SupersedingAppCount = n.GetIntValue(); } },
+                {"uploadState", n => { UploadState = n.GetIntValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<MobileAppAssignment>("assignments", Assignments);
             writer.WriteCollectionOfObjectValues<MobileAppCategory>("categories", Categories);
-            writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("developer", Developer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("informationUrl", InformationUrl);
             writer.WriteBoolValue("isFeatured", IsFeatured);
             writer.WriteObjectValue<MimeContent>("largeIcon", LargeIcon);
-            writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("notes", Notes);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("privacyInformationUrl", PrivacyInformationUrl);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteEnumValue<MobileAppPublishingState>("publishingState", PublishingState);
+            writer.WriteCollectionOfObjectValues<MobileAppRelationship>("relationships", Relationships);
+            writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
         }
     }
 }

@@ -17,12 +17,15 @@ namespace ApiSdk.IdentityProviders.AvailableProviderTypes {
     /// <summary>
     /// Provides operations to call the availableProviderTypes method.
     /// </summary>
-    public class AvailableProviderTypesRequestBuilder : BaseCliRequestBuilder {
+    public class AvailableProviderTypesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke function availableProviderTypes
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildGetCommand() {
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Invoke function availableProviderTypes";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
@@ -91,28 +94,33 @@ namespace ApiSdk.IdentityProviders.AvailableProviderTypes {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AvailableProviderTypesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AvailableProviderTypesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AvailableProviderTypesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders/availableProviderTypes(){?%24top,%24skip,%24search,%24filter,%24count}", pathParameters) {
+        public AvailableProviderTypesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders/availableProviderTypes(){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AvailableProviderTypesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AvailableProviderTypesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AvailableProviderTypesRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders/availableProviderTypes(){?%24top,%24skip,%24search,%24filter,%24count}", rawUrl) {
+        public AvailableProviderTypesRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders/availableProviderTypes(){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke function availableProviderTypes
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -122,7 +130,8 @@ namespace ApiSdk.IdentityProviders.AvailableProviderTypes {
         /// <summary>
         /// Invoke function availableProviderTypes
         /// </summary>
-        public class AvailableProviderTypesRequestBuilderGetQueryParameters {
+        public class AvailableProviderTypesRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

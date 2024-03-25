@@ -5,23 +5,27 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DirectoryObject : Entity, IParsable {
+    public class DirectoryObject : Entity, IParsable 
+    {
         /// <summary>Date and time when this object was deleted. Always null when the object hasn&apos;t been deleted.</summary>
         public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DirectoryObject"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DirectoryObject CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new DirectoryObject CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.activityBasedTimeoutPolicy" => new ActivityBasedTimeoutPolicy(),
                 "#microsoft.graph.administrativeUnit" => new AdministrativeUnit(),
                 "#microsoft.graph.application" => new Application(),
                 "#microsoft.graph.appManagementPolicy" => new AppManagementPolicy(),
-                "#microsoft.graph.appRoleAssignment" => new AppRoleAssignment(),
                 "#microsoft.graph.authorizationPolicy" => new AuthorizationPolicy(),
+                "#microsoft.graph.certificateBasedApplicationConfiguration" => new CertificateBasedApplicationConfiguration(),
                 "#microsoft.graph.claimsMappingPolicy" => new ClaimsMappingPolicy(),
                 "#microsoft.graph.contract" => new Contract(),
                 "#microsoft.graph.crossTenantAccessPolicy" => new CrossTenantAccessPolicy(),
@@ -29,22 +33,31 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.directoryObjectPartnerReference" => new DirectoryObjectPartnerReference(),
                 "#microsoft.graph.directoryRole" => new DirectoryRole(),
                 "#microsoft.graph.directoryRoleTemplate" => new DirectoryRoleTemplate(),
+                "#microsoft.graph.directorySettingTemplate" => new DirectorySettingTemplate(),
                 "#microsoft.graph.endpoint" => new Endpoint(),
                 "#microsoft.graph.extensionProperty" => new ExtensionProperty(),
+                "#microsoft.graph.externalIdentitiesPolicy" => new ExternalIdentitiesPolicy(),
+                "#microsoft.graph.externalProfile" => new ExternalProfile(),
+                "#microsoft.graph.externalUserProfile" => new ExternalUserProfile(),
+                "#microsoft.graph.federatedTokenValidationPolicy" => new FederatedTokenValidationPolicy(),
                 "#microsoft.graph.group" => new Group(),
-                "#microsoft.graph.groupSettingTemplate" => new GroupSettingTemplate(),
                 "#microsoft.graph.homeRealmDiscoveryPolicy" => new HomeRealmDiscoveryPolicy(),
                 "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy" => new IdentitySecurityDefaultsEnforcementPolicy(),
+                "#microsoft.graph.multiTenantOrganizationMember" => new MultiTenantOrganizationMember(),
                 "#microsoft.graph.organization" => new Organization(),
                 "#microsoft.graph.orgContact" => new OrgContact(),
+                "#microsoft.graph.pendingExternalUserProfile" => new PendingExternalUserProfile(),
                 "#microsoft.graph.permissionGrantPolicy" => new PermissionGrantPolicy(),
                 "#microsoft.graph.policyBase" => new PolicyBase(),
                 "#microsoft.graph.resourceSpecificPermissionGrant" => new ResourceSpecificPermissionGrant(),
                 "#microsoft.graph.servicePrincipal" => new ServicePrincipal(),
+                "#microsoft.graph.servicePrincipalCreationPolicy" => new ServicePrincipalCreationPolicy(),
                 "#microsoft.graph.stsPolicy" => new StsPolicy(),
                 "#microsoft.graph.tenantAppManagementPolicy" => new TenantAppManagementPolicy(),
+                "#microsoft.graph.tenantRelationshipAccessPolicyBase" => new TenantRelationshipAccessPolicyBase(),
                 "#microsoft.graph.tokenIssuancePolicy" => new TokenIssuancePolicy(),
                 "#microsoft.graph.tokenLifetimePolicy" => new TokenLifetimePolicy(),
+                "#microsoft.graph.trustedCertificateAuthorityAsEntityBase" => new TrustedCertificateAuthorityAsEntityBase(),
                 "#microsoft.graph.user" => new User(),
                 _ => new DirectoryObject(),
             };
@@ -52,8 +65,11 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -61,7 +77,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);

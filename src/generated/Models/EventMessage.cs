@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class EventMessage : Message, IParsable {
-        /// <summary>The endDateTime property</summary>
+    public class EventMessage : Message, IParsable 
+    {
+        /// <summary>The end time of the requested meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? EndDateTime { get; set; }
@@ -22,13 +23,13 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Event Event { get; set; }
 #endif
-        /// <summary>The isAllDay property</summary>
+        /// <summary>Indicates whether the event lasts the entire day. Adjusting this property requires adjusting the startDateTime and endDateTime properties of the event as well.</summary>
         public bool? IsAllDay { get; set; }
-        /// <summary>The isDelegated property</summary>
+        /// <summary>True if this meeting request is accessible to a delegate, false otherwise. Default is false.</summary>
         public bool? IsDelegated { get; set; }
-        /// <summary>The isOutOfDate property</summary>
+        /// <summary>Indicates whether this meeting request has been made out-of-date by a more recent request.</summary>
         public bool? IsOutOfDate { get; set; }
-        /// <summary>The location property</summary>
+        /// <summary>The location of the requested meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.Location? Location { get; set; }
@@ -36,9 +37,9 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Location Location { get; set; }
 #endif
-        /// <summary>The meetingMessageType property</summary>
+        /// <summary>The type of event message: none, meetingRequest, meetingCancelled, meetingAccepted, meetingTentativelyAccepted, meetingDeclined.</summary>
         public ApiSdk.Models.MeetingMessageType? MeetingMessageType { get; set; }
-        /// <summary>The recurrence property</summary>
+        /// <summary>The recurrence pattern of the requested meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PatternedRecurrence? Recurrence { get; set; }
@@ -46,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public PatternedRecurrence Recurrence { get; set; }
 #endif
-        /// <summary>The startDateTime property</summary>
+        /// <summary>The start time of the requested meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime { get; set; }
@@ -54,22 +55,26 @@ namespace ApiSdk.Models {
 #else
         public DateTimeTimeZone StartDateTime { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>The type of requested meeting: singleInstance, occurence, exception, seriesMaster.</summary>
         public EventType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new eventMessage and sets the default values.
+        /// Instantiates a new <see cref="EventMessage"/> and sets the default values.
         /// </summary>
-        public EventMessage() : base() {
+        public EventMessage() : base()
+        {
             OdataType = "#microsoft.graph.eventMessage";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="EventMessage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EventMessage CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new EventMessage CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.eventMessageRequest" => new EventMessageRequest(),
                 "#microsoft.graph.eventMessageResponse" => new EventMessageResponse(),
                 _ => new EventMessage(),
@@ -78,8 +83,11 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 {"event", n => { Event = n.GetObjectValue<ApiSdk.Models.Event>(ApiSdk.Models.Event.CreateFromDiscriminatorValue); } },
                 {"isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
@@ -96,7 +104,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<DateTimeTimeZone>("endDateTime", EndDateTime);

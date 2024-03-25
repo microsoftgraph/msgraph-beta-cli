@@ -5,19 +5,32 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OnlineMeetingBase : Entity, IParsable {
+    public class OnlineMeetingBase : Entity, IParsable 
+    {
         /// <summary>Indicates whether attendees can turn on their camera.</summary>
         public bool? AllowAttendeeToEnableCamera { get; set; }
         /// <summary>Indicates whether attendees can turn on their microphone.</summary>
         public bool? AllowAttendeeToEnableMic { get; set; }
         /// <summary>Specifies who can be a presenter in a meeting.</summary>
         public OnlineMeetingPresenters? AllowedPresenters { get; set; }
-        /// <summary>Specifies the mode of the meeting chat.</summary>
+        /// <summary>Specifies the mode of meeting chat.</summary>
         public MeetingChatMode? AllowMeetingChat { get; set; }
         /// <summary>Specifies if participants are allowed to rename themselves in an instance of the meeting.</summary>
         public bool? AllowParticipantsToChangeName { get; set; }
+        /// <summary>Indicates whether recording is enabled for the meeting.</summary>
+        public bool? AllowRecording { get; set; }
         /// <summary>Indicates if Teams reactions are enabled for the meeting.</summary>
         public bool? AllowTeamworkReactions { get; set; }
+        /// <summary>Indicates whether transcription is enabled for the meeting.</summary>
+        public bool? AllowTranscription { get; set; }
+        /// <summary>Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can&apos;t be removed through a PATCH operation once added.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnlineMeetingRole?>? AnonymizeIdentityForRoles { get; set; }
+#nullable restore
+#else
+        public List<OnlineMeetingRole?> AnonymizeIdentityForRoles { get; set; }
+#endif
         /// <summary>The attendance reports of an online meeting. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,6 +55,16 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.ChatInfo ChatInfo { get; set; }
 #endif
+        /// <summary>The chatRestrictions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ChatRestrictions? ChatRestrictions { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ChatRestrictions ChatRestrictions { get; set; }
+#endif
+        /// <summary>The isEndToEndEncryptionEnabled property</summary>
+        public bool? IsEndToEndEncryptionEnabled { get; set; }
         /// <summary>Indicates whether to announce when callers join or leave.</summary>
         public bool? IsEntryExitAnnounced { get; set; }
         /// <summary>The join information in the language and locale variant specified in &apos;Accept-Language&apos; request HTTP header. Read-only.</summary>
@@ -52,7 +75,7 @@ namespace ApiSdk.Models {
 #else
         public ItemBody JoinInformation { get; set; }
 #endif
-        /// <summary>Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings can&apos;t be modified. To make any changes to this property, you must cancel this meeting and create a new one.</summary>
+        /// <summary>Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings can&apos;t be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.JoinMeetingIdSettings? JoinMeetingIdSettings { get; set; }
@@ -107,11 +130,14 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OnlineMeetingBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnlineMeetingBase CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new OnlineMeetingBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.onlineMeeting" => new OnlineMeeting(),
                 "#microsoft.graph.virtualEventSession" => new VirtualEventSession(),
                 _ => new OnlineMeetingBase(),
@@ -120,17 +146,25 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"allowAttendeeToEnableCamera", n => { AllowAttendeeToEnableCamera = n.GetBoolValue(); } },
                 {"allowAttendeeToEnableMic", n => { AllowAttendeeToEnableMic = n.GetBoolValue(); } },
                 {"allowMeetingChat", n => { AllowMeetingChat = n.GetEnumValue<MeetingChatMode>(); } },
                 {"allowParticipantsToChangeName", n => { AllowParticipantsToChangeName = n.GetBoolValue(); } },
+                {"allowRecording", n => { AllowRecording = n.GetBoolValue(); } },
                 {"allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
+                {"allowTranscription", n => { AllowTranscription = n.GetBoolValue(); } },
                 {"allowedPresenters", n => { AllowedPresenters = n.GetEnumValue<OnlineMeetingPresenters>(); } },
+                {"anonymizeIdentityForRoles", n => { AnonymizeIdentityForRoles = n.GetCollectionOfEnumValues<OnlineMeetingRole>()?.ToList(); } },
                 {"attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"audioConferencing", n => { AudioConferencing = n.GetObjectValue<ApiSdk.Models.AudioConferencing>(ApiSdk.Models.AudioConferencing.CreateFromDiscriminatorValue); } },
                 {"chatInfo", n => { ChatInfo = n.GetObjectValue<ApiSdk.Models.ChatInfo>(ApiSdk.Models.ChatInfo.CreateFromDiscriminatorValue); } },
+                {"chatRestrictions", n => { ChatRestrictions = n.GetObjectValue<ApiSdk.Models.ChatRestrictions>(ApiSdk.Models.ChatRestrictions.CreateFromDiscriminatorValue); } },
+                {"isEndToEndEncryptionEnabled", n => { IsEndToEndEncryptionEnabled = n.GetBoolValue(); } },
                 {"isEntryExitAnnounced", n => { IsEntryExitAnnounced = n.GetBoolValue(); } },
                 {"joinInformation", n => { JoinInformation = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"joinMeetingIdSettings", n => { JoinMeetingIdSettings = n.GetObjectValue<ApiSdk.Models.JoinMeetingIdSettings>(ApiSdk.Models.JoinMeetingIdSettings.CreateFromDiscriminatorValue); } },
@@ -147,7 +181,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("allowAttendeeToEnableCamera", AllowAttendeeToEnableCamera);
@@ -155,10 +190,15 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<OnlineMeetingPresenters>("allowedPresenters", AllowedPresenters);
             writer.WriteEnumValue<MeetingChatMode>("allowMeetingChat", AllowMeetingChat);
             writer.WriteBoolValue("allowParticipantsToChangeName", AllowParticipantsToChangeName);
+            writer.WriteBoolValue("allowRecording", AllowRecording);
             writer.WriteBoolValue("allowTeamworkReactions", AllowTeamworkReactions);
+            writer.WriteBoolValue("allowTranscription", AllowTranscription);
+            writer.WriteCollectionOfEnumValues<OnlineMeetingRole>("anonymizeIdentityForRoles", AnonymizeIdentityForRoles);
             writer.WriteCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", AttendanceReports);
             writer.WriteObjectValue<ApiSdk.Models.AudioConferencing>("audioConferencing", AudioConferencing);
             writer.WriteObjectValue<ApiSdk.Models.ChatInfo>("chatInfo", ChatInfo);
+            writer.WriteObjectValue<ApiSdk.Models.ChatRestrictions>("chatRestrictions", ChatRestrictions);
+            writer.WriteBoolValue("isEndToEndEncryptionEnabled", IsEndToEndEncryptionEnabled);
             writer.WriteBoolValue("isEntryExitAnnounced", IsEntryExitAnnounced);
             writer.WriteObjectValue<ItemBody>("joinInformation", JoinInformation);
             writer.WriteObjectValue<ApiSdk.Models.JoinMeetingIdSettings>("joinMeetingIdSettings", JoinMeetingIdSettings);

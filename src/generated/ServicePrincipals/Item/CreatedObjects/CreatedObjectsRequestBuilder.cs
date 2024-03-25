@@ -21,11 +21,14 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
     /// <summary>
     /// Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class CreatedObjectsRequestBuilder : BaseCliRequestBuilder {
+    public class CreatedObjectsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new DirectoryObjectItemRequestBuilder(PathParameters);
@@ -36,7 +39,9 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -51,7 +56,9 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
         /// <summary>
         /// Casts the previous resource to servicePrincipal.
         /// </summary>
-        public Command BuildGraphServicePrincipalNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphServicePrincipalNavCommand()
+        {
             var command = new Command("graph-service-principal");
             command.Description = "Casts the previous resource to servicePrincipal.";
             var builder = new GraphServicePrincipalRequestBuilder(PathParameters);
@@ -70,11 +77,14 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
             return command;
         }
         /// <summary>
-        /// Directory objects created by this service principal. Read-only. Nullable.
+        /// Retrieve a list of directoryobject objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-createdobjects?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Directory objects created by this service principal. Read-only. Nullable.";
+            command.Description = "Retrieve a list of directoryobject objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-createdobjects?view=graph-rest-1.0";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -168,27 +178,32 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CreatedObjectsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedObjectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CreatedObjectsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/createdObjects{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public CreatedObjectsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/createdObjects{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CreatedObjectsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedObjectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CreatedObjectsRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/createdObjects{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public CreatedObjectsRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/createdObjects{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Directory objects created by this service principal. Read-only. Nullable.
+        /// Retrieve a list of directoryobject objects.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -196,9 +211,10 @@ namespace ApiSdk.ServicePrincipals.Item.CreatedObjects {
             return requestInfo;
         }
         /// <summary>
-        /// Directory objects created by this service principal. Read-only. Nullable.
+        /// Retrieve a list of directoryobject objects.
         /// </summary>
-        public class CreatedObjectsRequestBuilderGetQueryParameters {
+        public class CreatedObjectsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

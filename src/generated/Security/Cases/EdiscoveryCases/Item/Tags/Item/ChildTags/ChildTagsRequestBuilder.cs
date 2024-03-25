@@ -20,11 +20,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags {
     /// <summary>
     /// Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
     /// </summary>
-    public class ChildTagsRequestBuilder : BaseCliRequestBuilder {
+    public class ChildTagsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags.Item.EdiscoveryReviewTagItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildGetCommand());
@@ -33,7 +36,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -48,7 +53,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags {
         /// <summary>
         /// Returns the tags that are a child of a tag.
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
             command.Description = "Returns the tags that are a child of a tag.";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
@@ -150,27 +157,32 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ChildTagsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChildTagsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ChildTagsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}/childTags{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ChildTagsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}/childTags{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ChildTagsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChildTagsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ChildTagsRequestBuilder(string rawUrl) : base("{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}/childTags{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ChildTagsRequestBuilder(string rawUrl) : base("{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}/childTags{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Returns the tags that are a child of a tag.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -180,7 +192,8 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags {
         /// <summary>
         /// Returns the tags that are a child of a tag.
         /// </summary>
-        public class ChildTagsRequestBuilderGetQueryParameters {
+        public class ChildTagsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Pkcs12Certificate : ApiAuthenticationConfigurationBase, IParsable {
-        /// <summary>The password for the pfx file. Required. If no password is used, you must still provide a value of &apos;&apos;.</summary>
+    public class Pkcs12Certificate : ApiAuthenticationConfigurationBase, IParsable 
+    {
+        /// <summary>Specifies the password for the pfx file. Required. If no password is used, must still provide a value of &apos;&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public string Password { get; set; }
 #endif
-        /// <summary>Represents the pfx content that is sent. The value should be a base-64 encoded version of the actual certificate content. Required.</summary>
+        /// <summary>Specifies the field for sending pfx content. The value should be a base-64 encoded version of the actual certificate content. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Pkcs12Value { get; set; }
@@ -23,24 +24,30 @@ namespace ApiSdk.Models {
         public string Pkcs12Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new pkcs12Certificate and sets the default values.
+        /// Instantiates a new <see cref="Pkcs12Certificate"/> and sets the default values.
         /// </summary>
-        public Pkcs12Certificate() : base() {
+        public Pkcs12Certificate() : base()
+        {
             OdataType = "#microsoft.graph.pkcs12Certificate";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Pkcs12Certificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Pkcs12Certificate CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Pkcs12Certificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Pkcs12Certificate();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"password", n => { Password = n.GetStringValue(); } },
                 {"pkcs12Value", n => { Pkcs12Value = n.GetStringValue(); } },
             };
@@ -49,7 +56,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("password", Password);

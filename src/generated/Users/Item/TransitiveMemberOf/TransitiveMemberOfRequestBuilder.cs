@@ -23,11 +23,14 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
     /// <summary>
     /// Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
     /// </summary>
-    public class TransitiveMemberOfRequestBuilder : BaseCliRequestBuilder {
+    public class TransitiveMemberOfRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new DirectoryObjectItemRequestBuilder(PathParameters);
@@ -40,7 +43,9 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -55,7 +60,9 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
         /// <summary>
         /// Casts the previous resource to administrativeUnit.
         /// </summary>
-        public Command BuildGraphAdministrativeUnitNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphAdministrativeUnitNavCommand()
+        {
             var command = new Command("graph-administrative-unit");
             command.Description = "Casts the previous resource to administrativeUnit.";
             var builder = new GraphAdministrativeUnitRequestBuilder(PathParameters);
@@ -76,7 +83,9 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
         /// <summary>
         /// Casts the previous resource to directoryRole.
         /// </summary>
-        public Command BuildGraphDirectoryRoleNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphDirectoryRoleNavCommand()
+        {
             var command = new Command("graph-directory-role");
             command.Description = "Casts the previous resource to directoryRole.";
             var builder = new GraphDirectoryRoleRequestBuilder(PathParameters);
@@ -97,7 +106,9 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
         /// <summary>
         /// Casts the previous resource to group.
         /// </summary>
-        public Command BuildGraphGroupNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGraphGroupNavCommand()
+        {
             var command = new Command("graph-group");
             command.Description = "Casts the previous resource to group.";
             var builder = new GraphGroupRequestBuilder(PathParameters);
@@ -116,13 +127,15 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
             return command;
         }
         /// <summary>
-        /// The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+        /// The groups, including nested groups and directory roles that a user is a member of. Nullable.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "The groups, including nested groups, and directory roles that a user is a member of. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "The groups, including nested groups and directory roles that a user is a member of. Nullable.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-1.0";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -222,27 +235,32 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TransitiveMemberOfRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TransitiveMemberOfRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TransitiveMemberOfRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/transitiveMemberOf{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public TransitiveMemberOfRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/transitiveMemberOf{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TransitiveMemberOfRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TransitiveMemberOfRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TransitiveMemberOfRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/transitiveMemberOf{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public TransitiveMemberOfRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/transitiveMemberOf{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+        /// The groups, including nested groups and directory roles that a user is a member of. Nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -250,9 +268,10 @@ namespace ApiSdk.Users.Item.TransitiveMemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// The groups, including nested groups, and directory roles that a user is a member of. Nullable.
+        /// The groups, including nested groups and directory roles that a user is a member of. Nullable.
         /// </summary>
-        public class TransitiveMemberOfRequestBuilderGetQueryParameters {
+        public class TransitiveMemberOfRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

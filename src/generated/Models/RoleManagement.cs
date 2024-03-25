@@ -5,9 +5,26 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class RoleManagement : IAdditionalDataHolder, IParsable {
+    public class RoleManagement : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The cloudPC property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RbacApplicationMultiple? CloudPC { get; set; }
+#nullable restore
+#else
+        public RbacApplicationMultiple CloudPC { get; set; }
+#endif
+        /// <summary>The RbacApplication for Device Management</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RbacApplicationMultiple? DeviceManagement { get; set; }
+#nullable restore
+#else
+        public RbacApplicationMultiple DeviceManagement { get; set; }
+#endif
         /// <summary>The directory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -16,13 +33,29 @@ namespace ApiSdk.Models {
 #else
         public RbacApplication Directory { get; set; }
 #endif
-        /// <summary>Container for roles and assignments for entitlement management resources.</summary>
+        /// <summary>The enterpriseApps property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RbacApplication>? EnterpriseApps { get; set; }
+#nullable restore
+#else
+        public List<RbacApplication> EnterpriseApps { get; set; }
+#endif
+        /// <summary>The RbacApplication for Entitlement Management</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RbacApplication? EntitlementManagement { get; set; }
 #nullable restore
 #else
         public RbacApplication EntitlementManagement { get; set; }
+#endif
+        /// <summary>The exchange property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UnifiedRbacApplication? Exchange { get; set; }
+#nullable restore
+#else
+        public UnifiedRbacApplication Exchange { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,26 +66,36 @@ namespace ApiSdk.Models {
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new roleManagement and sets the default values.
+        /// Instantiates a new <see cref="RoleManagement"/> and sets the default values.
         /// </summary>
-        public RoleManagement() {
+        public RoleManagement()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="RoleManagement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RoleManagement CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static RoleManagement CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new RoleManagement();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
+                {"cloudPC", n => { CloudPC = n.GetObjectValue<RbacApplicationMultiple>(RbacApplicationMultiple.CreateFromDiscriminatorValue); } },
+                {"deviceManagement", n => { DeviceManagement = n.GetObjectValue<RbacApplicationMultiple>(RbacApplicationMultiple.CreateFromDiscriminatorValue); } },
                 {"directory", n => { Directory = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
+                {"enterpriseApps", n => { EnterpriseApps = n.GetCollectionOfObjectValues<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
+                {"exchange", n => { Exchange = n.GetObjectValue<UnifiedRbacApplication>(UnifiedRbacApplication.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -60,10 +103,15 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<RbacApplicationMultiple>("cloudPC", CloudPC);
+            writer.WriteObjectValue<RbacApplicationMultiple>("deviceManagement", DeviceManagement);
             writer.WriteObjectValue<RbacApplication>("directory", Directory);
+            writer.WriteCollectionOfObjectValues<RbacApplication>("enterpriseApps", EnterpriseApps);
             writer.WriteObjectValue<RbacApplication>("entitlementManagement", EntitlementManagement);
+            writer.WriteObjectValue<UnifiedRbacApplication>("exchange", Exchange);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

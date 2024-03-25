@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class OfferShiftRequest : ScheduleChangeRequest, IParsable {
+    public class OfferShiftRequest : ScheduleChangeRequest, IParsable 
+    {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? RecipientActionDateTime { get; private set; }
         /// <summary>Custom message sent by recipient of the offer shift request.</summary>
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public string RecipientActionMessage { get; set; }
 #endif
-        /// <summary>User ID of the recipient of the offer shift request.</summary>
+        /// <summary>User id of the recipient of the offer shift request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecipientUserId { get; set; }
@@ -24,7 +25,7 @@ namespace ApiSdk.Models {
 #else
         public string RecipientUserId { get; set; }
 #endif
-        /// <summary>User ID of the sender of the offer shift request.</summary>
+        /// <summary>User id of the sender of the offer shift request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SenderShiftId { get; set; }
@@ -33,19 +34,23 @@ namespace ApiSdk.Models {
         public string SenderShiftId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new offerShiftRequest and sets the default values.
+        /// Instantiates a new <see cref="OfferShiftRequest"/> and sets the default values.
         /// </summary>
-        public OfferShiftRequest() : base() {
+        public OfferShiftRequest() : base()
+        {
             OdataType = "#microsoft.graph.offerShiftRequest";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="OfferShiftRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OfferShiftRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new OfferShiftRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.swapShiftsChangeRequest" => new SwapShiftsChangeRequest(),
                 _ => new OfferShiftRequest(),
             };
@@ -53,8 +58,11 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"recipientActionDateTime", n => { RecipientActionDateTime = n.GetDateTimeOffsetValue(); } },
                 {"recipientActionMessage", n => { RecipientActionMessage = n.GetStringValue(); } },
                 {"recipientUserId", n => { RecipientUserId = n.GetStringValue(); } },
@@ -65,7 +73,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("recipientActionMessage", RecipientActionMessage);

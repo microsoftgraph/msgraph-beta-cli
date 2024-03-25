@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.CallRecords {
-    public class CallRecord : ApiSdk.Models.Entity, IParsable {
+    public class CallRecord : ApiSdk.Models.Entity, IParsable 
+    {
         /// <summary>UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>Meeting URL associated to the call. May not be available for a peerToPeer call record type.</summary>
@@ -26,7 +27,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public List<Modality?> Modalities { get; set; }
 #endif
-        /// <summary>The organizing party&apos;s identity.</summary>
+        /// <summary>The organizer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.IdentitySet? Organizer { get; set; }
@@ -34,13 +35,29 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public ApiSdk.Models.IdentitySet Organizer { get; set; }
 #endif
-        /// <summary>List of distinct identities involved in the call.</summary>
+        /// <summary>Identity of the organizer of the call. This relationship is expanded by default in callRecord methods.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.CallRecords.Organizer? OrganizerV2 { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.CallRecords.Organizer OrganizerV2 { get; set; }
+#endif
+        /// <summary>The participants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ApiSdk.Models.IdentitySet>? Participants { get; set; }
 #nullable restore
 #else
         public List<ApiSdk.Models.IdentitySet> Participants { get; set; }
+#endif
+        /// <summary>List of distinct participants in the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Participant>? ParticipantsV2 { get; set; }
+#nullable restore
+#else
+        public List<Participant> ParticipantsV2 { get; set; }
 #endif
         /// <summary>List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,31 +67,38 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public List<Session> Sessions { get; set; }
 #endif
-        /// <summary>UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The type property</summary>
         public CallType? Type { get; set; }
-        /// <summary>Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.</summary>
+        /// <summary>Monotonically increasing version of the call record. Higher version call records with the same ID include additional data compared to the lower version.</summary>
         public long? Version { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="CallRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CallRecord CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new CallRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new CallRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
                 {"organizer", n => { Organizer = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"organizer_v2", n => { OrganizerV2 = n.GetObjectValue<ApiSdk.Models.CallRecords.Organizer>(ApiSdk.Models.CallRecords.Organizer.CreateFromDiscriminatorValue); } },
                 {"participants", n => { Participants = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"participants_v2", n => { ParticipantsV2 = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"type", n => { Type = n.GetEnumValue<CallType>(); } },
@@ -85,7 +109,8 @@ namespace ApiSdk.Models.CallRecords {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
@@ -93,7 +118,9 @@ namespace ApiSdk.Models.CallRecords {
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfEnumValues<Modality>("modalities", Modalities);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("organizer", Organizer);
+            writer.WriteObjectValue<ApiSdk.Models.CallRecords.Organizer>("organizer_v2", OrganizerV2);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentitySet>("participants", Participants);
+            writer.WriteCollectionOfObjectValues<Participant>("participants_v2", ParticipantsV2);
             writer.WriteCollectionOfObjectValues<Session>("sessions", Sessions);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteEnumValue<CallType>("type", Type);

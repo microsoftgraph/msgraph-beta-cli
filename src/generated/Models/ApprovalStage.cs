@@ -5,87 +5,91 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class ApprovalStage : Entity, IParsable {
-        /// <summary>Indicates whether the stage is assigned to the calling user to review. Read-only.</summary>
-        public bool? AssignedToMe { get; set; }
-        /// <summary>The label provided by the policy creator to identify an approval stage. Read-only.</summary>
+    public class ApprovalStage : IAdditionalDataHolder, IParsable 
+    {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The number of days that a request can be pending a response before it&apos;s automatically denied.</summary>
+        public int? ApprovalStageTimeOutInDays { get; set; }
+        /// <summary>If escalation is enabled and the primary approvers don&apos;t respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers aren&apos;t required for the stage, the value of this property should be an empty collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public List<UserSet>? EscalationApprovers { get; set; }
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public List<UserSet> EscalationApprovers { get; set; }
 #endif
-        /// <summary>The justification associated with the approval stage decision.</summary>
+        /// <summary>If escalation is required, the time a request can be pending a response from a primary approver.</summary>
+        public int? EscalationTimeInMinutes { get; set; }
+        /// <summary>Indicates whether the approver is required to provide a justification for approving a request.</summary>
+        public bool? IsApproverJustificationRequired { get; set; }
+        /// <summary>If true, then one or more escalation approvers are configured in this approval stage.</summary>
+        public bool? IsEscalationEnabled { get; set; }
+        /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Justification { get; set; }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string Justification { get; set; }
+        public string OdataType { get; set; }
 #endif
-        /// <summary>The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn&apos;t reviewed. Read-only.</summary>
+        /// <summary>The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Identity? ReviewedBy { get; set; }
+        public List<UserSet>? PrimaryApprovers { get; set; }
 #nullable restore
 #else
-        public Identity ReviewedBy { get; set; }
+        public List<UserSet> PrimaryApprovers { get; set; }
 #endif
-        /// <summary>The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
-        public DateTimeOffset? ReviewedDateTime { get; set; }
-        /// <summary>The result of this approval record. Possible values include: NotReviewed, Approved, Denied.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReviewResult { get; set; }
-#nullable restore
-#else
-        public string ReviewResult { get; set; }
-#endif
-        /// <summary>The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        /// <summary>
+        /// Instantiates a new <see cref="ApprovalStage"/> and sets the default values.
+        /// </summary>
+        public ApprovalStage()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ApprovalStage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ApprovalStage CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ApprovalStage CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ApprovalStage();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"assignedToMe", n => { AssignedToMe = n.GetBoolValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"reviewResult", n => { ReviewResult = n.GetStringValue(); } },
-                {"reviewedBy", n => { ReviewedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"reviewedDateTime", n => { ReviewedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
+                {"approvalStageTimeOutInDays", n => { ApprovalStageTimeOutInDays = n.GetIntValue(); } },
+                {"escalationApprovers", n => { EscalationApprovers = n.GetCollectionOfObjectValues<UserSet>(UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"escalationTimeInMinutes", n => { EscalationTimeInMinutes = n.GetIntValue(); } },
+                {"isApproverJustificationRequired", n => { IsApproverJustificationRequired = n.GetBoolValue(); } },
+                {"isEscalationEnabled", n => { IsEscalationEnabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"primaryApprovers", n => { PrimaryApprovers = n.GetCollectionOfObjectValues<UserSet>(UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
-            writer.WriteBoolValue("assignedToMe", AssignedToMe);
-            writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteStringValue("justification", Justification);
-            writer.WriteObjectValue<Identity>("reviewedBy", ReviewedBy);
-            writer.WriteDateTimeOffsetValue("reviewedDateTime", ReviewedDateTime);
-            writer.WriteStringValue("reviewResult", ReviewResult);
-            writer.WriteStringValue("status", Status);
+            writer.WriteIntValue("approvalStageTimeOutInDays", ApprovalStageTimeOutInDays);
+            writer.WriteCollectionOfObjectValues<UserSet>("escalationApprovers", EscalationApprovers);
+            writer.WriteIntValue("escalationTimeInMinutes", EscalationTimeInMinutes);
+            writer.WriteBoolValue("isApproverJustificationRequired", IsApproverJustificationRequired);
+            writer.WriteBoolValue("isEscalationEnabled", IsEscalationEnabled);
+            writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<UserSet>("primaryApprovers", PrimaryApprovers);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

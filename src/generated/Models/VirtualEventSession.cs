@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class VirtualEventSession : OnlineMeetingBase, IParsable {
-        /// <summary>The virtual event session end time.</summary>
+    public class VirtualEventSession : OnlineMeetingBase, IParsable 
+    {
+        /// <summary>The endDateTime property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? EndDateTime { get; set; }
@@ -14,7 +15,23 @@ namespace ApiSdk.Models {
 #else
         public DateTimeTimeZone EndDateTime { get; set; }
 #endif
-        /// <summary>The virtual event session start time.</summary>
+        /// <summary>The presenters property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<VirtualEventPresenter>? Presenters { get; set; }
+#nullable restore
+#else
+        public List<VirtualEventPresenter> Presenters { get; set; }
+#endif
+        /// <summary>The registrations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<VirtualEventRegistration>? Registrations { get; set; }
+#nullable restore
+#else
+        public List<VirtualEventRegistration> Registrations { get; set; }
+#endif
+        /// <summary>The startDateTime property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime { get; set; }
@@ -23,25 +40,33 @@ namespace ApiSdk.Models {
         public DateTimeTimeZone StartDateTime { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new virtualEventSession and sets the default values.
+        /// Instantiates a new <see cref="VirtualEventSession"/> and sets the default values.
         /// </summary>
-        public VirtualEventSession() : base() {
+        public VirtualEventSession() : base()
+        {
             OdataType = "#microsoft.graph.virtualEventSession";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="VirtualEventSession"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventSession CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new VirtualEventSession CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new VirtualEventSession();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                {"presenters", n => { Presenters = n.GetCollectionOfObjectValues<VirtualEventPresenter>(VirtualEventPresenter.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
             };
         }
@@ -49,10 +74,13 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<DateTimeTimeZone>("endDateTime", EndDateTime);
+            writer.WriteCollectionOfObjectValues<VirtualEventPresenter>("presenters", Presenters);
+            writer.WriteCollectionOfObjectValues<VirtualEventRegistration>("registrations", Registrations);
             writer.WriteObjectValue<DateTimeTimeZone>("startDateTime", StartDateTime);
         }
     }

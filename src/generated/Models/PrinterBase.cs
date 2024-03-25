@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PrinterBase : Entity, IParsable {
-        /// <summary>The capabilities of the printer/printerShare.</summary>
+    public class PrinterBase : Entity, IParsable 
+    {
+        /// <summary>The capabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PrinterCapabilities? Capabilities { get; set; }
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public PrinterCapabilities Capabilities { get; set; }
 #endif
-        /// <summary>The default print settings of printer/printerShare.</summary>
+        /// <summary>The defaults property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PrinterDefaults? Defaults { get; set; }
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public PrinterDefaults Defaults { get; set; }
 #endif
-        /// <summary>The name of the printer/printerShare.</summary>
+        /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -30,9 +31,9 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Specifies whether the printer/printerShare is currently accepting new print jobs.</summary>
+        /// <summary>The isAcceptingJobs property</summary>
         public bool? IsAcceptingJobs { get; set; }
-        /// <summary>The list of jobs that are queued for printing by the printer/printerShare.</summary>
+        /// <summary>The jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrintJob>? Jobs { get; set; }
@@ -40,7 +41,7 @@ namespace ApiSdk.Models {
 #else
         public List<PrintJob> Jobs { get; set; }
 #endif
-        /// <summary>The physical and/or organizational location of the printer/printerShare.</summary>
+        /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PrinterLocation? Location { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public PrinterLocation Location { get; set; }
 #endif
-        /// <summary>The manufacturer of the printer/printerShare.</summary>
+        /// <summary>The manufacturer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Manufacturer { get; set; }
@@ -56,13 +57,21 @@ namespace ApiSdk.Models {
 #else
         public string Manufacturer { get; set; }
 #endif
-        /// <summary>The model name of the printer/printerShare.</summary>
+        /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
 #nullable restore
 #else
         public string Model { get; set; }
+#endif
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,11 +84,14 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PrinterBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrinterBase CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new PrinterBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.printer" => new Printer(),
                 "#microsoft.graph.printerShare" => new PrinterShare(),
                 _ => new PrinterBase(),
@@ -88,8 +100,11 @@ namespace ApiSdk.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"capabilities", n => { Capabilities = n.GetObjectValue<PrinterCapabilities>(PrinterCapabilities.CreateFromDiscriminatorValue); } },
                 {"defaults", n => { Defaults = n.GetObjectValue<PrinterDefaults>(PrinterDefaults.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -98,6 +113,7 @@ namespace ApiSdk.Models {
                 {"location", n => { Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
                 {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 {"model", n => { Model = n.GetStringValue(); } },
+                {"name", n => { Name = n.GetStringValue(); } },
                 {"status", n => { Status = n.GetObjectValue<PrinterStatus>(PrinterStatus.CreateFromDiscriminatorValue); } },
             };
         }
@@ -105,7 +121,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<PrinterCapabilities>("capabilities", Capabilities);
@@ -116,6 +133,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<PrinterLocation>("location", Location);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<PrinterStatus>("status", Status);
         }
     }

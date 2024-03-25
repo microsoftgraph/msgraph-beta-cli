@@ -17,14 +17,16 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item.Terminate {
     /// <summary>
     /// Provides operations to call the terminate method.
     /// </summary>
-    public class TerminateRequestBuilder : BaseCliRequestBuilder {
+    public class TerminateRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Not yet documented
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-terminate?view=graph-rest-1.0" />
+        /// Invoke action terminate
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Not yet documented\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-terminate?view=graph-rest-1.0";
+            command.Description = "Invoke action terminate";
             var deviceManagementPartnerIdOption = new Option<string>("--device-management-partner-id", description: "The unique identifier of deviceManagementPartner") {
             };
             deviceManagementPartnerIdOption.IsRequired = true;
@@ -46,27 +48,32 @@ namespace ApiSdk.DeviceManagement.DeviceManagementPartners.Item.Terminate {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TerminateRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TerminateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TerminateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}/terminate", pathParameters) {
+        public TerminateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}/terminate", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TerminateRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TerminateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TerminateRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}/terminate", rawUrl) {
+        public TerminateRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}/terminate", rawUrl)
+        {
         }
         /// <summary>
-        /// Not yet documented
+        /// Invoke action terminate
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

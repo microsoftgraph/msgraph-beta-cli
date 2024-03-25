@@ -5,15 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Application : DirectoryObject, IParsable {
-        /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<AddIn>? AddIns { get; set; }
-#nullable restore
-#else
-        public List<AddIn> AddIns { get; set; }
-#endif
+    public class Application : DirectoryObject, IParsable 
+    {
         /// <summary>Specifies settings for an application that implements a web API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,21 +15,13 @@ namespace ApiSdk.Models {
 #else
         public ApiApplication Api { get; set; }
 #endif
-        /// <summary>The unique identifier for the application that is assigned to an application by Microsoft Entra ID. Not nullable. Read-only. Alternate key. Supports $filter (eq).</summary>
+        /// <summary>The unique identifier for the application that is assigned by Microsoft Entra ID. Not nullable. Read-only. Alternate key. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppId { get; set; }
 #nullable restore
 #else
         public string AppId { get; set; }
-#endif
-        /// <summary>Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApplicationTemplateId { get; set; }
-#nullable restore
-#else
-        public string ApplicationTemplateId { get; set; }
 #endif
         /// <summary>The appManagementPolicy applied to this application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,6 +39,14 @@ namespace ApiSdk.Models {
 #else
         public List<AppRole> AppRoles { get; set; }
 #endif
+        /// <summary>The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.  For more information about authentication behaviors, see Manage application authenticationBehaviors to avoid unverified use of email claims for user identification or authorization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.AuthenticationBehaviors? AuthenticationBehaviors { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.AuthenticationBehaviors AuthenticationBehaviors { get; set; }
+#endif
         /// <summary>Specifies the certification status of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +54,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public ApiSdk.Models.Certification Certification { get; set; }
+#endif
+        /// <summary>The connectorGroup the application is using with Microsoft Entra application proxy. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ConnectorGroup? ConnectorGroup { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ConnectorGroup ConnectorGroup { get; set; }
 #endif
         /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderby.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -72,7 +73,7 @@ namespace ApiSdk.Models {
 #else
         public DirectoryObject CreatedOnBehalfOf { get; set; }
 #endif
-        /// <summary>The defaultRedirectUri property</summary>
+        /// <summary>The default redirect URI. If specified and there&apos;s no explicit redirect URI in the sign-in request for SAML and OIDC flows, Microsoft Entra ID sends the token to this redirect URI. Microsoft Entra ID also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DefaultRedirectUri { get; set; }
@@ -80,7 +81,7 @@ namespace ApiSdk.Models {
 #else
         public string DefaultRedirectUri { get; set; }
 #endif
-        /// <summary>Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
+        /// <summary>Free text field to provide a description of the application object to end users. The maximum allowed size is 1,024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -120,7 +121,7 @@ namespace ApiSdk.Models {
 #else
         public List<FederatedIdentityCredential> FederatedIdentityCredentials { get; set; }
 #endif
-        /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Microsoft Entra roles), All (this gets all of the security groups, distribution groups, and Microsoft Entra directory roles that the signed-in user is a member of).</summary>
+        /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Microsoft Entra roles), All (this gets all security groups, distribution groups, and Microsoft Entra directory roles that the signed-in user is a member of).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupMembershipClaims { get; set; }
@@ -136,7 +137,7 @@ namespace ApiSdk.Models {
 #else
         public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
 #endif
-        /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you&apos;ll reference in your API&apos;s code, and it must be globally unique. You can use the default value provided, which is in the form api://&lt;application-client-id&gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
+        /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API&apos;s code, and it must be globally unique. You can use the default value provided, which is in the form api://&lt;application-client-id&gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? IdentifierUris { get; set; }
@@ -144,7 +145,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> IdentifierUris { get; set; }
 #endif
-        /// <summary>Basic profile information of the application such as  app&apos;s marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
+        /// <summary>Basic profile information of the application, such as it&apos;s marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public InformationalUrl? Info { get; set; }
@@ -154,7 +155,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Specifies whether this application supports device authentication without a user. The default is false.</summary>
         public bool? IsDeviceOnlyAuthSupported { get; set; }
-        /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.</summary>
+        /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can&apos;t determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.</summary>
         public bool? IsFallbackPublicClient { get; set; }
         /// <summary>The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -180,8 +181,14 @@ namespace ApiSdk.Models {
 #else
         public string Notes { get; set; }
 #endif
-        /// <summary>The oauth2RequirePostResponse property</summary>
-        public bool? Oauth2RequirePostResponse { get; set; }
+        /// <summary>Represents the set of properties required for configuring Application Proxy for this application. Configuring these properties allows you to publish your on-premises application for secure remote access.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.OnPremisesPublishing? OnPremisesPublishing { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.OnPremisesPublishing OnPremisesPublishing { get; set; }
+#endif
         /// <summary>Application developers can configure optional claims in their Microsoft Entra applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -222,7 +229,7 @@ namespace ApiSdk.Models {
 #else
         public PublicClientApplication PublicClient { get; set; }
 #endif
-        /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application&apos;s publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
+        /// <summary>The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PublisherDomain { get; set; }
@@ -262,7 +269,7 @@ namespace ApiSdk.Models {
 #else
         public string ServiceManagementReference { get; set; }
 #endif
-        /// <summary>Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.</summary>
+        /// <summary>Specifies whether sensitive properties of a multitenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.ServicePrincipalLockConfiguration? ServicePrincipalLockConfiguration { get; set; }
@@ -294,7 +301,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Synchronization Synchronization { get; set; }
 #endif
-        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.</summary>
+        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }
@@ -312,13 +319,21 @@ namespace ApiSdk.Models {
 #else
         public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
 #endif
-        /// <summary>The tokenLifetimePolicies property</summary>
+        /// <summary>The tokenLifetimePolicies assigned to this application. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TokenLifetimePolicy>? TokenLifetimePolicies { get; set; }
 #nullable restore
 #else
         public List<TokenLifetimePolicy> TokenLifetimePolicies { get; set; }
+#endif
+        /// <summary>The unique identifier that can be assigned to an application and used as an alternate key. Immutable. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueName { get; set; }
+#nullable restore
+#else
+        public string UniqueName { get; set; }
 #endif
         /// <summary>Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -336,32 +351,46 @@ namespace ApiSdk.Models {
 #else
         public WebApplication Web { get; set; }
 #endif
+        /// <summary>Specifies settings for apps running Microsoft Windows and published in the Microsoft Store or Xbox games store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WindowsApplication? Windows { get; set; }
+#nullable restore
+#else
+        public WindowsApplication Windows { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new application and sets the default values.
+        /// Instantiates a new <see cref="Application"/> and sets the default values.
         /// </summary>
-        public Application() : base() {
+        public Application() : base()
+        {
             OdataType = "#microsoft.graph.application";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Application"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Application CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Application CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Application();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"addIns", n => { AddIns = n.GetCollectionOfObjectValues<AddIn>(AddIn.CreateFromDiscriminatorValue)?.ToList(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"api", n => { Api = n.GetObjectValue<ApiApplication>(ApiApplication.CreateFromDiscriminatorValue); } },
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<AppManagementPolicy>(AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"appRoles", n => { AppRoles = n.GetCollectionOfObjectValues<AppRole>(AppRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
+                {"authenticationBehaviors", n => { AuthenticationBehaviors = n.GetObjectValue<ApiSdk.Models.AuthenticationBehaviors>(ApiSdk.Models.AuthenticationBehaviors.CreateFromDiscriminatorValue); } },
                 {"certification", n => { Certification = n.GetObjectValue<ApiSdk.Models.Certification>(ApiSdk.Models.Certification.CreateFromDiscriminatorValue); } },
+                {"connectorGroup", n => { ConnectorGroup = n.GetObjectValue<ApiSdk.Models.ConnectorGroup>(ApiSdk.Models.ConnectorGroup.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"defaultRedirectUri", n => { DefaultRedirectUri = n.GetStringValue(); } },
@@ -379,7 +408,7 @@ namespace ApiSdk.Models {
                 {"keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"logo", n => { Logo = n.GetByteArrayValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
-                {"oauth2RequirePostResponse", n => { Oauth2RequirePostResponse = n.GetBoolValue(); } },
+                {"onPremisesPublishing", n => { OnPremisesPublishing = n.GetObjectValue<ApiSdk.Models.OnPremisesPublishing>(ApiSdk.Models.OnPremisesPublishing.CreateFromDiscriminatorValue); } },
                 {"optionalClaims", n => { OptionalClaims = n.GetObjectValue<ApiSdk.Models.OptionalClaims>(ApiSdk.Models.OptionalClaims.CreateFromDiscriminatorValue); } },
                 {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"parentalControlSettings", n => { ParentalControlSettings = n.GetObjectValue<ApiSdk.Models.ParentalControlSettings>(ApiSdk.Models.ParentalControlSettings.CreateFromDiscriminatorValue); } },
@@ -398,24 +427,27 @@ namespace ApiSdk.Models {
                 {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"uniqueName", n => { UniqueName = n.GetStringValue(); } },
                 {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<ApiSdk.Models.VerifiedPublisher>(ApiSdk.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
                 {"web", n => { Web = n.GetObjectValue<WebApplication>(WebApplication.CreateFromDiscriminatorValue); } },
+                {"windows", n => { Windows = n.GetObjectValue<WindowsApplication>(WindowsApplication.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AddIn>("addIns", AddIns);
             writer.WriteObjectValue<ApiApplication>("api", Api);
             writer.WriteStringValue("appId", AppId);
-            writer.WriteStringValue("applicationTemplateId", ApplicationTemplateId);
             writer.WriteCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", AppManagementPolicies);
             writer.WriteCollectionOfObjectValues<AppRole>("appRoles", AppRoles);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationBehaviors>("authenticationBehaviors", AuthenticationBehaviors);
             writer.WriteObjectValue<ApiSdk.Models.Certification>("certification", Certification);
+            writer.WriteObjectValue<ApiSdk.Models.ConnectorGroup>("connectorGroup", ConnectorGroup);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<DirectoryObject>("createdOnBehalfOf", CreatedOnBehalfOf);
             writer.WriteStringValue("defaultRedirectUri", DefaultRedirectUri);
@@ -433,7 +465,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<KeyCredential>("keyCredentials", KeyCredentials);
             writer.WriteByteArrayValue("logo", Logo);
             writer.WriteStringValue("notes", Notes);
-            writer.WriteBoolValue("oauth2RequirePostResponse", Oauth2RequirePostResponse);
+            writer.WriteObjectValue<ApiSdk.Models.OnPremisesPublishing>("onPremisesPublishing", OnPremisesPublishing);
             writer.WriteObjectValue<ApiSdk.Models.OptionalClaims>("optionalClaims", OptionalClaims);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("owners", Owners);
             writer.WriteObjectValue<ApiSdk.Models.ParentalControlSettings>("parentalControlSettings", ParentalControlSettings);
@@ -452,8 +484,10 @@ namespace ApiSdk.Models {
             writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
+            writer.WriteStringValue("uniqueName", UniqueName);
             writer.WriteObjectValue<ApiSdk.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
             writer.WriteObjectValue<WebApplication>("web", Web);
+            writer.WriteObjectValue<WindowsApplication>("windows", Windows);
         }
     }
 }

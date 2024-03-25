@@ -6,7 +6,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Sort.Apply {
-    public class ApplyPostRequestBody : IAdditionalDataHolder, IParsable {
+    public class ApplyPostRequestBody : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fields property</summary>
@@ -28,24 +29,30 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Sort.Apply {
         public string Method { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new applyPostRequestBody and sets the default values.
+        /// Instantiates a new <see cref="ApplyPostRequestBody"/> and sets the default values.
         /// </summary>
-        public ApplyPostRequestBody() {
+        public ApplyPostRequestBody()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ApplyPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApplyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ApplyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ApplyPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"fields", n => { Fields = n.GetCollectionOfObjectValues<WorkbookSortField>(WorkbookSortField.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"matchCase", n => { MatchCase = n.GetBoolValue(); } },
                 {"method", n => { Method = n.GetStringValue(); } },
@@ -55,7 +62,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Sort.Apply {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<WorkbookSortField>("fields", Fields);
             writer.WriteBoolValue("matchCase", MatchCase);

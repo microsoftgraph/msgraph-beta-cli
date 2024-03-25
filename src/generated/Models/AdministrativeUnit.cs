@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class AdministrativeUnit : DirectoryObject, IParsable {
+    public class AdministrativeUnit : DirectoryObject, IParsable 
+    {
         /// <summary>An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +31,8 @@ namespace ApiSdk.Models {
 #else
         public List<Extension> Extensions { get; set; }
 #endif
+        /// <summary>true if members of this administrative unit should be treated as sensitive, which requires specific permissions to manage. Default value is false. Use this property to define administrative units whose roles don&apos;t inherit from tenant-level administrators, and management of individual member objects is limited to administrators scoped to a restricted management administrative unit. Immutable, so can&apos;t be changed later.  For more information about working with restricted management administrative units, see Restricted management administrative units in Microsoft Entra ID.</summary>
+        public bool? IsMemberManagementRestricted { get; set; }
         /// <summary>Users and groups that are members of this administrative unit. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +40,30 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<DirectoryObject> Members { get; set; }
+#endif
+        /// <summary>Dynamic membership rule for the administrative unit. For more about the rules that you can use for dynamic administrative units and dynamic groups, see Using attributes to create advanced rules.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MembershipRule { get; set; }
+#nullable restore
+#else
+        public string MembershipRule { get; set; }
+#endif
+        /// <summary>Used to control whether the dynamic membership rule is actively processed. Set to On when you want the dynamic membership rule to be active and Paused if you want to stop updating membership dynamically. If not set, the default behavior is Paused.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MembershipRuleProcessingState { get; set; }
+#nullable restore
+#else
+        public string MembershipRuleProcessingState { get; set; }
+#endif
+        /// <summary>Membership type for the administrative unit. Can be dynamic or assigned. If not set, the default behavior is assigned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MembershipType { get; set; }
+#nullable restore
+#else
+        public string MembershipType { get; set; }
 #endif
         /// <summary>Scoped-role members of this administrative unit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +73,7 @@ namespace ApiSdk.Models {
 #else
         public List<ScopedRoleMembership> ScopedRoleMembers { get; set; }
 #endif
-        /// <summary>Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.</summary>
+        /// <summary>Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }
@@ -55,28 +82,38 @@ namespace ApiSdk.Models {
         public string Visibility { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new administrativeUnit and sets the default values.
+        /// Instantiates a new <see cref="AdministrativeUnit"/> and sets the default values.
         /// </summary>
-        public AdministrativeUnit() : base() {
+        public AdministrativeUnit() : base()
+        {
             OdataType = "#microsoft.graph.administrativeUnit";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AdministrativeUnit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AdministrativeUnit CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AdministrativeUnit CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AdministrativeUnit();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"isMemberManagementRestricted", n => { IsMemberManagementRestricted = n.GetBoolValue(); } },
                 {"members", n => { Members = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"membershipRule", n => { MembershipRule = n.GetStringValue(); } },
+                {"membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
+                {"membershipType", n => { MembershipType = n.GetStringValue(); } },
                 {"scopedRoleMembers", n => { ScopedRoleMembers = n.GetCollectionOfObjectValues<ScopedRoleMembership>(ScopedRoleMembership.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"visibility", n => { Visibility = n.GetStringValue(); } },
             };
@@ -85,13 +122,18 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
+            writer.WriteBoolValue("isMemberManagementRestricted", IsMemberManagementRestricted);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("members", Members);
+            writer.WriteStringValue("membershipRule", MembershipRule);
+            writer.WriteStringValue("membershipRuleProcessingState", MembershipRuleProcessingState);
+            writer.WriteStringValue("membershipType", MembershipType);
             writer.WriteCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMembers", ScopedRoleMembers);
             writer.WriteStringValue("visibility", Visibility);
         }

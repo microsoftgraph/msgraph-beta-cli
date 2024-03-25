@@ -21,12 +21,15 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
     /// <summary>
     /// Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
     /// </summary>
-    public class BrowserSiteListItemRequestBuilder : BaseCliRequestBuilder {
+    public class BrowserSiteListItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete a browserSiteList object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete a browserSiteList object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
@@ -60,7 +63,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// Get a browserSiteList that contains browserSite and browserSharedCookie resources.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get a browserSiteList that contains browserSite and browserSharedCookie resources.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
@@ -111,7 +116,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// Update the properties of a browserSiteList object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of a browserSiteList object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
@@ -160,7 +167,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Provides operations to call the publish method.
         /// </summary>
-        public Command BuildPublishNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPublishNavCommand()
+        {
             var command = new Command("publish");
             command.Description = "Provides operations to call the publish method.";
             var builder = new PublishRequestBuilder(PathParameters);
@@ -175,7 +184,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
         /// </summary>
-        public Command BuildSharedCookiesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSharedCookiesNavCommand()
+        {
             var command = new Command("shared-cookies");
             command.Description = "Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.";
             var builder = new SharedCookiesRequestBuilder(PathParameters);
@@ -200,7 +211,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
         /// </summary>
-        public Command BuildSitesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSitesNavCommand()
+        {
             var command = new Command("sites");
             command.Description = "Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.";
             var builder = new SitesRequestBuilder(PathParameters);
@@ -223,29 +236,34 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new BrowserSiteListItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BrowserSiteListItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public BrowserSiteListItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}", pathParameters) {
+        public BrowserSiteListItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new BrowserSiteListItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="BrowserSiteListItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public BrowserSiteListItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}", rawUrl) {
+        public BrowserSiteListItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete a browserSiteList object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -253,13 +271,16 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Get a browserSiteList that contains browserSite and browserSharedCookie resources.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -269,17 +290,20 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Update the properties of a browserSiteList object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -287,7 +311,8 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Get a browserSiteList that contains browserSite and browserSharedCookie resources.
         /// </summary>
-        public class BrowserSiteListItemRequestBuilderGetQueryParameters {
+        public class BrowserSiteListItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

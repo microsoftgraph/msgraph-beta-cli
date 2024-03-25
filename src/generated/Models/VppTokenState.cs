@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Possible states associated with an Apple Volume Purchase Program token.</summary>
-    public enum VppTokenState {
+    public enum VppTokenState
+    {
         /// <summary>Default state.</summary>
         [EnumMember(Value = "unknown")]
         Unknown,
@@ -19,5 +20,8 @@ namespace ApiSdk.Models {
         /// <summary>Token is managed by another MDM Service.</summary>
         [EnumMember(Value = "assignedToExternalMDM")]
         AssignedToExternalMDM,
+        /// <summary>Token is associated with the same location as another token on the account.</summary>
+        [EnumMember(Value = "duplicateLocationId")]
+        DuplicateLocationId,
     }
 }

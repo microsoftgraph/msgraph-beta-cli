@@ -9,15 +9,42 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10GeneralConfiguration resource.
     /// </summary>
-    public class Windows10GeneralConfiguration : DeviceConfiguration, IParsable {
+    public class Windows10GeneralConfiguration : DeviceConfiguration, IParsable 
+    {
         /// <summary>Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.</summary>
         public bool? AccountsBlockAddingNonMicrosoftAccountEmail { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? ActivateAppsWithVoice { get; set; }
         /// <summary>Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).</summary>
         public bool? AntiTheftModeBlocked { get; set; }
+        /// <summary>This policy setting permits users to change installation options that typically are available only to system administrators.</summary>
+        public bool? AppManagementMSIAllowUserControlOverInstall { get; set; }
+        /// <summary>This policy setting directs Windows Installer to use elevated permissions when it installs any program on the system.</summary>
+        public bool? AppManagementMSIAlwaysInstallWithElevatedPrivileges { get; set; }
+        /// <summary>List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AppManagementPackageFamilyNamesToLaunchAfterLogOn { get; set; }
+#nullable restore
+#else
+        public List<string> AppManagementPackageFamilyNamesToLaunchAfterLogOn { get; set; }
+#endif
         /// <summary>State Management Setting.</summary>
         public StateManagementSetting? AppsAllowTrustedAppsSideloading { get; set; }
         /// <summary>Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.</summary>
         public bool? AppsBlockWindowsStoreOriginatedApps { get; set; }
+        /// <summary>Allows secondary authentication devices to work with Windows.</summary>
+        public bool? AuthenticationAllowSecondaryDevice { get; set; }
+        /// <summary>Specifies the preferred domain among available domains in the Azure AD tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AuthenticationPreferredAzureADTenantDomainName { get; set; }
+#nullable restore
+#else
+        public string AuthenticationPreferredAzureADTenantDomainName { get; set; }
+#endif
+        /// <summary>Possible values of a property</summary>
+        public Enablement? AuthenticationWebSignIn { get; set; }
         /// <summary>Specify a list of allowed Bluetooth services and profiles in hex formatted strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +61,8 @@ namespace ApiSdk.Models {
         public bool? BluetoothBlocked { get; set; }
         /// <summary>Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.</summary>
         public bool? BluetoothBlockPrePairing { get; set; }
+        /// <summary>Whether or not to block the users from using Swift Pair and other proximity based scenarios.</summary>
+        public bool? BluetoothBlockPromptedProximalConnections { get; set; }
         /// <summary>Whether or not to Block the user from accessing the camera of the device.</summary>
         public bool? CameraBlocked { get; set; }
         /// <summary>Whether or not to Block the user from using data over cellular while roaming.</summary>
@@ -42,18 +71,38 @@ namespace ApiSdk.Models {
         public bool? CellularBlockVpn { get; set; }
         /// <summary>Whether or not to Block the user from using VPN when roaming over cellular.</summary>
         public bool? CellularBlockVpnWhenRoaming { get; set; }
+        /// <summary>Possible values of the ConfigurationUsage list.</summary>
+        public ConfigurationUsage? CellularData { get; set; }
         /// <summary>Whether or not to Block the user from doing manual root certificate installation.</summary>
         public bool? CertificatesBlockManualRootCertificateInstallation { get; set; }
+        /// <summary>Specifies the time zone to be applied to the device. This is the standard Windows name for the target time zone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConfigureTimeZone { get; set; }
+#nullable restore
+#else
+        public string ConfigureTimeZone { get; set; }
+#endif
         /// <summary>Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.</summary>
         public bool? ConnectedDevicesServiceBlocked { get; set; }
         /// <summary>Whether or not to Block the user from using copy paste.</summary>
         public bool? CopyPasteBlocked { get; set; }
         /// <summary>Whether or not to Block the user from using Cortana.</summary>
         public bool? CortanaBlocked { get; set; }
+        /// <summary>Specify whether to allow or disallow the Federal Information Processing Standard (FIPS) policy.</summary>
+        public bool? CryptographyAllowFipsAlgorithmPolicy { get; set; }
+        /// <summary>This policy setting allows you to block direct memory access (DMA) for all hot pluggable PCI downstream ports until a user logs into Windows.</summary>
+        public bool? DataProtectionBlockDirectMemoryAccess { get; set; }
         /// <summary>Whether or not to block end user access to Defender.</summary>
         public bool? DefenderBlockEndUserAccess { get; set; }
+        /// <summary>Allows or disallows Windows Defender On Access Protection functionality.</summary>
+        public bool? DefenderBlockOnAccessProtection { get; set; }
         /// <summary>Possible values of Cloud Block Level</summary>
         public DefenderCloudBlockLevelType? DefenderCloudBlockLevel { get; set; }
+        /// <summary>Timeout extension for file scanning by the cloud. Valid values 0 to 50</summary>
+        public int? DefenderCloudExtendedTimeout { get; set; }
+        /// <summary>Timeout extension for file scanning by the cloud. Valid values 0 to 50</summary>
+        public int? DefenderCloudExtendedTimeoutInSeconds { get; set; }
         /// <summary>Number of days before deleting quarantined malware. Valid values 0 to 90</summary>
         public int? DefenderDaysBeforeDeletingQuarantinedMalware { get; set; }
         /// <summary>Gets or sets Defender’s actions to take on detected Malware per threat level.</summary>
@@ -64,6 +113,10 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.DefenderDetectedMalwareActions DefenderDetectedMalwareActions { get; set; }
 #endif
+        /// <summary>When blocked, catch-up scans for scheduled full scans will be turned off.</summary>
+        public bool? DefenderDisableCatchupFullScan { get; set; }
+        /// <summary>When blocked, catch-up scans for scheduled quick scans will be turned off.</summary>
+        public bool? DefenderDisableCatchupQuickScan { get; set; }
         /// <summary>File extensions to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +135,10 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Possible values for monitoring file activity.</summary>
         public ApiSdk.Models.DefenderMonitorFileActivity? DefenderMonitorFileActivity { get; set; }
+        /// <summary>Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.</summary>
+        public ApiSdk.Models.DefenderPotentiallyUnwantedAppAction? DefenderPotentiallyUnwantedAppAction { get; set; }
+        /// <summary>Possible values of Defender PUA Protection</summary>
+        public DefenderProtectionType? DefenderPotentiallyUnwantedAppActionSetting { get; set; }
         /// <summary>Processes to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,8 +179,12 @@ namespace ApiSdk.Models {
         public Time? DefenderScheduledQuickScanTime { get; set; }
         /// <summary>The defender time for the system scan.</summary>
         public Time? DefenderScheduledScanTime { get; set; }
+        /// <summary>When enabled, low CPU priority will be used during scheduled scans.</summary>
+        public bool? DefenderScheduleScanEnableLowCpuPriority { get; set; }
         /// <summary>The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24</summary>
         public int? DefenderSignatureUpdateIntervalInHours { get; set; }
+        /// <summary>Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.</summary>
+        public ApiSdk.Models.DefenderSubmitSamplesConsentType? DefenderSubmitSamplesConsentType { get; set; }
         /// <summary>Possible values for a weekly schedule.</summary>
         public WeeklySchedule? DefenderSystemScanSchedule { get; set; }
         /// <summary>State Management Setting.</summary>
@@ -134,6 +195,22 @@ namespace ApiSdk.Models {
         public bool? DeviceManagementBlockManualUnenroll { get; set; }
         /// <summary>Allow the device to send diagnostic and usage telemetry data, such as Watson.</summary>
         public DiagnosticDataSubmissionMode? DiagnosticsDataSubmissionMode { get; set; }
+        /// <summary>List of legacy applications that have GDI DPI Scaling turned off.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DisplayAppListWithGdiDPIScalingTurnedOff { get; set; }
+#nullable restore
+#else
+        public List<string> DisplayAppListWithGdiDPIScalingTurnedOff { get; set; }
+#endif
+        /// <summary>List of legacy applications that have GDI DPI Scaling turned on.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DisplayAppListWithGdiDPIScalingTurnedOn { get; set; }
+#nullable restore
+#else
+        public List<string> DisplayAppListWithGdiDPIScalingTurnedOn { get; set; }
+#endif
         /// <summary>Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.</summary>
         public bool? EdgeAllowStartPagesModification { get; set; }
         /// <summary>Indicates whether or not to prevent access to about flags on Edge browser.</summary>
@@ -148,8 +225,12 @@ namespace ApiSdk.Models {
         public bool? EdgeBlockDeveloperTools { get; set; }
         /// <summary>Indicates whether or not to Block the user from using the Edge browser.</summary>
         public bool? EdgeBlocked { get; set; }
+        /// <summary>Indicates whether or not to Block the user from making changes to Favorites.</summary>
+        public bool? EdgeBlockEditFavorites { get; set; }
         /// <summary>Indicates whether or not to block extensions in the Edge browser.</summary>
         public bool? EdgeBlockExtensions { get; set; }
+        /// <summary>Allow or prevent Edge from entering the full screen mode.</summary>
+        public bool? EdgeBlockFullScreenMode { get; set; }
         /// <summary>Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.</summary>
         public bool? EdgeBlockInPrivateBrowsing { get; set; }
         /// <summary>Indicates whether or not to Block the user from using JavaScript.</summary>
@@ -160,12 +241,26 @@ namespace ApiSdk.Models {
         public bool? EdgeBlockPasswordManager { get; set; }
         /// <summary>Indicates whether or not to block popups.</summary>
         public bool? EdgeBlockPopups { get; set; }
+        /// <summary>Decide whether Microsoft Edge is prelaunched at Windows startup.</summary>
+        public bool? EdgeBlockPrelaunch { get; set; }
+        /// <summary>Configure Edge to allow or block printing.</summary>
+        public bool? EdgeBlockPrinting { get; set; }
+        /// <summary>Configure Edge to allow browsing history to be saved or to never save browsing history.</summary>
+        public bool? EdgeBlockSavingHistory { get; set; }
+        /// <summary>Indicates whether or not to block the user from adding new search engine or changing the default search engine.</summary>
+        public bool? EdgeBlockSearchEngineCustomization { get; set; }
         /// <summary>Indicates whether or not to block the user from using the search suggestions in the address bar.</summary>
         public bool? EdgeBlockSearchSuggestions { get; set; }
         /// <summary>Indicates whether or not to Block the user from sending the do not track header.</summary>
         public bool? EdgeBlockSendingDoNotTrackHeader { get; set; }
         /// <summary>Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.</summary>
         public bool? EdgeBlockSendingIntranetTrafficToInternetExplorer { get; set; }
+        /// <summary>Indicates whether the user can sideload extensions.</summary>
+        public bool? EdgeBlockSideloadingExtensions { get; set; }
+        /// <summary>Configure whether Edge preloads the new tab page at Windows startup.</summary>
+        public bool? EdgeBlockTabPreloading { get; set; }
+        /// <summary>Configure to load a blank page in Edge instead of the default New tab page and prevent users from changing it.</summary>
+        public bool? EdgeBlockWebContentOnNewTabPage { get; set; }
         /// <summary>Clear browsing data on exiting Microsoft Edge.</summary>
         public bool? EdgeClearBrowsingDataOnExit { get; set; }
         /// <summary>Possible values to specify which cookies are allowed in Microsoft Edge.</summary>
@@ -180,6 +275,16 @@ namespace ApiSdk.Models {
 #else
         public string EdgeEnterpriseModeSiteListLocation { get; set; }
 #endif
+        /// <summary>Generic visibility state.</summary>
+        public VisibilitySetting? EdgeFavoritesBarVisibility { get; set; }
+        /// <summary>The location of the favorites list to provision. Could be a local file, local network or http location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EdgeFavoritesListLocation { get; set; }
+#nullable restore
+#else
+        public string EdgeFavoritesListLocation { get; set; }
+#endif
         /// <summary>The first run URL for when Edge browser is opened for the first time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -188,6 +293,16 @@ namespace ApiSdk.Models {
 #else
         public string EdgeFirstRunUrl { get; set; }
 #endif
+        /// <summary>Causes the Home button to either hide, load the default Start page, load a New tab page, or a custom URL</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.EdgeHomeButtonConfiguration? EdgeHomeButtonConfiguration { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.EdgeHomeButtonConfiguration EdgeHomeButtonConfiguration { get; set; }
+#endif
+        /// <summary>Enable the Home button configuration.</summary>
+        public bool? EdgeHomeButtonConfigurationEnabled { get; set; }
         /// <summary>The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -195,6 +310,30 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<string> EdgeHomepageUrls { get; set; }
+#endif
+        /// <summary>Specify how the Microsoft Edge settings are restricted based on kiosk mode.</summary>
+        public EdgeKioskModeRestrictionType? EdgeKioskModeRestriction { get; set; }
+        /// <summary>Specifies the time in minutes from the last user activity before Microsoft Edge kiosk resets.  Valid values are 0-1440. The default is 5. 0 indicates no reset. Valid values 0 to 1440</summary>
+        public int? EdgeKioskResetAfterIdleTimeInMinutes { get; set; }
+        /// <summary>Specify the page opened when new tabs are created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EdgeNewTabPageURL { get; set; }
+#nullable restore
+#else
+        public string EdgeNewTabPageURL { get; set; }
+#endif
+        /// <summary>Possible values for the EdgeOpensWith setting.</summary>
+        public EdgeOpenOptions? EdgeOpensWith { get; set; }
+        /// <summary>Allow or prevent users from overriding certificate errors.</summary>
+        public bool? EdgePreventCertificateErrorOverride { get; set; }
+        /// <summary>Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? EdgeRequiredExtensionPackageFamilyNames { get; set; }
+#nullable restore
+#else
+        public List<string> EdgeRequiredExtensionPackageFamilyNames { get; set; }
 #endif
         /// <summary>Indicates whether or not to Require the user to use the smart screen filter.</summary>
         public bool? EdgeRequireSmartScreen { get; set; }
@@ -208,8 +347,18 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.</summary>
         public bool? EdgeSendIntranetTrafficToInternetExplorer { get; set; }
+        /// <summary>What message will be displayed by Edge before switching to Internet Explorer.</summary>
+        public InternetExplorerMessageSetting? EdgeShowMessageWhenOpeningInternetExplorerSites { get; set; }
         /// <summary>Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.</summary>
         public bool? EdgeSyncFavoritesWithInternetExplorer { get; set; }
+        /// <summary>Type of browsing data sent to Microsoft 365 analytics</summary>
+        public EdgeTelemetryMode? EdgeTelemetryForMicrosoft365Analytics { get; set; }
+        /// <summary>Allow users with administrative rights to delete all user data and settings using CTRL + Win + R at the device lock screen so that the device can be automatically re-configured and re-enrolled into management.</summary>
+        public bool? EnableAutomaticRedeployment { get; set; }
+        /// <summary>This setting allows you to specify battery charge level at which Energy Saver is turned on. While on battery, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100</summary>
+        public int? EnergySaverOnBatteryThresholdPercentage { get; set; }
+        /// <summary>This setting allows you to specify battery charge level at which Energy Saver is turned on. While plugged in, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100</summary>
+        public int? EnergySaverPluggedInThresholdPercentage { get; set; }
         /// <summary>Endpoint for discovering cloud printers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -258,12 +407,24 @@ namespace ApiSdk.Models {
         public bool? ExperienceBlockErrorDialogWhenNoSIM { get; set; }
         /// <summary>Indicates whether or not to enable task switching on the device.</summary>
         public bool? ExperienceBlockTaskSwitcher { get; set; }
+        /// <summary>Allow(Not Configured) or prevent(Block) the syncing of Microsoft Edge Browser settings. Option to prevent syncing across devices, but allow user override.</summary>
+        public BrowserSyncSetting? ExperienceDoNotSyncBrowserSettings { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? FindMyFiles { get; set; }
         /// <summary>Indicates whether or not to block DVR and broadcasting.</summary>
         public bool? GameDvrBlocked { get; set; }
+        /// <summary>Values for the InkWorkspaceAccess setting.</summary>
+        public InkAccessSetting? InkWorkspaceAccess { get; set; }
+        /// <summary>State Management Setting.</summary>
+        public StateManagementSetting? InkWorkspaceAccessState { get; set; }
+        /// <summary>Specify whether to show recommended app suggestions in the ink workspace.</summary>
+        public bool? InkWorkspaceBlockSuggestedApps { get; set; }
         /// <summary>Indicates whether or not to Block the user from using internet sharing.</summary>
         public bool? InternetSharingBlocked { get; set; }
         /// <summary>Indicates whether or not to Block the user from location services.</summary>
         public bool? LocationServicesBlocked { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? LockScreenActivateAppsWithVoice { get; set; }
         /// <summary>Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.</summary>
         public bool? LockScreenAllowTimeoutConfiguration { get; set; }
         /// <summary>Indicates whether or not to block action center notifications over lock screen.</summary>
@@ -276,10 +437,18 @@ namespace ApiSdk.Models {
         public int? LockScreenTimeoutInSeconds { get; set; }
         /// <summary>Disables the ability to quickly switch between users that are logged on simultaneously without logging off.</summary>
         public bool? LogonBlockFastUserSwitching { get; set; }
+        /// <summary>Indicates whether or not to block the MMS send/receive functionality on the device.</summary>
+        public bool? MessagingBlockMMS { get; set; }
+        /// <summary>Indicates whether or not to block the RCS send/receive functionality on the device.</summary>
+        public bool? MessagingBlockRichCommunicationServices { get; set; }
+        /// <summary>Indicates whether or not to block text message back up and restore and Messaging Everywhere.</summary>
+        public bool? MessagingBlockSync { get; set; }
         /// <summary>Indicates whether or not to Block a Microsoft account.</summary>
         public bool? MicrosoftAccountBlocked { get; set; }
         /// <summary>Indicates whether or not to Block Microsoft account settings sync.</summary>
         public bool? MicrosoftAccountBlockSettingsSync { get; set; }
+        /// <summary>Values for the SignInAssistantSettings.</summary>
+        public SignInAssistantOptions? MicrosoftAccountSignInAssistantSettings { get; set; }
         /// <summary>If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.</summary>
         public bool? NetworkProxyApplySettingsDeviceWide { get; set; }
         /// <summary>Address to the proxy auto-config (PAC) script you want to use.</summary>
@@ -308,6 +477,8 @@ namespace ApiSdk.Models {
         public bool? PasswordBlockSimple { get; set; }
         /// <summary>The password expiration in days. Valid values 0 to 730</summary>
         public int? PasswordExpirationDays { get; set; }
+        /// <summary>This security setting determines the period of time (in days) that a password must be used before the user can change it. Valid values 0 to 998</summary>
+        public int? PasswordMinimumAgeInDays { get; set; }
         /// <summary>The number of character sets required in the password.</summary>
         public int? PasswordMinimumCharacterSetCount { get; set; }
         /// <summary>The minimum password length. Valid values 4 to 16</summary>
@@ -340,12 +511,60 @@ namespace ApiSdk.Models {
 #else
         public string PersonalizationLockScreenImageUrl { get; set; }
 #endif
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerButtonActionOnBattery { get; set; }
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerButtonActionPluggedIn { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? PowerHybridSleepOnBattery { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? PowerHybridSleepPluggedIn { get; set; }
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerLidCloseActionOnBattery { get; set; }
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerLidCloseActionPluggedIn { get; set; }
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerSleepButtonActionOnBattery { get; set; }
+        /// <summary>Power action types</summary>
+        public PowerActionType? PowerSleepButtonActionPluggedIn { get; set; }
+        /// <summary>Prevent user installation of additional printers from printers settings.</summary>
+        public bool? PrinterBlockAddition { get; set; }
+        /// <summary>Name (network host name) of an installed printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrinterDefaultName { get; set; }
+#nullable restore
+#else
+        public string PrinterDefaultName { get; set; }
+#endif
+        /// <summary>Automatically provision printers based on their names (network host names).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PrinterNames { get; set; }
+#nullable restore
+#else
+        public List<string> PrinterNames { get; set; }
+#endif
+        /// <summary>Indicates a list of applications with their access control levels over privacy data categories, and/or the default access levels per category. This collection can contain a maximum of 500 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WindowsPrivacyDataAccessControlItem>? PrivacyAccessControls { get; set; }
+#nullable restore
+#else
+        public List<WindowsPrivacyDataAccessControlItem> PrivacyAccessControls { get; set; }
+#endif
         /// <summary>State Management Setting.</summary>
         public StateManagementSetting? PrivacyAdvertisingId { get; set; }
         /// <summary>Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.</summary>
         public bool? PrivacyAutoAcceptPairingAndConsentPrompts { get; set; }
+        /// <summary>Blocks the usage of cloud based speech services for Cortana, Dictation, or Store applications.</summary>
+        public bool? PrivacyBlockActivityFeed { get; set; }
         /// <summary>Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.</summary>
         public bool? PrivacyBlockInputPersonalization { get; set; }
+        /// <summary>Blocks the shared experiences/discovery of recently used resources in task switcher etc.</summary>
+        public bool? PrivacyBlockPublishUserActivities { get; set; }
+        /// <summary>This policy prevents the privacy experience from launching during user logon for new and upgraded users.​</summary>
+        public bool? PrivacyDisableLaunchExperience { get; set; }
         /// <summary>Indicates whether or not to Block the user from reset protection mode.</summary>
         public bool? ResetProtectionModeBlocked { get; set; }
         /// <summary>Specifies what level of safe search (filtering adult content) is required</summary>
@@ -354,6 +573,8 @@ namespace ApiSdk.Models {
         public bool? ScreenCaptureBlocked { get; set; }
         /// <summary>Specifies if search can use diacritics.</summary>
         public bool? SearchBlockDiacritics { get; set; }
+        /// <summary>Indicates whether or not to block the web search.</summary>
+        public bool? SearchBlockWebResults { get; set; }
         /// <summary>Specifies whether to use automatic language detection when indexing content and properties.</summary>
         public bool? SearchDisableAutoLanguageDetection { get; set; }
         /// <summary>Indicates whether or not to disable the search indexer backoff feature.</summary>
@@ -362,10 +583,16 @@ namespace ApiSdk.Models {
         public bool? SearchDisableIndexingEncryptedItems { get; set; }
         /// <summary>Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.</summary>
         public bool? SearchDisableIndexingRemovableDrive { get; set; }
+        /// <summary>Specifies if search can use location information.</summary>
+        public bool? SearchDisableLocation { get; set; }
+        /// <summary>Specifies if search can use location information.</summary>
+        public bool? SearchDisableUseLocation { get; set; }
         /// <summary>Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.</summary>
         public bool? SearchEnableAutomaticIndexSizeManangement { get; set; }
         /// <summary>Indicates whether or not to block remote queries of this computer’s index.</summary>
         public bool? SearchEnableRemoteQueries { get; set; }
+        /// <summary>Specify whether to allow automatic device encryption during OOBE when the device is Azure AD joined (desktop only).</summary>
+        public bool? SecurityBlockAzureADJoinedDevicesAutoEncryption { get; set; }
         /// <summary>Indicates whether or not to block access to Accounts in Settings app.</summary>
         public bool? SettingsBlockAccountsPage { get; set; }
         /// <summary>Indicates whether or not to block the user from installing provisioning packages.</summary>
@@ -406,6 +633,8 @@ namespace ApiSdk.Models {
         public bool? SettingsBlockUpdateSecurityPage { get; set; }
         /// <summary>Indicates whether or not to block multiple users of the same app to share data.</summary>
         public bool? SharedUserAppDataAllowed { get; set; }
+        /// <summary>App Install control Setting</summary>
+        public AppInstallControlType? SmartScreenAppInstallControl { get; set; }
         /// <summary>Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.</summary>
         public bool? SmartScreenBlockPromptOverride { get; set; }
         /// <summary>Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files</summary>
@@ -488,8 +717,20 @@ namespace ApiSdk.Models {
         public bool? StorageRestrictAppDataToSystemVolume { get; set; }
         /// <summary>Indicates whether the installation of applications is restricted to the system drive.</summary>
         public bool? StorageRestrictAppInstallToSystemVolume { get; set; }
+        /// <summary>Gets or sets the fully qualified domain name (FQDN) or IP address of a proxy server to forward Connected User Experiences and Telemetry requests.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemTelemetryProxyServer { get; set; }
+#nullable restore
+#else
+        public string SystemTelemetryProxyServer { get; set; }
+#endif
+        /// <summary>Specify whether non-administrators can use Task Manager to end tasks.</summary>
+        public bool? TaskManagerBlockEndTask { get; set; }
         /// <summary>Whether the device is required to connect to the network.</summary>
         public bool? TenantLockdownRequireNetworkDuringOutOfBoxExperience { get; set; }
+        /// <summary>Indicates whether or not to uninstall a fixed list of built-in Windows apps.</summary>
+        public bool? UninstallBuiltInApps { get; set; }
         /// <summary>Indicates whether or not to Block the user from USB connection.</summary>
         public bool? UsbBlocked { get; set; }
         /// <summary>Indicates whether or not to Block the user from voice recording.</summary>
@@ -504,6 +745,14 @@ namespace ApiSdk.Models {
         public bool? WiFiBlockManualConfiguration { get; set; }
         /// <summary>Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500</summary>
         public int? WiFiScanInterval { get; set; }
+        /// <summary>Windows 10 force update schedule for Apps.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.Windows10AppsForceUpdateSchedule? Windows10AppsForceUpdateSchedule { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.Windows10AppsForceUpdateSchedule Windows10AppsForceUpdateSchedule { get; set; }
+#endif
         /// <summary>Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.</summary>
         public bool? WindowsSpotlightBlockConsumerSpecificFeatures { get; set; }
         /// <summary>Allows IT admins to turn off all Windows Spotlight features</summary>
@@ -533,48 +782,73 @@ namespace ApiSdk.Models {
         /// <summary>Indicates whether or not to require a PIN for new devices to initiate pairing.</summary>
         public bool? WirelessDisplayRequirePinForPairing { get; set; }
         /// <summary>
-        /// Instantiates a new windows10GeneralConfiguration and sets the default values.
+        /// Instantiates a new <see cref="Windows10GeneralConfiguration"/> and sets the default values.
         /// </summary>
-        public Windows10GeneralConfiguration() : base() {
+        public Windows10GeneralConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.windows10GeneralConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Windows10GeneralConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10GeneralConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Windows10GeneralConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Windows10GeneralConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountsBlockAddingNonMicrosoftAccountEmail", n => { AccountsBlockAddingNonMicrosoftAccountEmail = n.GetBoolValue(); } },
+                {"activateAppsWithVoice", n => { ActivateAppsWithVoice = n.GetEnumValue<Enablement>(); } },
                 {"antiTheftModeBlocked", n => { AntiTheftModeBlocked = n.GetBoolValue(); } },
+                {"appManagementMSIAllowUserControlOverInstall", n => { AppManagementMSIAllowUserControlOverInstall = n.GetBoolValue(); } },
+                {"appManagementMSIAlwaysInstallWithElevatedPrivileges", n => { AppManagementMSIAlwaysInstallWithElevatedPrivileges = n.GetBoolValue(); } },
+                {"appManagementPackageFamilyNamesToLaunchAfterLogOn", n => { AppManagementPackageFamilyNamesToLaunchAfterLogOn = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"appsAllowTrustedAppsSideloading", n => { AppsAllowTrustedAppsSideloading = n.GetEnumValue<StateManagementSetting>(); } },
                 {"appsBlockWindowsStoreOriginatedApps", n => { AppsBlockWindowsStoreOriginatedApps = n.GetBoolValue(); } },
+                {"authenticationAllowSecondaryDevice", n => { AuthenticationAllowSecondaryDevice = n.GetBoolValue(); } },
+                {"authenticationPreferredAzureADTenantDomainName", n => { AuthenticationPreferredAzureADTenantDomainName = n.GetStringValue(); } },
+                {"authenticationWebSignIn", n => { AuthenticationWebSignIn = n.GetEnumValue<Enablement>(); } },
                 {"bluetoothAllowedServices", n => { BluetoothAllowedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"bluetoothBlockAdvertising", n => { BluetoothBlockAdvertising = n.GetBoolValue(); } },
                 {"bluetoothBlockDiscoverableMode", n => { BluetoothBlockDiscoverableMode = n.GetBoolValue(); } },
                 {"bluetoothBlockPrePairing", n => { BluetoothBlockPrePairing = n.GetBoolValue(); } },
+                {"bluetoothBlockPromptedProximalConnections", n => { BluetoothBlockPromptedProximalConnections = n.GetBoolValue(); } },
                 {"bluetoothBlocked", n => { BluetoothBlocked = n.GetBoolValue(); } },
                 {"cameraBlocked", n => { CameraBlocked = n.GetBoolValue(); } },
                 {"cellularBlockDataWhenRoaming", n => { CellularBlockDataWhenRoaming = n.GetBoolValue(); } },
                 {"cellularBlockVpn", n => { CellularBlockVpn = n.GetBoolValue(); } },
                 {"cellularBlockVpnWhenRoaming", n => { CellularBlockVpnWhenRoaming = n.GetBoolValue(); } },
+                {"cellularData", n => { CellularData = n.GetEnumValue<ConfigurationUsage>(); } },
                 {"certificatesBlockManualRootCertificateInstallation", n => { CertificatesBlockManualRootCertificateInstallation = n.GetBoolValue(); } },
+                {"configureTimeZone", n => { ConfigureTimeZone = n.GetStringValue(); } },
                 {"connectedDevicesServiceBlocked", n => { ConnectedDevicesServiceBlocked = n.GetBoolValue(); } },
                 {"copyPasteBlocked", n => { CopyPasteBlocked = n.GetBoolValue(); } },
                 {"cortanaBlocked", n => { CortanaBlocked = n.GetBoolValue(); } },
+                {"cryptographyAllowFipsAlgorithmPolicy", n => { CryptographyAllowFipsAlgorithmPolicy = n.GetBoolValue(); } },
+                {"dataProtectionBlockDirectMemoryAccess", n => { DataProtectionBlockDirectMemoryAccess = n.GetBoolValue(); } },
                 {"defenderBlockEndUserAccess", n => { DefenderBlockEndUserAccess = n.GetBoolValue(); } },
+                {"defenderBlockOnAccessProtection", n => { DefenderBlockOnAccessProtection = n.GetBoolValue(); } },
                 {"defenderCloudBlockLevel", n => { DefenderCloudBlockLevel = n.GetEnumValue<DefenderCloudBlockLevelType>(); } },
+                {"defenderCloudExtendedTimeout", n => { DefenderCloudExtendedTimeout = n.GetIntValue(); } },
+                {"defenderCloudExtendedTimeoutInSeconds", n => { DefenderCloudExtendedTimeoutInSeconds = n.GetIntValue(); } },
                 {"defenderDaysBeforeDeletingQuarantinedMalware", n => { DefenderDaysBeforeDeletingQuarantinedMalware = n.GetIntValue(); } },
                 {"defenderDetectedMalwareActions", n => { DefenderDetectedMalwareActions = n.GetObjectValue<ApiSdk.Models.DefenderDetectedMalwareActions>(ApiSdk.Models.DefenderDetectedMalwareActions.CreateFromDiscriminatorValue); } },
+                {"defenderDisableCatchupFullScan", n => { DefenderDisableCatchupFullScan = n.GetBoolValue(); } },
+                {"defenderDisableCatchupQuickScan", n => { DefenderDisableCatchupQuickScan = n.GetBoolValue(); } },
                 {"defenderFileExtensionsToExclude", n => { DefenderFileExtensionsToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderFilesAndFoldersToExclude", n => { DefenderFilesAndFoldersToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderMonitorFileActivity", n => { DefenderMonitorFileActivity = n.GetEnumValue<DefenderMonitorFileActivity>(); } },
+                {"defenderPotentiallyUnwantedAppAction", n => { DefenderPotentiallyUnwantedAppAction = n.GetEnumValue<DefenderPotentiallyUnwantedAppAction>(); } },
+                {"defenderPotentiallyUnwantedAppActionSetting", n => { DefenderPotentiallyUnwantedAppActionSetting = n.GetEnumValue<DefenderProtectionType>(); } },
                 {"defenderProcessesToExclude", n => { DefenderProcessesToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderPromptForSampleSubmission", n => { DefenderPromptForSampleSubmission = n.GetEnumValue<DefenderPromptForSampleSubmission>(); } },
                 {"defenderRequireBehaviorMonitoring", n => { DefenderRequireBehaviorMonitoring = n.GetBoolValue(); } },
@@ -590,40 +864,68 @@ namespace ApiSdk.Models {
                 {"defenderScanRemovableDrivesDuringFullScan", n => { DefenderScanRemovableDrivesDuringFullScan = n.GetBoolValue(); } },
                 {"defenderScanScriptsLoadedInInternetExplorer", n => { DefenderScanScriptsLoadedInInternetExplorer = n.GetBoolValue(); } },
                 {"defenderScanType", n => { DefenderScanType = n.GetEnumValue<DefenderScanType>(); } },
+                {"defenderScheduleScanEnableLowCpuPriority", n => { DefenderScheduleScanEnableLowCpuPriority = n.GetBoolValue(); } },
                 {"defenderScheduledQuickScanTime", n => { DefenderScheduledQuickScanTime = n.GetTimeValue(); } },
                 {"defenderScheduledScanTime", n => { DefenderScheduledScanTime = n.GetTimeValue(); } },
                 {"defenderSignatureUpdateIntervalInHours", n => { DefenderSignatureUpdateIntervalInHours = n.GetIntValue(); } },
+                {"defenderSubmitSamplesConsentType", n => { DefenderSubmitSamplesConsentType = n.GetEnumValue<DefenderSubmitSamplesConsentType>(); } },
                 {"defenderSystemScanSchedule", n => { DefenderSystemScanSchedule = n.GetEnumValue<WeeklySchedule>(); } },
                 {"developerUnlockSetting", n => { DeveloperUnlockSetting = n.GetEnumValue<StateManagementSetting>(); } },
                 {"deviceManagementBlockFactoryResetOnMobile", n => { DeviceManagementBlockFactoryResetOnMobile = n.GetBoolValue(); } },
                 {"deviceManagementBlockManualUnenroll", n => { DeviceManagementBlockManualUnenroll = n.GetBoolValue(); } },
                 {"diagnosticsDataSubmissionMode", n => { DiagnosticsDataSubmissionMode = n.GetEnumValue<DiagnosticDataSubmissionMode>(); } },
+                {"displayAppListWithGdiDPIScalingTurnedOff", n => { DisplayAppListWithGdiDPIScalingTurnedOff = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"displayAppListWithGdiDPIScalingTurnedOn", n => { DisplayAppListWithGdiDPIScalingTurnedOn = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"edgeAllowStartPagesModification", n => { EdgeAllowStartPagesModification = n.GetBoolValue(); } },
                 {"edgeBlockAccessToAboutFlags", n => { EdgeBlockAccessToAboutFlags = n.GetBoolValue(); } },
                 {"edgeBlockAddressBarDropdown", n => { EdgeBlockAddressBarDropdown = n.GetBoolValue(); } },
                 {"edgeBlockAutofill", n => { EdgeBlockAutofill = n.GetBoolValue(); } },
                 {"edgeBlockCompatibilityList", n => { EdgeBlockCompatibilityList = n.GetBoolValue(); } },
                 {"edgeBlockDeveloperTools", n => { EdgeBlockDeveloperTools = n.GetBoolValue(); } },
+                {"edgeBlockEditFavorites", n => { EdgeBlockEditFavorites = n.GetBoolValue(); } },
                 {"edgeBlockExtensions", n => { EdgeBlockExtensions = n.GetBoolValue(); } },
+                {"edgeBlockFullScreenMode", n => { EdgeBlockFullScreenMode = n.GetBoolValue(); } },
                 {"edgeBlockInPrivateBrowsing", n => { EdgeBlockInPrivateBrowsing = n.GetBoolValue(); } },
                 {"edgeBlockJavaScript", n => { EdgeBlockJavaScript = n.GetBoolValue(); } },
                 {"edgeBlockLiveTileDataCollection", n => { EdgeBlockLiveTileDataCollection = n.GetBoolValue(); } },
                 {"edgeBlockPasswordManager", n => { EdgeBlockPasswordManager = n.GetBoolValue(); } },
                 {"edgeBlockPopups", n => { EdgeBlockPopups = n.GetBoolValue(); } },
+                {"edgeBlockPrelaunch", n => { EdgeBlockPrelaunch = n.GetBoolValue(); } },
+                {"edgeBlockPrinting", n => { EdgeBlockPrinting = n.GetBoolValue(); } },
+                {"edgeBlockSavingHistory", n => { EdgeBlockSavingHistory = n.GetBoolValue(); } },
+                {"edgeBlockSearchEngineCustomization", n => { EdgeBlockSearchEngineCustomization = n.GetBoolValue(); } },
                 {"edgeBlockSearchSuggestions", n => { EdgeBlockSearchSuggestions = n.GetBoolValue(); } },
                 {"edgeBlockSendingDoNotTrackHeader", n => { EdgeBlockSendingDoNotTrackHeader = n.GetBoolValue(); } },
                 {"edgeBlockSendingIntranetTrafficToInternetExplorer", n => { EdgeBlockSendingIntranetTrafficToInternetExplorer = n.GetBoolValue(); } },
+                {"edgeBlockSideloadingExtensions", n => { EdgeBlockSideloadingExtensions = n.GetBoolValue(); } },
+                {"edgeBlockTabPreloading", n => { EdgeBlockTabPreloading = n.GetBoolValue(); } },
+                {"edgeBlockWebContentOnNewTabPage", n => { EdgeBlockWebContentOnNewTabPage = n.GetBoolValue(); } },
                 {"edgeBlocked", n => { EdgeBlocked = n.GetBoolValue(); } },
                 {"edgeClearBrowsingDataOnExit", n => { EdgeClearBrowsingDataOnExit = n.GetBoolValue(); } },
                 {"edgeCookiePolicy", n => { EdgeCookiePolicy = n.GetEnumValue<EdgeCookiePolicy>(); } },
                 {"edgeDisableFirstRunPage", n => { EdgeDisableFirstRunPage = n.GetBoolValue(); } },
                 {"edgeEnterpriseModeSiteListLocation", n => { EdgeEnterpriseModeSiteListLocation = n.GetStringValue(); } },
+                {"edgeFavoritesBarVisibility", n => { EdgeFavoritesBarVisibility = n.GetEnumValue<VisibilitySetting>(); } },
+                {"edgeFavoritesListLocation", n => { EdgeFavoritesListLocation = n.GetStringValue(); } },
                 {"edgeFirstRunUrl", n => { EdgeFirstRunUrl = n.GetStringValue(); } },
+                {"edgeHomeButtonConfiguration", n => { EdgeHomeButtonConfiguration = n.GetObjectValue<ApiSdk.Models.EdgeHomeButtonConfiguration>(ApiSdk.Models.EdgeHomeButtonConfiguration.CreateFromDiscriminatorValue); } },
+                {"edgeHomeButtonConfigurationEnabled", n => { EdgeHomeButtonConfigurationEnabled = n.GetBoolValue(); } },
                 {"edgeHomepageUrls", n => { EdgeHomepageUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"edgeKioskModeRestriction", n => { EdgeKioskModeRestriction = n.GetEnumValue<EdgeKioskModeRestrictionType>(); } },
+                {"edgeKioskResetAfterIdleTimeInMinutes", n => { EdgeKioskResetAfterIdleTimeInMinutes = n.GetIntValue(); } },
+                {"edgeNewTabPageURL", n => { EdgeNewTabPageURL = n.GetStringValue(); } },
+                {"edgeOpensWith", n => { EdgeOpensWith = n.GetEnumValue<EdgeOpenOptions>(); } },
+                {"edgePreventCertificateErrorOverride", n => { EdgePreventCertificateErrorOverride = n.GetBoolValue(); } },
                 {"edgeRequireSmartScreen", n => { EdgeRequireSmartScreen = n.GetBoolValue(); } },
+                {"edgeRequiredExtensionPackageFamilyNames", n => { EdgeRequiredExtensionPackageFamilyNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"edgeSearchEngine", n => { EdgeSearchEngine = n.GetObjectValue<EdgeSearchEngineBase>(EdgeSearchEngineBase.CreateFromDiscriminatorValue); } },
                 {"edgeSendIntranetTrafficToInternetExplorer", n => { EdgeSendIntranetTrafficToInternetExplorer = n.GetBoolValue(); } },
+                {"edgeShowMessageWhenOpeningInternetExplorerSites", n => { EdgeShowMessageWhenOpeningInternetExplorerSites = n.GetEnumValue<InternetExplorerMessageSetting>(); } },
                 {"edgeSyncFavoritesWithInternetExplorer", n => { EdgeSyncFavoritesWithInternetExplorer = n.GetBoolValue(); } },
+                {"edgeTelemetryForMicrosoft365Analytics", n => { EdgeTelemetryForMicrosoft365Analytics = n.GetEnumValue<EdgeTelemetryMode>(); } },
+                {"enableAutomaticRedeployment", n => { EnableAutomaticRedeployment = n.GetBoolValue(); } },
+                {"energySaverOnBatteryThresholdPercentage", n => { EnergySaverOnBatteryThresholdPercentage = n.GetIntValue(); } },
+                {"energySaverPluggedInThresholdPercentage", n => { EnergySaverPluggedInThresholdPercentage = n.GetIntValue(); } },
                 {"enterpriseCloudPrintDiscoveryEndPoint", n => { EnterpriseCloudPrintDiscoveryEndPoint = n.GetStringValue(); } },
                 {"enterpriseCloudPrintDiscoveryMaxLimit", n => { EnterpriseCloudPrintDiscoveryMaxLimit = n.GetIntValue(); } },
                 {"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier", n => { EnterpriseCloudPrintMopriaDiscoveryResourceIdentifier = n.GetStringValue(); } },
@@ -633,17 +935,27 @@ namespace ApiSdk.Models {
                 {"experienceBlockDeviceDiscovery", n => { ExperienceBlockDeviceDiscovery = n.GetBoolValue(); } },
                 {"experienceBlockErrorDialogWhenNoSIM", n => { ExperienceBlockErrorDialogWhenNoSIM = n.GetBoolValue(); } },
                 {"experienceBlockTaskSwitcher", n => { ExperienceBlockTaskSwitcher = n.GetBoolValue(); } },
+                {"experienceDoNotSyncBrowserSettings", n => { ExperienceDoNotSyncBrowserSettings = n.GetEnumValue<BrowserSyncSetting>(); } },
+                {"findMyFiles", n => { FindMyFiles = n.GetEnumValue<Enablement>(); } },
                 {"gameDvrBlocked", n => { GameDvrBlocked = n.GetBoolValue(); } },
+                {"inkWorkspaceAccess", n => { InkWorkspaceAccess = n.GetEnumValue<InkAccessSetting>(); } },
+                {"inkWorkspaceAccessState", n => { InkWorkspaceAccessState = n.GetEnumValue<StateManagementSetting>(); } },
+                {"inkWorkspaceBlockSuggestedApps", n => { InkWorkspaceBlockSuggestedApps = n.GetBoolValue(); } },
                 {"internetSharingBlocked", n => { InternetSharingBlocked = n.GetBoolValue(); } },
                 {"locationServicesBlocked", n => { LocationServicesBlocked = n.GetBoolValue(); } },
+                {"lockScreenActivateAppsWithVoice", n => { LockScreenActivateAppsWithVoice = n.GetEnumValue<Enablement>(); } },
                 {"lockScreenAllowTimeoutConfiguration", n => { LockScreenAllowTimeoutConfiguration = n.GetBoolValue(); } },
                 {"lockScreenBlockActionCenterNotifications", n => { LockScreenBlockActionCenterNotifications = n.GetBoolValue(); } },
                 {"lockScreenBlockCortana", n => { LockScreenBlockCortana = n.GetBoolValue(); } },
                 {"lockScreenBlockToastNotifications", n => { LockScreenBlockToastNotifications = n.GetBoolValue(); } },
                 {"lockScreenTimeoutInSeconds", n => { LockScreenTimeoutInSeconds = n.GetIntValue(); } },
                 {"logonBlockFastUserSwitching", n => { LogonBlockFastUserSwitching = n.GetBoolValue(); } },
+                {"messagingBlockMMS", n => { MessagingBlockMMS = n.GetBoolValue(); } },
+                {"messagingBlockRichCommunicationServices", n => { MessagingBlockRichCommunicationServices = n.GetBoolValue(); } },
+                {"messagingBlockSync", n => { MessagingBlockSync = n.GetBoolValue(); } },
                 {"microsoftAccountBlockSettingsSync", n => { MicrosoftAccountBlockSettingsSync = n.GetBoolValue(); } },
                 {"microsoftAccountBlocked", n => { MicrosoftAccountBlocked = n.GetBoolValue(); } },
+                {"microsoftAccountSignInAssistantSettings", n => { MicrosoftAccountSignInAssistantSettings = n.GetEnumValue<SignInAssistantOptions>(); } },
                 {"networkProxyApplySettingsDeviceWide", n => { NetworkProxyApplySettingsDeviceWide = n.GetBoolValue(); } },
                 {"networkProxyAutomaticConfigurationUrl", n => { NetworkProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
                 {"networkProxyDisableAutoDetect", n => { NetworkProxyDisableAutoDetect = n.GetBoolValue(); } },
@@ -652,6 +964,7 @@ namespace ApiSdk.Models {
                 {"oneDriveDisableFileSync", n => { OneDriveDisableFileSync = n.GetBoolValue(); } },
                 {"passwordBlockSimple", n => { PasswordBlockSimple = n.GetBoolValue(); } },
                 {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
+                {"passwordMinimumAgeInDays", n => { PasswordMinimumAgeInDays = n.GetIntValue(); } },
                 {"passwordMinimumCharacterSetCount", n => { PasswordMinimumCharacterSetCount = n.GetIntValue(); } },
                 {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
                 {"passwordMinutesOfInactivityBeforeScreenTimeout", n => { PasswordMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
@@ -662,19 +975,38 @@ namespace ApiSdk.Models {
                 {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
                 {"personalizationDesktopImageUrl", n => { PersonalizationDesktopImageUrl = n.GetStringValue(); } },
                 {"personalizationLockScreenImageUrl", n => { PersonalizationLockScreenImageUrl = n.GetStringValue(); } },
+                {"powerButtonActionOnBattery", n => { PowerButtonActionOnBattery = n.GetEnumValue<PowerActionType>(); } },
+                {"powerButtonActionPluggedIn", n => { PowerButtonActionPluggedIn = n.GetEnumValue<PowerActionType>(); } },
+                {"powerHybridSleepOnBattery", n => { PowerHybridSleepOnBattery = n.GetEnumValue<Enablement>(); } },
+                {"powerHybridSleepPluggedIn", n => { PowerHybridSleepPluggedIn = n.GetEnumValue<Enablement>(); } },
+                {"powerLidCloseActionOnBattery", n => { PowerLidCloseActionOnBattery = n.GetEnumValue<PowerActionType>(); } },
+                {"powerLidCloseActionPluggedIn", n => { PowerLidCloseActionPluggedIn = n.GetEnumValue<PowerActionType>(); } },
+                {"powerSleepButtonActionOnBattery", n => { PowerSleepButtonActionOnBattery = n.GetEnumValue<PowerActionType>(); } },
+                {"powerSleepButtonActionPluggedIn", n => { PowerSleepButtonActionPluggedIn = n.GetEnumValue<PowerActionType>(); } },
+                {"printerBlockAddition", n => { PrinterBlockAddition = n.GetBoolValue(); } },
+                {"printerDefaultName", n => { PrinterDefaultName = n.GetStringValue(); } },
+                {"printerNames", n => { PrinterNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"privacyAccessControls", n => { PrivacyAccessControls = n.GetCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>(WindowsPrivacyDataAccessControlItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"privacyAdvertisingId", n => { PrivacyAdvertisingId = n.GetEnumValue<StateManagementSetting>(); } },
                 {"privacyAutoAcceptPairingAndConsentPrompts", n => { PrivacyAutoAcceptPairingAndConsentPrompts = n.GetBoolValue(); } },
+                {"privacyBlockActivityFeed", n => { PrivacyBlockActivityFeed = n.GetBoolValue(); } },
                 {"privacyBlockInputPersonalization", n => { PrivacyBlockInputPersonalization = n.GetBoolValue(); } },
+                {"privacyBlockPublishUserActivities", n => { PrivacyBlockPublishUserActivities = n.GetBoolValue(); } },
+                {"privacyDisableLaunchExperience", n => { PrivacyDisableLaunchExperience = n.GetBoolValue(); } },
                 {"resetProtectionModeBlocked", n => { ResetProtectionModeBlocked = n.GetBoolValue(); } },
                 {"safeSearchFilter", n => { SafeSearchFilter = n.GetEnumValue<SafeSearchFilterType>(); } },
                 {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
                 {"searchBlockDiacritics", n => { SearchBlockDiacritics = n.GetBoolValue(); } },
+                {"searchBlockWebResults", n => { SearchBlockWebResults = n.GetBoolValue(); } },
                 {"searchDisableAutoLanguageDetection", n => { SearchDisableAutoLanguageDetection = n.GetBoolValue(); } },
                 {"searchDisableIndexerBackoff", n => { SearchDisableIndexerBackoff = n.GetBoolValue(); } },
                 {"searchDisableIndexingEncryptedItems", n => { SearchDisableIndexingEncryptedItems = n.GetBoolValue(); } },
                 {"searchDisableIndexingRemovableDrive", n => { SearchDisableIndexingRemovableDrive = n.GetBoolValue(); } },
+                {"searchDisableLocation", n => { SearchDisableLocation = n.GetBoolValue(); } },
+                {"searchDisableUseLocation", n => { SearchDisableUseLocation = n.GetBoolValue(); } },
                 {"searchEnableAutomaticIndexSizeManangement", n => { SearchEnableAutomaticIndexSizeManangement = n.GetBoolValue(); } },
                 {"searchEnableRemoteQueries", n => { SearchEnableRemoteQueries = n.GetBoolValue(); } },
+                {"securityBlockAzureADJoinedDevicesAutoEncryption", n => { SecurityBlockAzureADJoinedDevicesAutoEncryption = n.GetBoolValue(); } },
                 {"settingsBlockAccountsPage", n => { SettingsBlockAccountsPage = n.GetBoolValue(); } },
                 {"settingsBlockAddProvisioningPackage", n => { SettingsBlockAddProvisioningPackage = n.GetBoolValue(); } },
                 {"settingsBlockAppsPage", n => { SettingsBlockAppsPage = n.GetBoolValue(); } },
@@ -695,6 +1027,7 @@ namespace ApiSdk.Models {
                 {"settingsBlockTimeLanguagePage", n => { SettingsBlockTimeLanguagePage = n.GetBoolValue(); } },
                 {"settingsBlockUpdateSecurityPage", n => { SettingsBlockUpdateSecurityPage = n.GetBoolValue(); } },
                 {"sharedUserAppDataAllowed", n => { SharedUserAppDataAllowed = n.GetBoolValue(); } },
+                {"smartScreenAppInstallControl", n => { SmartScreenAppInstallControl = n.GetEnumValue<AppInstallControlType>(); } },
                 {"smartScreenBlockPromptOverride", n => { SmartScreenBlockPromptOverride = n.GetBoolValue(); } },
                 {"smartScreenBlockPromptOverrideForFiles", n => { SmartScreenBlockPromptOverrideForFiles = n.GetBoolValue(); } },
                 {"smartScreenEnableAppInstallControl", n => { SmartScreenEnableAppInstallControl = n.GetBoolValue(); } },
@@ -730,7 +1063,10 @@ namespace ApiSdk.Models {
                 {"storageRequireMobileDeviceEncryption", n => { StorageRequireMobileDeviceEncryption = n.GetBoolValue(); } },
                 {"storageRestrictAppDataToSystemVolume", n => { StorageRestrictAppDataToSystemVolume = n.GetBoolValue(); } },
                 {"storageRestrictAppInstallToSystemVolume", n => { StorageRestrictAppInstallToSystemVolume = n.GetBoolValue(); } },
+                {"systemTelemetryProxyServer", n => { SystemTelemetryProxyServer = n.GetStringValue(); } },
+                {"taskManagerBlockEndTask", n => { TaskManagerBlockEndTask = n.GetBoolValue(); } },
                 {"tenantLockdownRequireNetworkDuringOutOfBoxExperience", n => { TenantLockdownRequireNetworkDuringOutOfBoxExperience = n.GetBoolValue(); } },
+                {"uninstallBuiltInApps", n => { UninstallBuiltInApps = n.GetBoolValue(); } },
                 {"usbBlocked", n => { UsbBlocked = n.GetBoolValue(); } },
                 {"voiceRecordingBlocked", n => { VoiceRecordingBlocked = n.GetBoolValue(); } },
                 {"webRtcBlockLocalhostIpAddress", n => { WebRtcBlockLocalhostIpAddress = n.GetBoolValue(); } },
@@ -738,6 +1074,7 @@ namespace ApiSdk.Models {
                 {"wiFiBlockManualConfiguration", n => { WiFiBlockManualConfiguration = n.GetBoolValue(); } },
                 {"wiFiBlocked", n => { WiFiBlocked = n.GetBoolValue(); } },
                 {"wiFiScanInterval", n => { WiFiScanInterval = n.GetIntValue(); } },
+                {"windows10AppsForceUpdateSchedule", n => { Windows10AppsForceUpdateSchedule = n.GetObjectValue<ApiSdk.Models.Windows10AppsForceUpdateSchedule>(ApiSdk.Models.Windows10AppsForceUpdateSchedule.CreateFromDiscriminatorValue); } },
                 {"windowsSpotlightBlockConsumerSpecificFeatures", n => { WindowsSpotlightBlockConsumerSpecificFeatures = n.GetBoolValue(); } },
                 {"windowsSpotlightBlockOnActionCenter", n => { WindowsSpotlightBlockOnActionCenter = n.GetBoolValue(); } },
                 {"windowsSpotlightBlockTailoredExperiences", n => { WindowsSpotlightBlockTailoredExperiences = n.GetBoolValue(); } },
@@ -758,33 +1095,53 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("accountsBlockAddingNonMicrosoftAccountEmail", AccountsBlockAddingNonMicrosoftAccountEmail);
+            writer.WriteEnumValue<Enablement>("activateAppsWithVoice", ActivateAppsWithVoice);
             writer.WriteBoolValue("antiTheftModeBlocked", AntiTheftModeBlocked);
+            writer.WriteBoolValue("appManagementMSIAllowUserControlOverInstall", AppManagementMSIAllowUserControlOverInstall);
+            writer.WriteBoolValue("appManagementMSIAlwaysInstallWithElevatedPrivileges", AppManagementMSIAlwaysInstallWithElevatedPrivileges);
+            writer.WriteCollectionOfPrimitiveValues<string>("appManagementPackageFamilyNamesToLaunchAfterLogOn", AppManagementPackageFamilyNamesToLaunchAfterLogOn);
             writer.WriteEnumValue<StateManagementSetting>("appsAllowTrustedAppsSideloading", AppsAllowTrustedAppsSideloading);
             writer.WriteBoolValue("appsBlockWindowsStoreOriginatedApps", AppsBlockWindowsStoreOriginatedApps);
+            writer.WriteBoolValue("authenticationAllowSecondaryDevice", AuthenticationAllowSecondaryDevice);
+            writer.WriteStringValue("authenticationPreferredAzureADTenantDomainName", AuthenticationPreferredAzureADTenantDomainName);
+            writer.WriteEnumValue<Enablement>("authenticationWebSignIn", AuthenticationWebSignIn);
             writer.WriteCollectionOfPrimitiveValues<string>("bluetoothAllowedServices", BluetoothAllowedServices);
             writer.WriteBoolValue("bluetoothBlockAdvertising", BluetoothBlockAdvertising);
             writer.WriteBoolValue("bluetoothBlockDiscoverableMode", BluetoothBlockDiscoverableMode);
             writer.WriteBoolValue("bluetoothBlocked", BluetoothBlocked);
             writer.WriteBoolValue("bluetoothBlockPrePairing", BluetoothBlockPrePairing);
+            writer.WriteBoolValue("bluetoothBlockPromptedProximalConnections", BluetoothBlockPromptedProximalConnections);
             writer.WriteBoolValue("cameraBlocked", CameraBlocked);
             writer.WriteBoolValue("cellularBlockDataWhenRoaming", CellularBlockDataWhenRoaming);
             writer.WriteBoolValue("cellularBlockVpn", CellularBlockVpn);
             writer.WriteBoolValue("cellularBlockVpnWhenRoaming", CellularBlockVpnWhenRoaming);
+            writer.WriteEnumValue<ConfigurationUsage>("cellularData", CellularData);
             writer.WriteBoolValue("certificatesBlockManualRootCertificateInstallation", CertificatesBlockManualRootCertificateInstallation);
+            writer.WriteStringValue("configureTimeZone", ConfigureTimeZone);
             writer.WriteBoolValue("connectedDevicesServiceBlocked", ConnectedDevicesServiceBlocked);
             writer.WriteBoolValue("copyPasteBlocked", CopyPasteBlocked);
             writer.WriteBoolValue("cortanaBlocked", CortanaBlocked);
+            writer.WriteBoolValue("cryptographyAllowFipsAlgorithmPolicy", CryptographyAllowFipsAlgorithmPolicy);
+            writer.WriteBoolValue("dataProtectionBlockDirectMemoryAccess", DataProtectionBlockDirectMemoryAccess);
             writer.WriteBoolValue("defenderBlockEndUserAccess", DefenderBlockEndUserAccess);
+            writer.WriteBoolValue("defenderBlockOnAccessProtection", DefenderBlockOnAccessProtection);
             writer.WriteEnumValue<DefenderCloudBlockLevelType>("defenderCloudBlockLevel", DefenderCloudBlockLevel);
+            writer.WriteIntValue("defenderCloudExtendedTimeout", DefenderCloudExtendedTimeout);
+            writer.WriteIntValue("defenderCloudExtendedTimeoutInSeconds", DefenderCloudExtendedTimeoutInSeconds);
             writer.WriteIntValue("defenderDaysBeforeDeletingQuarantinedMalware", DefenderDaysBeforeDeletingQuarantinedMalware);
             writer.WriteObjectValue<ApiSdk.Models.DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", DefenderDetectedMalwareActions);
+            writer.WriteBoolValue("defenderDisableCatchupFullScan", DefenderDisableCatchupFullScan);
+            writer.WriteBoolValue("defenderDisableCatchupQuickScan", DefenderDisableCatchupQuickScan);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", DefenderFileExtensionsToExclude);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFilesAndFoldersToExclude", DefenderFilesAndFoldersToExclude);
             writer.WriteEnumValue<DefenderMonitorFileActivity>("defenderMonitorFileActivity", DefenderMonitorFileActivity);
+            writer.WriteEnumValue<DefenderPotentiallyUnwantedAppAction>("defenderPotentiallyUnwantedAppAction", DefenderPotentiallyUnwantedAppAction);
+            writer.WriteEnumValue<DefenderProtectionType>("defenderPotentiallyUnwantedAppActionSetting", DefenderPotentiallyUnwantedAppActionSetting);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderProcessesToExclude", DefenderProcessesToExclude);
             writer.WriteEnumValue<DefenderPromptForSampleSubmission>("defenderPromptForSampleSubmission", DefenderPromptForSampleSubmission);
             writer.WriteBoolValue("defenderRequireBehaviorMonitoring", DefenderRequireBehaviorMonitoring);
@@ -802,12 +1159,16 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<DefenderScanType>("defenderScanType", DefenderScanType);
             writer.WriteTimeValue("defenderScheduledQuickScanTime", DefenderScheduledQuickScanTime);
             writer.WriteTimeValue("defenderScheduledScanTime", DefenderScheduledScanTime);
+            writer.WriteBoolValue("defenderScheduleScanEnableLowCpuPriority", DefenderScheduleScanEnableLowCpuPriority);
             writer.WriteIntValue("defenderSignatureUpdateIntervalInHours", DefenderSignatureUpdateIntervalInHours);
+            writer.WriteEnumValue<DefenderSubmitSamplesConsentType>("defenderSubmitSamplesConsentType", DefenderSubmitSamplesConsentType);
             writer.WriteEnumValue<WeeklySchedule>("defenderSystemScanSchedule", DefenderSystemScanSchedule);
             writer.WriteEnumValue<StateManagementSetting>("developerUnlockSetting", DeveloperUnlockSetting);
             writer.WriteBoolValue("deviceManagementBlockFactoryResetOnMobile", DeviceManagementBlockFactoryResetOnMobile);
             writer.WriteBoolValue("deviceManagementBlockManualUnenroll", DeviceManagementBlockManualUnenroll);
             writer.WriteEnumValue<DiagnosticDataSubmissionMode>("diagnosticsDataSubmissionMode", DiagnosticsDataSubmissionMode);
+            writer.WriteCollectionOfPrimitiveValues<string>("displayAppListWithGdiDPIScalingTurnedOff", DisplayAppListWithGdiDPIScalingTurnedOff);
+            writer.WriteCollectionOfPrimitiveValues<string>("displayAppListWithGdiDPIScalingTurnedOn", DisplayAppListWithGdiDPIScalingTurnedOn);
             writer.WriteBoolValue("edgeAllowStartPagesModification", EdgeAllowStartPagesModification);
             writer.WriteBoolValue("edgeBlockAccessToAboutFlags", EdgeBlockAccessToAboutFlags);
             writer.WriteBoolValue("edgeBlockAddressBarDropdown", EdgeBlockAddressBarDropdown);
@@ -815,25 +1176,49 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("edgeBlockCompatibilityList", EdgeBlockCompatibilityList);
             writer.WriteBoolValue("edgeBlockDeveloperTools", EdgeBlockDeveloperTools);
             writer.WriteBoolValue("edgeBlocked", EdgeBlocked);
+            writer.WriteBoolValue("edgeBlockEditFavorites", EdgeBlockEditFavorites);
             writer.WriteBoolValue("edgeBlockExtensions", EdgeBlockExtensions);
+            writer.WriteBoolValue("edgeBlockFullScreenMode", EdgeBlockFullScreenMode);
             writer.WriteBoolValue("edgeBlockInPrivateBrowsing", EdgeBlockInPrivateBrowsing);
             writer.WriteBoolValue("edgeBlockJavaScript", EdgeBlockJavaScript);
             writer.WriteBoolValue("edgeBlockLiveTileDataCollection", EdgeBlockLiveTileDataCollection);
             writer.WriteBoolValue("edgeBlockPasswordManager", EdgeBlockPasswordManager);
             writer.WriteBoolValue("edgeBlockPopups", EdgeBlockPopups);
+            writer.WriteBoolValue("edgeBlockPrelaunch", EdgeBlockPrelaunch);
+            writer.WriteBoolValue("edgeBlockPrinting", EdgeBlockPrinting);
+            writer.WriteBoolValue("edgeBlockSavingHistory", EdgeBlockSavingHistory);
+            writer.WriteBoolValue("edgeBlockSearchEngineCustomization", EdgeBlockSearchEngineCustomization);
             writer.WriteBoolValue("edgeBlockSearchSuggestions", EdgeBlockSearchSuggestions);
             writer.WriteBoolValue("edgeBlockSendingDoNotTrackHeader", EdgeBlockSendingDoNotTrackHeader);
             writer.WriteBoolValue("edgeBlockSendingIntranetTrafficToInternetExplorer", EdgeBlockSendingIntranetTrafficToInternetExplorer);
+            writer.WriteBoolValue("edgeBlockSideloadingExtensions", EdgeBlockSideloadingExtensions);
+            writer.WriteBoolValue("edgeBlockTabPreloading", EdgeBlockTabPreloading);
+            writer.WriteBoolValue("edgeBlockWebContentOnNewTabPage", EdgeBlockWebContentOnNewTabPage);
             writer.WriteBoolValue("edgeClearBrowsingDataOnExit", EdgeClearBrowsingDataOnExit);
             writer.WriteEnumValue<EdgeCookiePolicy>("edgeCookiePolicy", EdgeCookiePolicy);
             writer.WriteBoolValue("edgeDisableFirstRunPage", EdgeDisableFirstRunPage);
             writer.WriteStringValue("edgeEnterpriseModeSiteListLocation", EdgeEnterpriseModeSiteListLocation);
+            writer.WriteEnumValue<VisibilitySetting>("edgeFavoritesBarVisibility", EdgeFavoritesBarVisibility);
+            writer.WriteStringValue("edgeFavoritesListLocation", EdgeFavoritesListLocation);
             writer.WriteStringValue("edgeFirstRunUrl", EdgeFirstRunUrl);
+            writer.WriteObjectValue<ApiSdk.Models.EdgeHomeButtonConfiguration>("edgeHomeButtonConfiguration", EdgeHomeButtonConfiguration);
+            writer.WriteBoolValue("edgeHomeButtonConfigurationEnabled", EdgeHomeButtonConfigurationEnabled);
             writer.WriteCollectionOfPrimitiveValues<string>("edgeHomepageUrls", EdgeHomepageUrls);
+            writer.WriteEnumValue<EdgeKioskModeRestrictionType>("edgeKioskModeRestriction", EdgeKioskModeRestriction);
+            writer.WriteIntValue("edgeKioskResetAfterIdleTimeInMinutes", EdgeKioskResetAfterIdleTimeInMinutes);
+            writer.WriteStringValue("edgeNewTabPageURL", EdgeNewTabPageURL);
+            writer.WriteEnumValue<EdgeOpenOptions>("edgeOpensWith", EdgeOpensWith);
+            writer.WriteBoolValue("edgePreventCertificateErrorOverride", EdgePreventCertificateErrorOverride);
+            writer.WriteCollectionOfPrimitiveValues<string>("edgeRequiredExtensionPackageFamilyNames", EdgeRequiredExtensionPackageFamilyNames);
             writer.WriteBoolValue("edgeRequireSmartScreen", EdgeRequireSmartScreen);
             writer.WriteObjectValue<EdgeSearchEngineBase>("edgeSearchEngine", EdgeSearchEngine);
             writer.WriteBoolValue("edgeSendIntranetTrafficToInternetExplorer", EdgeSendIntranetTrafficToInternetExplorer);
+            writer.WriteEnumValue<InternetExplorerMessageSetting>("edgeShowMessageWhenOpeningInternetExplorerSites", EdgeShowMessageWhenOpeningInternetExplorerSites);
             writer.WriteBoolValue("edgeSyncFavoritesWithInternetExplorer", EdgeSyncFavoritesWithInternetExplorer);
+            writer.WriteEnumValue<EdgeTelemetryMode>("edgeTelemetryForMicrosoft365Analytics", EdgeTelemetryForMicrosoft365Analytics);
+            writer.WriteBoolValue("enableAutomaticRedeployment", EnableAutomaticRedeployment);
+            writer.WriteIntValue("energySaverOnBatteryThresholdPercentage", EnergySaverOnBatteryThresholdPercentage);
+            writer.WriteIntValue("energySaverPluggedInThresholdPercentage", EnergySaverPluggedInThresholdPercentage);
             writer.WriteStringValue("enterpriseCloudPrintDiscoveryEndPoint", EnterpriseCloudPrintDiscoveryEndPoint);
             writer.WriteIntValue("enterpriseCloudPrintDiscoveryMaxLimit", EnterpriseCloudPrintDiscoveryMaxLimit);
             writer.WriteStringValue("enterpriseCloudPrintMopriaDiscoveryResourceIdentifier", EnterpriseCloudPrintMopriaDiscoveryResourceIdentifier);
@@ -843,17 +1228,27 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("experienceBlockDeviceDiscovery", ExperienceBlockDeviceDiscovery);
             writer.WriteBoolValue("experienceBlockErrorDialogWhenNoSIM", ExperienceBlockErrorDialogWhenNoSIM);
             writer.WriteBoolValue("experienceBlockTaskSwitcher", ExperienceBlockTaskSwitcher);
+            writer.WriteEnumValue<BrowserSyncSetting>("experienceDoNotSyncBrowserSettings", ExperienceDoNotSyncBrowserSettings);
+            writer.WriteEnumValue<Enablement>("findMyFiles", FindMyFiles);
             writer.WriteBoolValue("gameDvrBlocked", GameDvrBlocked);
+            writer.WriteEnumValue<InkAccessSetting>("inkWorkspaceAccess", InkWorkspaceAccess);
+            writer.WriteEnumValue<StateManagementSetting>("inkWorkspaceAccessState", InkWorkspaceAccessState);
+            writer.WriteBoolValue("inkWorkspaceBlockSuggestedApps", InkWorkspaceBlockSuggestedApps);
             writer.WriteBoolValue("internetSharingBlocked", InternetSharingBlocked);
             writer.WriteBoolValue("locationServicesBlocked", LocationServicesBlocked);
+            writer.WriteEnumValue<Enablement>("lockScreenActivateAppsWithVoice", LockScreenActivateAppsWithVoice);
             writer.WriteBoolValue("lockScreenAllowTimeoutConfiguration", LockScreenAllowTimeoutConfiguration);
             writer.WriteBoolValue("lockScreenBlockActionCenterNotifications", LockScreenBlockActionCenterNotifications);
             writer.WriteBoolValue("lockScreenBlockCortana", LockScreenBlockCortana);
             writer.WriteBoolValue("lockScreenBlockToastNotifications", LockScreenBlockToastNotifications);
             writer.WriteIntValue("lockScreenTimeoutInSeconds", LockScreenTimeoutInSeconds);
             writer.WriteBoolValue("logonBlockFastUserSwitching", LogonBlockFastUserSwitching);
+            writer.WriteBoolValue("messagingBlockMMS", MessagingBlockMMS);
+            writer.WriteBoolValue("messagingBlockRichCommunicationServices", MessagingBlockRichCommunicationServices);
+            writer.WriteBoolValue("messagingBlockSync", MessagingBlockSync);
             writer.WriteBoolValue("microsoftAccountBlocked", MicrosoftAccountBlocked);
             writer.WriteBoolValue("microsoftAccountBlockSettingsSync", MicrosoftAccountBlockSettingsSync);
+            writer.WriteEnumValue<SignInAssistantOptions>("microsoftAccountSignInAssistantSettings", MicrosoftAccountSignInAssistantSettings);
             writer.WriteBoolValue("networkProxyApplySettingsDeviceWide", NetworkProxyApplySettingsDeviceWide);
             writer.WriteStringValue("networkProxyAutomaticConfigurationUrl", NetworkProxyAutomaticConfigurationUrl);
             writer.WriteBoolValue("networkProxyDisableAutoDetect", NetworkProxyDisableAutoDetect);
@@ -862,6 +1257,7 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("oneDriveDisableFileSync", OneDriveDisableFileSync);
             writer.WriteBoolValue("passwordBlockSimple", PasswordBlockSimple);
             writer.WriteIntValue("passwordExpirationDays", PasswordExpirationDays);
+            writer.WriteIntValue("passwordMinimumAgeInDays", PasswordMinimumAgeInDays);
             writer.WriteIntValue("passwordMinimumCharacterSetCount", PasswordMinimumCharacterSetCount);
             writer.WriteIntValue("passwordMinimumLength", PasswordMinimumLength);
             writer.WriteIntValue("passwordMinutesOfInactivityBeforeScreenTimeout", PasswordMinutesOfInactivityBeforeScreenTimeout);
@@ -872,19 +1268,38 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
             writer.WriteStringValue("personalizationDesktopImageUrl", PersonalizationDesktopImageUrl);
             writer.WriteStringValue("personalizationLockScreenImageUrl", PersonalizationLockScreenImageUrl);
+            writer.WriteEnumValue<PowerActionType>("powerButtonActionOnBattery", PowerButtonActionOnBattery);
+            writer.WriteEnumValue<PowerActionType>("powerButtonActionPluggedIn", PowerButtonActionPluggedIn);
+            writer.WriteEnumValue<Enablement>("powerHybridSleepOnBattery", PowerHybridSleepOnBattery);
+            writer.WriteEnumValue<Enablement>("powerHybridSleepPluggedIn", PowerHybridSleepPluggedIn);
+            writer.WriteEnumValue<PowerActionType>("powerLidCloseActionOnBattery", PowerLidCloseActionOnBattery);
+            writer.WriteEnumValue<PowerActionType>("powerLidCloseActionPluggedIn", PowerLidCloseActionPluggedIn);
+            writer.WriteEnumValue<PowerActionType>("powerSleepButtonActionOnBattery", PowerSleepButtonActionOnBattery);
+            writer.WriteEnumValue<PowerActionType>("powerSleepButtonActionPluggedIn", PowerSleepButtonActionPluggedIn);
+            writer.WriteBoolValue("printerBlockAddition", PrinterBlockAddition);
+            writer.WriteStringValue("printerDefaultName", PrinterDefaultName);
+            writer.WriteCollectionOfPrimitiveValues<string>("printerNames", PrinterNames);
+            writer.WriteCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>("privacyAccessControls", PrivacyAccessControls);
             writer.WriteEnumValue<StateManagementSetting>("privacyAdvertisingId", PrivacyAdvertisingId);
             writer.WriteBoolValue("privacyAutoAcceptPairingAndConsentPrompts", PrivacyAutoAcceptPairingAndConsentPrompts);
+            writer.WriteBoolValue("privacyBlockActivityFeed", PrivacyBlockActivityFeed);
             writer.WriteBoolValue("privacyBlockInputPersonalization", PrivacyBlockInputPersonalization);
+            writer.WriteBoolValue("privacyBlockPublishUserActivities", PrivacyBlockPublishUserActivities);
+            writer.WriteBoolValue("privacyDisableLaunchExperience", PrivacyDisableLaunchExperience);
             writer.WriteBoolValue("resetProtectionModeBlocked", ResetProtectionModeBlocked);
             writer.WriteEnumValue<SafeSearchFilterType>("safeSearchFilter", SafeSearchFilter);
             writer.WriteBoolValue("screenCaptureBlocked", ScreenCaptureBlocked);
             writer.WriteBoolValue("searchBlockDiacritics", SearchBlockDiacritics);
+            writer.WriteBoolValue("searchBlockWebResults", SearchBlockWebResults);
             writer.WriteBoolValue("searchDisableAutoLanguageDetection", SearchDisableAutoLanguageDetection);
             writer.WriteBoolValue("searchDisableIndexerBackoff", SearchDisableIndexerBackoff);
             writer.WriteBoolValue("searchDisableIndexingEncryptedItems", SearchDisableIndexingEncryptedItems);
             writer.WriteBoolValue("searchDisableIndexingRemovableDrive", SearchDisableIndexingRemovableDrive);
+            writer.WriteBoolValue("searchDisableLocation", SearchDisableLocation);
+            writer.WriteBoolValue("searchDisableUseLocation", SearchDisableUseLocation);
             writer.WriteBoolValue("searchEnableAutomaticIndexSizeManangement", SearchEnableAutomaticIndexSizeManangement);
             writer.WriteBoolValue("searchEnableRemoteQueries", SearchEnableRemoteQueries);
+            writer.WriteBoolValue("securityBlockAzureADJoinedDevicesAutoEncryption", SecurityBlockAzureADJoinedDevicesAutoEncryption);
             writer.WriteBoolValue("settingsBlockAccountsPage", SettingsBlockAccountsPage);
             writer.WriteBoolValue("settingsBlockAddProvisioningPackage", SettingsBlockAddProvisioningPackage);
             writer.WriteBoolValue("settingsBlockAppsPage", SettingsBlockAppsPage);
@@ -905,6 +1320,7 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("settingsBlockTimeLanguagePage", SettingsBlockTimeLanguagePage);
             writer.WriteBoolValue("settingsBlockUpdateSecurityPage", SettingsBlockUpdateSecurityPage);
             writer.WriteBoolValue("sharedUserAppDataAllowed", SharedUserAppDataAllowed);
+            writer.WriteEnumValue<AppInstallControlType>("smartScreenAppInstallControl", SmartScreenAppInstallControl);
             writer.WriteBoolValue("smartScreenBlockPromptOverride", SmartScreenBlockPromptOverride);
             writer.WriteBoolValue("smartScreenBlockPromptOverrideForFiles", SmartScreenBlockPromptOverrideForFiles);
             writer.WriteBoolValue("smartScreenEnableAppInstallControl", SmartScreenEnableAppInstallControl);
@@ -940,7 +1356,10 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("storageRequireMobileDeviceEncryption", StorageRequireMobileDeviceEncryption);
             writer.WriteBoolValue("storageRestrictAppDataToSystemVolume", StorageRestrictAppDataToSystemVolume);
             writer.WriteBoolValue("storageRestrictAppInstallToSystemVolume", StorageRestrictAppInstallToSystemVolume);
+            writer.WriteStringValue("systemTelemetryProxyServer", SystemTelemetryProxyServer);
+            writer.WriteBoolValue("taskManagerBlockEndTask", TaskManagerBlockEndTask);
             writer.WriteBoolValue("tenantLockdownRequireNetworkDuringOutOfBoxExperience", TenantLockdownRequireNetworkDuringOutOfBoxExperience);
+            writer.WriteBoolValue("uninstallBuiltInApps", UninstallBuiltInApps);
             writer.WriteBoolValue("usbBlocked", UsbBlocked);
             writer.WriteBoolValue("voiceRecordingBlocked", VoiceRecordingBlocked);
             writer.WriteBoolValue("webRtcBlockLocalhostIpAddress", WebRtcBlockLocalhostIpAddress);
@@ -948,6 +1367,7 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("wiFiBlocked", WiFiBlocked);
             writer.WriteBoolValue("wiFiBlockManualConfiguration", WiFiBlockManualConfiguration);
             writer.WriteIntValue("wiFiScanInterval", WiFiScanInterval);
+            writer.WriteObjectValue<ApiSdk.Models.Windows10AppsForceUpdateSchedule>("windows10AppsForceUpdateSchedule", Windows10AppsForceUpdateSchedule);
             writer.WriteBoolValue("windowsSpotlightBlockConsumerSpecificFeatures", WindowsSpotlightBlockConsumerSpecificFeatures);
             writer.WriteBoolValue("windowsSpotlightBlocked", WindowsSpotlightBlocked);
             writer.WriteBoolValue("windowsSpotlightBlockOnActionCenter", WindowsSpotlightBlockOnActionCenter);

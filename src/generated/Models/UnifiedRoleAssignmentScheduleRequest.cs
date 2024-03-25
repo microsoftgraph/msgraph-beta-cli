@@ -5,10 +5,17 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class UnifiedRoleAssignmentScheduleRequest : Request, IParsable {
+    public class UnifiedRoleAssignmentScheduleRequest : Request, IParsable 
+    {
         /// <summary>Represents the type of the operation on the role assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign roles to principals.adminRemove: For administrators to remove principals from roles. adminUpdate: For administrators to change existing role assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.selfExtend: For principals to request to extend their expiring assignments.selfRenew: For principals to request to renew their expired assignments.</summary>
-        public UnifiedRoleScheduleRequestActions? Action { get; set; }
-        /// <summary>If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it&apos;s null. Supports $expand.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Action { get; set; }
+#nullable restore
+#else
+        public string Action { get; set; }
+#endif
+        /// <summary>If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it&apos;s null. Supports $expand and $select nested in $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UnifiedRoleEligibilitySchedule? ActivatedUsing { get; set; }
@@ -58,7 +65,7 @@ namespace ApiSdk.Models {
 #else
         public string Justification { get; set; }
 #endif
-        /// <summary>The principal that&apos;s getting a role assignment through the request. Supports $expand.</summary>
+        /// <summary>The principal that&apos;s getting a role assignment through the request. Supports $expand and $select nested in $expand for id only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? Principal { get; set; }
@@ -74,7 +81,7 @@ namespace ApiSdk.Models {
 #else
         public string PrincipalId { get; set; }
 #endif
-        /// <summary>Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.</summary>
+        /// <summary>Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand and $select nested in $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UnifiedRoleDefinition? RoleDefinition { get; set; }
@@ -98,7 +105,7 @@ namespace ApiSdk.Models {
 #else
         public RequestSchedule ScheduleInfo { get; set; }
 #endif
-        /// <summary>The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.</summary>
+        /// <summary>The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand and $select nested in $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UnifiedRoleAssignmentSchedule? TargetSchedule { get; set; }
@@ -123,19 +130,31 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.TicketInfo TicketInfo { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="UnifiedRoleAssignmentScheduleRequest"/> and sets the default values.
+        /// </summary>
+        public UnifiedRoleAssignmentScheduleRequest() : base()
+        {
+            OdataType = "#microsoft.graph.unifiedRoleAssignmentScheduleRequest";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="UnifiedRoleAssignmentScheduleRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleAssignmentScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new UnifiedRoleAssignmentScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRoleAssignmentScheduleRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"action", n => { Action = n.GetEnumValue<UnifiedRoleScheduleRequestActions>(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"action", n => { Action = n.GetStringValue(); } },
                 {"activatedUsing", n => { ActivatedUsing = n.GetObjectValue<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
                 {"appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
                 {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
@@ -157,10 +176,11 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<UnifiedRoleScheduleRequestActions>("action", Action);
+            writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<UnifiedRoleEligibilitySchedule>("activatedUsing", ActivatedUsing);
             writer.WriteObjectValue<ApiSdk.Models.AppScope>("appScope", AppScope);
             writer.WriteStringValue("appScopeId", AppScopeId);

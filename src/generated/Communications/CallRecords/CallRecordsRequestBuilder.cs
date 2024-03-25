@@ -2,7 +2,10 @@
 using ApiSdk.Communications.CallRecords.Count;
 using ApiSdk.Communications.CallRecords.Item;
 using ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime;
+using ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime;
 using ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime;
+using ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime;
+using ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime;
 using ApiSdk.Models.CallRecords;
 using ApiSdk.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -22,16 +25,21 @@ namespace ApiSdk.Communications.CallRecords {
     /// <summary>
     /// Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class CallRecordsRequestBuilder : BaseCliRequestBuilder {
+    public class CallRecordsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new CallRecordItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
+            commands.Add(builder.BuildOrganizer_v2NavCommand());
+            commands.Add(builder.BuildParticipants_v2NavCommand());
             executables.Add(builder.BuildPatchCommand());
             commands.Add(builder.BuildSessionsNavCommand());
             return new(executables, commands);
@@ -39,7 +47,9 @@ namespace ApiSdk.Communications.CallRecords {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -54,7 +64,9 @@ namespace ApiSdk.Communications.CallRecords {
         /// <summary>
         /// Create new navigation property to callRecords for communications
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to callRecords for communications";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -95,11 +107,14 @@ namespace ApiSdk.Communications.CallRecords {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+        /// Get the list of callRecord objects and their properties. The results can be optionally filtered using the $filter query parameter on the startDateTime and participant id properties. Note that the listed call records don&apos;t include expandable relationships such as sessions and participants_v2. You can expand these relationships using Get callRecord for a specific record.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callrecords-cloudcommunications-list-callrecords?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.";
+            command.Description = "Get the list of callRecord objects and their properties. The results can be optionally filtered using the $filter query parameter on the startDateTime and participant id properties. Note that the listed call records don't include expandable relationships such as sessions and participants_v2. You can expand these relationships using Get callRecord for a specific record.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/callrecords-cloudcommunications-list-callrecords?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -189,7 +204,9 @@ namespace ApiSdk.Communications.CallRecords {
         /// <summary>
         /// Provides operations to call the getDirectRoutingCalls method.
         /// </summary>
-        public Command BuildMicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRbCommand()
+        {
             var command = new Command("microsoft-graph-call-records-get-direct-routing-calls-with-from-date-time-with-to-date-time");
             command.Description = "Provides operations to call the getDirectRoutingCalls method.";
             var builder = new MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters);
@@ -202,9 +219,28 @@ namespace ApiSdk.Communications.CallRecords {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the getPstnBlockedUsersLog method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRbCommand()
+        {
+            var command = new Command("microsoft-graph-call-records-get-pstn-blocked-users-log-with-from-date-time-with-to-date-time");
+            command.Description = "Provides operations to call the getPstnBlockedUsersLog method.";
+            var builder = new MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the getPstnCalls method.
         /// </summary>
-        public Command BuildMicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRbCommand()
+        {
             var command = new Command("microsoft-graph-call-records-get-pstn-calls-with-from-date-time-with-to-date-time");
             command.Description = "Provides operations to call the getPstnCalls method.";
             var builder = new MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters);
@@ -217,27 +253,66 @@ namespace ApiSdk.Communications.CallRecords {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CallRecordsRequestBuilder and sets the default values.
+        /// Provides operations to call the getPstnOnlineMeetingDialoutReport method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRbCommand()
+        {
+            var command = new Command("microsoft-graph-call-records-get-pstn-online-meeting-dialout-report-with-from-date-time-with-to-date-time");
+            command.Description = "Provides operations to call the getPstnOnlineMeetingDialoutReport method.";
+            var builder = new MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the getSmsLog method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRbCommand()
+        {
+            var command = new Command("microsoft-graph-call-records-get-sms-log-with-from-date-time-with-to-date-time");
+            command.Description = "Provides operations to call the getSmsLog method.";
+            var builder = new MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="CallRecordsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CallRecordsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public CallRecordsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/callRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CallRecordsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CallRecordsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CallRecordsRequestBuilder(string rawUrl) : base("{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public CallRecordsRequestBuilder(string rawUrl) : base("{+baseurl}/communications/callRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+        /// Get the list of callRecord objects and their properties. The results can be optionally filtered using the $filter query parameter on the startDateTime and participant id properties. Note that the listed call records don&apos;t include expandable relationships such as sessions and participants_v2. You can expand these relationships using Get callRecord for a specific record.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CallRecordsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CallRecordsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CallRecordsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CallRecordsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -247,25 +322,29 @@ namespace ApiSdk.Communications.CallRecords {
         /// <summary>
         /// Create new navigation property to callRecords for communications
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(CallRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(CallRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(CallRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(CallRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/communications/callRecords", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+        /// Get the list of callRecord objects and their properties. The results can be optionally filtered using the $filter query parameter on the startDateTime and participant id properties. Note that the listed call records don&apos;t include expandable relationships such as sessions and participants_v2. You can expand these relationships using Get callRecord for a specific record.
         /// </summary>
-        public class CallRecordsRequestBuilderGetQueryParameters {
+        public class CallRecordsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

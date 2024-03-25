@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
-    public class AlertEvidence : IAdditionalDataHolder, IParsable {
+    public class AlertEvidence : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -55,19 +56,23 @@ namespace ApiSdk.Models.Security {
         /// <summary>The verdict property</summary>
         public EvidenceVerdict? Verdict { get; set; }
         /// <summary>
-        /// Instantiates a new alertEvidence and sets the default values.
+        /// Instantiates a new <see cref="AlertEvidence"/> and sets the default values.
         /// </summary>
-        public AlertEvidence() {
+        public AlertEvidence()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AlertEvidence"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AlertEvidence CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static AlertEvidence CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
+            return mappingValue switch
+            {
                 "#microsoft.graph.security.amazonResourceEvidence" => new AmazonResourceEvidence(),
                 "#microsoft.graph.security.analyzedMessageEvidence" => new AnalyzedMessageEvidence(),
                 "#microsoft.graph.security.azureResourceEvidence" => new AzureResourceEvidence(),
@@ -78,7 +83,9 @@ namespace ApiSdk.Models.Security {
                 "#microsoft.graph.security.containerImageEvidence" => new ContainerImageEvidence(),
                 "#microsoft.graph.security.containerRegistryEvidence" => new ContainerRegistryEvidence(),
                 "#microsoft.graph.security.deviceEvidence" => new DeviceEvidence(),
+                "#microsoft.graph.security.dnsEvidence" => new DnsEvidence(),
                 "#microsoft.graph.security.fileEvidence" => new FileEvidence(),
+                "#microsoft.graph.security.fileHashEvidence" => new FileHashEvidence(),
                 "#microsoft.graph.security.gitHubOrganizationEvidence" => new GitHubOrganizationEvidence(),
                 "#microsoft.graph.security.gitHubRepoEvidence" => new GitHubRepoEvidence(),
                 "#microsoft.graph.security.gitHubUserEvidence" => new GitHubUserEvidence(),
@@ -93,6 +100,7 @@ namespace ApiSdk.Models.Security {
                 "#microsoft.graph.security.kubernetesSecretEvidence" => new KubernetesSecretEvidence(),
                 "#microsoft.graph.security.kubernetesServiceAccountEvidence" => new KubernetesServiceAccountEvidence(),
                 "#microsoft.graph.security.kubernetesServiceEvidence" => new KubernetesServiceEvidence(),
+                "#microsoft.graph.security.mailboxConfigurationEvidence" => new MailboxConfigurationEvidence(),
                 "#microsoft.graph.security.mailboxEvidence" => new MailboxEvidence(),
                 "#microsoft.graph.security.mailClusterEvidence" => new MailClusterEvidence(),
                 "#microsoft.graph.security.malwareEvidence" => new MalwareEvidence(),
@@ -114,8 +122,11 @@ namespace ApiSdk.Models.Security {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"detailedRoles", n => { DetailedRoles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -130,7 +141,8 @@ namespace ApiSdk.Models.Security {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("detailedRoles", DetailedRoles);

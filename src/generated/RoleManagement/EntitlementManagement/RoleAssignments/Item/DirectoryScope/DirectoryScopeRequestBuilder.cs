@@ -18,13 +18,16 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Direc
     /// <summary>
     /// Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleAssignment entity.
     /// </summary>
-    public class DirectoryScopeRequestBuilder : BaseCliRequestBuilder {
+    public class DirectoryScopeRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// The directory object that is the scope of the assignment. Read-only. Supports $expand.
+        /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "The directory object that is the scope of the assignment. Read-only. Supports $expand.";
+            command.Description = "The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.";
             var unifiedRoleAssignmentIdOption = new Option<string>("--unified-role-assignment-id", description: "The unique identifier of unifiedRoleAssignment") {
             };
             unifiedRoleAssignmentIdOption.IsRequired = true;
@@ -70,27 +73,32 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Direc
             return command;
         }
         /// <summary>
-        /// Instantiates a new DirectoryScopeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DirectoryScopeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public DirectoryScopeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment%2Did}/directoryScope{?%24select,%24expand}", pathParameters) {
+        public DirectoryScopeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment%2Did}/directoryScope{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new DirectoryScopeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="DirectoryScopeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public DirectoryScopeRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment%2Did}/directoryScope{?%24select,%24expand}", rawUrl) {
+        public DirectoryScopeRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment%2Did}/directoryScope{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// The directory object that is the scope of the assignment. Read-only. Supports $expand.
+        /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -98,9 +106,10 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Direc
             return requestInfo;
         }
         /// <summary>
-        /// The directory object that is the scope of the assignment. Read-only. Supports $expand.
+        /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// </summary>
-        public class DirectoryScopeRequestBuilderGetQueryParameters {
+        public class DirectoryScopeRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

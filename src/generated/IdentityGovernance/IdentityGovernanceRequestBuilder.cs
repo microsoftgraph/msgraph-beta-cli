@@ -3,7 +3,10 @@ using ApiSdk.IdentityGovernance.AccessReviews;
 using ApiSdk.IdentityGovernance.AppConsent;
 using ApiSdk.IdentityGovernance.EntitlementManagement;
 using ApiSdk.IdentityGovernance.LifecycleWorkflows;
+using ApiSdk.IdentityGovernance.PermissionsAnalytics;
+using ApiSdk.IdentityGovernance.PermissionsManagement;
 using ApiSdk.IdentityGovernance.PrivilegedAccess;
+using ApiSdk.IdentityGovernance.RoleManagementAlerts;
 using ApiSdk.IdentityGovernance.TermsOfUse;
 using ApiSdk.Models.IdentityGovernance;
 using ApiSdk.Models.ODataErrors;
@@ -24,21 +27,26 @@ namespace ApiSdk.IdentityGovernance {
     /// <summary>
     /// Provides operations to manage the identityGovernance singleton.
     /// </summary>
-    public class IdentityGovernanceRequestBuilder : BaseCliRequestBuilder {
+    public class IdentityGovernanceRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildAccessReviewsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAccessReviewsNavCommand()
+        {
             var command = new Command("access-reviews");
             command.Description = "Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.";
             var builder = new AccessReviewsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildDecisionsNavCommand());
             nonExecCommands.Add(builder.BuildDefinitionsNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildHistoryDefinitionsNavCommand());
             execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildPolicyNavCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
@@ -52,7 +60,9 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildAppConsentNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAppConsentNavCommand()
+        {
             var command = new Command("app-consent");
             command.Description = "Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.";
             var builder = new AppConsentRequestBuilder(PathParameters);
@@ -75,27 +85,33 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildEntitlementManagementNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildEntitlementManagementNavCommand()
+        {
             var command = new Command("entitlement-management");
             command.Description = "Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.";
             var builder = new EntitlementManagementRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAccessPackageAssignmentApprovalsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageAssignmentPoliciesNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageAssignmentRequestsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageAssignmentResourceRolesNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageAssignmentsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageCatalogsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageResourceEnvironmentsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageResourceRequestsNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageResourceRoleScopesNavCommand());
+            nonExecCommands.Add(builder.BuildAccessPackageResourcesNavCommand());
             nonExecCommands.Add(builder.BuildAccessPackagesNavCommand());
-            nonExecCommands.Add(builder.BuildAssignmentPoliciesNavCommand());
             nonExecCommands.Add(builder.BuildAssignmentRequestsNavCommand());
-            nonExecCommands.Add(builder.BuildAssignmentsNavCommand());
-            nonExecCommands.Add(builder.BuildCatalogsNavCommand());
             nonExecCommands.Add(builder.BuildConnectedOrganizationsNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
-            nonExecCommands.Add(builder.BuildResourceEnvironmentsNavCommand());
-            nonExecCommands.Add(builder.BuildResourceRequestsNavCommand());
-            nonExecCommands.Add(builder.BuildResourceRoleScopesNavCommand());
-            nonExecCommands.Add(builder.BuildResourcesNavCommand());
             nonExecCommands.Add(builder.BuildSettingsNavCommand());
+            nonExecCommands.Add(builder.BuildSubjectsNavCommand());
+            nonExecCommands.Add(builder.BuildSubjectsWithObjectIdRbCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
@@ -109,7 +125,9 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Get identityGovernance
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get identityGovernance";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -153,7 +171,9 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildLifecycleWorkflowsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLifecycleWorkflowsNavCommand()
+        {
             var command = new Command("lifecycle-workflows");
             command.Description = "Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.";
             var builder = new LifecycleWorkflowsRequestBuilder(PathParameters);
@@ -181,7 +201,9 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Update identityGovernance
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update identityGovernance";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -222,9 +244,65 @@ namespace ApiSdk.IdentityGovernance {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the permissionsAnalytics property of the microsoft.graph.identityGovernance entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPermissionsAnalyticsNavCommand()
+        {
+            var command = new Command("permissions-analytics");
+            command.Description = "Provides operations to manage the permissionsAnalytics property of the microsoft.graph.identityGovernance entity.";
+            var builder = new PermissionsAnalyticsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildAwsNavCommand());
+            nonExecCommands.Add(builder.BuildAzureNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
+            nonExecCommands.Add(builder.BuildGcpNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the permissionsManagement property of the microsoft.graph.identityGovernance entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPermissionsManagementNavCommand()
+        {
+            var command = new Command("permissions-management");
+            command.Description = "Provides operations to manage the permissionsManagement property of the microsoft.graph.identityGovernance entity.";
+            var builder = new PermissionsManagementRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildPermissionsRequestChangesNavCommand());
+            nonExecCommands.Add(builder.BuildScheduledPermissionsApprovalsNavCommand());
+            nonExecCommands.Add(builder.BuildScheduledPermissionsRequestsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the privilegedAccess property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildPrivilegedAccessNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPrivilegedAccessNavCommand()
+        {
             var command = new Command("privileged-access");
             command.Description = "Provides operations to manage the privilegedAccess property of the microsoft.graph.identityGovernance entity.";
             var builder = new PrivilegedAccessRequestBuilder(PathParameters);
@@ -245,9 +323,39 @@ namespace ApiSdk.IdentityGovernance {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the roleManagementAlerts property of the microsoft.graph.identityGovernance entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRoleManagementAlertsNavCommand()
+        {
+            var command = new Command("role-management-alerts");
+            command.Description = "Provides operations to manage the roleManagementAlerts property of the microsoft.graph.identityGovernance entity.";
+            var builder = new RoleManagementAlertsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildAlertConfigurationsNavCommand());
+            nonExecCommands.Add(builder.BuildAlertDefinitionsNavCommand());
+            nonExecCommands.Add(builder.BuildAlertsNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildOperationsNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
         /// </summary>
-        public Command BuildTermsOfUseNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTermsOfUseNavCommand()
+        {
             var command = new Command("terms-of-use");
             command.Description = "Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.";
             var builder = new TermsOfUseRequestBuilder(PathParameters);
@@ -269,27 +377,32 @@ namespace ApiSdk.IdentityGovernance {
             return command;
         }
         /// <summary>
-        /// Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityGovernanceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public IdentityGovernanceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance{?%24select,%24expand}", pathParameters) {
+        public IdentityGovernanceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityGovernanceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public IdentityGovernanceRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance{?%24select,%24expand}", rawUrl) {
+        public IdentityGovernanceRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityGovernanceRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityGovernanceRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityGovernanceRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityGovernanceRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -299,17 +412,20 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Update identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityGovernance.IdentityGovernance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityGovernance.IdentityGovernance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityGovernance.IdentityGovernance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityGovernance.IdentityGovernance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -317,7 +433,8 @@ namespace ApiSdk.IdentityGovernance {
         /// <summary>
         /// Get identityGovernance
         /// </summary>
-        public class IdentityGovernanceRequestBuilderGetQueryParameters {
+        public class IdentityGovernanceRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

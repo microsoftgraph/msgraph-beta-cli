@@ -18,11 +18,14 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates.Item.RelatedHosts.I
     /// <summary>
     /// Provides operations to manage the relatedHosts property of the microsoft.graph.security.sslCertificate entity.
     /// </summary>
-    public class HostItemRequestBuilder : BaseCliRequestBuilder {
+    public class HostItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The hosts related with this sslCertificate.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The hosts related with this sslCertificate.";
             var sslCertificateIdOption = new Option<string>("--ssl-certificate-id", description: "The unique identifier of sslCertificate") {
@@ -76,27 +79,32 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates.Item.RelatedHosts.I
             return command;
         }
         /// <summary>
-        /// Instantiates a new HostItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="HostItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public HostItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts/{host%2Did}{?%24select,%24expand}", pathParameters) {
+        public HostItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts/{host%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new HostItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="HostItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public HostItemRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts/{host%2Did}{?%24select,%24expand}", rawUrl) {
+        public HostItemRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts/{host%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The hosts related with this sslCertificate.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -106,7 +114,8 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates.Item.RelatedHosts.I
         /// <summary>
         /// The hosts related with this sslCertificate.
         /// </summary>
-        public class HostItemRequestBuilderGetQueryParameters {
+        public class HostItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

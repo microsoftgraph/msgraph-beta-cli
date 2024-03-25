@@ -17,14 +17,17 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Publish {
     /// <summary>
     /// Provides operations to call the publish method.
     /// </summary>
-    public class PublishRequestBuilder : BaseCliRequestBuilder {
+    public class PublishRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Publishes a [contentType][] present in the content type hub site.
+        /// Invoke action publish
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Publishes a [contentType][] present in the content type hub site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0";
+            command.Description = "Invoke action publish\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -64,27 +67,32 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item.Publish {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PublishRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PublishRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PublishRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/publish", pathParameters) {
+        public PublishRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/publish", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new PublishRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PublishRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PublishRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/publish", rawUrl) {
+        public PublishRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/publish", rawUrl)
+        {
         }
         /// <summary>
-        /// Publishes a [contentType][] present in the content type hub site.
+        /// Invoke action publish
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

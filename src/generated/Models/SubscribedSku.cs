@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class SubscribedSku : Entity, IParsable {
+    public class SubscribedSku : Entity, IParsable 
+    {
         /// <summary>The unique ID of the account this SKU belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public string AccountName { get; set; }
 #endif
-        /// <summary>The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: &apos;User&apos;, &apos;Company&apos;.</summary>
+        /// <summary>The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: User, Company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppliesTo { get; set; }
@@ -30,7 +31,7 @@ namespace ApiSdk.Models {
 #else
         public string AppliesTo { get; set; }
 #endif
-        /// <summary>Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer canceled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.</summary>
+        /// <summary>Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer cancelled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CapabilityStatus { get; set; }
@@ -48,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public LicenseUnitsDetail PrepaidUnits { get; set; }
 #endif
-        /// <summary>Information about the service plans that are available with the SKU. Not nullable.</summary>
+        /// <summary>Information about the service plans that are available with the SKU. Not nullable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ServicePlanInfo>? ServicePlans { get; set; }
@@ -58,7 +59,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The unique identifier (GUID) for the service SKU.</summary>
         public Guid? SkuId { get; set; }
-        /// <summary>The SKU part number; for example: &apos;AAD_PREMIUM&apos; or &apos;RMSBASIC&apos;. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.</summary>
+        /// <summary>The SKU part number; for example, AAD_PREMIUM or RMSBASIC. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SkuPartNumber { get; set; }
@@ -77,16 +78,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SubscribedSku"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SubscribedSku CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new SubscribedSku CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SubscribedSku();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountId", n => { AccountId = n.GetStringValue(); } },
                 {"accountName", n => { AccountName = n.GetStringValue(); } },
                 {"appliesTo", n => { AppliesTo = n.GetStringValue(); } },
@@ -103,7 +109,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("accountId", AccountId);

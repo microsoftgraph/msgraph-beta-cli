@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class X509CertificateAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
+    public class X509CertificateAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable 
+    {
         /// <summary>Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,40 +31,57 @@ namespace ApiSdk.Models {
 #else
         public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
 #endif
+        /// <summary>Determines whether issuer(CA) hints are sent back to the client side to filter the certificates shown in certificate picker.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public X509CertificateIssuerHintsConfiguration? IssuerHintsConfiguration { get; set; }
+#nullable restore
+#else
+        public X509CertificateIssuerHintsConfiguration IssuerHintsConfiguration { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new x509CertificateAuthenticationMethodConfiguration and sets the default values.
+        /// Instantiates a new <see cref="X509CertificateAuthenticationMethodConfiguration"/> and sets the default values.
         /// </summary>
-        public X509CertificateAuthenticationMethodConfiguration() : base() {
+        public X509CertificateAuthenticationMethodConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="X509CertificateAuthenticationMethodConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new X509CertificateAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new X509CertificateAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new X509CertificateAuthenticationMethodConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"authenticationModeConfiguration", n => { AuthenticationModeConfiguration = n.GetObjectValue<X509CertificateAuthenticationModeConfiguration>(X509CertificateAuthenticationModeConfiguration.CreateFromDiscriminatorValue); } },
                 {"certificateUserBindings", n => { CertificateUserBindings = n.GetCollectionOfObjectValues<X509CertificateUserBinding>(X509CertificateUserBinding.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodTarget>(AuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"issuerHintsConfiguration", n => { IssuerHintsConfiguration = n.GetObjectValue<X509CertificateIssuerHintsConfiguration>(X509CertificateIssuerHintsConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<X509CertificateAuthenticationModeConfiguration>("authenticationModeConfiguration", AuthenticationModeConfiguration);
             writer.WriteCollectionOfObjectValues<X509CertificateUserBinding>("certificateUserBindings", CertificateUserBindings);
             writer.WriteCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", IncludeTargets);
+            writer.WriteObjectValue<X509CertificateIssuerHintsConfiguration>("issuerHintsConfiguration", IssuerHintsConfiguration);
         }
     }
 }

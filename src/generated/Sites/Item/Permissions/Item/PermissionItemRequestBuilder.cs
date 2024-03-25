@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Sites.Item.Permissions.Item.Grant;
+using ApiSdk.Sites.Item.Permissions.Item.RevokeGrants;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -19,14 +20,16 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
     /// <summary>
     /// Provides operations to manage the permissions property of the microsoft.graph.site entity.
     /// </summary>
-    public class PermissionItemRequestBuilder : BaseCliRequestBuilder {
+    public class PermissionItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Delete a permission object on a site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0" />
+        /// Delete navigation property permissions for sites
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Delete a permission object on a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0";
+            command.Description = "Delete navigation property permissions for sites";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -64,7 +67,9 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
         /// Retrieve the properties and relationships of a permission object on a site.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Retrieve the properties and relationships of a permission object on a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
@@ -120,7 +125,9 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
         /// <summary>
         /// Provides operations to call the grant method.
         /// </summary>
-        public Command BuildGrantNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGrantNavCommand()
+        {
             var command = new Command("grant");
             command.Description = "Provides operations to call the grant method.";
             var builder = new GrantRequestBuilder(PathParameters);
@@ -133,12 +140,14 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return command;
         }
         /// <summary>
-        /// Update an application permission object on a site. 
+        /// Update the permission object on a site.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update an application permission object on a site. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0";
+            command.Description = "Update the permission object on a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -189,29 +198,51 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PermissionItemRequestBuilder and sets the default values.
+        /// Provides operations to call the revokeGrants method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRevokeGrantsNavCommand()
+        {
+            var command = new Command("revoke-grants");
+            command.Description = "Provides operations to call the revokeGrants method.";
+            var builder = new RevokeGrantsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="PermissionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PermissionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24select,%24expand}", pathParameters) {
+        public PermissionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new PermissionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PermissionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PermissionItemRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24select,%24expand}", rawUrl) {
+        public PermissionItemRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Delete a permission object on a site.
+        /// Delete navigation property permissions for sites
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -219,13 +250,16 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
         /// <summary>
         /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -233,19 +267,22 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update an application permission object on a site. 
+        /// Update the permission object on a site.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -253,7 +290,8 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
         /// <summary>
         /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
-        public class PermissionItemRequestBuilderGetQueryParameters {
+        public class PermissionItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

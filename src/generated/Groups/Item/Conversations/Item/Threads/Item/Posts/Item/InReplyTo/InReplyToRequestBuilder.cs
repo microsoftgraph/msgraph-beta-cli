@@ -2,6 +2,7 @@
 using ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo.Attachments;
 using ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo.Extensions;
 using ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo.Forward;
+using ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo.Mentions;
 using ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo.Reply;
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
@@ -22,11 +23,14 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
     /// <summary>
     /// Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.
     /// </summary>
-    public class InReplyToRequestBuilder : BaseCliRequestBuilder {
+    public class InReplyToRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the attachments property of the microsoft.graph.post entity.
         /// </summary>
-        public Command BuildAttachmentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAttachmentsNavCommand()
+        {
             var command = new Command("attachments");
             command.Description = "Provides operations to manage the attachments property of the microsoft.graph.post entity.";
             var builder = new AttachmentsRequestBuilder(PathParameters);
@@ -52,7 +56,9 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
         /// <summary>
         /// Provides operations to manage the extensions property of the microsoft.graph.post entity.
         /// </summary>
-        public Command BuildExtensionsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildExtensionsNavCommand()
+        {
             var command = new Command("extensions");
             command.Description = "Provides operations to manage the extensions property of the microsoft.graph.post entity.";
             var builder = new ExtensionsRequestBuilder(PathParameters);
@@ -77,7 +83,9 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
         /// <summary>
         /// Provides operations to call the forward method.
         /// </summary>
-        public Command BuildForwardNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildForwardNavCommand()
+        {
             var command = new Command("forward");
             command.Description = "Provides operations to call the forward method.";
             var builder = new ForwardRequestBuilder(PathParameters);
@@ -90,11 +98,13 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
             return command;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Read-only. Supports $expand.";
+            command.Description = "The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -158,9 +168,38 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the mentions property of the microsoft.graph.post entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMentionsNavCommand()
+        {
+            var command = new Command("mentions");
+            command.Description = "Provides operations to manage the mentions property of the microsoft.graph.post entity.";
+            var builder = new MentionsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the reply method.
         /// </summary>
-        public Command BuildReplyNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildReplyNavCommand()
+        {
             var command = new Command("reply");
             command.Description = "Provides operations to call the reply method.";
             var builder = new ReplyRequestBuilder(PathParameters);
@@ -173,27 +212,32 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
             return command;
         }
         /// <summary>
-        /// Instantiates a new InReplyToRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InReplyToRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public InReplyToRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24select,%24expand}", pathParameters) {
+        public InReplyToRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new InReplyToRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InReplyToRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public InReplyToRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24select,%24expand}", rawUrl) {
+        public InReplyToRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InReplyToRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InReplyToRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InReplyToRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InReplyToRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -201,9 +245,10 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyT
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// </summary>
-        public class InReplyToRequestBuilderGetQueryParameters {
+        public class InReplyToRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

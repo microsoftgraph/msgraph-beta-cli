@@ -18,11 +18,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Rand {
     /// <summary>
     /// Provides operations to call the rand method.
     /// </summary>
-    public class RandRequestBuilder : BaseCliRequestBuilder {
+    public class RandRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Invoke action rand
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
             command.Description = "Invoke action rand";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -62,27 +65,32 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Rand {
             return command;
         }
         /// <summary>
-        /// Instantiates a new RandRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RandRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RandRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rand", pathParameters) {
+        public RandRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rand", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new RandRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RandRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RandRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rand", rawUrl) {
+        public RandRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rand", rawUrl)
+        {
         }
         /// <summary>
         /// Invoke action rand
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);

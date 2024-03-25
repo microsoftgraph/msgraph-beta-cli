@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.ExternalConnectors {
-    public enum Label {
+    public enum Label
+    {
         [EnumMember(Value = "title")]
         Title,
         [EnumMember(Value = "url")]
@@ -23,6 +24,10 @@ namespace ApiSdk.Models.ExternalConnectors {
         FileExtension,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
+        [EnumMember(Value = "containerName")]
+        ContainerName,
+        [EnumMember(Value = "containerUrl")]
+        ContainerUrl,
         [EnumMember(Value = "iconUrl")]
         IconUrl,
     }

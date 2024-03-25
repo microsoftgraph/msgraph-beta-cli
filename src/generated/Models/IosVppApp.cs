@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Contains properties and inherited properties for iOS Volume-Purchased Program (VPP) Apps.
     /// </summary>
-    public class IosVppApp : MobileApp, IParsable {
+    public class IosVppApp : MobileApp, IParsable 
+    {
         /// <summary>The applicable iOS Device Type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,6 +25,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string AppStoreUrl { get; set; }
+#endif
+        /// <summary>The licenses assigned to this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IosVppAppAssignedLicense>? AssignedLicenses { get; set; }
+#nullable restore
+#else
+        public List<IosVppAppAssignedLicense> AssignedLicenses { get; set; }
 #endif
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,6 +52,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The VPP application release date and time.</summary>
         public DateTimeOffset? ReleaseDateTime { get; set; }
+        /// <summary>Results of revoke license actions on this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IosVppAppRevokeLicensesActionResult>? RevokeLicenseActionResults { get; set; }
+#nullable restore
+#else
+        public List<IosVppAppRevokeLicensesActionResult> RevokeLicenseActionResults { get; set; }
+#endif
         /// <summary>The total number of VPP licenses.</summary>
         public int? TotalLicenseCount { get; set; }
         /// <summary>The number of VPP licenses in use.</summary>
@@ -57,6 +74,14 @@ namespace ApiSdk.Models {
 #else
         public string VppTokenAppleId { get; set; }
 #endif
+        /// <summary>Identifier of the VPP token associated with this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VppTokenId { get; set; }
+#nullable restore
+#else
+        public string VppTokenId { get; set; }
+#endif
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,33 +91,42 @@ namespace ApiSdk.Models {
         public string VppTokenOrganizationName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new iosVppApp and sets the default values.
+        /// Instantiates a new <see cref="IosVppApp"/> and sets the default values.
         /// </summary>
-        public IosVppApp() : base() {
+        public IosVppApp() : base()
+        {
             OdataType = "#microsoft.graph.iosVppApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="IosVppApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosVppApp CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new IosVppApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IosVppApp();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
                 {"applicableDeviceType", n => { ApplicableDeviceType = n.GetObjectValue<IosDeviceType>(IosDeviceType.CreateFromDiscriminatorValue); } },
+                {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<IosVppAppAssignedLicense>(IosVppAppAssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"bundleId", n => { BundleId = n.GetStringValue(); } },
                 {"licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
                 {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                {"revokeLicenseActionResults", n => { RevokeLicenseActionResults = n.GetCollectionOfObjectValues<IosVppAppRevokeLicensesActionResult>(IosVppAppRevokeLicensesActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
                 {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
                 {"vppTokenAccountType", n => { VppTokenAccountType = n.GetEnumValue<VppTokenAccountType>(); } },
                 {"vppTokenAppleId", n => { VppTokenAppleId = n.GetStringValue(); } },
+                {"vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
                 {"vppTokenOrganizationName", n => { VppTokenOrganizationName = n.GetStringValue(); } },
             };
         }
@@ -100,18 +134,22 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<IosDeviceType>("applicableDeviceType", ApplicableDeviceType);
             writer.WriteStringValue("appStoreUrl", AppStoreUrl);
+            writer.WriteCollectionOfObjectValues<IosVppAppAssignedLicense>("assignedLicenses", AssignedLicenses);
             writer.WriteStringValue("bundleId", BundleId);
             writer.WriteObjectValue<VppLicensingType>("licensingType", LicensingType);
             writer.WriteDateTimeOffsetValue("releaseDateTime", ReleaseDateTime);
+            writer.WriteCollectionOfObjectValues<IosVppAppRevokeLicensesActionResult>("revokeLicenseActionResults", RevokeLicenseActionResults);
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);
             writer.WriteIntValue("usedLicenseCount", UsedLicenseCount);
             writer.WriteEnumValue<VppTokenAccountType>("vppTokenAccountType", VppTokenAccountType);
             writer.WriteStringValue("vppTokenAppleId", VppTokenAppleId);
+            writer.WriteStringValue("vppTokenId", VppTokenId);
             writer.WriteStringValue("vppTokenOrganizationName", VppTokenOrganizationName);
         }
     }

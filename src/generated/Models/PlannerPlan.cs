@@ -5,8 +5,17 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PlannerPlan : Entity, IParsable {
-        /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
+    public class PlannerPlan : PlannerDelta, IParsable 
+    {
+        /// <summary>The archivalInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PlannerArchivalInfo? ArchivalInfo { get; set; }
+#nullable restore
+#else
+        public PlannerArchivalInfo ArchivalInfo { get; set; }
+#endif
+        /// <summary>Collection of buckets in the plan. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PlannerBucket>? Buckets { get; set; }
@@ -14,13 +23,21 @@ namespace ApiSdk.Models {
 #else
         public List<PlannerBucket> Buckets { get; set; }
 #endif
-        /// <summary>Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it&apos;s set, this property can’t be updated. Required.</summary>
+        /// <summary>Identifies the container of the plan. Either specify all properties, or specify only the url, the containerId, and type. After it&apos;s set, this property can’t be updated. It changes when a plan is moved from one container to another, using plan move to container. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerPlanContainer? Container { get; set; }
 #nullable restore
 #else
         public PlannerPlanContainer Container { get; set; }
+#endif
+        /// <summary>Read-only. Other user experiences in which this plan is used, represented as plannerPlanContext entries.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PlannerPlanContextCollection? Contexts { get; set; }
+#nullable restore
+#else
+        public PlannerPlanContextCollection Contexts { get; set; }
 #endif
         /// <summary>Read-only. The user who created the plan.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +49,15 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>Read-only. Nullable. Extra details about the plan.</summary>
+        /// <summary>Contains information about the origin of the plan.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PlannerPlanCreation? CreationSource { get; set; }
+#nullable restore
+#else
+        public PlannerPlanCreation CreationSource { get; set; }
+#endif
+        /// <summary>Extra details about the plan. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerPlanDetails? Details { get; set; }
@@ -40,6 +65,8 @@ namespace ApiSdk.Models {
 #else
         public PlannerPlanDetails Details { get; set; }
 #endif
+        /// <summary>The isArchived property</summary>
+        public bool? IsArchived { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,7 +75,15 @@ namespace ApiSdk.Models {
 #else
         public string Owner { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. Collection of tasks in the plan.</summary>
+        /// <summary>List of containers the plan is shared with.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PlannerSharedWithContainer>? SharedWithContainers { get; set; }
+#nullable restore
+#else
+        public List<PlannerSharedWithContainer> SharedWithContainers { get; set; }
+#endif
+        /// <summary>Collection of tasks in the plan. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PlannerTask>? Tasks { get; set; }
@@ -67,22 +102,32 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PlannerPlan"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerPlan CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new PlannerPlan CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PlannerPlan();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"archivalInfo", n => { ArchivalInfo = n.GetObjectValue<PlannerArchivalInfo>(PlannerArchivalInfo.CreateFromDiscriminatorValue); } },
                 {"buckets", n => { Buckets = n.GetCollectionOfObjectValues<PlannerBucket>(PlannerBucket.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"container", n => { Container = n.GetObjectValue<PlannerPlanContainer>(PlannerPlanContainer.CreateFromDiscriminatorValue); } },
+                {"contexts", n => { Contexts = n.GetObjectValue<PlannerPlanContextCollection>(PlannerPlanContextCollection.CreateFromDiscriminatorValue); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"creationSource", n => { CreationSource = n.GetObjectValue<PlannerPlanCreation>(PlannerPlanCreation.CreateFromDiscriminatorValue); } },
                 {"details", n => { Details = n.GetObjectValue<PlannerPlanDetails>(PlannerPlanDetails.CreateFromDiscriminatorValue); } },
+                {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 {"owner", n => { Owner = n.GetStringValue(); } },
+                {"sharedWithContainers", n => { SharedWithContainers = n.GetCollectionOfObjectValues<PlannerSharedWithContainer>(PlannerSharedWithContainer.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<PlannerTask>(PlannerTask.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
             };
@@ -91,15 +136,21 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<PlannerArchivalInfo>("archivalInfo", ArchivalInfo);
             writer.WriteCollectionOfObjectValues<PlannerBucket>("buckets", Buckets);
             writer.WriteObjectValue<PlannerPlanContainer>("container", Container);
+            writer.WriteObjectValue<PlannerPlanContextCollection>("contexts", Contexts);
             writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteObjectValue<PlannerPlanCreation>("creationSource", CreationSource);
             writer.WriteObjectValue<PlannerPlanDetails>("details", Details);
+            writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteStringValue("owner", Owner);
+            writer.WriteCollectionOfObjectValues<PlannerSharedWithContainer>("sharedWithContainers", SharedWithContainers);
             writer.WriteCollectionOfObjectValues<PlannerTask>("tasks", Tasks);
             writer.WriteStringValue("title", Title);
         }

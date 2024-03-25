@@ -22,11 +22,14 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
     /// <summary>
     /// Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
     /// </summary>
-    public class RiskyServicePrincipalsRequestBuilder : BaseCliRequestBuilder {
+    public class RiskyServicePrincipalsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new RiskyServicePrincipalItemRequestBuilder(PathParameters);
@@ -39,7 +42,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Provides operations to call the confirmCompromised method.
         /// </summary>
-        public Command BuildConfirmCompromisedNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildConfirmCompromisedNavCommand()
+        {
             var command = new Command("confirm-compromised");
             command.Description = "Provides operations to call the confirmCompromised method.";
             var builder = new ConfirmCompromisedRequestBuilder(PathParameters);
@@ -54,7 +59,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -69,7 +76,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Create new navigation property to riskyServicePrincipals for identityProtection
         /// </summary>
-        public Command BuildCreateCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCreateCommand()
+        {
             var command = new Command("create");
             command.Description = "Create new navigation property to riskyServicePrincipals for identityProtection";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -112,7 +121,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Provides operations to call the dismiss method.
         /// </summary>
-        public Command BuildDismissNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDismissNavCommand()
+        {
             var command = new Command("dismiss");
             command.Description = "Provides operations to call the dismiss method.";
             var builder = new DismissRequestBuilder(PathParameters);
@@ -128,7 +139,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// Retrieve the properties and relationships of riskyServicePrincipal objects.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
             command.Description = "Retrieve the properties and relationships of riskyServicePrincipal objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
@@ -218,27 +231,32 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
             return command;
         }
         /// <summary>
-        /// Instantiates a new RiskyServicePrincipalsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RiskyServicePrincipalsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RiskyServicePrincipalsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProtection/riskyServicePrincipals{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public RiskyServicePrincipalsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProtection/riskyServicePrincipals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new RiskyServicePrincipalsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="RiskyServicePrincipalsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RiskyServicePrincipalsRequestBuilder(string rawUrl) : base("{+baseurl}/identityProtection/riskyServicePrincipals{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public RiskyServicePrincipalsRequestBuilder(string rawUrl) : base("{+baseurl}/identityProtection/riskyServicePrincipals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
         /// Retrieve the properties and relationships of riskyServicePrincipal objects.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -248,17 +266,20 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Create new navigation property to riskyServicePrincipals for identityProtection
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RiskyServicePrincipal body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RiskyServicePrincipal body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RiskyServicePrincipal body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(RiskyServicePrincipal body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityProtection/riskyServicePrincipals", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -266,7 +287,8 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals {
         /// <summary>
         /// Retrieve the properties and relationships of riskyServicePrincipal objects.
         /// </summary>
-        public class RiskyServicePrincipalsRequestBuilderGetQueryParameters {
+        public class RiskyServicePrincipalsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

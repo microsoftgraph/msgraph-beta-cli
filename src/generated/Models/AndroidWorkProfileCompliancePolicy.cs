@@ -8,7 +8,10 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This class contains compliance settings for Android Work Profile.
     /// </summary>
-    public class AndroidWorkProfileCompliancePolicy : DeviceCompliancePolicy, IParsable {
+    public class AndroidWorkProfileCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    {
+        /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
+        public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Require that devices have enabled device threat protection.</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
@@ -49,6 +52,10 @@ namespace ApiSdk.Models {
         public bool? PasswordRequired { get; set; }
         /// <summary>Android required password type.</summary>
         public AndroidRequiredPasswordType? PasswordRequiredType { get; set; }
+        /// <summary>Number of sign-in failures allowed before factory reset. Valid values 1 to 16</summary>
+        public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? RequiredPasswordComplexity { get; set; }
         /// <summary>Devices must not be jailbroken or rooted.</summary>
         public bool? SecurityBlockJailbrokenDevices { get; set; }
         /// <summary>Disable USB debugging on Android devices.</summary>
@@ -57,11 +64,13 @@ namespace ApiSdk.Models {
         public bool? SecurityPreventInstallAppsFromUnknownSources { get; set; }
         /// <summary>Require the device to pass the Company Portal client app runtime integrity check.</summary>
         public bool? SecurityRequireCompanyPortalAppIntegrity { get; set; }
+        /// <summary>An enum representing the Android Play Integrity API evaluation types.</summary>
+        public AndroidSafetyNetEvaluationType? SecurityRequiredAndroidSafetyNetEvaluationType { get; set; }
         /// <summary>Require Google Play Services to be installed and enabled on the device.</summary>
         public bool? SecurityRequireGooglePlayServices { get; set; }
-        /// <summary>Require the device to pass the SafetyNet basic integrity check.</summary>
+        /// <summary>Require the device to pass the Play Integrity basic integrity check.</summary>
         public bool? SecurityRequireSafetyNetAttestationBasicIntegrity { get; set; }
-        /// <summary>Require the device to pass the SafetyNet certified device check.</summary>
+        /// <summary>Require the device to pass the Play Integrity device integrity check.</summary>
         public bool? SecurityRequireSafetyNetAttestationCertifiedDevice { get; set; }
         /// <summary>Require the device to have up to date security providers. The device will require Google Play Services to be enabled and up to date.</summary>
         public bool? SecurityRequireUpToDateSecurityProviders { get; set; }
@@ -69,25 +78,46 @@ namespace ApiSdk.Models {
         public bool? SecurityRequireVerifyApps { get; set; }
         /// <summary>Require encryption on Android devices.</summary>
         public bool? StorageRequireEncryption { get; set; }
+        /// <summary>Minutes of inactivity before the screen times out.</summary>
+        public int? WorkProfileInactiveBeforeScreenLockInMinutes { get; set; }
+        /// <summary>Number of days before the work profile password expires. Valid values 1 to 365</summary>
+        public int? WorkProfilePasswordExpirationInDays { get; set; }
+        /// <summary>Minimum length of work profile password. Valid values 4 to 16</summary>
+        public int? WorkProfilePasswordMinimumLength { get; set; }
+        /// <summary>Android Work Profile required password type.</summary>
+        public AndroidWorkProfileRequiredPasswordType? WorkProfilePasswordRequiredType { get; set; }
+        /// <summary>Number of previous work profile passwords to block. Valid values 0 to 24</summary>
+        public int? WorkProfilePreviousPasswordBlockCount { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? WorkProfileRequiredPasswordComplexity { get; set; }
+        /// <summary>Password is required or not for work profile</summary>
+        public bool? WorkProfileRequirePassword { get; set; }
         /// <summary>
-        /// Instantiates a new androidWorkProfileCompliancePolicy and sets the default values.
+        /// Instantiates a new <see cref="AndroidWorkProfileCompliancePolicy"/> and sets the default values.
         /// </summary>
-        public AndroidWorkProfileCompliancePolicy() : base() {
+        public AndroidWorkProfileCompliancePolicy() : base()
+        {
             OdataType = "#microsoft.graph.androidWorkProfileCompliancePolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AndroidWorkProfileCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidWorkProfileCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AndroidWorkProfileCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AndroidWorkProfileCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
                 {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"minAndroidSecurityPatchLevel", n => { MinAndroidSecurityPatchLevel = n.GetStringValue(); } },
@@ -99,6 +129,8 @@ namespace ApiSdk.Models {
                 {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
                 {"passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
                 {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidRequiredPasswordType>(); } },
+                {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
+                {"requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
                 {"securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
                 {"securityDisableUsbDebugging", n => { SecurityDisableUsbDebugging = n.GetBoolValue(); } },
                 {"securityPreventInstallAppsFromUnknownSources", n => { SecurityPreventInstallAppsFromUnknownSources = n.GetBoolValue(); } },
@@ -108,16 +140,26 @@ namespace ApiSdk.Models {
                 {"securityRequireSafetyNetAttestationCertifiedDevice", n => { SecurityRequireSafetyNetAttestationCertifiedDevice = n.GetBoolValue(); } },
                 {"securityRequireUpToDateSecurityProviders", n => { SecurityRequireUpToDateSecurityProviders = n.GetBoolValue(); } },
                 {"securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
+                {"securityRequiredAndroidSafetyNetEvaluationType", n => { SecurityRequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidSafetyNetEvaluationType>(); } },
                 {"storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
+                {"workProfileInactiveBeforeScreenLockInMinutes", n => { WorkProfileInactiveBeforeScreenLockInMinutes = n.GetIntValue(); } },
+                {"workProfilePasswordExpirationInDays", n => { WorkProfilePasswordExpirationInDays = n.GetIntValue(); } },
+                {"workProfilePasswordMinimumLength", n => { WorkProfilePasswordMinimumLength = n.GetIntValue(); } },
+                {"workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<AndroidWorkProfileRequiredPasswordType>(); } },
+                {"workProfilePreviousPasswordBlockCount", n => { WorkProfilePreviousPasswordBlockCount = n.GetIntValue(); } },
+                {"workProfileRequirePassword", n => { WorkProfileRequirePassword = n.GetBoolValue(); } },
+                {"workProfileRequiredPasswordComplexity", n => { WorkProfileRequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
             writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteStringValue("minAndroidSecurityPatchLevel", MinAndroidSecurityPatchLevel);
@@ -129,16 +171,26 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("passwordPreviousPasswordBlockCount", PasswordPreviousPasswordBlockCount);
             writer.WriteBoolValue("passwordRequired", PasswordRequired);
             writer.WriteEnumValue<AndroidRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
+            writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("requiredPasswordComplexity", RequiredPasswordComplexity);
             writer.WriteBoolValue("securityBlockJailbrokenDevices", SecurityBlockJailbrokenDevices);
             writer.WriteBoolValue("securityDisableUsbDebugging", SecurityDisableUsbDebugging);
             writer.WriteBoolValue("securityPreventInstallAppsFromUnknownSources", SecurityPreventInstallAppsFromUnknownSources);
             writer.WriteBoolValue("securityRequireCompanyPortalAppIntegrity", SecurityRequireCompanyPortalAppIntegrity);
+            writer.WriteEnumValue<AndroidSafetyNetEvaluationType>("securityRequiredAndroidSafetyNetEvaluationType", SecurityRequiredAndroidSafetyNetEvaluationType);
             writer.WriteBoolValue("securityRequireGooglePlayServices", SecurityRequireGooglePlayServices);
             writer.WriteBoolValue("securityRequireSafetyNetAttestationBasicIntegrity", SecurityRequireSafetyNetAttestationBasicIntegrity);
             writer.WriteBoolValue("securityRequireSafetyNetAttestationCertifiedDevice", SecurityRequireSafetyNetAttestationCertifiedDevice);
             writer.WriteBoolValue("securityRequireUpToDateSecurityProviders", SecurityRequireUpToDateSecurityProviders);
             writer.WriteBoolValue("securityRequireVerifyApps", SecurityRequireVerifyApps);
             writer.WriteBoolValue("storageRequireEncryption", StorageRequireEncryption);
+            writer.WriteIntValue("workProfileInactiveBeforeScreenLockInMinutes", WorkProfileInactiveBeforeScreenLockInMinutes);
+            writer.WriteIntValue("workProfilePasswordExpirationInDays", WorkProfilePasswordExpirationInDays);
+            writer.WriteIntValue("workProfilePasswordMinimumLength", WorkProfilePasswordMinimumLength);
+            writer.WriteEnumValue<AndroidWorkProfileRequiredPasswordType>("workProfilePasswordRequiredType", WorkProfilePasswordRequiredType);
+            writer.WriteIntValue("workProfilePreviousPasswordBlockCount", WorkProfilePreviousPasswordBlockCount);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("workProfileRequiredPasswordComplexity", WorkProfileRequiredPasswordComplexity);
+            writer.WriteBoolValue("workProfileRequirePassword", WorkProfileRequirePassword);
         }
     }
 }

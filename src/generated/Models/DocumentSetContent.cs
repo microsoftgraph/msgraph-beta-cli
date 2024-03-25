@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class DocumentSetContent : IAdditionalDataHolder, IParsable {
+    public class DocumentSetContent : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Content type information of the file.</summary>
@@ -16,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public ContentTypeInfo ContentType { get; set; }
 #endif
-        /// <summary>Name of the file in resource folder that should be added as a default content or a template in the document set.</summary>
+        /// <summary>Name of the file in resource folder that should be added as a default content or a template in the document set</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileName { get; set; }
@@ -41,24 +42,30 @@ namespace ApiSdk.Models {
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new documentSetContent and sets the default values.
+        /// Instantiates a new <see cref="DocumentSetContent"/> and sets the default values.
         /// </summary>
-        public DocumentSetContent() {
+        public DocumentSetContent()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="DocumentSetContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DocumentSetContent CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static DocumentSetContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DocumentSetContent();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"contentType", n => { ContentType = n.GetObjectValue<ContentTypeInfo>(ContentTypeInfo.CreateFromDiscriminatorValue); } },
                 {"fileName", n => { FileName = n.GetStringValue(); } },
                 {"folderName", n => { FolderName = n.GetStringValue(); } },
@@ -69,7 +76,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ContentTypeInfo>("contentType", ContentType);
             writer.WriteStringValue("fileName", FileName);

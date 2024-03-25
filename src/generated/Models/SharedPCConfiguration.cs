@@ -9,7 +9,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the sharedPCConfiguration resource.
     /// </summary>
-    public class SharedPCConfiguration : DeviceConfiguration, IParsable {
+    public class SharedPCConfiguration : DeviceConfiguration, IParsable 
+    {
         /// <summary>Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,6 +33,8 @@ namespace ApiSdk.Models {
         public bool? DisableSignInOnResume { get; set; }
         /// <summary>Enables shared PC mode and applies the shared pc policies.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? FastFirstSignIn { get; set; }
         /// <summary>Specifies the time in seconds that a device must sit idle before the PC goes to sleep. Setting this value to 0 prevents the sleep timeout from occurring.</summary>
         public int? IdleTimeBeforeSleepInSeconds { get; set; }
         /// <summary>Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.</summary>
@@ -50,27 +53,43 @@ namespace ApiSdk.Models {
 #else
         public string KioskAppUserModelId { get; set; }
 #endif
+        /// <summary>Possible values of a property</summary>
+        public Enablement? LocalStorage { get; set; }
         /// <summary>Specifies the daily start time of maintenance hour.</summary>
         public Time? MaintenanceStartTime { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? SetAccountManager { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? SetEduPolicies { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? SetPowerPolicies { get; set; }
+        /// <summary>Possible values of a property</summary>
+        public Enablement? SignInOnResume { get; set; }
         /// <summary>
-        /// Instantiates a new sharedPCConfiguration and sets the default values.
+        /// Instantiates a new <see cref="SharedPCConfiguration"/> and sets the default values.
         /// </summary>
-        public SharedPCConfiguration() : base() {
+        public SharedPCConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.sharedPCConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="SharedPCConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SharedPCConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new SharedPCConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SharedPCConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"accountManagerPolicy", n => { AccountManagerPolicy = n.GetObjectValue<SharedPCAccountManagerPolicy>(SharedPCAccountManagerPolicy.CreateFromDiscriminatorValue); } },
                 {"allowLocalStorage", n => { AllowLocalStorage = n.GetBoolValue(); } },
                 {"allowedAccounts", n => { AllowedAccounts = n.GetEnumValue<SharedPCAllowedAccountType>(); } },
@@ -79,17 +98,24 @@ namespace ApiSdk.Models {
                 {"disablePowerPolicies", n => { DisablePowerPolicies = n.GetBoolValue(); } },
                 {"disableSignInOnResume", n => { DisableSignInOnResume = n.GetBoolValue(); } },
                 {"enabled", n => { Enabled = n.GetBoolValue(); } },
+                {"fastFirstSignIn", n => { FastFirstSignIn = n.GetEnumValue<Enablement>(); } },
                 {"idleTimeBeforeSleepInSeconds", n => { IdleTimeBeforeSleepInSeconds = n.GetIntValue(); } },
                 {"kioskAppDisplayName", n => { KioskAppDisplayName = n.GetStringValue(); } },
                 {"kioskAppUserModelId", n => { KioskAppUserModelId = n.GetStringValue(); } },
+                {"localStorage", n => { LocalStorage = n.GetEnumValue<Enablement>(); } },
                 {"maintenanceStartTime", n => { MaintenanceStartTime = n.GetTimeValue(); } },
+                {"setAccountManager", n => { SetAccountManager = n.GetEnumValue<Enablement>(); } },
+                {"setEduPolicies", n => { SetEduPolicies = n.GetEnumValue<Enablement>(); } },
+                {"setPowerPolicies", n => { SetPowerPolicies = n.GetEnumValue<Enablement>(); } },
+                {"signInOnResume", n => { SignInOnResume = n.GetEnumValue<Enablement>(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<SharedPCAccountManagerPolicy>("accountManagerPolicy", AccountManagerPolicy);
@@ -100,10 +126,16 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("disablePowerPolicies", DisablePowerPolicies);
             writer.WriteBoolValue("disableSignInOnResume", DisableSignInOnResume);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteEnumValue<Enablement>("fastFirstSignIn", FastFirstSignIn);
             writer.WriteIntValue("idleTimeBeforeSleepInSeconds", IdleTimeBeforeSleepInSeconds);
             writer.WriteStringValue("kioskAppDisplayName", KioskAppDisplayName);
             writer.WriteStringValue("kioskAppUserModelId", KioskAppUserModelId);
+            writer.WriteEnumValue<Enablement>("localStorage", LocalStorage);
             writer.WriteTimeValue("maintenanceStartTime", MaintenanceStartTime);
+            writer.WriteEnumValue<Enablement>("setAccountManager", SetAccountManager);
+            writer.WriteEnumValue<Enablement>("setEduPolicies", SetEduPolicies);
+            writer.WriteEnumValue<Enablement>("setPowerPolicies", SetPowerPolicies);
+            writer.WriteEnumValue<Enablement>("signInOnResume", SignInOnResume);
         }
     }
 }

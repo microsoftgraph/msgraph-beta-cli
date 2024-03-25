@@ -5,14 +5,23 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class UnifiedRbacResourceAction : Entity, IParsable {
-        /// <summary>The actionVerb property</summary>
+    public class UnifiedRbacResourceAction : Entity, IParsable 
+    {
+        /// <summary>HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActionVerb { get; set; }
 #nullable restore
 #else
         public string ActionVerb { get; set; }
+#endif
+        /// <summary>The authenticationContext property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AuthenticationContextClassReference? AuthenticationContext { get; set; }
+#nullable restore
+#else
+        public AuthenticationContextClassReference AuthenticationContext { get; set; }
 #endif
         /// <summary>The authenticationContextId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,7 +31,7 @@ namespace ApiSdk.Models {
 #else
         public string AuthenticationContextId { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>Description for the action. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -32,7 +41,9 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The isAuthenticationContextSettable property</summary>
         public bool? IsAuthenticationContextSettable { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Flag indicating if the action is a sensitive resource action. Applies only for actions in the microsoft.directory resource namespace. Read-only. Supports $filter (eq).</summary>
+        public bool? IsPrivileged { get; set; }
+        /// <summary>Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -40,7 +51,15 @@ namespace ApiSdk.Models {
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The resourceScopeId property</summary>
+        /// <summary>The resourceScope property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UnifiedRbacResourceScope? ResourceScope { get; set; }
+#nullable restore
+#else
+        public UnifiedRbacResourceScope ResourceScope { get; set; }
+#endif
+        /// <summary>Not implemented.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceScopeId { get; set; }
@@ -51,21 +70,29 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="UnifiedRbacResourceAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRbacResourceAction CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new UnifiedRbacResourceAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRbacResourceAction();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"actionVerb", n => { ActionVerb = n.GetStringValue(); } },
+                {"authenticationContext", n => { AuthenticationContext = n.GetObjectValue<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue); } },
                 {"authenticationContextId", n => { AuthenticationContextId = n.GetStringValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"isAuthenticationContextSettable", n => { IsAuthenticationContextSettable = n.GetBoolValue(); } },
+                {"isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
+                {"resourceScope", n => { ResourceScope = n.GetObjectValue<UnifiedRbacResourceScope>(UnifiedRbacResourceScope.CreateFromDiscriminatorValue); } },
                 {"resourceScopeId", n => { ResourceScopeId = n.GetStringValue(); } },
             };
         }
@@ -73,14 +100,18 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("actionVerb", ActionVerb);
+            writer.WriteObjectValue<AuthenticationContextClassReference>("authenticationContext", AuthenticationContext);
             writer.WriteStringValue("authenticationContextId", AuthenticationContextId);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("isAuthenticationContextSettable", IsAuthenticationContextSettable);
+            writer.WriteBoolValue("isPrivileged", IsPrivileged);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<UnifiedRbacResourceScope>("resourceScope", ResourceScope);
             writer.WriteStringValue("resourceScopeId", ResourceScopeId);
         }
     }

@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Possible ways of adding a mobile device to management.</summary>
-    public enum DeviceEnrollmentType {
+    public enum DeviceEnrollmentType
+    {
         /// <summary>Default value, enrollment type was not collected.</summary>
         [EnumMember(Value = "unknown")]
         Unknown,
@@ -43,5 +44,23 @@ namespace ApiSdk.Models {
         /// <summary>Device managed by Apple user enrollment with service account</summary>
         [EnumMember(Value = "appleUserEnrollmentWithServiceAccount")]
         AppleUserEnrollmentWithServiceAccount,
+        /// <summary>Azure AD Join enrollment when an Azure VM is provisioned</summary>
+        [EnumMember(Value = "azureAdJoinUsingAzureVmExtension")]
+        AzureAdJoinUsingAzureVmExtension,
+        /// <summary>Android Enterprise Dedicated Device</summary>
+        [EnumMember(Value = "androidEnterpriseDedicatedDevice")]
+        AndroidEnterpriseDedicatedDevice,
+        /// <summary>Android Enterprise Fully Managed</summary>
+        [EnumMember(Value = "androidEnterpriseFullyManaged")]
+        AndroidEnterpriseFullyManaged,
+        /// <summary>Android Enterprise Corporate Work Profile</summary>
+        [EnumMember(Value = "androidEnterpriseCorporateWorkProfile")]
+        AndroidEnterpriseCorporateWorkProfile,
+        /// <summary>Indicates the device enrollment is for android device owned by/associated with user using Android Open Source Project (AOSP) on a non-Google mobile services.</summary>
+        [EnumMember(Value = "androidAOSPUserOwnedDeviceEnrollment")]
+        AndroidAOSPUserOwnedDeviceEnrollment,
+        /// <summary>Indicates the device enrollment is for user less android device using Android Open Source Project (AOSP) on a non-Google mobile services.</summary>
+        [EnumMember(Value = "androidAOSPUserlessDeviceEnrollment")]
+        AndroidAOSPUserlessDeviceEnrollment,
     }
 }

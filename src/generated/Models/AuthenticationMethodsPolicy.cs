@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class AuthenticationMethodsPolicy : Entity, IParsable {
+    public class AuthenticationMethodsPolicy : Entity, IParsable 
+    {
         /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,7 +15,7 @@ namespace ApiSdk.Models {
 #else
         public List<AuthenticationMethodConfiguration> AuthenticationMethodConfigurations { get; set; }
 #endif
-        /// <summary>A description of the policy. Read-only.</summary>
+        /// <summary>A description of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The name of the policy. Read-only.</summary>
+        /// <summary>The name of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -30,11 +31,11 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The date and time of the last update to the policy. Read-only.</summary>
+        /// <summary>The date and time of the last update to the policy.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.</summary>
+        /// <summary>The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Don&apos;t use.</summary>
         public AuthenticationMethodsPolicyMigrationState? PolicyMigrationState { get; set; }
-        /// <summary>The version of the policy in use. Read-only.</summary>
+        /// <summary>The version of the policy in use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PolicyVersion { get; set; }
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
 #else
         public string PolicyVersion { get; set; }
 #endif
-        /// <summary>The reconfirmationInDays property</summary>
+        /// <summary>Days before the user will be asked to reconfirm their method.</summary>
         public int? ReconfirmationInDays { get; set; }
         /// <summary>Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,19 +53,40 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.RegistrationEnforcement RegistrationEnforcement { get; set; }
 #endif
+        /// <summary>Enable users to report unexpected voice call or phone app notification multi-factor authentication prompts as suspicious.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.ReportSuspiciousActivitySettings? ReportSuspiciousActivitySettings { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.ReportSuspiciousActivitySettings ReportSuspiciousActivitySettings { get; set; }
+#endif
+        /// <summary>Prompt users with their most-preferred credential for multifactor authentication.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.SystemCredentialPreferences? SystemCredentialPreferences { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.SystemCredentialPreferences SystemCredentialPreferences { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AuthenticationMethodsPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuthenticationMethodsPolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AuthenticationMethodsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AuthenticationMethodsPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"authenticationMethodConfigurations", n => { AuthenticationMethodConfigurations = n.GetCollectionOfObjectValues<AuthenticationMethodConfiguration>(AuthenticationMethodConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -73,13 +95,16 @@ namespace ApiSdk.Models {
                 {"policyVersion", n => { PolicyVersion = n.GetStringValue(); } },
                 {"reconfirmationInDays", n => { ReconfirmationInDays = n.GetIntValue(); } },
                 {"registrationEnforcement", n => { RegistrationEnforcement = n.GetObjectValue<ApiSdk.Models.RegistrationEnforcement>(ApiSdk.Models.RegistrationEnforcement.CreateFromDiscriminatorValue); } },
+                {"reportSuspiciousActivitySettings", n => { ReportSuspiciousActivitySettings = n.GetObjectValue<ApiSdk.Models.ReportSuspiciousActivitySettings>(ApiSdk.Models.ReportSuspiciousActivitySettings.CreateFromDiscriminatorValue); } },
+                {"systemCredentialPreferences", n => { SystemCredentialPreferences = n.GetObjectValue<ApiSdk.Models.SystemCredentialPreferences>(ApiSdk.Models.SystemCredentialPreferences.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<AuthenticationMethodConfiguration>("authenticationMethodConfigurations", AuthenticationMethodConfigurations);
@@ -90,6 +115,8 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("policyVersion", PolicyVersion);
             writer.WriteIntValue("reconfirmationInDays", ReconfirmationInDays);
             writer.WriteObjectValue<ApiSdk.Models.RegistrationEnforcement>("registrationEnforcement", RegistrationEnforcement);
+            writer.WriteObjectValue<ApiSdk.Models.ReportSuspiciousActivitySettings>("reportSuspiciousActivitySettings", ReportSuspiciousActivitySettings);
+            writer.WriteObjectValue<ApiSdk.Models.SystemCredentialPreferences>("systemCredentialPreferences", SystemCredentialPreferences);
         }
     }
 }

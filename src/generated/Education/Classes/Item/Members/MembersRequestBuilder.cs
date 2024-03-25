@@ -21,17 +21,25 @@ namespace ApiSdk.Education.Classes.Item.Members {
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class MembersRequestBuilder : BaseCliRequestBuilder {
+    public class MembersRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Gets an item from the ApiSdk.education.classes.item.members.item collection
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
-            return new(new(0), new(0));
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
+            var commands = new List<Command>();
+            var builder = new EducationUserItemRequestBuilder(PathParameters);
+            commands.Add(builder.BuildRefByIdNavCommand());
+            return new(new(0), commands);
         }
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -44,12 +52,14 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return command;
         }
         /// <summary>
-        /// Retrieves the educationUser members of an educationClass.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Retrieves the educationUser members of an educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0";
+            command.Description = "Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -145,12 +155,14 @@ namespace ApiSdk.Education.Classes.Item.Members {
         /// <summary>
         /// Provides operations to manage the collection of educationRoot entities.
         /// </summary>
-        public Command BuildRefNavCommand() {
-            var educationUserIndexer = new EducationUserItemRequestBuilder(PathParameters);
-            var command = educationUserIndexer.BuildRefNavCommand();
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRefNavCommand()
+        {
+            var command = new Command("ref");
             command.Description = "Provides operations to manage the collection of educationRoot entities.";
             var builder = new RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -160,27 +172,32 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return command;
         }
         /// <summary>
-        /// Instantiates a new MembersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MembersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes/{educationClass%2Did}/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes/{educationClass%2Did}/members{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new MembersRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MembersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public MembersRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes/{educationClass%2Did}/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public MembersRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes/{educationClass%2Did}/members{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Retrieves the educationUser members of an educationClass.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MembersRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MembersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -188,9 +205,10 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves the educationUser members of an educationClass.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
         /// </summary>
-        public class MembersRequestBuilderGetQueryParameters {
+        public class MembersRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

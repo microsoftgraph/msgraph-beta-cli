@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Contains properties used to assign an Win32 LOB mobile app to a group.
     /// </summary>
-    public class Win32LobAppAssignmentSettings : MobileAppAssignmentSettings, IParsable {
+    public class Win32LobAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    {
         /// <summary>Contains value for delivery optimization priority.</summary>
         public Win32LobAppDeliveryOptimizationPriority? DeliveryOptimizationPriority { get; set; }
         /// <summary>The install time settings to apply for this app assignment.</summary>
@@ -30,24 +31,35 @@ namespace ApiSdk.Models {
         public Win32LobAppRestartSettings RestartSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new win32LobAppAssignmentSettings and sets the default values.
+        /// Instantiates a new <see cref="Win32LobAppAssignmentSettings"/> and sets the default values.
         /// </summary>
-        public Win32LobAppAssignmentSettings() : base() {
+        public Win32LobAppAssignmentSettings() : base()
+        {
             OdataType = "#microsoft.graph.win32LobAppAssignmentSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Win32LobAppAssignmentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Win32LobAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Win32LobAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Win32LobAppAssignmentSettings();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "#microsoft.graph.win32CatalogAppAssignmentSettings" => new Win32CatalogAppAssignmentSettings(),
+                _ => new Win32LobAppAssignmentSettings(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"deliveryOptimizationPriority", n => { DeliveryOptimizationPriority = n.GetEnumValue<Win32LobAppDeliveryOptimizationPriority>(); } },
                 {"installTimeSettings", n => { InstallTimeSettings = n.GetObjectValue<MobileAppInstallTimeSettings>(MobileAppInstallTimeSettings.CreateFromDiscriminatorValue); } },
                 {"notifications", n => { Notifications = n.GetEnumValue<Win32LobAppNotification>(); } },
@@ -58,7 +70,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<Win32LobAppDeliveryOptimizationPriority>("deliveryOptimizationPriority", DeliveryOptimizationPriority);

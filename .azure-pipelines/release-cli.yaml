@@ -163,14 +163,14 @@ parameters:
   - name: pools
     type: object
     default:
-      - name: Azure-Pipelines-1ESPT-ExDShared
+      - name: 1es-windows-ps-compute
         image: windows-latest
         os: windows
         rid: win-x64
         label: windows
         jobName: Windows-x64
 
-      - name: Azure-Pipelines-1ESPT-ExDShared
+      - name: 1es-windows-ps-compute
         enabled: false
         image: windows-latest
         os: windows
@@ -206,7 +206,7 @@ extends:
 
   parameters:
     pool:
-      name: Azure-Pipelines-1ESPT-ExDShared
+      name: 1es-windows-ubuntu-latest
       image: ubuntu-latest
       os: linux # OS of the image. This value cannot be a variable. Allowed values: windows, linux, macOS
 

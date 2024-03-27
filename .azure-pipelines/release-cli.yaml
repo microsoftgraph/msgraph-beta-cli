@@ -163,14 +163,14 @@ parameters:
   - name: pools
     type: object
     default:
-      - name: 1es-windows-ps-compute
+      - name: Azure-Pipelines-1ESPT-ExDShared
         image: windows-latest
         os: windows
         rid: win-x64
         label: windows
         jobName: Windows-x64
 
-      - name: 1es-windows-ps-compute
+      - name: Azure-Pipelines-1ESPT-ExDShared
         enabled: false
         image: windows-latest
         os: windows
@@ -206,7 +206,7 @@ extends:
 
   parameters:
     pool:
-      name: 1es-windows-ubuntu-latest
+      name: Azure-Pipelines-1ESPT-ExDShared
       image: ubuntu-latest
       os: linux # OS of the image. This value cannot be a variable. Allowed values: windows, linux, macOS
 
@@ -261,7 +261,7 @@ extends:
         jobs:
           - job: build
             displayName: Build and publish
-            timeoutInMinutes: 120
+            timeoutInMinutes: 0
             strategy:
               matrix:
                 'Windows-x64':

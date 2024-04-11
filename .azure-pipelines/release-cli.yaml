@@ -261,6 +261,10 @@ extends:
         jobs:
           - job: build
             displayName: Build and publish
+            timeoutInMinutes: 180 # Use 3hr timeout
+            pool:
+              name: 1es-windows-ps-compute
+              os: windows
             strategy:
               matrix:
                 'Windows-x64':

@@ -264,6 +264,7 @@ extends:
             timeoutInMinutes: 0
             pool:
               name: 1es-windows-ps-compute
+              os: windows
             strategy:
               matrix:
                 'Windows-x64':

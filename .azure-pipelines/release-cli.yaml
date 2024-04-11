@@ -261,7 +261,7 @@ extends:
         jobs:
           - job: build
             displayName: Build and publish
-            timeoutInMinutes: 0
+            timeoutInMinutes: 180 # Use 3hr timeout
             pool:
               name: 1es-windows-ps-compute
               os: windows

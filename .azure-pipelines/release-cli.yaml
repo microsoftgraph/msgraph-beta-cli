@@ -261,10 +261,11 @@ extends:
         jobs:
           - job: build
             displayName: Build and publish
-            timeoutInMinutes: 180 # Use 3hr timeout
+            timeoutInMinutes: 60 # Use 1hr timeout
             pool:
-              name: 1es-windows-ps-compute
-              os: windows
+              # Custom high memory pool for building the CLI
+              name: 1es-ubuntu-latest-ado-cli-mem
+              os: linux
             strategy:
               matrix:
                 'Windows-x64':

@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class MailboxSettings : IAdditionalDataHolder, IParsable {
+    public class MailboxSettings : IAdditionalDataHolder, IParsable 
+    {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Folder ID of an archive folder for the user.</summary>
+        /// <summary>Folder ID of an archive folder for the user. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ArchiveFolder { get; set; }
@@ -32,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public string DateFormat { get; set; }
 #endif
-        /// <summary>If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.</summary>
+        /// <summary>If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.</summary>
         public ApiSdk.Models.DelegateMeetingMessageDeliveryOptions? DelegateMeetingMessageDeliveryOptions { get; set; }
         /// <summary>The locale information for the user, including the preferred language and country/region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,6 +69,8 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.</summary>
         public ApiSdk.Models.UserPurpose? UserPurpose { get; set; }
+        /// <summary>The userPurposeV2 property</summary>
+        public MailboxRecipientType? UserPurposeV2 { get; set; }
         /// <summary>The days of the week and hours in a specific time zone that the user works.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,24 +80,30 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.WorkingHours WorkingHours { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new mailboxSettings and sets the default values.
+        /// Instantiates a new <see cref="MailboxSettings"/> and sets the default values.
         /// </summary>
-        public MailboxSettings() {
+        public MailboxSettings()
+        {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MailboxSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MailboxSettings CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static MailboxSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MailboxSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>
+            {
                 {"archiveFolder", n => { ArchiveFolder = n.GetStringValue(); } },
                 {"automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<ApiSdk.Models.AutomaticRepliesSetting>(ApiSdk.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
                 {"dateFormat", n => { DateFormat = n.GetStringValue(); } },
@@ -104,6 +113,7 @@ namespace ApiSdk.Models {
                 {"timeFormat", n => { TimeFormat = n.GetStringValue(); } },
                 {"timeZone", n => { TimeZone = n.GetStringValue(); } },
                 {"userPurpose", n => { UserPurpose = n.GetEnumValue<UserPurpose>(); } },
+                {"userPurposeV2", n => { UserPurposeV2 = n.GetEnumValue<MailboxRecipientType>(); } },
                 {"workingHours", n => { WorkingHours = n.GetObjectValue<ApiSdk.Models.WorkingHours>(ApiSdk.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
@@ -111,7 +121,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("archiveFolder", ArchiveFolder);
             writer.WriteObjectValue<ApiSdk.Models.AutomaticRepliesSetting>("automaticRepliesSetting", AutomaticRepliesSetting);
@@ -122,6 +133,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("timeFormat", TimeFormat);
             writer.WriteStringValue("timeZone", TimeZone);
             writer.WriteEnumValue<UserPurpose>("userPurpose", UserPurpose);
+            writer.WriteEnumValue<MailboxRecipientType>("userPurposeV2", UserPurposeV2);
             writer.WriteObjectValue<ApiSdk.Models.WorkingHours>("workingHours", WorkingHours);
             writer.WriteAdditionalData(AdditionalData);
         }

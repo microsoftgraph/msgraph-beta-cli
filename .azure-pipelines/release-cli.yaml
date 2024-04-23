@@ -261,6 +261,11 @@ extends:
         jobs:
           - job: build
             displayName: Build and publish
+            timeoutInMinutes: 60 # Use 1hr timeout
+            pool:
+              # Custom high memory pool for building the CLI
+              name: 1es-ubuntu-latest-ado-cli-mem
+              os: linux
             strategy:
               matrix:
                 'Windows-x64':

@@ -21,11 +21,14 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
     /// <summary>
     /// Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class AuthenticationStrengthPolicyItemRequestBuilder : BaseCliRequestBuilder {
+    public class AuthenticationStrengthPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
         /// </summary>
-        public Command BuildCombinationConfigurationsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCombinationConfigurationsNavCommand()
+        {
             var command = new Command("combination-configurations");
             command.Description = "Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.";
             var builder = new CombinationConfigurationsRequestBuilder(PathParameters);
@@ -51,7 +54,9 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// Delete a custom authenticationStrengthPolicy object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete a custom authenticationStrengthPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
@@ -85,7 +90,9 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// Read the properties and relationships of an authenticationStrengthPolicy object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Read the properties and relationships of an authenticationStrengthPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
@@ -136,7 +143,9 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
@@ -185,7 +194,9 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// <summary>
         /// Provides operations to call the updateAllowedCombinations method.
         /// </summary>
-        public Command BuildUpdateAllowedCombinationsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUpdateAllowedCombinationsNavCommand()
+        {
             var command = new Command("update-allowed-combinations");
             command.Description = "Provides operations to call the updateAllowedCombinations method.";
             var builder = new UpdateAllowedCombinationsRequestBuilder(PathParameters);
@@ -200,7 +211,9 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// <summary>
         /// Provides operations to call the usage method.
         /// </summary>
-        public Command BuildUsageNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUsageNavCommand()
+        {
             var command = new Command("usage");
             command.Description = "Provides operations to call the usage method.";
             var builder = new UsageRequestBuilder(PathParameters);
@@ -213,29 +226,34 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AuthenticationStrengthPolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AuthenticationStrengthPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AuthenticationStrengthPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24select,%24expand}", pathParameters) {
+        public AuthenticationStrengthPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AuthenticationStrengthPolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AuthenticationStrengthPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AuthenticationStrengthPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24select,%24expand}", rawUrl) {
+        public AuthenticationStrengthPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete a custom authenticationStrengthPolicy object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -243,13 +261,16 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// <summary>
         /// Read the properties and relationships of an authenticationStrengthPolicy object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -259,17 +280,20 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// <summary>
         /// Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -277,7 +301,8 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         /// <summary>
         /// Read the properties and relationships of an authenticationStrengthPolicy object.
         /// </summary>
-        public class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters {
+        public class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

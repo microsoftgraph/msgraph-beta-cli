@@ -20,11 +20,14 @@ namespace ApiSdk.Education.Me.TaughtClasses {
     /// <summary>
     /// Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class TaughtClassesRequestBuilder : BaseCliRequestBuilder {
+    public class TaughtClassesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Tuple<List<Command>, List<Command>> BuildCommand() {
+        /// <returns>A Tuple&lt;List&lt;Command&gt;, List&lt;Command&gt;&gt;</returns>
+        public Tuple<List<Command>, List<Command>> BuildCommand()
+        {
             var executables = new List<Command>();
             var builder = new EducationClassItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildGetCommand());
@@ -33,7 +36,9 @@ namespace ApiSdk.Education.Me.TaughtClasses {
         /// <summary>
         /// Provides operations to count the resources in the collection.
         /// </summary>
-        public Command BuildCountNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCountNavCommand()
+        {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
             var builder = new CountRequestBuilder(PathParameters);
@@ -46,12 +51,13 @@ namespace ApiSdk.Education.Me.TaughtClasses {
             return command;
         }
         /// <summary>
-        /// Get the educationClass resources owned by an educationUser.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0" />
+        /// Classes for which the user is a teacher.
         /// </summary>
-        public Command BuildListCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildListCommand()
+        {
             var command = new Command("list");
-            command.Description = "Get the educationClass resources owned by an educationUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0";
+            command.Description = "Classes for which the user is a teacher.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -139,27 +145,32 @@ namespace ApiSdk.Education.Me.TaughtClasses {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TaughtClassesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TaughtClassesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TaughtClassesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/me/taughtClasses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public TaughtClassesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/me/taughtClasses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TaughtClassesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TaughtClassesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TaughtClassesRequestBuilder(string rawUrl) : base("{+baseurl}/education/me/taughtClasses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public TaughtClassesRequestBuilder(string rawUrl) : base("{+baseurl}/education/me/taughtClasses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        {
         }
         /// <summary>
-        /// Get the educationClass resources owned by an educationUser.
+        /// Classes for which the user is a teacher.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -167,9 +178,10 @@ namespace ApiSdk.Education.Me.TaughtClasses {
             return requestInfo;
         }
         /// <summary>
-        /// Get the educationClass resources owned by an educationUser.
+        /// Classes for which the user is a teacher.
         /// </summary>
-        public class TaughtClassesRequestBuilderGetQueryParameters {
+        public class TaughtClassesRequestBuilderGetQueryParameters 
+        {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }

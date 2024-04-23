@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Supported platform types for policies.</summary>
-    public enum PolicyPlatformType {
+    public enum PolicyPlatformType
+    {
         /// <summary>Android.</summary>
         [EnumMember(Value = "android")]
         Android,
@@ -25,6 +26,15 @@ namespace ApiSdk.Models {
         /// <summary>Windows 10 and later.</summary>
         [EnumMember(Value = "windows10AndLater")]
         Windows10AndLater,
+        /// <summary>AndroidWorkProfile.</summary>
+        [EnumMember(Value = "androidWorkProfile")]
+        AndroidWorkProfile,
+        /// <summary>Windows10XProfile.</summary>
+        [EnumMember(Value = "windows10XProfile")]
+        Windows10XProfile,
+        /// <summary>AndroidAOSPProfile.</summary>
+        [EnumMember(Value = "androidAOSP")]
+        AndroidAOSP,
         /// <summary>All platforms.</summary>
         [EnumMember(Value = "all")]
         All,

@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the androidGeneralDeviceConfiguration resource.
     /// </summary>
-    public class AndroidGeneralDeviceConfiguration : DeviceConfiguration, IParsable {
+    public class AndroidGeneralDeviceConfiguration : DeviceConfiguration, IParsable 
+    {
         /// <summary>Indicates whether or not to block clipboard sharing to copy and paste between applications.</summary>
         public bool? AppsBlockClipboardSharing { get; set; }
         /// <summary>Indicates whether or not to block copy and paste within applications.</summary>
@@ -61,6 +62,8 @@ namespace ApiSdk.Models {
 #else
         public List<AppListItem> CompliantAppsList { get; set; }
 #endif
+        /// <summary>Indicates whether or not to block changing date and time while in KNOX Mode.</summary>
+        public bool? DateAndTimeBlockChanges { get; set; }
         /// <summary>Indicates whether or not to allow device sharing mode.</summary>
         public bool? DeviceSharingAllowed { get; set; }
         /// <summary>Indicates whether or not to block diagnostic data submission.</summary>
@@ -107,6 +110,8 @@ namespace ApiSdk.Models {
         public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
         /// <summary>Indicates whether or not to block powering off the device.</summary>
         public bool? PowerOffBlocked { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? RequiredPasswordComplexity { get; set; }
         /// <summary>Indicates whether or not to block screenshots.</summary>
         public bool? ScreenCaptureBlocked { get; set; }
         /// <summary>Require the Android Verify apps feature is turned on.</summary>
@@ -136,24 +141,30 @@ namespace ApiSdk.Models {
         /// <summary>Indicates whether or not to block syncing Wi-Fi.</summary>
         public bool? WiFiBlocked { get; set; }
         /// <summary>
-        /// Instantiates a new androidGeneralDeviceConfiguration and sets the default values.
+        /// Instantiates a new <see cref="AndroidGeneralDeviceConfiguration"/> and sets the default values.
         /// </summary>
-        public AndroidGeneralDeviceConfiguration() : base() {
+        public AndroidGeneralDeviceConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.androidGeneralDeviceConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AndroidGeneralDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AndroidGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AndroidGeneralDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"appsBlockClipboardSharing", n => { AppsBlockClipboardSharing = n.GetBoolValue(); } },
                 {"appsBlockCopyPaste", n => { AppsBlockCopyPaste = n.GetBoolValue(); } },
                 {"appsBlockYouTube", n => { AppsBlockYouTube = n.GetBoolValue(); } },
@@ -168,6 +179,7 @@ namespace ApiSdk.Models {
                 {"cellularBlockWiFiTethering", n => { CellularBlockWiFiTethering = n.GetBoolValue(); } },
                 {"compliantAppListType", n => { CompliantAppListType = n.GetEnumValue<AppListType>(); } },
                 {"compliantAppsList", n => { CompliantAppsList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"dateAndTimeBlockChanges", n => { DateAndTimeBlockChanges = n.GetBoolValue(); } },
                 {"deviceSharingAllowed", n => { DeviceSharingAllowed = n.GetBoolValue(); } },
                 {"diagnosticDataBlockSubmission", n => { DiagnosticDataBlockSubmission = n.GetBoolValue(); } },
                 {"factoryResetBlocked", n => { FactoryResetBlocked = n.GetBoolValue(); } },
@@ -188,6 +200,7 @@ namespace ApiSdk.Models {
                 {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidRequiredPasswordType>(); } },
                 {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
                 {"powerOffBlocked", n => { PowerOffBlocked = n.GetBoolValue(); } },
+                {"requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
                 {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
                 {"securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
                 {"storageBlockGoogleBackup", n => { StorageBlockGoogleBackup = n.GetBoolValue(); } },
@@ -208,7 +221,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("appsBlockClipboardSharing", AppsBlockClipboardSharing);
@@ -225,6 +239,7 @@ namespace ApiSdk.Models {
             writer.WriteBoolValue("cellularBlockWiFiTethering", CellularBlockWiFiTethering);
             writer.WriteEnumValue<AppListType>("compliantAppListType", CompliantAppListType);
             writer.WriteCollectionOfObjectValues<AppListItem>("compliantAppsList", CompliantAppsList);
+            writer.WriteBoolValue("dateAndTimeBlockChanges", DateAndTimeBlockChanges);
             writer.WriteBoolValue("deviceSharingAllowed", DeviceSharingAllowed);
             writer.WriteBoolValue("diagnosticDataBlockSubmission", DiagnosticDataBlockSubmission);
             writer.WriteBoolValue("factoryResetBlocked", FactoryResetBlocked);
@@ -245,6 +260,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<AndroidRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
             writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
             writer.WriteBoolValue("powerOffBlocked", PowerOffBlocked);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("requiredPasswordComplexity", RequiredPasswordComplexity);
             writer.WriteBoolValue("screenCaptureBlocked", ScreenCaptureBlocked);
             writer.WriteBoolValue("securityRequireVerifyApps", SecurityRequireVerifyApps);
             writer.WriteBoolValue("storageBlockGoogleBackup", StorageBlockGoogleBackup);

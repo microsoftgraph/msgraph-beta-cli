@@ -8,7 +8,18 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This class contains compliance settings for Android.
     /// </summary>
-    public class AndroidCompliancePolicy : DeviceCompliancePolicy, IParsable {
+    public class AndroidCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    {
+        /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
+        public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+        /// <summary>Condition statement id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConditionStatementId { get; set; }
+#nullable restore
+#else
+        public string ConditionStatementId { get; set; }
+#endif
         /// <summary>Require that devices have enabled device threat protection.</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
@@ -49,6 +60,20 @@ namespace ApiSdk.Models {
         public bool? PasswordRequired { get; set; }
         /// <summary>Android required password type.</summary>
         public AndroidRequiredPasswordType? PasswordRequiredType { get; set; }
+        /// <summary>Number of sign-in failures allowed before factory reset. Valid values 1 to 16</summary>
+        public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? RequiredPasswordComplexity { get; set; }
+        /// <summary>Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppListItem>? RestrictedApps { get; set; }
+#nullable restore
+#else
+        public List<AppListItem> RestrictedApps { get; set; }
+#endif
+        /// <summary>Block device administrator managed devices.</summary>
+        public bool? SecurityBlockDeviceAdministratorManagedDevices { get; set; }
         /// <summary>Devices must not be jailbroken or rooted.</summary>
         public bool? SecurityBlockJailbrokenDevices { get; set; }
         /// <summary>Disable USB debugging on Android devices.</summary>
@@ -70,24 +95,32 @@ namespace ApiSdk.Models {
         /// <summary>Require encryption on Android devices.</summary>
         public bool? StorageRequireEncryption { get; set; }
         /// <summary>
-        /// Instantiates a new androidCompliancePolicy and sets the default values.
+        /// Instantiates a new <see cref="AndroidCompliancePolicy"/> and sets the default values.
         /// </summary>
-        public AndroidCompliancePolicy() : base() {
+        public AndroidCompliancePolicy() : base()
+        {
             OdataType = "#microsoft.graph.androidCompliancePolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AndroidCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AndroidCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AndroidCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                {"conditionStatementId", n => { ConditionStatementId = n.GetStringValue(); } },
                 {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
                 {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
                 {"minAndroidSecurityPatchLevel", n => { MinAndroidSecurityPatchLevel = n.GetStringValue(); } },
@@ -99,6 +132,10 @@ namespace ApiSdk.Models {
                 {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
                 {"passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
                 {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidRequiredPasswordType>(); } },
+                {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
+                {"requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
+                {"restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"securityBlockDeviceAdministratorManagedDevices", n => { SecurityBlockDeviceAdministratorManagedDevices = n.GetBoolValue(); } },
                 {"securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
                 {"securityDisableUsbDebugging", n => { SecurityDisableUsbDebugging = n.GetBoolValue(); } },
                 {"securityPreventInstallAppsFromUnknownSources", n => { SecurityPreventInstallAppsFromUnknownSources = n.GetBoolValue(); } },
@@ -115,9 +152,12 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
+            writer.WriteStringValue("conditionStatementId", ConditionStatementId);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
             writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteStringValue("minAndroidSecurityPatchLevel", MinAndroidSecurityPatchLevel);
@@ -129,6 +169,10 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("passwordPreviousPasswordBlockCount", PasswordPreviousPasswordBlockCount);
             writer.WriteBoolValue("passwordRequired", PasswordRequired);
             writer.WriteEnumValue<AndroidRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
+            writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("requiredPasswordComplexity", RequiredPasswordComplexity);
+            writer.WriteCollectionOfObjectValues<AppListItem>("restrictedApps", RestrictedApps);
+            writer.WriteBoolValue("securityBlockDeviceAdministratorManagedDevices", SecurityBlockDeviceAdministratorManagedDevices);
             writer.WriteBoolValue("securityBlockJailbrokenDevices", SecurityBlockJailbrokenDevices);
             writer.WriteBoolValue("securityDisableUsbDebugging", SecurityDisableUsbDebugging);
             writer.WriteBoolValue("securityPreventInstallAppsFromUnknownSources", SecurityPreventInstallAppsFromUnknownSources);

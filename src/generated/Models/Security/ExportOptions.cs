@@ -3,16 +3,19 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.Security {
     [Flags]
-    public enum ExportOptions {
+    public enum ExportOptions
+    {
         [EnumMember(Value = "originalFiles")]
         OriginalFiles = 1,
         [EnumMember(Value = "text")]
         Text = 2,
         [EnumMember(Value = "pdfReplacement")]
         PdfReplacement = 4,
+        [EnumMember(Value = "fileInfo")]
+        FileInfo = 8,
         [EnumMember(Value = "tags")]
-        Tags = 8,
+        Tags = 16,
         [EnumMember(Value = "unknownFutureValue")]
-        UnknownFutureValue = 16,
+        UnknownFutureValue = 32,
     }
 }

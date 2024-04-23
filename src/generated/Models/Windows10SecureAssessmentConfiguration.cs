@@ -8,13 +8,22 @@ namespace ApiSdk.Models {
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource.
     /// </summary>
-    public class Windows10SecureAssessmentConfiguration : DeviceConfiguration, IParsable {
+    public class Windows10SecureAssessmentConfiguration : DeviceConfiguration, IParsable 
+    {
         /// <summary>Indicates whether or not to allow the app from printing during the test.</summary>
         public bool? AllowPrinting { get; set; }
         /// <summary>Indicates whether or not to allow screen capture capability during a test.</summary>
         public bool? AllowScreenCapture { get; set; }
         /// <summary>Indicates whether or not to allow text suggestions during the test.</summary>
         public bool? AllowTextSuggestion { get; set; }
+        /// <summary>Specifies the application user model ID of the assessment app launched when a user signs in to a secure assessment with a local guest account. Important notice: this property must be set with localGuestAccountName in order to make the local guest account sign-in experience work properly for secure assessments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssessmentAppUserModelId { get; set; }
+#nullable restore
+#else
+        public string AssessmentAppUserModelId { get; set; }
+#endif
         /// <summary>The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,6 +32,8 @@ namespace ApiSdk.Models {
 #else
         public string ConfigurationAccount { get; set; }
 #endif
+        /// <summary>Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.</summary>
+        public SecureAssessmentAccountType? ConfigurationAccountType { get; set; }
         /// <summary>Url link to an assessment that&apos;s automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,44 +42,65 @@ namespace ApiSdk.Models {
 #else
         public string LaunchUri { get; set; }
 #endif
+        /// <summary>Specifies the display text for the local guest account shown on the sign-in screen. Typically is the name of an assessment. When the user clicks the local guest account on the sign-in screen, an assessment app is launched with a specified assessment URL. Secure assessments can only be configured with local guest account sign-in on devices running Windows 10, version 1903 or later. Important notice: this property must be set with assessmentAppUserModelID in order to make the local guest account sign-in experience work properly for secure assessments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LocalGuestAccountName { get; set; }
+#nullable restore
+#else
+        public string LocalGuestAccountName { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new windows10SecureAssessmentConfiguration and sets the default values.
+        /// Instantiates a new <see cref="Windows10SecureAssessmentConfiguration"/> and sets the default values.
         /// </summary>
-        public Windows10SecureAssessmentConfiguration() : base() {
+        public Windows10SecureAssessmentConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.windows10SecureAssessmentConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Windows10SecureAssessmentConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10SecureAssessmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Windows10SecureAssessmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Windows10SecureAssessmentConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"allowPrinting", n => { AllowPrinting = n.GetBoolValue(); } },
                 {"allowScreenCapture", n => { AllowScreenCapture = n.GetBoolValue(); } },
                 {"allowTextSuggestion", n => { AllowTextSuggestion = n.GetBoolValue(); } },
+                {"assessmentAppUserModelId", n => { AssessmentAppUserModelId = n.GetStringValue(); } },
                 {"configurationAccount", n => { ConfigurationAccount = n.GetStringValue(); } },
+                {"configurationAccountType", n => { ConfigurationAccountType = n.GetEnumValue<SecureAssessmentAccountType>(); } },
                 {"launchUri", n => { LaunchUri = n.GetStringValue(); } },
+                {"localGuestAccountName", n => { LocalGuestAccountName = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("allowPrinting", AllowPrinting);
             writer.WriteBoolValue("allowScreenCapture", AllowScreenCapture);
             writer.WriteBoolValue("allowTextSuggestion", AllowTextSuggestion);
+            writer.WriteStringValue("assessmentAppUserModelId", AssessmentAppUserModelId);
             writer.WriteStringValue("configurationAccount", ConfigurationAccount);
+            writer.WriteEnumValue<SecureAssessmentAccountType>("configurationAccountType", ConfigurationAccountType);
             writer.WriteStringValue("launchUri", LaunchUri);
+            writer.WriteStringValue("localGuestAccountName", LocalGuestAccountName);
         }
     }
 }

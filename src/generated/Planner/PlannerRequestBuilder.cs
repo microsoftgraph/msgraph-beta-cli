@@ -3,6 +3,7 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Planner.Buckets;
 using ApiSdk.Planner.Plans;
+using ApiSdk.Planner.Rosters;
 using ApiSdk.Planner.Tasks;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -21,11 +22,14 @@ namespace ApiSdk.Planner {
     /// <summary>
     /// Provides operations to manage the planner singleton.
     /// </summary>
-    public class PlannerRequestBuilder : BaseCliRequestBuilder {
+    public class PlannerRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the buckets property of the microsoft.graph.planner entity.
         /// </summary>
-        public Command BuildBucketsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildBucketsNavCommand()
+        {
             var command = new Command("buckets");
             command.Description = "Provides operations to manage the buckets property of the microsoft.graph.planner entity.";
             var builder = new BucketsRequestBuilder(PathParameters);
@@ -33,6 +37,7 @@ namespace ApiSdk.Planner {
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildDeltaNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
@@ -50,7 +55,9 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Get planner
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get planner";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -94,7 +101,9 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Update planner
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update planner";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -137,10 +146,40 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Provides operations to manage the plans property of the microsoft.graph.planner entity.
         /// </summary>
-        public Command BuildPlansNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPlansNavCommand()
+        {
             var command = new Command("plans");
             command.Description = "Provides operations to manage the plans property of the microsoft.graph.planner entity.";
             var builder = new PlansRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildDeltaNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the rosters property of the microsoft.graph.planner entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRostersNavCommand()
+        {
+            var command = new Command("rosters");
+            command.Description = "Provides operations to manage the rosters property of the microsoft.graph.planner entity.";
+            var builder = new RostersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -162,7 +201,9 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Provides operations to manage the tasks property of the microsoft.graph.planner entity.
         /// </summary>
-        public Command BuildTasksNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTasksNavCommand()
+        {
             var command = new Command("tasks");
             command.Description = "Provides operations to manage the tasks property of the microsoft.graph.planner entity.";
             var builder = new TasksRequestBuilder(PathParameters);
@@ -170,6 +211,7 @@ namespace ApiSdk.Planner {
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildDeltaNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
@@ -185,27 +227,32 @@ namespace ApiSdk.Planner {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PlannerRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PlannerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PlannerRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/planner{?%24select,%24expand}", pathParameters) {
+        public PlannerRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/planner{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new PlannerRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PlannerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PlannerRequestBuilder(string rawUrl) : base("{+baseurl}/planner{?%24select,%24expand}", rawUrl) {
+        public PlannerRequestBuilder(string rawUrl) : base("{+baseurl}/planner{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get planner
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -215,17 +262,20 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Update planner
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Planner body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Planner body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Planner body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Planner body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/planner", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -233,7 +283,8 @@ namespace ApiSdk.Planner {
         /// <summary>
         /// Get planner
         /// </summary>
-        public class PlannerRequestBuilderGetQueryParameters {
+        public class PlannerRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

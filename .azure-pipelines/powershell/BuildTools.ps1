@@ -1,7 +1,7 @@
 Class PackageTypes : System.Management.Automation.IValidateSetValuesGenerator {
     [string[]] GetValidValues() {
         $PackageTypes = ,"zip"
-        if ($global:IsMacOS -or $global:IsLinux) {
+        if (Get-Command -Name tar -CommandType Application -ErrorAction Ignore) {
             $PackageTypes += "tar"
         }
         return [string[]] $PackageTypes

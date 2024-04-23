@@ -18,14 +18,17 @@ namespace ApiSdk.Users.Item.Oauth2PermissionGrants.Item {
     /// <summary>
     /// Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
     /// </summary>
-    public class OAuth2PermissionGrantItemRequestBuilder : BaseCliRequestBuilder {
+    public class OAuth2PermissionGrantItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Get oauth2PermissionGrants from users
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get oauth2PermissionGrants from users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -76,27 +79,32 @@ namespace ApiSdk.Users.Item.Oauth2PermissionGrants.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new OAuth2PermissionGrantItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="OAuth2PermissionGrantItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public OAuth2PermissionGrantItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24select,%24expand}", pathParameters) {
+        public OAuth2PermissionGrantItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new OAuth2PermissionGrantItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="OAuth2PermissionGrantItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public OAuth2PermissionGrantItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24select,%24expand}", rawUrl) {
+        public OAuth2PermissionGrantItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get oauth2PermissionGrants from users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -106,7 +114,8 @@ namespace ApiSdk.Users.Item.Oauth2PermissionGrants.Item {
         /// <summary>
         /// Get oauth2PermissionGrants from users
         /// </summary>
-        public class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
+        public class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

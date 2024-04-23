@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class WorkbookWorksheet : Entity, IParsable {
+    public class WorkbookWorksheet : Entity, IParsable 
+    {
         /// <summary>Returns collection of charts that are part of the worksheet. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +57,15 @@ namespace ApiSdk.Models {
 #else
         public List<WorkbookTable> Tables { get; set; }
 #endif
-        /// <summary>The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.</summary>
+        /// <summary>Collection of document tasks on this worksheet. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WorkbookDocumentTask>? Tasks { get; set; }
+#nullable restore
+#else
+        public List<WorkbookDocumentTask> Tasks { get; set; }
+#endif
+        /// <summary>The visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }
@@ -67,16 +76,21 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="WorkbookWorksheet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkbookWorksheet CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new WorkbookWorksheet CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new WorkbookWorksheet();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"charts", n => { Charts = n.GetCollectionOfObjectValues<WorkbookChart>(WorkbookChart.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"names", n => { Names = n.GetCollectionOfObjectValues<WorkbookNamedItem>(WorkbookNamedItem.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -84,6 +98,7 @@ namespace ApiSdk.Models {
                 {"position", n => { Position = n.GetIntValue(); } },
                 {"protection", n => { Protection = n.GetObjectValue<WorkbookWorksheetProtection>(WorkbookWorksheetProtection.CreateFromDiscriminatorValue); } },
                 {"tables", n => { Tables = n.GetCollectionOfObjectValues<WorkbookTable>(WorkbookTable.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"visibility", n => { Visibility = n.GetStringValue(); } },
             };
         }
@@ -91,7 +106,8 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<WorkbookChart>("charts", Charts);
@@ -101,6 +117,7 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("position", Position);
             writer.WriteObjectValue<WorkbookWorksheetProtection>("protection", Protection);
             writer.WriteCollectionOfObjectValues<WorkbookTable>("tables", Tables);
+            writer.WriteCollectionOfObjectValues<WorkbookDocumentTask>("tasks", Tasks);
             writer.WriteStringValue("visibility", Visibility);
         }
     }

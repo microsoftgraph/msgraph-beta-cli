@@ -18,11 +18,14 @@ namespace ApiSdk.FilterOperators.Item {
     /// <summary>
     /// Provides operations to manage the collection of filterOperatorSchema entities.
     /// </summary>
-    public class FilterOperatorSchemaItemRequestBuilder : BaseCliRequestBuilder {
+    public class FilterOperatorSchemaItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete entity from filterOperators
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete entity from filterOperators";
             var filterOperatorSchemaIdOption = new Option<string>("--filter-operator-schema-id", description: "The unique identifier of filterOperatorSchema") {
@@ -55,7 +58,9 @@ namespace ApiSdk.FilterOperators.Item {
         /// <summary>
         /// Get entity from filterOperators by key
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get entity from filterOperators by key";
             var filterOperatorSchemaIdOption = new Option<string>("--filter-operator-schema-id", description: "The unique identifier of filterOperatorSchema") {
@@ -105,7 +110,9 @@ namespace ApiSdk.FilterOperators.Item {
         /// <summary>
         /// Update entity in filterOperators
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update entity in filterOperators";
             var filterOperatorSchemaIdOption = new Option<string>("--filter-operator-schema-id", description: "The unique identifier of filterOperatorSchema") {
@@ -152,29 +159,34 @@ namespace ApiSdk.FilterOperators.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new FilterOperatorSchemaItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="FilterOperatorSchemaItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public FilterOperatorSchemaItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24select,%24expand}", pathParameters) {
+        public FilterOperatorSchemaItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new FilterOperatorSchemaItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="FilterOperatorSchemaItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public FilterOperatorSchemaItemRequestBuilder(string rawUrl) : base("{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24select,%24expand}", rawUrl) {
+        public FilterOperatorSchemaItemRequestBuilder(string rawUrl) : base("{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete entity from filterOperators
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -182,13 +194,16 @@ namespace ApiSdk.FilterOperators.Item {
         /// <summary>
         /// Get entity from filterOperators by key
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -198,17 +213,20 @@ namespace ApiSdk.FilterOperators.Item {
         /// <summary>
         /// Update entity in filterOperators
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(FilterOperatorSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(FilterOperatorSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(FilterOperatorSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(FilterOperatorSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -216,7 +234,8 @@ namespace ApiSdk.FilterOperators.Item {
         /// <summary>
         /// Get entity from filterOperators by key
         /// </summary>
-        public class FilterOperatorSchemaItemRequestBuilderGetQueryParameters {
+        public class FilterOperatorSchemaItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

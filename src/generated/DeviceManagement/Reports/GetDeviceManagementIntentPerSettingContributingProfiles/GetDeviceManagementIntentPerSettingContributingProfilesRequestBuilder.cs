@@ -17,14 +17,16 @@ namespace ApiSdk.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingCon
     /// <summary>
     /// Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.
     /// </summary>
-    public class GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder : BaseCliRequestBuilder {
+    public class GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Not yet documented
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicemanagementintentpersettingcontributingprofiles?view=graph-rest-1.0" />
+        /// Invoke action getDeviceManagementIntentPerSettingContributingProfiles
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Not yet documented\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicemanagementintentpersettingcontributingprofiles?view=graph-rest-1.0";
+            command.Description = "Invoke action getDeviceManagementIntentPerSettingContributingProfiles";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -65,28 +67,33 @@ namespace ApiSdk.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingCon
             return command;
         }
         /// <summary>
-        /// Instantiates a new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles", pathParameters) {
+        public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles", rawUrl) {
+        public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles", rawUrl)
+        {
         }
         /// <summary>
-        /// Not yet documented
+        /// Invoke action getDeviceManagementIntentPerSettingContributingProfiles
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

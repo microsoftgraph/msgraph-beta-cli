@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum TeamworkUserIdentityType {
+    public enum TeamworkUserIdentityType
+    {
         [EnumMember(Value = "aadUser")]
         AadUser,
         [EnumMember(Value = "onPremiseAadUser")]
@@ -21,5 +22,7 @@ namespace ApiSdk.Models {
         UnknownFutureValue,
         [EnumMember(Value = "emailUser")]
         EmailUser,
+        [EnumMember(Value = "azureCommunicationServicesUser")]
+        AzureCommunicationServicesUser,
     }
 }

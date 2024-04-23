@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum MeetingMessageType {
+    public enum MeetingMessageType
+    {
         [EnumMember(Value = "none")]
         None,
         [EnumMember(Value = "meetingRequest")]
@@ -11,8 +12,8 @@ namespace ApiSdk.Models {
         MeetingCancelled,
         [EnumMember(Value = "meetingAccepted")]
         MeetingAccepted,
-        [EnumMember(Value = "meetingTenativelyAccepted")]
-        MeetingTenativelyAccepted,
+        [EnumMember(Value = "meetingTentativelyAccepted")]
+        MeetingTentativelyAccepted,
         [EnumMember(Value = "meetingDeclined")]
         MeetingDeclined,
     }

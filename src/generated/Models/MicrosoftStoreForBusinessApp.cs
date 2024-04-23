@@ -8,9 +8,26 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
     /// </summary>
-    public class MicrosoftStoreForBusinessApp : MobileApp, IParsable {
+    public class MicrosoftStoreForBusinessApp : MobileApp, IParsable 
+    {
+        /// <summary>The collection of contained apps in a mobileApp acting as a package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileContainedApp>? ContainedApps { get; set; }
+#nullable restore
+#else
+        public List<MobileContainedApp> ContainedApps { get; set; }
+#endif
         /// <summary>The licenseType property</summary>
         public MicrosoftStoreForBusinessLicenseType? LicenseType { get; set; }
+        /// <summary>The supported License Type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public VppLicensingType? LicensingType { get; set; }
+#nullable restore
+#else
+        public VppLicensingType LicensingType { get; set; }
+#endif
         /// <summary>The app package identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,25 +49,33 @@ namespace ApiSdk.Models {
         /// <summary>The number of Microsoft Store for Business licenses in use.</summary>
         public int? UsedLicenseCount { get; set; }
         /// <summary>
-        /// Instantiates a new microsoftStoreForBusinessApp and sets the default values.
+        /// Instantiates a new <see cref="MicrosoftStoreForBusinessApp"/> and sets the default values.
         /// </summary>
-        public MicrosoftStoreForBusinessApp() : base() {
+        public MicrosoftStoreForBusinessApp() : base()
+        {
             OdataType = "#microsoft.graph.microsoftStoreForBusinessApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="MicrosoftStoreForBusinessApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftStoreForBusinessApp CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new MicrosoftStoreForBusinessApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MicrosoftStoreForBusinessApp();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"containedApps", n => { ContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"licenseType", n => { LicenseType = n.GetEnumValue<MicrosoftStoreForBusinessLicenseType>(); } },
+                {"licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
                 {"packageIdentityName", n => { PackageIdentityName = n.GetStringValue(); } },
                 {"productKey", n => { ProductKey = n.GetStringValue(); } },
                 {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
@@ -61,10 +86,13 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<MobileContainedApp>("containedApps", ContainedApps);
             writer.WriteEnumValue<MicrosoftStoreForBusinessLicenseType>("licenseType", LicenseType);
+            writer.WriteObjectValue<VppLicensingType>("licensingType", LicensingType);
             writer.WriteStringValue("packageIdentityName", PackageIdentityName);
             writer.WriteStringValue("productKey", ProductKey);
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);

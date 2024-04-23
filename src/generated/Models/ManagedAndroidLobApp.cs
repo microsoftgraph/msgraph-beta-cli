@@ -8,7 +8,8 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Contains properties and inherited properties for Managed Android Line Of Business apps.
     /// </summary>
-    public class ManagedAndroidLobApp : ManagedMobileLobApp, IParsable {
+    public class ManagedAndroidLobApp : ManagedMobileLobApp, IParsable 
+    {
         /// <summary>The value for the minimum applicable operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,6 +26,8 @@ namespace ApiSdk.Models {
 #else
         public string PackageId { get; set; }
 #endif
+        /// <summary>Specifies which platform(s) can be targeted for a given Android LOB application or Managed Android LOB application.</summary>
+        public AndroidTargetedPlatforms? TargetedPlatforms { get; set; }
         /// <summary>The version code of managed Android Line of Business (LoB) app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,26 +45,33 @@ namespace ApiSdk.Models {
         public string VersionName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new managedAndroidLobApp and sets the default values.
+        /// Instantiates a new <see cref="ManagedAndroidLobApp"/> and sets the default values.
         /// </summary>
-        public ManagedAndroidLobApp() : base() {
+        public ManagedAndroidLobApp() : base()
+        {
             OdataType = "#microsoft.graph.managedAndroidLobApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="ManagedAndroidLobApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedAndroidLobApp CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new ManagedAndroidLobApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ManagedAndroidLobApp();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<AndroidMinimumOperatingSystem>(AndroidMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
                 {"packageId", n => { PackageId = n.GetStringValue(); } },
+                {"targetedPlatforms", n => { TargetedPlatforms = n.GetEnumValue<AndroidTargetedPlatforms>(); } },
                 {"versionCode", n => { VersionCode = n.GetStringValue(); } },
                 {"versionName", n => { VersionName = n.GetStringValue(); } },
             };
@@ -70,11 +80,13 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", MinimumSupportedOperatingSystem);
             writer.WriteStringValue("packageId", PackageId);
+            writer.WriteEnumValue<AndroidTargetedPlatforms>("targetedPlatforms", TargetedPlatforms);
             writer.WriteStringValue("versionCode", VersionCode);
             writer.WriteStringValue("versionName", VersionName);
         }

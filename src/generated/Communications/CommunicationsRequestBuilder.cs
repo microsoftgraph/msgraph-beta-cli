@@ -3,6 +3,7 @@ using ApiSdk.Communications.CallRecords;
 using ApiSdk.Communications.Calls;
 using ApiSdk.Communications.GetPresencesByUserId;
 using ApiSdk.Communications.OnlineMeetings;
+using ApiSdk.Communications.OnlineMeetingsWithJoinWebUrl;
 using ApiSdk.Communications.Presences;
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
@@ -23,11 +24,14 @@ namespace ApiSdk.Communications {
     /// <summary>
     /// Provides operations to manage the cloudCommunications singleton.
     /// </summary>
-    public class CommunicationsRequestBuilder : BaseCliRequestBuilder {
+    public class CommunicationsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
         /// </summary>
-        public Command BuildCallRecordsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCallRecordsNavCommand()
+        {
             var command = new Command("call-records");
             command.Description = "Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.";
             var builder = new CallRecordsRequestBuilder(PathParameters);
@@ -37,7 +41,10 @@ namespace ApiSdk.Communications {
             execCommands.Add(builder.BuildCreateCommand());
             execCommands.Add(builder.BuildListCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRbCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
             nonExecCommands.AddRange(cmds.Item2);
@@ -54,7 +61,9 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
         /// </summary>
-        public Command BuildCallsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCallsNavCommand()
+        {
             var command = new Command("calls");
             command.Description = "Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.";
             var builder = new CallsRequestBuilder(PathParameters);
@@ -80,7 +89,9 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Get communications
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get communications";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -124,7 +135,9 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Provides operations to call the getPresencesByUserId method.
         /// </summary>
-        public Command BuildGetPresencesByUserIdNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetPresencesByUserIdNavCommand()
+        {
             var command = new Command("get-presences-by-user-id");
             command.Description = "Provides operations to call the getPresencesByUserId method.";
             var builder = new GetPresencesByUserIdRequestBuilder(PathParameters);
@@ -139,7 +152,9 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
         /// </summary>
-        public Command BuildOnlineMeetingsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildOnlineMeetingsNavCommand()
+        {
             var command = new Command("online-meetings");
             command.Description = "Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.";
             var builder = new OnlineMeetingsRequestBuilder(PathParameters);
@@ -148,6 +163,8 @@ namespace ApiSdk.Communications {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             nonExecCommands.Add(builder.BuildCreateOrGetNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllRecordingsNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllTranscriptsNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
@@ -163,9 +180,38 @@ namespace ApiSdk.Communications {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildOnlineMeetingsWithJoinWebUrlRbCommand()
+        {
+            var command = new Command("online-meetings-with-join-web-url");
+            command.Description = "Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.";
+            var builder = new OnlineMeetingsWithJoinWebUrlRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildGetVirtualAppointmentJoinWebUrlNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSendVirtualAppointmentReminderSmsNavCommand());
+            nonExecCommands.Add(builder.BuildSendVirtualAppointmentSmsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Update communications
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update communications";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -208,7 +254,9 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
         /// </summary>
-        public Command BuildPresencesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPresencesNavCommand()
+        {
             var command = new Command("presences");
             command.Description = "Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.";
             var builder = new PresencesRequestBuilder(PathParameters);
@@ -231,27 +279,32 @@ namespace ApiSdk.Communications {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CommunicationsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CommunicationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CommunicationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications{?%24select,%24expand}", pathParameters) {
+        public CommunicationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CommunicationsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CommunicationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CommunicationsRequestBuilder(string rawUrl) : base("{+baseurl}/communications{?%24select,%24expand}", rawUrl) {
+        public CommunicationsRequestBuilder(string rawUrl) : base("{+baseurl}/communications{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get communications
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -261,17 +314,20 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Update communications
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(CloudCommunications body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(CloudCommunications body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(CloudCommunications body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(CloudCommunications body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/communications", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -279,7 +335,8 @@ namespace ApiSdk.Communications {
         /// <summary>
         /// Get communications
         /// </summary>
-        public class CommunicationsRequestBuilderGetQueryParameters {
+        public class CommunicationsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

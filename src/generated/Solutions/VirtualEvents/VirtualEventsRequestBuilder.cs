@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Solutions.VirtualEvents.Events;
+using ApiSdk.Solutions.VirtualEvents.Townhalls;
 using ApiSdk.Solutions.VirtualEvents.Webinars;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -20,11 +21,14 @@ namespace ApiSdk.Solutions.VirtualEvents {
     /// <summary>
     /// Provides operations to manage the virtualEvents property of the microsoft.graph.solutionsRoot entity.
     /// </summary>
-    public class VirtualEventsRequestBuilder : BaseCliRequestBuilder {
+    public class VirtualEventsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property virtualEvents for solutions
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property virtualEvents for solutions";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -51,7 +55,9 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.
         /// </summary>
-        public Command BuildEventsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildEventsNavCommand()
+        {
             var command = new Command("events");
             command.Description = "Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.";
             var builder = new EventsRequestBuilder(PathParameters);
@@ -76,7 +82,9 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Get virtualEvents from solutions
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get virtualEvents from solutions";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -120,7 +128,9 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Update the navigation property virtualEvents in solutions
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property virtualEvents in solutions";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -161,9 +171,40 @@ namespace ApiSdk.Solutions.VirtualEvents {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTownhallsNavCommand()
+        {
+            var command = new Command("townhalls");
+            command.Description = "Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.";
+            var builder = new TownhallsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildGetByUserIdAndRoleWithUserIdWithRoleRbCommand());
+            nonExecCommands.Add(builder.BuildGetByUserRoleWithRoleRbCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
         /// </summary>
-        public Command BuildWebinarsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWebinarsNavCommand()
+        {
             var command = new Command("webinars");
             command.Description = "Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.";
             var builder = new WebinarsRequestBuilder(PathParameters);
@@ -188,29 +229,34 @@ namespace ApiSdk.Solutions.VirtualEvents {
             return command;
         }
         /// <summary>
-        /// Instantiates a new VirtualEventsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="VirtualEventsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public VirtualEventsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents{?%24select,%24expand}", pathParameters) {
+        public VirtualEventsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new VirtualEventsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="VirtualEventsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public VirtualEventsRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents{?%24select,%24expand}", rawUrl) {
+        public VirtualEventsRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property virtualEvents for solutions
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/virtualEvents", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -218,13 +264,16 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Get virtualEvents from solutions
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEventsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -234,17 +283,20 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Update the navigation property virtualEvents in solutions
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(VirtualEventsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(VirtualEventsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(VirtualEventsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(VirtualEventsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/virtualEvents", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -252,7 +304,8 @@ namespace ApiSdk.Solutions.VirtualEvents {
         /// <summary>
         /// Get virtualEvents from solutions
         /// </summary>
-        public class VirtualEventsRequestBuilderGetQueryParameters {
+        public class VirtualEventsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

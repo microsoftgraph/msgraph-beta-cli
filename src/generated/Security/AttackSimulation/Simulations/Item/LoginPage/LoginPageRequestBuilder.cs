@@ -18,11 +18,14 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item.LoginPage {
     /// <summary>
     /// Provides operations to manage the loginPage property of the microsoft.graph.simulation entity.
     /// </summary>
-    public class LoginPageRequestBuilder : BaseCliRequestBuilder {
+    public class LoginPageRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The login page associated with a simulation during its creation.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The login page associated with a simulation during its creation.";
             var simulationIdOption = new Option<string>("--simulation-id", description: "The unique identifier of simulation") {
@@ -70,27 +73,32 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item.LoginPage {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LoginPageRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LoginPageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LoginPageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24select,%24expand}", pathParameters) {
+        public LoginPageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LoginPageRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LoginPageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LoginPageRequestBuilder(string rawUrl) : base("{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24select,%24expand}", rawUrl) {
+        public LoginPageRequestBuilder(string rawUrl) : base("{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The login page associated with a simulation during its creation.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LoginPageRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LoginPageRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LoginPageRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LoginPageRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item.LoginPage {
         /// <summary>
         /// The login page associated with a simulation during its creation.
         /// </summary>
-        public class LoginPageRequestBuilderGetQueryParameters {
+        public class LoginPageRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

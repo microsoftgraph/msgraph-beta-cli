@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Person : Entity, IParsable {
+    public class Person : Entity, IParsable 
+    {
         /// <summary>The person&apos;s birthday.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +39,14 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>The person&apos;s email addresses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RankedEmailAddress>? EmailAddresses { get; set; }
+#nullable restore
+#else
+        public List<RankedEmailAddress> EmailAddresses { get; set; }
+#endif
         /// <summary>The person&apos;s given name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,23 +55,15 @@ namespace ApiSdk.Models {
 #else
         public string GivenName { get; set; }
 #endif
-        /// <summary>The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ImAddress { get; set; }
-#nullable restore
-#else
-        public string ImAddress { get; set; }
-#endif
         /// <summary>True if the user has flagged this person as a favorite.</summary>
         public bool? IsFavorite { get; set; }
-        /// <summary>The person&apos;s job title.</summary>
+        /// <summary>The type of mailbox that is represented by the person&apos;s email address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobTitle { get; set; }
+        public string? MailboxType { get; set; }
 #nullable restore
 #else
-        public string JobTitle { get; set; }
+        public string MailboxType { get; set; }
 #endif
         /// <summary>The location of the person&apos;s office.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,13 +81,13 @@ namespace ApiSdk.Models {
 #else
         public string PersonNotes { get; set; }
 #endif
-        /// <summary>The type of person.</summary>
+        /// <summary>The type of person, for example distribution list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ApiSdk.Models.PersonType? PersonType { get; set; }
+        public string? PersonType { get; set; }
 #nullable restore
 #else
-        public ApiSdk.Models.PersonType PersonType { get; set; }
+        public string PersonType { get; set; }
 #endif
         /// <summary>The person&apos;s phone numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,13 +113,13 @@ namespace ApiSdk.Models {
 #else
         public string Profession { get; set; }
 #endif
-        /// <summary>The person&apos;s email addresses.</summary>
+        /// <summary>The sources the user data comes from, for example Directory or Outlook Contacts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ScoredEmailAddress>? ScoredEmailAddresses { get; set; }
+        public List<PersonDataSource>? Sources { get; set; }
 #nullable restore
 #else
-        public List<ScoredEmailAddress> ScoredEmailAddresses { get; set; }
+        public List<PersonDataSource> Sources { get; set; }
 #endif
         /// <summary>The person&apos;s surname.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -127,6 +128,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string Surname { get; set; }
+#endif
+        /// <summary>The person&apos;s title.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
 #endif
         /// <summary>The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person&apos;s email name. The general format is alias@domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -155,32 +164,38 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Person"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Person CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Person CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Person();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"birthday", n => { Birthday = n.GetStringValue(); } },
                 {"companyName", n => { CompanyName = n.GetStringValue(); } },
                 {"department", n => { Department = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"emailAddresses", n => { EmailAddresses = n.GetCollectionOfObjectValues<RankedEmailAddress>(RankedEmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"givenName", n => { GivenName = n.GetStringValue(); } },
-                {"imAddress", n => { ImAddress = n.GetStringValue(); } },
                 {"isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
-                {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
+                {"mailboxType", n => { MailboxType = n.GetStringValue(); } },
                 {"officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
                 {"personNotes", n => { PersonNotes = n.GetStringValue(); } },
-                {"personType", n => { PersonType = n.GetObjectValue<ApiSdk.Models.PersonType>(ApiSdk.Models.PersonType.CreateFromDiscriminatorValue); } },
+                {"personType", n => { PersonType = n.GetStringValue(); } },
                 {"phones", n => { Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"postalAddresses", n => { PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"profession", n => { Profession = n.GetStringValue(); } },
-                {"scoredEmailAddresses", n => { ScoredEmailAddresses = n.GetCollectionOfObjectValues<ScoredEmailAddress>(ScoredEmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"sources", n => { Sources = n.GetCollectionOfObjectValues<PersonDataSource>(PersonDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"surname", n => { Surname = n.GetStringValue(); } },
+                {"title", n => { Title = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
                 {"websites", n => { Websites = n.GetCollectionOfObjectValues<Website>(Website.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"yomiCompany", n => { YomiCompany = n.GetStringValue(); } },
@@ -190,25 +205,27 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("birthday", Birthday);
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("department", Department);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteCollectionOfObjectValues<RankedEmailAddress>("emailAddresses", EmailAddresses);
             writer.WriteStringValue("givenName", GivenName);
-            writer.WriteStringValue("imAddress", ImAddress);
             writer.WriteBoolValue("isFavorite", IsFavorite);
-            writer.WriteStringValue("jobTitle", JobTitle);
+            writer.WriteStringValue("mailboxType", MailboxType);
             writer.WriteStringValue("officeLocation", OfficeLocation);
             writer.WriteStringValue("personNotes", PersonNotes);
-            writer.WriteObjectValue<ApiSdk.Models.PersonType>("personType", PersonType);
+            writer.WriteStringValue("personType", PersonType);
             writer.WriteCollectionOfObjectValues<Phone>("phones", Phones);
             writer.WriteCollectionOfObjectValues<Location>("postalAddresses", PostalAddresses);
             writer.WriteStringValue("profession", Profession);
-            writer.WriteCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", ScoredEmailAddresses);
+            writer.WriteCollectionOfObjectValues<PersonDataSource>("sources", Sources);
             writer.WriteStringValue("surname", Surname);
+            writer.WriteStringValue("title", Title);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
             writer.WriteCollectionOfObjectValues<Website>("websites", Websites);
             writer.WriteStringValue("yomiCompany", YomiCompany);

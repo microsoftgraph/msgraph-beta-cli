@@ -17,11 +17,14 @@ namespace ApiSdk.Applications.Item.Logo {
     /// <summary>
     /// Provides operations to manage the media for the application entity.
     /// </summary>
-    public class LogoRequestBuilder : BaseCliRequestBuilder {
+    public class LogoRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The main logo for the application. Not nullable.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The main logo for the application. Not nullable.";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
@@ -59,7 +62,9 @@ namespace ApiSdk.Applications.Item.Logo {
         /// <summary>
         /// The main logo for the application. Not nullable.
         /// </summary>
-        public Command BuildPutCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPutCommand()
+        {
             var command = new Command("put");
             command.Description = "The main logo for the application. Not nullable.";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
@@ -105,27 +110,32 @@ namespace ApiSdk.Applications.Item.Logo {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LogoRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LogoRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LogoRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/logo", pathParameters) {
+        public LogoRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/logo", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LogoRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LogoRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LogoRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/logo", rawUrl) {
+        public LogoRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/logo", rawUrl)
+        {
         }
         /// <summary>
         /// The main logo for the application. Not nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -135,14 +145,17 @@ namespace ApiSdk.Applications.Item.Logo {
         /// <summary>
         /// The main logo for the application. Not nullable.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);

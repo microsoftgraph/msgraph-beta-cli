@@ -19,11 +19,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
     /// <summary>
     /// Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
     /// </summary>
-    public class InternetExplorerModeRequestBuilder : BaseCliRequestBuilder {
+    public class InternetExplorerModeRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property internetExplorerMode for admin
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property internetExplorerMode for admin";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -50,7 +53,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// A container for Internet Explorer mode resources.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "A container for Internet Explorer mode resources.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -94,7 +99,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// Update the navigation property internetExplorerMode in admin
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property internetExplorerMode in admin";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -137,7 +144,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
         /// </summary>
-        public Command BuildSiteListsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSiteListsNavCommand()
+        {
             var command = new Command("site-lists");
             command.Description = "Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.";
             var builder = new SiteListsRequestBuilder(PathParameters);
@@ -160,29 +169,34 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
             return command;
         }
         /// <summary>
-        /// Instantiates a new InternetExplorerModeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InternetExplorerModeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public InternetExplorerModeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/edge/internetExplorerMode{?%24select,%24expand}", pathParameters) {
+        public InternetExplorerModeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/edge/internetExplorerMode{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new InternetExplorerModeRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="InternetExplorerModeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public InternetExplorerModeRequestBuilder(string rawUrl) : base("{+baseurl}/admin/edge/internetExplorerMode{?%24select,%24expand}", rawUrl) {
+        public InternetExplorerModeRequestBuilder(string rawUrl) : base("{+baseurl}/admin/edge/internetExplorerMode{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property internetExplorerMode for admin
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/edge/internetExplorerMode", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -190,13 +204,16 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// A container for Internet Explorer mode resources.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InternetExplorerModeRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InternetExplorerModeRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InternetExplorerModeRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InternetExplorerModeRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -206,17 +223,20 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// Update the navigation property internetExplorerMode in admin
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.InternetExplorerMode body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.InternetExplorerMode body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.InternetExplorerMode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.InternetExplorerMode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/edge/internetExplorerMode", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -224,7 +244,8 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode {
         /// <summary>
         /// A container for Internet Explorer mode resources.
         /// </summary>
-        public class InternetExplorerModeRequestBuilderGetQueryParameters {
+        public class InternetExplorerModeRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

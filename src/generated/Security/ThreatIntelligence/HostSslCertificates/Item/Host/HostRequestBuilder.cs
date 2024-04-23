@@ -18,11 +18,14 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item.Host {
     /// <summary>
     /// Provides operations to manage the host property of the microsoft.graph.security.hostSslCertificate entity.
     /// </summary>
-    public class HostRequestBuilder : BaseCliRequestBuilder {
+    public class HostRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// The host for this hostSslCertificate.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "The host for this hostSslCertificate.";
             var hostSslCertificateIdOption = new Option<string>("--host-ssl-certificate-id", description: "The unique identifier of hostSslCertificate") {
@@ -70,27 +73,32 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item.Host {
             return command;
         }
         /// <summary>
-        /// Instantiates a new HostRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="HostRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public HostRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/host{?%24select,%24expand}", pathParameters) {
+        public HostRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/host{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new HostRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="HostRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public HostRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/host{?%24select,%24expand}", rawUrl) {
+        public HostRequestBuilder(string rawUrl) : base("{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/host{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// The host for this hostSslCertificate.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -100,7 +108,8 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item.Host {
         /// <summary>
         /// The host for this hostSslCertificate.
         /// </summary>
-        public class HostRequestBuilderGetQueryParameters {
+        public class HostRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

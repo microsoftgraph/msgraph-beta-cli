@@ -1,4 +1,5 @@
 {
     "omnisharp.organizeImportsOnFormat": true,
-    "dotnet.defaultSolution": "msgraph-beta-cli.sln"
+    "dotnet.defaultSolution": "msgraph-beta-cli.sln",
+    "azure-pipelines.1ESPipelineTemplatesSchemaFile": true
 }

@@ -4,12 +4,16 @@ using System;
 namespace ApiSdk.Models {
     /// <summary>Type of accounts that are allowed to share the PC.</summary>
     [Flags]
-    public enum SharedPCAllowedAccountType {
+    public enum SharedPCAllowedAccountType
+    {
+        /// <summary>Not configured. Default value.</summary>
+        [EnumMember(Value = "notConfigured")]
+        NotConfigured = 1,
         /// <summary>Only guest accounts.</summary>
         [EnumMember(Value = "guest")]
-        Guest = 1,
+        Guest = 2,
         /// <summary>Only domain-joined accounts.</summary>
         [EnumMember(Value = "domain")]
-        Domain = 2,
+        Domain = 4,
     }
 }

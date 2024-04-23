@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
     /// <summary>Represents the type of pricing of a booking service.</summary>
-    public enum BookingPriceType {
+    public enum BookingPriceType
+    {
         /// <summary>The price of the service is not defined.</summary>
         [EnumMember(Value = "undefined")]
         Undefined,
@@ -28,7 +29,5 @@ namespace ApiSdk.Models {
         /// <summary>The price of the service is not set.</summary>
         [EnumMember(Value = "notSet")]
         NotSet,
-        [EnumMember(Value = "unknownFutureValue")]
-        UnknownFutureValue,
     }
 }

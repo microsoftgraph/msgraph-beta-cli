@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class PrintConnector : Entity, IParsable {
+    public class PrintConnector : Entity, IParsable 
+    {
         /// <summary>The connector&apos;s version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -13,6 +14,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string AppVersion { get; set; }
+#endif
+        /// <summary>The connector&apos;s device health.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.DeviceHealth? DeviceHealth { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.DeviceHealth DeviceHealth { get; set; }
 #endif
         /// <summary>The name of the connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,6 +47,14 @@ namespace ApiSdk.Models {
 #else
         public PrinterLocation Location { get; set; }
 #endif
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>The connector machine&apos;s operating system version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,20 +68,27 @@ namespace ApiSdk.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PrintConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrintConnector CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new PrintConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PrintConnector();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"appVersion", n => { AppVersion = n.GetStringValue(); } },
+                {"deviceHealth", n => { DeviceHealth = n.GetObjectValue<ApiSdk.Models.DeviceHealth>(ApiSdk.Models.DeviceHealth.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"fullyQualifiedDomainName", n => { FullyQualifiedDomainName = n.GetStringValue(); } },
                 {"location", n => { Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
+                {"name", n => { Name = n.GetStringValue(); } },
                 {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
                 {"registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -73,13 +97,16 @@ namespace ApiSdk.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("appVersion", AppVersion);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceHealth>("deviceHealth", DeviceHealth);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("fullyQualifiedDomainName", FullyQualifiedDomainName);
             writer.WriteObjectValue<PrinterLocation>("location", Location);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("operatingSystem", OperatingSystem);
             writer.WriteDateTimeOffsetValue("registeredDateTime", RegisteredDateTime);
         }

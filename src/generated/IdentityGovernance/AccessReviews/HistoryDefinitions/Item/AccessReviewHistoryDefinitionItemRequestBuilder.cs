@@ -19,11 +19,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
     /// <summary>
     /// Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
     /// </summary>
-    public class AccessReviewHistoryDefinitionItemRequestBuilder : BaseCliRequestBuilder {
+    public class AccessReviewHistoryDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property historyDefinitions for identityGovernance
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property historyDefinitions for identityGovernance";
             var accessReviewHistoryDefinitionIdOption = new Option<string>("--access-review-history-definition-id", description: "The unique identifier of accessReviewHistoryDefinition") {
@@ -54,12 +57,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
+        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-get?view=graph-rest-1.0";
+            command.Description = "Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-get?view=graph-rest-1.0";
             var accessReviewHistoryDefinitionIdOption = new Option<string>("--access-review-history-definition-id", description: "The unique identifier of accessReviewHistoryDefinition") {
             };
             accessReviewHistoryDefinitionIdOption.IsRequired = true;
@@ -107,7 +112,9 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
         /// <summary>
         /// Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
         /// </summary>
-        public Command BuildInstancesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildInstancesNavCommand()
+        {
             var command = new Command("instances");
             command.Description = "Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.";
             var builder = new InstancesRequestBuilder(PathParameters);
@@ -132,7 +139,9 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
         /// <summary>
         /// Update the navigation property historyDefinitions in identityGovernance
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property historyDefinitions in identityGovernance";
             var accessReviewHistoryDefinitionIdOption = new Option<string>("--access-review-history-definition-id", description: "The unique identifier of accessReviewHistoryDefinition") {
@@ -179,43 +188,51 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AccessReviewHistoryDefinitionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AccessReviewHistoryDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AccessReviewHistoryDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24select,%24expand}", pathParameters) {
+        public AccessReviewHistoryDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AccessReviewHistoryDefinitionItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AccessReviewHistoryDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AccessReviewHistoryDefinitionItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24select,%24expand}", rawUrl) {
+        public AccessReviewHistoryDefinitionItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property historyDefinitions for identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
+        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -225,25 +242,29 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
         /// <summary>
         /// Update the navigation property historyDefinitions in identityGovernance
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AccessReviewHistoryDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(AccessReviewHistoryDefinition body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AccessReviewHistoryDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(AccessReviewHistoryDefinition body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
+        /// Retrieve an accessReviewHistoryDefinition object by its identifier. All of the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
         /// </summary>
-        public class AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters {
+        public class AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

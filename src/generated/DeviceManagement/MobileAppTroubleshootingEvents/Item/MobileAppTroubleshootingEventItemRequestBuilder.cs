@@ -19,11 +19,14 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
     /// <summary>
     /// Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MobileAppTroubleshootingEventItemRequestBuilder : BaseCliRequestBuilder {
+    public class MobileAppTroubleshootingEventItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
         /// </summary>
-        public Command BuildAppLogCollectionRequestsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAppLogCollectionRequestsNavCommand()
+        {
             var command = new Command("app-log-collection-requests");
             command.Description = "Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.";
             var builder = new AppLogCollectionRequestsRequestBuilder(PathParameters);
@@ -46,12 +49,13 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
             return command;
         }
         /// <summary>
-        /// Deletes a mobileAppTroubleshootingEvent.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0" />
+        /// Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Deletes a mobileAppTroubleshootingEvent.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property mobileAppTroubleshootingEvents for deviceManagement";
             var mobileAppTroubleshootingEventIdOption = new Option<string>("--mobile-app-troubleshooting-event-id", description: "The unique identifier of mobileAppTroubleshootingEvent") {
             };
             mobileAppTroubleshootingEventIdOption.IsRequired = true;
@@ -80,12 +84,13 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
             return command;
         }
         /// <summary>
-        /// Read properties and relationships of the mobileAppTroubleshootingEvent object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0" />
+        /// The collection property of MobileAppTroubleshootingEvent.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Read properties and relationships of the mobileAppTroubleshootingEvent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0";
+            command.Description = "The collection property of MobileAppTroubleshootingEvent.";
             var mobileAppTroubleshootingEventIdOption = new Option<string>("--mobile-app-troubleshooting-event-id", description: "The unique identifier of mobileAppTroubleshootingEvent") {
             };
             mobileAppTroubleshootingEventIdOption.IsRequired = true;
@@ -131,12 +136,13 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a mobileAppTroubleshootingEvent object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0" />
+        /// Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of a mobileAppTroubleshootingEvent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property mobileAppTroubleshootingEvents in deviceManagement";
             var mobileAppTroubleshootingEventIdOption = new Option<string>("--mobile-app-troubleshooting-event-id", description: "The unique identifier of mobileAppTroubleshootingEvent") {
             };
             mobileAppTroubleshootingEventIdOption.IsRequired = true;
@@ -181,43 +187,51 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new MobileAppTroubleshootingEventItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MobileAppTroubleshootingEventItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public MobileAppTroubleshootingEventItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24select,%24expand}", pathParameters) {
+        public MobileAppTroubleshootingEventItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new MobileAppTroubleshootingEventItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="MobileAppTroubleshootingEventItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public MobileAppTroubleshootingEventItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24select,%24expand}", rawUrl) {
+        public MobileAppTroubleshootingEventItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Deletes a mobileAppTroubleshootingEvent.
+        /// Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the mobileAppTroubleshootingEvent object.
+        /// The collection property of MobileAppTroubleshootingEvent.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -225,27 +239,31 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a mobileAppTroubleshootingEvent object.
+        /// Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(MobileAppTroubleshootingEvent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(MobileAppTroubleshootingEvent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(MobileAppTroubleshootingEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(MobileAppTroubleshootingEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the mobileAppTroubleshootingEvent object.
+        /// The collection property of MobileAppTroubleshootingEvent.
         /// </summary>
-        public class MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters {
+        public class MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

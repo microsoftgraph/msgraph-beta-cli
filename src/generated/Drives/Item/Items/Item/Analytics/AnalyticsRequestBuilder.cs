@@ -21,11 +21,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
     /// <summary>
     /// Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.
     /// </summary>
-    public class AnalyticsRequestBuilder : BaseCliRequestBuilder {
+    public class AnalyticsRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
         /// </summary>
-        public Command BuildAllTimeNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAllTimeNavCommand()
+        {
             var command = new Command("all-time");
             command.Description = "Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.";
             var builder = new AllTimeRequestBuilder(PathParameters);
@@ -40,7 +43,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
         /// <summary>
         /// Delete navigation property analytics for drives
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property analytics for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -77,11 +82,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
             return command;
         }
         /// <summary>
-        /// Analytics about the view activities that took place on this item.
+        /// Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemanalytics-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Analytics about the view activities that took place on this item.";
+            command.Description = "Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemanalytics-get?view=graph-rest-1.0";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -135,7 +143,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
         /// <summary>
         /// Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
         /// </summary>
-        public Command BuildItemActivityStatsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildItemActivityStatsNavCommand()
+        {
             var command = new Command("item-activity-stats");
             command.Description = "Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.";
             var builder = new ItemActivityStatsRequestBuilder(PathParameters);
@@ -160,7 +170,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
         /// <summary>
         /// Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
         /// </summary>
-        public Command BuildLastSevenDaysNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLastSevenDaysNavCommand()
+        {
             var command = new Command("last-seven-days");
             command.Description = "Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.";
             var builder = new LastSevenDaysRequestBuilder(PathParameters);
@@ -175,7 +187,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
         /// <summary>
         /// Update the navigation property analytics in drives
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property analytics in drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
@@ -228,43 +242,51 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
             return command;
         }
         /// <summary>
-        /// Instantiates a new AnalyticsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AnalyticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public AnalyticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24select,%24expand}", pathParameters) {
+        public AnalyticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new AnalyticsRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="AnalyticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public AnalyticsRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24select,%24expand}", rawUrl) {
+        public AnalyticsRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property analytics for drives
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place on this item.
+        /// Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -274,25 +296,29 @@ namespace ApiSdk.Drives.Item.Items.Item.Analytics {
         /// <summary>
         /// Update the navigation property analytics in drives
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ItemAnalytics body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ItemAnalytics body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ItemAnalytics body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ItemAnalytics body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place on this item.
+        /// Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
         /// </summary>
-        public class AnalyticsRequestBuilderGetQueryParameters {
+        public class AnalyticsRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

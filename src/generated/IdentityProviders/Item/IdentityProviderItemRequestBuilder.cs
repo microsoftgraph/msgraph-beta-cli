@@ -18,15 +18,18 @@ namespace ApiSdk.IdentityProviders.Item {
     /// <summary>
     /// Provides operations to manage the collection of identityProvider entities.
     /// </summary>
-    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder {
+    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Delete an existing identityProvider.
+        /// Delete an identityProvider.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0" />
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildDeleteCommand() {
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Delete an existing identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0";
+            command.Description = "Delete an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -55,13 +58,15 @@ namespace ApiSdk.IdentityProviders.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of an existing identityProvider.
+        /// Retrieve the properties and relationships of an identityProvider.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0" />
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildGetCommand() {
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of an existing identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -107,13 +112,15 @@ namespace ApiSdk.IdentityProviders.Item {
             return command;
         }
         /// <summary>
-        /// Update properties in an existing identityProvider.
+        /// Update the properties of an identityProvider object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0" />
         /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
-        public Command BuildPatchCommand() {
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update properties in an existing identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of an identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -158,45 +165,53 @@ namespace ApiSdk.IdentityProviders.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new IdentityProviderItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public IdentityProviderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders/{identityProvider%2Did}{?%24select,%24expand}", pathParameters) {
+        public IdentityProviderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityProviders/{identityProvider%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new IdentityProviderItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="IdentityProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public IdentityProviderItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders/{identityProvider%2Did}{?%24select,%24expand}", rawUrl) {
+        public IdentityProviderItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityProviders/{identityProvider%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Delete an existing identityProvider.
+        /// Delete an identityProvider.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityProviders/{identityProvider%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of an existing identityProvider.
+        /// Retrieve the properties and relationships of an identityProvider.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -204,28 +219,32 @@ namespace ApiSdk.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update properties in an existing identityProvider.
+        /// Update the properties of an identityProvider object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(IdentityProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityProviders/{identityProvider%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of an existing identityProvider.
+        /// Retrieve the properties and relationships of an identityProvider.
         /// </summary>
-        public class IdentityProviderItemRequestBuilderGetQueryParameters {
+        public class IdentityProviderItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

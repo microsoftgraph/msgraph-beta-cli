@@ -2,7 +2,8 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
-    public enum EducationSubmissionStatus {
+    public enum EducationSubmissionStatus
+    {
         [EnumMember(Value = "working")]
         Working,
         [EnumMember(Value = "submitted")]
@@ -15,5 +16,7 @@ namespace ApiSdk.Models {
         UnknownFutureValue,
         [EnumMember(Value = "reassigned")]
         Reassigned,
+        [EnumMember(Value = "excused")]
+        Excused,
     }
 }

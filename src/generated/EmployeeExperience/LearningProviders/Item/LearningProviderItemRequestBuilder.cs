@@ -22,14 +22,17 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
     /// <summary>
     /// Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class LearningProviderItemRequestBuilder : BaseCliRequestBuilder {
+    public class LearningProviderItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
+        /// Delete a learningProvider resource and remove its registration in Viva Learning for the tenant.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0";
+            command.Description = "Delete a learningProvider resource and remove its registration in Viva Learning for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -61,7 +64,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// Read the properties and relationships of a learningProvider object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Read the properties and relationships of a learningProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
@@ -111,7 +116,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
         /// </summary>
-        public Command BuildLearningContentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLearningContentsNavCommand()
+        {
             var command = new Command("learning-contents");
             command.Description = "Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.";
             var builder = new LearningContentsRequestBuilder(PathParameters);
@@ -136,7 +143,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
         /// </summary>
-        public Command BuildLearningContentsWithExternalIdRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLearningContentsWithExternalIdRbCommand()
+        {
             var command = new Command("learning-contents-with-external-id");
             command.Description = "Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.";
             var builder = new LearningContentsWithExternalIdRequestBuilder(PathParameters);
@@ -153,7 +162,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
         /// </summary>
-        public Command BuildLearningCourseActivitiesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLearningCourseActivitiesNavCommand()
+        {
             var command = new Command("learning-course-activities");
             command.Description = "Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.";
             var builder = new LearningCourseActivitiesRequestBuilder(PathParameters);
@@ -178,7 +189,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
         /// </summary>
-        public Command BuildLearningCourseActivitiesWithExternalcourseActivityIdRbCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLearningCourseActivitiesWithExternalcourseActivityIdRbCommand()
+        {
             var command = new Command("learning-course-activities-with-externalcourse-activity-id");
             command.Description = "Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.";
             var builder = new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder(PathParameters);
@@ -196,7 +209,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// Update the properties of a learningProvider object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the properties of a learningProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
@@ -243,29 +258,34 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new LearningProviderItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LearningProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public LearningProviderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24select,%24expand}", pathParameters) {
+        public LearningProviderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new LearningProviderItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="LearningProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public LearningProviderItemRequestBuilder(string rawUrl) : base("{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24select,%24expand}", rawUrl) {
+        public LearningProviderItemRequestBuilder(string rawUrl) : base("{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
+        /// Delete a learningProvider resource and remove its registration in Viva Learning for the tenant.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -273,13 +293,16 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Read the properties and relationships of a learningProvider object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -289,17 +312,20 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Update the properties of a learningProvider object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(LearningProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LearningProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(LearningProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(LearningProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -307,7 +333,8 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item {
         /// <summary>
         /// Read the properties and relationships of a learningProvider object.
         /// </summary>
-        public class LearningProviderItemRequestBuilderGetQueryParameters {
+        public class LearningProviderItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

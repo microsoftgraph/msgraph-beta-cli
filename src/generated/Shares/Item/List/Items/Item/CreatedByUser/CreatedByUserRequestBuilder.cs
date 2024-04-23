@@ -20,13 +20,16 @@ namespace ApiSdk.Shares.Item.List.Items.Item.CreatedByUser {
     /// <summary>
     /// Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
     /// </summary>
-    public class CreatedByUserRequestBuilder : BaseCliRequestBuilder {
+    public class CreatedByUserRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from shares
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Identity of the user who created the item. Read-only.";
+            command.Description = "Get createdByUser from shares";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -80,7 +83,9 @@ namespace ApiSdk.Shares.Item.List.Items.Item.CreatedByUser {
         /// <summary>
         /// The mailboxSettings property
         /// </summary>
-        public Command BuildMailboxSettingsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMailboxSettingsNavCommand()
+        {
             var command = new Command("mailbox-settings");
             command.Description = "The mailboxSettings property";
             var builder = new MailboxSettingsRequestBuilder(PathParameters);
@@ -96,7 +101,9 @@ namespace ApiSdk.Shares.Item.List.Items.Item.CreatedByUser {
         /// <summary>
         /// The serviceProvisioningErrors property
         /// </summary>
-        public Command BuildServiceProvisioningErrorsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildServiceProvisioningErrorsNavCommand()
+        {
             var command = new Command("service-provisioning-errors");
             command.Description = "The serviceProvisioningErrors property";
             var builder = new ServiceProvisioningErrorsRequestBuilder(PathParameters);
@@ -115,27 +122,32 @@ namespace ApiSdk.Shares.Item.List.Items.Item.CreatedByUser {
             return command;
         }
         /// <summary>
-        /// Instantiates a new CreatedByUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedByUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CreatedByUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/createdByUser{?%24select,%24expand}", pathParameters) {
+        public CreatedByUserRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/createdByUser{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new CreatedByUserRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="CreatedByUserRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CreatedByUserRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/createdByUser{?%24select,%24expand}", rawUrl) {
+        public CreatedByUserRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/createdByUser{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from shares
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -143,9 +155,10 @@ namespace ApiSdk.Shares.Item.List.Items.Item.CreatedByUser {
             return requestInfo;
         }
         /// <summary>
-        /// Identity of the user who created the item. Read-only.
+        /// Get createdByUser from shares
         /// </summary>
-        public class CreatedByUserRequestBuilderGetQueryParameters {
+        public class CreatedByUserRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class TimeOff : ChangeTrackedEntity, IParsable {
+    public class TimeOff : ChangeTrackedEntity, IParsable 
+    {
         /// <summary>The draft version of this timeOff item that is viewable by managers. It must be shared before it is visible to team members. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -14,6 +15,8 @@ namespace ApiSdk.Models {
 #else
         public TimeOffItem DraftTimeOff { get; set; }
 #endif
+        /// <summary>The timeOff is marked for deletion, a process that is finalized when the schedule is shared.</summary>
+        public bool? IsStagedForDeletion { get; set; }
         /// <summary>The shared version of this timeOff that is viewable by both employees and managers. Updates to the sharedTimeOff property send notifications to users in the Teams client. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +24,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public TimeOffItem SharedTimeOff { get; set; }
+#endif
+        /// <summary>Information of the team that the timeOff is in.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ShiftsTeamInfo? TeamInfo { get; private set; }
+#nullable restore
+#else
+        public ShiftsTeamInfo TeamInfo { get; private set; }
 #endif
         /// <summary>ID of the user assigned to the timeOff. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,38 +41,57 @@ namespace ApiSdk.Models {
 #else
         public string UserId { get; set; }
 #endif
+        /// <summary>Information of the user assigned to the timeOff.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ShiftsUserInfo? UserInfo { get; private set; }
+#nullable restore
+#else
+        public ShiftsUserInfo UserInfo { get; private set; }
+#endif
         /// <summary>
-        /// Instantiates a new timeOff and sets the default values.
+        /// Instantiates a new <see cref="TimeOff"/> and sets the default values.
         /// </summary>
-        public TimeOff() : base() {
+        public TimeOff() : base()
+        {
             OdataType = "#microsoft.graph.timeOff";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="TimeOff"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TimeOff CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new TimeOff CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TimeOff();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"draftTimeOff", n => { DraftTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
+                {"isStagedForDeletion", n => { IsStagedForDeletion = n.GetBoolValue(); } },
                 {"sharedTimeOff", n => { SharedTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
+                {"teamInfo", n => { TeamInfo = n.GetObjectValue<ShiftsTeamInfo>(ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
                 {"userId", n => { UserId = n.GetStringValue(); } },
+                {"userInfo", n => { UserInfo = n.GetObjectValue<ShiftsUserInfo>(ShiftsUserInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<TimeOffItem>("draftTimeOff", DraftTimeOff);
+            writer.WriteBoolValue("isStagedForDeletion", IsStagedForDeletion);
             writer.WriteObjectValue<TimeOffItem>("sharedTimeOff", SharedTimeOff);
             writer.WriteStringValue("userId", UserId);
         }

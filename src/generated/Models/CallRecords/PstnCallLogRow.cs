@@ -5,12 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.CallRecords {
-    public class PstnCallLogRow : IAdditionalDataHolder, IParsable {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.</summary>
+    public class PstnCallLogRow : CallLogRow, IParsable 
+    {
+        /// <summary>The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.</summary>
         public PstnCallDurationSource? CallDurationSource { get; set; }
-        /// <summary>Number dialed in E.164 format.</summary>
+        /// <summary>Number of the user or bot who received the call (E.164).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CalleeNumber { get; set; }
@@ -18,7 +17,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public string CalleeNumber { get; set; }
 #endif
-        /// <summary>Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format.</summary>
+        /// <summary>Number of the user or bot who made the call (E.164).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallerNumber { get; set; }
@@ -34,7 +33,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public string CallId { get; set; }
 #endif
-        /// <summary>Indicates whether the call was a PSTN outbound or inbound call and the type of call, such as a call placed by a user or an audio conference.</summary>
+        /// <summary>Indicates whether the call was a PSTN outbound or inbound call and the type of call such as a call placed by a user or an audio conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallType { get; set; }
@@ -44,6 +43,38 @@ namespace ApiSdk.Models.CallRecords {
 #endif
         /// <summary>Amount of money or cost of the call that is charged to your account.</summary>
         public decimal? Charge { get; set; }
+        /// <summary>Local IPv4 of the client that is retrieved from the operating system of the client.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientLocalIpV4Address { get; set; }
+#nullable restore
+#else
+        public string ClientLocalIpV4Address { get; set; }
+#endif
+        /// <summary>Local IPv6 of the client that is retrieved from the operating system of the client.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientLocalIpV6Address { get; set; }
+#nullable restore
+#else
+        public string ClientLocalIpV6Address { get; set; }
+#endif
+        /// <summary>Public IPv4 of the client that can be used to determine the location of the client.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientPublicIpV4Address { get; set; }
+#nullable restore
+#else
+        public string ClientPublicIpV4Address { get; set; }
+#endif
+        /// <summary>Public IPv6 of the client that can be used to determine the location of the client.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientPublicIpV6Address { get; set; }
+#nullable restore
+#else
+        public string ClientPublicIpV6Address { get; set; }
+#endif
         /// <summary>ID of the audio conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,7 +85,7 @@ namespace ApiSdk.Models.CallRecords {
 #endif
         /// <summary>Connection fee price.</summary>
         public decimal? ConnectionCharge { get; set; }
-        /// <summary>Type of currency used to calculate the cost of the call. For details, see (ISO 4217.</summary>
+        /// <summary>Type of currency used to calculate the cost of the call (ISO 4217).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Currency { get; set; }
@@ -62,7 +93,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>Whether the call was domestic (within a country or region) or international (outside a country or region), based on the user&apos;s location.</summary>
+        /// <summary>Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user&apos;s location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationContext { get; set; }
@@ -82,14 +113,6 @@ namespace ApiSdk.Models.CallRecords {
         public int? Duration { get; set; }
         /// <summary>Call end time.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
-        /// <summary>Unique call identifier. GUID.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
         /// <summary>User&apos;s phone number type, such as a service of toll-free number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,15 +129,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public string LicenseCapability { get; set; }
 #endif
-        /// <summary>The OdataType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OdataType { get; set; }
-#nullable restore
-#else
-        public string OdataType { get; set; }
-#endif
-        /// <summary>The telecommunications operator which provided PSTN services for this call. This might be Microsoft, or it might be a third-party operator via the Operator Connect Program.</summary>
+        /// <summary>The telecommunications operator that provided PSTN services for this call. It may be Microsoft, or it may be a third-party operator via the Operator Connect Program.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Operator { get; set; }
@@ -140,55 +155,34 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public string UsageCountryCode { get; set; }
 #endif
-        /// <summary>Display name of the user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserDisplayName { get; set; }
-#nullable restore
-#else
-        public string UserDisplayName { get; set; }
-#endif
-        /// <summary>Calling user&apos;s ID in Microsoft Graph. GUID. This and other user info will be null/empty for bot call types (ucapin, ucapout).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserId { get; set; }
-#nullable restore
-#else
-        public string UserId { get; set; }
-#endif
-        /// <summary>The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user&apos;s SIP address, and can be the same as the user&apos;s email address.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserPrincipalName { get; set; }
-#nullable restore
-#else
-        public string UserPrincipalName { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new pstnCallLogRow and sets the default values.
-        /// </summary>
-        public PstnCallLogRow() {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="PstnCallLogRow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PstnCallLogRow CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new PstnCallLogRow CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PstnCallLogRow();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>> {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
                 {"callDurationSource", n => { CallDurationSource = n.GetEnumValue<PstnCallDurationSource>(); } },
                 {"callId", n => { CallId = n.GetStringValue(); } },
                 {"callType", n => { CallType = n.GetStringValue(); } },
                 {"calleeNumber", n => { CalleeNumber = n.GetStringValue(); } },
                 {"callerNumber", n => { CallerNumber = n.GetStringValue(); } },
                 {"charge", n => { Charge = n.GetDecimalValue(); } },
+                {"clientLocalIpV4Address", n => { ClientLocalIpV4Address = n.GetStringValue(); } },
+                {"clientLocalIpV6Address", n => { ClientLocalIpV6Address = n.GetStringValue(); } },
+                {"clientPublicIpV4Address", n => { ClientPublicIpV4Address = n.GetStringValue(); } },
+                {"clientPublicIpV6Address", n => { ClientPublicIpV6Address = n.GetStringValue(); } },
                 {"conferenceId", n => { ConferenceId = n.GetStringValue(); } },
                 {"connectionCharge", n => { ConnectionCharge = n.GetDecimalValue(); } },
                 {"currency", n => { Currency = n.GetStringValue(); } },
@@ -196,31 +190,32 @@ namespace ApiSdk.Models.CallRecords {
                 {"destinationName", n => { DestinationName = n.GetStringValue(); } },
                 {"duration", n => { Duration = n.GetIntValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
                 {"inventoryType", n => { InventoryType = n.GetStringValue(); } },
                 {"licenseCapability", n => { LicenseCapability = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"operator", n => { Operator = n.GetStringValue(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"tenantCountryCode", n => { TenantCountryCode = n.GetStringValue(); } },
                 {"usageCountryCode", n => { UsageCountryCode = n.GetStringValue(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            base.Serialize(writer);
             writer.WriteEnumValue<PstnCallDurationSource>("callDurationSource", CallDurationSource);
             writer.WriteStringValue("calleeNumber", CalleeNumber);
             writer.WriteStringValue("callerNumber", CallerNumber);
             writer.WriteStringValue("callId", CallId);
             writer.WriteStringValue("callType", CallType);
             writer.WriteDecimalValue("charge", Charge);
+            writer.WriteStringValue("clientLocalIpV4Address", ClientLocalIpV4Address);
+            writer.WriteStringValue("clientLocalIpV6Address", ClientLocalIpV6Address);
+            writer.WriteStringValue("clientPublicIpV4Address", ClientPublicIpV4Address);
+            writer.WriteStringValue("clientPublicIpV6Address", ClientPublicIpV6Address);
             writer.WriteStringValue("conferenceId", ConferenceId);
             writer.WriteDecimalValue("connectionCharge", ConnectionCharge);
             writer.WriteStringValue("currency", Currency);
@@ -228,18 +223,12 @@ namespace ApiSdk.Models.CallRecords {
             writer.WriteStringValue("destinationName", DestinationName);
             writer.WriteIntValue("duration", Duration);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteStringValue("id", Id);
             writer.WriteStringValue("inventoryType", InventoryType);
             writer.WriteStringValue("licenseCapability", LicenseCapability);
-            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("operator", Operator);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("tenantCountryCode", TenantCountryCode);
             writer.WriteStringValue("usageCountryCode", UsageCountryCode);
-            writer.WriteStringValue("userDisplayName", UserDisplayName);
-            writer.WriteStringValue("userId", UserId);
-            writer.WriteStringValue("userPrincipalName", UserPrincipalName);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -8,8 +8,10 @@ using ApiSdk.Users.Item.Chats.Item.MarkChatReadForUser;
 using ApiSdk.Users.Item.Chats.Item.MarkChatUnreadForUser;
 using ApiSdk.Users.Item.Chats.Item.Members;
 using ApiSdk.Users.Item.Chats.Item.Messages;
+using ApiSdk.Users.Item.Chats.Item.Operations;
 using ApiSdk.Users.Item.Chats.Item.PermissionGrants;
 using ApiSdk.Users.Item.Chats.Item.PinnedMessages;
+using ApiSdk.Users.Item.Chats.Item.RemoveAllAccessForUser;
 using ApiSdk.Users.Item.Chats.Item.SendActivityNotification;
 using ApiSdk.Users.Item.Chats.Item.Tabs;
 using ApiSdk.Users.Item.Chats.Item.UnhideForUser;
@@ -30,14 +32,17 @@ namespace ApiSdk.Users.Item.Chats.Item {
     /// <summary>
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.
     /// </summary>
-    public class ChatItemRequestBuilder : BaseCliRequestBuilder {
+    public class ChatItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property chats for users
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property chats for users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -74,10 +79,12 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -130,7 +137,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to call the hideForUser method.
         /// </summary>
-        public Command BuildHideForUserNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildHideForUserNavCommand()
+        {
             var command = new Command("hide-for-user");
             command.Description = "Provides operations to call the hideForUser method.";
             var builder = new HideForUserRequestBuilder(PathParameters);
@@ -145,7 +154,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildInstalledAppsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildInstalledAppsNavCommand()
+        {
             var command = new Command("installed-apps");
             command.Description = "Provides operations to manage the installedApps property of the microsoft.graph.chat entity.";
             var builder = new InstalledAppsRequestBuilder(PathParameters);
@@ -170,7 +181,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildLastMessagePreviewNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLastMessagePreviewNavCommand()
+        {
             var command = new Command("last-message-preview");
             command.Description = "Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.";
             var builder = new LastMessagePreviewRequestBuilder(PathParameters);
@@ -187,7 +200,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to call the markChatReadForUser method.
         /// </summary>
-        public Command BuildMarkChatReadForUserNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMarkChatReadForUserNavCommand()
+        {
             var command = new Command("mark-chat-read-for-user");
             command.Description = "Provides operations to call the markChatReadForUser method.";
             var builder = new MarkChatReadForUserRequestBuilder(PathParameters);
@@ -202,7 +217,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to call the markChatUnreadForUser method.
         /// </summary>
-        public Command BuildMarkChatUnreadForUserNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMarkChatUnreadForUserNavCommand()
+        {
             var command = new Command("mark-chat-unread-for-user");
             command.Description = "Provides operations to call the markChatUnreadForUser method.";
             var builder = new MarkChatUnreadForUserRequestBuilder(PathParameters);
@@ -217,7 +234,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the members property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildMembersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMembersNavCommand()
+        {
             var command = new Command("members");
             command.Description = "Provides operations to manage the members property of the microsoft.graph.chat entity.";
             var builder = new MembersRequestBuilder(PathParameters);
@@ -243,7 +262,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the messages property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildMessagesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMessagesNavCommand()
+        {
             var command = new Command("messages");
             command.Description = "Provides operations to manage the messages property of the microsoft.graph.chat entity.";
             var builder = new MessagesRequestBuilder(PathParameters);
@@ -267,12 +288,41 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the operations property of the microsoft.graph.chat entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildOperationsNavCommand()
+        {
+            var command = new Command("operations");
+            command.Description = "Provides operations to manage the operations property of the microsoft.graph.chat entity.";
+            var builder = new OperationsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Update the navigation property chats in users
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property chats in users";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -324,7 +374,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildPermissionGrantsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPermissionGrantsNavCommand()
+        {
             var command = new Command("permission-grants");
             command.Description = "Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.";
             var builder = new PermissionGrantsRequestBuilder(PathParameters);
@@ -349,7 +401,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildPinnedMessagesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPinnedMessagesNavCommand()
+        {
             var command = new Command("pinned-messages");
             command.Description = "Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.";
             var builder = new PinnedMessagesRequestBuilder(PathParameters);
@@ -372,9 +426,28 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the removeAllAccessForUser method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRemoveAllAccessForUserNavCommand()
+        {
+            var command = new Command("remove-all-access-for-user");
+            command.Description = "Provides operations to call the removeAllAccessForUser method.";
+            var builder = new RemoveAllAccessForUserRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the sendActivityNotification method.
         /// </summary>
-        public Command BuildSendActivityNotificationNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSendActivityNotificationNavCommand()
+        {
             var command = new Command("send-activity-notification");
             command.Description = "Provides operations to call the sendActivityNotification method.";
             var builder = new SendActivityNotificationRequestBuilder(PathParameters);
@@ -389,7 +462,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to manage the tabs property of the microsoft.graph.chat entity.
         /// </summary>
-        public Command BuildTabsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTabsNavCommand()
+        {
             var command = new Command("tabs");
             command.Description = "Provides operations to manage the tabs property of the microsoft.graph.chat entity.";
             var builder = new TabsRequestBuilder(PathParameters);
@@ -414,7 +489,9 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Provides operations to call the unhideForUser method.
         /// </summary>
-        public Command BuildUnhideForUserNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUnhideForUserNavCommand()
+        {
             var command = new Command("unhide-for-user");
             command.Description = "Provides operations to call the unhideForUser method.";
             var builder = new UnhideForUserRequestBuilder(PathParameters);
@@ -427,29 +504,34 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new ChatItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChatItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ChatItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}", pathParameters) {
+        public ChatItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new ChatItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="ChatItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ChatItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}", rawUrl) {
+        public ChatItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property chats for users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -457,13 +539,16 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChatItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChatItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChatItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ChatItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -473,17 +558,20 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Update the navigation property chats in users
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Chat body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Chat body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Chat body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Chat body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -491,7 +579,8 @@ namespace ApiSdk.Users.Item.Chats.Item {
         /// <summary>
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
-        public class ChatItemRequestBuilderGetQueryParameters {
+        public class ChatItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

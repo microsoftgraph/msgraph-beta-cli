@@ -8,9 +8,24 @@ namespace ApiSdk.Models {
     /// <summary>
     /// Android Work Profile general device configuration.
     /// </summary>
-    public class AndroidWorkProfileGeneralDeviceConfiguration : DeviceConfiguration, IParsable {
+    public class AndroidWorkProfileGeneralDeviceConfiguration : DeviceConfiguration, IParsable 
+    {
+        /// <summary>Determine domains allow-list for accounts that can be added to work profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AllowedGoogleAccountDomains { get; set; }
+#nullable restore
+#else
+        public List<string> AllowedGoogleAccountDomains { get; set; }
+#endif
+        /// <summary>Prevent using unified password for unlocking device and work profile.</summary>
+        public bool? BlockUnifiedPasswordForWorkProfile { get; set; }
+        /// <summary>Indicates whether or not to block face unlock.</summary>
+        public bool? PasswordBlockFaceUnlock { get; set; }
         /// <summary>Indicates whether or not to block fingerprint unlock.</summary>
         public bool? PasswordBlockFingerprintUnlock { get; set; }
+        /// <summary>Indicates whether or not to block iris unlock.</summary>
+        public bool? PasswordBlockIrisUnlock { get; set; }
         /// <summary>Indicates whether or not to block Smart Lock and other trust agents.</summary>
         public bool? PasswordBlockTrustAgents { get; set; }
         /// <summary>Number of days before the password expires. Valid values 1 to 365</summary>
@@ -25,8 +40,26 @@ namespace ApiSdk.Models {
         public AndroidWorkProfileRequiredPasswordType? PasswordRequiredType { get; set; }
         /// <summary>Number of sign in failures allowed before factory reset. Valid values 1 to 16</summary>
         public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? RequiredPasswordComplexity { get; set; }
         /// <summary>Require the Android Verify apps feature is turned on.</summary>
         public bool? SecurityRequireVerifyApps { get; set; }
+        /// <summary>Enable lockdown mode for always-on VPN.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VpnAlwaysOnPackageIdentifier { get; set; }
+#nullable restore
+#else
+        public string VpnAlwaysOnPackageIdentifier { get; set; }
+#endif
+        /// <summary>Enable lockdown mode for always-on VPN.</summary>
+        public bool? VpnEnableAlwaysOnLockdownMode { get; set; }
+        /// <summary>An enum representing possible values for account use in work profile.</summary>
+        public AndroidWorkProfileAccountUse? WorkProfileAccountUse { get; set; }
+        /// <summary>Indicates whether to allow installation of apps from unknown sources.</summary>
+        public bool? WorkProfileAllowAppInstallsFromUnknownSources { get; set; }
+        /// <summary>Allow widgets from work profile apps.</summary>
+        public bool? WorkProfileAllowWidgets { get; set; }
         /// <summary>Block users from adding/removing accounts in work profile.</summary>
         public bool? WorkProfileBlockAddingAccounts { get; set; }
         /// <summary>Block work profile camera.</summary>
@@ -39,6 +72,8 @@ namespace ApiSdk.Models {
         public bool? WorkProfileBlockCrossProfileCopyPaste { get; set; }
         /// <summary>Indicates whether or not to block notifications while device locked.</summary>
         public bool? WorkProfileBlockNotificationsWhileDeviceLocked { get; set; }
+        /// <summary>Prevent app installations from unknown sources in the personal profile.</summary>
+        public bool? WorkProfileBlockPersonalAppInstallsFromUnknownSources { get; set; }
         /// <summary>Block screen capture in work profile.</summary>
         public bool? WorkProfileBlockScreenCapture { get; set; }
         /// <summary>Allow bluetooth devices to access enterprise contacts.</summary>
@@ -47,8 +82,12 @@ namespace ApiSdk.Models {
         public AndroidWorkProfileCrossProfileDataSharingType? WorkProfileDataSharingType { get; set; }
         /// <summary>Android Work Profile default app permission policy type.</summary>
         public AndroidWorkProfileDefaultAppPermissionPolicyType? WorkProfileDefaultAppPermissionPolicy { get; set; }
+        /// <summary>Indicates whether or not to block face unlock for work profile.</summary>
+        public bool? WorkProfilePasswordBlockFaceUnlock { get; set; }
         /// <summary>Indicates whether or not to block fingerprint unlock for work profile.</summary>
         public bool? WorkProfilePasswordBlockFingerprintUnlock { get; set; }
+        /// <summary>Indicates whether or not to block iris unlock for work profile.</summary>
+        public bool? WorkProfilePasswordBlockIrisUnlock { get; set; }
         /// <summary>Indicates whether or not to block Smart Lock and other trust agents for work profile.</summary>
         public bool? WorkProfilePasswordBlockTrustAgents { get; set; }
         /// <summary>Number of days before the work profile password expires. Valid values 1 to 365</summary>
@@ -75,28 +114,40 @@ namespace ApiSdk.Models {
         public AndroidWorkProfileRequiredPasswordType? WorkProfilePasswordRequiredType { get; set; }
         /// <summary>Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16</summary>
         public int? WorkProfilePasswordSignInFailureCountBeforeFactoryReset { get; set; }
+        /// <summary>The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.</summary>
+        public AndroidRequiredPasswordComplexity? WorkProfileRequiredPasswordComplexity { get; set; }
         /// <summary>Password is required or not for work profile</summary>
         public bool? WorkProfileRequirePassword { get; set; }
         /// <summary>
-        /// Instantiates a new androidWorkProfileGeneralDeviceConfiguration and sets the default values.
+        /// Instantiates a new <see cref="AndroidWorkProfileGeneralDeviceConfiguration"/> and sets the default values.
         /// </summary>
-        public AndroidWorkProfileGeneralDeviceConfiguration() : base() {
+        public AndroidWorkProfileGeneralDeviceConfiguration() : base()
+        {
             OdataType = "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="AndroidWorkProfileGeneralDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidWorkProfileGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new AndroidWorkProfileGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AndroidWorkProfileGeneralDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"allowedGoogleAccountDomains", n => { AllowedGoogleAccountDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"blockUnifiedPasswordForWorkProfile", n => { BlockUnifiedPasswordForWorkProfile = n.GetBoolValue(); } },
+                {"passwordBlockFaceUnlock", n => { PasswordBlockFaceUnlock = n.GetBoolValue(); } },
                 {"passwordBlockFingerprintUnlock", n => { PasswordBlockFingerprintUnlock = n.GetBoolValue(); } },
+                {"passwordBlockIrisUnlock", n => { PasswordBlockIrisUnlock = n.GetBoolValue(); } },
                 {"passwordBlockTrustAgents", n => { PasswordBlockTrustAgents = n.GetBoolValue(); } },
                 {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
                 {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
@@ -104,18 +155,27 @@ namespace ApiSdk.Models {
                 {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
                 {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidWorkProfileRequiredPasswordType>(); } },
                 {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
+                {"requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
                 {"securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
+                {"vpnAlwaysOnPackageIdentifier", n => { VpnAlwaysOnPackageIdentifier = n.GetStringValue(); } },
+                {"vpnEnableAlwaysOnLockdownMode", n => { VpnEnableAlwaysOnLockdownMode = n.GetBoolValue(); } },
+                {"workProfileAccountUse", n => { WorkProfileAccountUse = n.GetEnumValue<AndroidWorkProfileAccountUse>(); } },
+                {"workProfileAllowAppInstallsFromUnknownSources", n => { WorkProfileAllowAppInstallsFromUnknownSources = n.GetBoolValue(); } },
+                {"workProfileAllowWidgets", n => { WorkProfileAllowWidgets = n.GetBoolValue(); } },
                 {"workProfileBlockAddingAccounts", n => { WorkProfileBlockAddingAccounts = n.GetBoolValue(); } },
                 {"workProfileBlockCamera", n => { WorkProfileBlockCamera = n.GetBoolValue(); } },
                 {"workProfileBlockCrossProfileCallerId", n => { WorkProfileBlockCrossProfileCallerId = n.GetBoolValue(); } },
                 {"workProfileBlockCrossProfileContactsSearch", n => { WorkProfileBlockCrossProfileContactsSearch = n.GetBoolValue(); } },
                 {"workProfileBlockCrossProfileCopyPaste", n => { WorkProfileBlockCrossProfileCopyPaste = n.GetBoolValue(); } },
                 {"workProfileBlockNotificationsWhileDeviceLocked", n => { WorkProfileBlockNotificationsWhileDeviceLocked = n.GetBoolValue(); } },
+                {"workProfileBlockPersonalAppInstallsFromUnknownSources", n => { WorkProfileBlockPersonalAppInstallsFromUnknownSources = n.GetBoolValue(); } },
                 {"workProfileBlockScreenCapture", n => { WorkProfileBlockScreenCapture = n.GetBoolValue(); } },
                 {"workProfileBluetoothEnableContactSharing", n => { WorkProfileBluetoothEnableContactSharing = n.GetBoolValue(); } },
                 {"workProfileDataSharingType", n => { WorkProfileDataSharingType = n.GetEnumValue<AndroidWorkProfileCrossProfileDataSharingType>(); } },
                 {"workProfileDefaultAppPermissionPolicy", n => { WorkProfileDefaultAppPermissionPolicy = n.GetEnumValue<AndroidWorkProfileDefaultAppPermissionPolicyType>(); } },
+                {"workProfilePasswordBlockFaceUnlock", n => { WorkProfilePasswordBlockFaceUnlock = n.GetBoolValue(); } },
                 {"workProfilePasswordBlockFingerprintUnlock", n => { WorkProfilePasswordBlockFingerprintUnlock = n.GetBoolValue(); } },
+                {"workProfilePasswordBlockIrisUnlock", n => { WorkProfilePasswordBlockIrisUnlock = n.GetBoolValue(); } },
                 {"workProfilePasswordBlockTrustAgents", n => { WorkProfilePasswordBlockTrustAgents = n.GetBoolValue(); } },
                 {"workProfilePasswordExpirationDays", n => { WorkProfilePasswordExpirationDays = n.GetIntValue(); } },
                 {"workProfilePasswordMinLetterCharacters", n => { WorkProfilePasswordMinLetterCharacters = n.GetIntValue(); } },
@@ -130,16 +190,22 @@ namespace ApiSdk.Models {
                 {"workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<AndroidWorkProfileRequiredPasswordType>(); } },
                 {"workProfilePasswordSignInFailureCountBeforeFactoryReset", n => { WorkProfilePasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
                 {"workProfileRequirePassword", n => { WorkProfileRequirePassword = n.GetBoolValue(); } },
+                {"workProfileRequiredPasswordComplexity", n => { WorkProfileRequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfPrimitiveValues<string>("allowedGoogleAccountDomains", AllowedGoogleAccountDomains);
+            writer.WriteBoolValue("blockUnifiedPasswordForWorkProfile", BlockUnifiedPasswordForWorkProfile);
+            writer.WriteBoolValue("passwordBlockFaceUnlock", PasswordBlockFaceUnlock);
             writer.WriteBoolValue("passwordBlockFingerprintUnlock", PasswordBlockFingerprintUnlock);
+            writer.WriteBoolValue("passwordBlockIrisUnlock", PasswordBlockIrisUnlock);
             writer.WriteBoolValue("passwordBlockTrustAgents", PasswordBlockTrustAgents);
             writer.WriteIntValue("passwordExpirationDays", PasswordExpirationDays);
             writer.WriteIntValue("passwordMinimumLength", PasswordMinimumLength);
@@ -147,18 +213,27 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("passwordPreviousPasswordBlockCount", PasswordPreviousPasswordBlockCount);
             writer.WriteEnumValue<AndroidWorkProfileRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
             writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("requiredPasswordComplexity", RequiredPasswordComplexity);
             writer.WriteBoolValue("securityRequireVerifyApps", SecurityRequireVerifyApps);
+            writer.WriteStringValue("vpnAlwaysOnPackageIdentifier", VpnAlwaysOnPackageIdentifier);
+            writer.WriteBoolValue("vpnEnableAlwaysOnLockdownMode", VpnEnableAlwaysOnLockdownMode);
+            writer.WriteEnumValue<AndroidWorkProfileAccountUse>("workProfileAccountUse", WorkProfileAccountUse);
+            writer.WriteBoolValue("workProfileAllowAppInstallsFromUnknownSources", WorkProfileAllowAppInstallsFromUnknownSources);
+            writer.WriteBoolValue("workProfileAllowWidgets", WorkProfileAllowWidgets);
             writer.WriteBoolValue("workProfileBlockAddingAccounts", WorkProfileBlockAddingAccounts);
             writer.WriteBoolValue("workProfileBlockCamera", WorkProfileBlockCamera);
             writer.WriteBoolValue("workProfileBlockCrossProfileCallerId", WorkProfileBlockCrossProfileCallerId);
             writer.WriteBoolValue("workProfileBlockCrossProfileContactsSearch", WorkProfileBlockCrossProfileContactsSearch);
             writer.WriteBoolValue("workProfileBlockCrossProfileCopyPaste", WorkProfileBlockCrossProfileCopyPaste);
             writer.WriteBoolValue("workProfileBlockNotificationsWhileDeviceLocked", WorkProfileBlockNotificationsWhileDeviceLocked);
+            writer.WriteBoolValue("workProfileBlockPersonalAppInstallsFromUnknownSources", WorkProfileBlockPersonalAppInstallsFromUnknownSources);
             writer.WriteBoolValue("workProfileBlockScreenCapture", WorkProfileBlockScreenCapture);
             writer.WriteBoolValue("workProfileBluetoothEnableContactSharing", WorkProfileBluetoothEnableContactSharing);
             writer.WriteEnumValue<AndroidWorkProfileCrossProfileDataSharingType>("workProfileDataSharingType", WorkProfileDataSharingType);
             writer.WriteEnumValue<AndroidWorkProfileDefaultAppPermissionPolicyType>("workProfileDefaultAppPermissionPolicy", WorkProfileDefaultAppPermissionPolicy);
+            writer.WriteBoolValue("workProfilePasswordBlockFaceUnlock", WorkProfilePasswordBlockFaceUnlock);
             writer.WriteBoolValue("workProfilePasswordBlockFingerprintUnlock", WorkProfilePasswordBlockFingerprintUnlock);
+            writer.WriteBoolValue("workProfilePasswordBlockIrisUnlock", WorkProfilePasswordBlockIrisUnlock);
             writer.WriteBoolValue("workProfilePasswordBlockTrustAgents", WorkProfilePasswordBlockTrustAgents);
             writer.WriteIntValue("workProfilePasswordExpirationDays", WorkProfilePasswordExpirationDays);
             writer.WriteIntValue("workProfilePasswordMinimumLength", WorkProfilePasswordMinimumLength);
@@ -172,6 +247,7 @@ namespace ApiSdk.Models {
             writer.WriteIntValue("workProfilePasswordPreviousPasswordBlockCount", WorkProfilePasswordPreviousPasswordBlockCount);
             writer.WriteEnumValue<AndroidWorkProfileRequiredPasswordType>("workProfilePasswordRequiredType", WorkProfilePasswordRequiredType);
             writer.WriteIntValue("workProfilePasswordSignInFailureCountBeforeFactoryReset", WorkProfilePasswordSignInFailureCountBeforeFactoryReset);
+            writer.WriteEnumValue<AndroidRequiredPasswordComplexity>("workProfileRequiredPasswordComplexity", WorkProfileRequiredPasswordComplexity);
             writer.WriteBoolValue("workProfileRequirePassword", WorkProfileRequirePassword);
         }
     }

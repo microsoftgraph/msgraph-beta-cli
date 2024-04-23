@@ -18,15 +18,18 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
     /// <summary>
     /// Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class EmailAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder {
+    public class EmailAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Deletes a user&apos;s emailAuthenticationMethod object.
+        /// Deletes a user&apos;s email Authentication Method object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
-            command.Description = "Deletes a user's emailAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Deletes a user's email Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -60,13 +63,15 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single email authentication method object.
+        /// Retrieve a user&apos;s single email Authentication Method object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Retrieve a user's single email authentication method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Retrieve a user's single email Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -117,13 +122,15 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return command;
         }
         /// <summary>
-        /// Update a user&apos;s email address represented by an emailAuthenticationMethod object.
+        /// Update a user&apos;s email address associated with an email Authentication Method object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update a user's email address represented by an emailAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Update a user's email address associated with an email Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -173,43 +180,51 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new EmailAuthenticationMethodItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EmailAuthenticationMethodItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public EmailAuthenticationMethodItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24select,%24expand}", pathParameters) {
+        public EmailAuthenticationMethodItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new EmailAuthenticationMethodItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EmailAuthenticationMethodItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public EmailAuthenticationMethodItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24select,%24expand}", rawUrl) {
+        public EmailAuthenticationMethodItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
-        /// Deletes a user&apos;s emailAuthenticationMethod object.
+        /// Deletes a user&apos;s email Authentication Method object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single email authentication method object.
+        /// Retrieve a user&apos;s single email Authentication Method object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -217,27 +232,31 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update a user&apos;s email address represented by an emailAuthenticationMethod object.
+        /// Update a user&apos;s email address associated with an email Authentication Method object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(EmailAuthenticationMethod body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(EmailAuthenticationMethod body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(EmailAuthenticationMethod body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(EmailAuthenticationMethod body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single email authentication method object.
+        /// Retrieve a user&apos;s single email Authentication Method object.
         /// </summary>
-        public class EmailAuthenticationMethodItemRequestBuilderGetQueryParameters {
+        public class EmailAuthenticationMethodItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

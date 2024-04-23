@@ -21,11 +21,14 @@ namespace ApiSdk.Reports.Security {
     /// <summary>
     /// Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class SecurityRequestBuilder : BaseCliRequestBuilder {
+    public class SecurityRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property security for reports
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property security for reports";
             var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
@@ -52,7 +55,9 @@ namespace ApiSdk.Reports.Security {
         /// <summary>
         /// Provides operations to call the getAttackSimulationRepeatOffenders method.
         /// </summary>
-        public Command BuildGetAttackSimulationRepeatOffendersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetAttackSimulationRepeatOffendersNavCommand()
+        {
             var command = new Command("get-attack-simulation-repeat-offenders");
             command.Description = "Provides operations to call the getAttackSimulationRepeatOffenders method.";
             var builder = new GetAttackSimulationRepeatOffendersRequestBuilder(PathParameters);
@@ -67,7 +72,9 @@ namespace ApiSdk.Reports.Security {
         /// <summary>
         /// Provides operations to call the getAttackSimulationSimulationUserCoverage method.
         /// </summary>
-        public Command BuildGetAttackSimulationSimulationUserCoverageNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetAttackSimulationSimulationUserCoverageNavCommand()
+        {
             var command = new Command("get-attack-simulation-simulation-user-coverage");
             command.Description = "Provides operations to call the getAttackSimulationSimulationUserCoverage method.";
             var builder = new GetAttackSimulationSimulationUserCoverageRequestBuilder(PathParameters);
@@ -82,7 +89,9 @@ namespace ApiSdk.Reports.Security {
         /// <summary>
         /// Provides operations to call the getAttackSimulationTrainingUserCoverage method.
         /// </summary>
-        public Command BuildGetAttackSimulationTrainingUserCoverageNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetAttackSimulationTrainingUserCoverageNavCommand()
+        {
             var command = new Command("get-attack-simulation-training-user-coverage");
             command.Description = "Provides operations to call the getAttackSimulationTrainingUserCoverage method.";
             var builder = new GetAttackSimulationTrainingUserCoverageRequestBuilder(PathParameters);
@@ -95,11 +104,13 @@ namespace ApiSdk.Reports.Security {
             return command;
         }
         /// <summary>
-        /// Represents an abstract type that contains resources for attack simulation and training reports.
+        /// Provides the ability to launch a simulated phishing attack that organizations can learn from.
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Represents an abstract type that contains resources for attack simulation and training reports.";
+            command.Description = "Provides the ability to launch a simulated phishing attack that organizations can learn from.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -141,7 +152,9 @@ namespace ApiSdk.Reports.Security {
         /// <summary>
         /// Update the navigation property security in reports
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property security in reports";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -182,43 +195,51 @@ namespace ApiSdk.Reports.Security {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SecurityRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SecurityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SecurityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/security{?%24select,%24expand}", pathParameters) {
+        public SecurityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/security{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SecurityRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SecurityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SecurityRequestBuilder(string rawUrl) : base("{+baseurl}/reports/security{?%24select,%24expand}", rawUrl) {
+        public SecurityRequestBuilder(string rawUrl) : base("{+baseurl}/reports/security{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property security for reports
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/reports/security", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Represents an abstract type that contains resources for attack simulation and training reports.
+        /// Provides the ability to launch a simulated phishing attack that organizations can learn from.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -228,25 +249,29 @@ namespace ApiSdk.Reports.Security {
         /// <summary>
         /// Update the navigation property security in reports
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SecurityReportsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SecurityReportsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SecurityReportsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SecurityReportsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/reports/security", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Represents an abstract type that contains resources for attack simulation and training reports.
+        /// Provides the ability to launch a simulated phishing attack that organizations can learn from.
         /// </summary>
-        public class SecurityRequestBuilderGetQueryParameters {
+        public class SecurityRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

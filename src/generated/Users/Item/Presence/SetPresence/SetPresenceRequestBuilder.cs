@@ -17,15 +17,18 @@ namespace ApiSdk.Users.Item.Presence.SetPresence {
     /// <summary>
     /// Provides operations to call the setPresence method.
     /// </summary>
-    public class SetPresenceRequestBuilder : BaseCliRequestBuilder {
+    public class SetPresenceRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
-        /// Set the state of a user&apos;s presence session as an application.
+        /// Set the availability and activity status in a presence session of an application for a user.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPostCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPostCommand()
+        {
             var command = new Command("post");
-            command.Description = "Set the state of a user's presence session as an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0";
-            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user") {
+            command.Description = "Set the availability and activity status in a presence session of an application for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0";
+            var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
             command.AddOption(userIdOption);
@@ -59,28 +62,33 @@ namespace ApiSdk.Users.Item.Presence.SetPresence {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SetPresenceRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SetPresenceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SetPresenceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/presence/setPresence", pathParameters) {
+        public SetPresenceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/presence/setPresence", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new SetPresenceRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SetPresenceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SetPresenceRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/presence/setPresence", rawUrl) {
+        public SetPresenceRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/presence/setPresence", rawUrl)
+        {
         }
         /// <summary>
-        /// Set the state of a user&apos;s presence session as an application.
+        /// Set the availability and activity status in a presence session of an application for a user.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SetPresencePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SetPresencePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SetPresencePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(SetPresencePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);

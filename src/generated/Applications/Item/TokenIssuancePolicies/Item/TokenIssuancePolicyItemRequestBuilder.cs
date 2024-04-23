@@ -14,12 +14,15 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Item {
     /// <summary>
     /// Builds and executes requests for operations under \applications\{application-id}\tokenIssuancePolicies\{tokenIssuancePolicy-id}
     /// </summary>
-    public class TokenIssuancePolicyItemRequestBuilder : BaseCliRequestBuilder {
+    public class TokenIssuancePolicyItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the collection of application entities.
         /// </summary>
-        public Command BuildRefNavCommand() {
-            var command = new Command("ref");
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRefByIdNavCommand()
+        {
+            var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of application entities.";
             var builder = new RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
@@ -31,16 +34,18 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new TokenIssuancePolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TokenIssuancePolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TokenIssuancePolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", pathParameters) {
+        public TokenIssuancePolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new TokenIssuancePolicyItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="TokenIssuancePolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TokenIssuancePolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", rawUrl) {
+        public TokenIssuancePolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", rawUrl)
+        {
         }
     }
 }

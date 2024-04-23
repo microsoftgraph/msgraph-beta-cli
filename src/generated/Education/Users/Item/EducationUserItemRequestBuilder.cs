@@ -24,11 +24,14 @@ namespace ApiSdk.Education.Users.Item {
     /// <summary>
     /// Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class EducationUserItemRequestBuilder : BaseCliRequestBuilder {
+    public class EducationUserItemRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildAssignmentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAssignmentsNavCommand()
+        {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.";
             var builder = new AssignmentsRequestBuilder(PathParameters);
@@ -54,7 +57,9 @@ namespace ApiSdk.Education.Users.Item {
         /// <summary>
         /// Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildClassesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildClassesNavCommand()
+        {
             var command = new Command("classes");
             command.Description = "Provides operations to manage the classes property of the microsoft.graph.educationUser entity.";
             var builder = new ClassesRequestBuilder(PathParameters);
@@ -79,7 +84,9 @@ namespace ApiSdk.Education.Users.Item {
         /// Delete a user.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0";
             var educationUserIdOption = new Option<string>("--education-user-id", description: "The unique identifier of educationUser") {
@@ -110,12 +117,14 @@ namespace ApiSdk.Education.Users.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationUser object.
+        /// Retrieve the properties and relationships of a user.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an educationUser object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0";
             var educationUserIdOption = new Option<string>("--education-user-id", description: "The unique identifier of educationUser") {
             };
             educationUserIdOption.IsRequired = true;
@@ -161,12 +170,14 @@ namespace ApiSdk.Education.Users.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an educationUser object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0" />
+        /// Update the relatedContact collection of an educationUser object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/relatedcontact-update?view=graph-rest-1.0" />
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
-            command.Description = "Update the properties of an educationUser object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0";
+            command.Description = "Update the relatedContact collection of an educationUser object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/relatedcontact-update?view=graph-rest-1.0";
             var educationUserIdOption = new Option<string>("--education-user-id", description: "The unique identifier of educationUser") {
             };
             educationUserIdOption.IsRequired = true;
@@ -213,7 +224,9 @@ namespace ApiSdk.Education.Users.Item {
         /// <summary>
         /// Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildRubricsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRubricsNavCommand()
+        {
             var command = new Command("rubrics");
             command.Description = "Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.";
             var builder = new RubricsRequestBuilder(PathParameters);
@@ -238,7 +251,9 @@ namespace ApiSdk.Education.Users.Item {
         /// <summary>
         /// Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildSchoolsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSchoolsNavCommand()
+        {
             var command = new Command("schools");
             command.Description = "Provides operations to manage the schools property of the microsoft.graph.educationUser entity.";
             var builder = new SchoolsRequestBuilder(PathParameters);
@@ -262,7 +277,9 @@ namespace ApiSdk.Education.Users.Item {
         /// <summary>
         /// Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildTaughtClassesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTaughtClassesNavCommand()
+        {
             var command = new Command("taught-classes");
             command.Description = "Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.";
             var builder = new TaughtClassesRequestBuilder(PathParameters);
@@ -286,7 +303,9 @@ namespace ApiSdk.Education.Users.Item {
         /// <summary>
         /// Provides operations to manage the user property of the microsoft.graph.educationUser entity.
         /// </summary>
-        public Command BuildUserNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUserNavCommand()
+        {
             var command = new Command("user");
             command.Description = "Provides operations to manage the user property of the microsoft.graph.educationUser entity.";
             var builder = new UserRequestBuilder(PathParameters);
@@ -306,43 +325,51 @@ namespace ApiSdk.Education.Users.Item {
             return command;
         }
         /// <summary>
-        /// Instantiates a new EducationUserItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EducationUserItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public EducationUserItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/users/{educationUser%2Did}{?%24select,%24expand}", pathParameters) {
+        public EducationUserItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/users/{educationUser%2Did}{?%24expand,%24select}", pathParameters)
+        {
         }
         /// <summary>
-        /// Instantiates a new EducationUserItemRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="EducationUserItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public EducationUserItemRequestBuilder(string rawUrl) : base("{+baseurl}/education/users/{educationUser%2Did}{?%24select,%24expand}", rawUrl) {
+        public EducationUserItemRequestBuilder(string rawUrl) : base("{+baseurl}/education/users/{educationUser%2Did}{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete a user.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/users/{educationUser%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationUser object.
+        /// Retrieve the properties and relationships of a user.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -350,27 +377,31 @@ namespace ApiSdk.Education.Users.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an educationUser object.
+        /// Update the relatedContact collection of an educationUser object.
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(EducationUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(EducationUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(EducationUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(EducationUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/users/{educationUser%2Did}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationUser object.
+        /// Retrieve the properties and relationships of a user.
         /// </summary>
-        public class EducationUserItemRequestBuilderGetQueryParameters {
+        public class EducationUserItemRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

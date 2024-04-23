@@ -4,15 +4,30 @@ using ApiSdk.Models.Security;
 using ApiSdk.Security.Alerts;
 using ApiSdk.Security.Alerts_v2;
 using ApiSdk.Security.AttackSimulation;
+using ApiSdk.Security.AuditLog;
 using ApiSdk.Security.Cases;
+using ApiSdk.Security.CloudAppSecurityProfiles;
+using ApiSdk.Security.Collaboration;
+using ApiSdk.Security.DomainSecurityProfiles;
+using ApiSdk.Security.FileSecurityProfiles;
+using ApiSdk.Security.HostSecurityProfiles;
 using ApiSdk.Security.Incidents;
+using ApiSdk.Security.InformationProtection;
+using ApiSdk.Security.IpSecurityProfiles;
+using ApiSdk.Security.Labels;
 using ApiSdk.Security.MicrosoftGraphSecurityRunHuntingQuery;
+using ApiSdk.Security.ProviderTenantSettings;
+using ApiSdk.Security.Rules;
 using ApiSdk.Security.SecureScoreControlProfiles;
 using ApiSdk.Security.SecureScores;
+using ApiSdk.Security.SecurityActions;
 using ApiSdk.Security.SubjectRightsRequests;
 using ApiSdk.Security.ThreatIntelligence;
+using ApiSdk.Security.ThreatSubmission;
+using ApiSdk.Security.TiIndicators;
 using ApiSdk.Security.TriggerTypes;
 using ApiSdk.Security.Triggers;
+using ApiSdk.Security.UserSecurityProfiles;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -30,11 +45,14 @@ namespace ApiSdk.Security {
     /// <summary>
     /// Provides operations to manage the security singleton.
     /// </summary>
-    public class SecurityRequestBuilder : BaseCliRequestBuilder {
+    public class SecurityRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildAlerts_v2NavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAlerts_v2NavCommand()
+        {
             var command = new Command("alerts_v2");
             command.Description = "Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.";
             var builder = new Alerts_v2RequestBuilder(PathParameters);
@@ -59,7 +77,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the alerts property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildAlertsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAlertsNavCommand()
+        {
             var command = new Command("alerts");
             command.Description = "Provides operations to manage the alerts property of the microsoft.graph.security entity.";
             var builder = new AlertsRequestBuilder(PathParameters);
@@ -68,6 +88,7 @@ namespace ApiSdk.Security {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             execCommands.Add(builder.BuildListCommand());
+            nonExecCommands.Add(builder.BuildUpdateAlertsNavCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
             nonExecCommands.AddRange(cmds.Item2);
@@ -84,7 +105,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildAttackSimulationNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAttackSimulationNavCommand()
+        {
             var command = new Command("attack-simulation");
             command.Description = "Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.";
             var builder = new AttackSimulationRequestBuilder(PathParameters);
@@ -100,7 +123,33 @@ namespace ApiSdk.Security {
             nonExecCommands.Add(builder.BuildPayloadsNavCommand());
             nonExecCommands.Add(builder.BuildSimulationAutomationsNavCommand());
             nonExecCommands.Add(builder.BuildSimulationsNavCommand());
+            nonExecCommands.Add(builder.BuildTrainingCampaignsNavCommand());
             nonExecCommands.Add(builder.BuildTrainingsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the auditLog property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildAuditLogNavCommand()
+        {
+            var command = new Command("audit-log");
+            command.Description = "Provides operations to manage the auditLog property of the microsoft.graph.security entity.";
+            var builder = new AuditLogRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildQueriesNavCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
@@ -114,7 +163,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the cases property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildCasesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCasesNavCommand()
+        {
             var command = new Command("cases");
             command.Description = "Provides operations to manage the cases property of the microsoft.graph.security entity.";
             var builder = new CasesRequestBuilder(PathParameters);
@@ -135,9 +186,117 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCloudAppSecurityProfilesNavCommand()
+        {
+            var command = new Command("cloud-app-security-profiles");
+            command.Description = "Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new CloudAppSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the collaboration property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildCollaborationNavCommand()
+        {
+            var command = new Command("collaboration");
+            command.Description = "Provides operations to manage the collaboration property of the microsoft.graph.security entity.";
+            var builder = new CollaborationRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildAnalyzedEmailsNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDomainSecurityProfilesNavCommand()
+        {
+            var command = new Command("domain-security-profiles");
+            command.Description = "Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new DomainSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFileSecurityProfilesNavCommand()
+        {
+            var command = new Command("file-security-profiles");
+            command.Description = "Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new FileSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Get security
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Get security";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
@@ -179,9 +338,38 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildHostSecurityProfilesNavCommand()
+        {
+            var command = new Command("host-security-profiles");
+            command.Description = "Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new HostSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the incidents property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildIncidentsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildIncidentsNavCommand()
+        {
             var command = new Command("incidents");
             command.Description = "Provides operations to manage the incidents property of the microsoft.graph.security entity.";
             var builder = new IncidentsRequestBuilder(PathParameters);
@@ -204,9 +392,94 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the informationProtection property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildInformationProtectionNavCommand()
+        {
+            var command = new Command("information-protection");
+            command.Description = "Provides operations to manage the informationProtection property of the microsoft.graph.security entity.";
+            var builder = new InformationProtectionRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildLabelPolicySettingsNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSensitivityLabelsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildIpSecurityProfilesNavCommand()
+        {
+            var command = new Command("ip-security-profiles");
+            command.Description = "Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new IpSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the labels property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildLabelsNavCommand()
+        {
+            var command = new Command("labels");
+            command.Description = "Provides operations to manage the labels property of the microsoft.graph.security entity.";
+            var builder = new LabelsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildAuthoritiesNavCommand());
+            nonExecCommands.Add(builder.BuildCategoriesNavCommand());
+            nonExecCommands.Add(builder.BuildCitationsNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
+            nonExecCommands.Add(builder.BuildDepartmentsNavCommand());
+            nonExecCommands.Add(builder.BuildFilePlanReferencesNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildRetentionLabelsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the runHuntingQuery method.
         /// </summary>
-        public Command BuildMicrosoftGraphSecurityRunHuntingQueryNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildMicrosoftGraphSecurityRunHuntingQueryNavCommand()
+        {
             var command = new Command("microsoft-graph-security-run-hunting-query");
             command.Description = "Provides operations to call the runHuntingQuery method.";
             var builder = new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(PathParameters);
@@ -221,7 +494,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Update security
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update security";
             var bodyOption = new Option<string>("--body", description: "The request body") {
@@ -262,9 +537,63 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildProviderTenantSettingsNavCommand()
+        {
+            var command = new Command("provider-tenant-settings");
+            command.Description = "Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.";
+            var builder = new ProviderTenantSettingsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the rules property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRulesNavCommand()
+        {
+            var command = new Command("rules");
+            command.Description = "Provides operations to manage the rules property of the microsoft.graph.security entity.";
+            var builder = new RulesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            nonExecCommands.Add(builder.BuildDetectionRulesNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildSecureScoreControlProfilesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSecureScoreControlProfilesNavCommand()
+        {
             var command = new Command("secure-score-control-profiles");
             command.Description = "Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.";
             var builder = new SecureScoreControlProfilesRequestBuilder(PathParameters);
@@ -289,7 +618,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the secureScores property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildSecureScoresNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSecureScoresNavCommand()
+        {
             var command = new Command("secure-scores");
             command.Description = "Provides operations to manage the secureScores property of the microsoft.graph.security entity.";
             var builder = new SecureScoresRequestBuilder(PathParameters);
@@ -312,9 +643,38 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the securityActions property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSecurityActionsNavCommand()
+        {
+            var command = new Command("security-actions");
+            command.Description = "Provides operations to manage the securityActions property of the microsoft.graph.security entity.";
+            var builder = new SecurityActionsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildSubjectRightsRequestsNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSubjectRightsRequestsNavCommand()
+        {
             var command = new Command("subject-rights-requests");
             command.Description = "Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.";
             var builder = new SubjectRightsRequestsRequestBuilder(PathParameters);
@@ -339,7 +699,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildThreatIntelligenceNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildThreatIntelligenceNavCommand()
+        {
             var command = new Command("threat-intelligence");
             command.Description = "Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.";
             var builder = new ThreatIntelligenceRequestBuilder(PathParameters);
@@ -376,9 +738,70 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the threatSubmission property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildThreatSubmissionNavCommand()
+        {
+            var command = new Command("threat-submission");
+            command.Description = "Provides operations to manage the threatSubmission property of the microsoft.graph.security entity.";
+            var builder = new ThreatSubmissionRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            nonExecCommands.Add(builder.BuildEmailThreatsNavCommand());
+            nonExecCommands.Add(builder.BuildEmailThreatSubmissionPoliciesNavCommand());
+            nonExecCommands.Add(builder.BuildFileThreatsNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildUrlThreatsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTiIndicatorsNavCommand()
+        {
+            var command = new Command("ti-indicators");
+            command.Description = "Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.";
+            var builder = new TiIndicatorsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            nonExecCommands.Add(builder.BuildDeleteTiIndicatorsByExternalIdNavCommand());
+            nonExecCommands.Add(builder.BuildDeleteTiIndicatorsNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            nonExecCommands.Add(builder.BuildSubmitTiIndicatorsNavCommand());
+            nonExecCommands.Add(builder.BuildUpdateTiIndicatorsNavCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the triggers property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildTriggersNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTriggersNavCommand()
+        {
             var command = new Command("triggers");
             command.Description = "Provides operations to manage the triggers property of the microsoft.graph.security entity.";
             var builder = new TriggersRequestBuilder(PathParameters);
@@ -401,7 +824,9 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
         /// </summary>
-        public Command BuildTriggerTypesNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildTriggerTypesNavCommand()
+        {
             var command = new Command("trigger-types");
             command.Description = "Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.";
             var builder = new TriggerTypesRequestBuilder(PathParameters);
@@ -422,27 +847,59 @@ namespace ApiSdk.Security {
             return command;
         }
         /// <summary>
-        /// Instantiates a new SecurityRequestBuilder and sets the default values.
+        /// Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public SecurityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildUserSecurityProfilesNavCommand()
+        {
+            var command = new Command("user-security-profiles");
+            command.Description = "Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.";
+            var builder = new UserSecurityProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new SecurityRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="SecurityRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public SecurityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="SecurityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SecurityRequestBuilder(string rawUrl) : base("{+baseurl}/security{?%24select,%24expand}", rawUrl) {
+        public SecurityRequestBuilder(string rawUrl) : base("{+baseurl}/security{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Get security
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -452,17 +909,20 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Update security
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Security.Security body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Security.Security body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Security.Security body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Security.Security body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -470,7 +930,8 @@ namespace ApiSdk.Security {
         /// <summary>
         /// Get security
         /// </summary>
-        public class SecurityRequestBuilderGetQueryParameters {
+        public class SecurityRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

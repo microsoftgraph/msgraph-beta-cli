@@ -5,39 +5,46 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
-    public class Approval : Entity, IParsable {
-        /// <summary>A collection of stages in the approval decision.</summary>
+    public class Approval : Entity, IParsable 
+    {
+        /// <summary>Used to represent the decision associated with a single step in the approval process configured in approvalStage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ApprovalStage>? Stages { get; set; }
+        public List<ApprovalStep>? Steps { get; set; }
 #nullable restore
 #else
-        public List<ApprovalStage> Stages { get; set; }
+        public List<ApprovalStep> Steps { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
+        /// <returns>A <see cref="Approval"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Approval CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new Approval CreateFromDiscriminatorValue(IParseNode parseNode)
+        {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Approval();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"stages", n => { Stages = n.GetCollectionOfObjectValues<ApprovalStage>(ApprovalStage.CreateFromDiscriminatorValue)?.ToList(); } },
+        /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            {
+                {"steps", n => { Steps = n.GetCollectionOfObjectValues<ApprovalStep>(ApprovalStep.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer) {
+        public override void Serialize(ISerializationWriter writer)
+        {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ApprovalStage>("stages", Stages);
+            writer.WriteCollectionOfObjectValues<ApprovalStep>("steps", Steps);
         }
     }
 }

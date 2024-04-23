@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Shares.Item.Permission.Grant;
+using ApiSdk.Shares.Item.Permission.RevokeGrants;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -19,11 +20,14 @@ namespace ApiSdk.Shares.Item.Permission {
     /// <summary>
     /// Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity.
     /// </summary>
-    public class PermissionRequestBuilder : BaseCliRequestBuilder {
+    public class PermissionRequestBuilder : BaseCliRequestBuilder 
+    {
         /// <summary>
         /// Delete navigation property permission for shares
         /// </summary>
-        public Command BuildDeleteCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
             var command = new Command("delete");
             command.Description = "Delete navigation property permission for shares";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
@@ -56,7 +60,9 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Used to access the permission representing the underlying sharing link
         /// </summary>
-        public Command BuildGetCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGetCommand()
+        {
             var command = new Command("get");
             command.Description = "Used to access the permission representing the underlying sharing link";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
@@ -106,7 +112,9 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Provides operations to call the grant method.
         /// </summary>
-        public Command BuildGrantNavCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildGrantNavCommand()
+        {
             var command = new Command("grant");
             command.Description = "Provides operations to call the grant method.";
             var builder = new GrantRequestBuilder(PathParameters);
@@ -121,7 +129,9 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Update the navigation property permission in shares
         /// </summary>
-        public Command BuildPatchCommand() {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPatchCommand()
+        {
             var command = new Command("patch");
             command.Description = "Update the navigation property permission in shares";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
@@ -168,29 +178,51 @@ namespace ApiSdk.Shares.Item.Permission {
             return command;
         }
         /// <summary>
-        /// Instantiates a new PermissionRequestBuilder and sets the default values.
+        /// Provides operations to call the revokeGrants method.
         /// </summary>
-        /// <param name="pathParameters">Path parameters for the request</param>
-        public PermissionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/permission{?%24select,%24expand}", pathParameters) {
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRevokeGrantsNavCommand()
+        {
+            var command = new Command("revoke-grants");
+            command.Description = "Provides operations to call the revokeGrants method.";
+            var builder = new RevokeGrantsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
         }
         /// <summary>
-        /// Instantiates a new PermissionRequestBuilder and sets the default values.
+        /// Instantiates a new <see cref="PermissionRequestBuilder"/> and sets the default values.
+        /// </summary>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        public PermissionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/permission{?%24expand,%24select}", pathParameters)
+        {
+        }
+        /// <summary>
+        /// Instantiates a new <see cref="PermissionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PermissionRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/permission{?%24select,%24expand}", rawUrl) {
+        public PermissionRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/permission{?%24expand,%24select}", rawUrl)
+        {
         }
         /// <summary>
         /// Delete navigation property permission for shares
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/shares/{sharedDriveItem%2Did}/permission", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -198,13 +230,16 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Used to access the permission representing the underlying sharing link
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionRequestBuilderGetQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
@@ -214,17 +249,20 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Update the navigation property permission in shares
         /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Permission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/shares/{sharedDriveItem%2Did}/permission", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -232,7 +270,8 @@ namespace ApiSdk.Shares.Item.Permission {
         /// <summary>
         /// Used to access the permission representing the underlying sharing link
         /// </summary>
-        public class PermissionRequestBuilderGetQueryParameters {
+        public class PermissionRequestBuilderGetQueryParameters 
+        {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -257,7 +257,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/recommendations/{recommendation%2Did}/impactedResources", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,13 +21,14 @@ namespace ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetSt
     public class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getStatistics
+        /// Get statistics for an industryDataRun.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydatarun-getstatistics?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getStatistics";
+            command.Description = "Get statistics for an industryDataRun.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydatarun-getstatistics?view=graph-rest-beta";
             var industryDataRunIdOption = new Option<string>("--industry-data-run-id", description: "The unique identifier of industryDataRun") {
             };
             industryDataRunIdOption.IsRequired = true;
@@ -73,7 +74,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetSt
         {
         }
         /// <summary>
-        /// Invoke function getStatistics
+        /// Get statistics for an industryDataRun.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

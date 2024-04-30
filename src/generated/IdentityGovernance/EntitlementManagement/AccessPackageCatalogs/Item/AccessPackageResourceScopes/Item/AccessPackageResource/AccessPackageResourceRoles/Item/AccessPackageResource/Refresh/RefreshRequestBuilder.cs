@@ -21,14 +21,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
     {
         /// <summary>
         /// In Azure AD entitlement management, refresh the accessPackageResource object to fetch the latest details for displayName, description, and resourceType from the origin system. For the AadApplication originSystem, this operation also updates the displayName and description for the accessPackageResourceRole. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageresource-refresh?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageresource-refresh?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "In Azure AD entitlement management, refresh the accessPackageResource object to fetch the latest details for displayName, description, and resourceType from the origin system. For the AadApplication originSystem, this operation also updates the displayName and description for the accessPackageResourceRole. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageresource-refresh?view=graph-rest-1.0";
+            command.Description = "In Azure AD entitlement management, refresh the accessPackageResource object to fetch the latest details for displayName, description, and resourceType from the origin system. For the AadApplication originSystem, this operation also updates the displayName and description for the accessPackageResourceRole. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageresource-refresh?view=graph-rest-beta";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;

@@ -64,14 +64,13 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-1.0" />
+        /// Create new navigation property to classes for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to classes for education";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -127,14 +126,13 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of all class objects. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-1.0" />
+        /// Get classes from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of all class objects. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-1.0";
+            command.Description = "Get classes from education";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -236,7 +234,7 @@ namespace ApiSdk.Education.Classes {
         {
         }
         /// <summary>
-        /// Retrieve a list of all class objects. 
+        /// Get classes from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,7 +253,7 @@ namespace ApiSdk.Education.Classes {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
+        /// Create new navigation property to classes for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -270,13 +268,13 @@ namespace ApiSdk.Education.Classes {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/classes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of all class objects. 
+        /// Get classes from education
         /// </summary>
         public class ClassesRequestBuilderGetQueryParameters 
         {

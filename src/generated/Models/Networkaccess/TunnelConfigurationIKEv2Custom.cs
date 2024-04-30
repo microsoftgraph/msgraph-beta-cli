@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class TunnelConfigurationIKEv2Custom : TunnelConfiguration, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The dhGroup property</summary>
         public ApiSdk.Models.Networkaccess.DhGroup? DhGroup { get; set; }

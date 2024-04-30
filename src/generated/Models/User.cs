@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class User : DirectoryObject, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>A freeform text entry field for users to describe themselves. Returned only on $select.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -486,6 +488,14 @@ namespace ApiSdk.Models {
 #else
         public List<string> Interests { get; set; }
 #endif
+        /// <summary>The invitedBy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DirectoryObject? InvitedBy { get; set; }
+#nullable restore
+#else
+        public DirectoryObject InvitedBy { get; set; }
+#endif
         /// <summary>Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).</summary>
         public bool? IsLicenseReconciliationNeeded { get; set; }
         /// <summary>true if the user is a member of a restricted management administrative unit, which requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.</summary>
@@ -573,6 +583,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string MailNickname { get; set; }
+#endif
+        /// <summary>Zero or more log collection requests triggered for the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedAppLogCollectionRequest>? ManagedAppLogCollectionRequests { get; set; }
+#nullable restore
+#else
+        public List<ManagedAppLogCollectionRequest> ManagedAppLogCollectionRequests { get; set; }
 #endif
         /// <summary>Zero or more managed app registrations that belong to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -1112,7 +1130,7 @@ namespace ApiSdk.Models {
 #else
         public string UserPrincipalName { get; set; }
 #endif
-        /// <summary>A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?</summary>
+        /// <summary>A String value that can be used to classify user types in your directory. The possible values are Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserType { get; set; }
@@ -1226,6 +1244,7 @@ namespace ApiSdk.Models {
                 {"informationProtection", n => { InformationProtection = n.GetObjectValue<ApiSdk.Models.InformationProtection>(ApiSdk.Models.InformationProtection.CreateFromDiscriminatorValue); } },
                 {"insights", n => { Insights = n.GetObjectValue<ItemInsights>(ItemInsights.CreateFromDiscriminatorValue); } },
                 {"interests", n => { Interests = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"invitedBy", n => { InvitedBy = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"isLicenseReconciliationNeeded", n => { IsLicenseReconciliationNeeded = n.GetBoolValue(); } },
                 {"isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
                 {"isResourceAccount", n => { IsResourceAccount = n.GetBoolValue(); } },
@@ -1240,6 +1259,7 @@ namespace ApiSdk.Models {
                 {"mailFolders", n => { MailFolders = n.GetCollectionOfObjectValues<MailFolder>(MailFolder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"mailNickname", n => { MailNickname = n.GetStringValue(); } },
                 {"mailboxSettings", n => { MailboxSettings = n.GetObjectValue<ApiSdk.Models.MailboxSettings>(ApiSdk.Models.MailboxSettings.CreateFromDiscriminatorValue); } },
+                {"managedAppLogCollectionRequests", n => { ManagedAppLogCollectionRequests = n.GetCollectionOfObjectValues<ManagedAppLogCollectionRequest>(ManagedAppLogCollectionRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedAppRegistrations", n => { ManagedAppRegistrations = n.GetCollectionOfObjectValues<ManagedAppRegistration>(ManagedAppRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDevices", n => { ManagedDevices = n.GetCollectionOfObjectValues<ManagedDevice>(ManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"manager", n => { Manager = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
@@ -1389,6 +1409,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.InformationProtection>("informationProtection", InformationProtection);
             writer.WriteObjectValue<ItemInsights>("insights", Insights);
             writer.WriteCollectionOfPrimitiveValues<string>("interests", Interests);
+            writer.WriteObjectValue<DirectoryObject>("invitedBy", InvitedBy);
             writer.WriteBoolValue("isLicenseReconciliationNeeded", IsLicenseReconciliationNeeded);
             writer.WriteBoolValue("isManagementRestricted", IsManagementRestricted);
             writer.WriteBoolValue("isResourceAccount", IsResourceAccount);
@@ -1403,6 +1424,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.MailboxSettings>("mailboxSettings", MailboxSettings);
             writer.WriteCollectionOfObjectValues<MailFolder>("mailFolders", MailFolders);
             writer.WriteStringValue("mailNickname", MailNickname);
+            writer.WriteCollectionOfObjectValues<ManagedAppLogCollectionRequest>("managedAppLogCollectionRequests", ManagedAppLogCollectionRequests);
             writer.WriteCollectionOfObjectValues<ManagedAppRegistration>("managedAppRegistrations", ManagedAppRegistrations);
             writer.WriteCollectionOfObjectValues<ManagedDevice>("managedDevices", ManagedDevices);
             writer.WriteObjectValue<DirectoryObject>("manager", Manager);

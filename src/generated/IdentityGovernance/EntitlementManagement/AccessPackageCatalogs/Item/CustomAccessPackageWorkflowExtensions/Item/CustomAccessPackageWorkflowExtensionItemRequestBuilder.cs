@@ -21,15 +21,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
     public class CustomAccessPackageWorkflowExtensionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the accessPackageCustomWorkflowExtension object that you want to delete by running the List accessPackageCustomWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 3: Remove the customExtensionStageSettings from a policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-delete?view=graph-rest-1.0" />
+        /// Delete navigation property customAccessPackageWorkflowExtensions for identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the accessPackageCustomWorkflowExtension object that you want to delete by running the List accessPackageCustomWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 3: Remove the customExtensionStageSettings from a policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property customAccessPackageWorkflowExtensions for identityGovernance";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;
@@ -64,15 +63,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-get?view=graph-rest-1.0" />
+        /// Get customAccessPackageWorkflowExtensions from identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-get?view=graph-rest-1.0";
+            command.Description = "Get customAccessPackageWorkflowExtensions from identityGovernance";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;
@@ -124,15 +122,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return command;
         }
         /// <summary>
-        /// Update the properties of an existing customAccessPackageWorkflowExtension object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-update?view=graph-rest-1.0" />
+        /// Update the navigation property customAccessPackageWorkflowExtensions in identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an existing customAccessPackageWorkflowExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property customAccessPackageWorkflowExtensions in identityGovernance";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;
@@ -197,7 +194,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
         {
         }
         /// <summary>
-        /// Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the accessPackageCustomWorkflowExtension object that you want to delete by running the List accessPackageCustomWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 3: Remove the customExtensionStageSettings from a policy.
+        /// Delete navigation property customAccessPackageWorkflowExtensions for identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,13 +208,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs/{accessPackageCatalog%2Did}/customAccessPackageWorkflowExtensions/{customAccessPackageWorkflowExtension%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
+        /// Get customAccessPackageWorkflowExtensions from identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +234,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an existing customAccessPackageWorkflowExtension object.
+        /// Update the navigation property customAccessPackageWorkflowExtensions in identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -253,13 +250,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs/{accessPackageCatalog%2Did}/customAccessPackageWorkflowExtensions/{customAccessPackageWorkflowExtension%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
+        /// Get customAccessPackageWorkflowExtensions from identityGovernance
         /// </summary>
         public class CustomAccessPackageWorkflowExtensionItemRequestBuilderGetQueryParameters 
         {

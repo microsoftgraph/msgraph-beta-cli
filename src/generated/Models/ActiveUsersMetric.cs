@@ -6,12 +6,54 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class ActiveUsersMetric : Entity, IParsable 
+    #pragma warning restore CS1591
     {
+        /// <summary>The appId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
+        public string AppId { get; set; }
+#endif
+        /// <summary>The appName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppName { get; set; }
+#nullable restore
+#else
+        public string AppName { get; set; }
+#endif
         /// <summary>The total number of users who made at least one authentication request within the specified time period.</summary>
         public long? Count { get; set; }
+        /// <summary>The country property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Country { get; set; }
+#nullable restore
+#else
+        public string Country { get; set; }
+#endif
         /// <summary>Date of the insight.</summary>
         public Date? FactDate { get; set; }
+        /// <summary>The language property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
+        /// <summary>The os property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Os { get; set; }
+#nullable restore
+#else
+        public string Os { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,8 +72,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                {"appId", n => { AppId = n.GetStringValue(); } },
+                {"appName", n => { AppName = n.GetStringValue(); } },
                 {"count", n => { Count = n.GetLongValue(); } },
+                {"country", n => { Country = n.GetStringValue(); } },
                 {"factDate", n => { FactDate = n.GetDateValue(); } },
+                {"language", n => { Language = n.GetStringValue(); } },
+                {"os", n => { Os = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -42,8 +89,13 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("appId", AppId);
+            writer.WriteStringValue("appName", AppName);
             writer.WriteLongValue("count", Count);
+            writer.WriteStringValue("country", Country);
             writer.WriteDateValue("factDate", FactDate);
+            writer.WriteStringValue("language", Language);
+            writer.WriteStringValue("os", Os);
         }
     }
 }

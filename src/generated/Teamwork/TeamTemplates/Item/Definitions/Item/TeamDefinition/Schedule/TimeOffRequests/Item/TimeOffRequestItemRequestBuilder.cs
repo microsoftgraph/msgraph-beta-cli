@@ -21,14 +21,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
     public class TimeOffRequestItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a timeOffRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0" />
+        /// Delete navigation property timeOffRequests for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a timeOffRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property timeOffRequests for teamwork";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -69,14 +68,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeoffrequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0" />
+        /// The time off requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a timeoffrequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0";
+            command.Description = "The time off requests in the schedule.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -204,7 +202,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
         }
         /// <summary>
-        /// Delete a timeOffRequest object.
+        /// Delete navigation property timeOffRequests for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -217,13 +215,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timeOffRequests/{timeOffRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeoffrequest object.
+        /// The time off requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,13 +255,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timeOffRequests/{timeOffRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeoffrequest object.
+        /// The time off requests in the schedule.
         /// </summary>
         public class TimeOffRequestItemRequestBuilderGetQueryParameters 
         {

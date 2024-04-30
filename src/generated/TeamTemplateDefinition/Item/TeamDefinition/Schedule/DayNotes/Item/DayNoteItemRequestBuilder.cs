@@ -120,14 +120,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.DayNotes.It
             return command;
         }
         /// <summary>
-        /// Update the properties of a day note.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/daynote-update?view=graph-rest-1.0" />
+        /// Update the navigation property dayNotes in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a day note.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/daynote-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property dayNotes in teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -205,7 +204,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.DayNotes.It
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/dayNotes/{dayNote%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -230,7 +229,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.DayNotes.It
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a day note.
+        /// Update the navigation property dayNotes in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -245,7 +244,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.DayNotes.It
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/dayNotes/{dayNote%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

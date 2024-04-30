@@ -114,13 +114,13 @@ namespace ApiSdk.TermStore.Sets.Item.ParentGroup.Sets.Item.Terms {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a term object.
+        /// All the terms under the set.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a term object.";
+            command.Description = "All the terms under the set.";
             var setIdOption = new Option<string>("--set-id", description: "The unique identifier of set") {
             };
             setIdOption.IsRequired = true;
@@ -234,7 +234,7 @@ namespace ApiSdk.TermStore.Sets.Item.ParentGroup.Sets.Item.Terms {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a term object.
+        /// All the terms under the set.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,13 +268,13 @@ namespace ApiSdk.TermStore.Sets.Item.ParentGroup.Sets.Item.Terms {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/terms", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a term object.
+        /// All the terms under the set.
         /// </summary>
         public class TermsRequestBuilderGetQueryParameters 
         {

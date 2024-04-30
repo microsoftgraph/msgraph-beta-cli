@@ -22,13 +22,13 @@ namespace ApiSdk.Sites.Item.Onenote.Notebooks.GetNotebookFromWebUrl {
     {
         /// <summary>
         /// Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;

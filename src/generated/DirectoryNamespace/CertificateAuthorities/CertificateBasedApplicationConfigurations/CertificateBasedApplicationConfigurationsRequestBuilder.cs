@@ -100,14 +100,13 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Get a list of certificateBasedApplicationConfiguration objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-1.0" />
+        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of certificateBasedApplicationConfiguration objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-1.0";
+            command.Description = "Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
         {
         }
         /// <summary>
-        /// Get a list of certificateBasedApplicationConfiguration objects.
+        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of certificateBasedApplicationConfiguration objects.
+        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
         /// </summary>
         public class CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters 
         {

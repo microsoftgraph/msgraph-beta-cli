@@ -5,15 +5,17 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class CategoryTemplate : FilePlanDescriptorTemplate, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Represents all subcategories under a particular category.</summary>
+        /// <summary>The subcategories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SubCategoryTemplate>? SubCategories { get; set; }
+        public List<SubcategoryTemplate>? Subcategories { get; set; }
 #nullable restore
 #else
-        public List<SubCategoryTemplate> SubCategories { get; set; }
+        public List<SubcategoryTemplate> Subcategories { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -33,7 +35,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"subCategories", n => { SubCategories = n.GetCollectionOfObjectValues<SubCategoryTemplate>(SubCategoryTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"subcategories", n => { Subcategories = n.GetCollectionOfObjectValues<SubcategoryTemplate>(SubcategoryTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -44,7 +46,7 @@ namespace ApiSdk.Models.Security {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<SubCategoryTemplate>("subCategories", SubCategories);
+            writer.WriteCollectionOfObjectValues<SubcategoryTemplate>("subcategories", Subcategories);
         }
     }
 }

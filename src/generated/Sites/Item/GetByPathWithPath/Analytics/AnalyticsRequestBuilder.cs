@@ -62,13 +62,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Analytics {
             return command;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Analytics about the view activities that took place in this site.";
+            command.Description = "Analytics about the view activities that took place on this site.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -204,13 +204,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Analytics {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/analytics", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +244,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Analytics {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/analytics", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         public class AnalyticsRequestBuilderGetQueryParameters 
         {

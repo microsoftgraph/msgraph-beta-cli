@@ -53,14 +53,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item.UserSources
             return command;
         }
         /// <summary>
-        /// Create a new userSource object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-post-usersources?view=graph-rest-1.0" />
+        /// Create new navigation property to userSources for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new userSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-post-usersources?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to userSources for security";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -250,7 +249,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item.UserSources
             return requestInfo;
         }
         /// <summary>
-        /// Create a new userSource object.
+        /// Create new navigation property to userSources for security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,7 +264,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item.UserSources
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/legalHolds/{ediscoveryHoldPolicy%2Did}/userSources", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

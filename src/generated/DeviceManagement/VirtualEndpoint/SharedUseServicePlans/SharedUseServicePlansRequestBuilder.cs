@@ -99,15 +99,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SharedUseServicePlans {
             return command;
         }
         /// <summary>
-        /// Get a list of the cloudPcSharedUseServicePlan objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-shareduseserviceplans?view=graph-rest-1.0" />
+        /// Get sharedUseServicePlans from deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The sharedUseServicePlans property is deprecated and will not be supported starting Oct 8, 2023. This property will not be included as part of the API response. as of 2023-03/sharedUseServicePlans")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the cloudPcSharedUseServicePlan objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-shareduseserviceplans?view=graph-rest-1.0";
+            command.Description = "Get sharedUseServicePlans from deviceManagement";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SharedUseServicePlans {
         {
         }
         /// <summary>
-        /// Get a list of the cloudPcSharedUseServicePlan objects and their properties.
+        /// Get sharedUseServicePlans from deviceManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SharedUseServicePlans {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/sharedUseServicePlans", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the cloudPcSharedUseServicePlan objects and their properties.
+        /// Get sharedUseServicePlans from deviceManagement
         /// </summary>
         public class SharedUseServicePlansRequestBuilderGetQueryParameters 
         {

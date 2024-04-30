@@ -21,13 +21,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.MarkRead {
     {
         /// <summary>
         /// Mark a list of serviceUpdateMessages as read for the signed in user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Mark a list of serviceUpdateMessages as read for the signed in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0";
+            command.Description = "Mark a list of serviceUpdateMessages as read for the signed in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

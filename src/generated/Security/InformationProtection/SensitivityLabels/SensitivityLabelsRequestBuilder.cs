@@ -104,14 +104,13 @@ namespace ApiSdk.Security.InformationProtection.SensitivityLabels {
             return command;
         }
         /// <summary>
-        /// Get a list of sensitivityLabel objects associated with a user or organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0" />
+        /// Read the Microsoft Purview Information Protection labels for the user or organization.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of sensitivityLabel objects associated with a user or organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0";
+            command.Description = "Read the Microsoft Purview Information Protection labels for the user or organization.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -281,7 +280,7 @@ namespace ApiSdk.Security.InformationProtection.SensitivityLabels {
         {
         }
         /// <summary>
-        /// Get a list of sensitivityLabel objects associated with a user or organization.
+        /// Read the Microsoft Purview Information Protection labels for the user or organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -315,13 +314,13 @@ namespace ApiSdk.Security.InformationProtection.SensitivityLabels {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/informationProtection/sensitivityLabels", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of sensitivityLabel objects associated with a user or organization.
+        /// Read the Microsoft Purview Information Protection labels for the user or organization.
         /// </summary>
         public class SensitivityLabelsRequestBuilderGetQueryParameters 
         {

@@ -56,14 +56,13 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an analyzedEmail object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-analyzedemail-get?view=graph-rest-1.0" />
+        /// Contains metadata for analyzed emails.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an analyzedEmail object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-analyzedemail-get?view=graph-rest-1.0";
+            command.Description = "Contains metadata for analyzed emails.";
             var analyzedEmailIdOption = new Option<string>("--analyzed-email-id", description: "The unique identifier of analyzedEmail") {
             };
             analyzedEmailIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/collaboration/analyzedEmails/{analyzedEmail%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an analyzedEmail object.
+        /// Contains metadata for analyzed emails.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/collaboration/analyzedEmails/{analyzedEmail%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an analyzedEmail object.
+        /// Contains metadata for analyzed emails.
         /// </summary>
         public class AnalyzedEmailItemRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
     {
         /// <summary>
         /// Create a request to remove the personal data for an outboundSharedUserProfile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tenantreference-removepersonaldata?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tenantreference-removepersonaldata?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create a request to remove the personal data for an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tenantreference-removepersonaldata?view=graph-rest-1.0";
+            command.Description = "Create a request to remove the personal data for an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tenantreference-removepersonaldata?view=graph-rest-beta";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;

@@ -254,7 +254,7 @@ namespace ApiSdk.App.OnlineMeetings.Item.AttendanceReports {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/attendanceReports", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

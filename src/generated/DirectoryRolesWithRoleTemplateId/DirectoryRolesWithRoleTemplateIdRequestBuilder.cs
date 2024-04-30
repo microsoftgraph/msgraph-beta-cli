@@ -57,13 +57,13 @@ namespace ApiSdk.DirectoryRolesWithRoleTemplateId {
         }
         /// <summary>
         /// Retrieve the properties of a directoryRole object. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a directoryRole object. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties of a directoryRole object. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-get?view=graph-rest-beta";
             var roleTemplateIdOption = new Option<string>("--role-template-id", description: "Alternate key of directoryRole") {
             };
             roleTemplateIdOption.IsRequired = true;
@@ -187,7 +187,7 @@ namespace ApiSdk.DirectoryRolesWithRoleTemplateId {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directoryRoles(roleTemplateId='{roleTemplateId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -227,7 +227,7 @@ namespace ApiSdk.DirectoryRolesWithRoleTemplateId {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directoryRoles(roleTemplateId='{roleTemplateId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

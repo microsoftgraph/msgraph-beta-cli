@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             return command;
         }
         /// <summary>
-        /// Create a new checklistItem object as a subtask in a bigger todoTask.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0" />
+        /// Create new navigation property to checklistItems for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new checklistItem object as a subtask in a bigger todoTask.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to checklistItems for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -117,14 +116,13 @@ namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             return command;
         }
         /// <summary>
-        /// Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0" />
+        /// A collection of smaller subtasks linked to the more complex parent task.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0";
+            command.Description = "A collection of smaller subtasks linked to the more complex parent task.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -244,7 +242,7 @@ namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
         {
         }
         /// <summary>
-        /// Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
+        /// A collection of smaller subtasks linked to the more complex parent task.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,7 +261,7 @@ namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new checklistItem object as a subtask in a bigger todoTask.
+        /// Create new navigation property to checklistItems for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -278,13 +276,13 @@ namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
+        /// A collection of smaller subtasks linked to the more complex parent task.
         /// </summary>
         public class ChecklistItemsRequestBuilderGetQueryParameters 
         {

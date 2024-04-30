@@ -53,14 +53,13 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations {
             return command;
         }
         /// <summary>
-        /// Create a new workforceIntegration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workforceintegration-post?view=graph-rest-1.0" />
+        /// Create new navigation property to workforceIntegrations for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new workforceIntegration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workforceintegration-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to workforceIntegrations for teamwork";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +98,13 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of workforceIntegration objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workforceintegration-list?view=graph-rest-1.0" />
+        /// A workforce integration with shifts.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of workforceIntegration objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workforceintegration-list?view=graph-rest-1.0";
+            command.Description = "A workforce integration with shifts.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +206,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations {
         {
         }
         /// <summary>
-        /// Retrieve a list of workforceIntegration objects.
+        /// A workforce integration with shifts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +225,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new workforceIntegration object.
+        /// Create new navigation property to workforceIntegrations for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -242,13 +240,13 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/workforceIntegrations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of workforceIntegration objects.
+        /// A workforce integration with shifts.
         /// </summary>
         public class WorkforceIntegrationsRequestBuilderGetQueryParameters 
         {

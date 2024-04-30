@@ -21,13 +21,13 @@ namespace ApiSdk.Groups.Item.CalendarView.Item.ExceptionOccurrences.Item.SnoozeR
     {
         /// <summary>
         /// Postpone a reminder for an event in a user calendar until a new time.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Postpone a reminder for an event in a user calendar until a new time.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-1.0";
+            command.Description = "Postpone a reminder for an event in a user calendar until a new time.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;

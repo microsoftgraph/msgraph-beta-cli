@@ -22,13 +22,13 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mar
     {
         /// <summary>
         /// Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-1.0";
+            command.Description = "Mark a message as not junk. This API removes the sender from the list of blocked senders and moves the message to the Inbox folder, when moveToInbox is true.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-markasnotjunk?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

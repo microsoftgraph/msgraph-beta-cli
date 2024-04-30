@@ -22,13 +22,12 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.Content {
     {
         /// <summary>
         /// The content of the goalsExportJob.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/goals-list-exportjobs?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The content of the goalsExportJob.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/goals-list-exportjobs?view=graph-rest-1.0";
+            command.Description = "The content of the goalsExportJob.";
             var goalsExportJobIdOption = new Option<string>("--goals-export-job-id", description: "The unique identifier of goalsExportJob") {
             };
             goalsExportJobIdOption.IsRequired = true;

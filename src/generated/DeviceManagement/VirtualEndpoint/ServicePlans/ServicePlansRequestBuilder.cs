@@ -98,14 +98,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
             return command;
         }
         /// <summary>
-        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-serviceplans?view=graph-rest-1.0" />
+        /// Cloud PC service plans.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-serviceplans?view=graph-rest-1.0";
+            command.Description = "Cloud PC service plans.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
         {
         }
         /// <summary>
-        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
+        /// Cloud PC service plans.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/servicePlans", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
+        /// Cloud PC service plans.
         /// </summary>
         public class ServicePlansRequestBuilderGetQueryParameters 
         {

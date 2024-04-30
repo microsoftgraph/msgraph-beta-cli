@@ -98,14 +98,13 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
             return command;
         }
         /// <summary>
-        /// List the permissionsRequestChange objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissionsmanagement-list-permissionsrequestchanges?view=graph-rest-1.0" />
+        /// Represents a change event of the scheduledPermissionsRequest entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the permissionsRequestChange objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissionsmanagement-list-permissionsrequestchanges?view=graph-rest-1.0";
+            command.Description = "Represents a change event of the scheduledPermissionsRequest entity.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
         {
         }
         /// <summary>
-        /// List the permissionsRequestChange objects and their properties.
+        /// Represents a change event of the scheduledPermissionsRequest entity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/permissionsManagement/permissionsRequestChanges", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the permissionsRequestChange objects and their properties.
+        /// Represents a change event of the scheduledPermissionsRequest entity.
         /// </summary>
         public class PermissionsRequestChangesRequestBuilderGetQueryParameters 
         {

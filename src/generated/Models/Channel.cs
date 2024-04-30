@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Channel : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Read only. Timestamp at which the channel was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -17,7 +19,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.</summary>
+        /// <summary>Channel name as it appears to the user in Microsoft Teams. The maximum length is 50 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -41,7 +43,7 @@ namespace ApiSdk.Models {
 #else
         public DriveItem FilesFolder { get; set; }
 #endif
-        /// <summary>The isArchived property</summary>
+        /// <summary>Indicates whether the channel is archived. Read-only.</summary>
         public bool? IsArchived { get; set; }
         /// <summary>Indicates whether the channel should automatically be marked &apos;favorite&apos; for all members of the team. Can only be set programmatically with Create team. Default: false.</summary>
         public bool? IsFavoriteByDefault { get; set; }
@@ -53,7 +55,7 @@ namespace ApiSdk.Models {
 #else
         public List<ConversationMember> Members { get; set; }
 #endif
-        /// <summary>The type of the channel. Can be set during creation and can&apos;t be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.</summary>
+        /// <summary>The type of the channel. Can be set during creation and can&apos;t be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.</summary>
         public ChannelMembershipType? MembershipType { get; set; }
         /// <summary>A collection of all the messages in the channel. A navigation property. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,7 +81,7 @@ namespace ApiSdk.Models {
 #else
         public List<SharedWithChannelTeamInfo> SharedWithTeams { get; set; }
 #endif
-        /// <summary>Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.</summary>
+        /// <summary>Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property is only returned if it appears in the $select clause of the Get channel method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ChannelSummary? Summary { get; set; }
@@ -103,7 +105,7 @@ namespace ApiSdk.Models {
 #else
         public string TenantId { get; set; }
 #endif
-        /// <summary>A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
+        /// <summary>A hyperlink to the channel in Microsoft Teams. This URL is supplied when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebUrl { get; set; }

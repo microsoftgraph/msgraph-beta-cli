@@ -100,13 +100,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Subdomains {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a subdomain object.
+        /// Retrieve details about the subdomain.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a subdomain object.";
+            command.Description = "Retrieve details about the subdomain.Note: List retrieval is not yet supported.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +208,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Subdomains {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a subdomain object.
+        /// Retrieve details about the subdomain.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -242,13 +242,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Subdomains {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/threatIntelligence/subdomains", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a subdomain object.
+        /// Retrieve details about the subdomain.Note: List retrieval is not yet supported.
         /// </summary>
         public class SubdomainsRequestBuilderGetQueryParameters 
         {

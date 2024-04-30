@@ -21,13 +21,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Settings.MicrosoftGraphSecu
     {
         /// <summary>
         /// Reset a caseSettings object to the default values.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycasesettings-resettodefault?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycasesettings-resettodefault?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reset a caseSettings object to the default values.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycasesettings-resettodefault?view=graph-rest-1.0";
+            command.Description = "Reset a caseSettings object to the default values.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycasesettings-resettodefault?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;

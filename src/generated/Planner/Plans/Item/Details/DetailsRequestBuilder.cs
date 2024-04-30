@@ -56,14 +56,13 @@ namespace ApiSdk.Planner.Plans.Item.Details {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerPlanDetails object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplandetails-get?view=graph-rest-1.0" />
+        /// Extra details about the plan. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a plannerPlanDetails object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplandetails-get?view=graph-rest-1.0";
+            command.Description = "Extra details about the plan. Read-only. Nullable.";
             var plannerPlanIdOption = new Option<string>("--planner-plan-id", description: "The unique identifier of plannerPlan") {
             };
             plannerPlanIdOption.IsRequired = true;
@@ -110,13 +109,12 @@ namespace ApiSdk.Planner.Plans.Item.Details {
         }
         /// <summary>
         /// Update the navigation property details in planner
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplandetails-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property details in planner\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplandetails-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property details in planner";
             var plannerPlanIdOption = new Option<string>("--planner-plan-id", description: "The unique identifier of plannerPlan") {
             };
             plannerPlanIdOption.IsRequired = true;
@@ -195,13 +193,13 @@ namespace ApiSdk.Planner.Plans.Item.Details {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/planner/plans/{plannerPlan%2Did}/details", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerPlanDetails object.
+        /// Extra details about the plan. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -235,13 +233,13 @@ namespace ApiSdk.Planner.Plans.Item.Details {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/planner/plans/{plannerPlan%2Did}/details", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerPlanDetails object.
+        /// Extra details about the plan. Read-only. Nullable.
         /// </summary>
         public class DetailsRequestBuilderGetQueryParameters 
         {

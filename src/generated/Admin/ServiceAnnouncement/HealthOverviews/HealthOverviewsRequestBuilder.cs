@@ -100,14 +100,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews {
             return command;
         }
         /// <summary>
-        /// Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0" />
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0";
+            command.Description = "A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews {
         {
         }
         /// <summary>
-        /// Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/serviceAnnouncement/healthOverviews", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         public class HealthOverviewsRequestBuilderGetQueryParameters 
         {

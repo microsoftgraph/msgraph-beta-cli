@@ -21,13 +21,13 @@ namespace ApiSdk.App.Calls.Item.ChangeScreenSharingRole {
     {
         /// <summary>
         /// Allow applications to share screen content with the participants of a group call.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Allow applications to share screen content with the participants of a group call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0";
+            command.Description = "Allow applications to share screen content with the participants of a group call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

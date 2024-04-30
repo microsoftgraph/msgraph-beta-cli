@@ -21,13 +21,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustr
     {
         /// <summary>
         /// Perform validations applicable for the specific instance of the data connector.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Perform validations applicable for the specific instance of the data connector.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-1.0";
+            command.Description = "Perform validations applicable for the specific instance of the data connector.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-beta";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;

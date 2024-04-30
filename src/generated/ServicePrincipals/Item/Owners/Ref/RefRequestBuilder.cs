@@ -21,14 +21,13 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove an owner from a servicePrincipal object. As a recommended best practice, service principals should have at least two owners.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-delete-owners?view=graph-rest-1.0" />
+        /// Delete ref of navigation property owners for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove an owner from a servicePrincipal object. As a recommended best practice, service principals should have at least two owners.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-delete-owners?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property owners for servicePrincipals";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -64,13 +63,12 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
         }
         /// <summary>
         /// Directory objects that are owners of this servicePrincipal. The owners are a set of nonadmin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-owners?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Directory objects that are owners of this servicePrincipal. The owners are a set of nonadmin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-owners?view=graph-rest-1.0";
+            command.Description = "Directory objects that are owners of this servicePrincipal. The owners are a set of nonadmin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -157,14 +155,13 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
             return command;
         }
         /// <summary>
-        /// Add an owner for the servicePrincipal. Service principal owners can be users, the service principal itself, or other service principals.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-post-owners?view=graph-rest-1.0" />
+        /// Create new navigation property ref to owners for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add an owner for the servicePrincipal. Service principal owners can be users, the service principal itself, or other service principals.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-post-owners?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to owners for servicePrincipals";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -202,18 +199,18 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Remove an owner from a servicePrincipal object. As a recommended best practice, service principals should have at least two owners.
+        /// Delete ref of navigation property owners for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +242,13 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Add an owner for the servicePrincipal. Service principal owners can be users, the service principal itself, or other service principals.
+        /// Create new navigation property ref to owners for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -272,7 +269,7 @@ namespace ApiSdk.ServicePrincipals.Item.Owners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Remove an owner from a servicePrincipal object. As a recommended best practice, service principals should have at least two owners.
+        /// Delete ref of navigation property owners for servicePrincipals
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {

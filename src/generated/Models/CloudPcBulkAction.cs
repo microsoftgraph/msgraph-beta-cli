@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcBulkAction : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The actionSummary property</summary>
+        /// <summary>Run summary of this bulk action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CloudPcBulkActionSummary? ActionSummary { get; set; }
@@ -23,9 +25,9 @@ namespace ApiSdk.Models {
 #else
         public List<string> CloudPcIds { get; set; }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The date and time when the bulk action was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>Name of the bulk action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The scheduledDuringMaintenanceWindow property</summary>
+        /// <summary>Indicates whether the bulk actions can be initiated during maintenance window. When true, bulk action will use maintenance window to schedule action, When false means bulk action will not use the maintenance window. Default value is false.</summary>
         public bool? ScheduledDuringMaintenanceWindow { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

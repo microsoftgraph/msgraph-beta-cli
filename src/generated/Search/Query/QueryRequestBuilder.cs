@@ -21,13 +21,13 @@ namespace ApiSdk.Search.Query {
     {
         /// <summary>
         /// Run a specified search query. Search results are provided in the response.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-query?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Run a specified search query. Search results are provided in the response.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0";
+            command.Description = "Run a specified search query. Search results are provided in the response.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-query?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

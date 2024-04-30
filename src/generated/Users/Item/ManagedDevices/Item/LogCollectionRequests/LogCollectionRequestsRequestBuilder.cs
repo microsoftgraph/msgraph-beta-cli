@@ -33,6 +33,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests {
             var builder = new DeviceLogCollectionResponseItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildCreateDownloadUrlNavCommand());
             executables.Add(builder.BuildDeleteCommand());
+            commands.Add(builder.BuildDownloadDeviceLogsNavCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
             return new(executables, commands);
@@ -266,7 +267,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

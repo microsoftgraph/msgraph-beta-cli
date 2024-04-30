@@ -22,13 +22,13 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item.ValidateAuthentica
     {
         /// <summary>
         /// An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-1.0";
+            command.Description = "An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-beta";
             var customAuthenticationExtensionIdOption = new Option<string>("--custom-authentication-extension-id", description: "The unique identifier of customAuthenticationExtension") {
             };
             customAuthenticationExtensionIdOption.IsRequired = true;

@@ -113,14 +113,13 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
             return command;
         }
         /// <summary>
-        /// List the updatableAsset resources that are excluded from a deploymentAudience.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-1.0" />
+        /// Specifies the assets to exclude from the audience.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the updatableAsset resources that are excluded from a deploymentAudience.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-1.0";
+            command.Description = "Specifies the assets to exclude from the audience.";
             var deploymentAudienceIdOption = new Option<string>("--deployment-audience-id", description: "The unique identifier of deploymentAudience") {
             };
             deploymentAudienceIdOption.IsRequired = true;
@@ -296,7 +295,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
         {
         }
         /// <summary>
-        /// List the updatableAsset resources that are excluded from a deploymentAudience.
+        /// Specifies the assets to exclude from the audience.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -330,13 +329,13 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/exclusions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the updatableAsset resources that are excluded from a deploymentAudience.
+        /// Specifies the assets to exclude from the audience.
         /// </summary>
         public class ExclusionsRequestBuilderGetQueryParameters 
         {

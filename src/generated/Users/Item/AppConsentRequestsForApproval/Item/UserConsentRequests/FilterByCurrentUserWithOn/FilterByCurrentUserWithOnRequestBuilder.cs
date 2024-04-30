@@ -20,13 +20,14 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
     public class FilterByCurrentUserWithOnRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of userConsentRequest objects for accessing a specified app, for which the current user is the reviewer.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userconsentrequest-filterByCurrentUser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function filterByCurrentUser";
+            command.Description = "Retrieve a collection of userConsentRequest objects for accessing a specified app, for which the current user is the reviewer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userconsentrequest-filterByCurrentUser?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -146,7 +147,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of userConsentRequest objects for accessing a specified app, for which the current user is the reviewer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,7 +166,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of userConsentRequest objects for accessing a specified app, for which the current user is the reviewer.
         /// </summary>
         public class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
         {

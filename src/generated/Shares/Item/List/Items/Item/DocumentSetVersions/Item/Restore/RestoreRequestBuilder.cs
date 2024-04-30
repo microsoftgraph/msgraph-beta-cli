@@ -21,13 +21,13 @@ namespace ApiSdk.Shares.Item.List.Items.Item.DocumentSetVersions.Item.Restore {
     {
         /// <summary>
         /// Restore a document set version.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/documentsetversion-restore?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/documentsetversion-restore?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a document set version.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/documentsetversion-restore?view=graph-rest-1.0";
+            command.Description = "Restore a document set version.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/documentsetversion-restore?view=graph-rest-beta";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;

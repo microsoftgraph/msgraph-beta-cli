@@ -51,14 +51,13 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
             return command;
         }
         /// <summary>
-        /// List application and service principal objects assigned an appManagementPolicy policy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-1.0" />
+        /// Collection of application and service principals to which a policy is applied.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List application and service principal objects assigned an appManagementPolicy policy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-1.0";
+            command.Description = "Collection of application and service principals to which a policy is applied.";
             var appManagementPolicyIdOption = new Option<string>("--app-management-policy-id", description: "The unique identifier of appManagementPolicy") {
             };
             appManagementPolicyIdOption.IsRequired = true;
@@ -166,7 +165,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
         {
         }
         /// <summary>
-        /// List application and service principal objects assigned an appManagementPolicy policy object.
+        /// Collection of application and service principals to which a policy is applied.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +184,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
             return requestInfo;
         }
         /// <summary>
-        /// List application and service principal objects assigned an appManagementPolicy policy object.
+        /// Collection of application and service principals to which a policy is applied.
         /// </summary>
         public class AppliesToRequestBuilderGetQueryParameters 
         {

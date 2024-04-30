@@ -57,13 +57,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
             return command;
         }
         /// <summary>
-        /// Get connectivityConfiguration from networkAccess
+        /// Specifies the connectivity details of all device links associated with a remote network.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get connectivityConfiguration from networkAccess";
+            command.Description = "Specifies the connectivity details of all device links associated with a remote network.";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -214,13 +214,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get connectivityConfiguration from networkAccess
+        /// Specifies the connectivity details of all device links associated with a remote network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,13 +254,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get connectivityConfiguration from networkAccess
+        /// Specifies the connectivity details of all device links associated with a remote network.
         /// </summary>
         public class ConnectivityConfigurationRequestBuilderGetQueryParameters 
         {

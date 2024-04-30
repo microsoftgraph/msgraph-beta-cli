@@ -25,14 +25,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
     public class B2cIdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-1.0" />
+        /// Delete navigation property b2cUserFlows for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property b2cUserFlows for identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -61,14 +60,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a b2cUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-1.0" />
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a b2cUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-1.0";
+            command.Description = "Represents entry point for B2C identity userflows.";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -168,14 +166,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-update?view=graph-rest-1.0" />
+        /// Update the navigation property b2cUserFlows in identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property b2cUserFlows in identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -289,7 +286,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
         {
         }
         /// <summary>
-        /// Delete a b2cIdentityUserFlow object.
+        /// Delete navigation property b2cUserFlows for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -302,13 +299,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a b2cUserFlow object.
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -327,7 +324,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a b2cIdentityUserFlow object.
+        /// Update the navigation property b2cUserFlows in identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -342,13 +339,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a b2cUserFlow object.
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         public class B2cIdentityUserFlowItemRequestBuilderGetQueryParameters 
         {

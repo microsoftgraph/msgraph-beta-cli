@@ -21,14 +21,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
     public class AuthenticationContextClassReferenceItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an authenticationContextClassReference object that&apos;s not published or used by a conditional access policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0" />
+        /// Delete navigation property authenticationContextClassReferences for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property authenticationContextClassReferences for identity";
             var authenticationContextClassReferenceIdOption = new Option<string>("--authentication-context-class-reference-id", description: "The unique identifier of authenticationContextClassReference") {
             };
             authenticationContextClassReferenceIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a authenticationContextClassReference object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a authenticationContextClassReference object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns a collection of the specified authentication context class references.";
             var authenticationContextClassReferenceIdOption = new Option<string>("--authentication-context-class-reference-id", description: "The unique identifier of authenticationContextClassReference") {
             };
             authenticationContextClassReferenceIdOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return command;
         }
         /// <summary>
-        /// Update the properties of an authenticationContextClassReference object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0" />
+        /// Update the navigation property authenticationContextClassReferences in identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an authenticationContextClassReference object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property authenticationContextClassReferences in identity";
             var authenticationContextClassReferenceIdOption = new Option<string>("--authentication-context-class-reference-id", description: "The unique identifier of authenticationContextClassReference") {
             };
             authenticationContextClassReferenceIdOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
         {
         }
         /// <summary>
-        /// Delete an authenticationContextClassReference object that&apos;s not published or used by a conditional access policy.
+        /// Delete navigation property authenticationContextClassReferences for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a authenticationContextClassReference object.
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an authenticationContextClassReference object.
+        /// Update the navigation property authenticationContextClassReferences in identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a authenticationContextClassReference object.
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         public class AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters 
         {

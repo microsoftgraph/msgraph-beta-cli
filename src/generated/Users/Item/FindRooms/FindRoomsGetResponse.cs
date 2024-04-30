@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Users.Item.FindRooms {
+    #pragma warning disable CS1591
     public class FindRoomsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

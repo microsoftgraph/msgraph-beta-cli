@@ -130,14 +130,13 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
             return command;
         }
         /// <summary>
-        /// Retrieve a collection of userConsentRequest objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0" />
+        /// A list of pending user consent requests. Supports $filter (eq).
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a collection of userConsentRequest objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0";
+            command.Description = "A list of pending user consent requests. Supports $filter (eq).";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -251,7 +250,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
         }
         /// <summary>
-        /// Retrieve a collection of userConsentRequest objects and their properties.
+        /// A list of pending user consent requests. Supports $filter (eq).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -285,13 +284,13 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentReques
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/appConsentRequestsForApproval/{appConsentRequest%2Did}/userConsentRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a collection of userConsentRequest objects and their properties.
+        /// A list of pending user consent requests. Supports $filter (eq).
         /// </summary>
         public class UserConsentRequestsRequestBuilderGetQueryParameters 
         {

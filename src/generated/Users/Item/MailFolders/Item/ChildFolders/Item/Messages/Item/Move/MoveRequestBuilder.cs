@@ -22,13 +22,13 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mov
     {
         /// <summary>
         /// Move a message to another folder within the specified user&apos;s mailbox. This creates a new copy of the message in the destination folder and removes the original message.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-move?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-move?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Move a message to another folder within the specified user's mailbox. This creates a new copy of the message in the destination folder and removes the original message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-move?view=graph-rest-1.0";
+            command.Description = "Move a message to another folder within the specified user's mailbox. This creates a new copy of the message in the destination folder and removes the original message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/message-move?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

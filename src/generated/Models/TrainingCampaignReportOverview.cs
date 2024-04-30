@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class TrainingCampaignReportOverview : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -17,7 +19,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The trainingModuleCompletion property</summary>
+        /// <summary>Aggregate data of training completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TrainingEventsContent? TrainingModuleCompletion { get; set; }
@@ -25,7 +27,7 @@ namespace ApiSdk.Models {
 #else
         public TrainingEventsContent TrainingModuleCompletion { get; set; }
 #endif
-        /// <summary>The trainingNotificationDeliveryStatus property</summary>
+        /// <summary>Aggregate data of training mail delivery over the course of the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TrainingNotificationDelivery? TrainingNotificationDeliveryStatus { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public TrainingNotificationDelivery TrainingNotificationDeliveryStatus { get; set; }
 #endif
-        /// <summary>The userCompletionStatus property</summary>
+        /// <summary>Aggregate data of users training progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UserTrainingCompletionSummary? UserCompletionStatus { get; set; }

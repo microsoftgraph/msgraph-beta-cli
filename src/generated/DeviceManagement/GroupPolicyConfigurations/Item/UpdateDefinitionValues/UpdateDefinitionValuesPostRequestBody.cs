@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues {
+    #pragma warning disable CS1591
     public class UpdateDefinitionValuesPostRequestBody : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The added property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

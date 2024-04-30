@@ -106,14 +106,13 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Tabs {
             return command;
         }
         /// <summary>
-        /// Retrieve the list of tabs in the specified channel within a team. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0" />
+        /// A collection of all the tabs in the channel. A navigation property.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the list of tabs in the specified channel within a team. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0";
+            command.Description = "A collection of all the tabs in the channel. A navigation property.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Tabs {
         {
         }
         /// <summary>
-        /// Retrieve the list of tabs in the specified channel within a team. 
+        /// A collection of all the tabs in the channel. A navigation property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Tabs {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/team/primaryChannel/tabs", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the list of tabs in the specified channel within a team. 
+        /// A collection of all the tabs in the channel. A navigation property.
         /// </summary>
         public class TabsRequestBuilderGetQueryParameters 
         {

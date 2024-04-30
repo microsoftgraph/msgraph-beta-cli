@@ -59,14 +59,13 @@ namespace ApiSdk.TrustFramework.KeySets {
             return command;
         }
         /// <summary>
-        /// Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframework-post-keysets?view=graph-rest-1.0" />
+        /// Create new navigation property to keySets for trustFramework
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframework-post-keysets?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to keySets for trustFramework";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.TrustFramework.KeySets {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of trustFrameworkKeySets.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframework-list-keysets?view=graph-rest-1.0" />
+        /// Get keySets from trustFramework
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of trustFrameworkKeySets.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframework-list-keysets?view=graph-rest-1.0";
+            command.Description = "Get keySets from trustFramework";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -214,7 +212,7 @@ namespace ApiSdk.TrustFramework.KeySets {
         {
         }
         /// <summary>
-        /// Retrieve a list of trustFrameworkKeySets.
+        /// Get keySets from trustFramework
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -233,7 +231,7 @@ namespace ApiSdk.TrustFramework.KeySets {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
+        /// Create new navigation property to keySets for trustFramework
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,13 +246,13 @@ namespace ApiSdk.TrustFramework.KeySets {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/trustFramework/keySets", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of trustFrameworkKeySets.
+        /// Get keySets from trustFramework
         /// </summary>
         public class KeySetsRequestBuilderGetQueryParameters 
         {

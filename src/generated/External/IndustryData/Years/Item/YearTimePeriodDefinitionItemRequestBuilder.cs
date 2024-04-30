@@ -21,14 +21,13 @@ namespace ApiSdk.External.IndustryData.Years.Item {
     public class YearTimePeriodDefinitionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a yearTimePeriodDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-1.0" />
+        /// Delete navigation property years for external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a yearTimePeriodDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property years for external";
             var yearTimePeriodDefinitionIdOption = new Option<string>("--year-time-period-definition-id", description: "The unique identifier of yearTimePeriodDefinition") {
             };
             yearTimePeriodDefinitionIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.External.IndustryData.Years.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a yearTimePeriodDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-1.0" />
+        /// Set of years represented in the system.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a yearTimePeriodDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-1.0";
+            command.Description = "Set of years represented in the system.";
             var yearTimePeriodDefinitionIdOption = new Option<string>("--year-time-period-definition-id", description: "The unique identifier of yearTimePeriodDefinition") {
             };
             yearTimePeriodDefinitionIdOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.External.IndustryData.Years.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a yearTimePeriodDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-1.0" />
+        /// Update the navigation property years in external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a yearTimePeriodDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property years in external";
             var yearTimePeriodDefinitionIdOption = new Option<string>("--year-time-period-definition-id", description: "The unique identifier of yearTimePeriodDefinition") {
             };
             yearTimePeriodDefinitionIdOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.External.IndustryData.Years.Item {
         {
         }
         /// <summary>
-        /// Delete a yearTimePeriodDefinition object.
+        /// Delete navigation property years for external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.External.IndustryData.Years.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/industryData/years/{yearTimePeriodDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a yearTimePeriodDefinition object.
+        /// Set of years represented in the system.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.External.IndustryData.Years.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a yearTimePeriodDefinition object.
+        /// Update the navigation property years in external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.External.IndustryData.Years.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/industryData/years/{yearTimePeriodDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a yearTimePeriodDefinition object.
+        /// Set of years represented in the system.
         /// </summary>
         public class YearTimePeriodDefinitionItemRequestBuilderGetQueryParameters 
         {

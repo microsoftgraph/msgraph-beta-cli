@@ -112,14 +112,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.It
             return command;
         }
         /// <summary>
-        /// Retrieve the schedule for an active role assignment operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0" />
+        /// Get roleAssignmentSchedules from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the schedule for an active role assignment operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0";
+            command.Description = "Get roleAssignmentSchedules from roleManagement";
             var unifiedRoleAssignmentScheduleIdOption = new Option<string>("--unified-role-assignment-schedule-id", description: "The unique identifier of unifiedRoleAssignmentSchedule") {
             };
             unifiedRoleAssignmentScheduleIdOption.IsRequired = true;
@@ -277,13 +276,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.It
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the schedule for an active role assignment operation.
+        /// Get roleAssignmentSchedules from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -317,13 +316,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.It
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the schedule for an active role assignment operation.
+        /// Get roleAssignmentSchedules from roleManagement
         /// </summary>
         public class UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParameters 
         {

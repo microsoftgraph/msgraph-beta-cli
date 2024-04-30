@@ -21,13 +21,14 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GetActiveKey {
     public class GetActiveKeyRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getActiveKey
+        /// Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-getactivekey?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getActiveKey";
+            command.Description = "Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-getactivekey?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;
@@ -73,7 +74,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GetActiveKey {
         {
         }
         /// <summary>
-        /// Invoke function getActiveKey
+        /// Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

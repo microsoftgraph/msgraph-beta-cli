@@ -117,14 +117,13 @@ namespace ApiSdk.Users.Item.Planner {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerUser object. The returned properties include the user&apos;s favorite plans and recently viewed plans. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planneruser-get?view=graph-rest-1.0" />
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a plannerUser object. The returned properties include the user's favorite plans and recently viewed plans. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planneruser-get?view=graph-rest-1.0";
+            command.Description = "Selective Planner services available to the user. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -197,13 +196,12 @@ namespace ApiSdk.Users.Item.Planner {
         }
         /// <summary>
         /// Update the navigation property planner in users
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planneruser-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property planner in users\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planneruser-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property planner in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -390,13 +388,13 @@ namespace ApiSdk.Users.Item.Planner {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/planner", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerUser object. The returned properties include the user&apos;s favorite plans and recently viewed plans. 
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -430,13 +428,13 @@ namespace ApiSdk.Users.Item.Planner {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/planner", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a plannerUser object. The returned properties include the user&apos;s favorite plans and recently viewed plans. 
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// </summary>
         public class PlannerRequestBuilderGetQueryParameters 
         {

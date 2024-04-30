@@ -57,14 +57,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Get the details of an outboundSharedUserProfile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-1.0" />
+        /// Get outboundSharedUserProfiles from directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the details of an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-1.0";
+            command.Description = "Get outboundSharedUserProfiles from directory";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -215,13 +214,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of an outboundSharedUserProfile.
+        /// Get outboundSharedUserProfiles from directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of an outboundSharedUserProfile.
+        /// Get outboundSharedUserProfiles from directory
         /// </summary>
         public class OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters 
         {

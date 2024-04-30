@@ -23,14 +23,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
     public class TenantTagItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a tenantTag object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenanttag-delete?view=graph-rest-1.0" />
+        /// Delete navigation property tenantTags for tenantRelationships
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a tenantTag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenanttag-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property tenantTags for tenantRelationships";
             var tenantTagIdOption = new Option<string>("--tenant-tag-id", description: "The unique identifier of tenantTag") {
             };
             tenantTagIdOption.IsRequired = true;
@@ -59,14 +58,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantTag object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenanttag-get?view=graph-rest-1.0" />
+        /// The collection of tenant tags across managed tenants.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a tenantTag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenanttag-get?view=graph-rest-1.0";
+            command.Description = "The collection of tenant tags across managed tenants.";
             var tenantTagIdOption = new Option<string>("--tenant-tag-id", description: "The unique identifier of tenantTag") {
             };
             tenantTagIdOption.IsRequired = true;
@@ -146,14 +144,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a tenantTag object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenanttag-update?view=graph-rest-1.0" />
+        /// Update the navigation property tenantTags in tenantRelationships
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a tenantTag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenanttag-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property tenantTags in tenantRelationships";
             var tenantTagIdOption = new Option<string>("--tenant-tag-id", description: "The unique identifier of tenantTag") {
             };
             tenantTagIdOption.IsRequired = true;
@@ -212,7 +209,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
         {
         }
         /// <summary>
-        /// Delete a tenantTag object.
+        /// Delete navigation property tenantTags for tenantRelationships
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,13 +222,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tenantRelationships/managedTenants/tenantTags/{tenantTag%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantTag object.
+        /// The collection of tenant tags across managed tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +247,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a tenantTag object.
+        /// Update the navigation property tenantTags in tenantRelationships
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,13 +262,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/managedTenants/tenantTags/{tenantTag%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantTag object.
+        /// The collection of tenant tags across managed tenants.
         /// </summary>
         public class TenantTagItemRequestBuilderGetQueryParameters 
         {

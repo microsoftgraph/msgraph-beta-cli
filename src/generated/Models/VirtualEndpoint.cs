@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class VirtualEndpoint : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Cloud PC audit event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public List<CloudPcAuditEvent> AuditEvents { get; set; }
 #endif
-        /// <summary>The bulkActions property</summary>
+        /// <summary>Bulk actions applied to a Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcBulkAction>? BulkActions { get; set; }

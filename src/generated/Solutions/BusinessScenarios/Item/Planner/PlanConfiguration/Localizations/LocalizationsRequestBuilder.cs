@@ -53,14 +53,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return command;
         }
         /// <summary>
-        /// Create a new plannerPlanConfigurationLocalization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfiguration-post-localizations?view=graph-rest-1.0" />
+        /// Create new navigation property to localizations for solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new plannerPlanConfigurationLocalization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfiguration-post-localizations?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to localizations for solutions";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return command;
         }
         /// <summary>
-        /// Get a list of the plannerPlanConfigurationLocalization objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfiguration-list-localizations?view=graph-rest-1.0" />
+        /// Localized names for the plan configuration.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the plannerPlanConfigurationLocalization objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfiguration-list-localizations?view=graph-rest-1.0";
+            command.Description = "Localized names for the plan configuration.";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
         {
         }
         /// <summary>
-        /// Get a list of the plannerPlanConfigurationLocalization objects and their properties.
+        /// Localized names for the plan configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return requestInfo;
         }
         /// <summary>
-        /// Create a new plannerPlanConfigurationLocalization object.
+        /// Create new navigation property to localizations for solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration/localizations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the plannerPlanConfigurationLocalization objects and their properties.
+        /// Localized names for the plan configuration.
         /// </summary>
         public class LocalizationsRequestBuilderGetQueryParameters 
         {

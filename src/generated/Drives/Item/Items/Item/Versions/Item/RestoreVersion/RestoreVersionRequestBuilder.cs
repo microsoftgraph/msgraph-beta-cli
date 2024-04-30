@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Versions.Item.RestoreVersion {
     {
         /// <summary>
         /// Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitemversion-restore?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitemversion-restore?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitemversion-restore?view=graph-rest-1.0";
+            command.Description = "Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitemversion-restore?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

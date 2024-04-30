@@ -53,14 +53,13 @@ namespace ApiSdk.Groups.Item.Team.Schedule.Shifts {
             return command;
         }
         /// <summary>
-        /// Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-1.0" />
+        /// Create new navigation property to shifts for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to shifts for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -106,13 +105,12 @@ namespace ApiSdk.Groups.Item.Team.Schedule.Shifts {
         }
         /// <summary>
         /// The shifts in the schedule.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The shifts in the schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-1.0";
+            command.Description = "The shifts in the schedule.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -232,7 +230,7 @@ namespace ApiSdk.Groups.Item.Team.Schedule.Shifts {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+        /// Create new navigation property to shifts for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,7 +245,7 @@ namespace ApiSdk.Groups.Item.Team.Schedule.Shifts {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/team/schedule/shifts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Dismiss {
     {
         /// <summary>
         /// Dismiss the risk of one or more riskyServicePrincipal objects. This action sets the targeted service principal account&apos;s risk level to none. You can dismiss up to 60 service principal accounts in one request.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Dismiss the risk of one or more riskyServicePrincipal objects. This action sets the targeted service principal account's risk level to none. You can dismiss up to 60 service principal accounts in one request.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-1.0";
+            command.Description = "Dismiss the risk of one or more riskyServicePrincipal objects. This action sets the targeted service principal account's risk level to none. You can dismiss up to 60 service principal accounts in one request.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

@@ -22,13 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item.Publish {
     {
         /// <summary>
         /// Change the state of an educationModule from its original draft status to the published status. Only teachers in the class can perform this operation. When a module is in draft status, students won&apos;t see the module. When you call this API, the module appears in the student&apos;s class work list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-publish?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-publish?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Change the state of an educationModule from its original draft status to the published status. Only teachers in the class can perform this operation. When a module is in draft status, students won't see the module. When you call this API, the module appears in the student's class work list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-publish?view=graph-rest-1.0";
+            command.Description = "Change the state of an educationModule from its original draft status to the published status. Only teachers in the class can perform this operation. When a module is in draft status, students won't see the module. When you call this API, the module appears in the student's class work list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-publish?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;

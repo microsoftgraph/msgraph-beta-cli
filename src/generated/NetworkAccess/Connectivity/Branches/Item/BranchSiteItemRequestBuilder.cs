@@ -49,15 +49,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
             return command;
         }
         /// <summary>
-        /// Delete a specific branch.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete?view=graph-rest-1.0" />
+        /// Delete navigation property branches for networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a specific branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property branches for networkAccess";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -140,15 +139,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve information about a specific branch.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-get?view=graph-rest-1.0" />
+        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve information about a specific branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-get?view=graph-rest-1.0";
+            command.Description = "Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -194,15 +192,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
             return command;
         }
         /// <summary>
-        /// Update the configuration or properties of a specific branch.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-update?view=graph-rest-1.0" />
+        /// Update the navigation property branches in networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the configuration or properties of a specific branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property branches in networkAccess";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -261,7 +258,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
         {
         }
         /// <summary>
-        /// Delete a specific branch.
+        /// Delete navigation property branches for networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -275,13 +272,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve information about a specific branch.
+        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -301,7 +298,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the configuration or properties of a specific branch.
+        /// Update the navigation property branches in networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -317,13 +314,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve information about a specific branch.
+        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
         /// </summary>
         public class BranchSiteItemRequestBuilderGetQueryParameters 
         {

@@ -112,14 +112,13 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages {
             return command;
         }
         /// <summary>
-        /// Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-list-defaultpages?view=graph-rest-1.0" />
+        /// Collection of pages with the default content to display in a user flow for a specified language. This collection doesn&apos;t allow any kind of modification.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-list-defaultpages?view=graph-rest-1.0";
+            command.Description = "Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.";
             var b2xIdentityUserFlowIdOption = new Option<string>("--b2x-identity-user-flow-id", description: "The unique identifier of b2xIdentityUserFlow") {
             };
             b2xIdentityUserFlowIdOption.IsRequired = true;
@@ -233,7 +232,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages {
         {
         }
         /// <summary>
-        /// Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
+        /// Collection of pages with the default content to display in a user flow for a specified language. This collection doesn&apos;t allow any kind of modification.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -267,13 +266,13 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
+        /// Collection of pages with the default content to display in a user flow for a specified language. This collection doesn&apos;t allow any kind of modification.
         /// </summary>
         public class DefaultPagesRequestBuilderGetQueryParameters 
         {

@@ -6,8 +6,18 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class InactiveUsersMetricBase : Entity, IParsable 
+    #pragma warning restore CS1591
     {
+        /// <summary>The appId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
+        public string AppId { get; set; }
+#endif
         /// <summary>The factDate property</summary>
         public Date? FactDate { get; set; }
         /// <summary>The inactive30DayCount property</summary>
@@ -40,6 +50,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                {"appId", n => { AppId = n.GetStringValue(); } },
                 {"factDate", n => { FactDate = n.GetDateValue(); } },
                 {"inactive30DayCount", n => { Inactive30DayCount = n.GetLongValue(); } },
                 {"inactive60DayCount", n => { Inactive60DayCount = n.GetLongValue(); } },
@@ -54,6 +65,7 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("appId", AppId);
             writer.WriteDateValue("factDate", FactDate);
             writer.WriteLongValue("inactive30DayCount", Inactive30DayCount);
             writer.WriteLongValue("inactive60DayCount", Inactive60DayCount);

@@ -98,14 +98,13 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
             return command;
         }
         /// <summary>
-        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securescorecontrolprofiles-list?view=graph-rest-1.0" />
+        /// Get secureScoreControlProfiles from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieves a list of secureScoreControlProfile objects for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securescorecontrolprofiles-list?view=graph-rest-1.0";
+            command.Description = "Get secureScoreControlProfiles from security";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
         {
         }
         /// <summary>
-        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
+        /// Get secureScoreControlProfiles from security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/secureScoreControlProfiles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
+        /// Get secureScoreControlProfiles from security
         /// </summary>
         public class SecureScoreControlProfilesRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisi
     {
         /// <summary>
         /// Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-1.0";
+            command.Description = "Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

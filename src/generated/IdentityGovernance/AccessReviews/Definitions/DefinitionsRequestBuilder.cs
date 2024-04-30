@@ -57,14 +57,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
             return command;
         }
         /// <summary>
-        /// Create a new accessReviewScheduleDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0" />
+        /// Create new navigation property to definitions for identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new accessReviewScheduleDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to definitions for identityGovernance";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -120,14 +119,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
             return command;
         }
         /// <summary>
-        /// Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0" />
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0";
+            command.Description = "Represents the template and scheduling for an access review.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -229,7 +227,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
         {
         }
         /// <summary>
-        /// Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +246,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new accessReviewScheduleDefinition object.
+        /// Create new navigation property to definitions for identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -263,13 +261,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/accessReviews/definitions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         public class DefinitionsRequestBuilderGetQueryParameters 
         {

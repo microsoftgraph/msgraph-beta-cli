@@ -56,14 +56,13 @@ namespace ApiSdk.Solutions.BookingCurrencies.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0" />
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0";
+            command.Description = "Get bookingCurrencies from solutions";
             var bookingCurrencyIdOption = new Option<string>("--booking-currency-id", description: "The unique identifier of bookingCurrency") {
             };
             bookingCurrencyIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Solutions.BookingCurrencies.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Solutions.BookingCurrencies.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         public class BookingCurrencyItemRequestBuilderGetQueryParameters 
         {

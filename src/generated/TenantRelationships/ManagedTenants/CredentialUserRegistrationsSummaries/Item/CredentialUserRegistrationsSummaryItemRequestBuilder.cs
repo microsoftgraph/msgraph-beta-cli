@@ -56,14 +56,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-1.0" />
+        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a credentialUserRegistrationsSummary object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-1.0";
+            command.Description = "Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.";
             var credentialUserRegistrationsSummaryIdOption = new Option<string>("--credential-user-registrations-summary-id", description: "The unique identifier of credentialUserRegistrationsSummary") {
             };
             credentialUserRegistrationsSummaryIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tenantRelationships/managedTenants/credentialUserRegistrationsSummaries/{credentialUserRegistrationsSummary%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
+        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/managedTenants/credentialUserRegistrationsSummaries/{credentialUserRegistrationsSummary%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
+        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
         /// </summary>
         public class CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters 
         {

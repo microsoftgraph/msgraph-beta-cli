@@ -56,14 +56,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
             return command;
         }
         /// <summary>
-        /// Get the activity status of a Microsoft Teams-enabled device. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-1.0" />
+        /// The activity properties that change based on the device usage.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the activity status of a Microsoft Teams-enabled device. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-1.0";
+            command.Description = "The activity properties that change based on the device usage.";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/activity", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the activity status of a Microsoft Teams-enabled device. 
+        /// The activity properties that change based on the device usage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/activity", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the activity status of a Microsoft Teams-enabled device. 
+        /// The activity properties that change based on the device usage.
         /// </summary>
         public class ActivityRequestBuilderGetQueryParameters 
         {

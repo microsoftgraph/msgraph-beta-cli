@@ -20,13 +20,14 @@ namespace ApiSdk.Teams.GetShifts {
     public class GetShiftsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getShifts
+        /// Get all shift objects across all teams to which a user is a direct member.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-getshifts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getShifts";
+            command.Description = "Get all shift objects across all teams to which a user is a direct member.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-getshifts?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -128,7 +129,7 @@ namespace ApiSdk.Teams.GetShifts {
         {
         }
         /// <summary>
-        /// Invoke function getShifts
+        /// Get all shift objects across all teams to which a user is a direct member.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +148,7 @@ namespace ApiSdk.Teams.GetShifts {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getShifts
+        /// Get all shift objects across all teams to which a user is a direct member.
         /// </summary>
         public class GetShiftsRequestBuilderGetQueryParameters 
         {

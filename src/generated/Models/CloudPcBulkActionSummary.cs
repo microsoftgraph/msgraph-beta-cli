@@ -5,15 +5,17 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcBulkActionSummary : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The failedCount property</summary>
+        /// <summary>The number of Cloud PCs where the action failed.</summary>
         public int? FailedCount { get; set; }
-        /// <summary>The inProgressCount property</summary>
+        /// <summary>The number of Cloud PCs where the action is in progress.</summary>
         public int? InProgressCount { get; set; }
-        /// <summary>The notSupportedCount property</summary>
+        /// <summary>The number of Cloud PCs where the action isn&apos;t supported.</summary>
         public int? NotSupportedCount { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -23,9 +25,9 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The pendingCount property</summary>
+        /// <summary>The number of Cloud PCs where the action is pending.</summary>
         public int? PendingCount { get; set; }
-        /// <summary>The successfulCount property</summary>
+        /// <summary>The number of Cloud PCs where the action is successful.</summary>
         public int? SuccessfulCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="CloudPcBulkActionSummary"/> and sets the default values.

@@ -5,8 +5,18 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.WindowsUpdates {
+    #pragma warning disable CS1591
     public class ProductRevision : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
+        /// <summary>The catalogEntry property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.WindowsUpdates.CatalogEntry? CatalogEntry { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.WindowsUpdates.CatalogEntry CatalogEntry { get; set; }
+#endif
         /// <summary>The display name of the content. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +77,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                {"catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"knowledgeBaseArticle", n => { KnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
                 {"osBuild", n => { OsBuild = n.GetObjectValue<BuildVersionDetails>(BuildVersionDetails.CreateFromDiscriminatorValue); } },
@@ -83,6 +94,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>("catalogEntry", CatalogEntry);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>("knowledgeBaseArticle", KnowledgeBaseArticle);
             writer.WriteObjectValue<BuildVersionDetails>("osBuild", OsBuild);

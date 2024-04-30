@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class DeviceUsageSummary : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The number of distinct device IDs between the discovery pivot time and the end of the reporting period.</summary>
         public int? ActiveDeviceCount { get; set; }

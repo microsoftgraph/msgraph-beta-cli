@@ -2,6 +2,7 @@
 using ApiSdk.Admin.Windows.Updates.Catalog;
 using ApiSdk.Admin.Windows.Updates.DeploymentAudiences;
 using ApiSdk.Admin.Windows.Updates.Deployments;
+using ApiSdk.Admin.Windows.Updates.Products;
 using ApiSdk.Admin.Windows.Updates.ResourceConnections;
 using ApiSdk.Admin.Windows.Updates.UpdatableAssets;
 using ApiSdk.Admin.Windows.Updates.UpdatePolicies;
@@ -226,6 +227,35 @@ namespace ApiSdk.Admin.Windows.Updates {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the products property of the microsoft.graph.adminWindowsUpdates entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildProductsNavCommand()
+        {
+            var command = new Command("products");
+            command.Description = "Provides operations to manage the products property of the microsoft.graph.adminWindowsUpdates entity.";
+            var builder = new ProductsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRbCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -338,7 +368,7 @@ namespace ApiSdk.Admin.Windows.Updates {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/windows/updates", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -378,7 +408,7 @@ namespace ApiSdk.Admin.Windows.Updates {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/windows/updates", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

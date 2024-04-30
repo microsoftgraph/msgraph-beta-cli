@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.CreateDownloadUrl;
+using ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.DownloadDeviceLogs;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -83,6 +84,23 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item {
                 await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
                 Console.WriteLine("Success");
             });
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the downloadDeviceLogs method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDownloadDeviceLogsNavCommand()
+        {
+            var command = new Command("download-device-logs");
+            command.Description = "Provides operations to call the downloadDeviceLogs method.";
+            var builder = new DownloadDeviceLogsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
             return command;
         }
         /// <summary>
@@ -240,7 +258,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -280,7 +298,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

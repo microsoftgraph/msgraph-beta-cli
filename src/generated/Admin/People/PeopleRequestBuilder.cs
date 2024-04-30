@@ -53,14 +53,13 @@ namespace ApiSdk.Admin.People {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a peopleAdminSettings object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0" />
+        /// Represents a setting to control people-related admin settings in the tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a peopleAdminSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0";
+            command.Description = "Represents a setting to control people-related admin settings in the tenant.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -237,13 +236,13 @@ namespace ApiSdk.Admin.People {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/people", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a peopleAdminSettings object.
+        /// Represents a setting to control people-related admin settings in the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,13 +276,13 @@ namespace ApiSdk.Admin.People {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/people", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a peopleAdminSettings object.
+        /// Represents a setting to control people-related admin settings in the tenant.
         /// </summary>
         public class PeopleRequestBuilderGetQueryParameters 
         {

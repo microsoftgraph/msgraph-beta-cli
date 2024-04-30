@@ -50,14 +50,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
             return command;
         }
         /// <summary>
-        /// Delete an onPremisesAgentGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onpremisesagentgroup-delete?view=graph-rest-1.0" />
+        /// Delete navigation property agentGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an onPremisesAgentGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onpremisesagentgroup-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property agentGroups for onPremisesPublishingProfiles";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -92,14 +91,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an onPremisesAgentGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onpremisesagentgroup-get?view=graph-rest-1.0" />
+        /// List of existing onPremisesAgentGroup objects. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an onPremisesAgentGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onpremisesagentgroup-get?view=graph-rest-1.0";
+            command.Description = "List of existing onPremisesAgentGroup objects. Read-only. Nullable.";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -151,14 +149,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an onPremisesAgentGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onpremisesagentgroup-update?view=graph-rest-1.0" />
+        /// Update the navigation property agentGroups in onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an onPremisesAgentGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onpremisesagentgroup-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property agentGroups in onPremisesPublishingProfiles";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -250,7 +247,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
         {
         }
         /// <summary>
-        /// Delete an onPremisesAgentGroup object.
+        /// Delete navigation property agentGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,13 +260,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an onPremisesAgentGroup object.
+        /// List of existing onPremisesAgentGroup objects. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +285,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an onPremisesAgentGroup object.
+        /// Update the navigation property agentGroups in onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -303,13 +300,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an onPremisesAgentGroup object.
+        /// List of existing onPremisesAgentGroup objects. Read-only. Nullable.
         /// </summary>
         public class OnPremisesAgentGroupItemRequestBuilderGetQueryParameters 
         {

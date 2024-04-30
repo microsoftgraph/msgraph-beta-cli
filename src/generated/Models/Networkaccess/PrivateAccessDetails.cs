@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class PrivateAccessDetails : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The accessType property</summary>
         public ApiSdk.Models.Networkaccess.AccessType? AccessType { get; set; }
@@ -53,6 +55,14 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string ProcessingRegion { get; set; }
 #endif
+        /// <summary>The thirdPartyTokenDetails property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails? ThirdPartyTokenDetails { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails ThirdPartyTokenDetails { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="PrivateAccessDetails"/> and sets the default values.
         /// </summary>
@@ -85,6 +95,7 @@ namespace ApiSdk.Models.Networkaccess {
                 {"connectorName", n => { ConnectorName = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"processingRegion", n => { ProcessingRegion = n.GetStringValue(); } },
+                {"thirdPartyTokenDetails", n => { ThirdPartyTokenDetails = n.GetObjectValue<ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails>(ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -101,6 +112,7 @@ namespace ApiSdk.Models.Networkaccess {
             writer.WriteStringValue("connectorName", ConnectorName);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("processingRegion", ProcessingRegion);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails>("thirdPartyTokenDetails", ThirdPartyTokenDetails);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

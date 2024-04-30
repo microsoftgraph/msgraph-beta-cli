@@ -2,7 +2,9 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public enum WindowsAutopilotProfileAssignmentDetailedStatus
+    #pragma warning restore CS1591
     {
         /// <summary>No assignment detailed status</summary>
         [EnumMember(Value = "none")]

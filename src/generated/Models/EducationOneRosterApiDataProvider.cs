@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class EducationOneRosterApiDataProvider : EducationSynchronizationDataProvider, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The connectionSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public EducationSynchronizationCustomizations Customizations { get; set; }
 #endif
-        /// <summary>The OneRoster Service Provider name as defined by the [OneRoster specification][oneroster].</summary>
+        /// <summary>The OneRoster Service Provider name as defined by the OneRoster specification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProviderName { get; set; }
@@ -39,7 +41,7 @@ namespace ApiSdk.Models {
 #else
         public string ProviderName { get; set; }
 #endif
-        /// <summary>The list of [School/Org][orgs] sourcedId to sync.</summary>
+        /// <summary>The list of School/Org sourcedId to sync.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SchoolsIds { get; set; }
@@ -47,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> SchoolsIds { get; set; }
 #endif
-        /// <summary>The list of [academic sessions][terms] to sync.</summary>
+        /// <summary>The list of academic sessions to sync.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? TermIds { get; set; }

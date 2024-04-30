@@ -53,14 +53,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes {
             return command;
         }
         /// <summary>
-        /// Create a new educationGradingScheme object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationgradingscheme-post?view=graph-rest-1.0" />
+        /// Create new navigation property to gradingSchemes for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new educationGradingScheme object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationgradingscheme-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to gradingSchemes for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -105,13 +104,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
+        /// Get gradingSchemes from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of an educationGradingScheme object.";
+            command.Description = "Get gradingSchemes from education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
+        /// Get gradingSchemes from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +237,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new educationGradingScheme object.
+        /// Create new navigation property to gradingSchemes for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
+        /// Get gradingSchemes from education
         /// </summary>
         public class GradingSchemesRequestBuilderGetQueryParameters 
         {

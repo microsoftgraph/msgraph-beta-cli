@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.Profile.Projects {
             return command;
         }
         /// <summary>
-        /// Use this API to create a new projectParticipation object in a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-post-projects?view=graph-rest-1.0" />
+        /// Create new navigation property to projects for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Use this API to create a new projectParticipation object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-projects?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to projects for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Users.Item.Profile.Projects {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of projectParticipation objects from a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-list-projects?view=graph-rest-1.0" />
+        /// Represents detailed information about projects associated with a user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of projectParticipation objects from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-projects?view=graph-rest-1.0";
+            command.Description = "Represents detailed information about projects associated with a user.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Users.Item.Profile.Projects {
         {
         }
         /// <summary>
-        /// Retrieve a list of projectParticipation objects from a user&apos;s profile.
+        /// Represents detailed information about projects associated with a user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Users.Item.Profile.Projects {
             return requestInfo;
         }
         /// <summary>
-        /// Use this API to create a new projectParticipation object in a user&apos;s profile.
+        /// Create new navigation property to projects for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Users.Item.Profile.Projects {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/profile/projects", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of projectParticipation objects from a user&apos;s profile.
+        /// Represents detailed information about projects associated with a user.
         /// </summary>
         public class ProjectsRequestBuilderGetQueryParameters 
         {

@@ -104,14 +104,13 @@ namespace ApiSdk.Groups.Item.Endpoints {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of endpoint objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-endpoints?view=graph-rest-1.0" />
+        /// Endpoints for the group. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of endpoint objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list-endpoints?view=graph-rest-1.0";
+            command.Description = "Endpoints for the group. Read-only. Nullable.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Groups.Item.Endpoints {
         {
         }
         /// <summary>
-        /// Retrieve a list of endpoint objects.
+        /// Endpoints for the group. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Groups.Item.Endpoints {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/endpoints", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of endpoint objects.
+        /// Endpoints for the group. Read-only. Nullable.
         /// </summary>
         public class EndpointsRequestBuilderGetQueryParameters 
         {

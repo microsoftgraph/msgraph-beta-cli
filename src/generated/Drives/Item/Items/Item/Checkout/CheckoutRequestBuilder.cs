@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Checkout {
     {
         /// <summary>
         /// Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0";
+            command.Description = "Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

@@ -101,14 +101,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
             return command;
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-resourcenamespaces?view=graph-rest-1.0" />
+        /// Get resourceNamespaces from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the unifiedRbacResourceNamespace objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-resourcenamespaces?view=graph-rest-1.0";
+            command.Description = "Get resourceNamespaces from roleManagement";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +209,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
         {
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
+        /// Get resourceNamespaces from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +243,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/roleManagement/directory/resourceNamespaces", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
+        /// Get resourceNamespaces from roleManagement
         /// </summary>
         public class ResourceNamespacesRequestBuilderGetQueryParameters 
         {

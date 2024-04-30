@@ -22,14 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Group {
     public class GroupRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-1.0" />
+        /// Get group from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the Microsoft 365 group that corresponds to this educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-1.0";
+            command.Description = "Get group from education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -112,7 +111,7 @@ namespace ApiSdk.Education.Classes.Item.Group {
         {
         }
         /// <summary>
-        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
+        /// Get group from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +130,7 @@ namespace ApiSdk.Education.Classes.Item.Group {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
+        /// Get group from education
         /// </summary>
         public class GroupRequestBuilderGetQueryParameters 
         {

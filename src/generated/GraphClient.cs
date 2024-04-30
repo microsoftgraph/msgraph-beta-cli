@@ -118,6 +118,7 @@ using ApiSdk.TermStore;
 using ApiSdk.ThreatSubmission;
 using ApiSdk.TrustFramework;
 using ApiSdk.Users;
+using ApiSdk.Workplace;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.IO;
@@ -1138,6 +1139,7 @@ namespace ApiSdk {
             nonExecCommands.Add(builder.BuildDeviceComplianceScriptsNavCommand());
             nonExecCommands.Add(builder.BuildDeviceConfigurationConflictSummaryNavCommand());
             nonExecCommands.Add(builder.BuildDeviceConfigurationDeviceStateSummariesNavCommand());
+            nonExecCommands.Add(builder.BuildDeviceConfigurationProfilesNavCommand());
             nonExecCommands.Add(builder.BuildDeviceConfigurationRestrictedAppsViolationsNavCommand());
             nonExecCommands.Add(builder.BuildDeviceConfigurationsAllManagedDeviceCertificateStatesNavCommand());
             nonExecCommands.Add(builder.BuildDeviceConfigurationsNavCommand());
@@ -1175,6 +1177,8 @@ namespace ApiSdk {
             nonExecCommands.Add(builder.BuildGroupPolicyMigrationReportsNavCommand());
             nonExecCommands.Add(builder.BuildGroupPolicyObjectFilesNavCommand());
             nonExecCommands.Add(builder.BuildGroupPolicyUploadedDefinitionFilesNavCommand());
+            nonExecCommands.Add(builder.BuildHardwareConfigurationsNavCommand());
+            nonExecCommands.Add(builder.BuildHardwarePasswordInfoNavCommand());
             nonExecCommands.Add(builder.BuildImportedDeviceIdentitiesNavCommand());
             nonExecCommands.Add(builder.BuildImportedWindowsAutopilotDeviceIdentitiesNavCommand());
             nonExecCommands.Add(builder.BuildIntentsNavCommand());
@@ -3330,6 +3334,7 @@ namespace ApiSdk {
             command.AddCommand(BuildThreatSubmissionNavCommand());
             command.AddCommand(BuildTrustFrameworkNavCommand());
             command.AddCommand(BuildUsersNavCommand());
+            command.AddCommand(BuildWorkplaceNavCommand());
             return command;
         }
         /// <summary>
@@ -3435,6 +3440,7 @@ namespace ApiSdk {
             nonExecCommands.Add(builder.BuildFileSecurityProfilesNavCommand());
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildHostSecurityProfilesNavCommand());
+            nonExecCommands.Add(builder.BuildIdentitiesNavCommand());
             nonExecCommands.Add(builder.BuildIncidentsNavCommand());
             nonExecCommands.Add(builder.BuildInformationProtectionNavCommand());
             nonExecCommands.Add(builder.BuildIpSecurityProfilesNavCommand());
@@ -3928,6 +3934,31 @@ namespace ApiSdk {
                 command.AddCommand(cmd);
             }
             foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the workplace singleton.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildWorkplaceNavCommand()
+        {
+            var command = new Command("workplace");
+            command.Description = "Provides operations to manage the workplace singleton.";
+            var builder = new WorkplaceRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSensorDevicesNavCommand());
+            nonExecCommands.Add(builder.BuildSensorDevicesWithDeviceIdRbCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
             {
                 command.AddCommand(cmd);
             }

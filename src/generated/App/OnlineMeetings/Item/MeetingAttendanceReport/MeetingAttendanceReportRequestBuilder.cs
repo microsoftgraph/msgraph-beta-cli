@@ -84,14 +84,13 @@ namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport {
             return command;
         }
         /// <summary>
-        /// Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0" />
+        /// Get meetingAttendanceReport from app
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0";
+            command.Description = "Get meetingAttendanceReport from app";
             var onlineMeetingIdOption = new Option<string>("--online-meeting-id", description: "The unique identifier of onlineMeeting") {
             };
             onlineMeetingIdOption.IsRequired = true;
@@ -215,13 +214,13 @@ namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/meetingAttendanceReport", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
+        /// Get meetingAttendanceReport from app
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/meetingAttendanceReport", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
+        /// Get meetingAttendanceReport from app
         /// </summary>
         public class MeetingAttendanceReportRequestBuilderGetQueryParameters 
         {

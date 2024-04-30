@@ -116,14 +116,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
             return command;
         }
         /// <summary>
-        /// List all the cloudPcAuditEvent objects for the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-1.0" />
+        /// Cloud PC audit event.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List all the cloudPcAuditEvent objects for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-1.0";
+            command.Description = "Cloud PC audit event.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -225,7 +224,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
         {
         }
         /// <summary>
-        /// List all the cloudPcAuditEvent objects for the tenant.
+        /// Cloud PC audit event.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -259,13 +258,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/auditEvents", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List all the cloudPcAuditEvent objects for the tenant.
+        /// Cloud PC audit event.
         /// </summary>
         public class AuditEventsRequestBuilderGetQueryParameters 
         {

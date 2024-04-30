@@ -32,6 +32,7 @@ namespace ApiSdk.Drives.Item.Bundles {
             var commands = new List<Command>();
             var builder = new DriveItemItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildContentNavCommand());
+            commands.Add(builder.BuildContentStreamNavCommand());
             executables.Add(builder.BuildGetCommand());
             return new(executables, commands);
         }
@@ -104,13 +105,13 @@ namespace ApiSdk.Drives.Item.Bundles {
             return command;
         }
         /// <summary>
-        /// Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+        /// Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.";
+            command.Description = "Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -218,7 +219,7 @@ namespace ApiSdk.Drives.Item.Bundles {
         {
         }
         /// <summary>
-        /// Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+        /// Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +253,13 @@ namespace ApiSdk.Drives.Item.Bundles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/bundles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+        /// Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
         /// </summary>
         public class BundlesRequestBuilderGetQueryParameters 
         {

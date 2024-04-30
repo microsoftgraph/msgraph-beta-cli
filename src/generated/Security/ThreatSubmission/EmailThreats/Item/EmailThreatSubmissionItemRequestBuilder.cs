@@ -56,14 +56,13 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an emailThreatSubmission object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-emailthreatsubmission-get?view=graph-rest-1.0" />
+        /// Get emailThreats from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an emailThreatSubmission object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-emailthreatsubmission-get?view=graph-rest-1.0";
+            command.Description = "Get emailThreats from security";
             var emailThreatSubmissionIdOption = new Option<string>("--email-threat-submission-id", description: "The unique identifier of emailThreatSubmission") {
             };
             emailThreatSubmissionIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/threatSubmission/emailThreats/{emailThreatSubmission%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an emailThreatSubmission object.
+        /// Get emailThreats from security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/threatSubmission/emailThreats/{emailThreatSubmission%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an emailThreatSubmission object.
+        /// Get emailThreats from security
         /// </summary>
         public class EmailThreatSubmissionItemRequestBuilderGetQueryParameters 
         {

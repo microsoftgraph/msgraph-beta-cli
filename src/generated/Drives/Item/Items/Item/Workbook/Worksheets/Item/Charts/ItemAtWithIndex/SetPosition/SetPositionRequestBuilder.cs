@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWi
     {
         /// <summary>
         /// Positions the chart relative to cells on the worksheet.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chart-setposition?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chart-setposition?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Positions the chart relative to cells on the worksheet.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chart-setposition?view=graph-rest-1.0";
+            command.Description = "Positions the chart relative to cells on the worksheet.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chart-setposition?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

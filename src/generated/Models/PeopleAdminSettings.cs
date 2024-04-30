@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PeopleAdminSettings : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The itemInsights property</summary>
+        /// <summary>Represents administrator settings that manage the support for item insights in an organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public InsightsSettings? ItemInsights { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public InsightsSettings ItemInsights { get; set; }
 #endif
-        /// <summary>Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.</summary>
+        /// <summary>Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ProfileCardProperty>? ProfileCardProperties { get; set; }

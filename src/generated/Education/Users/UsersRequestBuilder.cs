@@ -61,14 +61,13 @@ namespace ApiSdk.Education.Users {
             return command;
         }
         /// <summary>
-        /// Create a new user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-post-users?view=graph-rest-1.0" />
+        /// Create new navigation property to users for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-post-users?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to users for education";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -124,14 +123,13 @@ namespace ApiSdk.Education.Users {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of user objects. These user objects will include education-specific properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-list-users?view=graph-rest-1.0" />
+        /// Get users from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of user objects. These user objects will include education-specific properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-list-users?view=graph-rest-1.0";
+            command.Description = "Get users from education";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -233,7 +231,7 @@ namespace ApiSdk.Education.Users {
         {
         }
         /// <summary>
-        /// Retrieve a list of user objects. These user objects will include education-specific properties.
+        /// Get users from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,7 +250,7 @@ namespace ApiSdk.Education.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new user.
+        /// Create new navigation property to users for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -267,13 +265,13 @@ namespace ApiSdk.Education.Users {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/users", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of user objects. These user objects will include education-specific properties.
+        /// Get users from education
         /// </summary>
         public class UsersRequestBuilderGetQueryParameters 
         {

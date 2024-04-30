@@ -21,13 +21,13 @@ namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware {
     {
         /// <summary>
         /// Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-1.0";
+            command.Description = "Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-updatesoftware?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;

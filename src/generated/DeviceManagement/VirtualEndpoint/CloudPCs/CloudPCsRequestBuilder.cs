@@ -155,14 +155,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
             return command;
         }
         /// <summary>
-        /// List the cloudPC devices in a tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-1.0" />
+        /// Cloud managed virtual desktops.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the cloudPC devices in a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-1.0";
+            command.Description = "Cloud managed virtual desktops.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -281,7 +280,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
         {
         }
         /// <summary>
-        /// List the cloudPC devices in a tenant.
+        /// Cloud managed virtual desktops.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -315,13 +314,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the cloudPC devices in a tenant.
+        /// Cloud managed virtual desktops.
         /// </summary>
         public class CloudPCsRequestBuilderGetQueryParameters 
         {

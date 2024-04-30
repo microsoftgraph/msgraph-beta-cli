@@ -55,14 +55,13 @@ namespace ApiSdk.External.IndustryData.Runs {
             return command;
         }
         /// <summary>
-        /// Get a list of the industryDataRun objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydatarun-list?view=graph-rest-1.0" />
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the industryDataRun objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydatarun-list?view=graph-rest-1.0";
+            command.Description = "Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -181,7 +180,7 @@ namespace ApiSdk.External.IndustryData.Runs {
         {
         }
         /// <summary>
-        /// Get a list of the industryDataRun objects and their properties.
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +199,7 @@ namespace ApiSdk.External.IndustryData.Runs {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the industryDataRun objects and their properties.
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         public class RunsRequestBuilderGetQueryParameters 
         {

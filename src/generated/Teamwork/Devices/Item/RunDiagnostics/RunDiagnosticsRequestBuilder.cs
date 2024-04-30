@@ -21,13 +21,13 @@ namespace ApiSdk.Teamwork.Devices.Item.RunDiagnostics {
     {
         /// <summary>
         /// Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-rundiagnostics?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-rundiagnostics?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-rundiagnostics?view=graph-rest-1.0";
+            command.Description = "Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-rundiagnostics?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;

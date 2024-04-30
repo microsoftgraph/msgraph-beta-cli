@@ -53,14 +53,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return command;
         }
         /// <summary>
-        /// Create a new authenticationContextClassReference.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccessroot-post-authenticationcontextclassreferences?view=graph-rest-1.0" />
+        /// Create new navigation property to authenticationContextClassReferences for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new authenticationContextClassReference.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccessroot-post-authenticationcontextclassreferences?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to authenticationContextClassReferences for identity";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +98,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return command;
         }
         /// <summary>
-        /// Retrieve a list of authenticationContextClassReference objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of authenticationContextClassReference objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns a collection of the specified authentication context class references.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +206,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
         {
         }
         /// <summary>
-        /// Retrieve a list of authenticationContextClassReference objects.
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +225,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
             return requestInfo;
         }
         /// <summary>
-        /// Create a new authenticationContextClassReference.
+        /// Create new navigation property to authenticationContextClassReferences for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -242,13 +240,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of authenticationContextClassReference objects.
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
         /// </summary>
         public class AuthenticationContextClassReferencesRequestBuilderGetQueryParameters 
         {

@@ -22,13 +22,12 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Col
     {
         /// <summary>
         /// The collection of column definitions reusable across lists under this site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of column definitions reusable across lists under this site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of column definitions reusable across lists under this site.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -140,14 +139,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Col
             return command;
         }
         /// <summary>
-        /// Create columnDefinition for a site
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0" />
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create columnDefinition for a site\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to columns for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -243,7 +241,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Col
             return requestInfo;
         }
         /// <summary>
-        /// Create columnDefinition for a site
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +256,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Col
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/columns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

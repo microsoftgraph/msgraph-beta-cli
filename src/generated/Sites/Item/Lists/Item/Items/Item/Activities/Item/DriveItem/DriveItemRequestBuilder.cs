@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Sites.Item.Lists.Item.Items.Item.Activities.Item.DriveItem.Content;
+using ApiSdk.Sites.Item.Lists.Item.Items.Item.Activities.Item.DriveItem.ContentStream;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -30,6 +31,24 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.Activities.Item.DriveItem {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the site entity.";
             var builder = new ContentRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPutCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the media for the site entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildContentStreamNavCommand()
+        {
+            var command = new Command("content-stream");
+            command.Description = "Provides operations to manage the media for the site entity.";
+            var builder = new ContentStreamRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());

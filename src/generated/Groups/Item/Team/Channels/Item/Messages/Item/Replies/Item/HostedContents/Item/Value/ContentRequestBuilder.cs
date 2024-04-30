@@ -21,13 +21,12 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
     {
         /// <summary>
         /// Get media content for the navigation property hostedContents from groups
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get media content for the navigation property hostedContents from groups\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0";
+            command.Description = "Get media content for the navigation property hostedContents from groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -48,10 +47,6 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
             };
             chatMessageHostedContentIdOption.IsRequired = true;
             command.AddOption(chatMessageHostedContentIdOption);
-            var formatOption = new Option<string>("--format", description: "Format of the content") {
-            };
-            formatOption.IsRequired = false;
-            command.AddOption(formatOption);
             var outputFileOption = new Option<FileInfo>("--output-file");
             command.AddOption(outputFileOption);
             command.SetHandler(async (invocationContext) => {
@@ -60,12 +55,10 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
                 var chatMessageId = invocationContext.ParseResult.GetValueForOption(chatMessageIdOption);
                 var chatMessageId1 = invocationContext.ParseResult.GetValueForOption(chatMessageId1Option);
                 var chatMessageHostedContentId = invocationContext.ParseResult.GetValueForOption(chatMessageHostedContentIdOption);
-                var format = invocationContext.ParseResult.GetValueForOption(formatOption);
                 var outputFile = invocationContext.ParseResult.GetValueForOption(outputFileOption);
                 var cancellationToken = invocationContext.GetCancellationToken();
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 var requestInfo = ToGetRequestInformation(q => {
-                    if (!string.IsNullOrEmpty(format)) q.QueryParameters.Format = format;
                 });
                 if (groupId is not null) requestInfo.PathParameters.Add("group%2Did", groupId);
                 if (channelId is not null) requestInfo.PathParameters.Add("channel%2Did", channelId);
@@ -168,14 +161,14 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
         /// Instantiates a new <see cref="ContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public ContentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}/$value{?%24format*}", pathParameters)
+        public ContentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}/$value", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="ContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ContentRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}/$value{?%24format*}", rawUrl)
+        public ContentRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}/$value", rawUrl)
         {
         }
         /// <summary>
@@ -185,11 +178,11 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ContentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ContentRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -213,27 +206,11 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.Messages.Item.Replies.Item.Hoste
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}/$value", PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");
             return requestInfo;
-        }
-        /// <summary>
-        /// Get media content for the navigation property hostedContents from groups
-        /// </summary>
-        public class ContentRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Format of the content</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("%24format")]
-            public string? Format { get; set; }
-#nullable restore
-#else
-            [QueryParameter("%24format")]
-            public string Format { get; set; }
-#endif
         }
     }
 }

@@ -62,14 +62,13 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
             return command;
         }
         /// <summary>
-        /// Read the properties of a delegatedAdminRelationshipOperation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0" />
+        /// The long running operations associated with the delegated admin relationship.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties of a delegatedAdminRelationshipOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0";
+            command.Description = "The long running operations associated with the delegated admin relationship.";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations/{delegatedAdminRelationshipOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties of a delegatedAdminRelationshipOperation object.
+        /// The long running operations associated with the delegated admin relationship.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations/{delegatedAdminRelationshipOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties of a delegatedAdminRelationshipOperation object.
+        /// The long running operations associated with the delegated admin relationship.
         /// </summary>
         public class DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters 
         {

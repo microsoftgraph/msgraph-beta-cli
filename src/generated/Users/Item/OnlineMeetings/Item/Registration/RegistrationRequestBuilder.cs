@@ -50,14 +50,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
             return command;
         }
         /// <summary>
-        /// Disable and delete the externalMeetingRegistration of an onlineMeeting.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalmeetingregistration-delete?view=graph-rest-1.0" />
+        /// Delete navigation property registration for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Disable and delete the externalMeetingRegistration of an onlineMeeting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalmeetingregistration-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property registration for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -92,14 +91,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
             return command;
         }
         /// <summary>
-        /// Get the externalMeetingRegistration details associated with an onlineMeeting.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0" />
+        /// The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the externalMeetingRegistration details associated with an onlineMeeting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0";
+            command.Description = "The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -151,14 +149,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
             return command;
         }
         /// <summary>
-        /// Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0" />
+        /// Update the navigation property registration in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property registration in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -250,7 +247,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
         {
         }
         /// <summary>
-        /// Disable and delete the externalMeetingRegistration of an onlineMeeting.
+        /// Delete navigation property registration for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,13 +260,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/registration", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the externalMeetingRegistration details associated with an onlineMeeting.
+        /// The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +285,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
             return requestInfo;
         }
         /// <summary>
-        /// Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
+        /// Update the navigation property registration in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -303,13 +300,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/registration", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the externalMeetingRegistration details associated with an onlineMeeting.
+        /// The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
         /// </summary>
         public class RegistrationRequestBuilderGetQueryParameters 
         {

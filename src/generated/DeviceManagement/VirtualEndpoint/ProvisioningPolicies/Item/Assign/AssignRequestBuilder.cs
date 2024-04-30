@@ -21,14 +21,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
     {
         /// <summary>
         /// Assign cloudPcProvisioningPolicy to user groups.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-assign?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-assign?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Assign cloudPcProvisioningPolicy to user groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-assign?view=graph-rest-1.0";
+            command.Description = "Assign cloudPcProvisioningPolicy to user groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-assign?view=graph-rest-beta";
             var cloudPcProvisioningPolicyIdOption = new Option<string>("--cloud-pc-provisioning-policy-id", description: "The unique identifier of cloudPcProvisioningPolicy") {
             };
             cloudPcProvisioningPolicyIdOption.IsRequired = true;

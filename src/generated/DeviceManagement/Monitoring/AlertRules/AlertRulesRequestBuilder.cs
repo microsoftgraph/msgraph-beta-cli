@@ -53,14 +53,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules {
             return command;
         }
         /// <summary>
-        /// Create an alertRule object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrule-post?view=graph-rest-1.0" />
+        /// Create new navigation property to alertRules for deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create an alertRule object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrule-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to alertRules for deviceManagement";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +98,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules {
             return command;
         }
         /// <summary>
-        /// Get a list of the alertRule objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrule-list?view=graph-rest-1.0" />
+        /// The collection of alert rules.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the alertRule objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrule-list?view=graph-rest-1.0";
+            command.Description = "The collection of alert rules.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +206,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules {
         {
         }
         /// <summary>
-        /// Get a list of the alertRule objects and their properties.
+        /// The collection of alert rules.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +225,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules {
             return requestInfo;
         }
         /// <summary>
-        /// Create an alertRule object.
+        /// Create new navigation property to alertRules for deviceManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -242,13 +240,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/monitoring/alertRules", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the alertRule objects and their properties.
+        /// The collection of alert rules.
         /// </summary>
         public class AlertRulesRequestBuilderGetQueryParameters 
         {

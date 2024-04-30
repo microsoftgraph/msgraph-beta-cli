@@ -22,13 +22,12 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Columns {
     {
         /// <summary>
         /// The collection of column definitions reusable across lists under this site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of column definitions reusable across lists under this site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of column definitions reusable across lists under this site.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -128,14 +127,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Columns {
             return command;
         }
         /// <summary>
-        /// Create columnDefinition for a site
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0" />
+        /// Create new navigation property to columns for sites
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create columnDefinition for a site\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to columns for sites";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -219,7 +217,7 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create columnDefinition for a site
+        /// Create new navigation property to columns for sites
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -234,7 +232,7 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.Columns {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/columns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

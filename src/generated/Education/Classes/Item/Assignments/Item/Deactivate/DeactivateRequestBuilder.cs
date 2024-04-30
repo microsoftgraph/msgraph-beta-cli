@@ -22,13 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Deactivate {
     {
         /// <summary>
         /// Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-1.0";
+            command.Description = "Mark an assigned educationAssignment as inactive to signal that the assignment has no further action items for teachers and students. This action can only be performed by a teacher on assigned assignments.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-deactivate?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;

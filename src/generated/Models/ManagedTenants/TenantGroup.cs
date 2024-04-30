@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.ManagedTenants {
+    #pragma warning disable CS1591
     public class TenantGroup : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.</summary>
         public bool? AllTenantsIncluded { get; set; }

@@ -21,13 +21,13 @@ namespace ApiSdk.Groups.Item.AddFavorite {
     {
         /// <summary>
         /// Add the group to the list of the current user&apos;s favorite groups. Supported for Microsoft 365 groups only.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add the group to the list of the current user's favorite groups. Supported for Microsoft 365 groups only.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-1.0";
+            command.Description = "Add the group to the list of the current user's favorite groups. Supported for Microsoft 365 groups only.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;

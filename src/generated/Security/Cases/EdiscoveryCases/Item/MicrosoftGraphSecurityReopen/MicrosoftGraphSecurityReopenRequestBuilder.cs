@@ -21,13 +21,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.MicrosoftGraphSecurityReope
     {
         /// <summary>
         /// Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-reopen?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-reopen?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-reopen?view=graph-rest-1.0";
+            command.Description = "Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-reopen?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;

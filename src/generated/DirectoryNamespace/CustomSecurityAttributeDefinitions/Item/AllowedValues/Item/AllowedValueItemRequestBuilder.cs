@@ -62,14 +62,13 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item.Allo
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an allowedValue object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0" />
+        /// Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an allowedValue object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0";
+            command.Description = "Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.";
             var customSecurityAttributeDefinitionIdOption = new Option<string>("--custom-security-attribute-definition-id", description: "The unique identifier of customSecurityAttributeDefinition") {
             };
             customSecurityAttributeDefinitionIdOption.IsRequired = true;
@@ -121,14 +120,13 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item.Allo
             return command;
         }
         /// <summary>
-        /// Update the properties of an allowedValue object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0" />
+        /// Update the navigation property allowedValues in directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an allowedValue object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property allowedValues in directory";
             var customSecurityAttributeDefinitionIdOption = new Option<string>("--custom-security-attribute-definition-id", description: "The unique identifier of customSecurityAttributeDefinition") {
             };
             customSecurityAttributeDefinitionIdOption.IsRequired = true;
@@ -206,13 +204,13 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item.Allo
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directory/customSecurityAttributeDefinitions/{customSecurityAttributeDefinition%2Did}/allowedValues/{allowedValue%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an allowedValue object.
+        /// Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -231,7 +229,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item.Allo
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an allowedValue object.
+        /// Update the navigation property allowedValues in directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,13 +244,13 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item.Allo
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directory/customSecurityAttributeDefinitions/{customSecurityAttributeDefinition%2Did}/allowedValues/{allowedValue%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an allowedValue object.
+        /// Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
         /// </summary>
         public class AllowedValueItemRequestBuilderGetQueryParameters 
         {

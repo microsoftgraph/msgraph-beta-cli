@@ -21,14 +21,13 @@ namespace ApiSdk.Applications.Item.ExtensionProperties.Item {
     public class ExtensionPropertyItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren&apos;t synced from on-premises active directory (AD).
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0" />
+        /// Delete navigation property extensionProperties for applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property extensionProperties for applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Applications.Item.ExtensionProperties.Item {
             return command;
         }
         /// <summary>
-        /// Read a directory extension definition represented by an extensionProperty object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read a directory extension definition represented by an extensionProperty object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -193,7 +191,7 @@ namespace ApiSdk.Applications.Item.ExtensionProperties.Item {
         {
         }
         /// <summary>
-        /// Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren&apos;t synced from on-premises active directory (AD).
+        /// Delete navigation property extensionProperties for applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,13 +204,13 @@ namespace ApiSdk.Applications.Item.ExtensionProperties.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read a directory extension definition represented by an extensionProperty object.
+        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,13 +244,13 @@ namespace ApiSdk.Applications.Item.ExtensionProperties.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read a directory extension definition represented by an extensionProperty object.
+        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
         /// </summary>
         public class ExtensionPropertyItemRequestBuilderGetQueryParameters 
         {

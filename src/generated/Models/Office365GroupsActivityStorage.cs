@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Office365GroupsActivityStorage : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The storage used in group mailbox.</summary>
         public long? MailboxStorageUsedInBytes { get; set; }

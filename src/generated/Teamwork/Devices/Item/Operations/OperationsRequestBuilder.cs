@@ -104,14 +104,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations {
             return command;
         }
         /// <summary>
-        /// Get a list of the operations that are running on a Microsoft Teams-enabled device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceoperation-list?view=graph-rest-1.0" />
+        /// The async operations on the device.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the operations that are running on a Microsoft Teams-enabled device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceoperation-list?view=graph-rest-1.0";
+            command.Description = "The async operations on the device.";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations {
         {
         }
         /// <summary>
-        /// Get a list of the operations that are running on a Microsoft Teams-enabled device.
+        /// The async operations on the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the operations that are running on a Microsoft Teams-enabled device.
+        /// The async operations on the device.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

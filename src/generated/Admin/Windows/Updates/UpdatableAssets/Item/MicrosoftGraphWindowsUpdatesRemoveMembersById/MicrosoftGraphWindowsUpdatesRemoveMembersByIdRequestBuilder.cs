@@ -21,13 +21,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindow
     {
         /// <summary>
         /// Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembersbyid?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembersbyid?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembersbyid?view=graph-rest-1.0";
+            command.Description = "Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembersbyid?view=graph-rest-beta";
             var updatableAssetIdOption = new Option<string>("--updatable-asset-id", description: "The unique identifier of updatableAsset") {
             };
             updatableAssetIdOption.IsRequired = true;

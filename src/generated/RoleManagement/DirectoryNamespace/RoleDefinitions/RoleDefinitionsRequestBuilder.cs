@@ -56,14 +56,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions {
             return command;
         }
         /// <summary>
-        /// Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-post-roledefinitions?view=graph-rest-1.0" />
+        /// Create new navigation property to roleDefinitions for roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-post-roledefinitions?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to roleDefinitions for roleManagement";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -102,14 +101,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions {
             return command;
         }
         /// <summary>
-        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-1.0" />
+        /// Get roleDefinitions from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-1.0";
+            command.Description = "Get roleDefinitions from roleManagement";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -211,7 +209,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions {
         {
         }
         /// <summary>
-        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
+        /// Get roleDefinitions from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -230,7 +228,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)
+        /// Create new navigation property to roleDefinitions for roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -245,13 +243,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleDefinitions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/roleManagement/directory/roleDefinitions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
+        /// Get roleDefinitions from roleManagement
         /// </summary>
         public class RoleDefinitionsRequestBuilderGetQueryParameters 
         {

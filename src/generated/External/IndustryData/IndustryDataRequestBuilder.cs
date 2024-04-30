@@ -2,6 +2,7 @@
 using ApiSdk.External.IndustryData.DataConnectors;
 using ApiSdk.External.IndustryData.InboundFlows;
 using ApiSdk.External.IndustryData.Operations;
+using ApiSdk.External.IndustryData.OutboundProvisioningFlowSets;
 using ApiSdk.External.IndustryData.ReferenceDefinitions;
 using ApiSdk.External.IndustryData.RoleGroups;
 using ApiSdk.External.IndustryData.Runs;
@@ -137,6 +138,33 @@ namespace ApiSdk.External.IndustryData {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.industryData.industryDataRoot entity.";
             var builder = new OperationsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the outboundProvisioningFlowSets property of the microsoft.graph.industryData.industryDataRoot entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildOutboundProvisioningFlowSetsNavCommand()
+        {
+            var command = new Command("outbound-provisioning-flow-sets");
+            command.Description = "Provides operations to manage the outboundProvisioningFlowSets property of the microsoft.graph.industryData.industryDataRoot entity.";
+            var builder = new OutboundProvisioningFlowSetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());

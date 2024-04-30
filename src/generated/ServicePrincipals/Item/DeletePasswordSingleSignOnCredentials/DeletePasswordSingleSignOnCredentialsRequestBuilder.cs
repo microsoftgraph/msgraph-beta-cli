@@ -21,13 +21,13 @@ namespace ApiSdk.ServicePrincipals.Item.DeletePasswordSingleSignOnCredentials {
     {
         /// <summary>
         /// Delete single sign-on credentials using a password for a user or group.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Delete single sign-on credentials using a password for a user or group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-1.0";
+            command.Description = "Delete single sign-on credentials using a password for a user or group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;

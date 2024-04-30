@@ -5,11 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class RemoteNetwork : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The bandwidthCapacity property</summary>
-        public long? BandwidthCapacity { get; set; }
-        /// <summary>The connectivityConfiguration property</summary>
+        /// <summary>Specifies the connectivity details of all device links associated with a remote network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RemoteNetworkConnectivityConfiguration? ConnectivityConfiguration { get; set; }
@@ -17,17 +17,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public RemoteNetworkConnectivityConfiguration ConnectivityConfiguration { get; set; }
 #endif
-        /// <summary>The connectivityState property</summary>
-        public ApiSdk.Models.Networkaccess.ConnectivityState? ConnectivityState { get; set; }
-        /// <summary>The country property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Country { get; set; }
-#nullable restore
-#else
-        public string Country { get; set; }
-#endif
-        /// <summary>The deviceLinks property</summary>
+        /// <summary>Each unique CPE device associated with a remote network is specified. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DeviceLink>? DeviceLinks { get; set; }
@@ -35,7 +25,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public List<DeviceLink> DeviceLinks { get; set; }
 #endif
-        /// <summary>The forwardingProfiles property</summary>
+        /// <summary>Each forwarding profile associated with a remote network is specified. Supports $expand and $select.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ForwardingProfile>? ForwardingProfiles { get; set; }
@@ -43,9 +33,9 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public List<ForwardingProfile> ForwardingProfiles { get; set; }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>last modified time.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -55,7 +45,7 @@ namespace ApiSdk.Models.Networkaccess {
 #endif
         /// <summary>The region property</summary>
         public ApiSdk.Models.Networkaccess.Region? Region { get; set; }
-        /// <summary>The version property</summary>
+        /// <summary>Remote network version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }
@@ -81,10 +71,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bandwidthCapacity", n => { BandwidthCapacity = n.GetLongValue(); } },
                 {"connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<RemoteNetworkConnectivityConfiguration>(RemoteNetworkConnectivityConfiguration.CreateFromDiscriminatorValue); } },
-                {"connectivityState", n => { ConnectivityState = n.GetEnumValue<ConnectivityState>(); } },
-                {"country", n => { Country = n.GetStringValue(); } },
                 {"deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -101,10 +88,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteLongValue("bandwidthCapacity", BandwidthCapacity);
             writer.WriteObjectValue<RemoteNetworkConnectivityConfiguration>("connectivityConfiguration", ConnectivityConfiguration);
-            writer.WriteEnumValue<ConnectivityState>("connectivityState", ConnectivityState);
-            writer.WriteStringValue("country", Country);
             writer.WriteCollectionOfObjectValues<DeviceLink>("deviceLinks", DeviceLinks);
             writer.WriteCollectionOfObjectValues<ForwardingProfile>("forwardingProfiles", ForwardingProfiles);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);

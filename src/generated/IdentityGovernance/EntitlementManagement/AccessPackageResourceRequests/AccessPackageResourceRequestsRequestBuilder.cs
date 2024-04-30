@@ -56,14 +56,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return command;
         }
         /// <summary>
-        /// Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-1.0" />
+        /// Create new navigation property to accessPackageResourceRequests for identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to accessPackageResourceRequests for identityGovernance";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -102,14 +101,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return command;
         }
         /// <summary>
-        /// Retrieve a list of accessPackageResourceRequest objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-1.0" />
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of accessPackageResourceRequest objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-1.0";
+            command.Description = "Represents a request to add or remove a resource to or from a catalog respectively.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -211,7 +209,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
         {
         }
         /// <summary>
-        /// Retrieve a list of accessPackageResourceRequest objects.
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -230,7 +228,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return requestInfo;
         }
         /// <summary>
-        /// Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
+        /// Create new navigation property to accessPackageResourceRequests for identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -245,13 +243,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/entitlementManagement/accessPackageResourceRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of accessPackageResourceRequest objects.
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         public class AccessPackageResourceRequestsRequestBuilderGetQueryParameters 
         {

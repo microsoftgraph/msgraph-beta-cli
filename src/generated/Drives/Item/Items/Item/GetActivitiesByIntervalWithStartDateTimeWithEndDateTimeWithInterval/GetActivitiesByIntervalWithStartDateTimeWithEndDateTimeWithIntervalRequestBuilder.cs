@@ -20,13 +20,14 @@ namespace ApiSdk.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTime
     public class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getActivitiesByInterval
+        /// Get itemActivityStats for the activities that took place under this resource within the specified time interval. Analytics aggregates might not be available for all action types.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemactivity-getbyinterval?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getActivitiesByInterval";
+            command.Description = "Get itemActivityStats for the activities that took place under this resource within the specified time interval. Analytics aggregates might not be available for all action types.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemactivity-getbyinterval?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -158,7 +159,7 @@ namespace ApiSdk.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTime
         {
         }
         /// <summary>
-        /// Invoke function getActivitiesByInterval
+        /// Get itemActivityStats for the activities that took place under this resource within the specified time interval. Analytics aggregates might not be available for all action types.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -177,7 +178,7 @@ namespace ApiSdk.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTime
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getActivitiesByInterval
+        /// Get itemActivityStats for the activities that took place under this resource within the specified time interval. Analytics aggregates might not be available for all action types.
         /// </summary>
         public class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetQueryParameters 
         {

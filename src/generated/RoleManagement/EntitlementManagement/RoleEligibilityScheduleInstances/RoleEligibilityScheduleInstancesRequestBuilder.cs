@@ -121,14 +121,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleEligibilityScheduleIns
             return command;
         }
         /// <summary>
-        /// Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0" />
+        /// Get roleEligibilityScheduleInstances from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0";
+            command.Description = "Get roleEligibilityScheduleInstances from roleManagement";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -230,7 +229,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleEligibilityScheduleIns
         {
         }
         /// <summary>
-        /// Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties.
+        /// Get roleEligibilityScheduleInstances from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,13 +263,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleEligibilityScheduleIns
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties.
+        /// Get roleEligibilityScheduleInstances from roleManagement
         /// </summary>
         public class RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters 
         {

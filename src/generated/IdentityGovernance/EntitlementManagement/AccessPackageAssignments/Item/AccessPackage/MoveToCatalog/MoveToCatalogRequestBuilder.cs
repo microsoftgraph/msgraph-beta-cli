@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
     {
         /// <summary>
         /// In Microsoft Entra entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-movetocatalog?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-movetocatalog?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "In Microsoft Entra entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-movetocatalog?view=graph-rest-1.0";
+            command.Description = "In Microsoft Entra entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-movetocatalog?view=graph-rest-beta";
             var accessPackageAssignmentIdOption = new Option<string>("--access-package-assignment-id", description: "The unique identifier of accessPackageAssignment") {
             };
             accessPackageAssignmentIdOption.IsRequired = true;

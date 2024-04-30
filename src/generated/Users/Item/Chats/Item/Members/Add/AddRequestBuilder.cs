@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Members.Add {
     {
         /// <summary>
         /// Add multiple members in a single request to a team. The response provides details about which memberships could and couldn&apos;t be created.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-1.0";
+            command.Description = "Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

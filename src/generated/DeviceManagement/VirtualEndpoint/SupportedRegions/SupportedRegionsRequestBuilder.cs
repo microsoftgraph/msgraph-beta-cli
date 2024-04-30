@@ -98,14 +98,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions {
             return command;
         }
         /// <summary>
-        /// List the supported regions that are available for creating Cloud PC connections.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-supportedregions?view=graph-rest-1.0" />
+        /// Cloud PC supported regions.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the supported regions that are available for creating Cloud PC connections.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-supportedregions?view=graph-rest-1.0";
+            command.Description = "Cloud PC supported regions.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions {
         {
         }
         /// <summary>
-        /// List the supported regions that are available for creating Cloud PC connections.
+        /// Cloud PC supported regions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/supportedRegions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the supported regions that are available for creating Cloud PC connections.
+        /// Cloud PC supported regions.
         /// </summary>
         public class SupportedRegionsRequestBuilderGetQueryParameters 
         {

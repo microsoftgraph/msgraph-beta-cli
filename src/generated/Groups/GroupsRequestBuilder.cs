@@ -48,6 +48,7 @@ namespace ApiSdk.Groups {
             commands.Add(builder.BuildConversationsNavCommand());
             commands.Add(builder.BuildCreatedOnBehalfOfNavCommand());
             executables.Add(builder.BuildDeleteCommand());
+            commands.Add(builder.BuildDeletePasswordSingleSignOnCredentialsNavCommand());
             commands.Add(builder.BuildDriveNavCommand());
             commands.Add(builder.BuildDrivesNavCommand());
             commands.Add(builder.BuildEndpointsNavCommand());
@@ -57,6 +58,7 @@ namespace ApiSdk.Groups {
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildGetMemberGroupsNavCommand());
             commands.Add(builder.BuildGetMemberObjectsNavCommand());
+            commands.Add(builder.BuildGetPasswordSingleSignOnCredentialsNavCommand());
             commands.Add(builder.BuildGroupLifecyclePoliciesNavCommand());
             commands.Add(builder.BuildMemberOfNavCommand());
             commands.Add(builder.BuildMembersNavCommand());
@@ -104,14 +106,14 @@ namespace ApiSdk.Groups {
             return command;
         }
         /// <summary>
-        /// Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0" />
+        /// Create a new group object if it doesn&apos;t exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0";
+            command.Description = "Create a new group object if it doesn't exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -219,13 +221,13 @@ namespace ApiSdk.Groups {
         }
         /// <summary>
         /// List all the groups available in an organization, excluding dynamic distribution groups. To retrieve dynamic distribution groups, use the Exchange admin center. This operation returns by default only a subset of the more commonly used properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the group and specify the properties in a $select OData query option. The hasMembersWithLicenseErrors and isArchived properties are an exception and are not returned in the $select query.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List all the groups available in an organization, excluding dynamic distribution groups. To retrieve dynamic distribution groups, use the Exchange admin center. This operation returns by default only a subset of the more commonly used properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the group and specify the properties in a $select OData query option. The hasMembersWithLicenseErrors and isArchived properties are an exception and are not returned in the $select query.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list?view=graph-rest-1.0";
+            command.Description = "List all the groups available in an organization, excluding dynamic distribution groups. To retrieve dynamic distribution groups, use the Exchange admin center. This operation returns by default only a subset of the more commonly used properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the group and specify the properties in a $select OData query option. The hasMembersWithLicenseErrors and isArchived properties are an exception and are not returned in the $select query.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list?view=graph-rest-beta";
             var consistencyLevelOption = new Option<string[]>("--consistency-level", description: "Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -370,7 +372,7 @@ namespace ApiSdk.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
+        /// Create a new group object if it doesn&apos;t exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -385,7 +387,7 @@ namespace ApiSdk.Groups {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

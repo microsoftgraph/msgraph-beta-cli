@@ -20,13 +20,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleScheduleInstancesdirector
     public class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-rolescheduleinstances?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function roleScheduleInstances";
+            command.Description = "Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-rolescheduleinstances?view=graph-rest-beta";
             var directoryScopeIdOption = new Option<string>("--directory-scope-id", description: "Usage: directoryScopeId='@directoryScopeId'") {
             };
             directoryScopeIdOption.IsRequired = false;
@@ -152,7 +153,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleScheduleInstancesdirector
         {
         }
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +172,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleScheduleInstancesdirector
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
         /// </summary>
         public class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
         {

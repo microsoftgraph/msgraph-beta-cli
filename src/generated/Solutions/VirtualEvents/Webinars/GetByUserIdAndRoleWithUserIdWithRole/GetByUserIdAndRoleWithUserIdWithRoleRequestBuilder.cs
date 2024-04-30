@@ -20,13 +20,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.GetByUserIdAndRoleWithUserIdWi
     public class GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getByUserIdAndRole
+        /// Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventwebinar-getbyuseridandrole?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getByUserIdAndRole";
+            command.Description = "Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventwebinar-getbyuseridandrole?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "Usage: userId='{userId}'") {
             };
             userIdOption.IsRequired = true;
@@ -140,7 +141,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.GetByUserIdAndRoleWithUserIdWi
         {
         }
         /// <summary>
-        /// Invoke function getByUserIdAndRole
+        /// Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -159,7 +160,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.GetByUserIdAndRoleWithUserIdWi
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getByUserIdAndRole
+        /// Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
         /// </summary>
         public class GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParameters 
         {

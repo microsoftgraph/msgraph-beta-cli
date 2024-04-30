@@ -57,13 +57,13 @@ namespace ApiSdk.DataPolicyOperations.Item {
         }
         /// <summary>
         /// Retrieve the properties of the dataPolicyOperation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of the dataPolicyOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties of the dataPolicyOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-beta";
             var dataPolicyOperationIdOption = new Option<string>("--data-policy-operation-id", description: "The unique identifier of dataPolicyOperation") {
             };
             dataPolicyOperationIdOption.IsRequired = true;
@@ -187,7 +187,7 @@ namespace ApiSdk.DataPolicyOperations.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/dataPolicyOperations/{dataPolicyOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -227,7 +227,7 @@ namespace ApiSdk.DataPolicyOperations.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/dataPolicyOperations/{dataPolicyOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

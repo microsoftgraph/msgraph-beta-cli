@@ -104,14 +104,13 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
             return command;
         }
         /// <summary>
-        /// Get the list of participant objects associated with a callRecord.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callrecords-callrecord-list-participants_v2?view=graph-rest-1.0" />
+        /// List of distinct participants in the call.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of participant objects associated with a callRecord.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/callrecords-callrecord-list-participants_v2?view=graph-rest-1.0";
+            command.Description = "List of distinct participants in the call.";
             var callRecordIdOption = new Option<string>("--call-record-id", description: "The unique identifier of callRecord") {
             };
             callRecordIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
         {
         }
         /// <summary>
-        /// Get the list of participant objects associated with a callRecord.
+        /// List of distinct participants in the call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/communications/callRecords/{callRecord%2Did}/participants_v2", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of participant objects associated with a callRecord.
+        /// List of distinct participants in the call.
         /// </summary>
         public class Participants_v2RequestBuilderGetQueryParameters 
         {

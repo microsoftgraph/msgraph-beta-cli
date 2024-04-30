@@ -120,14 +120,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.TermStore.Sets.Item.ParentGroup.Sets {
             return command;
         }
         /// <summary>
-        /// Get a list of the set objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0" />
+        /// All sets under the group in a term [store].
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the set objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0";
+            command.Description = "All sets under the group in a term [store].";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -247,7 +246,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.TermStore.Sets.Item.ParentGroup.Sets {
         {
         }
         /// <summary>
-        /// Get a list of the set objects and their properties.
+        /// All sets under the group in a term [store].
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -281,13 +280,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.TermStore.Sets.Item.ParentGroup.Sets {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the set objects and their properties.
+        /// All sets under the group in a term [store].
         /// </summary>
         public class SetsRequestBuilderGetQueryParameters 
         {

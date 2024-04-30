@@ -136,14 +136,13 @@ namespace ApiSdk.IdentityProtection.RiskyUsers {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a collection of riskyUser objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyusers-list?view=graph-rest-1.0" />
+        /// Users that are flagged as at-risk by Microsoft Entra ID Protection.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the properties and relationships of a collection of riskyUser objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyusers-list?view=graph-rest-1.0";
+            command.Description = "Users that are flagged as at-risk by Microsoft Entra ID Protection.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -245,7 +244,7 @@ namespace ApiSdk.IdentityProtection.RiskyUsers {
         {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a collection of riskyUser objects.
+        /// Users that are flagged as at-risk by Microsoft Entra ID Protection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -279,13 +278,13 @@ namespace ApiSdk.IdentityProtection.RiskyUsers {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityProtection/riskyUsers", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a collection of riskyUser objects.
+        /// Users that are flagged as at-risk by Microsoft Entra ID Protection.
         /// </summary>
         public class RiskyUsersRequestBuilderGetQueryParameters 
         {

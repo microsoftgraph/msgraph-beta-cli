@@ -23,13 +23,13 @@ namespace ApiSdk.ApplicationTemplates.Item {
     {
         /// <summary>
         /// Retrieve the properties of an applicationTemplate object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of an applicationTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties of an applicationTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-beta";
             var applicationTemplateIdOption = new Option<string>("--application-template-id", description: "The unique identifier of applicationTemplate") {
             };
             applicationTemplateIdOption.IsRequired = true;

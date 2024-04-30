@@ -53,14 +53,13 @@ namespace ApiSdk.Planner.Rosters.Item.Members {
             return command;
         }
         /// <summary>
-        /// Add a member to the plannerRoster object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerroster-post-members?view=graph-rest-1.0" />
+        /// Create new navigation property to members for planner
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Add a member to the plannerRoster object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerroster-post-members?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to members for planner";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Planner.Rosters.Item.Members {
             return command;
         }
         /// <summary>
-        /// Get the list of plannerRosterMembers from a plannerRoster.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0" />
+        /// Retrieves the members of the plannerRoster.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of plannerRosterMembers from a plannerRoster.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0";
+            command.Description = "Retrieves the members of the plannerRoster.";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Planner.Rosters.Item.Members {
         {
         }
         /// <summary>
-        /// Get the list of plannerRosterMembers from a plannerRoster.
+        /// Retrieves the members of the plannerRoster.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Planner.Rosters.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Add a member to the plannerRoster object.
+        /// Create new navigation property to members for planner
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Planner.Rosters.Item.Members {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/planner/rosters/{plannerRoster%2Did}/members", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of plannerRosterMembers from a plannerRoster.
+        /// Retrieves the members of the plannerRoster.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

@@ -59,14 +59,13 @@ namespace ApiSdk.External.Connections {
             return command;
         }
         /// <summary>
-        /// Create a new externalConnection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0" />
+        /// Create new navigation property to connections for external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to connections for external";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.External.Connections {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of externalConnections.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0" />
+        /// Get connections from external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of externalConnections.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0";
+            command.Description = "Get connections from external";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -214,7 +212,7 @@ namespace ApiSdk.External.Connections {
         {
         }
         /// <summary>
-        /// Retrieve a list of externalConnections.
+        /// Get connections from external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -233,7 +231,7 @@ namespace ApiSdk.External.Connections {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new externalConnection.
+        /// Create new navigation property to connections for external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,13 +246,13 @@ namespace ApiSdk.External.Connections {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/external/connections", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of externalConnections.
+        /// Get connections from external
         /// </summary>
         public class ConnectionsRequestBuilderGetQueryParameters 
         {

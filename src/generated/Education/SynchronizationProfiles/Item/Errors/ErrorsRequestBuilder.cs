@@ -104,14 +104,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Errors {
             return command;
         }
         /// <summary>
-        /// Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationerrors-get?view=graph-rest-1.0" />
+        /// All errors associated with this synchronization profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationerrors-get?view=graph-rest-1.0";
+            command.Description = "All errors associated with this synchronization profile.";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Errors {
         {
         }
         /// <summary>
-        /// Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
+        /// All errors associated with this synchronization profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Errors {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/errors", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
+        /// All errors associated with this synchronization profile.
         /// </summary>
         public class ErrorsRequestBuilderGetQueryParameters 
         {

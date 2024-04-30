@@ -21,13 +21,13 @@ namespace ApiSdk.AccessReviews.Item.SendReminder {
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "In the Microsoft Entra access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;

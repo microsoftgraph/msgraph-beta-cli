@@ -57,14 +57,13 @@ namespace ApiSdk.Users.Item.Contacts {
             return command;
         }
         /// <summary>
-        /// Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-post-contacts?view=graph-rest-1.0" />
+        /// Create new navigation property to contacts for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-contacts?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to contacts for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -126,14 +125,13 @@ namespace ApiSdk.Users.Item.Contacts {
             return command;
         }
         /// <summary>
-        /// Get contacts in the user&apos;s mailbox. There are two scenarios where an app can get contacts in another user&apos;s contact folder:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-contacts?view=graph-rest-1.0" />
+        /// The user&apos;s contacts. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-contacts?view=graph-rest-1.0";
+            command.Description = "The user's contacts. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -241,7 +239,7 @@ namespace ApiSdk.Users.Item.Contacts {
         {
         }
         /// <summary>
-        /// Get contacts in the user&apos;s mailbox. There are two scenarios where an app can get contacts in another user&apos;s contact folder:
+        /// The user&apos;s contacts. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +258,7 @@ namespace ApiSdk.Users.Item.Contacts {
             return requestInfo;
         }
         /// <summary>
-        /// Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
+        /// Create new navigation property to contacts for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -275,13 +273,13 @@ namespace ApiSdk.Users.Item.Contacts {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/contacts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get contacts in the user&apos;s mailbox. There are two scenarios where an app can get contacts in another user&apos;s contact folder:
+        /// The user&apos;s contacts. Read-only. Nullable.
         /// </summary>
         public class ContactsRequestBuilderGetQueryParameters 
         {

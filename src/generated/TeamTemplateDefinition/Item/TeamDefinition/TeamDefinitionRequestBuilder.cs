@@ -183,14 +183,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition {
             return command;
         }
         /// <summary>
-        /// Get the properties of the team associated with a teamTemplateDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamtemplatedefinition-get-teamdefinition?view=graph-rest-1.0" />
+        /// Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties of the team associated with a teamTemplateDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamtemplatedefinition-get-teamdefinition?view=graph-rest-1.0";
+            command.Description = "Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -689,13 +688,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of the team associated with a teamTemplateDefinition object.
+        /// Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -729,13 +728,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of the team associated with a teamTemplateDefinition object.
+        /// Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
         /// </summary>
         public class TeamDefinitionRequestBuilderGetQueryParameters 
         {

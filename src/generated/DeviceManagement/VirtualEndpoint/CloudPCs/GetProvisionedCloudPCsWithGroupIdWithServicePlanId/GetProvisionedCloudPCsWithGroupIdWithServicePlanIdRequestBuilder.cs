@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.GetProvisionedCloudPC
     public class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getProvisionedCloudPCs
+        /// Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-getprovisionedcloudpcs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getProvisionedCloudPCs";
+            command.Description = "Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-getprovisionedcloudpcs?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "Usage: groupId='{groupId}'") {
             };
             groupIdOption.IsRequired = true;
@@ -140,7 +141,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.GetProvisionedCloudPC
         {
         }
         /// <summary>
-        /// Invoke function getProvisionedCloudPCs
+        /// Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -159,7 +160,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.GetProvisionedCloudPC
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getProvisionedCloudPCs
+        /// Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
         /// </summary>
         public class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilderGetQueryParameters 
         {

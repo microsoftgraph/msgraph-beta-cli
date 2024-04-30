@@ -53,14 +53,13 @@ namespace ApiSdk.BookingBusinesses.Item.Customers {
             return command;
         }
         /// <summary>
-        /// Create a new bookingCustomer object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0" />
+        /// Create new navigation property to customers for bookingBusinesses
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new bookingCustomer object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to customers for bookingBusinesses";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.BookingBusinesses.Item.Customers {
             return command;
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0" />
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of bookingCustomer objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0";
+            command.Description = "All the customers of this business. Read-only. Nullable.";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.BookingBusinesses.Item.Customers {
         {
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects.
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.BookingBusinesses.Item.Customers {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new bookingCustomer object.
+        /// Create new navigation property to customers for bookingBusinesses
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.BookingBusinesses.Item.Customers {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/bookingBusinesses/{bookingBusiness%2Did}/customers", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects.
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         public class CustomersRequestBuilderGetQueryParameters 
         {

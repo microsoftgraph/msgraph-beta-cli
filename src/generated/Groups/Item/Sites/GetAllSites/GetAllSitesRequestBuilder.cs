@@ -20,13 +20,14 @@ namespace ApiSdk.Groups.Item.Sites.GetAllSites {
     public class GetAllSitesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getAllSites
+        /// List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-getallsites?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getAllSites";
+            command.Description = "List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-getallsites?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.Groups.Item.Sites.GetAllSites {
         {
         }
         /// <summary>
-        /// Invoke function getAllSites
+        /// List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.Groups.Item.Sites.GetAllSites {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getAllSites
+        /// List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
         /// </summary>
         public class GetAllSitesRequestBuilderGetQueryParameters 
         {

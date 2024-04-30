@@ -21,13 +21,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Archive {
     {
         /// <summary>
         /// Archive a list of serviceUpdateMessages for the signed in user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Archive a list of serviceUpdateMessages for the signed in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0";
+            command.Description = "Archive a list of serviceUpdateMessages for the signed in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

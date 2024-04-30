@@ -21,14 +21,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.Item.Members.It
     public class TeamworkTagMemberItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a member from a standard tag in a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0" />
+        /// Delete navigation property members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a member from a standard tag in a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property members for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -69,14 +68,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.Item.Members.It
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a member of a standard tag in a team. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0" />
+        /// Users assigned to the tag.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a member of a standard tag in a team. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0";
+            command.Description = "Users assigned to the tag.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -211,7 +209,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.Item.Members.It
         {
         }
         /// <summary>
-        /// Delete a member from a standard tag in a team.
+        /// Delete navigation property members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -224,13 +222,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.Item.Members.It
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a member of a standard tag in a team. 
+        /// Users assigned to the tag.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,13 +262,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.Item.Members.It
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a member of a standard tag in a team. 
+        /// Users assigned to the tag.
         /// </summary>
         public class TeamworkTagMemberItemRequestBuilderGetQueryParameters 
         {

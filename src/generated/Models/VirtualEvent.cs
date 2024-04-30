@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class VirtualEvent : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Identity information for the creator of the virtual event. Inherited from virtualEvent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.</summary>
+        /// <summary>End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? EndDateTime { get; set; }
@@ -55,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public List<VirtualEventSession> Sessions { get; set; }
 #endif
-        /// <summary>Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.</summary>
+        /// <summary>Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime { get; set; }

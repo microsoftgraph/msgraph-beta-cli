@@ -21,14 +21,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
     public class ConversationMemberItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0" />
+        /// Delete navigation property members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0";
+            command.Description = "Delete navigation property members for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return command;
         }
         /// <summary>
-        /// Get a conversationMember from a channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-get-members?view=graph-rest-1.0" />
+        /// A collection of membership records associated with the channel.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a conversationMember from a channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-get-members?view=graph-rest-1.0";
+            command.Description = "A collection of membership records associated with the channel.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return command;
         }
         /// <summary>
-        /// Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0" />
+        /// Update the navigation property members in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0";
+            command.Description = "Update the navigation property members in teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
         {
         }
         /// <summary>
-        /// Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+        /// Delete navigation property members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/members/{conversationMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a conversationMember from a channel.
+        /// A collection of membership records associated with the channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return requestInfo;
         }
         /// <summary>
-        /// Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+        /// Update the navigation property members in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/members/{conversationMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a conversationMember from a channel.
+        /// A collection of membership records associated with the channel.
         /// </summary>
         public class ConversationMemberItemRequestBuilderGetQueryParameters 
         {

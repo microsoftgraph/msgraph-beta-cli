@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class Alert : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The adversary or activity group that is associated with this alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -14,6 +16,14 @@ namespace ApiSdk.Models.Security {
 #nullable restore
 #else
         public string ActorDisplayName { get; set; }
+#endif
+        /// <summary>A collection of other alert properties, including user-defined properties. Any custom details defined in the alert, and any dynamic content in the alert details, are stored here.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Dictionary? AdditionalDataProperty { get; set; }
+#nullable restore
+#else
+        public Dictionary AdditionalDataProperty { get; set; }
 #endif
         /// <summary>The ID of the policy that generated the alert, and populated when there is a specific policy that generated the alert, whether configured by a customer or a built-in policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -208,6 +218,7 @@ namespace ApiSdk.Models.Security {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 {"actorDisplayName", n => { ActorDisplayName = n.GetStringValue(); } },
+                {"additionalData", n => { AdditionalDataProperty = n.GetObjectValue<Dictionary>(Dictionary.CreateFromDiscriminatorValue); } },
                 {"alertPolicyId", n => { AlertPolicyId = n.GetStringValue(); } },
                 {"alertWebUrl", n => { AlertWebUrl = n.GetStringValue(); } },
                 {"assignedTo", n => { AssignedTo = n.GetStringValue(); } },
@@ -249,6 +260,7 @@ namespace ApiSdk.Models.Security {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("actorDisplayName", ActorDisplayName);
+            writer.WriteObjectValue<Dictionary>("additionalData", AdditionalDataProperty);
             writer.WriteStringValue("alertPolicyId", AlertPolicyId);
             writer.WriteStringValue("alertWebUrl", AlertWebUrl);
             writer.WriteStringValue("assignedTo", AssignedTo);

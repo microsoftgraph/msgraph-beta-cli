@@ -20,13 +20,14 @@ namespace ApiSdk.Reports.GetAzureADApplicationSignInSummaryWithPeriod {
     public class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getAzureADApplicationSignInSummary
+        /// Retrieve applicationSigninSummary objects within either the last seven or 30 days.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-getazureadapplicationsigninsummary?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getAzureADApplicationSignInSummary";
+            command.Description = "Retrieve applicationSigninSummary objects within either the last seven or 30 days.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-getazureadapplicationsigninsummary?view=graph-rest-beta";
             var periodOption = new Option<string>("--period", description: "Usage: period='{period}'") {
             };
             periodOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.Reports.GetAzureADApplicationSignInSummaryWithPeriod {
         {
         }
         /// <summary>
-        /// Invoke function getAzureADApplicationSignInSummary
+        /// Retrieve applicationSigninSummary objects within either the last seven or 30 days.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.Reports.GetAzureADApplicationSignInSummaryWithPeriod {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getAzureADApplicationSignInSummary
+        /// Retrieve applicationSigninSummary objects within either the last seven or 30 days.
         /// </summary>
         public class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetQueryParameters 
         {

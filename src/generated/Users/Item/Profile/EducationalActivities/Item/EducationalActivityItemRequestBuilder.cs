@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
     public class EducationalActivityItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an educationalActivity object from a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationalactivity-delete?view=graph-rest-1.0" />
+        /// Delete navigation property educationalActivities for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an educationalActivity object from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationalactivity-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property educationalActivities for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an educationalActivity object from a users profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationalactivity-get?view=graph-rest-1.0" />
+        /// Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an educationalActivity object from a users profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationalactivity-get?view=graph-rest-1.0";
+            command.Description = "Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an educationalActivity object within a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationalactivity-update?view=graph-rest-1.0" />
+        /// Update the navigation property educationalActivities in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an educationalActivity object within a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationalactivity-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property educationalActivities in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
         {
         }
         /// <summary>
-        /// Delete an educationalActivity object from a user&apos;s profile.
+        /// Delete navigation property educationalActivities for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/profile/educationalActivities/{educationalActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an educationalActivity object from a users profile.
+        /// Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an educationalActivity object within a user&apos;s profile.
+        /// Update the navigation property educationalActivities in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/profile/educationalActivities/{educationalActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an educationalActivity object from a users profile.
+        /// Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
         /// </summary>
         public class EducationalActivityItemRequestBuilderGetQueryParameters 
         {

@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.FilesFolder.Content;
+using ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.FilesFolder.ContentStream;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -40,14 +41,31 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Files
             return command;
         }
         /// <summary>
-        /// Get the metadata for the location where the files of a channel are stored.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0" />
+        /// Provides operations to manage the media for the teamTemplateDefinition entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildContentStreamNavCommand()
+        {
+            var command = new Command("content-stream");
+            command.Description = "Provides operations to manage the media for the teamTemplateDefinition entity.";
+            var builder = new ContentStreamRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPutCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Metadata for the location where the channel&apos;s files are stored.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the metadata for the location where the files of a channel are stored.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0";
+            command.Description = "Metadata for the location where the channel's files are stored.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -107,7 +125,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Files
         {
         }
         /// <summary>
-        /// Get the metadata for the location where the files of a channel are stored.
+        /// Metadata for the location where the channel&apos;s files are stored.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +144,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Files
             return requestInfo;
         }
         /// <summary>
-        /// Get the metadata for the location where the files of a channel are stored.
+        /// Metadata for the location where the channel&apos;s files are stored.
         /// </summary>
         public class FilesFolderRequestBuilderGetQueryParameters 
         {

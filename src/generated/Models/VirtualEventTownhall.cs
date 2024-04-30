@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class VirtualEventTownhall : VirtualEvent, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The audience property</summary>
+        /// <summary>The audience to whom the town hall is visible. Possible values are: everyone, organization, unknownFutureValue.</summary>
         public MeetingAudience? Audience { get; set; }
-        /// <summary>The coOrganizers property</summary>
+        /// <summary>Identity information of the coorganizers of the town hall.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CommunicationsUserIdentity>? CoOrganizers { get; set; }
@@ -17,7 +19,7 @@ namespace ApiSdk.Models {
 #else
         public List<CommunicationsUserIdentity> CoOrganizers { get; set; }
 #endif
-        /// <summary>The invitedAttendees property</summary>
+        /// <summary>The attendees invited to the town hall. The supported identites are: communicationsUserIdentity and communicationsGuestIdentity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Identity>? InvitedAttendees { get; set; }
@@ -25,7 +27,7 @@ namespace ApiSdk.Models {
 #else
         public List<Identity> InvitedAttendees { get; set; }
 #endif
-        /// <summary>The isInviteOnly property</summary>
+        /// <summary>Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization.</summary>
         public bool? IsInviteOnly { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="VirtualEventTownhall"/> and sets the default values.

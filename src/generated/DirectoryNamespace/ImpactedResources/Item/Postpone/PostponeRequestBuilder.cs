@@ -22,13 +22,13 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone {
     {
         /// <summary>
         /// Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Microsoft Entra ID will automatically mark the status of the impactedResource object to active.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Microsoft Entra ID will automatically mark the status of the impactedResource object to active.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-1.0";
+            command.Description = "Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Microsoft Entra ID will automatically mark the status of the impactedResource object to active.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-postpone?view=graph-rest-beta";
             var impactedResourceIdOption = new Option<string>("--impacted-resource-id", description: "The unique identifier of impactedResource") {
             };
             impactedResourceIdOption.IsRequired = true;

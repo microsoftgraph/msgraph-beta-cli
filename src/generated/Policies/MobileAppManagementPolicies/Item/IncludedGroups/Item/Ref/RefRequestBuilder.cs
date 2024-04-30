@@ -20,14 +20,13 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Item.R
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a group from the list of groups included in a mobile app management policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete-includedgroups?view=graph-rest-1.0" />
+        /// Delete ref of navigation property includedGroups for policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a group from the list of groups included in a mobile app management policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete-includedgroups?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property includedGroups for policies";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -76,7 +75,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Item.R
         {
         }
         /// <summary>
-        /// Delete a group from the list of groups included in a mobile app management policy.
+        /// Delete ref of navigation property includedGroups for policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

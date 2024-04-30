@@ -21,13 +21,13 @@ namespace ApiSdk.Applications.Item.SetVerifiedPublisher {
     {
         /// <summary>
         /// Set the the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Set the the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0";
+            command.Description = "Set the the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;

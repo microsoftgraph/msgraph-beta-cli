@@ -107,14 +107,13 @@ namespace ApiSdk.Drives.Item.Activities {
             return command;
         }
         /// <summary>
-        /// List the recent activities that took place on an item or under a hierarchy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/activities-list?view=graph-rest-1.0" />
+        /// The list of recent activities that took place under this drive.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the recent activities that took place on an item or under a hierarchy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/activities-list?view=graph-rest-1.0";
+            command.Description = "The list of recent activities that took place under this drive.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -222,7 +221,7 @@ namespace ApiSdk.Drives.Item.Activities {
         {
         }
         /// <summary>
-        /// List the recent activities that took place on an item or under a hierarchy.
+        /// The list of recent activities that took place under this drive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,13 +255,13 @@ namespace ApiSdk.Drives.Item.Activities {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/activities", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the recent activities that took place on an item or under a hierarchy.
+        /// The list of recent activities that took place under this drive.
         /// </summary>
         public class ActivitiesRequestBuilderGetQueryParameters 
         {

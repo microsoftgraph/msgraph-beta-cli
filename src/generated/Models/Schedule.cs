@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Schedule : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Indicates whether copied shifts should include the activities.</summary>
         public bool? ActivitiesIncludedWhenCopyingShiftsEnabled { get; set; }

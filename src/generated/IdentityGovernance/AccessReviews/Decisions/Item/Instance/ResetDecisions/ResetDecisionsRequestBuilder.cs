@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.ResetD
     {
         /// <summary>
         /// Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-1.0";
+            command.Description = "Resets decisions of all accessReviewInstanceDecisionItem objects on an accessReviewInstance to notReviewed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-beta";
             var accessReviewInstanceDecisionItemIdOption = new Option<string>("--access-review-instance-decision-item-id", description: "The unique identifier of accessReviewInstanceDecisionItem") {
             };
             accessReviewInstanceDecisionItemIdOption.IsRequired = true;

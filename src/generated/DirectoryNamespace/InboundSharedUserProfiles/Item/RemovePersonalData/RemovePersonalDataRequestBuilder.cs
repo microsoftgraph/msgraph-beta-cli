@@ -21,13 +21,13 @@ namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.RemovePersona
     {
         /// <summary>
         /// Create a request to remove the personal data for an inboundSharedUserProfile. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/inboundshareduserprofile-removepersonaldata?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/inboundshareduserprofile-removepersonaldata?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create a request to remove the personal data for an inboundSharedUserProfile. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/inboundshareduserprofile-removepersonaldata?view=graph-rest-1.0";
+            command.Description = "Create a request to remove the personal data for an inboundSharedUserProfile. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/inboundshareduserprofile-removepersonaldata?view=graph-rest-beta";
             var inboundSharedUserProfileUserIdOption = new Option<string>("--inbound-shared-user-profile-user-id", description: "The unique identifier of inboundSharedUserProfile") {
             };
             inboundSharedUserProfileUserIdOption.IsRequired = true;

@@ -71,14 +71,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return command;
         }
         /// <summary>
-        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0" />
+        /// Create new navigation property to members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to members for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -123,14 +122,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return command;
         }
         /// <summary>
-        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-members?view=graph-rest-1.0" />
+        /// A collection of membership records associated with the channel.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-members?view=graph-rest-1.0";
+            command.Description = "A collection of membership records associated with the channel.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -238,7 +236,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
         {
         }
         /// <summary>
-        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+        /// A collection of membership records associated with the channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,7 +255,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
             return requestInfo;
         }
         /// <summary>
-        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+        /// Create new navigation property to members for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -272,13 +270,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Membe
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/members", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+        /// A collection of membership records associated with the channel.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

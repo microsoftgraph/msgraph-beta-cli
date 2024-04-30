@@ -98,14 +98,13 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
             return command;
         }
         /// <summary>
-        /// Retrieve the applicationSignInDetailedSummary objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-applicationsignindetailedsummary?view=graph-rest-1.0" />
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the applicationSignInDetailedSummary objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-applicationsignindetailedsummary?view=graph-rest-1.0";
+            command.Description = "Represents a detailed summary of an application sign-in.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
         {
         }
         /// <summary>
-        /// Retrieve the applicationSignInDetailedSummary objects.
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/reports/applicationSignInDetailedSummary", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the applicationSignInDetailedSummary objects.
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         public class ApplicationSignInDetailedSummaryRequestBuilderGetQueryParameters 
         {

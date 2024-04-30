@@ -22,13 +22,12 @@ namespace ApiSdk.Teams.Item.Channels.Item.FilesFolder.Content {
     {
         /// <summary>
         /// Get content for the navigation property filesFolder from teams
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get content for the navigation property filesFolder from teams\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0";
+            command.Description = "Get content for the navigation property filesFolder from teams";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -176,7 +175,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.FilesFolder.Content {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/filesFolder/content", PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");

@@ -81,14 +81,13 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
             return command;
         }
         /// <summary>
-        /// Retrieve the hosted content in an app&apos;s icon.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkhostedcontent-get?view=graph-rest-1.0" />
+        /// The contents of the app icon if the icon is hosted within the Teams infrastructure.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the hosted content in an app's icon.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkhostedcontent-get?view=graph-rest-1.0";
+            command.Description = "The contents of the app icon if the icon is hosted within the Teams infrastructure.";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -224,13 +223,13 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/colorIcon/hostedContent", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the hosted content in an app&apos;s icon.
+        /// The contents of the app icon if the icon is hosted within the Teams infrastructure.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,13 +263,13 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/colorIcon/hostedContent", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the hosted content in an app&apos;s icon.
+        /// The contents of the app icon if the icon is hosted within the Teams infrastructure.
         /// </summary>
         public class HostedContentRequestBuilderGetQueryParameters 
         {

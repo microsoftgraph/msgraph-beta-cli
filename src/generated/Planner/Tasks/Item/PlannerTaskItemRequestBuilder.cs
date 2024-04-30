@@ -63,14 +63,13 @@ namespace ApiSdk.Planner.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Delete a plannerTask object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannertask-delete?view=graph-rest-1.0" />
+        /// Delete navigation property tasks for planner
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a plannerTask object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannertask-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property tasks for planner";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -118,14 +117,13 @@ namespace ApiSdk.Planner.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerTask object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannertask-get?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns a collection of the specified tasks
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of plannerTask object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannertask-get?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns a collection of the specified tasks";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -172,13 +170,12 @@ namespace ApiSdk.Planner.Tasks.Item {
         }
         /// <summary>
         /// Update the navigation property tasks in planner
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannertask-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property tasks in planner\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannertask-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property tasks in planner";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -263,7 +260,7 @@ namespace ApiSdk.Planner.Tasks.Item {
         {
         }
         /// <summary>
-        /// Delete a plannerTask object.
+        /// Delete navigation property tasks for planner
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -276,13 +273,13 @@ namespace ApiSdk.Planner.Tasks.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/planner/tasks/{plannerTask%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerTask object.
+        /// Read-only. Nullable. Returns a collection of the specified tasks
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -316,13 +313,13 @@ namespace ApiSdk.Planner.Tasks.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/planner/tasks/{plannerTask%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerTask object.
+        /// Read-only. Nullable. Returns a collection of the specified tasks
         /// </summary>
         public class PlannerTaskItemRequestBuilderGetQueryParameters 
         {

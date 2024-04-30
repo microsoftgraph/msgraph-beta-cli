@@ -107,13 +107,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
+        /// A collection of role settings for the provider.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the properties and relationships of a governanceRoleSetting.";
+            command.Description = "A collection of role settings for the provider.";
             var privilegedAccessIdOption = new Option<string>("--privileged-access-id", description: "The unique identifier of privilegedAccess") {
             };
             privilegedAccessIdOption.IsRequired = true;
@@ -221,7 +221,7 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings {
         {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
+        /// A collection of role settings for the provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +255,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
+        /// A collection of role settings for the provider.
         /// </summary>
         public class RoleSettingsRequestBuilderGetQueryParameters 
         {

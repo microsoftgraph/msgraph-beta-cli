@@ -99,15 +99,14 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Authenticati
             return command;
         }
         /// <summary>
-        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0" />
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The &apos;authenticationStrengths&apos; segment is deprecated. Please use &apos;authenticationStrength&apos; instead. as of 2023-02/AuthenticationStrengthsRemove")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0";
+            command.Description = "Names and descriptions of all valid authentication method modes in the system.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Authenticati
         {
         }
         /// <summary>
-        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Authenticati
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/conditionalAccess/authenticationStrengths/authenticationMethodModes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         public class AuthenticationMethodModesRequestBuilderGetQueryParameters 
         {

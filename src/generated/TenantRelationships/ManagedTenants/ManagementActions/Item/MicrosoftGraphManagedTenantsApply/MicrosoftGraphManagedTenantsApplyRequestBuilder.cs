@@ -22,13 +22,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item.Micro
     {
         /// <summary>
         /// Applies a management action against a specific managed tenant. By performing this operation the appropriate configurations will be made and policies created. As example when applying the require multifactor authentication for admins management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that have been assigned an administrative directory role.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementaction-apply?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementaction-apply?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Applies a management action against a specific managed tenant. By performing this operation the appropriate configurations will be made and policies created. As example when applying the require multifactor authentication for admins management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that have been assigned an administrative directory role.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementaction-apply?view=graph-rest-1.0";
+            command.Description = "Applies a management action against a specific managed tenant. By performing this operation the appropriate configurations will be made and policies created. As example when applying the require multifactor authentication for admins management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that have been assigned an administrative directory role.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementaction-apply?view=graph-rest-beta";
             var managementActionIdOption = new Option<string>("--management-action-id", description: "The unique identifier of managementAction") {
             };
             managementActionIdOption.IsRequired = true;

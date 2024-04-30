@@ -22,15 +22,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
     public class ReviewSetQueryItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a reviewSetQuery object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-delete?view=graph-rest-1.0" />
+        /// Delete navigation property queries for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a reviewSetQuery object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property queries for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -71,15 +70,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-get?view=graph-rest-1.0" />
+        /// Get queries from compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-get?view=graph-rest-1.0";
+            command.Description = "Get queries from compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -154,15 +152,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an eDiscovery reviewSetQuery.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-update?view=graph-rest-1.0" />
+        /// Update the navigation property queries in compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an eDiscovery reviewSetQuery.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property queries in compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -233,7 +230,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
         {
         }
         /// <summary>
-        /// Delete a reviewSetQuery object.
+        /// Delete navigation property queries for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}/queries/{reviewSetQuery%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
+        /// Get queries from compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -273,7 +270,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an eDiscovery reviewSetQuery.
+        /// Update the navigation property queries in compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -289,13 +286,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}/queries/{reviewSetQuery%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
+        /// Get queries from compliance
         /// </summary>
         public class ReviewSetQueryItemRequestBuilderGetQueryParameters 
         {

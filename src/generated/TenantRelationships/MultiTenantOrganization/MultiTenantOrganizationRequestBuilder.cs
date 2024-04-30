@@ -23,14 +23,13 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
     public class MultiTenantOrganizationRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Get properties of the multitenant organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-1.0" />
+        /// Defines an organization with more than one instance of Microsoft Entra ID.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get properties of the multitenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-1.0";
+            command.Description = "Defines an organization with more than one instance of Microsoft Entra ID.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -88,14 +87,13 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
             return command;
         }
         /// <summary>
-        /// Update the properties of a multi-tenant organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-1.0" />
+        /// Update the navigation property multiTenantOrganization in tenantRelationships
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildPatchCommand()
+        public Command BuildPutCommand()
         {
-            var command = new Command("patch");
-            command.Description = "Update the properties of a multi-tenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-1.0";
+            var command = new Command("put");
+            command.Description = "Update the navigation property multiTenantOrganization in tenantRelationships";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -119,7 +117,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
                     Console.Error.WriteLine("No model data to send.");
                     return;
                 }
-                var requestInfo = ToPatchRequestInformation(model, q => {
+                var requestInfo = ToPutRequestInformation(model, q => {
                 });
                 requestInfo.SetContentFromParsable(reqAdapter, "application/json", model);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -175,7 +173,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
         {
         }
         /// <summary>
-        /// Get properties of the multitenant organization.
+        /// Defines an organization with more than one instance of Microsoft Entra ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -194,28 +192,28 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a multi-tenant organization.
+        /// Update the navigation property multiTenantOrganization in tenantRelationships
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MultiTenantOrganization body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(ApiSdk.Models.MultiTenantOrganization body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MultiTenantOrganization body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(ApiSdk.Models.MultiTenantOrganization body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/multiTenantOrganization", PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get properties of the multitenant organization.
+        /// Defines an organization with more than one instance of Microsoft Entra ID.
         /// </summary>
         public class MultiTenantOrganizationRequestBuilderGetQueryParameters 
         {

@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.MicrosoftGraphWindowsUpdatesRemoveMembers {
+    #pragma warning disable CS1591
     public class RemoveMembersPostRequestBody : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

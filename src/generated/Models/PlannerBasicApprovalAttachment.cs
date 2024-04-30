@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PlannerBasicApprovalAttachment : PlannerBaseApprovalAttachment, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The approvalId property</summary>
+        /// <summary>Read-only. The identifier of the approval in the approval service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApprovalId { get; set; }

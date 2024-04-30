@@ -55,14 +55,13 @@ namespace ApiSdk.Drives.Item.List.Columns {
             return command;
         }
         /// <summary>
-        /// Create columnDefinition
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0" />
+        /// Create new navigation property to columns for drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to columns for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -108,13 +107,12 @@ namespace ApiSdk.Drives.Item.List.Columns {
         }
         /// <summary>
         /// The collection of field definitions for this list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of field definitions for this list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of field definitions for this list.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -241,7 +239,7 @@ namespace ApiSdk.Drives.Item.List.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create columnDefinition
+        /// Create new navigation property to columns for drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,7 +254,7 @@ namespace ApiSdk.Drives.Item.List.Columns {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/list/columns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

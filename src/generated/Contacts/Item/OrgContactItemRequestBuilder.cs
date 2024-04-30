@@ -131,13 +131,13 @@ namespace ApiSdk.Contacts.Item {
         }
         /// <summary>
         /// Get the properties and relationships of an organizational contact object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an organizational contact object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0";
+            command.Description = "Get the properties and relationships of an organizational contact object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-beta";
             var orgContactIdOption = new Option<string>("--org-contact-id", description: "The unique identifier of orgContact") {
             };
             orgContactIdOption.IsRequired = true;
@@ -451,7 +451,7 @@ namespace ApiSdk.Contacts.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/contacts/{orgContact%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -491,7 +491,7 @@ namespace ApiSdk.Contacts.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/contacts/{orgContact%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

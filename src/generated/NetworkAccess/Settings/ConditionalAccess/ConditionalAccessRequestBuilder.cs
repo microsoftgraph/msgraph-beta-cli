@@ -50,14 +50,13 @@ namespace ApiSdk.NetworkAccess.Settings.ConditionalAccess {
             return command;
         }
         /// <summary>
-        /// Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-get?view=graph-rest-1.0" />
+        /// Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-get?view=graph-rest-1.0";
+            command.Description = "Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,14 +96,13 @@ namespace ApiSdk.NetworkAccess.Settings.ConditionalAccess {
             return command;
         }
         /// <summary>
-        /// Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-update?view=graph-rest-1.0" />
+        /// Update the navigation property conditionalAccess in networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property conditionalAccess in networkAccess";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -170,13 +168,13 @@ namespace ApiSdk.NetworkAccess.Settings.ConditionalAccess {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/settings/conditionalAccess", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
+        /// Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -195,7 +193,7 @@ namespace ApiSdk.NetworkAccess.Settings.ConditionalAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
+        /// Update the navigation property conditionalAccess in networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -210,13 +208,13 @@ namespace ApiSdk.NetworkAccess.Settings.ConditionalAccess {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/settings/conditionalAccess", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
+        /// Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
         /// </summary>
         public class ConditionalAccessRequestBuilderGetQueryParameters 
         {

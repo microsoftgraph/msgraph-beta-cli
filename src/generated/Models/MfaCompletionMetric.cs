@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class MfaCompletionMetric : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The ID of the Microsoft Entra application. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -18,8 +20,40 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Number of users who attempted to sign up. Supports $filter (eq).</summary>
         public long? AttemptsCount { get; set; }
+        /// <summary>The country property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Country { get; set; }
+#nullable restore
+#else
+        public string Country { get; set; }
+#endif
         /// <summary>The date of the user insight.</summary>
         public Date? FactDate { get; set; }
+        /// <summary>The identityProvider property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityProvider { get; set; }
+#nullable restore
+#else
+        public string IdentityProvider { get; set; }
+#endif
+        /// <summary>The language property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
+        /// <summary>The mfaFailures property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MfaFailure>? MfaFailures { get; set; }
+#nullable restore
+#else
+        public List<MfaFailure> MfaFailures { get; set; }
+#endif
         /// <summary>The MFA authentication method used by the customers. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +92,11 @@ namespace ApiSdk.Models {
             {
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"attemptsCount", n => { AttemptsCount = n.GetLongValue(); } },
+                {"country", n => { Country = n.GetStringValue(); } },
                 {"factDate", n => { FactDate = n.GetDateValue(); } },
+                {"identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
+                {"language", n => { Language = n.GetStringValue(); } },
+                {"mfaFailures", n => { MfaFailures = n.GetCollectionOfObjectValues<MfaFailure>(MfaFailure.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"mfaMethod", n => { MfaMethod = n.GetStringValue(); } },
                 {"os", n => { Os = n.GetStringValue(); } },
                 {"successCount", n => { SuccessCount = n.GetLongValue(); } },
@@ -74,7 +112,11 @@ namespace ApiSdk.Models {
             base.Serialize(writer);
             writer.WriteStringValue("appId", AppId);
             writer.WriteLongValue("attemptsCount", AttemptsCount);
+            writer.WriteStringValue("country", Country);
             writer.WriteDateValue("factDate", FactDate);
+            writer.WriteStringValue("identityProvider", IdentityProvider);
+            writer.WriteStringValue("language", Language);
+            writer.WriteCollectionOfObjectValues<MfaFailure>("mfaFailures", MfaFailures);
             writer.WriteStringValue("mfaMethod", MfaMethod);
             writer.WriteStringValue("os", Os);
             writer.WriteLongValue("successCount", SuccessCount);

@@ -85,14 +85,13 @@ namespace ApiSdk.Groups.Item.Team.Channels {
             return command;
         }
         /// <summary>
-        /// Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel&apos;s displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post?view=graph-rest-1.0" />
+        /// Create new navigation property to channels for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to channels for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -171,14 +170,13 @@ namespace ApiSdk.Groups.Item.Team.Channels {
             return command;
         }
         /// <summary>
-        /// Retrieve the list of channels in this team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list?view=graph-rest-1.0" />
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the list of channels in this team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list?view=graph-rest-1.0";
+            command.Description = "The collection of channels and messages associated with the team.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -286,7 +284,7 @@ namespace ApiSdk.Groups.Item.Team.Channels {
         {
         }
         /// <summary>
-        /// Retrieve the list of channels in this team.
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -305,7 +303,7 @@ namespace ApiSdk.Groups.Item.Team.Channels {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel&apos;s displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
+        /// Create new navigation property to channels for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -320,13 +318,13 @@ namespace ApiSdk.Groups.Item.Team.Channels {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/team/channels", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the list of channels in this team.
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         public class ChannelsRequestBuilderGetQueryParameters 
         {

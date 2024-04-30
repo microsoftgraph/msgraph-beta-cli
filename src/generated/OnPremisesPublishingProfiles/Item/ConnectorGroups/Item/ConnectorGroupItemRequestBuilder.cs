@@ -85,14 +85,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
             return command;
         }
         /// <summary>
-        /// Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0" />
+        /// Delete navigation property connectorGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property connectorGroups for onPremisesPublishingProfiles";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -127,14 +126,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of a connectorGroup.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0" />
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a connectorGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0";
+            command.Description = "List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -213,14 +211,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a connectorGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0" />
+        /// Update the navigation property connectorGroups in onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a connectorGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property connectorGroups in onPremisesPublishingProfiles";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -285,7 +282,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
         {
         }
         /// <summary>
-        /// Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
+        /// Delete navigation property connectorGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -298,13 +295,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a connectorGroup.
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -323,7 +320,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a connectorGroup object.
+        /// Update the navigation property connectorGroups in onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -338,13 +335,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a connectorGroup.
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         public class ConnectorGroupItemRequestBuilderGetQueryParameters 
         {

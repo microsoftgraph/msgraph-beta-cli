@@ -20,13 +20,14 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleScheduleInstancesdirecto
     public class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-rolescheduleinstances?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function roleScheduleInstances";
+            command.Description = "Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-rolescheduleinstances?view=graph-rest-beta";
             var rbacApplicationIdOption = new Option<string>("--rbac-application-id", description: "The unique identifier of rbacApplication") {
             };
             rbacApplicationIdOption.IsRequired = true;
@@ -158,7 +159,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleScheduleInstancesdirecto
         {
         }
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -177,7 +178,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleScheduleInstancesdirecto
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function roleScheduleInstances
+        /// Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
         /// </summary>
         public class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
         {

@@ -22,13 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.Return
     {
         /// <summary>
         /// Make the grade and feedback associated with this submission available to the student. This will change the status of the submission from &apos;submitted&apos; to &apos;returned&apos; and indicates that feedback is provided or grading is done. This action can only be done by the teacher.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsubmission-return?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsubmission-return?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Make the grade and feedback associated with this submission available to the student. This will change the status of the submission from 'submitted' to 'returned' and indicates that feedback is provided or grading is done. This action can only be done by the teacher.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsubmission-return?view=graph-rest-1.0";
+            command.Description = "Make the grade and feedback associated with this submission available to the student. This will change the status of the submission from 'submitted' to 'returned' and indicates that feedback is provided or grading is done. This action can only be done by the teacher.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsubmission-return?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;

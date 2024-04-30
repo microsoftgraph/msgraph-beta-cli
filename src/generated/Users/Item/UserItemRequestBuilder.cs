@@ -58,12 +58,14 @@ using ApiSdk.Users.Item.InferenceClassification;
 using ApiSdk.Users.Item.InformationProtection;
 using ApiSdk.Users.Item.Insights;
 using ApiSdk.Users.Item.InvalidateAllRefreshTokens;
+using ApiSdk.Users.Item.InvitedBy;
 using ApiSdk.Users.Item.IsManagedAppUserBlocked;
 using ApiSdk.Users.Item.JoinedGroups;
 using ApiSdk.Users.Item.JoinedTeams;
 using ApiSdk.Users.Item.LicenseDetails;
 using ApiSdk.Users.Item.MailFolders;
 using ApiSdk.Users.Item.MailboxSettings;
+using ApiSdk.Users.Item.ManagedAppLogCollectionRequests;
 using ApiSdk.Users.Item.ManagedAppRegistrations;
 using ApiSdk.Users.Item.ManagedDevices;
 using ApiSdk.Users.Item.Manager;
@@ -432,7 +434,6 @@ namespace ApiSdk.Users.Item {
             nonExecCommands.Add(builder.BuildAllowedCalendarSharingRolesWithUserRbCommand());
             nonExecCommands.Add(builder.BuildCalendarPermissionsNavCommand());
             nonExecCommands.Add(builder.BuildCalendarViewNavCommand());
-            execCommands.Add(builder.BuildDeleteCommand());
             nonExecCommands.Add(builder.BuildEventsNavCommand());
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildGetScheduleNavCommand());
@@ -739,13 +740,13 @@ namespace ApiSdk.Users.Item {
         }
         /// <summary>
         /// Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0";
+            command.Description = "Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -1194,13 +1195,13 @@ namespace ApiSdk.Users.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -1518,6 +1519,23 @@ namespace ApiSdk.Users.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the invitedBy property of the microsoft.graph.user entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildInvitedByNavCommand()
+        {
+            var command = new Command("invited-by");
+            command.Description = "Provides operations to manage the invitedBy property of the microsoft.graph.user entity.";
+            var builder = new InvitedByRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the isManagedAppUserBlocked method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -1644,6 +1662,33 @@ namespace ApiSdk.Users.Item {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             nonExecCommands.Add(builder.BuildDeltaNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the managedAppLogCollectionRequests property of the microsoft.graph.user entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildManagedAppLogCollectionRequestsNavCommand()
+        {
+            var command = new Command("managed-app-log-collection-requests");
+            command.Description = "Provides operations to manage the managedAppLogCollectionRequests property of the microsoft.graph.user entity.";
+            var builder = new ManagedAppLogCollectionRequestsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);
@@ -2080,13 +2125,13 @@ namespace ApiSdk.Users.Item {
         }
         /// <summary>
         /// Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. Customers through Microsoft Entra ID for customers can also use this API operation to update their details. See Default user permissions in customer tenants for the list of properties they can update.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. Customers through Microsoft Entra ID for customers can also use this API operation to update their details. See Default user permissions in customer tenants for the list of properties they can update.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. Customers through Microsoft Entra ID for customers can also use this API operation to update their details. See Default user permissions in customer tenants for the list of properties they can update.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -2223,6 +2268,7 @@ namespace ApiSdk.Users.Item {
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildContentNavCommand());
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
             foreach (var cmd in execCommands)
@@ -2603,6 +2649,7 @@ namespace ApiSdk.Users.Item {
             execCommands.Add(builder.BuildPatchCommand());
             nonExecCommands.Add(builder.BuildRegionalAndLanguageSettingsNavCommand());
             nonExecCommands.Add(builder.BuildShiftPreferencesNavCommand());
+            nonExecCommands.Add(builder.BuildStorageNavCommand());
             nonExecCommands.Add(builder.BuildWindowsNavCommand());
             foreach (var cmd in execCommands)
             {
@@ -2955,7 +3002,7 @@ namespace ApiSdk.Users.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -2995,7 +3042,7 @@ namespace ApiSdk.Users.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

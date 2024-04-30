@@ -2,6 +2,7 @@
 using ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.Apps;
 using ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.Assign;
 using ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.Assignments;
+using ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.DeploymentSummary;
 using ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps;
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
@@ -128,6 +129,25 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item {
                 await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
                 Console.WriteLine("Success");
             });
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the deploymentSummary property of the microsoft.graph.windowsManagedAppProtection entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeploymentSummaryNavCommand()
+        {
+            var command = new Command("deployment-summary");
+            command.Description = "Provides operations to manage the deploymentSummary property of the microsoft.graph.windowsManagedAppProtection entity.";
+            var builder = new DeploymentSummaryRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
             return command;
         }
         /// <summary>
@@ -278,7 +298,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -318,7 +338,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

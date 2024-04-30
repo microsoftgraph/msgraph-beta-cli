@@ -24,14 +24,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.Item {
     public class TeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Uninstalls an app from the specified team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-delete-installedapps?view=graph-rest-1.0" />
+        /// Delete navigation property installedApps for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Uninstalls an app from the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-delete-installedapps?view=graph-rest-1.0";
+            command.Description = "Delete navigation property installedApps for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -66,14 +65,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the app installed in the specified team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get-installedapps?view=graph-rest-1.0" />
+        /// The apps installed in this team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the app installed in the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-get-installedapps?view=graph-rest-1.0";
+            command.Description = "The apps installed in this team.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -247,7 +245,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.Item {
         {
         }
         /// <summary>
-        /// Uninstalls an app from the specified team.
+        /// Delete navigation property installedApps for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,13 +258,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/installedApps/{teamsAppInstallation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the app installed in the specified team.
+        /// The apps installed in this team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -300,13 +298,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/installedApps/{teamsAppInstallation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the app installed in the specified team.
+        /// The apps installed in this team.
         /// </summary>
         public class TeamsAppInstallationItemRequestBuilderGetQueryParameters 
         {

@@ -100,14 +100,13 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
             return command;
         }
         /// <summary>
-        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0" />
+        /// Represents the role management policy assignments.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0";
+            command.Description = "Represents the role management policy assignments.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
         {
         }
         /// <summary>
-        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+        /// Represents the role management policy assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/policies/roleManagementPolicyAssignments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+        /// Represents the role management policy assignments.
         /// </summary>
         public class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters 
         {

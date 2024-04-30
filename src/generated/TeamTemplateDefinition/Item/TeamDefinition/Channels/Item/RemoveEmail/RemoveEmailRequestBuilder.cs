@@ -21,13 +21,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Remove
     {
         /// <summary>
         /// Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-removeemail?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-removeemail?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-removeemail?view=graph-rest-1.0";
+            command.Description = "Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-removeemail?view=graph-rest-beta";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;

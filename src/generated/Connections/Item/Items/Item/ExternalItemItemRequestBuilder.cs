@@ -50,14 +50,13 @@ namespace ApiSdk.Connections.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Delete an externalitem.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0" />
+        /// Delete navigation property items for connections
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an externalitem.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property items for connections";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -92,14 +91,13 @@ namespace ApiSdk.Connections.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0" />
+        /// Get items from connections
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0";
+            command.Description = "Get items from connections";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -239,7 +237,7 @@ namespace ApiSdk.Connections.Item.Items.Item {
         {
         }
         /// <summary>
-        /// Delete an externalitem.
+        /// Delete navigation property items for connections
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +250,13 @@ namespace ApiSdk.Connections.Item.Items.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+        /// Get items from connections
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -292,13 +290,13 @@ namespace ApiSdk.Connections.Item.Items.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+        /// Get items from connections
         /// </summary>
         public class ExternalItemItemRequestBuilderGetQueryParameters 
         {

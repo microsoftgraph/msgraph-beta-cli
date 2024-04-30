@@ -23,13 +23,13 @@ namespace ApiSdk.ProgramControls.Item {
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-delete?view=graph-rest-beta";
             var programControlIdOption = new Option<string>("--program-control-id", description: "The unique identifier of programControl") {
             };
             programControlIdOption.IsRequired = true;
@@ -213,7 +213,7 @@ namespace ApiSdk.ProgramControls.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/programControls/{programControl%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -253,7 +253,7 @@ namespace ApiSdk.ProgramControls.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/programControls/{programControl%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

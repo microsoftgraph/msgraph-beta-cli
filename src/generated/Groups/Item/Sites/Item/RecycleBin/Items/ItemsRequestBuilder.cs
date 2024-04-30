@@ -113,14 +113,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.RecycleBin.Items {
             return command;
         }
         /// <summary>
-        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recyclebin-list-items?view=graph-rest-1.0" />
+        /// List of the recycleBinItems deleted by a user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recyclebin-list-items?view=graph-rest-1.0";
+            command.Description = "List of the recycleBinItems deleted by a user.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -234,7 +233,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.RecycleBin.Items {
         {
         }
         /// <summary>
-        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
+        /// List of the recycleBinItems deleted by a user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,13 +267,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.RecycleBin.Items {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/recycleBin/items", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
+        /// List of the recycleBinItems deleted by a user.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters 
         {

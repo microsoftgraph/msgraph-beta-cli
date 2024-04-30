@@ -21,14 +21,14 @@ namespace ApiSdk.Domains.Item.Verify {
     public class VerifyRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Validates the ownership of the domain.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0" />
+        /// Validate the ownership of a domain.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Validates the ownership of the domain.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0";
+            command.Description = "Validate the ownership of a domain.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -74,7 +74,7 @@ namespace ApiSdk.Domains.Item.Verify {
         {
         }
         /// <summary>
-        /// Validates the ownership of the domain.
+        /// Validate the ownership of a domain.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

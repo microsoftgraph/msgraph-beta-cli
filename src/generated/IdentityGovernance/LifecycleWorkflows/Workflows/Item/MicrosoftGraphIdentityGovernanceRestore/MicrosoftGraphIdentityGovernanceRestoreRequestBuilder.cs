@@ -22,13 +22,13 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.MicrosoftG
     {
         /// <summary>
         /// Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflow-restore?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflow-restore?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflow-restore?view=graph-rest-1.0";
+            command.Description = "Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflow-restore?view=graph-rest-beta";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
             };
             workflowIdOption.IsRequired = true;

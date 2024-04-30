@@ -53,14 +53,13 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles {
             return command;
         }
         /// <summary>
-        /// Create a new pendingExternalUserProfile object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-post-pendingexternaluserprofile?view=graph-rest-1.0" />
+        /// Create new navigation property to pendingExternalUserProfiles for directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new pendingExternalUserProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-post-pendingexternaluserprofile?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to pendingExternalUserProfiles for directory";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +98,13 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of all pendingExternalUserProfiles.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-pendingexternaluserprofile?view=graph-rest-1.0" />
+        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the properties of all pendingExternalUserProfiles.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-pendingexternaluserprofile?view=graph-rest-1.0";
+            command.Description = "Collection of pending external user profiles representing collaborators in the directory that are unredeemed.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +206,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles {
         {
         }
         /// <summary>
-        /// Retrieve the properties of all pendingExternalUserProfiles.
+        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +225,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new pendingExternalUserProfile object.
+        /// Create new navigation property to pendingExternalUserProfiles for directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -242,13 +240,13 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/pendingExternalUserProfiles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of all pendingExternalUserProfiles.
+        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
         /// </summary>
         public class PendingExternalUserProfilesRequestBuilderGetQueryParameters 
         {

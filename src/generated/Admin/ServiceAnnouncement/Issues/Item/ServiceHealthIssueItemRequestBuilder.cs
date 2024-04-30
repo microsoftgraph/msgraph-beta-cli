@@ -57,14 +57,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0" />
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0";
+            command.Description = "A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.";
             var serviceHealthIssueIdOption = new Option<string>("--service-health-issue-id", description: "The unique identifier of serviceHealthIssue") {
             };
             serviceHealthIssueIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/serviceAnnouncement/issues/{serviceHealthIssue%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/serviceAnnouncement/issues/{serviceHealthIssue%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         public class ServiceHealthIssueItemRequestBuilderGetQueryParameters 
         {

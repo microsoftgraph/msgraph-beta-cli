@@ -23,14 +23,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
     public class ConnectedOrganizationItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a connectedOrganization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0" />
+        /// Delete navigation property connectedOrganizations for identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a connectedOrganization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property connectedOrganizations for identityGovernance";
             var connectedOrganizationIdOption = new Option<string>("--connected-organization-id", description: "The unique identifier of connectedOrganization") {
             };
             connectedOrganizationIdOption.IsRequired = true;
@@ -86,14 +85,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectedOrganization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0" />
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a connectedOrganization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0";
+            command.Description = "Represents references to a directory or domain of another organization whose users can request access.";
             var connectedOrganizationIdOption = new Option<string>("--connected-organization-id", description: "The unique identifier of connectedOrganization") {
             };
             connectedOrganizationIdOption.IsRequired = true;
@@ -166,14 +164,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return command;
         }
         /// <summary>
-        /// Update a connectedOrganization object to change one or more of its properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0" />
+        /// Update the navigation property connectedOrganizations in identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update a connectedOrganization object to change one or more of its properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property connectedOrganizations in identityGovernance";
             var connectedOrganizationIdOption = new Option<string>("--connected-organization-id", description: "The unique identifier of connectedOrganization") {
             };
             connectedOrganizationIdOption.IsRequired = true;
@@ -232,7 +229,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
         {
         }
         /// <summary>
-        /// Delete a connectedOrganization object.
+        /// Delete navigation property connectedOrganizations for identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +242,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectedOrganization object.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -270,7 +267,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return requestInfo;
         }
         /// <summary>
-        /// Update a connectedOrganization object to change one or more of its properties.
+        /// Update the navigation property connectedOrganizations in identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -285,13 +282,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectedOrganization object.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// </summary>
         public class ConnectedOrganizationItemRequestBuilderGetQueryParameters 
         {

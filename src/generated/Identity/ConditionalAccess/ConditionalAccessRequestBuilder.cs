@@ -2,6 +2,7 @@
 using ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences;
 using ApiSdk.Identity.ConditionalAccess.AuthenticationStrength;
 using ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths;
+using ApiSdk.Identity.ConditionalAccess.Evaluate;
 using ApiSdk.Identity.ConditionalAccess.NamedLocations;
 using ApiSdk.Identity.ConditionalAccess.Policies;
 using ApiSdk.Identity.ConditionalAccess.Templates;
@@ -95,6 +96,23 @@ namespace ApiSdk.Identity.ConditionalAccess {
                 command.AddCommand(cmd);
             }
             foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the evaluate method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildEvaluateNavCommand()
+        {
+            var command = new Command("evaluate");
+            command.Description = "Provides operations to call the evaluate method.";
+            var builder = new EvaluateRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
             }

@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Restore {
     {
         /// <summary>
         /// Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0";
+            command.Description = "Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;

@@ -98,13 +98,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
             return command;
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get an engagementAsyncOperation to track a long-running operation request.";
+            command.Description = "A collection of long-running, asynchronous operations related to Viva Engage.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -206,7 +206,7 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
         {
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,13 +240,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/employeeExperience/engagementAsyncOperations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         public class EngagementAsyncOperationsRequestBuilderGetQueryParameters 
         {

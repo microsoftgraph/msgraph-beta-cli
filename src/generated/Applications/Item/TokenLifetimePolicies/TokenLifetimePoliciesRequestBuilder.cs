@@ -52,14 +52,13 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
             return command;
         }
         /// <summary>
-        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0" />
+        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0";
+            command.Description = "The tokenLifetimePolicies assigned to this application. Supports $expand.";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -186,7 +185,7 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
         {
         }
         /// <summary>
-        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +204,7 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
         /// </summary>
         public class TokenLifetimePoliciesRequestBuilderGetQueryParameters 
         {

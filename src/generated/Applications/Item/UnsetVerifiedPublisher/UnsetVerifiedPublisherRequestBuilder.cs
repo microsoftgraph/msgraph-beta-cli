@@ -21,13 +21,13 @@ namespace ApiSdk.Applications.Item.UnsetVerifiedPublisher {
     {
         /// <summary>
         /// Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0";
+            command.Description = "Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;

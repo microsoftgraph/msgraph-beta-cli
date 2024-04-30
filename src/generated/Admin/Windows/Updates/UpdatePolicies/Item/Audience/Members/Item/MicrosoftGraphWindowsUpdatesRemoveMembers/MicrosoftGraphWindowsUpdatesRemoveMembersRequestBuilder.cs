@@ -21,13 +21,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
     {
         /// <summary>
         /// Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembers?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembers?view=graph-rest-1.0";
+            command.Description = "Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembers?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;

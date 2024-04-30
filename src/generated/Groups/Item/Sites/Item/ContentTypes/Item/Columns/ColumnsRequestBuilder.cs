@@ -55,14 +55,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Create columnDefinition for a content type
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-post-columns?view=graph-rest-1.0" />
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create columnDefinition for a content type\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-post-columns?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to columns for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -119,14 +118,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Columns {
             return command;
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-list-columns?view=graph-rest-1.0" />
+        /// The collection of column definitions for this content type.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of column definitions for this contentType.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of column definitions for this content type.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -246,7 +244,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Columns {
         {
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
+        /// The collection of column definitions for this content type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +263,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create columnDefinition for a content type
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -280,13 +278,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Columns {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
+        /// The collection of column definitions for this content type.
         /// </summary>
         public class ColumnsRequestBuilderGetQueryParameters 
         {

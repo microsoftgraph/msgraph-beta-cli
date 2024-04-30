@@ -21,15 +21,14 @@ namespace ApiSdk.Identity.UserFlows.Item {
     public class IdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an existing userFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-1.0" />
+        /// Delete navigation property userFlows for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an existing userFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property userFlows for identity";
             var identityUserFlowIdOption = new Option<string>("--identity-user-flow-id", description: "The unique identifier of identityUserFlow") {
             };
             identityUserFlowIdOption.IsRequired = true;
@@ -58,15 +57,14 @@ namespace ApiSdk.Identity.UserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and associations for an userFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-1.0" />
+        /// Get userFlows from identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and associations for an userFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-1.0";
+            command.Description = "Get userFlows from identity";
             var identityUserFlowIdOption = new Option<string>("--identity-user-flow-id", description: "The unique identifier of identityUserFlow") {
             };
             identityUserFlowIdOption.IsRequired = true;
@@ -178,7 +176,7 @@ namespace ApiSdk.Identity.UserFlows.Item {
         {
         }
         /// <summary>
-        /// Delete an existing userFlow object.
+        /// Delete navigation property userFlows for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,13 +190,13 @@ namespace ApiSdk.Identity.UserFlows.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identity/userFlows/{identityUserFlow%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and associations for an userFlow object.
+        /// Get userFlows from identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -234,13 +232,13 @@ namespace ApiSdk.Identity.UserFlows.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identity/userFlows/{identityUserFlow%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and associations for an userFlow object.
+        /// Get userFlows from identity
         /// </summary>
         public class IdentityUserFlowItemRequestBuilderGetQueryParameters 
         {

@@ -50,14 +50,13 @@ namespace ApiSdk.Policies.AuthenticationFlowsPolicy {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an authenticationFlowsPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0" />
+        /// The policy configuration of the self-service sign-up experience of guests.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an authenticationFlowsPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0";
+            command.Description = "The policy configuration of the self-service sign-up experience of guests.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,14 +96,13 @@ namespace ApiSdk.Policies.AuthenticationFlowsPolicy {
             return command;
         }
         /// <summary>
-        /// Update the Boolean selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0" />
+        /// Update the navigation property authenticationFlowsPolicy in policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the Boolean selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property authenticationFlowsPolicy in policies";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -170,13 +168,13 @@ namespace ApiSdk.Policies.AuthenticationFlowsPolicy {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/policies/authenticationFlowsPolicy", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an authenticationFlowsPolicy object.
+        /// The policy configuration of the self-service sign-up experience of guests.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -195,7 +193,7 @@ namespace ApiSdk.Policies.AuthenticationFlowsPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the Boolean selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+        /// Update the navigation property authenticationFlowsPolicy in policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -210,13 +208,13 @@ namespace ApiSdk.Policies.AuthenticationFlowsPolicy {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/authenticationFlowsPolicy", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an authenticationFlowsPolicy object.
+        /// The policy configuration of the self-service sign-up experience of guests.
         /// </summary>
         public class AuthenticationFlowsPolicyRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,13 @@ namespace ApiSdk.Connections.Item.Groups.Item.Members.Item {
     public class IdentityItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an externalGroupMember object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalgroupmember-delete?view=graph-rest-1.0" />
+        /// Delete navigation property members for connections
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an externalGroupMember object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalgroupmember-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property members for connections";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -210,7 +209,7 @@ namespace ApiSdk.Connections.Item.Groups.Item.Members.Item {
         {
         }
         /// <summary>
-        /// Delete an externalGroupMember object.
+        /// Delete navigation property members for connections
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -223,7 +222,7 @@ namespace ApiSdk.Connections.Item.Groups.Item.Members.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -263,7 +262,7 @@ namespace ApiSdk.Connections.Item.Groups.Item.Members.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

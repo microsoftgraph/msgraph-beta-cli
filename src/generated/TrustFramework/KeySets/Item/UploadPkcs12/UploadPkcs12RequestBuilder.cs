@@ -22,13 +22,13 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12 {
     {
         /// <summary>
         /// Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-1.0";
+            command.Description = "Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;

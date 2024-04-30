@@ -131,14 +131,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages
             return command;
         }
         /// <summary>
-        /// Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0" />
+        /// Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0";
+            command.Description = "Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.";
             var accessReviewInstanceDecisionItemIdOption = new Option<string>("--access-review-instance-decision-item-id", description: "The unique identifier of accessReviewInstanceDecisionItem") {
             };
             accessReviewInstanceDecisionItemIdOption.IsRequired = true;
@@ -269,7 +268,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages
         {
         }
         /// <summary>
-        /// Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+        /// Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -303,13 +302,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/stages/{accessReviewStage%2Did}/decisions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+        /// Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
         /// </summary>
         public class DecisionsRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Applications.Item.RemovePassword {
     {
         /// <summary>
         /// Removes a password from an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-removepassword?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-removepassword?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Removes a password from an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-removepassword?view=graph-rest-1.0";
+            command.Description = "Removes a password from an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-removepassword?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;

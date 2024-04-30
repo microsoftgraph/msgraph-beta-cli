@@ -21,15 +21,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete-identityproviders?view=graph-rest-1.0" />
+        /// Delete ref of navigation property identityProviders for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete-identityproviders?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property identityProviders for identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -64,15 +63,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
             return command;
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0" />
+        /// Get ref of identityProviders from identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the identity providers in a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0";
+            command.Description = "Get ref of identityProviders from identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -152,15 +150,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
             return command;
         }
         /// <summary>
-        /// Add identity providers in a b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-identityproviders?view=graph-rest-1.0" />
+        /// Create new navigation property ref to identityProviders for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add identity providers in a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-identityproviders?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to identityProviders for identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -198,18 +195,18 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/identityProviders/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/identityProviders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/identityProviders/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/identityProviders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
+        /// Delete ref of navigation property identityProviders for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +226,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
+        /// Get ref of identityProviders from identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +240,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/identityProviders/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Add identity providers in a b2cIdentityUserFlow object.
+        /// Create new navigation property ref to identityProviders for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -271,7 +268,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
+        /// Delete ref of navigation property identityProviders for identity
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -287,7 +284,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Ref {
 #endif
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
+        /// Get ref of identityProviders from identity
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

@@ -20,13 +20,14 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleSchedulesdirectoryScop
     public class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function roleSchedules
+        /// Retrieve both roleAssignmentSchedules and roleEligibilitySchedules.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-roleschedules?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function roleSchedules";
+            command.Description = "Retrieve both roleAssignmentSchedules and roleEligibilitySchedules.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-roleschedules?view=graph-rest-beta";
             var directoryScopeIdOption = new Option<string>("--directory-scope-id", description: "Usage: directoryScopeId='@directoryScopeId'") {
             };
             directoryScopeIdOption.IsRequired = false;
@@ -152,7 +153,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleSchedulesdirectoryScop
         {
         }
         /// <summary>
-        /// Invoke function roleSchedules
+        /// Retrieve both roleAssignmentSchedules and roleEligibilitySchedules.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +172,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleSchedulesdirectoryScop
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function roleSchedules
+        /// Retrieve both roleAssignmentSchedules and roleEligibilitySchedules.
         /// </summary>
         public class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
         {

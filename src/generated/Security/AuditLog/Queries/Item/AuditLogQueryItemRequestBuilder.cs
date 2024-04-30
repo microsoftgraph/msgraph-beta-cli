@@ -57,14 +57,13 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an auditLogQuery object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-1.0" />
+        /// Get queries from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an auditLogQuery object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-1.0";
+            command.Description = "Get queries from security";
             var auditLogQueryIdOption = new Option<string>("--audit-log-query-id", description: "The unique identifier of auditLogQuery") {
             };
             auditLogQueryIdOption.IsRequired = true;
@@ -215,13 +214,13 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an auditLogQuery object.
+        /// Get queries from security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an auditLogQuery object.
+        /// Get queries from security
         /// </summary>
         public class AuditLogQueryItemRequestBuilderGetQueryParameters 
         {

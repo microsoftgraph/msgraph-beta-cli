@@ -50,14 +50,13 @@ namespace ApiSdk.Admin.Todo {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a adminTodo object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/admintodo-get?view=graph-rest-1.0" />
+        /// Get todo from admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a adminTodo object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/admintodo-get?view=graph-rest-1.0";
+            command.Description = "Get todo from admin";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,14 +96,13 @@ namespace ApiSdk.Admin.Todo {
             return command;
         }
         /// <summary>
-        /// Update the properties of a adminTodo object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/admintodo-update?view=graph-rest-1.0" />
+        /// Update the navigation property todo in admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a adminTodo object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/admintodo-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property todo in admin";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -170,13 +168,13 @@ namespace ApiSdk.Admin.Todo {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/todo", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a adminTodo object.
+        /// Get todo from admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -195,7 +193,7 @@ namespace ApiSdk.Admin.Todo {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a adminTodo object.
+        /// Update the navigation property todo in admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -210,13 +208,13 @@ namespace ApiSdk.Admin.Todo {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/todo", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a adminTodo object.
+        /// Get todo from admin
         /// </summary>
         public class TodoRequestBuilderGetQueryParameters 
         {

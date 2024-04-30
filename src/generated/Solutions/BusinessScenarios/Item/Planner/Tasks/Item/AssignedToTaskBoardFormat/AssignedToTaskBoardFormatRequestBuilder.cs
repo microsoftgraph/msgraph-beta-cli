@@ -62,14 +62,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item.AssignedToT
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -122,13 +121,12 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item.AssignedToT
         }
         /// <summary>
         /// Update the navigation property assignedToTaskBoardFormat in solutions
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property assignedToTaskBoardFormat in solutions\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property assignedToTaskBoardFormat in solutions";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -213,13 +211,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item.AssignedToT
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/tasks/{businessScenarioTask%2Did}/assignedToTaskBoardFormat", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
+        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +251,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item.AssignedToT
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/tasks/{businessScenarioTask%2Did}/assignedToTaskBoardFormat", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
+        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
         /// </summary>
         public class AssignedToTaskBoardFormatRequestBuilderGetQueryParameters 
         {

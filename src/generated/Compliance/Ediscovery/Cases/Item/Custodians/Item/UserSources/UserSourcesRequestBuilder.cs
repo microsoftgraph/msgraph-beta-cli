@@ -53,15 +53,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources {
             return command;
         }
         /// <summary>
-        /// Create a new custodian userSource object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-custodian-post-usersources?view=graph-rest-1.0" />
+        /// Create new navigation property to userSources for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new custodian userSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-custodian-post-usersources?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to userSources for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -112,15 +111,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources {
             return command;
         }
         /// <summary>
-        /// Get a list of the userSource objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-custodian-list-usersources?view=graph-rest-1.0" />
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the userSource objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-custodian-list-usersources?view=graph-rest-1.0";
+            command.Description = "Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -234,7 +232,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources {
         {
         }
         /// <summary>
-        /// Get a list of the userSource objects and their properties.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,7 +252,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new custodian userSource object.
+        /// Create new navigation property to userSources for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -270,13 +268,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/custodians/{custodian%2Did}/userSources", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the userSource objects and their properties.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         public class UserSourcesRequestBuilderGetQueryParameters 
         {

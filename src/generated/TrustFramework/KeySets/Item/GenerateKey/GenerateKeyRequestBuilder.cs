@@ -22,13 +22,13 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey {
     {
         /// <summary>
         /// Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn&apos;t have to provide a secret.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-1.0";
+            command.Description = "Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-generatekey?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;

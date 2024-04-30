@@ -22,13 +22,13 @@ namespace ApiSdk.Print.Shares.Item.Jobs.Item.Documents.Item.CreateUploadSession 
     {
         /// <summary>
         /// Create an upload session that allows an app to iteratively upload ranges of a binary file linked to the print document. As part of the response, this action returns an upload URL that can be used in subsequent sequential PUT queries. Request headers for each PUT operation can be used to specify the exact range of bytes to be uploaded. This allows transfer to be resumed, in case the network connection is dropped during upload. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printdocument-createuploadsession?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printdocument-createuploadsession?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create an upload session that allows an app to iteratively upload ranges of a binary file linked to the print document. As part of the response, this action returns an upload URL that can be used in subsequent sequential PUT queries. Request headers for each PUT operation can be used to specify the exact range of bytes to be uploaded. This allows transfer to be resumed, in case the network connection is dropped during upload. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printdocument-createuploadsession?view=graph-rest-1.0";
+            command.Description = "Create an upload session that allows an app to iteratively upload ranges of a binary file linked to the print document. As part of the response, this action returns an upload URL that can be used in subsequent sequential PUT queries. Request headers for each PUT operation can be used to specify the exact range of bytes to be uploaded. This allows transfer to be resumed, in case the network connection is dropped during upload. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printdocument-createuploadsession?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;

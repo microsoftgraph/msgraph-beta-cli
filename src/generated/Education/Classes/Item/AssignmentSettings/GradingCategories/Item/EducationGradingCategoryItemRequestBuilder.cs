@@ -120,14 +120,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingCategories.Ite
             return command;
         }
         /// <summary>
-        /// Update a single gradingCategory on the educationAssignmentSettings. Only teachers can perform this operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationgradingcategory-update?view=graph-rest-1.0" />
+        /// Update the navigation property gradingCategories in education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update a single gradingCategory on the educationAssignmentSettings. Only teachers can perform this operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationgradingcategory-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property gradingCategories in education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -205,7 +204,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingCategories.Ite
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingCategories/{educationGradingCategory%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -230,7 +229,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingCategories.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Update a single gradingCategory on the educationAssignmentSettings. Only teachers can perform this operation.
+        /// Update the navigation property gradingCategories in education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -245,7 +244,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingCategories.Ite
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingCategories/{educationGradingCategory%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -96,13 +96,13 @@ namespace ApiSdk.Contracts.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of contract object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of contract object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of contract object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-beta";
             var contractIdOption = new Option<string>("--contract-id", description: "The unique identifier of contract") {
             };
             contractIdOption.IsRequired = true;
@@ -277,7 +277,7 @@ namespace ApiSdk.Contracts.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/contracts/{contract%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -317,7 +317,7 @@ namespace ApiSdk.Contracts.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/contracts/{contract%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

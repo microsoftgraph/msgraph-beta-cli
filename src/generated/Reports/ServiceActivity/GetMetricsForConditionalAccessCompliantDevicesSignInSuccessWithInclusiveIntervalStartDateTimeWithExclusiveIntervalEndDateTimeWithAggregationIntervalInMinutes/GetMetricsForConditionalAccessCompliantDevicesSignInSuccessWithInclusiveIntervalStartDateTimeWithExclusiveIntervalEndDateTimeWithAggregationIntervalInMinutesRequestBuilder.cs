@@ -20,13 +20,14 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliant
     public class GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getMetricsForConditionalAccessCompliantDevicesSignInSuccess
+        /// Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceactivity-getmetricsforconditionalaccesscompliantdevicessigninsuccess?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getMetricsForConditionalAccessCompliantDevicesSignInSuccess";
+            command.Description = "Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceactivity-getmetricsforconditionalaccesscompliantdevicessigninsuccess?view=graph-rest-beta";
             var inclusiveIntervalStartDateTimeOption = new Option<string>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
             };
             inclusiveIntervalStartDateTimeOption.IsRequired = true;
@@ -125,7 +126,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliant
         {
         }
         /// <summary>
-        /// Invoke function getMetricsForConditionalAccessCompliantDevicesSignInSuccess
+        /// Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +145,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliant
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getMetricsForConditionalAccessCompliantDevicesSignInSuccess
+        /// Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).
         /// </summary>
         public class GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
         {

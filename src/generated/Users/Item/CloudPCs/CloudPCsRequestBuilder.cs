@@ -161,14 +161,13 @@ namespace ApiSdk.Users.Item.CloudPCs {
             return command;
         }
         /// <summary>
-        /// List the cloudPC devices that are attributed to the signed-in user. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-cloudpcs?view=graph-rest-1.0" />
+        /// Get cloudPCs from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the cloudPC devices that are attributed to the signed-in user. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-cloudpcs?view=graph-rest-1.0";
+            command.Description = "Get cloudPCs from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -293,7 +292,7 @@ namespace ApiSdk.Users.Item.CloudPCs {
         {
         }
         /// <summary>
-        /// List the cloudPC devices that are attributed to the signed-in user. 
+        /// Get cloudPCs from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -327,13 +326,13 @@ namespace ApiSdk.Users.Item.CloudPCs {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/cloudPCs", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the cloudPC devices that are attributed to the signed-in user. 
+        /// Get cloudPCs from users
         /// </summary>
         public class CloudPCsRequestBuilderGetQueryParameters 
         {

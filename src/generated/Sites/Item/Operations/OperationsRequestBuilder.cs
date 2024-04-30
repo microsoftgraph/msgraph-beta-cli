@@ -104,14 +104,13 @@ namespace ApiSdk.Sites.Item.Operations {
             return command;
         }
         /// <summary>
-        /// Get the list of richLongRunningOperations associated with a site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0" />
+        /// The collection of long running operations for the site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of richLongRunningOperations associated with a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0";
+            command.Description = "The collection of long running operations for the site.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Sites.Item.Operations {
         {
         }
         /// <summary>
-        /// Get the list of richLongRunningOperations associated with a site.
+        /// The collection of long running operations for the site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Sites.Item.Operations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/operations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of richLongRunningOperations associated with a site.
+        /// The collection of long running operations for the site.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

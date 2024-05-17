@@ -21,14 +21,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
     public class LearningContentsWithExternalIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete the specified learningContent resource that represents the metadata of the specified provider&apos;s ingested content.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0" />
+        /// Delete navigation property learningContents for employeeExperience
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0";
+            command.Description = "Delete navigation property learningContents for employeeExperience";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return command;
         }
         /// <summary>
-        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0" />
+        /// Learning catalog items for the provider.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0";
+            command.Description = "Learning catalog items for the provider.";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return command;
         }
         /// <summary>
-        /// Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn&apos;t yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcontent-update?view=graph-rest-1.0" />
+        /// Update the navigation property learningContents in employeeExperience
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn't yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcontent-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property learningContents in employeeExperience";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
         {
         }
         /// <summary>
-        /// Delete the specified learningContent resource that represents the metadata of the specified provider&apos;s ingested content.
+        /// Delete navigation property learningContents for employeeExperience
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
+        /// Learning catalog items for the provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return requestInfo;
         }
         /// <summary>
-        /// Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn&apos;t yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
+        /// Update the navigation property learningContents in employeeExperience
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
+        /// Learning catalog items for the provider.
         /// </summary>
         public class LearningContentsWithExternalIdRequestBuilderGetQueryParameters 
         {

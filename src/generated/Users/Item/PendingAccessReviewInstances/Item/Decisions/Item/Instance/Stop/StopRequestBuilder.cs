@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Ins
     {
         /// <summary>
         /// Stop a currently active accessReviewInstance. After the access review instance stops, the instance status will be Completed, the reviewers can no longer give input, and the access review decisions can be applied. Stopping an instance will not effect future instances. To prevent a recurring access review from starting future instances, update the schedule definition to change its scheduled end date.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-stop?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-stop?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Stop a currently active accessReviewInstance. After the access review instance stops, the instance status will be Completed, the reviewers can no longer give input, and the access review decisions can be applied. Stopping an instance will not effect future instances. To prevent a recurring access review from starting future instances, update the schedule definition to change its scheduled end date.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-stop?view=graph-rest-1.0";
+            command.Description = "Stop a currently active accessReviewInstance. After the access review instance stops, the instance status will be Completed, the reviewers can no longer give input, and the access review decisions can be applied. Stopping an instance will not effect future instances. To prevent a recurring access review from starting future instances, update the schedule definition to change its scheduled end date.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-stop?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

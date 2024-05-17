@@ -20,13 +20,14 @@ namespace ApiSdk.Users.Item.Approvals.FilterByCurrentUserWithOn {
     public class FilterByCurrentUserWithOnRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// In Microsoft Entra entitlement management, return a collection of access package assignment approvals. The objects returned are those that are in scope for approval by the calling user. In PIM for groups, return a collection of assignment approvals. The objects returned are those that are in scope for approval by the calling user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/approval-filterbycurrentuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function filterByCurrentUser";
+            command.Description = "In Microsoft Entra entitlement management, return a collection of access package assignment approvals. The objects returned are those that are in scope for approval by the calling user. In PIM for groups, return a collection of assignment approvals. The objects returned are those that are in scope for approval by the calling user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approval-filterbycurrentuser?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -140,7 +141,7 @@ namespace ApiSdk.Users.Item.Approvals.FilterByCurrentUserWithOn {
         {
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// In Microsoft Entra entitlement management, return a collection of access package assignment approvals. The objects returned are those that are in scope for approval by the calling user. In PIM for groups, return a collection of assignment approvals. The objects returned are those that are in scope for approval by the calling user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -159,7 +160,7 @@ namespace ApiSdk.Users.Item.Approvals.FilterByCurrentUserWithOn {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// In Microsoft Entra entitlement management, return a collection of access package assignment approvals. The objects returned are those that are in scope for approval by the calling user. In PIM for groups, return a collection of assignment approvals. The objects returned are those that are in scope for approval by the calling user.
         /// </summary>
         public class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
         {

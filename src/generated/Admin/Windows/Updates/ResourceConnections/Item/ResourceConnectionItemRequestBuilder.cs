@@ -21,14 +21,13 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
     public class ResourceConnectionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an operationalInsightsConnection object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-delete?view=graph-rest-1.0" />
+        /// Delete navigation property resourceConnections for admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an operationalInsightsConnection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property resourceConnections for admin";
             var resourceConnectionIdOption = new Option<string>("--resource-connection-id", description: "The unique identifier of resourceConnection") {
             };
             resourceConnectionIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a resourceConnection object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-resourceconnection-get?view=graph-rest-1.0" />
+        /// Service connections to external resources such as analytics workspaces.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a resourceConnection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-resourceconnection-get?view=graph-rest-1.0";
+            command.Description = "Service connections to external resources such as analytics workspaces.";
             var resourceConnectionIdOption = new Option<string>("--resource-connection-id", description: "The unique identifier of resourceConnection") {
             };
             resourceConnectionIdOption.IsRequired = true;
@@ -175,7 +173,7 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
         {
         }
         /// <summary>
-        /// Delete an operationalInsightsConnection object.
+        /// Delete navigation property resourceConnections for admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -188,13 +186,13 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/windows/updates/resourceConnections/{resourceConnection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a resourceConnection object.
+        /// Service connections to external resources such as analytics workspaces.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,13 +226,13 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/windows/updates/resourceConnections/{resourceConnection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a resourceConnection object.
+        /// Service connections to external resources such as analytics workspaces.
         /// </summary>
         public class ResourceConnectionItemRequestBuilderGetQueryParameters 
         {

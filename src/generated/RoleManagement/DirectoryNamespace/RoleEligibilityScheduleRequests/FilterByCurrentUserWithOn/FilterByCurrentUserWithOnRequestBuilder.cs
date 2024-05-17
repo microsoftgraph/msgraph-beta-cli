@@ -20,13 +20,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
     public class FilterByCurrentUserWithOnRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties associated with the currently signed in principal object. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-filterbycurrentuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function filterByCurrentUser";
+            command.Description = "Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties associated with the currently signed in principal object. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-filterbycurrentuser?view=graph-rest-beta";
             var onOption = new Option<string>("--on", description: "Usage: on='{on}'") {
             };
             onOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
         {
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties associated with the currently signed in principal object. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties associated with the currently signed in principal object. 
         /// </summary>
         public class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
         {

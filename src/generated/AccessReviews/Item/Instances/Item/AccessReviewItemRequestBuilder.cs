@@ -113,13 +113,13 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item {
             return command;
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of access reviews instances past, present and future, if this object is a recurring access review.";
+            command.Description = "The collection of access reviews instances past, present, and future, if this object is a recurring access review.";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -360,13 +360,13 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -400,13 +400,13 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         public class AccessReviewItemRequestBuilderGetQueryParameters 
         {

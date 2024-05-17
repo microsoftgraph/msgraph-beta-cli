@@ -55,14 +55,13 @@ namespace ApiSdk.TermStore.Groups {
             return command;
         }
         /// <summary>
-        /// Create a new group object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0" />
+        /// Create new navigation property to groups for termStore
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new group object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to groups for termStore";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,14 +100,13 @@ namespace ApiSdk.TermStore.Groups {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a term store group object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0" />
+        /// Collection of all groups available in the term store.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a term store group object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0";
+            command.Description = "Collection of all groups available in the term store.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +208,7 @@ namespace ApiSdk.TermStore.Groups {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a term store group object.
+        /// Collection of all groups available in the term store.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +227,7 @@ namespace ApiSdk.TermStore.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new group object.
+        /// Create new navigation property to groups for termStore
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -244,13 +242,13 @@ namespace ApiSdk.TermStore.Groups {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/termStore/groups", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a term store group object.
+        /// Collection of all groups available in the term store.
         /// </summary>
         public class GroupsRequestBuilderGetQueryParameters 
         {

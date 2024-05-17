@@ -99,14 +99,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of chatMessageHostedContent object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-1.0" />
+        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of chatMessageHostedContent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-1.0";
+            command.Description = "Content in a message hosted by Microsoft Teams - for example, images or code snippets.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -278,13 +277,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of chatMessageHostedContent object.
+        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -318,13 +317,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of chatMessageHostedContent object.
+        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
         /// </summary>
         public class ChatMessageHostedContentItemRequestBuilderGetQueryParameters 
         {

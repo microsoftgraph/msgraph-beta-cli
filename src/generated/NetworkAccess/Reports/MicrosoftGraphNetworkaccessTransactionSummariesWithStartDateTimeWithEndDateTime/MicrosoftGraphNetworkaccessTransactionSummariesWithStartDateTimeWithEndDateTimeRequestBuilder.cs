@@ -20,13 +20,14 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSum
     public class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function transactionSummaries
+        /// Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-reports-transactionsummaries?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function transactionSummaries";
+            command.Description = "Get the total number of transactions and the number of blocked transactions, grouped by traffic type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-reports-transactionsummaries?view=graph-rest-beta";
             var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
@@ -119,7 +120,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSum
         {
         }
         /// <summary>
-        /// Invoke function transactionSummaries
+        /// Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +139,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSum
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function transactionSummaries
+        /// Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
         /// </summary>
         public class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
         {

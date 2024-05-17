@@ -101,14 +101,13 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
             return command;
         }
         /// <summary>
-        /// Get a list of the filteringProfile objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-list?view=graph-rest-1.0" />
+        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the filteringProfile objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-list?view=graph-rest-1.0";
+            command.Description = "A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +209,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
         {
         }
         /// <summary>
-        /// Get a list of the filteringProfile objects and their properties.
+        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +243,13 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/filteringProfiles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the filteringProfile objects and their properties.
+        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
         /// </summary>
         public class FilteringProfilesRequestBuilderGetQueryParameters 
         {

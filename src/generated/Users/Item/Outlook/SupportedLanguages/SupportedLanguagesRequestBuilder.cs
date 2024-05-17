@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.Outlook.SupportedLanguages {
     {
         /// <summary>
         /// Get the list of locales and languages that are supported for the user, as configured on the user&apos;s mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language bygetting the user&apos;s mailbox settings.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language bygetting the user's mailbox settings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0";
+            command.Description = "Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language bygetting the user's mailbox settings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

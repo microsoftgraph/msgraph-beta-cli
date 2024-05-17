@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetDailyAggregatedRemo
     {
         /// <summary>
         /// Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-1.0";
+            command.Description = "Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

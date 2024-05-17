@@ -102,6 +102,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Date and time of last the app synced with management service.</summary>
         public DateTimeOffset? LastSyncDateTime { get; set; }
+        /// <summary>Zero or more log collection requests triggered for the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedAppLogCollectionRequest>? ManagedAppLogCollectionRequests { get; set; }
+#nullable restore
+#else
+        public List<ManagedAppLogCollectionRequest> ManagedAppLogCollectionRequests { get; set; }
+#endif
         /// <summary>The Managed Device identifier of the host device. Value could be empty even when the host device is managed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -188,6 +196,7 @@ namespace ApiSdk.Models {
                 {"flaggedReasons", n => { FlaggedReasons = n.GetCollectionOfEnumValues<ManagedAppFlaggedReason>()?.ToList(); } },
                 {"intendedPolicies", n => { IntendedPolicies = n.GetCollectionOfObjectValues<ManagedAppPolicy>(ManagedAppPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                {"managedAppLogCollectionRequests", n => { ManagedAppLogCollectionRequests = n.GetCollectionOfObjectValues<ManagedAppLogCollectionRequest>(ManagedAppLogCollectionRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
                 {"managementSdkVersion", n => { ManagementSdkVersion = n.GetStringValue(); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<ManagedAppOperation>(ManagedAppOperation.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -217,6 +226,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfEnumValues<ManagedAppFlaggedReason>("flaggedReasons", FlaggedReasons);
             writer.WriteCollectionOfObjectValues<ManagedAppPolicy>("intendedPolicies", IntendedPolicies);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
+            writer.WriteCollectionOfObjectValues<ManagedAppLogCollectionRequest>("managedAppLogCollectionRequests", ManagedAppLogCollectionRequests);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
             writer.WriteStringValue("managementSdkVersion", ManagementSdkVersion);
             writer.WriteCollectionOfObjectValues<ManagedAppOperation>("operations", Operations);

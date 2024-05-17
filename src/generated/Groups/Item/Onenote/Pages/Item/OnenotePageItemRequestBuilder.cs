@@ -62,14 +62,13 @@ namespace ApiSdk.Groups.Item.Onenote.Pages.Item {
             return command;
         }
         /// <summary>
-        /// Delete a OneNote page.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/page-delete?view=graph-rest-1.0" />
+        /// Delete navigation property pages for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a OneNote page.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/page-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property pages for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -301,7 +300,7 @@ namespace ApiSdk.Groups.Item.Onenote.Pages.Item {
         {
         }
         /// <summary>
-        /// Delete a OneNote page.
+        /// Delete navigation property pages for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -314,7 +313,7 @@ namespace ApiSdk.Groups.Item.Onenote.Pages.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groups/{group%2Did}/onenote/pages/{onenotePage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -354,7 +353,7 @@ namespace ApiSdk.Groups.Item.Onenote.Pages.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/onenote/pages/{onenotePage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

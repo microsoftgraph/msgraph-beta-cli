@@ -62,14 +62,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationsWithUserId {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a virtualEventRegistration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventregistration-get?view=graph-rest-1.0" />
+        /// Registration records of the webinar.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a virtualEventRegistration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventregistration-get?view=graph-rest-1.0";
+            command.Description = "Registration records of the webinar.";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationsWithUserId {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId='{userId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a virtualEventRegistration object.
+        /// Registration records of the webinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationsWithUserId {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId='{userId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a virtualEventRegistration object.
+        /// Registration records of the webinar.
         /// </summary>
         public class RegistrationsWithUserIdRequestBuilderGetQueryParameters 
         {

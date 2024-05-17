@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.CalendarView.Item.Instances.Item.DismissReminder {
     {
         /// <summary>
         /// Dismiss a reminder that has been triggered for an event in a user calendar.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Dismiss a reminder that has been triggered for an event in a user calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-1.0";
+            command.Description = "Dismiss a reminder that has been triggered for an event in a user calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

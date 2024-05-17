@@ -21,13 +21,13 @@ namespace ApiSdk.Sites.Item.Items.Item {
     public class BaseItemItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can&apos;t be enumerated.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Used to address any item contained in this site. This collection cannot be enumerated.";
+            command.Description = "Used to address any item contained in this site. This collection can't be enumerated.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -93,7 +93,7 @@ namespace ApiSdk.Sites.Item.Items.Item {
         {
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can&apos;t be enumerated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace ApiSdk.Sites.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can&apos;t be enumerated.
         /// </summary>
         public class BaseItemItemRequestBuilderGetQueryParameters 
         {

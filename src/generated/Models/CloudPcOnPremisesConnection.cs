@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcOnPremisesConnection : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +61,7 @@ namespace ApiSdk.Models {
 #else
         public CloudPcOnPremisesConnectionStatusDetail HealthCheckStatusDetail { get; set; }
 #endif
-        /// <summary>The healthCheckStatusDetails property</summary>
+        /// <summary>The details of the connection&apos;s health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CloudPcOnPremisesConnectionStatusDetails? HealthCheckStatusDetails { get; set; }
@@ -103,7 +105,7 @@ namespace ApiSdk.Models {
 #else
         public string SubnetId { get; set; }
 #endif
-        /// <summary>The ID of the target Azure subscription that’s associated with your tenant.</summary>
+        /// <summary>The ID of the target Azure subscription associated with your tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscriptionId { get; set; }
@@ -129,7 +131,7 @@ namespace ApiSdk.Models {
 #else
         public string VirtualNetworkId { get; set; }
 #endif
-        /// <summary>Indicates resource location of the virtual target network. Read-only, computed value.</summary>
+        /// <summary>Indicates the resource location of the virtual target network. Read-only, computed value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VirtualNetworkLocation { get; set; }

@@ -22,13 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item.Unpin {
     {
         /// <summary>
         /// Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-1.0";
+            command.Description = "Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;

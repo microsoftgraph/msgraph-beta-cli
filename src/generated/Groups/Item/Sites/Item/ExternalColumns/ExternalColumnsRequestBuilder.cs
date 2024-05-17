@@ -51,13 +51,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.ExternalColumns {
             return command;
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.";
+            command.Description = "The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -171,7 +171,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.ExternalColumns {
         {
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -190,7 +190,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.ExternalColumns {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         public class ExternalColumnsRequestBuilderGetQueryParameters 
         {

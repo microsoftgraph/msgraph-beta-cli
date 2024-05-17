@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Messages.Item.Replies.Item.SoftDelete {
     {
         /// <summary>
         /// Delete a single chatMessage or a chat message reply in a channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Delete a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0";
+            command.Description = "Delete a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

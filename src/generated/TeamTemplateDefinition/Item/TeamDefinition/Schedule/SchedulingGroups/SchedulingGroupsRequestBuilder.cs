@@ -53,14 +53,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.SchedulingG
             return command;
         }
         /// <summary>
-        /// Create a new schedulingGroup.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0" />
+        /// Create new navigation property to schedulingGroups for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new schedulingGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to schedulingGroups for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.SchedulingG
             return command;
         }
         /// <summary>
-        /// Get the list of schedulingGroups in this schedule.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0" />
+        /// The logical grouping of users in the schedule (usually by role).
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of schedulingGroups in this schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0";
+            command.Description = "The logical grouping of users in the schedule (usually by role).";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -213,7 +211,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.SchedulingG
         {
         }
         /// <summary>
-        /// Get the list of schedulingGroups in this schedule.
+        /// The logical grouping of users in the schedule (usually by role).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +230,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.SchedulingG
             return requestInfo;
         }
         /// <summary>
-        /// Create a new schedulingGroup.
+        /// Create new navigation property to schedulingGroups for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +245,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.SchedulingG
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/schedulingGroups", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of schedulingGroups in this schedule.
+        /// The logical grouping of users in the schedule (usually by role).
         /// </summary>
         public class SchedulingGroupsRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
     public class PersonCertificationItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Deletes a personCertification object from a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/personcertification-delete?view=graph-rest-1.0" />
+        /// Delete navigation property certifications for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes a personCertification object from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personcertification-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property certifications for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a personCertification object in a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/personcertification-get?view=graph-rest-1.0" />
+        /// Represents the details of certifications associated with a person.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a personCertification object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personcertification-get?view=graph-rest-1.0";
+            command.Description = "Represents the details of certifications associated with a person.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a personCertification object from a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/personcertification-update?view=graph-rest-1.0" />
+        /// Update the navigation property certifications in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a personCertification object from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personcertification-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property certifications in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
         {
         }
         /// <summary>
-        /// Deletes a personCertification object from a user&apos;s profile.
+        /// Delete navigation property certifications for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/profile/certifications/{personCertification%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a personCertification object in a user&apos;s profile.
+        /// Represents the details of certifications associated with a person.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a personCertification object from a user&apos;s profile.
+        /// Update the navigation property certifications in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Users.Item.Profile.Certifications.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/profile/certifications/{personCertification%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a personCertification object in a user&apos;s profile.
+        /// Represents the details of certifications associated with a person.
         /// </summary>
         public class PersonCertificationItemRequestBuilderGetQueryParameters 
         {

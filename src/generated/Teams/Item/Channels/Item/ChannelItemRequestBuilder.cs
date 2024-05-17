@@ -66,14 +66,13 @@ namespace ApiSdk.Teams.Item.Channels.Item {
             return command;
         }
         /// <summary>
-        /// Delete the channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0" />
+        /// Delete navigation property channels for teams
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete the channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property channels for teams";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -136,6 +135,7 @@ namespace ApiSdk.Teams.Item.Channels.Item {
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildContentNavCommand());
+            nonExecCommands.Add(builder.BuildContentStreamNavCommand());
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
             {
@@ -148,14 +148,13 @@ namespace ApiSdk.Teams.Item.Channels.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-get?view=graph-rest-1.0" />
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-get?view=graph-rest-1.0";
+            command.Description = "The collection of channels and messages associated with the team.";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -263,14 +262,13 @@ namespace ApiSdk.Teams.Item.Channels.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of the specified channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0" />
+        /// Update the navigation property channels in teams
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of the specified channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0";
+            command.Description = "Update the navigation property channels in teams";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -440,7 +438,7 @@ namespace ApiSdk.Teams.Item.Channels.Item {
         {
         }
         /// <summary>
-        /// Delete the channel.
+        /// Delete navigation property channels for teams
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -453,13 +451,13 @@ namespace ApiSdk.Teams.Item.Channels.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -478,7 +476,7 @@ namespace ApiSdk.Teams.Item.Channels.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of the specified channel.
+        /// Update the navigation property channels in teams
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -493,13 +491,13 @@ namespace ApiSdk.Teams.Item.Channels.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
+        /// The collection of channels and messages associated with the team.
         /// </summary>
         public class ChannelItemRequestBuilderGetQueryParameters 
         {

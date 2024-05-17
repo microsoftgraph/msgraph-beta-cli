@@ -55,15 +55,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources {
             return command;
         }
         /// <summary>
-        /// Adds a siteSource to a legalHold object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-legalhold-post-sitesources?view=graph-rest-1.0" />
+        /// Create new navigation property to siteSources for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Adds a siteSource to a legalHold object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-legalhold-post-sitesources?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to siteSources for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -114,15 +113,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources {
             return command;
         }
         /// <summary>
-        /// Get the list of siteSource objecs associated with a legal hold.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-legalhold-list-sitesources?view=graph-rest-1.0" />
+        /// Data source entity for SharePoint sites associated with the legal hold.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of siteSource objecs associated with a legal hold.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-legalhold-list-sitesources?view=graph-rest-1.0";
+            command.Description = "Data source entity for SharePoint sites associated with the legal hold.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -236,7 +234,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources {
         {
         }
         /// <summary>
-        /// Get the list of siteSource objecs associated with a legal hold.
+        /// Data source entity for SharePoint sites associated with the legal hold.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,7 +254,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources {
             return requestInfo;
         }
         /// <summary>
-        /// Adds a siteSource to a legalHold object.
+        /// Create new navigation property to siteSources for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -272,13 +270,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds/{legalHold%2Did}/siteSources", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of siteSource objecs associated with a legal hold.
+        /// Data source entity for SharePoint sites associated with the legal hold.
         /// </summary>
         public class SiteSourcesRequestBuilderGetQueryParameters 
         {

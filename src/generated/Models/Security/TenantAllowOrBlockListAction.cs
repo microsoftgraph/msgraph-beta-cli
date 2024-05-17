@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class TenantAllowOrBlockListAction : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.</summary>
         public TenantAllowBlockListAction? Action { get; set; }

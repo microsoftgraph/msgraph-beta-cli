@@ -53,14 +53,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return command;
         }
         /// <summary>
-        /// Create a new timeOffReason.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0" />
+        /// Create new navigation property to timeOffReasons for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new timeOffReason.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to timeOffReasons for teamwork";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -112,13 +111,12 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         }
         /// <summary>
         /// The set of reasons for a time off in the schedule.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The set of reasons for a time off in the schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0";
+            command.Description = "The set of reasons for a time off in the schedule.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -244,7 +242,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return requestInfo;
         }
         /// <summary>
-        /// Create a new timeOffReason.
+        /// Create new navigation property to timeOffReasons for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +257,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timeOffReasons", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

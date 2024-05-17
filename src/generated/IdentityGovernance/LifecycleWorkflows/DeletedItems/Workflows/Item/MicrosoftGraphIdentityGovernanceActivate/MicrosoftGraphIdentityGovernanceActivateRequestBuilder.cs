@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.DeletedItems.Workflows.It
     {
         /// <summary>
         /// Run a workflow object on-demand. You can run any workflow on-demand, including scheduled workflows. Workflows created from the &apos;Real-time employee termination&apos; template are run on-demand only. When you run a workflow on demand, the tasks are executed regardless of whether the user state matches the scope and trigger execution conditions.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Run a workflow object on-demand. You can run any workflow on-demand, including scheduled workflows. Workflows created from the 'Real-time employee termination' template are run on-demand only. When you run a workflow on demand, the tasks are executed regardless of whether the user state matches the scope and trigger execution conditions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-1.0";
+            command.Description = "Run a workflow object on-demand. You can run any workflow on-demand, including scheduled workflows. Workflows created from the 'Real-time employee termination' template are run on-demand only. When you run a workflow on demand, the tasks are executed regardless of whether the user state matches the scope and trigger execution conditions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-beta";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
             };
             workflowIdOption.IsRequired = true;

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class UserSettings : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The user&apos;s settings for the visibility of merge suggestion for the duplicate contacts in the user&apos;s contact list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,6 +45,14 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.ShiftPreferences ShiftPreferences { get; set; }
 #endif
+        /// <summary>The storage property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserStorage? Storage { get; set; }
+#nullable restore
+#else
+        public UserStorage Storage { get; set; }
+#endif
         /// <summary>The Windows settings of the user stored in the cloud.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +85,7 @@ namespace ApiSdk.Models {
                 {"itemInsights", n => { ItemInsights = n.GetObjectValue<UserInsightsSettings>(UserInsightsSettings.CreateFromDiscriminatorValue); } },
                 {"regionalAndLanguageSettings", n => { RegionalAndLanguageSettings = n.GetObjectValue<ApiSdk.Models.RegionalAndLanguageSettings>(ApiSdk.Models.RegionalAndLanguageSettings.CreateFromDiscriminatorValue); } },
                 {"shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<ApiSdk.Models.ShiftPreferences>(ApiSdk.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
+                {"storage", n => { Storage = n.GetObjectValue<UserStorage>(UserStorage.CreateFromDiscriminatorValue); } },
                 {"windows", n => { Windows = n.GetCollectionOfObjectValues<WindowsSetting>(WindowsSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -92,6 +103,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<UserInsightsSettings>("itemInsights", ItemInsights);
             writer.WriteObjectValue<ApiSdk.Models.RegionalAndLanguageSettings>("regionalAndLanguageSettings", RegionalAndLanguageSettings);
             writer.WriteObjectValue<ApiSdk.Models.ShiftPreferences>("shiftPreferences", ShiftPreferences);
+            writer.WriteObjectValue<UserStorage>("storage", Storage);
             writer.WriteCollectionOfObjectValues<WindowsSetting>("windows", Windows);
         }
     }

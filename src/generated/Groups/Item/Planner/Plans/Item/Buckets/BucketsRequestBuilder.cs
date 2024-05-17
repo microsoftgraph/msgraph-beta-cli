@@ -130,14 +130,13 @@ namespace ApiSdk.Groups.Item.Planner.Plans.Item.Buckets {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of plannerBucket objects contained by a plannerPlan object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplan-list-buckets?view=graph-rest-1.0" />
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of plannerBucket objects contained by a plannerPlan object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplan-list-buckets?view=graph-rest-1.0";
+            command.Description = "Collection of buckets in the plan. Read-only. Nullable.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -251,7 +250,7 @@ namespace ApiSdk.Groups.Item.Planner.Plans.Item.Buckets {
         {
         }
         /// <summary>
-        /// Retrieve a list of plannerBucket objects contained by a plannerPlan object.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -285,13 +284,13 @@ namespace ApiSdk.Groups.Item.Planner.Plans.Item.Buckets {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/planner/plans/{plannerPlan%2Did}/buckets", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of plannerBucket objects contained by a plannerPlan object.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// </summary>
         public class BucketsRequestBuilderGetQueryParameters 
         {

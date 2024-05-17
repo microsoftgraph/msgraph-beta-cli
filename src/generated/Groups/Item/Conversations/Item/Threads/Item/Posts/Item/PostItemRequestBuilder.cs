@@ -99,14 +99,13 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/post-get?view=graph-rest-1.0" />
+        /// Get posts from groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/post-get?view=graph-rest-1.0";
+            command.Description = "Get posts from groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -324,7 +323,7 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item {
         {
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
+        /// Get posts from groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -358,13 +357,13 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
+        /// Get posts from groups
         /// </summary>
         public class PostItemRequestBuilderGetQueryParameters 
         {

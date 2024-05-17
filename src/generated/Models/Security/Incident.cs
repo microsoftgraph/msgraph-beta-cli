@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class Incident : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The list of related alerts. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,6 +105,14 @@ namespace ApiSdk.Models.Security {
 #else
         public string RedirectIncidentId { get; set; }
 #endif
+        /// <summary>User input that explains the resolution of the incident and the classification choice. This property contains free editable text.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResolvingComment { get; set; }
+#nullable restore
+#else
+        public string ResolvingComment { get; set; }
+#endif
         /// <summary>The severity property</summary>
         public AlertSeverity? Severity { get; set; }
         /// <summary>The status property</summary>
@@ -156,6 +166,7 @@ namespace ApiSdk.Models.Security {
                 {"recommendedActions", n => { RecommendedActions = n.GetStringValue(); } },
                 {"recommendedHuntingQueries", n => { RecommendedHuntingQueries = n.GetCollectionOfObjectValues<RecommendedHuntingQuery>(RecommendedHuntingQuery.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"redirectIncidentId", n => { RedirectIncidentId = n.GetStringValue(); } },
+                {"resolvingComment", n => { ResolvingComment = n.GetStringValue(); } },
                 {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
                 {"status", n => { Status = n.GetEnumValue<IncidentStatus>(); } },
                 {"systemTags", n => { SystemTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -185,6 +196,7 @@ namespace ApiSdk.Models.Security {
             writer.WriteStringValue("recommendedActions", RecommendedActions);
             writer.WriteCollectionOfObjectValues<RecommendedHuntingQuery>("recommendedHuntingQueries", RecommendedHuntingQueries);
             writer.WriteStringValue("redirectIncidentId", RedirectIncidentId);
+            writer.WriteStringValue("resolvingComment", ResolvingComment);
             writer.WriteEnumValue<AlertSeverity>("severity", Severity);
             writer.WriteEnumValue<IncidentStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("systemTags", SystemTags);

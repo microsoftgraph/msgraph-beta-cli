@@ -20,13 +20,14 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Ins
     public class FilterByCurrentUserWithOnRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Return all accessReviewStage objects on a given accessReviewInstance where the calling user is a reviewer on one or more accessReviewInstanceDecisionItem objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewstage-filterbycurrentuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function filterByCurrentUser";
+            command.Description = "Return all accessReviewStage objects on a given accessReviewInstance where the calling user is a reviewer on one or more accessReviewInstanceDecisionItem objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewstage-filterbycurrentuser?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -152,7 +153,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Ins
         {
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Return all accessReviewStage objects on a given accessReviewInstance where the calling user is a reviewer on one or more accessReviewInstanceDecisionItem objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +172,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Ins
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Return all accessReviewStage objects on a given accessReviewInstance where the calling user is a reviewer on one or more accessReviewInstanceDecisionItem objects.
         /// </summary>
         public class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
         {

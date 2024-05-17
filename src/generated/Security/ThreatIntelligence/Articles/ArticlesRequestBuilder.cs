@@ -100,14 +100,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Articles {
             return command;
         }
         /// <summary>
-        /// Get a list of article objects, including their properties and relationships.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-threatintelligence-list-articles?view=graph-rest-1.0" />
+        /// A list of article objects.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of article objects, including their properties and relationships.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-threatintelligence-list-articles?view=graph-rest-1.0";
+            command.Description = "A list of article objects.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Articles {
         {
         }
         /// <summary>
-        /// Get a list of article objects, including their properties and relationships.
+        /// A list of article objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Articles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/threatIntelligence/articles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of article objects, including their properties and relationships.
+        /// A list of article objects.
         /// </summary>
         public class ArticlesRequestBuilderGetQueryParameters 
         {

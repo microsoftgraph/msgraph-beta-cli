@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class TrainingCampaign : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The campaignSchedule property</summary>
+        /// <summary>Details about the schedule and current status for a training campaign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.CampaignSchedule? CampaignSchedule { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.CampaignSchedule CampaignSchedule { get; set; }
 #endif
-        /// <summary>The createdBy property</summary>
+        /// <summary>Identity of the user who created the training campaign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? CreatedBy { get; set; }
@@ -23,9 +25,9 @@ namespace ApiSdk.Models {
 #else
         public EmailIdentity CreatedBy { get; set; }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Date and time of creation of the training campaign.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>Description of the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the training campaign. Supports $filter and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -41,7 +43,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The endUserNotificationSetting property</summary>
+        /// <summary>Details about the end user notification setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.EndUserNotificationSetting? EndUserNotificationSetting { get; set; }
@@ -49,7 +51,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.EndUserNotificationSetting EndUserNotificationSetting { get; set; }
 #endif
-        /// <summary>The excludedAccountTarget property</summary>
+        /// <summary>Users excluded from the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public AccountTargetContent? ExcludedAccountTarget { get; set; }
@@ -57,7 +59,7 @@ namespace ApiSdk.Models {
 #else
         public AccountTargetContent ExcludedAccountTarget { get; set; }
 #endif
-        /// <summary>The includedAccountTarget property</summary>
+        /// <summary>Users targeted in the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public AccountTargetContent? IncludedAccountTarget { get; set; }
@@ -65,7 +67,7 @@ namespace ApiSdk.Models {
 #else
         public AccountTargetContent IncludedAccountTarget { get; set; }
 #endif
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>Identity of the user who most recently modified the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? LastModifiedBy { get; set; }
@@ -73,9 +75,9 @@ namespace ApiSdk.Models {
 #else
         public EmailIdentity LastModifiedBy { get; set; }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>Date and time of the most recent modification of the training campaign.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The report property</summary>
+        /// <summary>Report of the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TrainingCampaignReport? Report { get; set; }
@@ -83,7 +85,7 @@ namespace ApiSdk.Models {
 #else
         public TrainingCampaignReport Report { get; set; }
 #endif
-        /// <summary>The trainingSetting property</summary>
+        /// <summary>Details about the training settings for a training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.TrainingSetting? TrainingSetting { get; set; }

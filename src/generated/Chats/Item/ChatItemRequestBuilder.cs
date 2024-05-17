@@ -36,13 +36,13 @@ namespace ApiSdk.Chats.Item {
     {
         /// <summary>
         /// Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete?view=graph-rest-1.0";
+            command.Description = "Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -72,13 +72,13 @@ namespace ApiSdk.Chats.Item {
         }
         /// <summary>
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0";
+            command.Description = "Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -305,13 +305,13 @@ namespace ApiSdk.Chats.Item {
         }
         /// <summary>
         /// Update the properties of a chat object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a chat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0";
+            command.Description = "Update the properties of a chat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -515,7 +515,7 @@ namespace ApiSdk.Chats.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/chats/{chat%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -555,7 +555,7 @@ namespace ApiSdk.Chats.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/chats/{chat%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,13 +21,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.GetCloudPcReviewStatus {
     public class GetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getCloudPcReviewStatus
+        /// Get the review status of a specific Cloud PC device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-getcloudpcreviewstatus?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCloudPcReviewStatus";
+            command.Description = "Get the review status of a specific Cloud PC device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-getcloudpcreviewstatus?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -79,7 +80,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.GetCloudPcReviewStatus {
         {
         }
         /// <summary>
-        /// Invoke function getCloudPcReviewStatus
+        /// Get the review status of a specific Cloud PC device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

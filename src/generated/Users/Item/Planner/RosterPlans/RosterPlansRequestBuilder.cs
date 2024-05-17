@@ -51,14 +51,13 @@ namespace ApiSdk.Users.Item.Planner.RosterPlans {
             return command;
         }
         /// <summary>
-        /// Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planneruser-list-rosterplans?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planneruser-list-rosterplans?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -166,7 +165,7 @@ namespace ApiSdk.Users.Item.Planner.RosterPlans {
         {
         }
         /// <summary>
-        /// Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
+        /// Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +184,7 @@ namespace ApiSdk.Users.Item.Planner.RosterPlans {
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
+        /// Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
         /// </summary>
         public class RosterPlansRequestBuilderGetQueryParameters 
         {

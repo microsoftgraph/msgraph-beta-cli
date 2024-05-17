@@ -98,14 +98,13 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
             return command;
         }
         /// <summary>
-        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-1.0" />
+        /// Represents the self-service password reset (SSPR) usage for a given tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-1.0";
+            command.Description = "Represents the self-service password reset (SSPR) usage for a given tenant.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
         {
         }
         /// <summary>
-        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+        /// Represents the self-service password reset (SSPR) usage for a given tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/reports/userCredentialUsageDetails", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+        /// Represents the self-service password reset (SSPR) usage for a given tenant.
         /// </summary>
         public class UserCredentialUsageDetailsRequestBuilderGetQueryParameters 
         {

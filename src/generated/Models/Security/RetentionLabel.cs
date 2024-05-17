@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class RetentionLabel : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.</summary>
+        /// <summary>Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.ActionAfterRetentionPeriod? ActionAfterRetentionPeriod { get; set; }
         /// <summary>Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.BehaviorDuringRetentionPeriod? BehaviorDuringRetentionPeriod { get; set; }

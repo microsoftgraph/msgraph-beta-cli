@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class DeviceManagementConfigurationChoiceSettingCollectionDefinition : DeviceManagementConfigurationChoiceSettingDefinition, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Maximum number of choices in the collection. Valid values 1 to 100</summary>
+        /// <summary>Maximum number of choices in the collection</summary>
         public int? MaximumCount { get; set; }
-        /// <summary>Minimum number of choices in the collection. Valid values 1 to 100</summary>
+        /// <summary>Minimum number of choices in the collection</summary>
         public int? MinimumCount { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

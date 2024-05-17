@@ -82,13 +82,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.Analytics {
             return command;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Analytics about the view activities that took place in this site.";
+            command.Description = "Analytics about the view activities that took place on this site.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -268,13 +268,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.Analytics {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/analytics", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -308,13 +308,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.Analytics {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/analytics", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Analytics about the view activities that took place in this site.
+        /// Analytics about the view activities that took place on this site.
         /// </summary>
         public class AnalyticsRequestBuilderGetQueryParameters 
         {

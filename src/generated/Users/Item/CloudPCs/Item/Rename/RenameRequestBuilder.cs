@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.Rename {
     {
         /// <summary>
         /// Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-1.0";
+            command.Description = "Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

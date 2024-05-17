@@ -55,15 +55,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
             return command;
         }
         /// <summary>
-        /// Create an Outlook task group in the user&apos;s mailbox.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlookuser-post-taskgroups?view=graph-rest-1.0" />
+        /// Create new navigation property to taskGroups for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create an Outlook task group in the user's mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-post-taskgroups?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to taskGroups for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -108,15 +107,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
             return command;
         }
         /// <summary>
-        /// Get all the Outlook task groups in the user&apos;s mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0" />
+        /// Get taskGroups from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get all the Outlook task groups in the user's mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlookuser-list-taskgroups?view=graph-rest-1.0";
+            command.Description = "Get taskGroups from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -211,7 +209,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
         {
         }
         /// <summary>
-        /// Get all the Outlook task groups in the user&apos;s mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
+        /// Get taskGroups from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -231,7 +229,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
             return requestInfo;
         }
         /// <summary>
-        /// Create an Outlook task group in the user&apos;s mailbox.
+        /// Create new navigation property to taskGroups for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +245,13 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/outlook/taskGroups", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get all the Outlook task groups in the user&apos;s mailbox. The response always includes the default task group My Tasks, and any other task groups that have been created in the mailbox.
+        /// Get taskGroups from users
         /// </summary>
         public class TaskGroupsRequestBuilderGetQueryParameters 
         {

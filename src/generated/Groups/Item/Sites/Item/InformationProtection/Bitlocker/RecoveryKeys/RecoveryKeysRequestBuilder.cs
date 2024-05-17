@@ -51,14 +51,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Bitlocker.Recovery
             return command;
         }
         /// <summary>
-        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0" />
+        /// The recovery keys associated with the bitlocker entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0";
+            command.Description = "The recovery keys associated with the bitlocker entity.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -172,7 +171,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Bitlocker.Recovery
         {
         }
         /// <summary>
-        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+        /// The recovery keys associated with the bitlocker entity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -191,7 +190,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Bitlocker.Recovery
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+        /// The recovery keys associated with the bitlocker entity.
         /// </summary>
         public class RecoveryKeysRequestBuilderGetQueryParameters 
         {

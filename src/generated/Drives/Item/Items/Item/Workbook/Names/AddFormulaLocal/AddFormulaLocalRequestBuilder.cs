@@ -22,13 +22,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Names.AddFormulaLocal {
     {
         /// <summary>
         /// Adds a new name to the collection of the given scope using the user&apos;s locale for the formula.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Adds a new name to the collection of the given scope using the user's locale for the formula.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0";
+            command.Description = "Adds a new name to the collection of the given scope using the user's locale for the formula.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

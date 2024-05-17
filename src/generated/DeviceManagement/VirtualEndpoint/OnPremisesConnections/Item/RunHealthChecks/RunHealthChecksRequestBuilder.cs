@@ -20,14 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.Run
     public class RunHealthChecksRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Run health checks on the cloudPcOnPremisesConnection object. This will trigger a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-runhealthcheck?view=graph-rest-1.0" />
+        /// Run health checks on the cloudPcOnPremisesConnection object. It triggers a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-runhealthcheck?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Run health checks on the cloudPcOnPremisesConnection object. This will trigger a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-runhealthcheck?view=graph-rest-1.0";
+            command.Description = "Run health checks on the cloudPcOnPremisesConnection object. It triggers a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-runhealthcheck?view=graph-rest-beta";
             var cloudPcOnPremisesConnectionIdOption = new Option<string>("--cloud-pc-on-premises-connection-id", description: "The unique identifier of cloudPcOnPremisesConnection") {
             };
             cloudPcOnPremisesConnectionIdOption.IsRequired = true;
@@ -63,7 +63,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.Run
         {
         }
         /// <summary>
-        /// Run health checks on the cloudPcOnPremisesConnection object. This will trigger a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.
+        /// Run health checks on the cloudPcOnPremisesConnection object. It triggers a new health check for this cloudPcOnPremisesConnection object and change the healthCheckStatus and healthCheckStatusDetails properties when check finished.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

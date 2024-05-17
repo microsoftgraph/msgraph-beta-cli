@@ -55,14 +55,13 @@ namespace ApiSdk.Security.SecurityActions {
             return command;
         }
         /// <summary>
-        /// Create a new securityAction object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityactions-post?view=graph-rest-1.0" />
+        /// Create new navigation property to securityActions for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new securityAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securityactions-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to securityActions for security";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,14 +100,13 @@ namespace ApiSdk.Security.SecurityActions {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of securityAction objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityactions-list?view=graph-rest-1.0" />
+        /// Get securityActions from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of securityAction objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securityactions-list?view=graph-rest-1.0";
+            command.Description = "Get securityActions from security";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +208,7 @@ namespace ApiSdk.Security.SecurityActions {
         {
         }
         /// <summary>
-        /// Retrieve a list of securityAction objects.
+        /// Get securityActions from security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +227,7 @@ namespace ApiSdk.Security.SecurityActions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new securityAction object.
+        /// Create new navigation property to securityActions for security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -244,13 +242,13 @@ namespace ApiSdk.Security.SecurityActions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/securityActions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of securityAction objects.
+        /// Get securityActions from security
         /// </summary>
         public class SecurityActionsRequestBuilderGetQueryParameters 
         {

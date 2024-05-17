@@ -5,13 +5,15 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CampaignSchedule : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The completionDateTime property</summary>
+        /// <summary>The date and time at which the campaign completed.</summary>
         public DateTimeOffset? CompletionDateTime { get; set; }
-        /// <summary>The launchDateTime property</summary>
+        /// <summary>The date and time at which the campaign was launched.</summary>
         public DateTimeOffset? LaunchDateTime { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,7 +23,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The current state of the campaign. The possible values are: unknown, draft, inProgress, scheduled, completed, failed, cancelled, excluded, deleted, unknownFutureValue.</summary>
         public CampaignStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="CampaignSchedule"/> and sets the default values.

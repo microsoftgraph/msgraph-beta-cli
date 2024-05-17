@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.WindowsUpdates {
+    #pragma warning disable CS1591
     public class AzureADDeviceRegistrationError : UpdatableAssetError, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The reason property</summary>
         public AzureADDeviceRegistrationErrorReason? Reason { get; set; }

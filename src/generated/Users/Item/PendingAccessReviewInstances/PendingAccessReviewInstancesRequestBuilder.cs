@@ -134,14 +134,13 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances {
             return command;
         }
         /// <summary>
-        /// Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewinstance-pendingaccessreviewinstances?view=graph-rest-1.0" />
+        /// Navigation property to get a list of access reviews pending approval by the reviewer.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewinstance-pendingaccessreviewinstances?view=graph-rest-1.0";
+            command.Description = "Navigation property to get a list of access reviews pending approval by the reviewer.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -249,7 +248,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances {
         {
         }
         /// <summary>
-        /// Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.
+        /// Navigation property to get a list of access reviews pending approval by the reviewer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,13 +282,13 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the accessReviewInstance objects pending approval by the calling user. A list of zero or more accessReviewInstance objects are returned, of which the calling user is an assigned reviewer.
+        /// Navigation property to get a list of access reviews pending approval by the reviewer.
         /// </summary>
         public class PendingAccessReviewInstancesRequestBuilderGetQueryParameters 
         {

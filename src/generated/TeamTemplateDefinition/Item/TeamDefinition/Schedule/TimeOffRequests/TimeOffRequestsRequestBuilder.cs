@@ -104,14 +104,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeOffRequ
             return command;
         }
         /// <summary>
-        /// Retrieve a list of timeoffrequest objects in the team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0" />
+        /// The time off requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of timeoffrequest objects in the team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0";
+            command.Description = "The time off requests in the schedule.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -212,7 +211,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeOffRequ
         {
         }
         /// <summary>
-        /// Retrieve a list of timeoffrequest objects in the team.
+        /// The time off requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,13 +245,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeOffRequ
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timeOffRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of timeoffrequest objects in the team.
+        /// The time off requests in the schedule.
         /// </summary>
         public class TimeOffRequestsRequestBuilderGetQueryParameters 
         {

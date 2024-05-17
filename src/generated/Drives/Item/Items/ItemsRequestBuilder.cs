@@ -38,6 +38,7 @@ namespace ApiSdk.Drives.Item.Items {
             commands.Add(builder.BuildCheckoutNavCommand());
             commands.Add(builder.BuildChildrenNavCommand());
             commands.Add(builder.BuildContentNavCommand());
+            commands.Add(builder.BuildContentStreamNavCommand());
             commands.Add(builder.BuildCopyNavCommand());
             commands.Add(builder.BuildCreatedByUserNavCommand());
             commands.Add(builder.BuildCreateLinkNavCommand());
@@ -284,7 +285,7 @@ namespace ApiSdk.Drives.Item.Items {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/items", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

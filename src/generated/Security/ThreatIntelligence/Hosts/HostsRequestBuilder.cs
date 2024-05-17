@@ -112,13 +112,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:";
+            command.Description = "Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -220,7 +220,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,13 +254,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/threatIntelligence/hosts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
         /// </summary>
         public class HostsRequestBuilderGetQueryParameters 
         {

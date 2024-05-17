@@ -21,14 +21,13 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
     public class SourceSystemDefinitionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a sourceSystemDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-1.0" />
+        /// Delete navigation property sourceSystems for external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property sourceSystems for external";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a sourceSystemDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-1.0" />
+        /// Set of source definitions that represents real-world external systems.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-1.0";
+            command.Description = "Set of source definitions that represents real-world external systems.";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a sourceSystemDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-1.0" />
+        /// Update the navigation property sourceSystems in external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property sourceSystems in external";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
         {
         }
         /// <summary>
-        /// Delete a sourceSystemDefinition object.
+        /// Delete navigation property sourceSystems for external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/industryData/sourceSystems/{sourceSystemDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a sourceSystemDefinition object.
+        /// Set of source definitions that represents real-world external systems.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a sourceSystemDefinition object.
+        /// Update the navigation property sourceSystems in external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/industryData/sourceSystems/{sourceSystemDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a sourceSystemDefinition object.
+        /// Set of source definitions that represents real-world external systems.
         /// </summary>
         public class SourceSystemDefinitionItemRequestBuilderGetQueryParameters 
         {

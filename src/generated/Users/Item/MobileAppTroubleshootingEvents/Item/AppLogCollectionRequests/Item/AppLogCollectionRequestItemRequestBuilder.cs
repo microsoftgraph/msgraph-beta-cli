@@ -86,13 +86,13 @@ namespace ApiSdk.Users.Item.MobileAppTroubleshootingEvents.Item.AppLogCollection
             return command;
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Indicates collection of App Log Upload Request.";
+            command.Description = "The collection property of AppLogUploadRequest.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -240,13 +240,13 @@ namespace ApiSdk.Users.Item.MobileAppTroubleshootingEvents.Item.AppLogCollection
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -280,13 +280,13 @@ namespace ApiSdk.Users.Item.MobileAppTroubleshootingEvents.Item.AppLogCollection
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         public class AppLogCollectionRequestItemRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Shares.Item.List.ContentTypes.Item.Publish {
     {
         /// <summary>
         /// Invoke action publish
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action publish\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0";
+            command.Description = "Invoke action publish\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-beta";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;

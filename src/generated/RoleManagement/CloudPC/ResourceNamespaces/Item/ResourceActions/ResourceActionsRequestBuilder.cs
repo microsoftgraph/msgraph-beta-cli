@@ -107,14 +107,13 @@ namespace ApiSdk.RoleManagement.CloudPC.ResourceNamespaces.Item.ResourceActions 
             return command;
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceAction objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-1.0" />
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the unifiedRbacResourceAction objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-1.0";
+            command.Description = "Operations that an authorized principal is allowed to perform.";
             var unifiedRbacResourceNamespaceIdOption = new Option<string>("--unified-rbac-resource-namespace-id", description: "The unique identifier of unifiedRbacResourceNamespace") {
             };
             unifiedRbacResourceNamespaceIdOption.IsRequired = true;
@@ -222,7 +221,7 @@ namespace ApiSdk.RoleManagement.CloudPC.ResourceNamespaces.Item.ResourceActions 
         {
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceAction objects and their properties.
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,13 +255,13 @@ namespace ApiSdk.RoleManagement.CloudPC.ResourceNamespaces.Item.ResourceActions 
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/roleManagement/cloudPC/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the unifiedRbacResourceAction objects and their properties.
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         public class ResourceActionsRequestBuilderGetQueryParameters 
         {

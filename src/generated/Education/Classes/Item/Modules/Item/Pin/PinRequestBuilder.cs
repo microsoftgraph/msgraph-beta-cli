@@ -22,13 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item.Pin {
     {
         /// <summary>
         /// Pin an educationModule in the class work list. This action sets the isPinned property to true for an educationModule. Only teachers can perform this action and only one module at a time can be pinned in the class work list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-pin?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-pin?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Pin an educationModule in the class work list. This action sets the isPinned property to true for an educationModule. Only teachers can perform this action and only one module at a time can be pinned in the class work list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-pin?view=graph-rest-1.0";
+            command.Description = "Pin an educationModule in the class work list. This action sets the isPinned property to true for an educationModule. Only teachers can perform this action and only one module at a time can be pinned in the class work list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-pin?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;

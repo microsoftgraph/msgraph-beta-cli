@@ -50,14 +50,13 @@ namespace ApiSdk.Policies.B2cAuthenticationMethodsPolicy {
             return command;
         }
         /// <summary>
-        /// Read the properties of a b2cAuthenticationMethodsPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get?view=graph-rest-1.0" />
+        /// The Azure AD B2C policies that define how end users register via local accounts.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties of a b2cAuthenticationMethodsPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get?view=graph-rest-1.0";
+            command.Description = "The Azure AD B2C policies that define how end users register via local accounts.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,14 +96,13 @@ namespace ApiSdk.Policies.B2cAuthenticationMethodsPolicy {
             return command;
         }
         /// <summary>
-        /// Update the properties of a b2cAuthenticationMethodsPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update?view=graph-rest-1.0" />
+        /// Update the navigation property b2cAuthenticationMethodsPolicy in policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a b2cAuthenticationMethodsPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property b2cAuthenticationMethodsPolicy in policies";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -170,13 +168,13 @@ namespace ApiSdk.Policies.B2cAuthenticationMethodsPolicy {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/policies/b2cAuthenticationMethodsPolicy", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties of a b2cAuthenticationMethodsPolicy object.
+        /// The Azure AD B2C policies that define how end users register via local accounts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -195,7 +193,7 @@ namespace ApiSdk.Policies.B2cAuthenticationMethodsPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a b2cAuthenticationMethodsPolicy object.
+        /// Update the navigation property b2cAuthenticationMethodsPolicy in policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -210,13 +208,13 @@ namespace ApiSdk.Policies.B2cAuthenticationMethodsPolicy {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/b2cAuthenticationMethodsPolicy", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties of a b2cAuthenticationMethodsPolicy object.
+        /// The Azure AD B2C policies that define how end users register via local accounts.
         /// </summary>
         public class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters 
         {

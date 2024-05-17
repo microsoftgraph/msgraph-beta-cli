@@ -281,13 +281,13 @@ namespace ApiSdk.ServicePrincipals.Item {
         }
         /// <summary>
         /// Delete a servicePrincipal object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0";
+            command.Description = "Delete a servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -407,13 +407,13 @@ namespace ApiSdk.ServicePrincipals.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of a servicePrincipal object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -681,13 +681,13 @@ namespace ApiSdk.ServicePrincipals.Item {
         }
         /// <summary>
         /// Create a new servicePrincipal object if it doesn&apos;t exist, or update the properties of an existing servicePrincipal object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-1.0";
+            command.Description = "Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -928,7 +928,7 @@ namespace ApiSdk.ServicePrincipals.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -968,7 +968,7 @@ namespace ApiSdk.ServicePrincipals.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,14 +21,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.ReprovisionCloudPc {
     {
         /// <summary>
         /// Reprovision a Cloud PC with an Intune managed device ID.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The reprovisionCloudPc API is deprecated and will stop returning on Sep 30, 2023. Please use reprovision instead as of 2023-07/reprovisionCloudPc")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reprovision a Cloud PC with an Intune managed device ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-1.0";
+            command.Description = "Reprovision a Cloud PC with an Intune managed device ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-reprovisioncloudpc?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

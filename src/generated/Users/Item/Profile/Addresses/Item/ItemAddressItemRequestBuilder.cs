@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
     public class ItemAddressItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Deletes an itemAddress object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemaddress-delete?view=graph-rest-1.0" />
+        /// Delete navigation property addresses for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes an itemAddress object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemaddress-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property addresses for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an itemAddress object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemaddress-get?view=graph-rest-1.0" />
+        /// Represents details of addresses associated with the user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an itemAddress object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemaddress-get?view=graph-rest-1.0";
+            command.Description = "Represents details of addresses associated with the user.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an itemAddress object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemaddress-update?view=graph-rest-1.0" />
+        /// Update the navigation property addresses in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an itemAddress object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemaddress-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property addresses in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
         {
         }
         /// <summary>
-        /// Deletes an itemAddress object.
+        /// Delete navigation property addresses for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an itemAddress object.
+        /// Represents details of addresses associated with the user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an itemAddress object.
+        /// Update the navigation property addresses in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an itemAddress object.
+        /// Represents details of addresses associated with the user.
         /// </summary>
         public class ItemAddressItemRequestBuilderGetQueryParameters 
         {

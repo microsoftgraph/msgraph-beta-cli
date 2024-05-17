@@ -61,14 +61,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
             return command;
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0" />
+        /// Create new navigation property to messages for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Send a new chatMessage in the specified channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to messages for teamwork";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -142,14 +141,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
             return command;
         }
         /// <summary>
-        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-messages?view=graph-rest-1.0" />
+        /// A collection of all the messages in the channel. A navigation property. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-messages?view=graph-rest-1.0";
+            command.Description = "A collection of all the messages in the channel. A navigation property. Nullable.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -269,7 +267,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
         {
         }
         /// <summary>
-        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+        /// A collection of all the messages in the channel. A navigation property. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +286,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
             return requestInfo;
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
+        /// Create new navigation property to messages for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -303,13 +301,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Cha
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/messages", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+        /// A collection of all the messages in the channel. A navigation property. Nullable.
         /// </summary>
         public class MessagesRequestBuilderGetQueryParameters 
         {

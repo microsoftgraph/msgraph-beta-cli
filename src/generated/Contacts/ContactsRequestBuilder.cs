@@ -167,13 +167,13 @@ namespace ApiSdk.Contacts {
         }
         /// <summary>
         /// Get the list of organizational contacts for this organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of organizational contacts for this organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-list?view=graph-rest-1.0";
+            command.Description = "Get the list of organizational contacts for this organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-list?view=graph-rest-beta";
             var consistencyLevelOption = new Option<string[]>("--consistency-level", description: "Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -333,7 +333,7 @@ namespace ApiSdk.Contacts {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/contacts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

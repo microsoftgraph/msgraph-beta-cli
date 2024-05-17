@@ -20,13 +20,14 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Unarc
     public class UnarchiveRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke action unarchive
+        /// Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-unarchive?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action unarchive";
+            command.Description = "Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-unarchive?view=graph-rest-beta";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -62,7 +63,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Unarc
         {
         }
         /// <summary>
-        /// Invoke action unarchive
+        /// Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

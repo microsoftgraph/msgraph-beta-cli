@@ -55,15 +55,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries {
             return command;
         }
         /// <summary>
-        /// Create a new reviewSetQuery object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-1.0" />
+        /// Create new navigation property to queries for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new reviewSetQuery object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to queries for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -114,15 +113,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of eDiscovery reviewSetQuery objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-1.0" />
+        /// Get queries from compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of eDiscovery reviewSetQuery objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-1.0";
+            command.Description = "Get queries from compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -236,7 +234,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries {
         {
         }
         /// <summary>
-        /// Retrieve a list of eDiscovery reviewSetQuery objects.
+        /// Get queries from compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,7 +254,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new reviewSetQuery object.
+        /// Create new navigation property to queries for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -272,13 +270,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}/queries", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of eDiscovery reviewSetQuery objects.
+        /// Get queries from compliance
         /// </summary>
         public class QueriesRequestBuilderGetQueryParameters 
         {

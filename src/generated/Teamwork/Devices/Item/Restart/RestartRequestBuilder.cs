@@ -21,13 +21,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Restart {
     {
         /// <summary>
         /// Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-restart?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-restart?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-restart?view=graph-rest-1.0";
+            command.Description = "Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-restart?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;

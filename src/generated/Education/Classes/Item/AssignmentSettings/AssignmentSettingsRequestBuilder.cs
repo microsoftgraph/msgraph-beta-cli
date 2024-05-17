@@ -76,14 +76,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignmentsettings-get?view=graph-rest-1.0" />
+        /// Specifies class-level assignments settings.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignmentsettings-get?view=graph-rest-1.0";
+            command.Description = "Specifies class-level assignments settings.";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -183,14 +182,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings {
             return command;
         }
         /// <summary>
-        /// Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0" />
+        /// Update the navigation property assignmentSettings in education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property assignmentSettings in education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -262,13 +260,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
+        /// Specifies class-level assignments settings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -287,7 +285,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
+        /// Update the navigation property assignmentSettings in education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -302,13 +300,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
+        /// Specifies class-level assignments settings.
         /// </summary>
         public class AssignmentSettingsRequestBuilderGetQueryParameters 
         {

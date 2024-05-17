@@ -51,14 +51,13 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of plannerPlans recently viewed by a user. You can update recently viewed plans by updating the plannerUser resource.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planneruser-list-recentplans?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of plannerPlans recently viewed by a user. You can update recently viewed plans by updating the plannerUser resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planneruser-list-recentplans?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -166,7 +165,7 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans {
         {
         }
         /// <summary>
-        /// Retrieve a list of plannerPlans recently viewed by a user. You can update recently viewed plans by updating the plannerUser resource.
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +184,7 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of plannerPlans recently viewed by a user. You can update recently viewed plans by updating the plannerUser resource.
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         public class RecentPlansRequestBuilderGetQueryParameters 
         {

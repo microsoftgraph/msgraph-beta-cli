@@ -109,13 +109,13 @@ namespace ApiSdk.Sites.Item.TermStore.Sets {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a set object.
+        /// Collection of all sets available in the term store.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a set object.";
+            command.Description = "Collection of all sets available in the term store.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -223,7 +223,7 @@ namespace ApiSdk.Sites.Item.TermStore.Sets {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a set object.
+        /// Collection of all sets available in the term store.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,13 +257,13 @@ namespace ApiSdk.Sites.Item.TermStore.Sets {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/termStore/sets", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a set object.
+        /// Collection of all sets available in the term store.
         /// </summary>
         public class SetsRequestBuilderGetQueryParameters 
         {

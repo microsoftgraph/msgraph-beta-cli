@@ -56,14 +56,13 @@ namespace ApiSdk.Reports.DailyPrintUsageByUser.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a user&apos;s usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printusagebyuser-get?view=graph-rest-1.0" />
+        /// Retrieve a list of daily print usage summaries, grouped by user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a user's usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printusagebyuser-get?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of daily print usage summaries, grouped by user.";
             var printUsageByUserIdOption = new Option<string>("--print-usage-by-user-id", description: "The unique identifier of printUsageByUser") {
             };
             printUsageByUserIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Reports.DailyPrintUsageByUser.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/reports/dailyPrintUsageByUser/{printUsageByUser%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
+        /// Retrieve a list of daily print usage summaries, grouped by user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Reports.DailyPrintUsageByUser.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/reports/dailyPrintUsageByUser/{printUsageByUser%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s usage summary for a particular time period. See the printUsageByUser documentation for descriptions of each of the endpoints.
+        /// Retrieve a list of daily print usage summaries, grouped by user.
         /// </summary>
         public class PrintUsageByUserItemRequestBuilderGetQueryParameters 
         {

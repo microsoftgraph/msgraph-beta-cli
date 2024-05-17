@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class ConditionalAccessPolicy : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Indicates the date and time the conditional access policy was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

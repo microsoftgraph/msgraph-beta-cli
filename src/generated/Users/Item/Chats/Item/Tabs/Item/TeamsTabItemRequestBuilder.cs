@@ -22,14 +22,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
     public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove (unpin) a tab from the specified chat. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0" />
+        /// Delete navigation property tabs for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove (unpin) a tab from the specified chat. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0";
+            command.Description = "Delete navigation property tabs for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -70,14 +69,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified tab in a chat. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0" />
+        /// A collection of all the tabs in the chat. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of the specified tab in a chat. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0";
+            command.Description = "A collection of all the tabs in the chat. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -135,14 +133,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0" />
+        /// Update the navigation property tabs in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0";
+            command.Description = "Update the navigation property tabs in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -230,7 +227,7 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
         {
         }
         /// <summary>
-        /// Remove (unpin) a tab from the specified chat. 
+        /// Delete navigation property tabs for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +240,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/tabs/{teamsTab%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified tab in a chat. 
+        /// A collection of all the tabs in the chat. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +265,7 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.
+        /// Update the navigation property tabs in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -283,13 +280,13 @@ namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/tabs/{teamsTab%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified tab in a chat. 
+        /// A collection of all the tabs in the chat. Nullable.
         /// </summary>
         public class TeamsTabItemRequestBuilderGetQueryParameters 
         {

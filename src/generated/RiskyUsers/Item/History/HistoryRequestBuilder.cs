@@ -104,14 +104,13 @@ namespace ApiSdk.RiskyUsers.Item.History {
             return command;
         }
         /// <summary>
-        /// Get the risk history of a riskyUser resource.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0" />
+        /// Get history from riskyUsers
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the risk history of a riskyUser resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0";
+            command.Description = "Get history from riskyUsers";
             var riskyUserIdOption = new Option<string>("--risky-user-id", description: "The unique identifier of riskyUser") {
             };
             riskyUserIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.RiskyUsers.Item.History {
         {
         }
         /// <summary>
-        /// Get the risk history of a riskyUser resource.
+        /// Get history from riskyUsers
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.RiskyUsers.Item.History {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/riskyUsers/{riskyUser%2Did}/history", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the risk history of a riskyUser resource.
+        /// Get history from riskyUsers
         /// </summary>
         public class HistoryRequestBuilderGetQueryParameters 
         {

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PlannerUser : PlannerDelta, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The all property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public List<PlannerDelta> All { get; set; }
 #endif
-        /// <summary>A collection that contains the references to the plans that the user has marked as favorites.</summary>
+        /// <summary>A collection that contains the references to the plans that the user marked as favorites.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerFavoritePlanReferenceCollection? FavoritePlanReferences { get; set; }
@@ -31,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public List<PlannerPlan> FavoritePlans { get; set; }
 #endif
-        /// <summary>The myDayTasks property</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PlannerTask>? MyDayTasks { get; set; }
@@ -47,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public List<PlannerPlan> Plans { get; set; }
 #endif
-        /// <summary>A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.</summary>
+        /// <summary>A collection that contains references to the plans that the user recently viewed in apps that support recent plans.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerRecentPlanReferenceCollection? RecentPlanReferences { get; set; }
@@ -55,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerRecentPlanReferenceCollection RecentPlanReferences { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PlannerPlan>? RecentPlans { get; set; }

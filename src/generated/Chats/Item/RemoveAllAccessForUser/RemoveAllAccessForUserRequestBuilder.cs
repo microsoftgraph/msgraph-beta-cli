@@ -21,13 +21,13 @@ namespace ApiSdk.Chats.Item.RemoveAllAccessForUser {
     {
         /// <summary>
         /// Remove access to a chat for a user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-removeallaccessforuser?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-removeallaccessforuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Remove access to a chat for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-removeallaccessforuser?view=graph-rest-1.0";
+            command.Description = "Remove access to a chat for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-removeallaccessforuser?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;

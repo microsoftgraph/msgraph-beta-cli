@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PrivilegedApproval : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The approvalDuration property</summary>
         public TimeSpan? ApprovalDuration { get; set; }

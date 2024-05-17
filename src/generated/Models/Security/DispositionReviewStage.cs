@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class DispositionReviewStage : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Name representing each stage within a collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,7 +26,13 @@ namespace ApiSdk.Models.Security {
         public List<string> ReviewersEmailAddresses { get; set; }
 #endif
         /// <summary>The sequence number for each stage of the disposition review.</summary>
-        public int? StageNumber { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StageNumber { get; set; }
+#nullable restore
+#else
+        public string StageNumber { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +53,7 @@ namespace ApiSdk.Models.Security {
             {
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"reviewersEmailAddresses", n => { ReviewersEmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"stageNumber", n => { StageNumber = n.GetIntValue(); } },
+                {"stageNumber", n => { StageNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +66,7 @@ namespace ApiSdk.Models.Security {
             base.Serialize(writer);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("reviewersEmailAddresses", ReviewersEmailAddresses);
-            writer.WriteIntValue("stageNumber", StageNumber);
+            writer.WriteStringValue("stageNumber", StageNumber);
         }
     }
 }

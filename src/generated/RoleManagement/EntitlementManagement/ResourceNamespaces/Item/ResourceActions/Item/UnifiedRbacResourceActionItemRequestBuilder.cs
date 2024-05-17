@@ -81,14 +81,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.Re
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRbacResourceAction object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacresourceaction-get?view=graph-rest-1.0" />
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an unifiedRbacResourceAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacresourceaction-get?view=graph-rest-1.0";
+            command.Description = "Operations that an authorized principal is allowed to perform.";
             var unifiedRbacResourceNamespaceIdOption = new Option<string>("--unified-rbac-resource-namespace-id", description: "The unique identifier of unifiedRbacResourceNamespace") {
             };
             unifiedRbacResourceNamespaceIdOption.IsRequired = true;
@@ -243,13 +242,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.Re
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRbacResourceAction object.
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,13 +282,13 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.Re
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRbacResourceAction object.
+        /// Operations that an authorized principal is allowed to perform.
         /// </summary>
         public class UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters 
         {

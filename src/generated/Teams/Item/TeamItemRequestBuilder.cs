@@ -184,13 +184,13 @@ namespace ApiSdk.Teams.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of the specified team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-get?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -394,13 +394,13 @@ namespace ApiSdk.Teams.Item {
         }
         /// <summary>
         /// Update the properties of the specified team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of the specified team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-update?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -690,7 +690,7 @@ namespace ApiSdk.Teams.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teams/{team%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -730,7 +730,7 @@ namespace ApiSdk.Teams.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teams/{team%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

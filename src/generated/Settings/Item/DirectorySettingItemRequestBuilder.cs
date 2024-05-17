@@ -22,13 +22,13 @@ namespace ApiSdk.Settings.Item {
     {
         /// <summary>
         /// Delete a directory setting.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a directory setting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-1.0";
+            command.Description = "Delete a directory setting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-beta";
             var directorySettingIdOption = new Option<string>("--directory-setting-id", description: "The unique identifier of directorySetting") {
             };
             directorySettingIdOption.IsRequired = true;
@@ -58,13 +58,13 @@ namespace ApiSdk.Settings.Item {
         }
         /// <summary>
         /// Retrieve the properties of a specific directory setting object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a specific directory setting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties of a specific directory setting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-beta";
             var directorySettingIdOption = new Option<string>("--directory-setting-id", description: "The unique identifier of directorySetting") {
             };
             directorySettingIdOption.IsRequired = true;
@@ -111,13 +111,13 @@ namespace ApiSdk.Settings.Item {
         }
         /// <summary>
         /// Update the properties of a specific directory setting object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a specific directory setting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of a specific directory setting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-beta";
             var directorySettingIdOption = new Option<string>("--directory-setting-id", description: "The unique identifier of directorySetting") {
             };
             directorySettingIdOption.IsRequired = true;
@@ -189,7 +189,7 @@ namespace ApiSdk.Settings.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/settings/{directorySetting%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -229,7 +229,7 @@ namespace ApiSdk.Settings.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/settings/{directorySetting%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

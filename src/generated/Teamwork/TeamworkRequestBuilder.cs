@@ -111,13 +111,13 @@ namespace ApiSdk.Teamwork {
         }
         /// <summary>
         /// Get the properties and relationships of a teamwork object, such as the region of the organization and whether Microsoft Teams is enabled.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a teamwork object, such as the region of the organization and whether Microsoft Teams is enabled.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-get?view=graph-rest-1.0";
+            command.Description = "Get the properties and relationships of a teamwork object, such as the region of the organization and whether Microsoft Teams is enabled.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -340,7 +340,7 @@ namespace ApiSdk.Teamwork {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -53,14 +53,13 @@ namespace ApiSdk.AccessReviews.Item.Reviewers {
             return command;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, update an existing accessReview object to add another user as a reviewer.  This operation is only permitted for an access review that isn&apos;t yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn&apos;t permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-addreviewer?view=graph-rest-1.0" />
+        /// Create new navigation property to reviewers for accessReviews
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "In the Microsoft Entra access reviews feature, update an existing accessReview object to add another user as a reviewer.  This operation is only permitted for an access review that isn't yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn't permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-addreviewer?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to reviewers for accessReviews";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.AccessReviews.Item.Reviewers {
             return command;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-listreviewers?view=graph-rest-1.0" />
+        /// The collection of reviewers for an access review, if access review reviewerType is of type delegated.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-listreviewers?view=graph-rest-1.0";
+            command.Description = "The collection of reviewers for an access review, if access review reviewerType is of type delegated.";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.AccessReviews.Item.Reviewers {
         {
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.
+        /// The collection of reviewers for an access review, if access review reviewerType is of type delegated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.AccessReviews.Item.Reviewers {
             return requestInfo;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, update an existing accessReview object to add another user as a reviewer.  This operation is only permitted for an access review that isn&apos;t yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn&apos;t permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
+        /// Create new navigation property to reviewers for accessReviews
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.AccessReviews.Item.Reviewers {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/accessReviews/{accessReview%2Did}/reviewers", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.
+        /// The collection of reviewers for an access review, if access review reviewerType is of type delegated.
         /// </summary>
         public class ReviewersRequestBuilderGetQueryParameters 
         {

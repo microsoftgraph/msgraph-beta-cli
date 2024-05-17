@@ -55,14 +55,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Columns {
             return command;
         }
         /// <summary>
-        /// Create columnDefinition
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0" />
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-post-columns?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to columns for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -120,13 +119,12 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Columns {
         }
         /// <summary>
         /// The collection of field definitions for this list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of field definitions for this list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-columns?view=graph-rest-1.0";
+            command.Description = "The collection of field definitions for this list.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -265,7 +263,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Columns {
             return requestInfo;
         }
         /// <summary>
-        /// Create columnDefinition
+        /// Create new navigation property to columns for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -280,7 +278,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Columns {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/columns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

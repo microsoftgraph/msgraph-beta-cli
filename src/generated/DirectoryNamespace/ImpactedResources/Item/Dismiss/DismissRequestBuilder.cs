@@ -22,13 +22,13 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Dismiss {
     {
         /// <summary>
         /// Dismiss an impactedResources object and update its status to dismissed.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-dismiss?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-dismiss?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Dismiss an impactedResources object and update its status to dismissed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-dismiss?view=graph-rest-1.0";
+            command.Description = "Dismiss an impactedResources object and update its status to dismissed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-dismiss?view=graph-rest-beta";
             var impactedResourceIdOption = new Option<string>("--impacted-resource-id", description: "The unique identifier of impactedResource") {
             };
             impactedResourceIdOption.IsRequired = true;

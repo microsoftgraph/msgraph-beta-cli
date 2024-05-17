@@ -255,7 +255,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.ApplicableConte
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/windows/updates/deployments/{deployment%2Did}/audience/applicableContent", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

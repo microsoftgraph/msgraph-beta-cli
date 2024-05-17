@@ -22,13 +22,13 @@ namespace ApiSdk.Oauth2PermissionGrants.Item {
     {
         /// <summary>
         /// Delete an oAuth2PermissionGrant, representing a delegated permission grant. When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens will not be granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an oAuth2PermissionGrant, representing a delegated permission grant. When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens will not be granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-1.0";
+            command.Description = "Delete an oAuth2PermissionGrant, representing a delegated permission grant. When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens will not be granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-beta";
             var oAuth2PermissionGrantIdOption = new Option<string>("--o-auth2permission-grant-id", description: "The unique identifier of oAuth2PermissionGrant") {
             };
             oAuth2PermissionGrantIdOption.IsRequired = true;
@@ -58,13 +58,13 @@ namespace ApiSdk.Oauth2PermissionGrants.Item {
         }
         /// <summary>
         /// Retrieve the properties of a single delegated permission grant represented by an oAuth2PermissionGrant object. An oAuth2PermissionGrant represents delegated permissions which have been granted for a client application to access an API on behalf of a signed-in user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a single delegated permission grant represented by an oAuth2PermissionGrant object. An oAuth2PermissionGrant represents delegated permissions which have been granted for a client application to access an API on behalf of a signed-in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties of a single delegated permission grant represented by an oAuth2PermissionGrant object. An oAuth2PermissionGrant represents delegated permissions which have been granted for a client application to access an API on behalf of a signed-in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-beta";
             var oAuth2PermissionGrantIdOption = new Option<string>("--o-auth2permission-grant-id", description: "The unique identifier of oAuth2PermissionGrant") {
             };
             oAuth2PermissionGrantIdOption.IsRequired = true;
@@ -111,13 +111,13 @@ namespace ApiSdk.Oauth2PermissionGrants.Item {
         }
         /// <summary>
         /// Update the properties of oAuth2PermissionGrant object, representing a delegated permission grant. An oAuth2PermissionGrant can be updated to change which delegated permissions are granted, by adding or removing items from the list in scopes.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of oAuth2PermissionGrant object, representing a delegated permission grant. An oAuth2PermissionGrant can be updated to change which delegated permissions are granted, by adding or removing items from the list in scopes.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of oAuth2PermissionGrant object, representing a delegated permission grant. An oAuth2PermissionGrant can be updated to change which delegated permissions are granted, by adding or removing items from the list in scopes.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-beta";
             var oAuth2PermissionGrantIdOption = new Option<string>("--o-auth2permission-grant-id", description: "The unique identifier of oAuth2PermissionGrant") {
             };
             oAuth2PermissionGrantIdOption.IsRequired = true;
@@ -189,7 +189,7 @@ namespace ApiSdk.Oauth2PermissionGrants.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -229,7 +229,7 @@ namespace ApiSdk.Oauth2PermissionGrants.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

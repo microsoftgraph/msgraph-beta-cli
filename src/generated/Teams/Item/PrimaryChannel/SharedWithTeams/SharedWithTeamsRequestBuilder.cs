@@ -107,14 +107,13 @@ namespace ApiSdk.Teams.Item.PrimaryChannel.SharedWithTeams {
             return command;
         }
         /// <summary>
-        /// Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-list?view=graph-rest-1.0" />
+        /// A collection of teams with which a channel is shared.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-list?view=graph-rest-1.0";
+            command.Description = "A collection of teams with which a channel is shared.";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -222,7 +221,7 @@ namespace ApiSdk.Teams.Item.PrimaryChannel.SharedWithTeams {
         {
         }
         /// <summary>
-        /// Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+        /// A collection of teams with which a channel is shared.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,13 +255,13 @@ namespace ApiSdk.Teams.Item.PrimaryChannel.SharedWithTeams {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teams/{team%2Did}/primaryChannel/sharedWithTeams", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+        /// A collection of teams with which a channel is shared.
         /// </summary>
         public class SharedWithTeamsRequestBuilderGetQueryParameters 
         {

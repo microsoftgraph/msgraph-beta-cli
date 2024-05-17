@@ -21,13 +21,13 @@ namespace ApiSdk.Communications.Presences.Item.ClearPresence {
     {
         /// <summary>
         /// Clear a presence session of an application for a user. If it is the user&apos;s only presence session, a successful clearPresence changes the user&apos;s presence to Offline/Offline. Read more about presence sessions and their time-out and expiration. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Clear a presence session of an application for a user. If it is the user's only presence session, a successful clearPresence changes the user's presence to Offline/Offline. Read more about presence sessions and their time-out and expiration. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-1.0";
+            command.Description = "Clear a presence session of an application for a user. If it is the user's only presence session, a successful clearPresence changes the user's presence to Offline/Offline. Read more about presence sessions and their time-out and expiration. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-beta";
             var presenceIdOption = new Option<string>("--presence-id", description: "The unique identifier of presence") {
             };
             presenceIdOption.IsRequired = true;

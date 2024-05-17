@@ -68,14 +68,13 @@ namespace ApiSdk.Chats.Item.Messages.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a single message or a message reply in a channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
+        /// A collection of all the messages in the chat. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a single message or a message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0";
+            command.Description = "A collection of all the messages in the chat. Nullable.";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -334,13 +333,13 @@ namespace ApiSdk.Chats.Item.Messages.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single message or a message reply in a channel or a chat.
+        /// A collection of all the messages in the chat. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -374,13 +373,13 @@ namespace ApiSdk.Chats.Item.Messages.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single message or a message reply in a channel or a chat.
+        /// A collection of all the messages in the chat. Nullable.
         /// </summary>
         public class ChatMessageItemRequestBuilderGetQueryParameters 
         {

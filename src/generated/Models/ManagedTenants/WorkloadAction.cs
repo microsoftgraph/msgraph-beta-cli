@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.ManagedTenants {
+    #pragma warning disable CS1591
     public class WorkloadAction : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the workload action. Required. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

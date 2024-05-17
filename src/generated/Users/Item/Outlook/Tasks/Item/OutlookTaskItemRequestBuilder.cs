@@ -68,15 +68,14 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Delete the specified Outlook task in the user&apos;s mailbox.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktask-delete?view=graph-rest-1.0" />
+        /// Delete navigation property tasks for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete the specified Outlook task in the user's mailbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property tasks for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -111,15 +110,14 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of an Outlook task in the user&apos;s mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktask-get?view=graph-rest-1.0" />
+        /// Get tasks from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an Outlook task in the user's mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-get?view=graph-rest-1.0";
+            command.Description = "Get tasks from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -164,15 +162,14 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Change writable properties of an Outlook task. The completedDateTime property can be set by the complete action, or explicitly by a PATCH operation. If you use PATCH to set completedDateTime, make sure you set status to completed as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktask-update?view=graph-rest-1.0" />
+        /// Update the navigation property tasks in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Change writable properties of an Outlook task. The completedDateTime property can be set by the complete action, or explicitly by a PATCH operation. If you use PATCH to set completedDateTime, make sure you set status to completed as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktask-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property tasks in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -237,7 +234,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         {
         }
         /// <summary>
-        /// Delete the specified Outlook task in the user&apos;s mailbox.
+        /// Delete navigation property tasks for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,13 +248,13 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/outlook/tasks/{outlookTask%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an Outlook task in the user&apos;s mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.
+        /// Get tasks from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,7 +274,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Change writable properties of an Outlook task. The completedDateTime property can be set by the complete action, or explicitly by a PATCH operation. If you use PATCH to set completedDateTime, make sure you set status to completed as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.
+        /// Update the navigation property tasks in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -293,13 +290,13 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/outlook/tasks/{outlookTask%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an Outlook task in the user&apos;s mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone different than UTC.
+        /// Get tasks from users
         /// </summary>
         public class OutlookTaskItemRequestBuilderGetQueryParameters 
         {

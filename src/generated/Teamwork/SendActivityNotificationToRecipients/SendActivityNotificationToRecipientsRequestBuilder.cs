@@ -21,13 +21,13 @@ namespace ApiSdk.Teamwork.SendActivityNotificationToRecipients {
     {
         /// <summary>
         /// Send activity feed notifications to multiple users in bulk. For more information, see sending Teams activity notifications.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Send activity feed notifications to multiple users in bulk. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0";
+            command.Description = "Send activity feed notifications to multiple users in bulk. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

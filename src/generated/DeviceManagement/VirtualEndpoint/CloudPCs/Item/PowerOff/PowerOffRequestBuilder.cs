@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.PowerOff {
     {
         /// <summary>
         /// Power off a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered off, it&apos;s deallocated, and licenses are revoked immediately. Only IT admin users can perform this action. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-poweroff?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-poweroff?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Power off a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered off, it's deallocated, and licenses are revoked immediately. Only IT admin users can perform this action. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-poweroff?view=graph-rest-1.0";
+            command.Description = "Power off a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered off, it's deallocated, and licenses are revoked immediately. Only IT admin users can perform this action. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-poweroff?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;

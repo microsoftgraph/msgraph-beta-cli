@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.AssociateWithHubSites {
     {
         /// <summary>
         /// Invoke action associateWithHubSites
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action associateWithHubSites\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0";
+            command.Description = "Invoke action associateWithHubSites\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

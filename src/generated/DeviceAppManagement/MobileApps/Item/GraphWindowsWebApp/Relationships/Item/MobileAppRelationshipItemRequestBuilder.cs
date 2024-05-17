@@ -62,13 +62,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphWindowsWebApp.Relation
             return command;
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The set of direct relationships for this app.";
+            command.Description = "List of relationships for this mobile app.";
             var mobileAppIdOption = new Option<string>("--mobile-app-id", description: "The unique identifier of mobileApp") {
             };
             mobileAppIdOption.IsRequired = true;
@@ -204,13 +204,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphWindowsWebApp.Relation
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsWebApp/relationships/{mobileAppRelationship%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +244,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphWindowsWebApp.Relation
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsWebApp/relationships/{mobileAppRelationship%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         public class MobileAppRelationshipItemRequestBuilderGetQueryParameters 
         {

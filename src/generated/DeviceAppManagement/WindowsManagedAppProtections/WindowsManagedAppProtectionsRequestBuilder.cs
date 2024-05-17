@@ -35,6 +35,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections {
             commands.Add(builder.BuildAssignmentsNavCommand());
             commands.Add(builder.BuildAssignNavCommand());
             executables.Add(builder.BuildDeleteCommand());
+            commands.Add(builder.BuildDeploymentSummaryNavCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
             commands.Add(builder.BuildTargetAppsNavCommand());
@@ -245,7 +246,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceAppManagement/windowsManagedAppProtections", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

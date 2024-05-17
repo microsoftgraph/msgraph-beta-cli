@@ -72,14 +72,14 @@ namespace ApiSdk.IdentityProviders {
         }
         /// <summary>
         /// Create a new identityProvider object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0";
+            command.Description = "Create a new identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -119,14 +119,14 @@ namespace ApiSdk.IdentityProviders {
         }
         /// <summary>
         /// Retrieve a list of identityProviders objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of identityProviders objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of identityProviders objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -264,7 +264,7 @@ namespace ApiSdk.IdentityProviders {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityProviders", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

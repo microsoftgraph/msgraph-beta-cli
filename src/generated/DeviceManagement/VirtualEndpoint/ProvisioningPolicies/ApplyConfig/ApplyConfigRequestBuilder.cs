@@ -20,14 +20,15 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
     public class ApplyConfigRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke action applyConfig
+        /// Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action applyConfig";
+            command.Description = "Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -70,7 +71,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         {
         }
         /// <summary>
-        /// Invoke action applyConfig
+        /// Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -53,14 +53,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShifts 
             return command;
         }
         /// <summary>
-        /// Create an instance of an openshift object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0" />
+        /// Create new navigation property to openShifts for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create an instance of an openshift object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to openShifts for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShifts 
             return command;
         }
         /// <summary>
-        /// List openshift objects in a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0" />
+        /// The set of open shifts in a scheduling group in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List openshift objects in a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0";
+            command.Description = "The set of open shifts in a scheduling group in the schedule.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShifts 
         {
         }
         /// <summary>
-        /// List openshift objects in a team.
+        /// The set of open shifts in a scheduling group in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShifts 
             return requestInfo;
         }
         /// <summary>
-        /// Create an instance of an openshift object.
+        /// Create new navigation property to openShifts for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShifts 
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/openShifts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List openshift objects in a team.
+        /// The set of open shifts in a scheduling group in the schedule.
         /// </summary>
         public class OpenShiftsRequestBuilderGetQueryParameters 
         {

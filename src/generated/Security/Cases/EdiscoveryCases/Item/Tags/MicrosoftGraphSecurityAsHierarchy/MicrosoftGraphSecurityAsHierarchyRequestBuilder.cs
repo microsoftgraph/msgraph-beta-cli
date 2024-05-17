@@ -20,13 +20,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurity
     public class MicrosoftGraphSecurityAsHierarchyRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function asHierarchy
+        /// List eDiscovery review tags with the tag hierarchy shown.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-ashierarchy?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function asHierarchy";
+            command.Description = "List eDiscovery review tags with the tag hierarchy shown.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-ashierarchy?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurity
         {
         }
         /// <summary>
-        /// Invoke function asHierarchy
+        /// List eDiscovery review tags with the tag hierarchy shown.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurity
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function asHierarchy
+        /// List eDiscovery review tags with the tag hierarchy shown.
         /// </summary>
         public class MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters 
         {

@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.DeviceManagement.ManagedDevices.ExecuteAction {
+    #pragma warning disable CS1591
     public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The actionName property</summary>
         public ManagedDeviceRemoteAction? ActionName { get; set; }

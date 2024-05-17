@@ -21,13 +21,12 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.Host
     {
         /// <summary>
         /// Get media content for the navigation property hostedContent from appCatalogs
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkhostedcontent-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get media content for the navigation property hostedContent from appCatalogs\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkhostedcontent-get?view=graph-rest-1.0";
+            command.Description = "Get media content for the navigation property hostedContent from appCatalogs";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;

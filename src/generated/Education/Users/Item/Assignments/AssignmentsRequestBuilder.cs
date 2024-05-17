@@ -134,14 +134,13 @@ namespace ApiSdk.Education.Users.Item.Assignments {
             return command;
         }
         /// <summary>
-        /// Returns a list of assignments assigned to a user for all classes. Only teachers, students, and applications with application permissions can perform this operation. This utility namespace allows a caller to find all of a student&apos;s or teacher&apos;s assignments in a single call, rather than having to request assignments from each class. The assignment list contains what is needed to get the detailed information for the assignment from within the class namespace. All other operations on the assignment should use the class namespace.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-list-assignments?view=graph-rest-1.0" />
+        /// List of assignments for the user. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of assignments assigned to a user for all classes. Only teachers, students, and applications with application permissions can perform this operation. This utility namespace allows a caller to find all of a student's or teacher's assignments in a single call, rather than having to request assignments from each class. The assignment list contains what is needed to get the detailed information for the assignment from within the class namespace. All other operations on the assignment should use the class namespace.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-list-assignments?view=graph-rest-1.0";
+            command.Description = "List of assignments for the user. Nullable.";
             var educationUserIdOption = new Option<string>("--education-user-id", description: "The unique identifier of educationUser") {
             };
             educationUserIdOption.IsRequired = true;
@@ -249,7 +248,7 @@ namespace ApiSdk.Education.Users.Item.Assignments {
         {
         }
         /// <summary>
-        /// Returns a list of assignments assigned to a user for all classes. Only teachers, students, and applications with application permissions can perform this operation. This utility namespace allows a caller to find all of a student&apos;s or teacher&apos;s assignments in a single call, rather than having to request assignments from each class. The assignment list contains what is needed to get the detailed information for the assignment from within the class namespace. All other operations on the assignment should use the class namespace.
+        /// List of assignments for the user. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,13 +282,13 @@ namespace ApiSdk.Education.Users.Item.Assignments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/users/{educationUser%2Did}/assignments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of assignments assigned to a user for all classes. Only teachers, students, and applications with application permissions can perform this operation. This utility namespace allows a caller to find all of a student&apos;s or teacher&apos;s assignments in a single call, rather than having to request assignments from each class. The assignment list contains what is needed to get the detailed information for the assignment from within the class namespace. All other operations on the assignment should use the class namespace.
+        /// List of assignments for the user. Nullable.
         /// </summary>
         public class AssignmentsRequestBuilderGetQueryParameters 
         {

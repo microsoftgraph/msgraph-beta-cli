@@ -98,14 +98,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of all externalUserProfiles
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-externaluserprofiles?view=graph-rest-1.0" />
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the properties of all externalUserProfiles\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-externaluserprofiles?view=graph-rest-1.0";
+            command.Description = "Collection of external user profiles that represent collaborators in the directory.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
         {
         }
         /// <summary>
-        /// Retrieve the properties of all externalUserProfiles
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/externalUserProfiles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of all externalUserProfiles
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         public class ExternalUserProfilesRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
     public class PhoneAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a user&apos;s phone authentication method.  Remember that a user may not have an alternateMobile number without a mobile number. If you want to remove a mobile number from a user that also has an alternateMobile number, first update the mobile number to the new number, then delete the alternateMobile number. If the phone number is the user&apos;s default Azure multifactor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/phoneauthenticationmethod-delete?view=graph-rest-1.0" />
+        /// Delete navigation property phoneMethods for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a user's phone authentication method.  Remember that a user may not have an alternateMobile number without a mobile number. If you want to remove a mobile number from a user that also has an alternateMobile number, first update the mobile number to the new number, then delete the alternateMobile number. If the phone number is the user's default Azure multifactor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/phoneauthenticationmethod-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property phoneMethods for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Microsoft Entra ID and B2B users, but not B2C users.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/phoneauthenticationmethod-get?view=graph-rest-1.0" />
+        /// Represents the phone registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Microsoft Entra ID and B2B users, but not B2C users.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/phoneauthenticationmethod-get?view=graph-rest-1.0";
+            command.Description = "Represents the phone registered to a user for authentication.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
             return command;
         }
         /// <summary>
-        /// Update the phone number associated with a phone authentication method. You can&apos;t change a phone&apos;s type. To change a phone&apos;s type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-1.0" />
+        /// Update the navigation property phoneMethods in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the phone number associated with a phone authentication method. You can't change a phone's type. To change a phone's type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property phoneMethods in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
         {
         }
         /// <summary>
-        /// Delete a user&apos;s phone authentication method.  Remember that a user may not have an alternateMobile number without a mobile number. If you want to remove a mobile number from a user that also has an alternateMobile number, first update the mobile number to the new number, then delete the alternateMobile number. If the phone number is the user&apos;s default Azure multifactor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.
+        /// Delete navigation property phoneMethods for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Microsoft Entra ID and B2B users, but not B2C users.
+        /// Represents the phone registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the phone number associated with a phone authentication method. You can&apos;t change a phone&apos;s type. To change a phone&apos;s type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.
+        /// Update the navigation property phoneMethods in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Microsoft Entra ID and B2B users, but not B2C users.
+        /// Represents the phone registered to a user for authentication.
         /// </summary>
         public class PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove a user as a registered user of the device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-delete-registeredusers?view=graph-rest-1.0" />
+        /// Delete ref of navigation property registeredUsers for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove a user as a registered user of the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete-registeredusers?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property registeredUsers for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -70,13 +69,12 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         }
         /// <summary>
         /// Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-list-registeredusers?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list-registeredusers?view=graph-rest-1.0";
+            command.Description = "Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -169,14 +167,13 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
             return command;
         }
         /// <summary>
-        /// Add a registered user for the device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-post-registeredusers?view=graph-rest-1.0" />
+        /// Create new navigation property ref to registeredUsers for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add a registered user for the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-post-registeredusers?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to registeredUsers for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -220,18 +217,18 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredUsers/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredUsers/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Remove a user as a registered user of the device.
+        /// Delete ref of navigation property registeredUsers for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,13 +260,13 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Add a registered user for the device.
+        /// Create new navigation property ref to registeredUsers for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -290,7 +287,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Remove a user as a registered user of the device.
+        /// Delete ref of navigation property registeredUsers for users
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {

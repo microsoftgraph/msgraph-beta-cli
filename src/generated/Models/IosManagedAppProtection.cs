@@ -18,6 +18,8 @@ namespace ApiSdk.Models {
 #else
         public string AllowedIosDeviceModels { get; set; }
 #endif
+        /// <summary>Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.</summary>
+        public ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
         public ManagedAppRemediationAction? AppActionIfIosDeviceModelNotAllowed { get; set; }
         /// <summary>Represents the level to which app data is encrypted for managed apps</summary>
@@ -148,6 +150,7 @@ namespace ApiSdk.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 {"allowedIosDeviceModels", n => { AllowedIosDeviceModels = n.GetStringValue(); } },
+                {"appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
                 {"appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
                 {"appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
                 {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -178,6 +181,7 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("allowedIosDeviceModels", AllowedIosDeviceModels);
+            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
             writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfIosDeviceModelNotAllowed", AppActionIfIosDeviceModelNotAllowed);
             writer.WriteEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", AppDataEncryptionType);
             writer.WriteCollectionOfObjectValues<ManagedMobileApp>("apps", Apps);

@@ -98,14 +98,13 @@ namespace ApiSdk.Security.SecureScores {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a secureScores object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0" />
+        /// Measurements of tenants’ security posture to help protect them from threats.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the properties and relationships of a secureScores object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securescores-list?view=graph-rest-1.0";
+            command.Description = "Measurements of tenants’ security posture to help protect them from threats.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Security.SecureScores {
         {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a secureScores object.
+        /// Measurements of tenants’ security posture to help protect them from threats.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Security.SecureScores {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/secureScores", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a secureScores object.
+        /// Measurements of tenants’ security posture to help protect them from threats.
         /// </summary>
         public class SecureScoresRequestBuilderGetQueryParameters 
         {

@@ -106,14 +106,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Agents {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of onPremisesAgent objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onpremisesagent-list?view=graph-rest-1.0" />
+        /// List of existing onPremisesAgent objects. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of onPremisesAgent objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onpremisesagent-list?view=graph-rest-1.0";
+            command.Description = "List of existing onPremisesAgent objects. Read-only. Nullable.";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Agents {
         {
         }
         /// <summary>
-        /// Retrieve a list of onPremisesAgent objects.
+        /// List of existing onPremisesAgent objects. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Agents {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agents", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of onPremisesAgent objects.
+        /// List of existing onPremisesAgent objects. Read-only. Nullable.
         /// </summary>
         public class AgentsRequestBuilderGetQueryParameters 
         {

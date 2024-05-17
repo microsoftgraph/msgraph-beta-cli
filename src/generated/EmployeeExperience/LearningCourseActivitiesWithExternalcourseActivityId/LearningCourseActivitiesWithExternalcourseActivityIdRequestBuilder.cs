@@ -56,14 +56,13 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
             return command;
         }
         /// <summary>
-        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0" />
+        /// Get learningCourseActivities from employeeExperience
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0";
+            command.Description = "Get learningCourseActivities from employeeExperience";
             var externalcourseActivityIdOption = new Option<string>("--externalcourse-activity-id", description: "Alternate key of learningCourseActivity") {
             };
             externalcourseActivityIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+        /// Get learningCourseActivities from employeeExperience
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+        /// Get learningCourseActivities from employeeExperience
         /// </summary>
         public class LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParameters 
         {

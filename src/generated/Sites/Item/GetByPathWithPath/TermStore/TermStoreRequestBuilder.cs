@@ -62,14 +62,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.TermStore {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a store object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0" />
+        /// The termStore under this site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a store object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0";
+            command.Description = "The termStore under this site.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.TermStore {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/termStore", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a store object.
+        /// The termStore under this site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.TermStore {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/termStore", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a store object.
+        /// The termStore under this site.
         /// </summary>
         public class TermStoreRequestBuilderGetQueryParameters 
         {

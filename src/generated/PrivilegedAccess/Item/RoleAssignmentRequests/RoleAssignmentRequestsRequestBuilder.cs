@@ -59,14 +59,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests {
             return command;
         }
         /// <summary>
-        /// Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/governanceroleassignmentrequest-post?view=graph-rest-1.0" />
+        /// Create new navigation property to roleAssignmentRequests for privilegedAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/governanceroleassignmentrequest-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to roleAssignmentRequests for privilegedAccess";
             var privilegedAccessIdOption = new Option<string>("--privileged-access-id", description: "The unique identifier of privilegedAccess") {
             };
             privilegedAccessIdOption.IsRequired = true;
@@ -244,7 +243,7 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
+        /// Create new navigation property to roleAssignmentRequests for privilegedAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +258,7 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleAssignmentRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

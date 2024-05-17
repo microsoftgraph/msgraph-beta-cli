@@ -58,14 +58,13 @@ namespace ApiSdk.Identity.B2cUserFlows {
             return command;
         }
         /// <summary>
-        /// Create a new b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-post-b2cuserflows?view=graph-rest-1.0" />
+        /// Create new navigation property to b2cUserFlows for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-post-b2cuserflows?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to b2cUserFlows for identity";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -104,14 +103,13 @@ namespace ApiSdk.Identity.B2cUserFlows {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of b2cIdentityUserFlow objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-list-b2cuserflows?view=graph-rest-1.0" />
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of b2cIdentityUserFlow objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-list-b2cuserflows?view=graph-rest-1.0";
+            command.Description = "Represents entry point for B2C identity userflows.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -213,7 +211,7 @@ namespace ApiSdk.Identity.B2cUserFlows {
         {
         }
         /// <summary>
-        /// Retrieve a list of b2cIdentityUserFlow objects.
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +230,7 @@ namespace ApiSdk.Identity.B2cUserFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new b2cIdentityUserFlow object.
+        /// Create new navigation property to b2cUserFlows for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +245,13 @@ namespace ApiSdk.Identity.B2cUserFlows {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/b2cUserFlows", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of b2cIdentityUserFlow objects.
+        /// Represents entry point for B2C identity userflows.
         /// </summary>
         public class B2cUserFlowsRequestBuilderGetQueryParameters 
         {

@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AppIdentity : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Refers to the unique identifier representing Application Id in the Microsoft Entra ID.</summary>
+        /// <summary>Refers to the unique identifier representing application ID in the Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppId { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Refers to the unique identifier indicating Service Principal Id in Microsoft Entra ID for the corresponding App.</summary>
+        /// <summary>Refers to the unique identifier indicating service principal ID in Microsoft Entra ID for the corresponding App.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServicePrincipalId { get; set; }

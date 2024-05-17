@@ -56,14 +56,13 @@ namespace ApiSdk.External.Connections.Item.Quota {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectionQuota object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-connectionquota-get?view=graph-rest-1.0" />
+        /// Get quota from external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a connectionQuota object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-connectionquota-get?view=graph-rest-1.0";
+            command.Description = "Get quota from external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.External.Connections.Item.Quota {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/connections/{externalConnection%2Did}/quota", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectionQuota object.
+        /// Get quota from external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.External.Connections.Item.Quota {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/connections/{externalConnection%2Did}/quota", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a connectionQuota object.
+        /// Get quota from external
         /// </summary>
         public class QuotaRequestBuilderGetQueryParameters 
         {

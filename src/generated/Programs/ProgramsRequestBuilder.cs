@@ -56,13 +56,13 @@ namespace ApiSdk.Programs {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, create a new program object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-create?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-create?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "In the Microsoft Entra access reviews feature, create a new program object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-create?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, create a new program object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-create?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -102,13 +102,13 @@ namespace ApiSdk.Programs {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, list all the program objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "In the Microsoft Entra access reviews feature, list all the program objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-list?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, list all the program objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -244,7 +244,7 @@ namespace ApiSdk.Programs {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/programs", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -56,13 +56,13 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns.Item {
             return command;
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get trainingCampaigns from security";
+            command.Description = "Represents a training campaign in a tenant.";
             var trainingCampaignIdOption = new Option<string>("--training-campaign-id", description: "The unique identifier of trainingCampaign") {
             };
             trainingCampaignIdOption.IsRequired = true;
@@ -186,13 +186,13 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/attackSimulation/trainingCampaigns/{trainingCampaign%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -226,13 +226,13 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/attackSimulation/trainingCampaigns/{trainingCampaign%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         public class TrainingCampaignItemRequestBuilderGetQueryParameters 
         {

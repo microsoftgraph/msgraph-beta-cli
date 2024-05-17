@@ -95,14 +95,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             return command;
         }
         /// <summary>
-        /// Delete an existing assignment. Only teachers within a class can delete assignments.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0" />
+        /// Delete navigation property assignments for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an existing assignment. Only teachers within a class can delete assignments.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property assignments for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -137,14 +136,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0" />
+        /// All assignments associated with this class. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0";
+            command.Description = "All assignments associated with this class. Nullable.";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -230,14 +228,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             return command;
         }
         /// <summary>
-        /// Update an educationAssignment object.  Only teachers in the class can do this. You can&apos;t use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0" />
+        /// Update the navigation property assignments in education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update an educationAssignment object.  Only teachers in the class can do this. You can't use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property assignments in education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -432,7 +429,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         {
         }
         /// <summary>
-        /// Delete an existing assignment. Only teachers within a class can delete assignments.
+        /// Delete navigation property assignments for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -445,13 +442,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.
+        /// All assignments associated with this class. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -470,7 +467,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update an educationAssignment object.  Only teachers in the class can do this. You can&apos;t use a PATCH request to change the status of an assignment. Use the publish action to change the assignment status.
+        /// Update the navigation property assignments in education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -485,13 +482,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.
+        /// All assignments associated with this class. Nullable.
         /// </summary>
         public class EducationAssignmentItemRequestBuilderGetQueryParameters 
         {

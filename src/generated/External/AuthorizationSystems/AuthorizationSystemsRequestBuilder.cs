@@ -100,14 +100,13 @@ namespace ApiSdk.External.AuthorizationSystems {
             return command;
         }
         /// <summary>
-        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-external-list-authorizationsystems?view=graph-rest-1.0" />
+        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the authorizationSystem objects onboarded to Permissions Management and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-external-list-authorizationsystems?view=graph-rest-1.0";
+            command.Description = "Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.External.AuthorizationSystems {
         {
         }
         /// <summary>
-        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
+        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.External.AuthorizationSystems {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/external/authorizationSystems", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
+        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
         /// </summary>
         public class AuthorizationSystemsRequestBuilderGetQueryParameters 
         {

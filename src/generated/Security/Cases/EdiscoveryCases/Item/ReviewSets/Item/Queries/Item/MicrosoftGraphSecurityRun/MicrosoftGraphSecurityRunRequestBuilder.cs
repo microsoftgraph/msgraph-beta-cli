@@ -20,13 +20,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Ite
     public class MicrosoftGraphSecurityRunRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function run
+        /// Run reviewset query to get the list of files.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-run?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function run";
+            command.Description = "Run reviewset query to get the list of files.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-run?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -146,7 +147,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Ite
         {
         }
         /// <summary>
-        /// Invoke function run
+        /// Run reviewset query to get the list of files.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,7 +166,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function run
+        /// Run reviewset query to get the list of files.
         /// </summary>
         public class MicrosoftGraphSecurityRunRequestBuilderGetQueryParameters 
         {

@@ -53,14 +53,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions {
             return command;
         }
         /// <summary>
-        /// Create a new bookingCustomQuestion object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-post-customquestions?view=graph-rest-1.0" />
+        /// Create new navigation property to customQuestions for solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new bookingCustomQuestion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-post-customquestions?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to customQuestions for solutions";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions {
             return command;
         }
         /// <summary>
-        /// Get the bookingCustomQuestion resources associated with a bookingBusiness.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0" />
+        /// All custom questions of this business.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the bookingCustomQuestion resources associated with a bookingBusiness.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0";
+            command.Description = "All custom questions of this business.";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions {
         {
         }
         /// <summary>
-        /// Get the bookingCustomQuestion resources associated with a bookingBusiness.
+        /// All custom questions of this business.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new bookingCustomQuestion object.
+        /// Create new navigation property to customQuestions for solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CustomQuestions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the bookingCustomQuestion resources associated with a bookingBusiness.
+        /// All custom questions of this business.
         /// </summary>
         public class CustomQuestionsRequestBuilderGetQueryParameters 
         {

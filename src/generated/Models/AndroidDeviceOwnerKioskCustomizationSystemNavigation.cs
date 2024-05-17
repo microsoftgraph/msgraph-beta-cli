@@ -11,7 +11,7 @@ namespace ApiSdk.Models {
         /// <summary>Home and overview buttons are enabled.</summary>
         [EnumMember(Value = "navigationEnabled")]
         NavigationEnabled,
-        /// <summary> Only the home button is enabled.</summary>
+        /// <summary>Only the home button is enabled.</summary>
         [EnumMember(Value = "homeButtonOnly")]
         HomeButtonOnly,
     }

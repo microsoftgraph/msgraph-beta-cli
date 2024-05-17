@@ -56,14 +56,13 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-1.0" />
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an applicationSignInDetailedSummary object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-1.0";
+            command.Description = "Represents a detailed summary of an application sign-in.";
             var applicationSignInDetailedSummaryIdOption = new Option<string>("--application-sign-in-detailed-summary-id", description: "The unique identifier of applicationSignInDetailedSummary") {
             };
             applicationSignInDetailedSummaryIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
+        /// Represents a detailed summary of an application sign-in.
         /// </summary>
         public class ApplicationSignInDetailedSummaryItemRequestBuilderGetQueryParameters 
         {

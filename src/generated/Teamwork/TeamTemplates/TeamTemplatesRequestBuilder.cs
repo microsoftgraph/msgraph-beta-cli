@@ -100,14 +100,13 @@ namespace ApiSdk.Teamwork.TeamTemplates {
             return command;
         }
         /// <summary>
-        /// List the teamTemplateDefinition objects associated with a teamTemplate. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamtemplate-list-definitions?view=graph-rest-1.0" />
+        /// The templates associated with a team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the teamTemplateDefinition objects associated with a teamTemplate. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamtemplate-list-definitions?view=graph-rest-1.0";
+            command.Description = "The templates associated with a team.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Teamwork.TeamTemplates {
         {
         }
         /// <summary>
-        /// List the teamTemplateDefinition objects associated with a teamTemplate. 
+        /// The templates associated with a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Teamwork.TeamTemplates {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the teamTemplateDefinition objects associated with a teamTemplate. 
+        /// The templates associated with a team.
         /// </summary>
         public class TeamTemplatesRequestBuilderGetQueryParameters 
         {

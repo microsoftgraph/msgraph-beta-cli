@@ -29,7 +29,7 @@ namespace ApiSdk.Security.Labels.RetentionLabels.Item.DispositionReviewStages {
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new DispositionReviewStageItemRequestBuilder(PathParameters);
+            var builder = new DispositionReviewStageStageNumberItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
@@ -252,7 +252,7 @@ namespace ApiSdk.Security.Labels.RetentionLabels.Item.DispositionReviewStages {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GetEffectivePermissions {
     public class GetEffectivePermissionsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getEffectivePermissions
+        /// Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn&apos;t have access to.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-geteffectivepermissions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getEffectivePermissions";
+            command.Description = "Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn't have access to.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-geteffectivepermissions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -107,7 +108,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GetEffectivePermissions {
         {
         }
         /// <summary>
-        /// Invoke function getEffectivePermissions
+        /// Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn&apos;t have access to.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +127,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GetEffectivePermissions {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getEffectivePermissions
+        /// Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn&apos;t have access to.
         /// </summary>
         public class GetEffectivePermissionsRequestBuilderGetQueryParameters 
         {

@@ -63,14 +63,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a virtualEventWebinar object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-1.0" />
+        /// Get webinars from solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a virtualEventWebinar object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-1.0";
+            command.Description = "Get webinars from solutions";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -349,13 +348,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a virtualEventWebinar object.
+        /// Get webinars from solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -389,13 +388,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a virtualEventWebinar object.
+        /// Get webinars from solutions
         /// </summary>
         public class VirtualEventWebinarItemRequestBuilderGetQueryParameters 
         {

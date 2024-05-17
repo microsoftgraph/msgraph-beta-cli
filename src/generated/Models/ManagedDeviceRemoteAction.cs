@@ -2,7 +2,9 @@
 using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public enum ManagedDeviceRemoteAction
+    #pragma warning restore CS1591
     {
         /// <summary>Name of the retire action.</summary>
         [EnumMember(Value = "retire")]

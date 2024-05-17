@@ -52,15 +52,14 @@ namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item.AppliesTo {
             return command;
         }
         /// <summary>
-        /// Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-1.0" />
+        /// Create new navigation property to appliesTo for directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("Feature Rollout Policies have been grouped with other policies under /policies. The existing /directory/featureRolloutPolicies is deprecated and will stop returning data on 06/30/2021. Please use /policies/featureRolloutPolicies. as of 2021-01/DirectoryFeatureRolloutPolicies")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to appliesTo for directory";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -259,7 +258,7 @@ namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item.AppliesTo {
             return requestInfo;
         }
         /// <summary>
-        /// Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
+        /// Create new navigation property to appliesTo for directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -275,7 +274,7 @@ namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item.AppliesTo {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/featureRolloutPolicies/{featureRolloutPolicy%2Did}/appliesTo", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

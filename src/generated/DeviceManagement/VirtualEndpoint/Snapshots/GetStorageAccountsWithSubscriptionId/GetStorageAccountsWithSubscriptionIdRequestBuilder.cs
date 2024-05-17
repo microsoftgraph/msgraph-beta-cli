@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
     public class GetStorageAccountsWithSubscriptionIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getStorageAccounts
+        /// List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcsnapshot-getstorageaccounts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getStorageAccounts";
+            command.Description = "List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcsnapshot-getstorageaccounts?view=graph-rest-beta";
             var subscriptionIdOption = new Option<string>("--subscription-id", description: "Usage: subscriptionId='{subscriptionId}'") {
             };
             subscriptionIdOption.IsRequired = true;
@@ -113,7 +114,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
         {
         }
         /// <summary>
-        /// Invoke function getStorageAccounts
+        /// List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +133,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getStorageAccounts
+        /// List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
         /// </summary>
         public class GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters 
         {

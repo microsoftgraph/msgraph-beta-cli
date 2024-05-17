@@ -71,14 +71,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Mem
             return command;
         }
         /// <summary>
-        /// Add a new conversation member to a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0" />
+        /// Create new navigation property to members for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Add a new conversation member to a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to members for teamwork";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -129,14 +128,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Mem
             return command;
         }
         /// <summary>
-        /// Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client should not try to parse or make assumptions about these resource IDs. In the future, membership results may include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0" />
+        /// Members and owners of the team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client should not try to parse or make assumptions about these resource IDs. In the future, membership results may include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0";
+            command.Description = "Members and owners of the team.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -250,7 +248,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Mem
         {
         }
         /// <summary>
-        /// Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client should not try to parse or make assumptions about these resource IDs. In the future, membership results may include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
+        /// Members and owners of the team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -269,7 +267,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Mem
             return requestInfo;
         }
         /// <summary>
-        /// Add a new conversation member to a team.
+        /// Create new navigation property to members for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -284,13 +282,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Mem
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/members", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client should not try to parse or make assumptions about these resource IDs. In the future, membership results may include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
+        /// Members and owners of the team.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

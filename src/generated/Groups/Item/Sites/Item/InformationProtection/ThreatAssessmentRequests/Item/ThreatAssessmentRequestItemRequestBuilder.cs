@@ -69,14 +69,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.ThreatAssessmentRe
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/threatassessmentrequest-get?view=graph-rest-1.0" />
+        /// Get threatAssessmentRequests from groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/threatassessmentrequest-get?view=graph-rest-1.0";
+            command.Description = "Get threatAssessmentRequests from groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -251,13 +250,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.ThreatAssessmentRe
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:
+        /// Get threatAssessmentRequests from groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -291,13 +290,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.ThreatAssessmentRe
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:
+        /// Get threatAssessmentRequests from groups
         /// </summary>
         public class ThreatAssessmentRequestItemRequestBuilderGetQueryParameters 
         {

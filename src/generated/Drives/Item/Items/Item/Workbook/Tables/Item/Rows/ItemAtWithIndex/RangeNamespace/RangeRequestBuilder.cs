@@ -22,13 +22,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Rows.ItemAtWithInde
     {
         /// <summary>
         /// Returns the range object associated with the entire row.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns the range object associated with the entire row.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-1.0";
+            command.Description = "Returns the range object associated with the entire row.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablerow-range?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

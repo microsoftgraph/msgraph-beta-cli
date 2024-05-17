@@ -22,13 +22,13 @@ namespace ApiSdk.Communications.Calls.Item.UpdateRecordingStatus {
     {
         /// <summary>
         /// Update the application&apos;s recording status associated with a call. This requires the use of the Teams policy-based recording solution.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0";
+            command.Description = "Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

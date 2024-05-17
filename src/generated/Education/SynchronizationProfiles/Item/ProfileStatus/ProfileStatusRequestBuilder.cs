@@ -56,14 +56,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
             return command;
         }
         /// <summary>
-        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofilestatus-get?view=graph-rest-1.0" />
+        /// The synchronization status.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofilestatus-get?view=graph-rest-1.0";
+            command.Description = "The synchronization status.";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/profileStatus", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
+        /// The synchronization status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/profileStatus", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
+        /// The synchronization status.
         /// </summary>
         public class ProfileStatusRequestBuilderGetQueryParameters 
         {

@@ -30,14 +30,14 @@ namespace ApiSdk.Domains.Item {
     public class DomainItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Deletes a domain from a tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0" />
+        /// Delete a domain from a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes a domain from a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0";
+            command.Description = "Delete a domain from a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -137,13 +137,13 @@ namespace ApiSdk.Domains.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of domain object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of domain object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of domain object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -189,14 +189,14 @@ namespace ApiSdk.Domains.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of domain object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-1.0" />
+        /// Update the properties of domain object. Only verified domains can be updated.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of domain object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of domain object. Only verified domains can be updated.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -387,7 +387,7 @@ namespace ApiSdk.Domains.Item {
         {
         }
         /// <summary>
-        /// Deletes a domain from a tenant.
+        /// Delete a domain from a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -400,7 +400,7 @@ namespace ApiSdk.Domains.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/domains/{domain%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -425,7 +425,7 @@ namespace ApiSdk.Domains.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of domain object.
+        /// Update the properties of domain object. Only verified domains can be updated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -440,7 +440,7 @@ namespace ApiSdk.Domains.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/domains/{domain%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

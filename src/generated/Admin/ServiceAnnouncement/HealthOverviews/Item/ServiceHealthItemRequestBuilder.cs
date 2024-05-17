@@ -57,14 +57,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0" />
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0";
+            command.Description = "A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.";
             var serviceHealthIdOption = new Option<string>("--service-health-id", description: "The unique identifier of serviceHealth") {
             };
             serviceHealthIdOption.IsRequired = true;
@@ -215,13 +214,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         public class ServiceHealthItemRequestBuilderGetQueryParameters 
         {

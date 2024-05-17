@@ -20,13 +20,14 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleDefinitions.Item.Inherit
     public class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function assignedPrincipals
+        /// Get the list of security principals (users, groups, and service principals) that are assigned to a specific role for different scopes either directly or transitively. You can use the $count query parameter to also get the count. To list the direct and transitive role assignments for a specific principal, use the List transitiveRoleAssignments API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroledefinition-assignedprincipals?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function assignedPrincipals";
+            command.Description = "Get the list of security principals (users, groups, and service principals) that are assigned to a specific role for different scopes either directly or transitively. You can use the $count query parameter to also get the count. To list the direct and transitive role assignments for a specific principal, use the List transitiveRoleAssignments API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroledefinition-assignedprincipals?view=graph-rest-beta";
             var rbacApplicationIdOption = new Option<string>("--rbac-application-id", description: "The unique identifier of rbacApplication") {
             };
             rbacApplicationIdOption.IsRequired = true;
@@ -164,7 +165,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleDefinitions.Item.Inherit
         {
         }
         /// <summary>
-        /// Invoke function assignedPrincipals
+        /// Get the list of security principals (users, groups, and service principals) that are assigned to a specific role for different scopes either directly or transitively. You can use the $count query parameter to also get the count. To list the direct and transitive role assignments for a specific principal, use the List transitiveRoleAssignments API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -183,7 +184,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleDefinitions.Item.Inherit
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function assignedPrincipals
+        /// Get the list of security principals (users, groups, and service principals) that are assigned to a specific role for different scopes either directly or transitively. You can use the $count query parameter to also get the count. To list the direct and transitive role assignments for a specific principal, use the List transitiveRoleAssignments API.
         /// </summary>
         public class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters 
         {

@@ -55,14 +55,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return command;
         }
         /// <summary>
-        /// Create a new contentApproval object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-1.0" />
+        /// Create new navigation property to complianceChanges for admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new contentApproval object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to complianceChanges for admin";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -107,14 +106,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return command;
         }
         /// <summary>
-        /// Get a list of the complianceChange objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-1.0" />
+        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the complianceChange objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-1.0";
+            command.Description = "Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -222,7 +220,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
         {
         }
         /// <summary>
-        /// Get a list of the complianceChange objects and their properties.
+        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +239,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new contentApproval object.
+        /// Create new navigation property to complianceChanges for admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,13 +254,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/complianceChanges", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the complianceChange objects and their properties.
+        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
         /// </summary>
         public class ComplianceChangesRequestBuilderGetQueryParameters 
         {

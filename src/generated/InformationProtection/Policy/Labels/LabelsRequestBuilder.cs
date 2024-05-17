@@ -171,15 +171,14 @@ namespace ApiSdk.InformationProtection.Policy.Labels {
             return command;
         }
         /// <summary>
-        /// Get a collection of information protection labels available to the user or to the organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotectionpolicy-list-labels?view=graph-rest-1.0" />
+        /// Get labels from informationProtection
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a collection of information protection labels available to the user or to the organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotectionpolicy-list-labels?view=graph-rest-1.0";
+            command.Description = "Get labels from informationProtection";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -281,7 +280,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels {
         {
         }
         /// <summary>
-        /// Get a collection of information protection labels available to the user or to the organization.
+        /// Get labels from informationProtection
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -317,13 +316,13 @@ namespace ApiSdk.InformationProtection.Policy.Labels {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/informationProtection/policy/labels", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a collection of information protection labels available to the user or to the organization.
+        /// Get labels from informationProtection
         /// </summary>
         public class LabelsRequestBuilderGetQueryParameters 
         {

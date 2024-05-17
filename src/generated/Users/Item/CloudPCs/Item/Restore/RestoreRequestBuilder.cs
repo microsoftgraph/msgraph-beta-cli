@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.Restore {
     {
         /// <summary>
         /// Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0";
+            command.Description = "Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

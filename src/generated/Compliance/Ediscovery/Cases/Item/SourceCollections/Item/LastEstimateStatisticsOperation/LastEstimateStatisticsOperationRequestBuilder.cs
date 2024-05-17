@@ -21,15 +21,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.LastEst
     public class LastEstimateStatisticsOperationRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Get the last estimateStatisticsOperation object associated with a source collection. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-lastestimatestatisticsoperation?view=graph-rest-1.0" />
+        /// The last estimate operation associated with the sourceCollection.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the last estimateStatisticsOperation object associated with a source collection. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-lastestimatestatisticsoperation?view=graph-rest-1.0";
+            command.Description = "The last estimate operation associated with the sourceCollection.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -95,7 +94,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.LastEst
         {
         }
         /// <summary>
-        /// Get the last estimateStatisticsOperation object associated with a source collection. 
+        /// The last estimate operation associated with the sourceCollection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -115,7 +114,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.LastEst
             return requestInfo;
         }
         /// <summary>
-        /// Get the last estimateStatisticsOperation object associated with a source collection. 
+        /// The last estimate operation associated with the sourceCollection.
         /// </summary>
         public class LastEstimateStatisticsOperationRequestBuilderGetQueryParameters 
         {

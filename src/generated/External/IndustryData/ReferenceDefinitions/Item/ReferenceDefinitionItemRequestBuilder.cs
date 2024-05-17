@@ -56,14 +56,13 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a referenceDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-referencedefinition-get?view=graph-rest-1.0" />
+        /// Set of user modifiable system picker types.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a referenceDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-referencedefinition-get?view=graph-rest-1.0";
+            command.Description = "Set of user modifiable system picker types.";
             var referenceDefinitionIdOption = new Option<string>("--reference-definition-id", description: "The unique identifier of referenceDefinition") {
             };
             referenceDefinitionIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/industryData/referenceDefinitions/{referenceDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a referenceDefinition object.
+        /// Set of user modifiable system picker types.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/industryData/referenceDefinitions/{referenceDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a referenceDefinition object.
+        /// Set of user modifiable system picker types.
         /// </summary>
         public class ReferenceDefinitionItemRequestBuilderGetQueryParameters 
         {

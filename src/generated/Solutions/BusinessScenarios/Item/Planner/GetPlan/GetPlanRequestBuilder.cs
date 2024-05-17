@@ -22,13 +22,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan {
     {
         /// <summary>
         /// Get information about the plannerPlan mapped to a given target. If a plannerPlan doesn&apos;t exist for the specified target at the time of the request, a new plan will be created for the businessScenario.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Get information about the plannerPlan mapped to a given target. If a plannerPlan doesn't exist for the specified target at the time of the request, a new plan will be created for the businessScenario.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-1.0";
+            command.Description = "Get information about the plannerPlan mapped to a given target. If a plannerPlan doesn't exist for the specified target at the time of the request, a new plan will be created for the businessScenario.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-beta";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;

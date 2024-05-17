@@ -22,13 +22,12 @@ namespace ApiSdk.Drives.Item.Items.Item.Children.Item.Content {
     {
         /// <summary>
         /// Get content for the navigation property children from drives
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-list-children?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get content for the navigation property children from drives\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-list-children?view=graph-rest-1.0";
+            command.Description = "Get content for the navigation property children from drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -188,7 +187,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Children.Item.Content {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}/content", PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");

@@ -252,7 +252,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item.PolicyRules {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/filteringPolicies/{filteringPolicy%2Did}/policyRules", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

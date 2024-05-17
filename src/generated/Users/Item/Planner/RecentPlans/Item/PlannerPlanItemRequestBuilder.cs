@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans.Item {
     public class PlannerPlanItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.";
+            command.Description = "Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -93,7 +93,7 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans.Item {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace ApiSdk.Users.Item.Planner.RecentPlans.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+        /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
         /// </summary>
         public class PlannerPlanItemRequestBuilderGetQueryParameters 
         {

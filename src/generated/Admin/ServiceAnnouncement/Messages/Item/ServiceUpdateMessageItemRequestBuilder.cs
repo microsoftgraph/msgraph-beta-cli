@@ -103,14 +103,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0" />
+        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0";
+            command.Description = "A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.";
             var serviceUpdateMessageIdOption = new Option<string>("--service-update-message-id", description: "The unique identifier of serviceUpdateMessage") {
             };
             serviceUpdateMessageIdOption.IsRequired = true;
@@ -234,13 +233,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
+        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -274,13 +273,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
+        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         public class ServiceUpdateMessageItemRequestBuilderGetQueryParameters 
         {

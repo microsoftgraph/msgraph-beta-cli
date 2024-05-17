@@ -5,17 +5,19 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class UserTrainingCompletionSummary : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The completedUsersCount property</summary>
+        /// <summary>The number of users who completed all the trainings before the due date.</summary>
         public int? CompletedUsersCount { get; set; }
-        /// <summary>The inProgressUsersCount property</summary>
+        /// <summary>The number of users who started at least one training.</summary>
         public int? InProgressUsersCount { get; set; }
-        /// <summary>The notCompletedUsersCount property</summary>
+        /// <summary>The number of users who didn&apos;t complete all the trainings before the due date.</summary>
         public int? NotCompletedUsersCount { get; set; }
-        /// <summary>The notStartedUsersCount property</summary>
+        /// <summary>The number of users who didn&apos;t start any training.</summary>
         public int? NotStartedUsersCount { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -25,7 +27,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The previouslyAssignedUsersCount property</summary>
+        /// <summary>The number of users who are already assigned the same training.</summary>
         public int? PreviouslyAssignedUsersCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="UserTrainingCompletionSummary"/> and sets the default values.

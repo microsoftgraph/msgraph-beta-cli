@@ -23,14 +23,13 @@ namespace ApiSdk.Groups.Item.Threads.Item {
     public class ConversationThreadItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a thread object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0" />
+        /// Delete navigation property threads for groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a thread object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0";
+            command.Description = "Delete navigation property threads for groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -65,14 +64,13 @@ namespace ApiSdk.Groups.Item.Threads.Item {
             return command;
         }
         /// <summary>
-        /// Get a thread object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0" />
+        /// The group&apos;s conversation threads. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a thread object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0";
+            command.Description = "The group's conversation threads. Nullable.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -117,14 +115,13 @@ namespace ApiSdk.Groups.Item.Threads.Item {
             return command;
         }
         /// <summary>
-        /// Update a thread object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-update-thread?view=graph-rest-1.0" />
+        /// Update the navigation property threads in groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update a thread object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-update-thread?view=graph-rest-1.0";
+            command.Description = "Update the navigation property threads in groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -232,7 +229,7 @@ namespace ApiSdk.Groups.Item.Threads.Item {
         {
         }
         /// <summary>
-        /// Delete a thread object.
+        /// Delete navigation property threads for groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +242,13 @@ namespace ApiSdk.Groups.Item.Threads.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a thread object.
+        /// The group&apos;s conversation threads. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -270,7 +267,7 @@ namespace ApiSdk.Groups.Item.Threads.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update a thread object.
+        /// Update the navigation property threads in groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -285,13 +282,13 @@ namespace ApiSdk.Groups.Item.Threads.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a thread object.
+        /// The group&apos;s conversation threads. Nullable.
         /// </summary>
         public class ConversationThreadItemRequestBuilderGetQueryParameters 
         {

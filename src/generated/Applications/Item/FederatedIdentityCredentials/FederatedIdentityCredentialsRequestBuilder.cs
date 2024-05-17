@@ -53,14 +53,13 @@ namespace ApiSdk.Applications.Item.FederatedIdentityCredentials {
             return command;
         }
         /// <summary>
-        /// Create a new federatedIdentityCredential object for an application. By configuring a trust relationship between your Microsoft Entra application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0" />
+        /// Create new navigation property to federatedIdentityCredentials for applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new federatedIdentityCredential object for an application. By configuring a trust relationship between your Microsoft Entra application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to federatedIdentityCredentials for applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Applications.Item.FederatedIdentityCredentials {
             return command;
         }
         /// <summary>
-        /// Get a list of the federatedIdentityCredential objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0" />
+        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the federatedIdentityCredential objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0";
+            command.Description = "Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Applications.Item.FederatedIdentityCredentials {
         {
         }
         /// <summary>
-        /// Get a list of the federatedIdentityCredential objects and their properties.
+        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Applications.Item.FederatedIdentityCredentials {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new federatedIdentityCredential object for an application. By configuring a trust relationship between your Microsoft Entra application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.
+        /// Create new navigation property to federatedIdentityCredentials for applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Applications.Item.FederatedIdentityCredentials {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the federatedIdentityCredential objects and their properties.
+        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
         /// </summary>
         public class FederatedIdentityCredentialsRequestBuilderGetQueryParameters 
         {

@@ -53,14 +53,13 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item.IncludedGroups {
             return command;
         }
         /// <summary>
-        /// Get the list of groups that are included in a mobile app management policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-1.0" />
+        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of groups that are included in a mobile app management policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-1.0";
+            command.Description = "Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -187,7 +186,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item.IncludedGroups {
         {
         }
         /// <summary>
-        /// Get the list of groups that are included in a mobile app management policy.
+        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +205,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item.IncludedGroups {
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of groups that are included in a mobile app management policy.
+        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
         /// </summary>
         public class IncludedGroupsRequestBuilderGetQueryParameters 
         {

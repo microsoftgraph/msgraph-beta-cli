@@ -6,11 +6,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PlannerTask : PlannerDelta, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Number of checklist items with value set to false, representing incomplete items.</summary>
+        /// <summary>The number of checklist items with value set to false, representing incomplete items.</summary>
         public int? ActiveChecklistItemCount { get; set; }
-        /// <summary>The categories to which the task has been applied. See applied Categories for possible values.</summary>
+        /// <summary>The categories to which the task is applied. See plannerAppliedCategories resource type for possible values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerAppliedCategories? AppliedCategories { get; set; }
@@ -34,7 +36,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerAssignedToTaskBoardTaskFormat AssignedToTaskBoardFormat { get; set; }
 #endif
-        /// <summary>Hint used to order items of this type in a list view. The format is defined as outlined here.</summary>
+        /// <summary>A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssigneePriority { get; set; }
@@ -50,7 +52,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerAssignments Assignments { get; set; }
 #endif
-        /// <summary>Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.</summary>
+        /// <summary>Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task. The value of the bucketId property is 28 characters long and case-sensitive. Format validation is done on the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BucketId { get; set; }
@@ -66,9 +68,9 @@ namespace ApiSdk.Models {
 #else
         public PlannerBucketTaskBoardTaskFormat BucketTaskBoardFormat { get; set; }
 #endif
-        /// <summary>Number of checklist items that are present on the task.</summary>
+        /// <summary>The number of checklist items that are present on the task.</summary>
         public int? ChecklistItemCount { get; set; }
-        /// <summary>Identity of the user that completed the task.</summary>
+        /// <summary>The identity of the user that completed the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? CompletedBy { get; set; }
@@ -76,9 +78,9 @@ namespace ApiSdk.Models {
 #else
         public IdentitySet CompletedBy { get; set; }
 #endif
-        /// <summary>Read-only. Date and time at which the &apos;percentComplete&apos; of the task is set to &apos;100&apos;. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Read-only. The date and time at which the &apos;percentComplete&apos; of the task is set to &apos;100&apos;. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
-        /// <summary>Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.</summary>
+        /// <summary>The thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConversationThreadId { get; set; }
@@ -86,7 +88,7 @@ namespace ApiSdk.Models {
 #else
         public string ConversationThreadId { get; set; }
 #endif
-        /// <summary>Identity of the user that created the task.</summary>
+        /// <summary>The identity of the user who created the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? CreatedBy { get; set; }
@@ -94,9 +96,9 @@ namespace ApiSdk.Models {
 #else
         public IdentitySet CreatedBy { get; set; }
 #endif
-        /// <summary>Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Read-only. The date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>Contains information about the origin of the task.</summary>
+        /// <summary>Information about the origin of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerTaskCreation? CreationSource { get; set; }
@@ -104,7 +106,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerTaskCreation CreationSource { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. Additional details about the task.</summary>
+        /// <summary>Read-only. Nullable. More details about the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerTaskDetails? Details { get; set; }
@@ -112,17 +114,17 @@ namespace ApiSdk.Models {
 #else
         public PlannerTaskDetails Details { get; set; }
 #endif
-        /// <summary>Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? DueDateTime { get; set; }
-        /// <summary>Read-only. Value is true if the details object of the task has a nonempty description and false otherwise.</summary>
+        /// <summary>Read-only. This value is true if the details object of the task has a nonempty description. Otherwise,false.</summary>
         public bool? HasDescription { get; set; }
         /// <summary>The isArchived property</summary>
         public bool? IsArchived { get; set; }
-        /// <summary>The isOnMyDay property</summary>
+        /// <summary>A Boolean value that indicates whether to show this task in the MyDay view. true to show the task. Otherwise, false.</summary>
         public bool? IsOnMyDay { get; set; }
-        /// <summary>The isOnMyDayLastModifiedDate property</summary>
+        /// <summary>Read-only. The date on which task is added to or removed from MyDay.</summary>
         public Date? IsOnMyDayLastModifiedDate { get; set; }
-        /// <summary>Hint used to order items of this type in a list view. The format is defined as outlined here.</summary>
+        /// <summary>The hint used to order items of this type in a list view. For more information, see Using order hints in Plannern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrderHint { get; set; }
@@ -130,7 +132,7 @@ namespace ApiSdk.Models {
 #else
         public string OrderHint { get; set; }
 #endif
-        /// <summary>Percentage of task completion. When set to 100, the task is considered completed.</summary>
+        /// <summary>The percentage of task completion. When set to 100, the task is completed.</summary>
         public int? PercentComplete { get; set; }
         /// <summary>Plan ID to which the task belongs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,9 +142,9 @@ namespace ApiSdk.Models {
 #else
         public string PlanId { get; set; }
 #endif
-        /// <summary>This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.</summary>
+        /// <summary>The type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.</summary>
         public PlannerPreviewType? PreviewType { get; set; }
-        /// <summary>Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as &apos;urgent&apos;, 2 and 3 and 4 as &apos;important&apos;, 5, 6, and 7 as &apos;medium&apos;, and 8, 9, and 10 as &apos;low&apos;.  Currently, Planner sets the value 1 for &apos;urgent&apos;, 3 for &apos;important&apos;, 5 for &apos;medium&apos;, and 9 for &apos;low&apos;.</summary>
+        /// <summary>The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as &apos;urgent&apos;, 2 and 3 and 4 as &apos;important&apos;, 5, 6, and 7 as &apos;medium&apos;, and 8, 9, and 10 as &apos;low&apos;. Currently, Planner sets the value 1 for &apos;urgent&apos;, 3 for &apos;important&apos;, 5 for &apos;medium&apos;, and 9 for &apos;low&apos;.</summary>
         public int? Priority { get; set; }
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,7 +164,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Number of external references that exist on the task.</summary>
         public int? ReferenceCount { get; set; }
-        /// <summary>Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.</summary>
+        /// <summary>Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.</summary>
         public PlannerTaskCompletionRequirements? SpecifiedCompletionRequirements { get; set; }
         /// <summary>Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? StartDateTime { get; set; }

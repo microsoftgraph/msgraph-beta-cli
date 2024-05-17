@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class TrainingNotificationDelivery : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The failedMessageDeliveryCount property</summary>
+        /// <summary>The number of users to whom mails couldn&apos;t be delivered.</summary>
         public int? FailedMessageDeliveryCount { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -19,9 +21,9 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The resolvedTargetsCount property</summary>
+        /// <summary>The number of users whose email address was successfully resolved from target users.</summary>
         public int? ResolvedTargetsCount { get; set; }
-        /// <summary>The successfulMessageDeliveryCount property</summary>
+        /// <summary>The number of users who received a mail while the training campaign was in the &apos;in progress&apos; state.</summary>
         public int? SuccessfulMessageDeliveryCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="TrainingNotificationDelivery"/> and sets the default values.

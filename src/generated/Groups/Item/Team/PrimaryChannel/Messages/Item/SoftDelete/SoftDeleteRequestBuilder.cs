@@ -21,13 +21,13 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.SoftDelete {
     {
         /// <summary>
         /// Delete a single chatMessage or a chat message reply in a channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Delete a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0";
+            command.Description = "Delete a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;

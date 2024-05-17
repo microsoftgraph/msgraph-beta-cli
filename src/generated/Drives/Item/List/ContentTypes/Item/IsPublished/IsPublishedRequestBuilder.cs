@@ -21,12 +21,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.IsPublished {
     {
         /// <summary>
         /// Invoke function isPublished
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contenttype-ispublished?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function isPublished";
+            command.Description = "Invoke function isPublished\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contenttype-ispublished?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

@@ -21,13 +21,13 @@ namespace ApiSdk.Shares.Item.List.Subscriptions.Item.Reauthorize {
     {
         /// <summary>
         /// Reauthorize a subscription when you receive a reauthorizationRequired challenge.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reauthorize a subscription when you receive a reauthorizationRequired challenge.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-1.0";
+            command.Description = "Reauthorize a subscription when you receive a reauthorizationRequired challenge.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-beta";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;

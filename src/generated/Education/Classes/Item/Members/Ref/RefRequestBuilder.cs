@@ -21,14 +21,13 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove an educationUser from an educationClass.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-delete-members?view=graph-rest-1.0" />
+        /// Delete ref of navigation property members for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove an educationUser from an educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-delete-members?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property members for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0" />
+        /// All users in the class. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0";
+            command.Description = "All users in the class. Nullable.";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -150,14 +148,13 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Add an educationUser member to an educationClass.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-post-members?view=graph-rest-1.0" />
+        /// Create new navigation property ref to members for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Add an educationUser member to an educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-post-members?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to members for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -195,18 +192,18 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes/{educationClass%2Did}/members/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/classes/{educationClass%2Did}/members/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes/{educationClass%2Did}/members/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/education/classes/{educationClass%2Did}/members/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Remove an educationUser from an educationClass.
+        /// Delete ref of navigation property members for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +222,7 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+        /// All users in the class. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,13 +235,13 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/education/classes/{educationClass%2Did}/members/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Add an educationUser member to an educationClass.
+        /// Create new navigation property ref to members for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,7 +262,7 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Remove an educationUser from an educationClass.
+        /// Delete ref of navigation property members for education
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -281,7 +278,7 @@ namespace ApiSdk.Education.Classes.Item.Members.Ref {
 #endif
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+        /// All users in the class. Nullable.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

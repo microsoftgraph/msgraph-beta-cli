@@ -21,14 +21,14 @@ namespace ApiSdk.Users.Item.CloudPCs.BulkResize {
     {
         /// <summary>
         /// Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices can&apos;t be resized, those devices indicate &apos;resize failed&apos;. The remaining devices are provisioned for the resize process.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The bulkResize action is deprecated and will stop supporting on September 24, 2023. Please use bulk action entity api. as of 2023-05/bulkResize")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices can't be resized, those devices indicate 'resize failed'. The remaining devices are provisioned for the resize process.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-1.0";
+            command.Description = "Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices can't be resized, those devices indicate 'resize failed'. The remaining devices are provisioned for the resize process.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-bulkresize?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

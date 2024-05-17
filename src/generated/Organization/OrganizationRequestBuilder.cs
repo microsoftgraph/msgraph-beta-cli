@@ -166,13 +166,13 @@ namespace ApiSdk.Organization {
         }
         /// <summary>
         /// Retrieve a list of organization objects. There&apos;s only one organization object in the collection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of organization objects. There's only one organization object in the collection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of organization objects. There's only one organization object in the collection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -325,7 +325,7 @@ namespace ApiSdk.Organization {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/organization", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

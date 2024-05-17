@@ -95,13 +95,13 @@ namespace ApiSdk.Devices.Item {
         }
         /// <summary>
         /// Delete a registered device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a registered device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-1.0";
+            command.Description = "Delete a registered device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -158,13 +158,13 @@ namespace ApiSdk.Devices.Item {
         }
         /// <summary>
         /// Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-get?view=graph-rest-1.0";
+            command.Description = "Get the properties and relationships of a device object. Since the device resource supports extensions, you can also use the GET operation to get custom properties and extension data in a device instance.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-get?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -273,13 +273,13 @@ namespace ApiSdk.Devices.Item {
         }
         /// <summary>
         /// Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-update?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -483,7 +483,7 @@ namespace ApiSdk.Devices.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/devices/{device%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -523,7 +523,7 @@ namespace ApiSdk.Devices.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/devices/{device%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -56,14 +56,13 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
             return command;
         }
         /// <summary>
-        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipalsigninactivity-get?view=graph-rest-1.0" />
+        /// Represents a collection of sign-in activities of service principals.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipalsigninactivity-get?view=graph-rest-1.0";
+            command.Description = "Represents a collection of sign-in activities of service principals.";
             var servicePrincipalSignInActivityIdOption = new Option<string>("--service-principal-sign-in-activity-id", description: "The unique identifier of servicePrincipalSignInActivity") {
             };
             servicePrincipalSignInActivityIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
+        /// Represents a collection of sign-in activities of service principals.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
+        /// Represents a collection of sign-in activities of service principals.
         /// </summary>
         public class ServicePrincipalSignInActivityItemRequestBuilderGetQueryParameters 
         {

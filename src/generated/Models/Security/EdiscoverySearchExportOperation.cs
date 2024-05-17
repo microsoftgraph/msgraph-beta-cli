@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class EdiscoverySearchExportOperation : CaseOperation, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The additionalOptions property</summary>
         public ApiSdk.Models.Security.AdditionalOptions? AdditionalOptions { get; set; }

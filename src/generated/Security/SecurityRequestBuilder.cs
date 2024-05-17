@@ -11,6 +11,7 @@ using ApiSdk.Security.Collaboration;
 using ApiSdk.Security.DomainSecurityProfiles;
 using ApiSdk.Security.FileSecurityProfiles;
 using ApiSdk.Security.HostSecurityProfiles;
+using ApiSdk.Security.Identities;
 using ApiSdk.Security.Incidents;
 using ApiSdk.Security.InformationProtection;
 using ApiSdk.Security.IpSecurityProfiles;
@@ -359,6 +360,31 @@ namespace ApiSdk.Security {
                 command.AddCommand(cmd);
             }
             foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the identities property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildIdentitiesNavCommand()
+        {
+            var command = new Command("identities");
+            command.Description = "Provides operations to manage the identities property of the microsoft.graph.security entity.";
+            var builder = new IdentitiesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildHealthIssuesNavCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
             {
                 command.AddCommand(cmd);
             }
@@ -922,7 +948,7 @@ namespace ApiSdk.Security {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -39,6 +39,7 @@ using ApiSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
 using ApiSdk.DeviceManagement.DeviceComplianceScripts;
 using ApiSdk.DeviceManagement.DeviceConfigurationConflictSummary;
 using ApiSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
+using ApiSdk.DeviceManagement.DeviceConfigurationProfiles;
 using ApiSdk.DeviceManagement.DeviceConfigurationRestrictedAppsViolations;
 using ApiSdk.DeviceManagement.DeviceConfigurationUserStateSummaries;
 using ApiSdk.DeviceManagement.DeviceConfigurations;
@@ -75,6 +76,8 @@ using ApiSdk.DeviceManagement.GroupPolicyDefinitions;
 using ApiSdk.DeviceManagement.GroupPolicyMigrationReports;
 using ApiSdk.DeviceManagement.GroupPolicyObjectFiles;
 using ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles;
+using ApiSdk.DeviceManagement.HardwareConfigurations;
+using ApiSdk.DeviceManagement.HardwarePasswordInfo;
 using ApiSdk.DeviceManagement.ImportedDeviceIdentities;
 using ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
 using ApiSdk.DeviceManagement.Intents;
@@ -1286,6 +1289,33 @@ namespace ApiSdk.DeviceManagement {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the deviceConfigurationProfiles property of the microsoft.graph.deviceManagement entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeviceConfigurationProfilesNavCommand()
+        {
+            var command = new Command("device-configuration-profiles");
+            command.Description = "Provides operations to manage the deviceConfigurationProfiles property of the microsoft.graph.deviceManagement entity.";
+            var builder = new DeviceConfigurationProfilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -2155,6 +2185,60 @@ namespace ApiSdk.DeviceManagement {
             var command = new Command("group-policy-uploaded-definition-files");
             command.Description = "Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.";
             var builder = new GroupPolicyUploadedDefinitionFilesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the hardwareConfigurations property of the microsoft.graph.deviceManagement entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildHardwareConfigurationsNavCommand()
+        {
+            var command = new Command("hardware-configurations");
+            command.Description = "Provides operations to manage the hardwareConfigurations property of the microsoft.graph.deviceManagement entity.";
+            var builder = new HardwareConfigurationsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the hardwarePasswordInfo property of the microsoft.graph.deviceManagement entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildHardwarePasswordInfoNavCommand()
+        {
+            var command = new Command("hardware-password-info");
+            command.Description = "Provides operations to manage the hardwarePasswordInfo property of the microsoft.graph.deviceManagement entity.";
+            var builder = new HardwarePasswordInfoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -5151,7 +5235,7 @@ namespace ApiSdk.DeviceManagement {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

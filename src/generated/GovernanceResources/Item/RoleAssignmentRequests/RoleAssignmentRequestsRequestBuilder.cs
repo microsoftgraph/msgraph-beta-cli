@@ -258,7 +258,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignmentRequests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignmentRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

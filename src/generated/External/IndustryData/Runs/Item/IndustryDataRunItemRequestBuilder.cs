@@ -49,14 +49,13 @@ namespace ApiSdk.External.IndustryData.Runs.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataRun object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydatarun-get?view=graph-rest-1.0" />
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an industryDataRun object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydatarun-get?view=graph-rest-1.0";
+            command.Description = "Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.";
             var industryDataRunIdOption = new Option<string>("--industry-data-run-id", description: "The unique identifier of industryDataRun") {
             };
             industryDataRunIdOption.IsRequired = true;
@@ -133,7 +132,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataRun object.
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -152,7 +151,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataRun object.
+        /// Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
         /// </summary>
         public class IndustryDataRunItemRequestBuilderGetQueryParameters 
         {

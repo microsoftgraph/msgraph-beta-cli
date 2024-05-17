@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.GetCloudPcRemoteActionResu
     public class GetCloudPcRemoteActionResultsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getCloudPcRemoteActionResults
+        /// Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-getcloudpcremoteactionresults?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCloudPcRemoteActionResults";
+            command.Description = "Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-getcloudpcremoteactionresults?view=graph-rest-beta";
             var managedDeviceIdOption = new Option<string>("--managed-device-id", description: "The unique identifier of managedDevice") {
             };
             managedDeviceIdOption.IsRequired = true;
@@ -113,7 +114,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.GetCloudPcRemoteActionResu
         {
         }
         /// <summary>
-        /// Invoke function getCloudPcRemoteActionResults
+        /// Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +133,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.GetCloudPcRemoteActionResu
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getCloudPcRemoteActionResults
+        /// Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
         /// </summary>
         public class GetCloudPcRemoteActionResultsRequestBuilderGetQueryParameters 
         {

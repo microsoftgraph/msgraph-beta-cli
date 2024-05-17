@@ -95,14 +95,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a recommendation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recommendation-get?view=graph-rest-1.0" />
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a recommendation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recommendation-get?view=graph-rest-1.0";
+            command.Description = "List of recommended improvements to improve tenant posture.";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;
@@ -287,13 +286,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directory/recommendations/{recommendation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a recommendation object.
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -327,13 +326,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directory/recommendations/{recommendation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a recommendation object.
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         public class RecommendationItemRequestBuilderGetQueryParameters 
         {

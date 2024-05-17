@@ -104,13 +104,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphManagedMobileLobApp.Re
             return command;
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The set of direct relationships for this app.";
+            command.Description = "List of relationships for this mobile app.";
             var mobileAppIdOption = new Option<string>("--mobile-app-id", description: "The unique identifier of mobileApp") {
             };
             mobileAppIdOption.IsRequired = true;
@@ -218,7 +218,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphManagedMobileLobApp.Re
         {
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +252,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphManagedMobileLobApp.Re
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedMobileLobApp/relationships", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The set of direct relationships for this app.
+        /// List of relationships for this mobile app.
         /// </summary>
         public class RelationshipsRequestBuilderGetQueryParameters 
         {

@@ -56,14 +56,13 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of a user&apos;s regionalAndLanguageSettings.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0" />
+        /// The user&apos;s preferences for languages, regional locale and date/time formatting.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a user's regionalAndLanguageSettings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0";
+            command.Description = "The user's preferences for languages, regional locale and date/time formatting.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -109,14 +108,13 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
             return command;
         }
         /// <summary>
-        /// Update some or all of the properties of a regionalAndLanguageSettings object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0" />
+        /// Update the navigation property regionalAndLanguageSettings in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update some or all of the properties of a regionalAndLanguageSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property regionalAndLanguageSettings in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -188,13 +186,13 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/settings/regionalAndLanguageSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a user&apos;s regionalAndLanguageSettings.
+        /// The user&apos;s preferences for languages, regional locale and date/time formatting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -213,7 +211,7 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update some or all of the properties of a regionalAndLanguageSettings object.
+        /// Update the navigation property regionalAndLanguageSettings in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -228,13 +226,13 @@ namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/settings/regionalAndLanguageSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a user&apos;s regionalAndLanguageSettings.
+        /// The user&apos;s preferences for languages, regional locale and date/time formatting.
         /// </summary>
         public class RegionalAndLanguageSettingsRequestBuilderGetQueryParameters 
         {

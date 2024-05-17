@@ -59,14 +59,13 @@ namespace ApiSdk.Communications.CallRecords.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callrecords-callrecord-get?view=graph-rest-1.0" />
+        /// Get callRecords from communications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/callrecords-callrecord-get?view=graph-rest-1.0";
+            command.Description = "Get callRecords from communications";
             var callRecordIdOption = new Option<string>("--call-record-id", description: "The unique identifier of callRecord") {
             };
             callRecordIdOption.IsRequired = true;
@@ -263,13 +262,13 @@ namespace ApiSdk.Communications.CallRecords.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/communications/callRecords/{callRecord%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
+        /// Get callRecords from communications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -303,13 +302,13 @@ namespace ApiSdk.Communications.CallRecords.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/communications/callRecords/{callRecord%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
+        /// Get callRecords from communications
         /// </summary>
         public class CallRecordItemRequestBuilderGetQueryParameters 
         {

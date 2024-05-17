@@ -51,15 +51,14 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsersBreakdown {
             return command;
         }
         /// <summary>
-        /// Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusersbreakdown?view=graph-rest-1.0" />
+        /// Get activeUsersBreakdown from reports
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Active Users Breakdown Metric is deprecated and will stop returning data on February 16, 2024. Please use the existing Active Users API. as of 2024-02/Remove_Breakdown_APIs")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusersbreakdown?view=graph-rest-1.0";
+            command.Description = "Get activeUsersBreakdown from reports";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -161,7 +160,7 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsersBreakdown {
         {
         }
         /// <summary>
-        /// Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+        /// Get activeUsersBreakdown from reports
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +180,7 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsersBreakdown {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+        /// Get activeUsersBreakdown from reports
         /// </summary>
         public class ActiveUsersBreakdownRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Chats.Item.Messages.Item.Replies.Item.UndoSoftDelete {
     {
         /// <summary>
         /// Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-1.0";
+            command.Description = "Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;

@@ -53,15 +53,14 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedGroups {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0" />
+        /// The groups whose users have access to print using the printer.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0";
+            command.Description = "The groups whose users have access to print using the printer.";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -188,7 +187,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedGroups {
         {
         }
         /// <summary>
-        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+        /// The groups whose users have access to print using the printer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -208,7 +207,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedGroups {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+        /// The groups whose users have access to print using the printer.
         /// </summary>
         public class AllowedGroupsRequestBuilderGetQueryParameters 
         {

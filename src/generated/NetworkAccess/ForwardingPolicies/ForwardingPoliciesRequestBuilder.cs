@@ -101,13 +101,13 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies {
             return command;
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding policy.
+        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve information about a specific forwarding policy.";
+            command.Description = "A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +209,7 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies {
         {
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding policy.
+        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +243,13 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/forwardingPolicies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding policy.
+        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
         /// </summary>
         public class ForwardingPoliciesRequestBuilderGetQueryParameters 
         {

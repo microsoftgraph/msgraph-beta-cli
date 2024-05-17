@@ -56,14 +56,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostReputation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-1.0" />
+        /// Represents a calculated reputation of this host.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a hostReputation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-1.0";
+            command.Description = "Represents a calculated reputation of this host.";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostReputation object.
+        /// Represents a calculated reputation of this host.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostReputation object.
+        /// Represents a calculated reputation of this host.
         /// </summary>
         public class ReputationRequestBuilderGetQueryParameters 
         {

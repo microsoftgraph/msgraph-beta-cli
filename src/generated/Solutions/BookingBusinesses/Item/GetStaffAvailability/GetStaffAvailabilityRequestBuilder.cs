@@ -21,13 +21,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.GetStaffAvailability {
     {
         /// <summary>
         /// Get the availability information of staff members of a Microsoft Bookings calendar.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Get the availability information of staff members of a Microsoft Bookings calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0";
+            command.Description = "Get the availability information of staff members of a Microsoft Bookings calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-beta";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class TunnelConfiguration : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -25,7 +27,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string PreSharedKey { get; set; }
 #endif
-        /// <summary>The zoneRedundancyPreSharedKey property</summary>
+        /// <summary>Another key for zone redundant tunnel. Required only when you select zoneRedundancy redindancyTier when creating a deviceLink.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ZoneRedundancyPreSharedKey { get; set; }

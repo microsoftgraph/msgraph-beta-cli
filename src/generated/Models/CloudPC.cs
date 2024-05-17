@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPC : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The Microsoft Entra device ID of the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -14,6 +16,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string AadDeviceId { get; set; }
+#endif
+        /// <summary>The allotment name divides tenant licenses into smaller batches or groups that helps restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AllotmentDisplayName { get; set; }
+#nullable restore
+#else
+        public string AllotmentDisplayName { get; set; }
 #endif
         /// <summary>The connectionSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +79,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot.</summary>
+        /// <summary>The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, Troubleshoot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CloudPcRemoteActionResult? LastRemoteActionResult { get; set; }
@@ -101,7 +111,7 @@ namespace ApiSdk.Models {
 #else
         public string OnPremisesConnectionName { get; set; }
 #endif
-        /// <summary>The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.</summary>
+        /// <summary>The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.</summary>
         public CloudPcOperatingSystem? OsVersion { get; set; }
         /// <summary>The results of every partner agent&apos;s installation status on Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +121,7 @@ namespace ApiSdk.Models {
 #else
         public List<CloudPcPartnerAgentInstallResult> PartnerAgentInstallResults { get; set; }
 #endif
-        /// <summary>The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.</summary>
+        /// <summary>The power state of a Cloud PC. The possible values are: running, poweredOff, unknown. This property only supports shift work Cloud PCs.</summary>
         public CloudPcPowerState? PowerState { get; set; }
         /// <summary>The provisioning policy ID of the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -167,7 +177,7 @@ namespace ApiSdk.Models {
 #else
         public CloudPcStatusDetails StatusDetails { get; set; }
 #endif
-        /// <summary>The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.</summary>
+        /// <summary>The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.</summary>
         public CloudPcUserAccountType? UserAccountType { get; set; }
         /// <summary>The user principal name (UPN) of the user assigned to the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,6 +206,7 @@ namespace ApiSdk.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 {"aadDeviceId", n => { AadDeviceId = n.GetStringValue(); } },
+                {"allotmentDisplayName", n => { AllotmentDisplayName = n.GetStringValue(); } },
                 {"connectionSettings", n => { ConnectionSettings = n.GetObjectValue<CloudPcConnectionSettings>(CloudPcConnectionSettings.CreateFromDiscriminatorValue); } },
                 {"connectivityResult", n => { ConnectivityResult = n.GetObjectValue<CloudPcConnectivityResult>(CloudPcConnectivityResult.CreateFromDiscriminatorValue); } },
                 {"disasterRecoveryCapability", n => { DisasterRecoveryCapability = n.GetObjectValue<CloudPcDisasterRecoveryCapability>(CloudPcDisasterRecoveryCapability.CreateFromDiscriminatorValue); } },
@@ -234,6 +245,7 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("aadDeviceId", AadDeviceId);
+            writer.WriteStringValue("allotmentDisplayName", AllotmentDisplayName);
             writer.WriteObjectValue<CloudPcConnectionSettings>("connectionSettings", ConnectionSettings);
             writer.WriteObjectValue<CloudPcConnectivityResult>("connectivityResult", ConnectivityResult);
             writer.WriteObjectValue<CloudPcDisasterRecoveryCapability>("disasterRecoveryCapability", DisasterRecoveryCapability);

@@ -57,14 +57,13 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Get a filteringPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringpolicy-get?view=graph-rest-1.0" />
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a filteringPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringpolicy-get?view=graph-rest-1.0";
+            command.Description = "A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.";
             var filteringPolicyIdOption = new Option<string>("--filtering-policy-id", description: "The unique identifier of filteringPolicy") {
             };
             filteringPolicyIdOption.IsRequired = true;
@@ -215,13 +214,13 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/filteringPolicies/{filteringPolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a filteringPolicy object.
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/filteringPolicies/{filteringPolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a filteringPolicy object.
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         public class FilteringPolicyItemRequestBuilderGetQueryParameters 
         {

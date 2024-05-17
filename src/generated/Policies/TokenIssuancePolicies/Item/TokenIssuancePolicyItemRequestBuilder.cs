@@ -48,14 +48,13 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete a tokenIssuancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tokenissuancepolicy-delete?view=graph-rest-1.0" />
+        /// Delete navigation property tokenIssuancePolicies for policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a tokenIssuancePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tokenissuancepolicy-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property tokenIssuancePolicies for policies";
             var tokenIssuancePolicyIdOption = new Option<string>("--token-issuance-policy-id", description: "The unique identifier of tokenIssuancePolicy") {
             };
             tokenIssuancePolicyIdOption.IsRequired = true;
@@ -84,14 +83,13 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a tokenIssuancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tokenissuancepolicy-get?view=graph-rest-1.0" />
+        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a tokenIssuancePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tokenissuancepolicy-get?view=graph-rest-1.0";
+            command.Description = "The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.";
             var tokenIssuancePolicyIdOption = new Option<string>("--token-issuance-policy-id", description: "The unique identifier of tokenIssuancePolicy") {
             };
             tokenIssuancePolicyIdOption.IsRequired = true;
@@ -137,14 +135,13 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a tokenIssuancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tokenissuancepolicy-update?view=graph-rest-1.0" />
+        /// Update the navigation property tokenIssuancePolicies in policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a tokenIssuancePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tokenissuancepolicy-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property tokenIssuancePolicies in policies";
             var tokenIssuancePolicyIdOption = new Option<string>("--token-issuance-policy-id", description: "The unique identifier of tokenIssuancePolicy") {
             };
             tokenIssuancePolicyIdOption.IsRequired = true;
@@ -203,7 +200,7 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
         {
         }
         /// <summary>
-        /// Delete a tokenIssuancePolicy object.
+        /// Delete navigation property tokenIssuancePolicies for policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -216,13 +213,13 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a tokenIssuancePolicy object.
+        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +238,7 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a tokenIssuancePolicy object.
+        /// Update the navigation property tokenIssuancePolicies in policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,13 +253,13 @@ namespace ApiSdk.Policies.TokenIssuancePolicies.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a tokenIssuancePolicy object.
+        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
         /// </summary>
         public class TokenIssuancePolicyItemRequestBuilderGetQueryParameters 
         {

@@ -21,15 +21,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.It
     public class UserSourceItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a userSource object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-usersource-delete?view=graph-rest-1.0" />
+        /// Delete navigation property userSources for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a userSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-usersource-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property userSources for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -70,15 +69,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.It
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a userSource object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-usersource-get?view=graph-rest-1.0" />
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a userSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-usersource-get?view=graph-rest-1.0";
+            command.Description = "Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -214,7 +212,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.It
         {
         }
         /// <summary>
-        /// Delete a userSource object.
+        /// Delete navigation property userSources for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,13 +226,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.It
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/custodians/{custodian%2Did}/userSources/{userSource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a userSource object.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -270,13 +268,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.It
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/custodians/{custodian%2Did}/userSources/{userSource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a userSource object.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// </summary>
         public class UserSourceItemRequestBuilderGetQueryParameters 
         {

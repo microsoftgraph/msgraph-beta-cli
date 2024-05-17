@@ -22,13 +22,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Reactivate {
     {
         /// <summary>
         /// Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recommendation-reactivate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recommendation-reactivate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recommendation-reactivate?view=graph-rest-1.0";
+            command.Description = "Reactivate a completed, dismissed, or postponed recommendation object. This action updates the status of the recommendation to active. This method only works when the status of the recommendation is completedByUser, dismissed, or postponed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recommendation-reactivate?view=graph-rest-beta";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;

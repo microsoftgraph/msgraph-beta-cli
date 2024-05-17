@@ -56,14 +56,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
             return command;
         }
         /// <summary>
-        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-1.0" />
+        /// The health properties of the device.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-1.0";
+            command.Description = "The health properties of the device.";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/health", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+        /// The health properties of the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/health", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+        /// The health properties of the device.
         /// </summary>
         public class HealthRequestBuilderGetQueryParameters 
         {

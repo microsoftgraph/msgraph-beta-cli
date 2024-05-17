@@ -20,13 +20,14 @@ namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages {
     public class GetAllRetainedMessagesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getAllRetainedMessages
+        /// Get retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-getallretainedmessages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getAllRetainedMessages";
+            command.Description = "Get retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-getallretainedmessages?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages {
         {
         }
         /// <summary>
-        /// Invoke function getAllRetainedMessages
+        /// Get retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getAllRetainedMessages
+        /// Get retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
         /// </summary>
         public class GetAllRetainedMessagesRequestBuilderGetQueryParameters 
         {

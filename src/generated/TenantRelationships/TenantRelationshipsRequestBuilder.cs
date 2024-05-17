@@ -234,7 +234,7 @@ namespace ApiSdk.TenantRelationships {
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildJoinRequestNavCommand());
-            execCommands.Add(builder.BuildPatchCommand());
+            execCommands.Add(builder.BuildPutCommand());
             nonExecCommands.Add(builder.BuildTenantsNavCommand());
             foreach (var cmd in execCommands)
             {
@@ -340,7 +340,7 @@ namespace ApiSdk.TenantRelationships {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

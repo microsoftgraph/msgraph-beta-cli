@@ -6,8 +6,12 @@ namespace ApiSdk.Models {
     public enum OfficeSuiteInstallProgressDisplayLevel
     {
         [EnumMember(Value = "none")]
+        #pragma warning disable CS1591
         None,
+        #pragma warning restore CS1591
         [EnumMember(Value = "full")]
+        #pragma warning disable CS1591
         Full,
+        #pragma warning restore CS1591
     }
 }

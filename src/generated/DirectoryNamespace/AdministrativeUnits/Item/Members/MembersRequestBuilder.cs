@@ -65,13 +65,12 @@ namespace ApiSdk.DirectoryNamespace.AdministrativeUnits.Item.Members {
         }
         /// <summary>
         /// Create new navigation property to members for directory
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to members for directory\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to members for directory";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -428,7 +427,7 @@ namespace ApiSdk.DirectoryNamespace.AdministrativeUnits.Item.Members {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -57,14 +57,13 @@ namespace ApiSdk.Security.TiIndicators {
             return command;
         }
         /// <summary>
-        /// Create a new tiIndicator object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tiindicators-post?view=graph-rest-1.0" />
+        /// Create new navigation property to tiIndicators for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new tiIndicator object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tiindicators-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to tiIndicators for security";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -137,14 +136,13 @@ namespace ApiSdk.Security.TiIndicators {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of tiIndicator objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tiindicators-list?view=graph-rest-1.0" />
+        /// Get tiIndicators from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of tiIndicator objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tiindicators-list?view=graph-rest-1.0";
+            command.Description = "Get tiIndicators from security";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -280,7 +278,7 @@ namespace ApiSdk.Security.TiIndicators {
         {
         }
         /// <summary>
-        /// Retrieve a list of tiIndicator objects.
+        /// Get tiIndicators from security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -299,7 +297,7 @@ namespace ApiSdk.Security.TiIndicators {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new tiIndicator object.
+        /// Create new navigation property to tiIndicators for security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -314,13 +312,13 @@ namespace ApiSdk.Security.TiIndicators {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/tiIndicators", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of tiIndicator objects.
+        /// Get tiIndicators from security
         /// </summary>
         public class TiIndicatorsRequestBuilderGetQueryParameters 
         {

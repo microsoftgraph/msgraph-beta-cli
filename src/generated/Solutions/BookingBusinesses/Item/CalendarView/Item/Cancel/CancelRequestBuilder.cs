@@ -21,13 +21,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.CalendarView.Item.Cancel {
     {
         /// <summary>
         /// Cancel the specified bookingAppointment in the specified bookingBusiness, and send a message to the involved customer and staff members.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Cancel the specified bookingAppointment in the specified bookingBusiness, and send a message to the involved customer and staff members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-1.0";
+            command.Description = "Cancel the specified bookingAppointment in the specified bookingBusiness, and send a message to the involved customer and staff members.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-beta";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;

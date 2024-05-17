@@ -89,13 +89,13 @@ namespace ApiSdk.Chats {
         }
         /// <summary>
         /// Create a new chat object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new chat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-1.0";
+            command.Description = "Create a new chat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -169,13 +169,13 @@ namespace ApiSdk.Chats {
         }
         /// <summary>
         /// Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0";
+            command.Description = "Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -311,7 +311,7 @@ namespace ApiSdk.Chats {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/chats", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

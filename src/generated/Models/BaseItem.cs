@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class BaseItem : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Identity of the user, device, or application that created the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,11 +101,13 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.driveItem" => new DriveItem(),
                 "#microsoft.graph.list" => new List(),
                 "#microsoft.graph.listItem" => new ListItem(),
+                "#microsoft.graph.newsLinkPage" => new NewsLinkPage(),
                 "#microsoft.graph.recycleBin" => new RecycleBin(),
                 "#microsoft.graph.recycleBinItem" => new RecycleBinItem(),
                 "#microsoft.graph.sharedDriveItem" => new SharedDriveItem(),
                 "#microsoft.graph.site" => new Site(),
                 "#microsoft.graph.sitePage" => new SitePage(),
+                "#microsoft.graph.videoNewsLinkPage" => new VideoNewsLinkPage(),
                 _ => new BaseItem(),
             };
         }

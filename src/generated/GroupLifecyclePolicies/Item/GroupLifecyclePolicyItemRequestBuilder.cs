@@ -41,13 +41,13 @@ namespace ApiSdk.GroupLifecyclePolicies.Item {
         }
         /// <summary>
         /// Delete a groupLifecyclePolicy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a groupLifecyclePolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-1.0";
+            command.Description = "Delete a groupLifecyclePolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-beta";
             var groupLifecyclePolicyIdOption = new Option<string>("--group-lifecycle-policy-id", description: "The unique identifier of groupLifecyclePolicy") {
             };
             groupLifecyclePolicyIdOption.IsRequired = true;
@@ -77,13 +77,13 @@ namespace ApiSdk.GroupLifecyclePolicies.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of a groupLifecyclePolicies object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a groupLifecyclePolicies object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a groupLifecyclePolicies object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-beta";
             var groupLifecyclePolicyIdOption = new Option<string>("--group-lifecycle-policy-id", description: "The unique identifier of groupLifecyclePolicy") {
             };
             groupLifecyclePolicyIdOption.IsRequired = true;
@@ -130,13 +130,13 @@ namespace ApiSdk.GroupLifecyclePolicies.Item {
         }
         /// <summary>
         /// Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-beta";
             var groupLifecyclePolicyIdOption = new Option<string>("--group-lifecycle-policy-id", description: "The unique identifier of groupLifecyclePolicy") {
             };
             groupLifecyclePolicyIdOption.IsRequired = true;
@@ -225,7 +225,7 @@ namespace ApiSdk.GroupLifecyclePolicies.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -265,7 +265,7 @@ namespace ApiSdk.GroupLifecyclePolicies.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

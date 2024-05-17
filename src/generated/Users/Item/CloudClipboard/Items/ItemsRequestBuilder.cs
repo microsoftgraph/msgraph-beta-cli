@@ -104,14 +104,13 @@ namespace ApiSdk.Users.Item.CloudClipboard.Items {
             return command;
         }
         /// <summary>
-        /// Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn&apos;t support using another user&apos;s credentials to get a cloudClipboardItem for a user. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudclipboardroot-list-items?view=graph-rest-1.0" />
+        /// Represents a collection of Cloud Clipboard items.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn't support using another user's credentials to get a cloudClipboardItem for a user. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudclipboardroot-list-items?view=graph-rest-1.0";
+            command.Description = "Represents a collection of Cloud Clipboard items.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.Users.Item.CloudClipboard.Items {
         {
         }
         /// <summary>
-        /// Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn&apos;t support using another user&apos;s credentials to get a cloudClipboardItem for a user. 
+        /// Represents a collection of Cloud Clipboard items.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.Users.Item.CloudClipboard.Items {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/cloudClipboard/items", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn&apos;t support using another user&apos;s credentials to get a cloudClipboardItem for a user. 
+        /// Represents a collection of Cloud Clipboard items.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters 
         {

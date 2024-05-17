@@ -58,14 +58,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups {
             return command;
         }
         /// <summary>
-        /// Create a new connectorGroup.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0" />
+        /// Create new navigation property to connectorGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new connectorGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to connectorGroups for onPremisesPublishingProfiles";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -110,14 +109,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of connectorGroup objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-list?view=graph-rest-1.0" />
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of connectorGroup objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-list?view=graph-rest-1.0";
+            command.Description = "List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -225,7 +223,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups {
         {
         }
         /// <summary>
-        /// Retrieve a list of connectorGroup objects.
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,7 +242,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new connectorGroup.
+        /// Create new navigation property to connectorGroups for onPremisesPublishingProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,13 +257,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of connectorGroup objects.
+        /// List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         public class ConnectorGroupsRequestBuilderGetQueryParameters 
         {

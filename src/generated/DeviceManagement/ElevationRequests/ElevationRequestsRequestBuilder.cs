@@ -37,6 +37,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests {
             commands.Add(builder.BuildGetAllElevationRequestsNavCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
+            commands.Add(builder.BuildRevokeNavCommand());
             return new(executables, commands);
         }
         /// <summary>
@@ -244,7 +245,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/elevationRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

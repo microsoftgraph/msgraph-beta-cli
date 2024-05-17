@@ -22,13 +22,13 @@ namespace ApiSdk.Reports.Partners.Billing.Reconciliation.Billed.MicrosoftGraphPa
     {
         /// <summary>
         /// Export the billed invoice reconciliation data.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-billedreconciliation-export?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-billedreconciliation-export?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Export the billed invoice reconciliation data.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-billedreconciliation-export?view=graph-rest-1.0";
+            command.Description = "Export the billed invoice reconciliation data.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-billedreconciliation-export?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

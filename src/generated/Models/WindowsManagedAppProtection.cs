@@ -36,6 +36,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates the total number of applications for which the current policy is deployed.</summary>
         public int? DeployedAppCount { get; set; }
+        /// <summary>Navigation property to deployment summary of the configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
+#nullable restore
+#else
+        public ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
+#endif
         /// <summary>When TRUE, indicates that the policy is deployed to some inclusion groups. When FALSE, indicates that the policy is not deployed to any inclusion groups. Default value is FALSE.</summary>
         public bool? IsAssigned { get; set; }
         /// <summary>The maxium threat level allowed for an app to be compliant.</summary>
@@ -168,6 +176,7 @@ namespace ApiSdk.Models {
                 {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
                 {"isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
                 {"maximumAllowedDeviceThreatLevel", n => { MaximumAllowedDeviceThreatLevel = n.GetEnumValue<ManagedAppDeviceThreatLevel>(); } },
                 {"maximumRequiredOsVersion", n => { MaximumRequiredOsVersion = n.GetStringValue(); } },
@@ -202,6 +211,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<ManagedMobileApp>("apps", Apps);
             writer.WriteCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", Assignments);
             writer.WriteIntValue("deployedAppCount", DeployedAppCount);
+            writer.WriteObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", DeploymentSummary);
             writer.WriteBoolValue("isAssigned", IsAssigned);
             writer.WriteEnumValue<ManagedAppDeviceThreatLevel>("maximumAllowedDeviceThreatLevel", MaximumAllowedDeviceThreatLevel);
             writer.WriteStringValue("maximumRequiredOsVersion", MaximumRequiredOsVersion);

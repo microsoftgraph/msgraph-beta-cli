@@ -52,14 +52,13 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return command;
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0" />
+        /// All users in the class. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0";
+            command.Description = "All users in the class. Nullable.";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -186,7 +185,7 @@ namespace ApiSdk.Education.Classes.Item.Members {
         {
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+        /// All users in the class. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +204,7 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+        /// All users in the class. Nullable.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

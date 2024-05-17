@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Troubleshoot {
     {
         /// <summary>
         /// Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-troubleshoot?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-troubleshoot?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-troubleshoot?view=graph-rest-1.0";
+            command.Description = "Troubleshoot a specific Cloud PC. Use this API to check the health status of the Cloud PC and the session host.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-troubleshoot?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;

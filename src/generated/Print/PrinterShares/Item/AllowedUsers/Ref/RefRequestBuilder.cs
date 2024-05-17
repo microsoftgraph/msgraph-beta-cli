@@ -21,15 +21,14 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Revoke the specified user&apos;s access to submit print jobs to the associated printerShare.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-delete-alloweduser?view=graph-rest-1.0" />
+        /// Delete ref of navigation property allowedUsers for print
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Revoke the specified user's access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-delete-alloweduser?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property allowedUsers for print";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -64,15 +63,14 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-list-allowedusers?view=graph-rest-1.0" />
+        /// The users who have access to print using the printer.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-list-allowedusers?view=graph-rest-1.0";
+            command.Description = "The users who have access to print using the printer.";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -152,15 +150,14 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
             return command;
         }
         /// <summary>
-        /// Grant the specified user access to submit print jobs to the associated printerShare.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-post-allowedusers?view=graph-rest-1.0" />
+        /// Create new navigation property ref to allowedUsers for print
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Grant the specified user access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-post-allowedusers?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to allowedUsers for print";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -198,18 +195,18 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Revoke the specified user&apos;s access to submit print jobs to the associated printerShare.
+        /// Delete ref of navigation property allowedUsers for print
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +226,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+        /// The users who have access to print using the printer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +240,13 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Grant the specified user access to submit print jobs to the associated printerShare.
+        /// Create new navigation property ref to allowedUsers for print
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -271,7 +268,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Revoke the specified user&apos;s access to submit print jobs to the associated printerShare.
+        /// Delete ref of navigation property allowedUsers for print
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -287,7 +284,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref {
 #endif
         }
         /// <summary>
-        /// Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+        /// The users who have access to print using the printer.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

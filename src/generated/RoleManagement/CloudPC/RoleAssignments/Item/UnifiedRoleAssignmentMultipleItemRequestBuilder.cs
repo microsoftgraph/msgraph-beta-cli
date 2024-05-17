@@ -52,14 +52,13 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-delete?view=graph-rest-1.0" />
+        /// Delete navigation property roleAssignments for roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property roleAssignments for roleManagement";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -114,14 +113,13 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-1.0" />
+        /// Get roleAssignments from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-1.0";
+            command.Description = "Get roleAssignments from roleManagement";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -167,14 +165,13 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-update?view=graph-rest-1.0" />
+        /// Update the navigation property roleAssignments in roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property roleAssignments in roleManagement";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -276,7 +273,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
         {
         }
         /// <summary>
-        /// Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
+        /// Delete navigation property roleAssignments for roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -289,13 +286,13 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/cloudPC/roleAssignments/{unifiedRoleAssignmentMultiple%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
+        /// Get roleAssignments from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -314,7 +311,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
+        /// Update the navigation property roleAssignments in roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -329,13 +326,13 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleAssignments.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/cloudPC/roleAssignments/{unifiedRoleAssignmentMultiple%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
+        /// Get roleAssignments from roleManagement
         /// </summary>
         public class UnifiedRoleAssignmentMultipleItemRequestBuilderGetQueryParameters 
         {

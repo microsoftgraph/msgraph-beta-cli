@@ -170,13 +170,12 @@ namespace ApiSdk.Shares.Item.List.ContentTypes {
         }
         /// <summary>
         /// The collection of content types present in this list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of content types present in this list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-1.0";
+            command.Description = "The collection of content types present in this list.";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -318,7 +317,7 @@ namespace ApiSdk.Shares.Item.List.ContentTypes {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/contentTypes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

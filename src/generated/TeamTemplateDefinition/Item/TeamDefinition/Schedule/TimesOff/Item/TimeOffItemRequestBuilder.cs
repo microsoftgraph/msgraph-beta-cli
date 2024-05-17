@@ -21,14 +21,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
     public class TimeOffItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a timeOff instance from a schedule.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0" />
+        /// Delete navigation property timesOff for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a timeOff instance from a schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property timesOff for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeOff object by ID.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0" />
+        /// The instances of times off in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a timeOff object by ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0";
+            command.Description = "The instances of times off in the schedule.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -115,14 +113,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
             return command;
         }
         /// <summary>
-        /// Replace an existing timeOff. If the specified timeOff doesn&apos;t exist, this method returns 404 Not found.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0" />
+        /// Update the navigation property timesOff in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Replace an existing timeOff. If the specified timeOff doesn't exist, this method returns 404 Not found.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0";
+            command.Description = "Update the navigation property timesOff in teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -187,7 +184,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
         {
         }
         /// <summary>
-        /// Delete a timeOff instance from a schedule.
+        /// Delete navigation property timesOff for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,13 +197,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timesOff/{timeOff%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeOff object by ID.
+        /// The instances of times off in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +222,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
             return requestInfo;
         }
         /// <summary>
-        /// Replace an existing timeOff. If the specified timeOff doesn&apos;t exist, this method returns 404 Not found.
+        /// Update the navigation property timesOff in teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -240,13 +237,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimesOff.It
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/timesOff/{timeOff%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a timeOff object by ID.
+        /// The instances of times off in the schedule.
         /// </summary>
         public class TimeOffItemRequestBuilderGetQueryParameters 
         {

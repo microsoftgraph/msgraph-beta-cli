@@ -74,13 +74,13 @@ namespace ApiSdk.AccessReviews.Item {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, delete an accessReview object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "In the Microsoft Entra access reviews feature, delete an accessReview object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, delete an accessReview object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -110,13 +110,13 @@ namespace ApiSdk.AccessReviews.Item {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, retrieve an accessReview object.   To retrieve the reviewers of the access review, use the list accessReview reviewers API. To retrieve the decisions of the access review, use the list accessReview decisions API, or the list my accessReview decisions API. If this is a recurring access review, no decisions will be associated with the recurring access review series. Instead, use the instances relationship of that series to retrieve an accessReview collection of the past, current, and future instances of the access review. Each past and current instance will have decisions.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "In the Microsoft Entra access reviews feature, retrieve an accessReview object.   To retrieve the reviewers of the access review, use the list accessReview reviewers API. To retrieve the decisions of the access review, use the list accessReview decisions API, or the list my accessReview decisions API. If this is a recurring access review, no decisions will be associated with the recurring access review series. Instead, use the instances relationship of that series to retrieve an accessReview collection of the past, current, and future instances of the access review. Each past and current instance will have decisions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, retrieve an accessReview object.   To retrieve the reviewers of the access review, use the list accessReview reviewers API. To retrieve the decisions of the access review, use the list accessReview decisions API, or the list my accessReview decisions API. If this is a recurring access review, no decisions will be associated with the recurring access review series. Instead, use the instances relationship of that series to retrieve an accessReview collection of the past, current, and future instances of the access review. Each past and current instance will have decisions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -217,13 +217,13 @@ namespace ApiSdk.AccessReviews.Item {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, update an existing accessReview object to change one or more of its properties. This API is not intended to change the reviewers or decisions of a review.  To change the reviewers, use the addReviewer or removeReviewer APIs.  To stop an already-started one-time review, or an already-started instance of a recurring review, early, use the stop API. To apply the decisions to the target group or app access rights, use the apply API. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "In the Microsoft Entra access reviews feature, update an existing accessReview object to change one or more of its properties. This API is not intended to change the reviewers or decisions of a review.  To change the reviewers, use the addReviewer or removeReviewer APIs.  To stop an already-started one-time review, or an already-started instance of a recurring review, early, use the stop API. To apply the decisions to the target group or app access rights, use the apply API. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, update an existing accessReview object to change one or more of its properties. This API is not intended to change the reviewers or decisions of a review.  To change the reviewers, use the addReviewer or removeReviewer APIs.  To stop an already-started one-time review, or an already-started instance of a recurring review, early, use the stop API. To apply the decisions to the target group or app access rights, use the apply API. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -373,7 +373,7 @@ namespace ApiSdk.AccessReviews.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/accessReviews/{accessReview%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -413,7 +413,7 @@ namespace ApiSdk.AccessReviews.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/accessReviews/{accessReview%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

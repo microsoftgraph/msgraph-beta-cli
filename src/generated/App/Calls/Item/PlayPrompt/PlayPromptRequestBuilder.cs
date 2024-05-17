@@ -22,13 +22,13 @@ namespace ApiSdk.App.Calls.Item.PlayPrompt {
     {
         /// <summary>
         /// Play a prompt in the call. For more information about how to handle operations, see commsOperation
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Play a prompt in the call. For more information about how to handle operations, see commsOperation\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-1.0";
+            command.Description = "Play a prompt in the call. For more information about how to handle operations, see commsOperation\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

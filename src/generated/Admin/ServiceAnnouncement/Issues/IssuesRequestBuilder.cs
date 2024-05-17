@@ -100,14 +100,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
             return command;
         }
         /// <summary>
-        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0" />
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0";
+            command.Description = "A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
         {
         }
         /// <summary>
-        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/serviceAnnouncement/issues", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
         /// </summary>
         public class IssuesRequestBuilderGetQueryParameters 
         {

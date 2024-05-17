@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class InsightsSettings : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. Default is empty. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public string DisabledForGroup { get; set; }
 #endif
-        /// <summary>true if the specified type of insights is enabled for the organization; false if the specified type of insights is disabled for all users without exceptions. Default is true. Optional.</summary>
+        /// <summary>true if insights of the specified type are enabled for the organization; false if insights of the specified type are disabled for all users without exceptions. Default is true. Optional.</summary>
         public bool? IsEnabledInOrganization { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

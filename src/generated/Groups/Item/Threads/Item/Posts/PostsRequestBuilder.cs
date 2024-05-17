@@ -59,14 +59,13 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
             return command;
         }
         /// <summary>
-        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0" />
+        /// Get posts from groups
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0";
+            command.Description = "Get posts from groups";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -174,7 +173,7 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
         {
         }
         /// <summary>
-        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+        /// Get posts from groups
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +192,7 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
             return requestInfo;
         }
         /// <summary>
-        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+        /// Get posts from groups
         /// </summary>
         public class PostsRequestBuilderGetQueryParameters 
         {

@@ -56,14 +56,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds {
             return command;
         }
         /// <summary>
-        /// Create a new ediscoveryHoldPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-post-legalholds?view=graph-rest-1.0" />
+        /// Create new navigation property to legalHolds for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new ediscoveryHoldPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-post-legalholds?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to legalHolds for security";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -108,14 +107,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds {
             return command;
         }
         /// <summary>
-        /// Get a list of the ediscoveryHoldPolicy objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-list-legalholds?view=graph-rest-1.0" />
+        /// Returns a list of case eDiscoveryHoldPolicy objects for this case.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the ediscoveryHoldPolicy objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-list-legalholds?view=graph-rest-1.0";
+            command.Description = "Returns a list of case eDiscoveryHoldPolicy objects for this case.";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -223,7 +221,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds {
         {
         }
         /// <summary>
-        /// Get a list of the ediscoveryHoldPolicy objects and their properties.
+        /// Returns a list of case eDiscoveryHoldPolicy objects for this case.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -242,7 +240,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new ediscoveryHoldPolicy object.
+        /// Create new navigation property to legalHolds for security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -257,13 +255,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/legalHolds", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the ediscoveryHoldPolicy objects and their properties.
+        /// Returns a list of case eDiscoveryHoldPolicy objects for this case.
         /// </summary>
         public class LegalHoldsRequestBuilderGetQueryParameters 
         {

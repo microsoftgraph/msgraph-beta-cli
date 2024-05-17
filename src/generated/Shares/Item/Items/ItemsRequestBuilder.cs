@@ -32,6 +32,7 @@ namespace ApiSdk.Shares.Item.Items {
             var commands = new List<Command>();
             var builder = new DriveItemItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildContentNavCommand());
+            commands.Add(builder.BuildContentStreamNavCommand());
             executables.Add(builder.BuildGetCommand());
             return new(executables, commands);
         }

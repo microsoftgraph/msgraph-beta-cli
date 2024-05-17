@@ -20,13 +20,14 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.FilterByCurrentUserWit
     public class FilterByCurrentUserWithOnRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of appConsentRequest objects for which the current user is the reviewer and the status of the userConsentRequest for accessing the specified app is InProgress.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appconsentrequest-filterByCurrentUser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function filterByCurrentUser";
+            command.Description = "Retrieve a collection of appConsentRequest objects for which the current user is the reviewer and the status of the userConsentRequest for accessing the specified app is InProgress.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appconsentrequest-filterByCurrentUser?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -140,7 +141,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.FilterByCurrentUserWit
         {
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of appConsentRequest objects for which the current user is the reviewer and the status of the userConsentRequest for accessing the specified app is InProgress.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -159,7 +160,7 @@ namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.FilterByCurrentUserWit
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function filterByCurrentUser
+        /// Retrieve a collection of appConsentRequest objects for which the current user is the reviewer and the status of the userConsentRequest for accessing the specified app is InProgress.
         /// </summary>
         public class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
         {

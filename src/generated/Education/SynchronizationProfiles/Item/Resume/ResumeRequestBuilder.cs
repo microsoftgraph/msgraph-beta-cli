@@ -21,13 +21,13 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Resume {
     {
         /// <summary>
         /// Resume the sync of a specific school data synchronization profile in the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofile-resume?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofile-resume?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Resume the sync of a specific school data synchronization profile in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofile-resume?view=graph-rest-1.0";
+            command.Description = "Resume the sync of a specific school data synchronization profile in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofile-resume?view=graph-rest-beta";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;

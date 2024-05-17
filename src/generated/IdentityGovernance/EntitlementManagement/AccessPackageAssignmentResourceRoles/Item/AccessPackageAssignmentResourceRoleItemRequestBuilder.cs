@@ -161,14 +161,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentresourcerole-get?view=graph-rest-1.0" />
+        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentresourcerole-get?view=graph-rest-1.0";
+            command.Description = "Represents the resource-specific role which a subject has been assigned through an access package assignment.";
             var accessPackageAssignmentResourceRoleIdOption = new Option<string>("--access-package-assignment-resource-role-id", description: "The unique identifier of accessPackageAssignmentResourceRole") {
             };
             accessPackageAssignmentResourceRoleIdOption.IsRequired = true;
@@ -292,13 +291,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
+        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -332,13 +331,13 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
+        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
         /// </summary>
         public class AccessPackageAssignmentResourceRoleItemRequestBuilderGetQueryParameters 
         {

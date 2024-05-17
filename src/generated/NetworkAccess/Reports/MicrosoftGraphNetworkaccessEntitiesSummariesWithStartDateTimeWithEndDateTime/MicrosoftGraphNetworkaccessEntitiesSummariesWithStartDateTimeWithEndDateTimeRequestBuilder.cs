@@ -20,13 +20,14 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessEntitiesSummar
     public class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function entitiesSummaries
+        /// Get the number of users, devices, and workloads per traffic type in a specified time period.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-reports-entitiessummaries?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function entitiesSummaries";
+            command.Description = "Get the number of users, devices, and workloads per traffic type in a specified time period.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-reports-entitiessummaries?view=graph-rest-beta";
             var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
@@ -119,7 +120,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessEntitiesSummar
         {
         }
         /// <summary>
-        /// Invoke function entitiesSummaries
+        /// Get the number of users, devices, and workloads per traffic type in a specified time period.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +139,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessEntitiesSummar
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function entitiesSummaries
+        /// Get the number of users, devices, and workloads per traffic type in a specified time period.
         /// </summary>
         public class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
         {

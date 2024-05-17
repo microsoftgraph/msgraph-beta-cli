@@ -22,13 +22,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGra
     {
         /// <summary>
         /// Un-assigns the tenant tag from the specified managed tenants.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenanttag-unassigntag?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenanttag-unassigntag?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Un-assigns the tenant tag from the specified managed tenants.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenanttag-unassigntag?view=graph-rest-1.0";
+            command.Description = "Un-assigns the tenant tag from the specified managed tenants.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenanttag-unassigntag?view=graph-rest-beta";
             var tenantTagIdOption = new Option<string>("--tenant-tag-id", description: "The unique identifier of tenantTag") {
             };
             tenantTagIdOption.IsRequired = true;

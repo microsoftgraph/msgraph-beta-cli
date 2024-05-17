@@ -21,14 +21,13 @@ namespace ApiSdk.Users.Item.Authentication.Fido2Methods.Item {
     public class Fido2AuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Deletes a user&apos;s FIDO2 Security Key Authentication Method object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0" />
+        /// Delete navigation property fido2Methods for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes a user's FIDO2 Security Key Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property fido2Methods for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Users.Item.Authentication.Fido2Methods.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/fido2authenticationmethod-get?view=graph-rest-1.0" />
+        /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a user's single FIDO2 Security Key Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/fido2authenticationmethod-get?view=graph-rest-1.0";
+            command.Description = "Represents the FIDO2 security keys registered to a user for authentication.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -136,7 +134,7 @@ namespace ApiSdk.Users.Item.Authentication.Fido2Methods.Item {
         {
         }
         /// <summary>
-        /// Deletes a user&apos;s FIDO2 Security Key Authentication Method object.
+        /// Delete navigation property fido2Methods for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,13 +147,13 @@ namespace ApiSdk.Users.Item.Authentication.Fido2Methods.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
+        /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -174,7 +172,7 @@ namespace ApiSdk.Users.Item.Authentication.Fido2Methods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
+        /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
         public class Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters 
         {

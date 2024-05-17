@@ -36,6 +36,7 @@ namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations {
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildIntendedPoliciesNavCommand());
+            commands.Add(builder.BuildManagedAppLogCollectionRequestsNavCommand());
             commands.Add(builder.BuildOperationsNavCommand());
             executables.Add(builder.BuildPatchCommand());
             return new(executables, commands);
@@ -262,7 +263,7 @@ namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceAppManagement/managedAppRegistrations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,13 +21,13 @@ namespace ApiSdk.Print.Printers.Item.RestoreFactoryDefaults {
     {
         /// <summary>
         /// Restore a printer&apos;s default settings to the values specified by the manufacturer.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-restorefactorydefaults?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-restorefactorydefaults?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a printer's default settings to the values specified by the manufacturer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-restorefactorydefaults?view=graph-rest-1.0";
+            command.Description = "Restore a printer's default settings to the values specified by the manufacturer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-restorefactorydefaults?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;

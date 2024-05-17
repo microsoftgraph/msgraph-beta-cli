@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class NetworkAccessTraffic : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
         public FilteringPolicyAction? Action { get; set; }
@@ -37,6 +39,14 @@ namespace ApiSdk.Models.Networkaccess {
 #endif
         /// <summary>Represents the date and time when a network access traffic log entry was created. Supports $filter (eq) and $orderby.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>Represents the Fully Qualified Domain Name (FQDN) of the destination host or server in a network communication. Supports $filter (eq) and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -283,6 +293,7 @@ namespace ApiSdk.Models.Networkaccess {
                 {"applicationSnapshot", n => { ApplicationSnapshot = n.GetObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>(ApiSdk.Models.Networkaccess.ApplicationSnapshot.CreateFromDiscriminatorValue); } },
                 {"connectionId", n => { ConnectionId = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"description", n => { Description = n.GetStringValue(); } },
                 {"destinationFQDN", n => { DestinationFQDN = n.GetStringValue(); } },
                 {"destinationIp", n => { DestinationIp = n.GetStringValue(); } },
                 {"destinationPort", n => { DestinationPort = n.GetIntValue(); } },
@@ -330,6 +341,7 @@ namespace ApiSdk.Models.Networkaccess {
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>("applicationSnapshot", ApplicationSnapshot);
             writer.WriteStringValue("connectionId", ConnectionId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("destinationFQDN", DestinationFQDN);
             writer.WriteStringValue("destinationIp", DestinationIp);
             writer.WriteIntValue("destinationPort", DestinationPort);

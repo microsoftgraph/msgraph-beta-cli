@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.Profile.Interests {
             return command;
         }
         /// <summary>
-        /// Create a new personInterest.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-post-interests?view=graph-rest-1.0" />
+        /// Create new navigation property to interests for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new personInterest.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-interests?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to interests for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Users.Item.Profile.Interests {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of personInterest objects from a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-list-interests?view=graph-rest-1.0" />
+        /// Provides detailed information about interests the user has associated with themselves in various services.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of personInterest objects from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-interests?view=graph-rest-1.0";
+            command.Description = "Provides detailed information about interests the user has associated with themselves in various services.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Users.Item.Profile.Interests {
         {
         }
         /// <summary>
-        /// Retrieve a list of personInterest objects from a user&apos;s profile.
+        /// Provides detailed information about interests the user has associated with themselves in various services.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Users.Item.Profile.Interests {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new personInterest.
+        /// Create new navigation property to interests for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Users.Item.Profile.Interests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/profile/interests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of personInterest objects from a user&apos;s profile.
+        /// Provides detailed information about interests the user has associated with themselves in various services.
         /// </summary>
         public class InterestsRequestBuilderGetQueryParameters 
         {

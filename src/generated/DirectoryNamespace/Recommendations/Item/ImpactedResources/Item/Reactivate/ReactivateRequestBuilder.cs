@@ -22,13 +22,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item.
     {
         /// <summary>
         /// Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-reactivate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-reactivate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-reactivate?view=graph-rest-1.0";
+            command.Description = "Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-reactivate?view=graph-rest-beta";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;

@@ -57,14 +57,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfiguration-get?view=graph-rest-1.0" />
+        /// The configuration of Planner plans that will be created for the scenario.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a plannerPlanConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfiguration-get?view=graph-rest-1.0";
+            command.Description = "The configuration of Planner plans that will be created for the scenario.";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -137,14 +136,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
             return command;
         }
         /// <summary>
-        /// Update the properties of a plannerPlanConfiguration object for a businessScenario.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfiguration-update?view=graph-rest-1.0" />
+        /// Update the navigation property planConfiguration in solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a plannerPlanConfiguration object for a businessScenario.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfiguration-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property planConfiguration in solutions";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -216,13 +214,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfiguration object.
+        /// The configuration of Planner plans that will be created for the scenario.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +239,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a plannerPlanConfiguration object for a businessScenario.
+        /// Update the navigation property planConfiguration in solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,13 +254,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfiguration object.
+        /// The configuration of Planner plans that will be created for the scenario.
         /// </summary>
         public class PlanConfigurationRequestBuilderGetQueryParameters 
         {

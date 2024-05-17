@@ -136,14 +136,13 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a filteringProfile object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-update?view=graph-rest-1.0" />
+        /// Update the navigation property filteringProfiles in networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a filteringProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property filteringProfiles in networkAccess";
             var filteringProfileIdOption = new Option<string>("--filtering-profile-id", description: "The unique identifier of filteringProfile") {
             };
             filteringProfileIdOption.IsRequired = true;
@@ -242,7 +241,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/filteringProfiles/{filteringProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -267,7 +266,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a filteringProfile object.
+        /// Update the navigation property filteringProfiles in networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -282,7 +281,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/filteringProfiles/{filteringProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

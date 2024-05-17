@@ -21,13 +21,13 @@ namespace ApiSdk.Groups.Item.GroupLifecyclePolicies.RenewGroup {
     {
         /// <summary>
         /// Renew a group&apos;s expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-renewgroup?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/grouplifecyclepolicy-renewgroup?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-renewgroup?view=graph-rest-1.0";
+            command.Description = "Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/grouplifecyclepolicy-renewgroup?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;

@@ -21,14 +21,13 @@ namespace ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Item 
     public class DelegatedPermissionClassificationItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-delete-delegatedpermissionclassifications?view=graph-rest-1.0" />
+        /// Delete navigation property delegatedPermissionClassifications for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-delete-delegatedpermissionclassifications?view=graph-rest-1.0";
+            command.Description = "Delete navigation property delegatedPermissionClassifications for servicePrincipals";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -192,7 +191,7 @@ namespace ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Item 
         {
         }
         /// <summary>
-        /// Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
+        /// Delete navigation property delegatedPermissionClassifications for servicePrincipals
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +204,7 @@ namespace ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Item 
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -245,7 +244,7 @@ namespace ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Item 
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

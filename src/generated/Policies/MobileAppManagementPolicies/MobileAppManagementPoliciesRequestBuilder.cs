@@ -100,14 +100,13 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies {
             return command;
         }
         /// <summary>
-        /// Get a list of the mobilityManagementPolicy objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list?view=graph-rest-1.0" />
+        /// The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the mobilityManagementPolicy objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list?view=graph-rest-1.0";
+            command.Description = "The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies {
         {
         }
         /// <summary>
-        /// Get a list of the mobilityManagementPolicy objects and their properties.
+        /// The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/policies/mobileAppManagementPolicies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the mobilityManagementPolicy objects and their properties.
+        /// The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
         /// </summary>
         public class MobileAppManagementPoliciesRequestBuilderGetQueryParameters 
         {

@@ -8,7 +8,7 @@ using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessEntitiesSummariesW
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime;
-using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTime;
+using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBy;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTime;
@@ -230,11 +230,11 @@ namespace ApiSdk.NetworkAccess.Reports {
         /// Provides operations to call the getDiscoveredApplicationSegmentReport method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildMicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeRbCommand()
+        public Command BuildMicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRbCommand()
         {
-            var command = new Command("microsoft-graph-networkaccess-get-discovered-application-segment-report-with-start-date-time-with-end-date-time");
+            var command = new Command("microsoft-graph-networkaccess-get-discovered-application-segment-report-with-start-date-time-with-end-date-timeuser-id-user-id");
             command.Description = "Provides operations to call the getDiscoveredApplicationSegmentReport method.";
-            var builder = new MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -384,7 +384,7 @@ namespace ApiSdk.NetworkAccess.Reports {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/reports", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -424,7 +424,7 @@ namespace ApiSdk.NetworkAccess.Reports {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/reports", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

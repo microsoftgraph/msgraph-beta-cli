@@ -21,14 +21,14 @@ namespace ApiSdk.Shares.Item.Permission.RevokeGrants {
     public class RevokeGrantsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Revoke access to a [listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-1.0" />
+        /// Revoke access to a listItem or driveItem granted via a sharing link by removing the specified recipient from the link.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Revoke access to a [listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-1.0";
+            command.Description = "Revoke access to a listItem or driveItem granted via a sharing link by removing the specified recipient from the link.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-beta";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -87,7 +87,7 @@ namespace ApiSdk.Shares.Item.Permission.RevokeGrants {
         {
         }
         /// <summary>
-        /// Revoke access to a [listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link.
+        /// Revoke access to a listItem or driveItem granted via a sharing link by removing the specified recipient from the link.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

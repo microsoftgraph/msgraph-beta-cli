@@ -96,13 +96,13 @@ namespace ApiSdk.DirectorySettingTemplates.Item {
         }
         /// <summary>
         /// A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-1.0";
+            command.Description = "A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-beta";
             var directorySettingTemplateIdOption = new Option<string>("--directory-setting-template-id", description: "The unique identifier of directorySettingTemplate") {
             };
             directorySettingTemplateIdOption.IsRequired = true;
@@ -277,7 +277,7 @@ namespace ApiSdk.DirectorySettingTemplates.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -317,7 +317,7 @@ namespace ApiSdk.DirectorySettingTemplates.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

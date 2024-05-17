@@ -21,14 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
     public class RetentionLabelRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove a retention label from a driveItem. For information about retention labels from an administrator&apos;s perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-removeretentionlabel?view=graph-rest-1.0" />
+        /// Delete navigation property retentionLabel for drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove a retention label from a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-removeretentionlabel?view=graph-rest-1.0";
+            command.Description = "Delete navigation property retentionLabel for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -121,14 +120,13 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
             return command;
         }
         /// <summary>
-        /// Apply (set) a retention label on a driveItem (files and folders). Retention labels don&apos;t need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. For information about conflict resolution for retention labels, see Will an existing label be overridden or removed. For information about retention labels from an administrator&apos;s perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-setretentionlabel?view=graph-rest-1.0" />
+        /// Update the navigation property retentionLabel in drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Apply (set) a retention label on a driveItem (files and folders). Retention labels don't need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. For information about conflict resolution for retention labels, see Will an existing label be overridden or removed. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-setretentionlabel?view=graph-rest-1.0";
+            command.Description = "Update the navigation property retentionLabel in drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -193,7 +191,7 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
         {
         }
         /// <summary>
-        /// Remove a retention label from a driveItem. For information about retention labels from an administrator&apos;s perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
+        /// Delete navigation property retentionLabel for drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +204,7 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/retentionLabel", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -231,7 +229,7 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
             return requestInfo;
         }
         /// <summary>
-        /// Apply (set) a retention label on a driveItem (files and folders). Retention labels don&apos;t need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. For information about conflict resolution for retention labels, see Will an existing label be overridden or removed. For information about retention labels from an administrator&apos;s perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
+        /// Update the navigation property retentionLabel in drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +244,7 @@ namespace ApiSdk.Drives.Item.Items.Item.RetentionLabel {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/retentionLabel", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

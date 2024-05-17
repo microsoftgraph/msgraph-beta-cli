@@ -111,14 +111,13 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources {
             return command;
         }
         /// <summary>
-        /// Retrieve a collection of governanceResource that the requestor has access to.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/governanceresource-list?view=graph-rest-1.0" />
+        /// A collection of resources for the provider.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a collection of governanceResource that the requestor has access to.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/governanceresource-list?view=graph-rest-1.0";
+            command.Description = "A collection of resources for the provider.";
             var privilegedAccessIdOption = new Option<string>("--privileged-access-id", description: "The unique identifier of privilegedAccess") {
             };
             privilegedAccessIdOption.IsRequired = true;
@@ -243,7 +242,7 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources {
         {
         }
         /// <summary>
-        /// Retrieve a collection of governanceResource that the requestor has access to.
+        /// A collection of resources for the provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,13 +276,13 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a collection of governanceResource that the requestor has access to.
+        /// A collection of resources for the provider.
         /// </summary>
         public class ResourcesRequestBuilderGetQueryParameters 
         {

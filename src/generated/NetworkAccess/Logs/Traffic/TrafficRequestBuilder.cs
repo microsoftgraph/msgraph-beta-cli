@@ -98,14 +98,13 @@ namespace ApiSdk.NetworkAccess.Logs.Traffic {
             return command;
         }
         /// <summary>
-        /// Get a list of log events for traffic routed through the Global Secure Access services.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-logs-list-traffic?view=graph-rest-1.0" />
+        /// A network access traffic log entry that contains comprehensive information about network traffic events.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of log events for traffic routed through the Global Secure Access services.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-logs-list-traffic?view=graph-rest-1.0";
+            command.Description = "A network access traffic log entry that contains comprehensive information about network traffic events.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.NetworkAccess.Logs.Traffic {
         {
         }
         /// <summary>
-        /// Get a list of log events for traffic routed through the Global Secure Access services.
+        /// A network access traffic log entry that contains comprehensive information about network traffic events.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.NetworkAccess.Logs.Traffic {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/logs/traffic", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of log events for traffic routed through the Global Secure Access services.
+        /// A network access traffic log entry that contains comprehensive information about network traffic events.
         /// </summary>
         public class TrafficRequestBuilderGetQueryParameters 
         {

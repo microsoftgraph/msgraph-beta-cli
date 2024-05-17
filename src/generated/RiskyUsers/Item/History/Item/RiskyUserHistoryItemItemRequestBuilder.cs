@@ -62,14 +62,13 @@ namespace ApiSdk.RiskyUsers.Item.History.Item {
             return command;
         }
         /// <summary>
-        /// Get a riskyUserHistoryItem object of a riskyUser.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-1.0" />
+        /// Get history from riskyUsers
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a riskyUserHistoryItem object of a riskyUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-1.0";
+            command.Description = "Get history from riskyUsers";
             var riskyUserIdOption = new Option<string>("--risky-user-id", description: "The unique identifier of riskyUser") {
             };
             riskyUserIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.RiskyUsers.Item.History.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/riskyUsers/{riskyUser%2Did}/history/{riskyUserHistoryItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a riskyUserHistoryItem object of a riskyUser.
+        /// Get history from riskyUsers
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.RiskyUsers.Item.History.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/riskyUsers/{riskyUser%2Did}/history/{riskyUserHistoryItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a riskyUserHistoryItem object of a riskyUser.
+        /// Get history from riskyUsers
         /// </summary>
         public class RiskyUserHistoryItemItemRequestBuilderGetQueryParameters 
         {

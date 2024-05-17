@@ -101,14 +101,13 @@ namespace ApiSdk.Sites.Item.ContentTypes {
             return command;
         }
         /// <summary>
-        /// Create a new [contentType][] for a [site][].
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0" />
+        /// Create new navigation property to contentTypes for sites
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new [contentType][] for a [site][].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to contentTypes for sites";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -171,13 +170,12 @@ namespace ApiSdk.Sites.Item.ContentTypes {
         }
         /// <summary>
         /// The collection of content types defined for this site.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of content types defined for this site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0";
+            command.Description = "The collection of content types defined for this site.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -304,7 +302,7 @@ namespace ApiSdk.Sites.Item.ContentTypes {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new [contentType][] for a [site][].
+        /// Create new navigation property to contentTypes for sites
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -319,7 +317,7 @@ namespace ApiSdk.Sites.Item.ContentTypes {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/sites/{site%2Did}/contentTypes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

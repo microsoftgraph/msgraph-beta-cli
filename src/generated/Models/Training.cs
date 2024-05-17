@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Training : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.</summary>
+        /// <summary>The training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.</summary>
         public TrainingAvailabilityStatus? AvailabilityStatus { get; set; }
-        /// <summary>Identity of the user who created the training.</summary>
+        /// <summary>The identity of the user who created the training.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? CreatedBy { get; set; }
@@ -17,9 +19,9 @@ namespace ApiSdk.Models {
 #else
         public EmailIdentity CreatedBy { get; set; }
 #endif
-        /// <summary>Date and time when the training was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the training was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The customUrl property</summary>
+        /// <summary>The training URL</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomUrl { get; set; }
@@ -43,11 +45,11 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Training duration.</summary>
+        /// <summary>The duration of the training in minutes.</summary>
         public int? DurationInMinutes { get; set; }
-        /// <summary>Indicates whether the training has any evaluation.</summary>
+        /// <summary>Whether the training has any evaluation.</summary>
         public bool? HasEvaluation { get; set; }
-        /// <summary>Language specific details on a training.</summary>
+        /// <summary>Details about the language used in the training.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TrainingLanguageDetail>? LanguageDetails { get; set; }
@@ -55,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public List<TrainingLanguageDetail> LanguageDetails { get; set; }
 #endif
-        /// <summary>Identity of the user who last modified the training.</summary>
+        /// <summary>The identity of the user who last modified the training.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? LastModifiedBy { get; set; }
@@ -63,11 +65,11 @@ namespace ApiSdk.Models {
 #else
         public EmailIdentity LastModifiedBy { get; set; }
 #endif
-        /// <summary>Date and time when the training was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the training was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>Training content source. Possible values are: unknown, global, tenant, unknownFutureValue.</summary>
+        /// <summary>The source of the training content. Possible values are: unknown, global, tenant, unknownFutureValue.</summary>
         public SimulationContentSource? Source { get; set; }
-        /// <summary>Supported locales for content for the associated training.</summary>
+        /// <summary>The supported locales for content for the associated training.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SupportedLocales { get; set; }

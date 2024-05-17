@@ -30,14 +30,6 @@ namespace ApiSdk.Models {
         public DateTimeOffset? ExpirationDateTime { get; private set; }
         /// <summary>Indicates the last DateTime that the request was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the &apos;status&apos; property changes from needsApproval to approved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only. This property is read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
-        /// <summary>The operational approval policies used in the request. Indicates the policy and platform combinations that are required for this request to be approved or rejected. Read-only. This property is read-only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OperationApprovalPolicies { get; private set; }
-#nullable restore
-#else
-        public string OperationApprovalPolicies { get; private set; }
-#endif
         /// <summary>Indicates the DateTime that the request was made. The value cannot be modified and is automatically populated when the request is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only. This property is read-only.</summary>
         public DateTimeOffset? RequestDateTime { get; private set; }
         /// <summary>Indicates the justification for creating the request. Maximum length of justification is 1024 characters. For example: &apos;Needed for Feb 2023 application baseline updates.&apos; Read-only. This property is read-only.</summary>
@@ -88,7 +80,6 @@ namespace ApiSdk.Models {
                 {"approver", n => { Approver = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"operationApprovalPolicies", n => { OperationApprovalPolicies = n.GetStringValue(); } },
                 {"requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
                 {"requestJustification", n => { RequestJustification = n.GetStringValue(); } },
                 {"requestor", n => { Requestor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },

@@ -100,14 +100,13 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies {
             return command;
         }
         /// <summary>
-        /// Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-filteringpolicies?view=graph-rest-1.0" />
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-filteringpolicies?view=graph-rest-1.0";
+            command.Description = "A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies {
         {
         }
         /// <summary>
-        /// Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +242,13 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/filteringPolicies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.
+        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
         /// </summary>
         public class FilteringPoliciesRequestBuilderGetQueryParameters 
         {

@@ -49,14 +49,13 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
             return command;
         }
         /// <summary>
-        /// Delete an app from an organization&apos;s app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0" />
+        /// Delete navigation property teamsApps for appCatalogs
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property teamsApps for appCatalogs";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -202,7 +201,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
         {
         }
         /// <summary>
-        /// Delete an app from an organization&apos;s app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
+        /// Delete navigation property teamsApps for appCatalogs
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -215,7 +214,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -255,7 +254,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

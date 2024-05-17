@@ -21,14 +21,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.ResizeCloudPc {
     {
         /// <summary>
         /// Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-resizecloudpc?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-resizecloudpc?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The resizeCloudPc API is deprecated and will stop returning on Oct 30, 2023. Please use resize instead as of 2023-05/resizeCloudPc")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-resizecloudpc?view=graph-rest-1.0";
+            command.Description = "Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-resizecloudpc?view=graph-rest-beta";
             var managedDeviceIdOption = new Option<string>("--managed-device-id", description: "The unique identifier of managedDevice") {
             };
             managedDeviceIdOption.IsRequired = true;

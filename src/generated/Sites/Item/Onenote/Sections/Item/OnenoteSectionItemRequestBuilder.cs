@@ -101,14 +101,13 @@ namespace ApiSdk.Sites.Item.Onenote.Sections.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a section object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/section-get?view=graph-rest-1.0" />
+        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a section object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/section-get?view=graph-rest-1.0";
+            command.Description = "The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -305,13 +304,13 @@ namespace ApiSdk.Sites.Item.Onenote.Sections.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a section object.
+        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -345,13 +344,13 @@ namespace ApiSdk.Sites.Item.Onenote.Sections.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a section object.
+        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
         /// </summary>
         public class OnenoteSectionItemRequestBuilderGetQueryParameters 
         {

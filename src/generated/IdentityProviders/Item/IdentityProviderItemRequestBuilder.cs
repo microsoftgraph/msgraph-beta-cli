@@ -22,14 +22,14 @@ namespace ApiSdk.IdentityProviders.Item {
     {
         /// <summary>
         /// Delete an identityProvider.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0";
+            command.Description = "Delete an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-beta";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -59,14 +59,14 @@ namespace ApiSdk.IdentityProviders.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of an identityProvider.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of an identityProvider.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-beta";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -113,14 +113,14 @@ namespace ApiSdk.IdentityProviders.Item {
         }
         /// <summary>
         /// Update the properties of an identityProvider object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of an identityProvider object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-beta";
             var identityProviderIdOption = new Option<string>("--identity-provider-id", description: "The unique identifier of identityProvider") {
             };
             identityProviderIdOption.IsRequired = true;
@@ -193,7 +193,7 @@ namespace ApiSdk.IdentityProviders.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityProviders/{identityProvider%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -235,7 +235,7 @@ namespace ApiSdk.IdentityProviders.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityProviders/{identityProvider%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -21,13 +21,13 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item.Publish {
     {
         /// <summary>
         /// Make the scheduling page of this business available to external customers. Set the isPublished property to true, and publicUrl property to the URL of the scheduling page.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-publish?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-publish?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Make the scheduling page of this business available to external customers. Set the isPublished property to true, and publicUrl property to the URL of the scheduling page.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-publish?view=graph-rest-1.0";
+            command.Description = "Make the scheduling page of this business available to external customers. Set the isPublished property to true, and publicUrl property to the URL of the scheduling page.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-publish?view=graph-rest-beta";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;

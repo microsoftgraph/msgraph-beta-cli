@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh {
     {
         /// <summary>
         /// Refresh incidents on all security alerts or on a single security alert in Privileged Identity Management (PIM) for Microsoft Entra roles. This task is a long-running operation and the unifiedRoleManagementAlert object will be updated only when the operation completes.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrolemanagementalert-refresh?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrolemanagementalert-refresh?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Refresh incidents on all security alerts or on a single security alert in Privileged Identity Management (PIM) for Microsoft Entra roles. This task is a long-running operation and the unifiedRoleManagementAlert object will be updated only when the operation completes.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrolemanagementalert-refresh?view=graph-rest-1.0";
+            command.Description = "Refresh incidents on all security alerts or on a single security alert in Privileged Identity Management (PIM) for Microsoft Entra roles. This task is a long-running operation and the unifiedRoleManagementAlert object will be updated only when the operation completes.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrolemanagementalert-refresh?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

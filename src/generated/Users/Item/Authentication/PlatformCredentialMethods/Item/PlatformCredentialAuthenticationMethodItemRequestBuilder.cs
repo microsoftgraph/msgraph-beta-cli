@@ -22,14 +22,13 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
     public class PlatformCredentialAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a platformCredentialAuthenticationMethod object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-delete?view=graph-rest-1.0" />
+        /// Delete navigation property platformCredentialMethods for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a platformCredentialAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property platformCredentialMethods for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -81,14 +80,13 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a platformCredentialAuthenticationMethod object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-get?view=graph-rest-1.0" />
+        /// Get platformCredentialMethods from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a platformCredentialAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-get?view=graph-rest-1.0";
+            command.Description = "Get platformCredentialMethods from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -154,7 +152,7 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
         {
         }
         /// <summary>
-        /// Delete a platformCredentialAuthenticationMethod object.
+        /// Delete navigation property platformCredentialMethods for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,13 +165,13 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/authentication/platformCredentialMethods/{platformCredentialAuthenticationMethod%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a platformCredentialAuthenticationMethod object.
+        /// Get platformCredentialMethods from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +190,7 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a platformCredentialAuthenticationMethod object.
+        /// Get platformCredentialMethods from users
         /// </summary>
         public class PlatformCredentialAuthenticationMethodItemRequestBuilderGetQueryParameters 
         {

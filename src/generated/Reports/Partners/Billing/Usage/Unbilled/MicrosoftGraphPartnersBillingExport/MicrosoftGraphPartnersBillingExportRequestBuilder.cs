@@ -22,13 +22,13 @@ namespace ApiSdk.Reports.Partners.Billing.Usage.Unbilled.MicrosoftGraphPartnersB
     {
         /// <summary>
         /// Export unbilled Azure usage data for a specific billing period and currency.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-unbilledusage-export?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-unbilledusage-export?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Export unbilled Azure usage data for a specific billing period and currency.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-unbilledusage-export?view=graph-rest-1.0";
+            command.Description = "Export unbilled Azure usage data for a specific billing period and currency.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-unbilledusage-export?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

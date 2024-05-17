@@ -121,14 +121,13 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
             return command;
         }
         /// <summary>
-        /// Update (override) the synchronization template associated with a given application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0" />
+        /// Update the navigation property templates in applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update (override) the synchronization template associated with a given application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property templates in applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -234,7 +233,7 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -259,7 +258,7 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update (override) the synchronization template associated with a given application.
+        /// Update the navigation property templates in applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -274,7 +273,7 @@ namespace ApiSdk.Applications.Item.Synchronization.Templates.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

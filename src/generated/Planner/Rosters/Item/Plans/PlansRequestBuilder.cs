@@ -51,14 +51,13 @@ namespace ApiSdk.Planner.Rosters.Item.Plans {
             return command;
         }
         /// <summary>
-        /// Get the plannerPlans contained by the plannerRoster.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerroster-list-plans?view=graph-rest-1.0" />
+        /// Retrieves the plans contained by the plannerRoster.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the plannerPlans contained by the plannerRoster.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerroster-list-plans?view=graph-rest-1.0";
+            command.Description = "Retrieves the plans contained by the plannerRoster.";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -166,7 +165,7 @@ namespace ApiSdk.Planner.Rosters.Item.Plans {
         {
         }
         /// <summary>
-        /// Get the plannerPlans contained by the plannerRoster.
+        /// Retrieves the plans contained by the plannerRoster.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +184,7 @@ namespace ApiSdk.Planner.Rosters.Item.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Get the plannerPlans contained by the plannerRoster.
+        /// Retrieves the plans contained by the plannerRoster.
         /// </summary>
         public class PlansRequestBuilderGetQueryParameters 
         {

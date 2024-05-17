@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item.Assign {
     {
         /// <summary>
         /// Assign a cloudPcUserSetting to user groups.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcusersetting-assign?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcusersetting-assign?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Assign a cloudPcUserSetting to user groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcusersetting-assign?view=graph-rest-1.0";
+            command.Description = "Assign a cloudPcUserSetting to user groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcusersetting-assign?view=graph-rest-beta";
             var cloudPcUserSettingIdOption = new Option<string>("--cloud-pc-user-setting-id", description: "The unique identifier of cloudPcUserSetting") {
             };
             cloudPcUserSettingIdOption.IsRequired = true;

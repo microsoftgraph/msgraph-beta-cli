@@ -109,14 +109,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a legalHold object.
+        /// Returns a list of case legalHold objects for this case.  Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a legalHold object.";
+            command.Description = "Returns a list of case legalHold objects for this case.  Nullable.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -224,7 +224,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a legalHold object.
+        /// Returns a list of case legalHold objects for this case.  Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,13 +260,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a legalHold object.
+        /// Returns a list of case legalHold objects for this case.  Nullable.
         /// </summary>
         public class LegalHoldsRequestBuilderGetQueryParameters 
         {

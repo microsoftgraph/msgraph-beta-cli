@@ -10,7 +10,7 @@ namespace ApiSdk.Models {
     /// </summary>
     public class WindowsAppXAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
     {
-        /// <summary>When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.</summary>
+        /// <summary>Whether or not to use device execution context for Windows AppX mobile app.</summary>
         public bool? UseDeviceContext { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="WindowsAppXAppAssignmentSettings"/> and sets the default values.

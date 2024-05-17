@@ -107,13 +107,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfil
             return command;
         }
         /// <summary>
-        /// Get forwardingProfiles from networkAccess
+        /// Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get forwardingProfiles from networkAccess";
+            command.Description = "Each forwarding profile associated with a remote network is specified. Supports $expand and $select.";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -221,7 +221,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfil
         {
         }
         /// <summary>
-        /// Get forwardingProfiles from networkAccess
+        /// Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +255,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfil
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/forwardingProfiles", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get forwardingProfiles from networkAccess
+        /// Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
         /// </summary>
         public class ForwardingProfilesRequestBuilderGetQueryParameters 
         {

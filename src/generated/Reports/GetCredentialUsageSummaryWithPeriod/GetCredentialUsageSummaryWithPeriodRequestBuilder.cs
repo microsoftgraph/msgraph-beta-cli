@@ -20,13 +20,14 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
     public class GetCredentialUsageSummaryWithPeriodRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getCredentialUsageSummary
+        /// Report the current state of how many users in your organization used the self-service password reset capabilities.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-getcredentialusagesummary?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCredentialUsageSummary";
+            command.Description = "Report the current state of how many users in your organization used the self-service password reset capabilities.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-getcredentialusagesummary?view=graph-rest-beta";
             var periodOption = new Option<string>("--period", description: "Usage: period='{period}'") {
             };
             periodOption.IsRequired = true;
@@ -134,7 +135,7 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
         {
         }
         /// <summary>
-        /// Invoke function getCredentialUsageSummary
+        /// Report the current state of how many users in your organization used the self-service password reset capabilities.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +154,7 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getCredentialUsageSummary
+        /// Report the current state of how many users in your organization used the self-service password reset capabilities.
         /// </summary>
         public class GetCredentialUsageSummaryWithPeriodRequestBuilderGetQueryParameters 
         {

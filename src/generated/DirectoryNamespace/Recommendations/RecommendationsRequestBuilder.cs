@@ -104,14 +104,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations {
             return command;
         }
         /// <summary>
-        /// Get a list of the recommendation objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-recommendation?view=graph-rest-1.0" />
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the recommendation objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-recommendation?view=graph-rest-1.0";
+            command.Description = "List of recommended improvements to improve tenant posture.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -213,7 +212,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations {
         {
         }
         /// <summary>
-        /// Get a list of the recommendation objects and their properties.
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,13 +246,13 @@ namespace ApiSdk.DirectoryNamespace.Recommendations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/recommendations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the recommendation objects and their properties.
+        /// List of recommended improvements to improve tenant posture.
         /// </summary>
         public class RecommendationsRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Add {
     public class AddRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Use this API to create a new Table.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0" />
+        /// Create a new table. The range source address determines the worksheet under which the table will be added. If the table can&apos;t be added (for example, because the address is invalid, or the table would overlap with another table), an error is thrown.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablecollection-add?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Use this API to create a new Table.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0";
+            command.Description = "Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is thrown.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablecollection-add?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -93,7 +93,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Add {
         {
         }
         /// <summary>
-        /// Use this API to create a new Table.
+        /// Create a new table. The range source address determines the worksheet under which the table will be added. If the table can&apos;t be added (for example, because the address is invalid, or the table would overlap with another table), an error is thrown.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

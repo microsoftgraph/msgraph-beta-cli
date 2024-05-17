@@ -133,14 +133,13 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
             return command;
         }
         /// <summary>
-        /// Create a new scheduledPermissionsRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-1.0" />
+        /// Create new navigation property to scheduledPermissionsRequests for identityGovernance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create a new scheduledPermissionsRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to scheduledPermissionsRequests for identityGovernance";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -212,7 +211,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
             return requestInfo;
         }
         /// <summary>
-        /// Create a new scheduledPermissionsRequest object.
+        /// Create new navigation property to scheduledPermissionsRequests for identityGovernance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -227,7 +226,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/permissionsManagement/scheduledPermissionsRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

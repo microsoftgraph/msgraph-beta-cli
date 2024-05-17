@@ -21,14 +21,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraph
     {
         /// <summary>
         /// Activate a custodian that has been released from a case to make them part of the case again. For details, see Manage custodians in an Advanced eDiscovery case.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-custodian-activate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-custodian-activate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Activate a custodian that has been released from a case to make them part of the case again. For details, see Manage custodians in an Advanced eDiscovery case.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-custodian-activate?view=graph-rest-1.0";
+            command.Description = "Activate a custodian that has been released from a case to make them part of the case again. For details, see Manage custodians in an Advanced eDiscovery case.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-custodian-activate?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;

@@ -86,14 +86,13 @@ namespace ApiSdk.Applications.Item.ConnectorGroup.Ref {
             return command;
         }
         /// <summary>
-        /// Assign a connectorGroup to an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-post-applications?view=graph-rest-1.0" />
+        /// Update the ref of navigation property connectorGroup in applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Assign a connectorGroup to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-post-applications?view=graph-rest-1.0";
+            command.Description = "Update the ref of navigation property connectorGroup in applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -180,7 +179,7 @@ namespace ApiSdk.Applications.Item.ConnectorGroup.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Assign a connectorGroup to an application.
+        /// Update the ref of navigation property connectorGroup in applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

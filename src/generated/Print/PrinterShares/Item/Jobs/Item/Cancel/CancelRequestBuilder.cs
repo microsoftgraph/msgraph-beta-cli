@@ -21,14 +21,14 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Cancel {
     {
         /// <summary>
         /// Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-1.0";
+            command.Description = "Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;

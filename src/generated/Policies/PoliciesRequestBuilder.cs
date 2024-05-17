@@ -369,7 +369,6 @@ namespace ApiSdk.Policies {
             var builder = new DeviceRegistrationPolicyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
-            execCommands.Add(builder.BuildPatchCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
@@ -862,7 +861,7 @@ namespace ApiSdk.Policies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

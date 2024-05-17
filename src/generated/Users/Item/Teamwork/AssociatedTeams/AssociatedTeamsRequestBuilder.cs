@@ -106,14 +106,13 @@ namespace ApiSdk.Users.Item.Teamwork.AssociatedTeams {
             return command;
         }
         /// <summary>
-        /// Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:* A user can be a direct member of a team.* A user can be a member of a shared channel that is hosted inside a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/associatedteaminfo-list?view=graph-rest-1.0" />
+        /// The list of associatedTeamInfo objects that a user is associated with.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:* A user can be a direct member of a team.* A user can be a member of a shared channel that is hosted inside a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/associatedteaminfo-list?view=graph-rest-1.0";
+            command.Description = "The list of associatedTeamInfo objects that a user is associated with.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.Users.Item.Teamwork.AssociatedTeams {
         {
         }
         /// <summary>
-        /// Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:* A user can be a direct member of a team.* A user can be a member of a shared channel that is hosted inside a team.
+        /// The list of associatedTeamInfo objects that a user is associated with.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Users.Item.Teamwork.AssociatedTeams {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/teamwork/associatedTeams", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:* A user can be a direct member of a team.* A user can be a member of a shared channel that is hosted inside a team.
+        /// The list of associatedTeamInfo objects that a user is associated with.
         /// </summary>
         public class AssociatedTeamsRequestBuilderGetQueryParameters 
         {

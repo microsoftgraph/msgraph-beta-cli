@@ -20,14 +20,14 @@ namespace ApiSdk.Communications.Calls.Item.Redirect {
     public class RedirectRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Redirect an incoming call that hasn&apos;t been answered or rejected yet. The terms &apos;redirecting&apos; and &apos;forwarding&apos; a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-redirect?view=graph-rest-1.0" />
+        /// Redirect an incoming call that wasn&apos;t answered or rejected yet. The terms &apos;redirecting&apos; and &apos;forwarding&apos; a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-redirect?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Redirect an incoming call that hasn't been answered or rejected yet. The terms 'redirecting' and 'forwarding' a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-redirect?view=graph-rest-1.0";
+            command.Description = "Redirect an incoming call that wasn't answered or rejected yet. The terms 'redirecting' and 'forwarding' a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-redirect?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -76,7 +76,7 @@ namespace ApiSdk.Communications.Calls.Item.Redirect {
         {
         }
         /// <summary>
-        /// Redirect an incoming call that hasn&apos;t been answered or rejected yet. The terms &apos;redirecting&apos; and &apos;forwarding&apos; a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
+        /// Redirect an incoming call that wasn&apos;t answered or rejected yet. The terms &apos;redirecting&apos; and &apos;forwarding&apos; a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

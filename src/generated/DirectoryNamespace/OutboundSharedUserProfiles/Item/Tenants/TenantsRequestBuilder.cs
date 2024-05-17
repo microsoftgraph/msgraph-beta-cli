@@ -106,14 +106,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
             return command;
         }
         /// <summary>
-        /// List the tenant references of an outboundSharedUserProfile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outboundshareduserprofile-list-tenants?view=graph-rest-1.0" />
+        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the tenant references of an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outboundshareduserprofile-list-tenants?view=graph-rest-1.0";
+            command.Description = "The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
         {
         }
         /// <summary>
-        /// List the tenant references of an outboundSharedUserProfile.
+        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}/tenants", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the tenant references of an outboundSharedUserProfile.
+        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
         /// </summary>
         public class TenantsRequestBuilderGetQueryParameters 
         {

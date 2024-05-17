@@ -102,13 +102,13 @@ namespace ApiSdk.Places.Item {
         }
         /// <summary>
         /// Update the properties of place object, which can be a room, workspace, or roomList. You can identify the room, workspace, or roomList by specifying the id or emailAddress property.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/place-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/place-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of place object, which can be a room, workspace, or roomList. You can identify the room, workspace, or roomList by specifying the id or emailAddress property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/place-update?view=graph-rest-1.0";
+            command.Description = "Update the properties of place object, which can be a room, workspace, or roomList. You can identify the room, workspace, or roomList by specifying the id or emailAddress property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/place-update?view=graph-rest-beta";
             var placeIdOption = new Option<string>("--place-id", description: "The unique identifier of place") {
             };
             placeIdOption.IsRequired = true;

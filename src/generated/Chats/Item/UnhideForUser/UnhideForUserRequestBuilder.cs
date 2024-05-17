@@ -21,13 +21,13 @@ namespace ApiSdk.Chats.Item.UnhideForUser {
     {
         /// <summary>
         /// Unhide a chat for a user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-unhideforuser?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-unhideforuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Unhide a chat for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-unhideforuser?view=graph-rest-1.0";
+            command.Description = "Unhide a chat for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-unhideforuser?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;

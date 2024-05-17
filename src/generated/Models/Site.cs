@@ -6,9 +6,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Site : BaseItem, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Analytics about the view activities that took place in this site.</summary>
+        /// <summary>Analytics about the view activities that took place on this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ItemAnalytics? Analytics { get; set; }
@@ -64,7 +66,7 @@ namespace ApiSdk.Models {
 #else
         public List<ApiSdk.Models.Drive> Drives { get; set; }
 #endif
-        /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
+        /// <summary>The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ColumnDefinition>? ExternalColumns { get; set; }
@@ -82,7 +84,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The isPersonalSite property</summary>
         public bool? IsPersonalSite { get; set; }
-        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BaseItem>? Items { get; set; }
@@ -114,7 +116,7 @@ namespace ApiSdk.Models {
 #else
         public List<RichLongRunningOperation> Operations { get; set; }
 #endif
-        /// <summary>The collection of pages in the baseSitePages list in this site.</summary>
+        /// <summary>The collection of pages in the baseSitePages list on this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BaseSitePage>? Pages { get; set; }
@@ -138,7 +140,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.RecycleBin RecycleBin { get; set; }
 #endif
-        /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
+        /// <summary>If present, provides the root site in the site collection. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.Root? Root { get; set; }

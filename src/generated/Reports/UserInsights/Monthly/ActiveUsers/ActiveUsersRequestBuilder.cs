@@ -51,14 +51,13 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsers {
             return command;
         }
         /// <summary>
-        /// Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusers?view=graph-rest-1.0" />
+        /// Insights for active users on apps registered in the tenant for a specified period.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusers?view=graph-rest-1.0";
+            command.Description = "Insights for active users on apps registered in the tenant for a specified period.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -160,7 +159,7 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsers {
         {
         }
         /// <summary>
-        /// Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+        /// Insights for active users on apps registered in the tenant for a specified period.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -179,7 +178,7 @@ namespace ApiSdk.Reports.UserInsights.Monthly.ActiveUsers {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+        /// Insights for active users on apps registered in the tenant for a specified period.
         /// </summary>
         public class ActiveUsersRequestBuilderGetQueryParameters 
         {

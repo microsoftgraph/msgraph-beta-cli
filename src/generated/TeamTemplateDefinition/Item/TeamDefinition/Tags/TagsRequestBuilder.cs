@@ -55,14 +55,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags {
             return command;
         }
         /// <summary>
-        /// Create a standard tag for members in the team. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-post?view=graph-rest-1.0" />
+        /// Create new navigation property to tags for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a standard tag for members in the team. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to tags for teamTemplateDefinition";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -107,14 +106,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags {
             return command;
         }
         /// <summary>
-        /// Get a list of the tag objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-list?view=graph-rest-1.0" />
+        /// The tags associated with the team.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the tag objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-list?view=graph-rest-1.0";
+            command.Description = "The tags associated with the team.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -222,7 +220,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags {
         {
         }
         /// <summary>
-        /// Get a list of the tag objects and their properties.
+        /// The tags associated with the team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +239,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags {
             return requestInfo;
         }
         /// <summary>
-        /// Create a standard tag for members in the team. 
+        /// Create new navigation property to tags for teamTemplateDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,13 +254,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/tags", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the tag objects and their properties.
+        /// The tags associated with the team.
         /// </summary>
         public class TagsRequestBuilderGetQueryParameters 
         {

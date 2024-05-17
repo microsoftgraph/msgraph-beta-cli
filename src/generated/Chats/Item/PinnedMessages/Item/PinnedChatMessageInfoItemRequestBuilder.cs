@@ -22,14 +22,13 @@ namespace ApiSdk.Chats.Item.PinnedMessages.Item {
     public class PinnedChatMessageInfoItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Unpin a message from a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0" />
+        /// Delete navigation property pinnedMessages for chats
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Unpin a message from a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0";
+            command.Description = "Delete navigation property pinnedMessages for chats";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -210,7 +209,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages.Item {
         {
         }
         /// <summary>
-        /// Unpin a message from a chat.
+        /// Delete navigation property pinnedMessages for chats
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -223,7 +222,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -263,7 +262,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

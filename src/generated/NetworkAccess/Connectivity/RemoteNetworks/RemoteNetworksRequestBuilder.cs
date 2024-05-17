@@ -102,13 +102,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
             return command;
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get remoteNetworks from networkAccess";
+            command.Description = "Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +210,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
         {
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +244,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/connectivity/remoteNetworks", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         public class RemoteNetworksRequestBuilderGetQueryParameters 
         {

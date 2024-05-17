@@ -20,13 +20,14 @@ namespace ApiSdk.Teams.GetOpenShifts {
     public class GetOpenShiftsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getOpenShifts
+        /// Get all openShift objects across all teams a user is a direct member of.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-getopenshifts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getOpenShifts";
+            command.Description = "Get all openShift objects across all teams a user is a direct member of.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-getopenshifts?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -128,7 +129,7 @@ namespace ApiSdk.Teams.GetOpenShifts {
         {
         }
         /// <summary>
-        /// Invoke function getOpenShifts
+        /// Get all openShift objects across all teams a user is a direct member of.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +148,7 @@ namespace ApiSdk.Teams.GetOpenShifts {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getOpenShifts
+        /// Get all openShift objects across all teams a user is a direct member of.
         /// </summary>
         public class GetOpenShiftsRequestBuilderGetQueryParameters 
         {

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PlannerBaseApprovalAttachment : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -17,7 +19,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Status of the approval. The possible values are: requested, approved, rejected, cancelled, unknownFutureValue. Read-only.</summary>
         public PlannerApprovalStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="PlannerBaseApprovalAttachment"/> and sets the default values.

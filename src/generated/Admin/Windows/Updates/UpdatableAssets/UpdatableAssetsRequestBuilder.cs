@@ -62,14 +62,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return command;
         }
         /// <summary>
-        /// Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatableassets-updatableassetgroup?view=graph-rest-1.0" />
+        /// Create new navigation property to updatableAssets for admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatableassets-updatableassetgroup?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to updatableAssets for admin";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -108,14 +107,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return command;
         }
         /// <summary>
-        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-1.0" />
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-1.0";
+            command.Description = "Assets registered with the deployment service that can receive updates.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -285,7 +283,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
         {
         }
         /// <summary>
-        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -304,7 +302,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
+        /// Create new navigation property to updatableAssets for admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -319,13 +317,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/windows/updates/updatableAssets", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         public class UpdatableAssetsRequestBuilderGetQueryParameters 
         {

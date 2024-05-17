@@ -98,13 +98,13 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
             return command;
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get trainingCampaigns from security";
+            command.Description = "Represents a training campaign in a tenant.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -206,7 +206,7 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
         {
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,13 +240,13 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/attackSimulation/trainingCampaigns", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get trainingCampaigns from security
+        /// Represents a training campaign in a tenant.
         /// </summary>
         public class TrainingCampaignsRequestBuilderGetQueryParameters 
         {

@@ -26,9 +26,9 @@ namespace ApiSdk.Models {
 #else
         public List<MobileAppCategory> Categories { get; set; }
 #endif
-        /// <summary>The date and time the app was created. This property is read-only.</summary>
+        /// <summary>The date and time the app was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
-        /// <summary>The total number of dependencies the child app has. This property is read-only.</summary>
+        /// <summary>The total number of dependencies the child app has.</summary>
         public int? DependentAppCount { get; private set; }
         /// <summary>The description of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace ApiSdk.Models {
 #else
         public string InformationUrl { get; set; }
 #endif
-        /// <summary>The value indicating whether the app is assigned to at least one group. This property is read-only.</summary>
+        /// <summary>The value indicating whether the app is assigned to at least one group.</summary>
         public bool? IsAssigned { get; private set; }
         /// <summary>The value indicating whether the app is marked as featured by the admin.</summary>
         public bool? IsFeatured { get; set; }
@@ -74,7 +74,7 @@ namespace ApiSdk.Models {
 #else
         public MimeContent LargeIcon { get; set; }
 #endif
-        /// <summary>The date and time the app was last modified. This property is read-only.</summary>
+        /// <summary>The date and time the app was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
         /// <summary>Notes for the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +110,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates the publishing state of an app.</summary>
         public MobileAppPublishingState? PublishingState { get; set; }
-        /// <summary>The set of direct relationships for this app.</summary>
+        /// <summary>List of relationships for this mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MobileAppRelationship>? Relationships { get; set; }
@@ -130,7 +130,7 @@ namespace ApiSdk.Models {
         public int? SupersededAppCount { get; private set; }
         /// <summary>The total number of apps this app directly or indirectly supersedes. This property is read-only.</summary>
         public int? SupersedingAppCount { get; private set; }
-        /// <summary>The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.</summary>
+        /// <summary>The upload state.</summary>
         public int? UploadState { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

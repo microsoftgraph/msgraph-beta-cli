@@ -55,14 +55,13 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
             return command;
         }
         /// <summary>
-        /// Create a new threat assessment request. A threat assessment request can be one of the following types:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-1.0" />
+        /// Create new navigation property to threatAssessmentRequests for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new threat assessment request. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to threatAssessmentRequests for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -107,14 +106,13 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-1.0" />
+        /// Get threatAssessmentRequests from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-1.0";
+            command.Description = "Get threatAssessmentRequests from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -222,7 +220,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
         {
         }
         /// <summary>
-        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+        /// Get threatAssessmentRequests from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +239,7 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new threat assessment request. A threat assessment request can be one of the following types:
+        /// Create new navigation property to threatAssessmentRequests for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,13 +254,13 @@ namespace ApiSdk.Users.Item.InformationProtection.ThreatAssessmentRequests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/informationProtection/threatAssessmentRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+        /// Get threatAssessmentRequests from users
         /// </summary>
         public class ThreatAssessmentRequestsRequestBuilderGetQueryParameters 
         {

@@ -104,13 +104,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
             return command;
         }
         /// <summary>
-        /// Get links from networkAccess
+        /// List of connectivity configurations for deviceLink objects.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get links from networkAccess";
+            command.Description = "List of connectivity configurations for deviceLink objects.";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -218,7 +218,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
         {
         }
         /// <summary>
-        /// Get links from networkAccess
+        /// List of connectivity configurations for deviceLink objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +252,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConf
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration/links", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get links from networkAccess
+        /// List of connectivity configurations for deviceLink objects.
         /// </summary>
         public class LinksRequestBuilderGetQueryParameters 
         {

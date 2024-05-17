@@ -21,13 +21,13 @@ namespace ApiSdk.Contracts.GetByIds {
     {
         /// <summary>
         /// Return the directory objects specified in a list of IDs. Some common uses for this function are to:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Return the directory objects specified in a list of IDs. Some common uses for this function are to:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0";
+            command.Description = "Return the directory objects specified in a list of IDs. Some common uses for this function are to:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.ValidateBulkResize {
     {
         /// <summary>
         /// Validate that a set of cloudPC devices meet the requirements to be bulk resized.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-validatebulkresize?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-validatebulkresize?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Validate that a set of cloudPC devices meet the requirements to be bulk resized.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-validatebulkresize?view=graph-rest-1.0";
+            command.Description = "Validate that a set of cloudPC devices meet the requirements to be bulk resized.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-validatebulkresize?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

@@ -44,14 +44,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Delete a unifiedRoleAssignment object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0" />
+        /// Delete navigation property roleAssignments for roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a unifiedRoleAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property roleAssignments for roleManagement";
             var unifiedRoleAssignmentIdOption = new Option<string>("--unified-role-assignment-id", description: "The unique identifier of unifiedRoleAssignment") {
             };
             unifiedRoleAssignmentIdOption.IsRequired = true;
@@ -97,14 +96,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a unifiedRoleAssignment object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0" />
+        /// Get roleAssignments from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a unifiedRoleAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0";
+            command.Description = "Get roleAssignments from roleManagement";
             var unifiedRoleAssignmentIdOption = new Option<string>("--unified-role-assignment-id", description: "The unique identifier of unifiedRoleAssignment") {
             };
             unifiedRoleAssignmentIdOption.IsRequired = true;
@@ -249,7 +247,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignments.Item {
         {
         }
         /// <summary>
-        /// Delete a unifiedRoleAssignment object.
+        /// Delete navigation property roleAssignments for roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -262,13 +260,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignments.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a unifiedRoleAssignment object.
+        /// Get roleAssignments from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -302,13 +300,13 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleAssignments.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a unifiedRoleAssignment object.
+        /// Get roleAssignments from roleManagement
         /// </summary>
         public class UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters 
         {

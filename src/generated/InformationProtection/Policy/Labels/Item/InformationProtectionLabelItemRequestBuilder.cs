@@ -57,15 +57,14 @@ namespace ApiSdk.InformationProtection.Policy.Labels.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an informationProtectionLabel object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotectionlabel-get?view=graph-rest-1.0" />
+        /// Get labels from informationProtection
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an informationProtectionLabel object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotectionlabel-get?view=graph-rest-1.0";
+            command.Description = "Get labels from informationProtection";
             var informationProtectionLabelIdOption = new Option<string>("--information-protection-label-id", description: "The unique identifier of informationProtectionLabel") {
             };
             informationProtectionLabelIdOption.IsRequired = true;
@@ -191,13 +190,13 @@ namespace ApiSdk.InformationProtection.Policy.Labels.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/informationProtection/policy/labels/{informationProtectionLabel%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an informationProtectionLabel object.
+        /// Get labels from informationProtection
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -233,13 +232,13 @@ namespace ApiSdk.InformationProtection.Policy.Labels.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/informationProtection/policy/labels/{informationProtectionLabel%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an informationProtectionLabel object.
+        /// Get labels from informationProtection
         /// </summary>
         public class InformationProtectionLabelItemRequestBuilderGetQueryParameters 
         {

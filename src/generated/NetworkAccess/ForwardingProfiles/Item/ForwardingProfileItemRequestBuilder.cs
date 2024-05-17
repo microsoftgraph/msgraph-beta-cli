@@ -58,14 +58,13 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-get?view=graph-rest-1.0" />
+        /// A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve information about a specific forwarding profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-get?view=graph-rest-1.0";
+            command.Description = "A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.";
             var forwardingProfileIdOption = new Option<string>("--forwarding-profile-id", description: "The unique identifier of forwardingProfile") {
             };
             forwardingProfileIdOption.IsRequired = true;
@@ -111,14 +110,13 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update an existing forwarding profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-update?view=graph-rest-1.0" />
+        /// Update the navigation property forwardingProfiles in networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update an existing forwarding profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property forwardingProfiles in networkAccess";
             var forwardingProfileIdOption = new Option<string>("--forwarding-profile-id", description: "The unique identifier of forwardingProfile") {
             };
             forwardingProfileIdOption.IsRequired = true;
@@ -234,13 +232,13 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/forwardingProfiles/{forwardingProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding profile.
+        /// A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -259,7 +257,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing forwarding profile.
+        /// Update the navigation property forwardingProfiles in networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -274,13 +272,13 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/forwardingProfiles/{forwardingProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve information about a specific forwarding profile.
+        /// A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
         /// </summary>
         public class ForwardingProfileItemRequestBuilderGetQueryParameters 
         {

@@ -120,14 +120,13 @@ namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions {
             return command;
         }
         /// <summary>
-        /// List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they&apos;re associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignment-list-submissions?view=graph-rest-1.0" />
+        /// Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they're associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignment-list-submissions?view=graph-rest-1.0";
+            command.Description = "Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.";
             var educationUserIdOption = new Option<string>("--education-user-id", description: "The unique identifier of educationUser") {
             };
             educationUserIdOption.IsRequired = true;
@@ -241,7 +240,7 @@ namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions {
         {
         }
         /// <summary>
-        /// List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they&apos;re associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
+        /// Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -275,13 +274,13 @@ namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they&apos;re associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
+        /// Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
         /// </summary>
         public class SubmissionsRequestBuilderGetQueryParameters 
         {

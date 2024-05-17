@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions {
             return command;
         }
         /// <summary>
-        /// Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/meetingregistration-post-customquestions?view=graph-rest-1.0" />
+        /// Create new navigation property to customQuestions for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistration-post-customquestions?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to customQuestions for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -111,14 +110,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions {
             return command;
         }
         /// <summary>
-        /// Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/meetingregistration-list-customquestions?view=graph-rest-1.0" />
+        /// Custom registration questions.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/meetingregistration-list-customquestions?view=graph-rest-1.0";
+            command.Description = "Custom registration questions.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -232,7 +230,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions {
         {
         }
         /// <summary>
-        /// Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+        /// Custom registration questions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,7 +249,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+        /// Create new navigation property to customQuestions for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -266,13 +264,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.Registration.CustomQuestions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/registration/customQuestions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+        /// Custom registration questions.
         /// </summary>
         public class CustomQuestionsRequestBuilderGetQueryParameters 
         {

@@ -280,7 +280,7 @@ namespace ApiSdk.TermStore.Sets.Item.Children.Item.Children.Item.Relations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/termStore/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

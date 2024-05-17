@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AccessReviewDecision : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.</summary>
+        /// <summary>The feature- generated recommendation shown to the reviewer, one of: Approve, Deny, NotAvailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccessRecommendation { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The date and time when the review decision was applied.</summary>
         public DateTimeOffset? AppliedDateTime { get; set; }
-        /// <summary>The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.</summary>
+        /// <summary>The outcome of applying the decision, one of: NotApplied, Success, Failed, NotFound, NotSupported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApplyResult { get; set; }

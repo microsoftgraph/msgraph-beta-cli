@@ -128,14 +128,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleAssignmentScheduleInstan
             return command;
         }
         /// <summary>
-        /// Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentscheduleinstances?view=graph-rest-1.0" />
+        /// Get roleAssignmentScheduleInstances from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentscheduleinstances?view=graph-rest-1.0";
+            command.Description = "Get roleAssignmentScheduleInstances from roleManagement";
             var rbacApplicationIdOption = new Option<string>("--rbac-application-id", description: "The unique identifier of rbacApplication") {
             };
             rbacApplicationIdOption.IsRequired = true;
@@ -243,7 +242,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleAssignmentScheduleInstan
         {
         }
         /// <summary>
-        /// Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
+        /// Get roleAssignmentScheduleInstances from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,13 +276,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleAssignmentScheduleInstan
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/roleAssignmentScheduleInstances", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
+        /// Get roleAssignmentScheduleInstances from roleManagement
         /// </summary>
         public class RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters 
         {

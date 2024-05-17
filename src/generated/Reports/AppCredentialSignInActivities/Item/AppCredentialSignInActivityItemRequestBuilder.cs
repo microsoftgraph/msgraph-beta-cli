@@ -56,14 +56,13 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
             return command;
         }
         /// <summary>
-        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-1.0" />
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get an appCredentialSignInActivity object that contains recent activity of an application credential.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-1.0";
+            command.Description = "Represents a collection of sign-in activities of application credentials.";
             var appCredentialSignInActivityIdOption = new Option<string>("--app-credential-sign-in-activity-id", description: "The unique identifier of appCredentialSignInActivity") {
             };
             appCredentialSignInActivityIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/reports/appCredentialSignInActivities/{appCredentialSignInActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/reports/appCredentialSignInActivities/{appCredentialSignInActivity%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         public class AppCredentialSignInActivityItemRequestBuilderGetQueryParameters 
         {

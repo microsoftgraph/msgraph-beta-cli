@@ -21,14 +21,13 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
     public class BusinessScenariosWithUniqueNameRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-1.0" />
+        /// Delete navigation property businessScenarios for solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property businessScenarios for solutions";
             var uniqueNameOption = new Option<string>("--unique-name", description: "Alternate key of businessScenario") {
             };
             uniqueNameOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a businessScenario object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-1.0" />
+        /// Get businessScenarios from solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a businessScenario object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-1.0";
+            command.Description = "Get businessScenarios from solutions";
             var uniqueNameOption = new Option<string>("--unique-name", description: "Alternate key of businessScenario") {
             };
             uniqueNameOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
             return command;
         }
         /// <summary>
-        /// Update the properties of a businessScenario object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-1.0" />
+        /// Update the navigation property businessScenarios in solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a businessScenario object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property businessScenarios in solutions";
             var uniqueNameOption = new Option<string>("--unique-name", description: "Alternate key of businessScenario") {
             };
             uniqueNameOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
         {
         }
         /// <summary>
-        /// Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
+        /// Delete navigation property businessScenarios for solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/businessScenarios(uniqueName='{uniqueName}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a businessScenario object.
+        /// Get businessScenarios from solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a businessScenario object.
+        /// Update the navigation property businessScenarios in solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.Solutions.BusinessScenariosWithUniqueName {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/businessScenarios(uniqueName='{uniqueName}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a businessScenario object.
+        /// Get businessScenarios from solutions
         /// </summary>
         public class BusinessScenariosWithUniqueNameRequestBuilderGetQueryParameters 
         {

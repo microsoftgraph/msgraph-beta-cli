@@ -22,14 +22,14 @@ namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel {
     {
         /// <summary>
         /// Using the metadata that exists on an already-labeled piece of information, resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotectionlabel-extractlabel?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotectionlabel-extractlabel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Using the metadata that exists on an already-labeled piece of information, resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotectionlabel-extractlabel?view=graph-rest-1.0";
+            command.Description = "Using the metadata that exists on an already-labeled piece of information, resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotectionlabel-extractlabel?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

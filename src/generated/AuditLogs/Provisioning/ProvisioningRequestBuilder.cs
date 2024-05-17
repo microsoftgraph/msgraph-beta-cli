@@ -98,14 +98,13 @@ namespace ApiSdk.AuditLogs.Provisioning {
             return command;
         }
         /// <summary>
-        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-1.0" />
+        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-1.0";
+            command.Description = "Represents an action performed by the Microsoft Entra provisioning service and its associated properties.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.AuditLogs.Provisioning {
         {
         }
         /// <summary>
-        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.AuditLogs.Provisioning {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/auditLogs/provisioning", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
         /// </summary>
         public class ProvisioningRequestBuilderGetQueryParameters 
         {

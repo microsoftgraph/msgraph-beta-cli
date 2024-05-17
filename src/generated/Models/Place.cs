@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class Place : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The street address of the place.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -23,7 +25,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Specifies the place location in latitude, longitude and (optionally) altitude coordinates.</summary>
+        /// <summary>Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OutlookGeoCoordinates? GeoCoordinates { get; set; }
@@ -39,7 +41,7 @@ namespace ApiSdk.Models {
 #else
         public string Phone { get; set; }
 #endif
-        /// <summary>An alternate immutable unique identifier of the place.</summary>
+        /// <summary>A unique, immutable identifier for the place. Read-only. The value of this identifier is equal to the ExternalDirectoryObjectId returned from the Get-Mailbox cmdlet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlaceId { get; set; }

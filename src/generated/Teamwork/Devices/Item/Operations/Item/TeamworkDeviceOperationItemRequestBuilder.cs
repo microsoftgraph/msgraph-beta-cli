@@ -62,14 +62,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceoperation-get?view=graph-rest-1.0" />
+        /// The async operations on the device.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the details of an async, long-running operation on a Microsoft Teams-enabled device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceoperation-get?view=graph-rest-1.0";
+            command.Description = "The async operations on the device.";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations/{teamworkDeviceOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
+        /// The async operations on the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations/{teamworkDeviceOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
+        /// The async operations on the device.
         /// </summary>
         public class TeamworkDeviceOperationItemRequestBuilderGetQueryParameters 
         {

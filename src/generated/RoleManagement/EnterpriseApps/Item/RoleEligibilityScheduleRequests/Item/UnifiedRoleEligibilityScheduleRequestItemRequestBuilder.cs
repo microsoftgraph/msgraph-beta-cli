@@ -119,14 +119,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilityScheduleReque
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0" />
+        /// Get roleEligibilityScheduleRequests from roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an unifiedRoleEligibilityScheduleRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0";
+            command.Description = "Get roleEligibilityScheduleRequests from roleManagement";
             var rbacApplicationIdOption = new Option<string>("--rbac-application-id", description: "The unique identifier of rbacApplication") {
             };
             rbacApplicationIdOption.IsRequired = true;
@@ -313,13 +312,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilityScheduleReque
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleRequest object.
+        /// Get roleEligibilityScheduleRequests from roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -353,13 +352,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilityScheduleReque
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleRequest object.
+        /// Get roleEligibilityScheduleRequests from roleManagement
         /// </summary>
         public class UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters 
         {

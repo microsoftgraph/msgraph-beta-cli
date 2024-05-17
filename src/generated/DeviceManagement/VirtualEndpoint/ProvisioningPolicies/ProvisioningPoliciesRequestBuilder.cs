@@ -75,15 +75,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies {
             return command;
         }
         /// <summary>
-        /// Create a new cloudPcProvisioningPolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-post-provisioningpolicies?view=graph-rest-1.0" />
+        /// Create new navigation property to provisioningPolicies for deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new cloudPcProvisioningPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-post-provisioningpolicies?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to provisioningPolicies for deviceManagement";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -122,15 +121,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies {
             return command;
         }
         /// <summary>
-        /// List properties and relationships of the cloudPcProvisioningPolicy objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-provisioningpolicies?view=graph-rest-1.0" />
+        /// Cloud PC provisioning policy.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List properties and relationships of the cloudPcProvisioningPolicy objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-provisioningpolicies?view=graph-rest-1.0";
+            command.Description = "Cloud PC provisioning policy.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -232,7 +230,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies {
         {
         }
         /// <summary>
-        /// List properties and relationships of the cloudPcProvisioningPolicy objects.
+        /// Cloud PC provisioning policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,7 +250,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new cloudPcProvisioningPolicy object.
+        /// Create new navigation property to provisioningPolicies for deviceManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,13 +266,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/provisioningPolicies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List properties and relationships of the cloudPcProvisioningPolicy objects.
+        /// Cloud PC provisioning policy.
         /// </summary>
         public class ProvisioningPoliciesRequestBuilderGetQueryParameters 
         {

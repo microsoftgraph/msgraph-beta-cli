@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class EventQuery : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -17,7 +19,7 @@ namespace ApiSdk.Models.Security {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The query property</summary>
+        /// <summary>Represents unique identification for the  query. &apos;Asset ID&apos; for SharePoint Online and OneDrive for Business, &apos;keywords&apos; for Exchange Online.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Query { get; set; }
@@ -25,7 +27,7 @@ namespace ApiSdk.Models.Security {
 #else
         public string Query { get; set; }
 #endif
-        /// <summary>The queryType property</summary>
+        /// <summary>Represents the type of query associated with an event. &apos;files&apos; for SPO and ODB and &apos;messages&apos; for EXO.The possible values are: files, messages, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.QueryType? QueryType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="EventQuery"/> and sets the default values.

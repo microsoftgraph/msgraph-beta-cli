@@ -51,15 +51,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item.ChildTags {
             return command;
         }
         /// <summary>
-        /// Get a list of child tag objects associated with a tag.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-tag-childtags?view=graph-rest-1.0" />
+        /// Returns the tags that are a child of a tag.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of child tag objects associated with a tag.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-tag-childtags?view=graph-rest-1.0";
+            command.Description = "Returns the tags that are a child of a tag.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -173,7 +172,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item.ChildTags {
         {
         }
         /// <summary>
-        /// Get a list of child tag objects associated with a tag.
+        /// Returns the tags that are a child of a tag.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +192,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item.ChildTags {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of child tag objects associated with a tag.
+        /// Returns the tags that are a child of a tag.
         /// </summary>
         public class ChildTagsRequestBuilderGetQueryParameters 
         {

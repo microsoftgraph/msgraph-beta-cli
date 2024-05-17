@@ -21,13 +21,13 @@ namespace ApiSdk.Chats.Item.SendActivityNotification {
     {
         /// <summary>
         /// Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-sendactivitynotification?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-sendactivitynotification?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-sendactivitynotification?view=graph-rest-1.0";
+            command.Description = "Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-sendactivitynotification?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;

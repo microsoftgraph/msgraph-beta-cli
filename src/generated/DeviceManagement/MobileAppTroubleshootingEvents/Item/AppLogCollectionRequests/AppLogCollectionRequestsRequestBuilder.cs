@@ -106,13 +106,13 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item.AppLogColl
             return command;
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Indicates collection of App Log Upload Request.";
+            command.Description = "The collection property of AppLogUploadRequest.";
             var mobileAppTroubleshootingEventIdOption = new Option<string>("--mobile-app-troubleshooting-event-id", description: "The unique identifier of mobileAppTroubleshootingEvent") {
             };
             mobileAppTroubleshootingEventIdOption.IsRequired = true;
@@ -220,7 +220,7 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item.AppLogColl
         {
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,13 +254,13 @@ namespace ApiSdk.DeviceManagement.MobileAppTroubleshootingEvents.Item.AppLogColl
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Indicates collection of App Log Upload Request.
+        /// The collection property of AppLogUploadRequest.
         /// </summary>
         public class AppLogCollectionRequestsRequestBuilderGetQueryParameters 
         {

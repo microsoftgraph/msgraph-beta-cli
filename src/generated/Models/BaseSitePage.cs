@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class BaseSitePage : BaseItem, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.</summary>
         public PageLayoutType? PageLayout { get; set; }
@@ -43,7 +45,9 @@ namespace ApiSdk.Models {
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.newsLinkPage" => new NewsLinkPage(),
                 "#microsoft.graph.sitePage" => new SitePage(),
+                "#microsoft.graph.videoNewsLinkPage" => new VideoNewsLinkPage(),
                 _ => new BaseSitePage(),
             };
         }

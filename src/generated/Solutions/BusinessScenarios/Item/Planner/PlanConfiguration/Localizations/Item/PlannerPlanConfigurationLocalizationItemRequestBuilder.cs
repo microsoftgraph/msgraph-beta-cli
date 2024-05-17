@@ -21,14 +21,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
     public class PlannerPlanConfigurationLocalizationItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a plannerPlanConfigurationLocalization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0" />
+        /// Delete navigation property localizations for solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a plannerPlanConfigurationLocalization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0";
+            command.Description = "Delete navigation property localizations for solutions";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfigurationLocalization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0" />
+        /// Localized names for the plan configuration.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a plannerPlanConfigurationLocalization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0";
+            command.Description = "Localized names for the plan configuration.";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -122,14 +120,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return command;
         }
         /// <summary>
-        /// Update the properties of a plannerPlanConfigurationLocalization object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-update?view=graph-rest-1.0" />
+        /// Update the navigation property localizations in solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a plannerPlanConfigurationLocalization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerplanconfigurationlocalization-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property localizations in solutions";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -194,7 +191,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
         {
         }
         /// <summary>
-        /// Delete a plannerPlanConfigurationLocalization object.
+        /// Delete navigation property localizations for solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,13 +204,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration/localizations/{plannerPlanConfigurationLocalization%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfigurationLocalization object.
+        /// Localized names for the plan configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +229,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a plannerPlanConfigurationLocalization object.
+        /// Update the navigation property localizations in solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -247,13 +244,13 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Loca
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration/localizations/{plannerPlanConfigurationLocalization%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerPlanConfigurationLocalization object.
+        /// Localized names for the plan configuration.
         /// </summary>
         public class PlannerPlanConfigurationLocalizationItemRequestBuilderGetQueryParameters 
         {

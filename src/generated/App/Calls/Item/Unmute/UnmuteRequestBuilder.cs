@@ -22,13 +22,13 @@ namespace ApiSdk.App.Calls.Item.Unmute {
     {
         /// <summary>
         /// Allow the application to unmute itself. This is a server unmute, meaning that the server will start sending audio packets for this participant to other participants again. For more information about how to handle unmute operations, see unmuteParticipantOperation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Allow the application to unmute itself. This is a server unmute, meaning that the server will start sending audio packets for this participant to other participants again. For more information about how to handle unmute operations, see unmuteParticipantOperation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-1.0";
+            command.Description = "Allow the application to unmute itself. This is a server unmute, meaning that the server will start sending audio packets for this participant to other participants again. For more information about how to handle unmute operations, see unmuteParticipantOperation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

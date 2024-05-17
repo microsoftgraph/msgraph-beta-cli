@@ -21,14 +21,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
     public class EducationGradingSchemeItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an educationGradingScheme object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationgradingscheme-delete?view=graph-rest-1.0" />
+        /// Delete navigation property gradingSchemes for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an educationGradingScheme object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationgradingscheme-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property gradingSchemes for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationgradingscheme-get?view=graph-rest-1.0" />
+        /// Get gradingSchemes from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an educationGradingScheme object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationgradingscheme-get?view=graph-rest-1.0";
+            command.Description = "Get gradingSchemes from education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -193,7 +191,7 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
         {
         }
         /// <summary>
-        /// Delete an educationGradingScheme object.
+        /// Delete navigation property gradingSchemes for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,13 +204,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes/{educationGradingScheme%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
+        /// Get gradingSchemes from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,13 +244,13 @@ namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes/{educationGradingScheme%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an educationGradingScheme object.
+        /// Get gradingSchemes from education
         /// </summary>
         public class EducationGradingSchemeItemRequestBuilderGetQueryParameters 
         {

@@ -57,14 +57,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a hostCookie object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-1.0" />
+        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a hostCookie object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-1.0";
+            command.Description = "Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.";
             var hostCookieIdOption = new Option<string>("--host-cookie-id", description: "The unique identifier of hostCookie") {
             };
             hostCookieIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a hostCookie object.
+        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a hostCookie object.
+        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
         /// </summary>
         public class HostCookieItemRequestBuilderGetQueryParameters 
         {

@@ -5,6 +5,7 @@ using ApiSdk.Users.Item.Settings.ContactMergeSuggestions;
 using ApiSdk.Users.Item.Settings.ItemInsights;
 using ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings;
 using ApiSdk.Users.Item.Settings.ShiftPreferences;
+using ApiSdk.Users.Item.Settings.Storage;
 using ApiSdk.Users.Item.Settings.Windows;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -240,6 +241,31 @@ namespace ApiSdk.Users.Item.Settings {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the storage property of the microsoft.graph.userSettings entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildStorageNavCommand()
+        {
+            var command = new Command("storage");
+            command.Description = "Provides operations to manage the storage property of the microsoft.graph.userSettings entity.";
+            var builder = new StorageRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildQuotaNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -294,7 +320,7 @@ namespace ApiSdk.Users.Item.Settings {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/settings", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -334,7 +360,7 @@ namespace ApiSdk.Users.Item.Settings {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/settings", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

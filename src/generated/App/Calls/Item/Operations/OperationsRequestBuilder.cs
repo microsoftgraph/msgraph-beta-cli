@@ -104,13 +104,13 @@ namespace ApiSdk.App.Calls.Item.Operations {
             return command;
         }
         /// <summary>
-        /// Get the status of an operation that adds the large gallery view to a call.
+        /// Get operations from app
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the status of an operation that adds the large gallery view to a call.";
+            command.Description = "Get operations from app";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -218,7 +218,7 @@ namespace ApiSdk.App.Calls.Item.Operations {
         {
         }
         /// <summary>
-        /// Get the status of an operation that adds the large gallery view to a call.
+        /// Get operations from app
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +252,13 @@ namespace ApiSdk.App.Calls.Item.Operations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/app/calls/{call%2Did}/operations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the status of an operation that adds the large gallery view to a call.
+        /// Get operations from app
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

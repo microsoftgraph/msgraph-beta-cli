@@ -25,14 +25,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
     public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an azureADDevice object. When a Microsoft Entra device is deleted, it is unregistered from the deployment service and automatically unenrolled from management by the service for all update categories, as well as removed from every deploymentAudience and updatableAssetGroup.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-delete?view=graph-rest-1.0" />
+        /// Delete navigation property updatableAssets for admin
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an azureADDevice object. When a Microsoft Entra device is deleted, it is unregistered from the deployment service and automatically unenrolled from management by the service for all update categories, as well as removed from every deploymentAudience and updatableAssetGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property updatableAssets for admin";
             var updatableAssetIdOption = new Option<string>("--updatable-asset-id", description: "The unique identifier of updatableAsset") {
             };
             updatableAssetIdOption.IsRequired = true;
@@ -61,14 +60,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an updatableAsset object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-1.0" />
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an updatableAsset object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-1.0";
+            command.Description = "Assets registered with the deployment service that can receive updates.";
             var updatableAssetIdOption = new Option<string>("--updatable-asset-id", description: "The unique identifier of updatableAsset") {
             };
             updatableAssetIdOption.IsRequired = true;
@@ -247,7 +245,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
         {
         }
         /// <summary>
-        /// Delete an azureADDevice object. When a Microsoft Entra device is deleted, it is unregistered from the deployment service and automatically unenrolled from management by the service for all update categories, as well as removed from every deploymentAudience and updatableAssetGroup.
+        /// Delete navigation property updatableAssets for admin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,13 +258,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an updatableAsset object.
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -300,13 +298,13 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an updatableAsset object.
+        /// Assets registered with the deployment service that can receive updates.
         /// </summary>
         public class UpdatableAssetItemRequestBuilderGetQueryParameters 
         {

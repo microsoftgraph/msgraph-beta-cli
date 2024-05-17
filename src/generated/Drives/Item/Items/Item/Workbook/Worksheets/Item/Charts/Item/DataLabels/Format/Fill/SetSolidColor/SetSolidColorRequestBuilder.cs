@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Dat
     {
         /// <summary>
         /// Sets the fill formatting of a chart element to a uniform color.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Sets the fill formatting of a chart element to a uniform color.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-1.0";
+            command.Description = "Sets the fill formatting of a chart element to a uniform color.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

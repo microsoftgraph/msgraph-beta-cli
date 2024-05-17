@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class RemoteNetworkConnectivityConfiguration : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The links property</summary>
+        /// <summary>List of connectivity configurations for deviceLink objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ConnectivityConfigurationLink>? Links { get; set; }
@@ -25,7 +27,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The remoteNetworkId property</summary>
+        /// <summary>Unique identifier or a specific reference assigned to a branchSite. Key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RemoteNetworkId { get; set; }
@@ -33,7 +35,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string RemoteNetworkId { get; set; }
 #endif
-        /// <summary>The remoteNetworkName property</summary>
+        /// <summary>Display name assigned to a branchSite.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RemoteNetworkName { get; set; }

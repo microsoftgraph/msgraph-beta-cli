@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AccessReviewSettings : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Indicates whether showing recommendations to reviewers is enabled.</summary>
         public bool? AccessRecommendationsEnabled { get; set; }

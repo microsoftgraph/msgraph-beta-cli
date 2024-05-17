@@ -56,14 +56,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantGroup object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenantgroup-get?view=graph-rest-1.0" />
+        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a tenantGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenantgroup-get?view=graph-rest-1.0";
+            command.Description = "The collection of a logical grouping of managed tenants used by the multi-tenant management platform.";
             var tenantGroupIdOption = new Option<string>("--tenant-group-id", description: "The unique identifier of tenantGroup") {
             };
             tenantGroupIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tenantRelationships/managedTenants/tenantGroups/{tenantGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantGroup object.
+        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/managedTenants/tenantGroups/{tenantGroup%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a tenantGroup object.
+        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
         /// </summary>
         public class TenantGroupItemRequestBuilderGetQueryParameters 
         {

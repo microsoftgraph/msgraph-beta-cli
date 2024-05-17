@@ -21,13 +21,13 @@ namespace ApiSdk.Teamwork.DeletedChats.Item.UndoDelete {
     {
         /// <summary>
         /// Restore a deletedChat to an active chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deletedchat-undodelete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deletedchat-undodelete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a deletedChat to an active chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deletedchat-undodelete?view=graph-rest-1.0";
+            command.Description = "Restore a deletedChat to an active chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deletedchat-undodelete?view=graph-rest-beta";
             var deletedChatIdOption = new Option<string>("--deleted-chat-id", description: "The unique identifier of deletedChat") {
             };
             deletedChatIdOption.IsRequired = true;

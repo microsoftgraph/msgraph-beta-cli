@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction {
+    #pragma warning disable CS1591
     public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>An enum type to represent approval actions of single or list of drivers.</summary>
         public DriverApprovalAction? ActionName { get; set; }

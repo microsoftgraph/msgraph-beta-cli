@@ -66,15 +66,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a reviewSet object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-1.0" />
+        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a reviewSet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-1.0";
+            command.Description = "Returns a list of reviewSet objects in the case. Read-only. Nullable.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -273,13 +272,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a reviewSet object.
+        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -315,13 +314,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a reviewSet object.
+        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
         /// </summary>
         public class ReviewSetItemRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Restart {
     {
         /// <summary>
         /// Restart a stopped synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restart a stopped synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-1.0";
+            command.Description = "Restart a stopped synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;

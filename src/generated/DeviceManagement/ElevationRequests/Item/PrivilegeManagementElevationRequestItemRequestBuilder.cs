@@ -2,6 +2,7 @@
 using ApiSdk.DeviceManagement.ElevationRequests.Item.Approve;
 using ApiSdk.DeviceManagement.ElevationRequests.Item.Deny;
 using ApiSdk.DeviceManagement.ElevationRequests.Item.GetAllElevationRequests;
+using ApiSdk.DeviceManagement.ElevationRequests.Item.Revoke;
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -213,6 +214,23 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the revoke method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRevokeNavCommand()
+        {
+            var command = new Command("revoke");
+            command.Description = "Provides operations to call the revoke method.";
+            var builder = new RevokeRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Instantiates a new <see cref="PrivilegeManagementElevationRequestItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -240,7 +258,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -280,7 +298,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

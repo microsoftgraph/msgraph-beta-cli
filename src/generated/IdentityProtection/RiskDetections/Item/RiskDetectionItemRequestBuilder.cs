@@ -56,14 +56,13 @@ namespace ApiSdk.IdentityProtection.RiskDetections.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of a collection of riskDetection objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0" />
+        /// Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a collection of riskDetection objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0";
+            command.Description = "Risk detection in Microsoft Entra ID Protection and the associated information about the detection.";
             var riskDetectionIdOption = new Option<string>("--risk-detection-id", description: "The unique identifier of riskDetection") {
             };
             riskDetectionIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.IdentityProtection.RiskDetections.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityProtection/riskDetections/{riskDetection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a collection of riskDetection objects.
+        /// Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.IdentityProtection.RiskDetections.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityProtection/riskDetections/{riskDetection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a collection of riskDetection objects.
+        /// Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
         /// </summary>
         public class RiskDetectionItemRequestBuilderGetQueryParameters 
         {

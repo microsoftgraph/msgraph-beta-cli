@@ -106,14 +106,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Connectors {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of connector objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connector-list?view=graph-rest-1.0" />
+        /// List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of connector objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connector-list?view=graph-rest-1.0";
+            command.Description = "List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Connectors {
         {
         }
         /// <summary>
-        /// Retrieve a list of connector objects.
+        /// List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.Connectors {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectors", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of connector objects.
+        /// List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
         /// </summary>
         public class ConnectorsRequestBuilderGetQueryParameters 
         {

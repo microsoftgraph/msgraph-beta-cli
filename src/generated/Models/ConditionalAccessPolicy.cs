@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class ConditionalAccessPolicy : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The conditions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +63,12 @@ namespace ApiSdk.Models {
         public static new ConditionalAccessPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessPolicy();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "#microsoft.graph.conditionalAccessWhatIfPolicy" => new ConditionalAccessWhatIfPolicy(),
+                _ => new ConditionalAccessPolicy(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

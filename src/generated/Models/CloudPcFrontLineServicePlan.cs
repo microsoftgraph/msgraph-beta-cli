@@ -5,8 +5,12 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcFrontLineServicePlan : Entity, IParsable 
+    #pragma warning restore CS1591
     {
+        /// <summary>The allotmentLicensesCount property</summary>
+        public int? AllotmentLicensesCount { get; set; }
         /// <summary>The display name of the front-line service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +41,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                {"allotmentLicensesCount", n => { AllotmentLicensesCount = n.GetIntValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"totalCount", n => { TotalCount = n.GetIntValue(); } },
                 {"usedCount", n => { UsedCount = n.GetIntValue(); } },
@@ -50,6 +55,7 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteIntValue("allotmentLicensesCount", AllotmentLicensesCount);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteIntValue("totalCount", TotalCount);
             writer.WriteIntValue("usedCount", UsedCount);

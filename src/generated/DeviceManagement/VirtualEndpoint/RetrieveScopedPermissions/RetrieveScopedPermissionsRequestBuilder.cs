@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions {
     public class RetrieveScopedPermissionsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function retrieveScopedPermissions
+        /// Get the permissions and corresponding scope IDs for which the authenticated user has access.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-retrievescopedpermissions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function retrieveScopedPermissions";
+            command.Description = "Get the permissions and corresponding scope IDs for which the authenticated user has access.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-retrievescopedpermissions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -107,7 +108,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions {
         {
         }
         /// <summary>
-        /// Invoke function retrieveScopedPermissions
+        /// Get the permissions and corresponding scope IDs for which the authenticated user has access.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +127,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function retrieveScopedPermissions
+        /// Get the permissions and corresponding scope IDs for which the authenticated user has access.
         /// </summary>
         public class RetrieveScopedPermissionsRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Invite {
     {
         /// <summary>
         /// Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0";
+            command.Description = "Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

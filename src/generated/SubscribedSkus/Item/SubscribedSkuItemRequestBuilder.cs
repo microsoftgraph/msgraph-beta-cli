@@ -57,13 +57,13 @@ namespace ApiSdk.SubscribedSkus.Item {
         }
         /// <summary>
         /// Get a specific commercial subscription that an organization has acquired.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get a specific commercial subscription that an organization has acquired.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-1.0";
+            command.Description = "Get a specific commercial subscription that an organization has acquired.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-beta";
             var subscribedSkuIdOption = new Option<string>("--subscribed-sku-id", description: "The unique identifier of subscribedSku") {
             };
             subscribedSkuIdOption.IsRequired = true;
@@ -180,7 +180,7 @@ namespace ApiSdk.SubscribedSkus.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/subscribedSkus/{subscribedSku%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -220,7 +220,7 @@ namespace ApiSdk.SubscribedSkus.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/subscribedSkus/{subscribedSku%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

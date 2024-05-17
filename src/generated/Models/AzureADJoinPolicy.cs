@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AzureADJoinPolicy : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -19,6 +21,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Determines if administrators can modify this policy.</summary>
         public bool? IsAdminConfigurable { get; set; }
+        /// <summary>The localAdmins property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public LocalAdminSettings? LocalAdmins { get; set; }
+#nullable restore
+#else
+        public LocalAdminSettings LocalAdmins { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +64,7 @@ namespace ApiSdk.Models {
             {
                 {"allowedToJoin", n => { AllowedToJoin = n.GetObjectValue<DeviceRegistrationMembership>(DeviceRegistrationMembership.CreateFromDiscriminatorValue); } },
                 {"isAdminConfigurable", n => { IsAdminConfigurable = n.GetBoolValue(); } },
+                {"localAdmins", n => { LocalAdmins = n.GetObjectValue<LocalAdminSettings>(LocalAdminSettings.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -66,6 +77,7 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<DeviceRegistrationMembership>("allowedToJoin", AllowedToJoin);
             writer.WriteBoolValue("isAdminConfigurable", IsAdminConfigurable);
+            writer.WriteObjectValue<LocalAdminSettings>("localAdmins", LocalAdmins);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -21,13 +21,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcLaunchInfo {
     public class GetCloudPcLaunchInfoRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getCloudPcLaunchInfo
+        /// Get the cloudPCLaunchInfo for the signed-in user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-getcloudpclaunchinfo?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCloudPcLaunchInfo";
+            command.Description = "Get the cloudPCLaunchInfo for the signed-in user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-getcloudpclaunchinfo?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -79,7 +80,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcLaunchInfo {
         {
         }
         /// <summary>
-        /// Invoke function getCloudPcLaunchInfo
+        /// Get the cloudPCLaunchInfo for the signed-in user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

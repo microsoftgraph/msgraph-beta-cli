@@ -22,13 +22,13 @@ namespace ApiSdk.Communications.Calls.Item.Participants.Item.StartHoldMusic {
     {
         /// <summary>
         /// Put a participant on hold and play music in the background.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Put a participant on hold and play music in the background.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0";
+            command.Description = "Put a participant on hold and play music in the background.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

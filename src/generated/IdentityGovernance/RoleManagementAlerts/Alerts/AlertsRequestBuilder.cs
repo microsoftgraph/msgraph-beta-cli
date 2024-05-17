@@ -104,14 +104,13 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts {
             return command;
         }
         /// <summary>
-        /// Get a list of the unifiedRoleManagementAlert objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rolemanagementalert-list-alerts?view=graph-rest-1.0" />
+        /// Represents the alert entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the unifiedRoleManagementAlert objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rolemanagementalert-list-alerts?view=graph-rest-1.0";
+            command.Description = "Represents the alert entity.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -230,7 +229,7 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts {
         {
         }
         /// <summary>
-        /// Get a list of the unifiedRoleManagementAlert objects and their properties.
+        /// Represents the alert entity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,13 +263,13 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identityGovernance/roleManagementAlerts/alerts", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the unifiedRoleManagementAlert objects and their properties.
+        /// Represents the alert entity.
         /// </summary>
         public class AlertsRequestBuilderGetQueryParameters 
         {

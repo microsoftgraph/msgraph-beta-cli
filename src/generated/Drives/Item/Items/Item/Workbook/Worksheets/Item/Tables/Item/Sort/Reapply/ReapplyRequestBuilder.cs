@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Sor
     {
         /// <summary>
         /// Reapplies the current sorting parameters to the table.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablesort-reapply?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablesort-reapply?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reapplies the current sorting parameters to the table.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablesort-reapply?view=graph-rest-1.0";
+            command.Description = "Reapplies the current sorting parameters to the table.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tablesort-reapply?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

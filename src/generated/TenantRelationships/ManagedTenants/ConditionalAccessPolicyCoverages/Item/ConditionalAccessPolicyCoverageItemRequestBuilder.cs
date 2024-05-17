@@ -56,14 +56,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-1.0" />
+        /// Aggregate view of conditional access policy coverage across managed tenants.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a conditionalAccessPolicyCoverage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-1.0";
+            command.Description = "Aggregate view of conditional access policy coverage across managed tenants.";
             var conditionalAccessPolicyCoverageIdOption = new Option<string>("--conditional-access-policy-coverage-id", description: "The unique identifier of conditionalAccessPolicyCoverage") {
             };
             conditionalAccessPolicyCoverageIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages/{conditionalAccessPolicyCoverage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
+        /// Aggregate view of conditional access policy coverage across managed tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages/{conditionalAccessPolicyCoverage%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
+        /// Aggregate view of conditional access policy coverage across managed tenants.
         /// </summary>
         public class ConditionalAccessPolicyCoverageItemRequestBuilderGetQueryParameters 
         {

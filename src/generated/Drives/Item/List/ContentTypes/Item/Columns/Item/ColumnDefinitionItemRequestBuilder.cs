@@ -22,14 +22,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
     public class ColumnDefinitionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete columnDefinition
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0" />
+        /// Delete navigation property columns for drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property columns for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -70,14 +69,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0" />
+        /// The collection of column definitions for this content type.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0";
+            command.Description = "The collection of column definitions for this content type.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -135,14 +133,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
             return command;
         }
         /// <summary>
-        /// Update columnDefinition
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0" />
+        /// Update the navigation property columns in drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property columns in drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -230,7 +227,7 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
         {
         }
         /// <summary>
-        /// Delete columnDefinition
+        /// Delete navigation property columns for drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +240,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/drives/{drive%2Did}/list/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
+        /// The collection of column definitions for this content type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +265,7 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update columnDefinition
+        /// Update the navigation property columns in drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -283,13 +280,13 @@ namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Columns.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/drives/{drive%2Did}/list/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
+        /// The collection of column definitions for this content type.
         /// </summary>
         public class ColumnDefinitionItemRequestBuilderGetQueryParameters 
         {

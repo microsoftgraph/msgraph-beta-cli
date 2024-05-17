@@ -113,14 +113,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Permissions {
             return command;
         }
         /// <summary>
-        /// List the effective sharing permissions on a driveItem.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-list-permissions?view=graph-rest-1.0" />
+        /// The set of permissions for the item. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List the effective sharing permissions on a driveItem.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-list-permissions?view=graph-rest-1.0";
+            command.Description = "The set of permissions for the item. Read-only. Nullable.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -234,7 +233,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Permissions {
         {
         }
         /// <summary>
-        /// List the effective sharing permissions on a driveItem.
+        /// The set of permissions for the item. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,13 +267,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Permissions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// List the effective sharing permissions on a driveItem.
+        /// The set of permissions for the item. Read-only. Nullable.
         /// </summary>
         public class PermissionsRequestBuilderGetQueryParameters 
         {

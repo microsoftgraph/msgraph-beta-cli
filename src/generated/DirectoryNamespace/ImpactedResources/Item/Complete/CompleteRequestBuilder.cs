@@ -22,13 +22,13 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Complete {
     {
         /// <summary>
         /// Complete an impactedResource object and update its status to completedByUser.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Complete an impactedResource object and update its status to completedByUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-1.0";
+            command.Description = "Complete an impactedResource object and update its status to completedByUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-beta";
             var impactedResourceIdOption = new Option<string>("--impacted-resource-id", description: "The unique identifier of impactedResource") {
             };
             impactedResourceIdOption.IsRequired = true;

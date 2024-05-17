@@ -21,14 +21,13 @@ namespace ApiSdk.External.Connections.Item.Schema {
     public class SchemaRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Retrieve the properties of a schema for an externalConnection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0" />
+        /// Get schema from external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a schema for an externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0";
+            command.Description = "Get schema from external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -74,14 +73,13 @@ namespace ApiSdk.External.Connections.Item.Schema {
             return command;
         }
         /// <summary>
-        /// Create the schema for a Microsoft Search connection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-patch-schema?view=graph-rest-1.0" />
+        /// Update the navigation property schema in external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Create the schema for a Microsoft Search connection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-patch-schema?view=graph-rest-1.0";
+            command.Description = "Update the navigation property schema in external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -140,7 +138,7 @@ namespace ApiSdk.External.Connections.Item.Schema {
         {
         }
         /// <summary>
-        /// Retrieve the properties of a schema for an externalConnection.
+        /// Get schema from external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -159,7 +157,7 @@ namespace ApiSdk.External.Connections.Item.Schema {
             return requestInfo;
         }
         /// <summary>
-        /// Create the schema for a Microsoft Search connection.
+        /// Update the navigation property schema in external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -174,13 +172,13 @@ namespace ApiSdk.External.Connections.Item.Schema {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/connections/{externalConnection%2Did}/schema", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a schema for an externalConnection.
+        /// Get schema from external
         /// </summary>
         public class SchemaRequestBuilderGetQueryParameters 
         {

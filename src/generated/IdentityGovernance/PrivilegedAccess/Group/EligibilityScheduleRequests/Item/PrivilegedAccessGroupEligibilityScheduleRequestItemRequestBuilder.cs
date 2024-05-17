@@ -77,14 +77,13 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-get?view=graph-rest-1.0" />
+        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-get?view=graph-rest-1.0";
+            command.Description = "The schedule requests for operations to create, update, delete, extend, and renew an eligibility.";
             var privilegedAccessGroupEligibilityScheduleRequestIdOption = new Option<string>("--privileged-access-group-eligibility-schedule-request-id", description: "The unique identifier of privilegedAccessGroupEligibilityScheduleRequest") {
             };
             privilegedAccessGroupEligibilityScheduleRequestIdOption.IsRequired = true;
@@ -265,13 +264,13 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleRequest object.
+        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -305,13 +304,13 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleRequest object.
+        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
         /// </summary>
         public class PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderGetQueryParameters 
         {

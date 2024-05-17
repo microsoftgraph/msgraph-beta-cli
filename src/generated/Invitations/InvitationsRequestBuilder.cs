@@ -57,13 +57,13 @@ namespace ApiSdk.Invitations {
         }
         /// <summary>
         /// Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0";
+            command.Description = "Create a new invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -244,7 +244,7 @@ namespace ApiSdk.Invitations {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/invitations", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

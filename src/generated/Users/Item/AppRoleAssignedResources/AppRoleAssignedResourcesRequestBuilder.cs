@@ -51,14 +51,13 @@ namespace ApiSdk.Users.Item.AppRoleAssignedResources {
             return command;
         }
         /// <summary>
-        /// Get the service principals to which the user has an app role assignment either directly or through group membership.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-approleassignedresources?view=graph-rest-1.0" />
+        /// Get appRoleAssignedResources from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the service principals to which the user has an app role assignment either directly or through group membership.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-approleassignedresources?view=graph-rest-1.0";
+            command.Description = "Get appRoleAssignedResources from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -166,7 +165,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignedResources {
         {
         }
         /// <summary>
-        /// Get the service principals to which the user has an app role assignment either directly or through group membership.
+        /// Get appRoleAssignedResources from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +184,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignedResources {
             return requestInfo;
         }
         /// <summary>
-        /// Get the service principals to which the user has an app role assignment either directly or through group membership.
+        /// Get appRoleAssignedResources from users
         /// </summary>
         public class AppRoleAssignedResourcesRequestBuilderGetQueryParameters 
         {

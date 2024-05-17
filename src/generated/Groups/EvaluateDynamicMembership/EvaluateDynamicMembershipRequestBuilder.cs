@@ -22,13 +22,13 @@ namespace ApiSdk.Groups.EvaluateDynamicMembership {
     {
         /// <summary>
         /// Invoke action evaluateDynamicMembership
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action evaluateDynamicMembership\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-1.0";
+            command.Description = "Invoke action evaluateDynamicMembership\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

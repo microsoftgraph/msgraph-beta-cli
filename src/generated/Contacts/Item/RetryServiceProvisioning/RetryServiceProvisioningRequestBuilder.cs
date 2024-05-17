@@ -21,13 +21,13 @@ namespace ApiSdk.Contacts.Item.RetryServiceProvisioning {
     {
         /// <summary>
         /// Retry the orgContact service provisioning.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-retryserviceprovisioning?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-retryserviceprovisioning?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Retry the orgContact service provisioning.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-retryserviceprovisioning?view=graph-rest-1.0";
+            command.Description = "Retry the orgContact service provisioning.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-retryserviceprovisioning?view=graph-rest-beta";
             var orgContactIdOption = new Option<string>("--org-contact-id", description: "The unique identifier of orgContact") {
             };
             orgContactIdOption.IsRequired = true;

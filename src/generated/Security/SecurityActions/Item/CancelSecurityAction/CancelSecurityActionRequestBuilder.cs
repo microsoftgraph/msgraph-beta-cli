@@ -21,13 +21,13 @@ namespace ApiSdk.Security.SecurityActions.Item.CancelSecurityAction {
     {
         /// <summary>
         /// Cancel a security operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Cancel a security operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-1.0";
+            command.Description = "Cancel a security operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-beta";
             var securityActionIdOption = new Option<string>("--security-action-id", description: "The unique identifier of securityAction") {
             };
             securityActionIdOption.IsRequired = true;

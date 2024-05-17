@@ -86,14 +86,13 @@ namespace ApiSdk.Users.Item.Teamwork {
             return command;
         }
         /// <summary>
-        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-1.0" />
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-1.0";
+            command.Description = "A container for Microsoft Teams features available for the user. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -261,13 +260,13 @@ namespace ApiSdk.Users.Item.Teamwork {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/teamwork", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -301,13 +300,13 @@ namespace ApiSdk.Users.Item.Teamwork {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/teamwork", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         public class TeamworkRequestBuilderGetQueryParameters 
         {

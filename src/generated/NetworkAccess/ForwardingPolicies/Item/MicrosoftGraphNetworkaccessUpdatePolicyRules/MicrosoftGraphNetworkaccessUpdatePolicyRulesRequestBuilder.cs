@@ -21,13 +21,13 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkacce
     {
         /// <summary>
         /// Update the rules within a forwarding policy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Update the rules within a forwarding policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-1.0";
+            command.Description = "Update the rules within a forwarding policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-beta";
             var forwardingPolicyIdOption = new Option<string>("--forwarding-policy-id", description: "The unique identifier of forwardingPolicy") {
             };
             forwardingPolicyIdOption.IsRequired = true;

@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class DeviceLink : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.</summary>
+        /// <summary>Determines the maximum allowed Mbps (megabits per second) bandwidth from a device link. The possible values are:250,500,750,1000.</summary>
         public ApiSdk.Models.Networkaccess.BandwidthCapacityInMbps? BandwidthCapacityInMbps { get; set; }
         /// <summary>The bgpConfiguration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -19,7 +21,7 @@ namespace ApiSdk.Models.Networkaccess {
 #endif
         /// <summary>The deviceVendor property</summary>
         public ApiSdk.Models.Networkaccess.DeviceVendor? DeviceVendor { get; set; }
-        /// <summary>Specifies the client IPv4 of the link</summary>
+        /// <summary>The public IP address of your CPE (customer premise equipment) device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IpAddress { get; set; }

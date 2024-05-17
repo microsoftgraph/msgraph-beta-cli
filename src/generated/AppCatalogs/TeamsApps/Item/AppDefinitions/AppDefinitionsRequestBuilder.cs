@@ -58,14 +58,13 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
             return command;
         }
         /// <summary>
-        /// Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization&apos;s app catalog (the tenant app catalog).  
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0" />
+        /// Create new navigation property to appDefinitions for appCatalogs
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).  \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to appDefinitions for appCatalogs";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -243,7 +242,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization&apos;s app catalog (the tenant app catalog).  
+        /// Create new navigation property to appDefinitions for appCatalogs
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +257,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

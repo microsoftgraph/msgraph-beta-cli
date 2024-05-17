@@ -21,13 +21,13 @@ namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe {
     {
         /// <summary>
         /// Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/signin-confirmsafe?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/signin-confirmsafe?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/signin-confirmsafe?view=graph-rest-1.0";
+            command.Description = "Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/signin-confirmsafe?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

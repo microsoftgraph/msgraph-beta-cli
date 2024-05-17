@@ -104,14 +104,13 @@ namespace ApiSdk.App.Calls.Item.ContentSharingSessions {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of contentSharingSession objects in a call.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0" />
+        /// Get contentSharingSessions from app
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of contentSharingSession objects in a call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0";
+            command.Description = "Get contentSharingSessions from app";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -219,7 +218,7 @@ namespace ApiSdk.App.Calls.Item.ContentSharingSessions {
         {
         }
         /// <summary>
-        /// Retrieve a list of contentSharingSession objects in a call.
+        /// Get contentSharingSessions from app
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,13 +252,13 @@ namespace ApiSdk.App.Calls.Item.ContentSharingSessions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/app/calls/{call%2Did}/contentSharingSessions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of contentSharingSession objects in a call.
+        /// Get contentSharingSessions from app
         /// </summary>
         public class ContentSharingSessionsRequestBuilderGetQueryParameters 
         {

@@ -50,13 +50,13 @@ namespace ApiSdk.Programs.Item {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "In the Microsoft Entra access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-delete?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, delete a program object. Do not delete a program which still has programControl linked to it, those access reviews should first be deleted or unlinked from the program and linked to a different program.  Also, please note that the built-in default program cannot be deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-delete?view=graph-rest-beta";
             var programIdOption = new Option<string>("--program-id", description: "The unique identifier of program") {
             };
             programIdOption.IsRequired = true;
@@ -138,13 +138,13 @@ namespace ApiSdk.Programs.Item {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, update an existing program object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "In the Microsoft Entra access reviews feature, update an existing program object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-update?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, update an existing program object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-update?view=graph-rest-beta";
             var programIdOption = new Option<string>("--program-id", description: "The unique identifier of program") {
             };
             programIdOption.IsRequired = true;
@@ -216,7 +216,7 @@ namespace ApiSdk.Programs.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/programs/{program%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -256,7 +256,7 @@ namespace ApiSdk.Programs.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/programs/{program%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

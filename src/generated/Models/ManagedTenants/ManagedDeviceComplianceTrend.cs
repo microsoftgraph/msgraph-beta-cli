@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.ManagedTenants {
+    #pragma warning disable CS1591
     public class ManagedDeviceComplianceTrend : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The number of devices with a compliant status. Required. Read-only.</summary>
         public int? CompliantDeviceCount { get; set; }

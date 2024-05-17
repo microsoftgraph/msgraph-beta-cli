@@ -71,13 +71,13 @@ namespace ApiSdk.Devices {
         }
         /// <summary>
         /// Create a new device.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0";
+            command.Description = "Create a new device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -168,13 +168,13 @@ namespace ApiSdk.Devices {
         }
         /// <summary>
         /// Retrieve a list of devices registered in the directory.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of devices registered in the directory.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list?view=graph-rest-1.0";
+            command.Description = "Retrieve a list of devices registered in the directory.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list?view=graph-rest-beta";
             var consistencyLevelOption = new Option<string[]>("--consistency-level", description: "Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -334,7 +334,7 @@ namespace ApiSdk.Devices {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/devices", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

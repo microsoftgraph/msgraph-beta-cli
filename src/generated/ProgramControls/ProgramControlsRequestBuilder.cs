@@ -56,13 +56,13 @@ namespace ApiSdk.ProgramControls {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, create a new programControl object.  This links an access review to a program. Prior to making this request, the caller must have previously
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-create?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-create?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "In the Microsoft Entra access reviews feature, create a new programControl object.  This links an access review to a program. Prior to making this request, the caller must have previously\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-create?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, create a new programControl object.  This links an access review to a program. Prior to making this request, the caller must have previously\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-create?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -102,13 +102,13 @@ namespace ApiSdk.ProgramControls {
         }
         /// <summary>
         /// In the Microsoft Entra access reviews feature, list all the programControl objects, across all programs in the tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/programcontrol-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "In the Microsoft Entra access reviews feature, list all the programControl objects, across all programs in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-list?view=graph-rest-1.0";
+            command.Description = "In the Microsoft Entra access reviews feature, list all the programControl objects, across all programs in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/programcontrol-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -244,7 +244,7 @@ namespace ApiSdk.ProgramControls {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/programControls", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

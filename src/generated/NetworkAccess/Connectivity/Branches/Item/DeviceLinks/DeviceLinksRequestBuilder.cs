@@ -53,15 +53,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return command;
         }
         /// <summary>
-        /// Create a branch site with associated device links.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-1.0" />
+        /// Create new navigation property to deviceLinks for networkAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a branch site with associated device links.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to deviceLinks for networkAccess";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -106,15 +105,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of device links associated with a specific branch.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0" />
+        /// Each unique CPE device associated with a branch is specified. Supports $expand.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of device links associated with a specific branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0";
+            command.Description = "Each unique CPE device associated with a branch is specified. Supports $expand.";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -222,7 +220,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
         {
         }
         /// <summary>
-        /// Retrieve a list of device links associated with a specific branch.
+        /// Each unique CPE device associated with a branch is specified. Supports $expand.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -242,7 +240,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return requestInfo;
         }
         /// <summary>
-        /// Create a branch site with associated device links.
+        /// Create new navigation property to deviceLinks for networkAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,13 +256,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/deviceLinks", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of device links associated with a specific branch.
+        /// Each unique CPE device associated with a branch is specified. Supports $expand.
         /// </summary>
         public class DeviceLinksRequestBuilderGetQueryParameters 
         {

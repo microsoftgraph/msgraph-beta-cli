@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns.Item.Filter
     {
         /// <summary>
         /// Clear the filter on the given column.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/filter-clear?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/filter-clear?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Clear the filter on the given column.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/filter-clear?view=graph-rest-1.0";
+            command.Description = "Clear the filter on the given column.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/filter-clear?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

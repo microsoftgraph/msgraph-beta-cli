@@ -62,13 +62,13 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails.Item {
             return command;
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Language specific details on a training.";
+            command.Description = "Details about the language used in the training.";
             var trainingIdOption = new Option<string>("--training-id", description: "The unique identifier of training") {
             };
             trainingIdOption.IsRequired = true;
@@ -204,13 +204,13 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +244,13 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         public class TrainingLanguageDetailItemRequestBuilderGetQueryParameters 
         {

@@ -22,13 +22,13 @@ namespace ApiSdk.ApplicationsWithAppId {
     {
         /// <summary>
         /// Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0";
+            command.Description = "Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-beta";
             var appIdOption = new Option<string>("--app-id", description: "Alternate key of application") {
             };
             appIdOption.IsRequired = true;
@@ -58,13 +58,13 @@ namespace ApiSdk.ApplicationsWithAppId {
         }
         /// <summary>
         /// Get the properties and relationships of an application object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0";
+            command.Description = "Get the properties and relationships of an application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-get?view=graph-rest-beta";
             var appIdOption = new Option<string>("--app-id", description: "Alternate key of application") {
             };
             appIdOption.IsRequired = true;
@@ -111,13 +111,13 @@ namespace ApiSdk.ApplicationsWithAppId {
         }
         /// <summary>
         /// Create a new application object if it doesn&apos;t exist, or update the properties of an existing application object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Create a new application object if it doesn't exist, or update the properties of an existing application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-1.0";
+            command.Description = "Create a new application object if it doesn't exist, or update the properties of an existing application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-beta";
             var appIdOption = new Option<string>("--app-id", description: "Alternate key of application") {
             };
             appIdOption.IsRequired = true;
@@ -189,7 +189,7 @@ namespace ApiSdk.ApplicationsWithAppId {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/applications(appId='{appId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -229,7 +229,7 @@ namespace ApiSdk.ApplicationsWithAppId {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/applications(appId='{appId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

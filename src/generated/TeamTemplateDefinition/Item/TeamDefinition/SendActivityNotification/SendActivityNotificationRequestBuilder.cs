@@ -21,13 +21,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.SendActivityNotifica
     {
         /// <summary>
         /// Send an activity feed notification in the scope of a team. For more information, see sending Teams activity notifications.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Send an activity feed notification in the scope of a team. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0";
+            command.Description = "Send an activity feed notification in the scope of a team. For more information, see sending Teams activity notifications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-beta";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;

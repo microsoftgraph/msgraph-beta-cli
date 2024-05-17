@@ -52,15 +52,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0" />
+        /// Get identityProviders from identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the identity providers in a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0";
+            command.Description = "Get identityProviders from identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -187,7 +186,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
         {
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
+        /// Get identityProviders from identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -207,7 +206,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Get the identity providers in a b2cIdentityUserFlow object.
+        /// Get identityProviders from identity
         /// </summary>
         public class IdentityProvidersRequestBuilderGetQueryParameters 
         {

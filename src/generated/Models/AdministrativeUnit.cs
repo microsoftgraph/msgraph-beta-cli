@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AdministrativeUnit : DirectoryObject, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search.</summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.</summary>
+        /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -31,7 +33,7 @@ namespace ApiSdk.Models {
 #else
         public List<Extension> Extensions { get; set; }
 #endif
-        /// <summary>true if members of this administrative unit should be treated as sensitive, which requires specific permissions to manage. Default value is false. Use this property to define administrative units whose roles don&apos;t inherit from tenant-level administrators, and management of individual member objects is limited to administrators scoped to a restricted management administrative unit. Immutable, so can&apos;t be changed later.  For more information about working with restricted management administrative units, see Restricted management administrative units in Microsoft Entra ID.</summary>
+        /// <summary>The isMemberManagementRestricted property</summary>
         public bool? IsMemberManagementRestricted { get; set; }
         /// <summary>Users and groups that are members of this administrative unit. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +43,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> Members { get; set; }
 #endif
-        /// <summary>Dynamic membership rule for the administrative unit. For more about the rules that you can use for dynamic administrative units and dynamic groups, see Using attributes to create advanced rules.</summary>
+        /// <summary>The membershipRule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MembershipRule { get; set; }
@@ -49,7 +51,7 @@ namespace ApiSdk.Models {
 #else
         public string MembershipRule { get; set; }
 #endif
-        /// <summary>Used to control whether the dynamic membership rule is actively processed. Set to On when you want the dynamic membership rule to be active and Paused if you want to stop updating membership dynamically. If not set, the default behavior is Paused.</summary>
+        /// <summary>The membershipRuleProcessingState property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MembershipRuleProcessingState { get; set; }
@@ -57,7 +59,7 @@ namespace ApiSdk.Models {
 #else
         public string MembershipRuleProcessingState { get; set; }
 #endif
-        /// <summary>Membership type for the administrative unit. Can be dynamic or assigned. If not set, the default behavior is assigned.</summary>
+        /// <summary>The membershipType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MembershipType { get; set; }
@@ -73,7 +75,7 @@ namespace ApiSdk.Models {
 #else
         public List<ScopedRoleMembership> ScopedRoleMembers { get; set; }
 #endif
-        /// <summary>Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.</summary>
+        /// <summary>The visibility property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }

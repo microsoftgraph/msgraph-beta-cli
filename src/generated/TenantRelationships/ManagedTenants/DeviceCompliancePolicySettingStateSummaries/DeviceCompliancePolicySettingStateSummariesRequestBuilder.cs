@@ -98,14 +98,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
             return command;
         }
         /// <summary>
-        /// Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-devicecompliancepolicysettingstatesummary?view=graph-rest-1.0" />
+        /// Summary information for device compliance policy setting states across managed tenants.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-devicecompliancepolicysettingstatesummary?view=graph-rest-1.0";
+            command.Description = "Summary information for device compliance policy setting states across managed tenants.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
         {
         }
         /// <summary>
-        /// Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
+        /// Summary information for device compliance policy setting states across managed tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/tenantRelationships/managedTenants/deviceCompliancePolicySettingStateSummaries", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
+        /// Summary information for device compliance policy setting states across managed tenants.
         /// </summary>
         public class DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters 
         {

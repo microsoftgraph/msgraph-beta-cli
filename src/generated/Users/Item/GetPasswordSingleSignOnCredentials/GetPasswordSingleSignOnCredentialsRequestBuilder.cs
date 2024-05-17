@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.GetPasswordSingleSignOnCredentials {
     {
         /// <summary>
         /// Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-1.0";
+            command.Description = "Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.IndustryData {
+    #pragma warning disable CS1591
     public class IndustryDataRunEntityCountMetric : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The count of entries for the entity marked as Active.</summary>
         public int? Active { get; private set; }

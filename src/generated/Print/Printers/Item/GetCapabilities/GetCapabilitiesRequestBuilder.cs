@@ -21,14 +21,15 @@ namespace ApiSdk.Print.Printers.Item.GetCapabilities {
     public class GetCapabilitiesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getCapabilities
+        /// Get a list of capabilities for the printer.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-getcapabilities?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The getCapabilities API is deprecated and will stop returning data on July 31, 2023. Please use the capabilities property instead of this. as of 2023-06/Tasks_And_Plans")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCapabilities";
+            command.Description = "Get a list of capabilities for the printer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-getcapabilities?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;
@@ -74,7 +75,7 @@ namespace ApiSdk.Print.Printers.Item.GetCapabilities {
         {
         }
         /// <summary>
-        /// Invoke function getCapabilities
+        /// Get a list of capabilities for the printer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

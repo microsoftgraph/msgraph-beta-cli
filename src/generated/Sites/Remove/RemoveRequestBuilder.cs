@@ -21,13 +21,13 @@ namespace ApiSdk.Sites.Remove {
     {
         /// <summary>
         /// Unfollow a user&apos;s site or multiple sites.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Unfollow a user's site or multiple sites.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0";
+            command.Description = "Unfollow a user's site or multiple sites.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

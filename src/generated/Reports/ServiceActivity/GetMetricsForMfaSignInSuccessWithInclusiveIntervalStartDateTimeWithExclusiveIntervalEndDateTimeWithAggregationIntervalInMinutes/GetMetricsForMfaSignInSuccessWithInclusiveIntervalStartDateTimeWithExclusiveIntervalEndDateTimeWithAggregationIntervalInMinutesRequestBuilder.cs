@@ -20,13 +20,14 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInSuccessWithInclus
     public class GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getMetricsForMfaSignInSuccess
+        /// Get the number of times users successfully completed interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceactivity-getmetricsformfasigninsuccess?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getMetricsForMfaSignInSuccess";
+            command.Description = "Get the number of times users successfully completed interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceactivity-getmetricsformfasigninsuccess?view=graph-rest-beta";
             var inclusiveIntervalStartDateTimeOption = new Option<string>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
             };
             inclusiveIntervalStartDateTimeOption.IsRequired = true;
@@ -125,7 +126,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInSuccessWithInclus
         {
         }
         /// <summary>
-        /// Invoke function getMetricsForMfaSignInSuccess
+        /// Get the number of times users successfully completed interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +145,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInSuccessWithInclus
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getMetricsForMfaSignInSuccess
+        /// Get the number of times users successfully completed interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period.
         /// </summary>
         public class GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
         {

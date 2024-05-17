@@ -99,15 +99,14 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
             return command;
         }
         /// <summary>
-        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-1.0" />
+        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Reporting credentialUserRegistrationDetails API is deprecated and will stop returning data on June 30, 2024. Please use the new userRegistrationDetails API. as of 2023-06/credentialUserRegistrationDetails")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of credentialUserRegistrationDetails objects for a given tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-1.0";
+            command.Description = "Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -209,7 +208,7 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
         {
         }
         /// <summary>
-        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
+        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/reports/credentialUserRegistrationDetails", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
+        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
         /// </summary>
         public class CredentialUserRegistrationDetailsRequestBuilderGetQueryParameters 
         {

@@ -88,15 +88,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a noncustodialDataSource object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-get?view=graph-rest-1.0" />
+        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a noncustodialDataSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-get?view=graph-rest-1.0";
+            command.Description = "Returns a list of case noncustodialDataSource objects for this case.  Nullable.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -319,13 +318,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a noncustodialDataSource object.
+        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -361,13 +360,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a noncustodialDataSource object.
+        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
         /// </summary>
         public class NoncustodialDataSourceItemRequestBuilderGetQueryParameters 
         {

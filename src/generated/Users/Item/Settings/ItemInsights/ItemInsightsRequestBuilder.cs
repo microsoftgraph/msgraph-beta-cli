@@ -56,14 +56,13 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
             return command;
         }
         /// <summary>
-        /// Get the user-customizable privacy settings for itemInsights and meeting hours insights.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userinsightssettings-get?view=graph-rest-1.0" />
+        /// The user&apos;s settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the user-customizable privacy settings for itemInsights and meeting hours insights.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userinsightssettings-get?view=graph-rest-1.0";
+            command.Description = "The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -109,14 +108,13 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
             return command;
         }
         /// <summary>
-        /// Update the privacy settings for itemInsights and meeting hours insights of a user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-1.0" />
+        /// Update the navigation property itemInsights in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the privacy settings for itemInsights and meeting hours insights of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property itemInsights in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -188,13 +186,13 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/settings/itemInsights", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the user-customizable privacy settings for itemInsights and meeting hours insights.
+        /// The user&apos;s settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -213,7 +211,7 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Update the privacy settings for itemInsights and meeting hours insights of a user.
+        /// Update the navigation property itemInsights in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -228,13 +226,13 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/settings/itemInsights", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the user-customizable privacy settings for itemInsights and meeting hours insights.
+        /// The user&apos;s settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
         /// </summary>
         public class ItemInsightsRequestBuilderGetQueryParameters 
         {

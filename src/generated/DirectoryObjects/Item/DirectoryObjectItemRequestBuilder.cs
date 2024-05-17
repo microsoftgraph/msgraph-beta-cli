@@ -61,13 +61,13 @@ namespace ApiSdk.DirectoryObjects.Item {
         }
         /// <summary>
         /// Delete a directory object, for example, a group, user, application, or service principal.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a directory object, for example, a group, user, application, or service principal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-1.0";
+            command.Description = "Delete a directory object, for example, a group, user, application, or service principal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-beta";
             var directoryObjectIdOption = new Option<string>("--directory-object-id", description: "The unique identifier of directoryObject") {
             };
             directoryObjectIdOption.IsRequired = true;
@@ -97,13 +97,13 @@ namespace ApiSdk.DirectoryObjects.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of a directoryObject object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryobject-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a directoryObject object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-get?view=graph-rest-1.0";
+            command.Description = "Retrieve the properties and relationships of a directoryObject object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryobject-get?view=graph-rest-beta";
             var directoryObjectIdOption = new Option<string>("--directory-object-id", description: "The unique identifier of directoryObject") {
             };
             directoryObjectIdOption.IsRequired = true;
@@ -278,7 +278,7 @@ namespace ApiSdk.DirectoryObjects.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directoryObjects/{directoryObject%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -318,7 +318,7 @@ namespace ApiSdk.DirectoryObjects.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directoryObjects/{directoryObject%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

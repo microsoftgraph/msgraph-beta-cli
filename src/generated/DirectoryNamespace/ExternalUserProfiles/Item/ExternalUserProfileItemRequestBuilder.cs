@@ -21,14 +21,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
     public class ExternalUserProfileItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-delete-externaluserprofiles?view=graph-rest-1.0" />
+        /// Delete navigation property externalUserProfiles for directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-delete-externaluserprofiles?view=graph-rest-1.0";
+            command.Description = "Delete navigation property externalUserProfiles for directory";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties of a specific externalUserProfile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externaluserprofile-get?view=graph-rest-1.0" />
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties of a specific externalUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externaluserprofile-get?view=graph-rest-1.0";
+            command.Description = "Collection of external user profiles that represent collaborators in the directory.";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a externalUserProfile object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externaluserprofile-update?view=graph-rest-1.0" />
+        /// Update the navigation property externalUserProfiles in directory
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a externalUserProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externaluserprofile-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property externalUserProfiles in directory";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
         {
         }
         /// <summary>
-        /// Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
+        /// Delete navigation property externalUserProfiles for directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/directory/externalUserProfiles/{externalUserProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a specific externalUserProfile.
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a externalUserProfile object.
+        /// Update the navigation property externalUserProfiles in directory
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/directory/externalUserProfiles/{externalUserProfile%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a specific externalUserProfile.
+        /// Collection of external user profiles that represent collaborators in the directory.
         /// </summary>
         public class ExternalUserProfileItemRequestBuilderGetQueryParameters 
         {

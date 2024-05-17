@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AdminWindowsUpdates : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Catalog of content that can be approved for deployment by the deployment service. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,6 +33,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<Deployment> Deployments { get; set; }
+#endif
+        /// <summary>A collection of Windows products.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.WindowsUpdates.Product>? Products { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.WindowsUpdates.Product> Products { get; set; }
 #endif
         /// <summary>Service connections to external resources such as analytics workspaces.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,6 +87,7 @@ namespace ApiSdk.Models {
                 {"catalog", n => { Catalog = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>(ApiSdk.Models.WindowsUpdates.Catalog.CreateFromDiscriminatorValue); } },
                 {"deploymentAudiences", n => { DeploymentAudiences = n.GetCollectionOfObjectValues<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"products", n => { Products = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"resourceConnections", n => { ResourceConnections = n.GetCollectionOfObjectValues<ResourceConnection>(ResourceConnection.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"updatableAssets", n => { UpdatableAssets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"updatePolicies", n => { UpdatePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -93,6 +104,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>("catalog", Catalog);
             writer.WriteCollectionOfObjectValues<DeploymentAudience>("deploymentAudiences", DeploymentAudiences);
             writer.WriteCollectionOfObjectValues<Deployment>("deployments", Deployments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>("products", Products);
             writer.WriteCollectionOfObjectValues<ResourceConnection>("resourceConnections", ResourceConnections);
             writer.WriteCollectionOfObjectValues<UpdatableAsset>("updatableAssets", UpdatableAssets);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>("updatePolicies", UpdatePolicies);

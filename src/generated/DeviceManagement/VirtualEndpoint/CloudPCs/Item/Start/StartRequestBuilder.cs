@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Start {
     {
         /// <summary>
         /// Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-start?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-start?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-start?view=graph-rest-1.0";
+            command.Description = "Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-start?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;

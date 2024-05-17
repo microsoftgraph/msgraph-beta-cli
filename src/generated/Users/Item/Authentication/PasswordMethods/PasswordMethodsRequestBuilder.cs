@@ -102,14 +102,13 @@ namespace ApiSdk.Users.Item.Authentication.PasswordMethods {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of password authentication method objects. This API returns exactly one object, as a user can have exactly one password.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0" />
+        /// Represents the details of the password authentication method registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of password authentication method objects. This API returns exactly one object, as a user can have exactly one password.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0";
+            command.Description = "Represents the details of the password authentication method registered to a user for authentication.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -217,7 +216,7 @@ namespace ApiSdk.Users.Item.Authentication.PasswordMethods {
         {
         }
         /// <summary>
-        /// Retrieve a list of password authentication method objects. This API returns exactly one object, as a user can have exactly one password.
+        /// Represents the details of the password authentication method registered to a user for authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,13 +250,13 @@ namespace ApiSdk.Users.Item.Authentication.PasswordMethods {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/authentication/passwordMethods", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of password authentication method objects. This API returns exactly one object, as a user can have exactly one password.
+        /// Represents the details of the password authentication method registered to a user for authentication.
         /// </summary>
         public class PasswordMethodsRequestBuilderGetQueryParameters 
         {

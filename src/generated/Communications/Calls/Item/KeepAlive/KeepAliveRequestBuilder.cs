@@ -21,13 +21,13 @@ namespace ApiSdk.Communications.Calls.Item.KeepAlive {
     {
         /// <summary>
         /// Make a request to this API every 15 to 45 minutes to ensure that an ongoing call remains active. A call that doesn&apos;t receive this request within 45 minutes is considered inactive and ends. At least one successful request must be made within 45 minutes of the previous request, or the start of the call. We recommend that you send a request in shorter time intervals (every 15 minutes). Make sure that these requests are successful to prevent the call from timing out and ending. Attempting to send a request to a call that ended results in a 404 Not Found error. The resources related to the call should be cleaned up on the application side.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-keepalive?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-keepalive?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Make a request to this API every 15 to 45 minutes to ensure that an ongoing call remains active. A call that doesn't receive this request within 45 minutes is considered inactive and ends. At least one successful request must be made within 45 minutes of the previous request, or the start of the call. We recommend that you send a request in shorter time intervals (every 15 minutes). Make sure that these requests are successful to prevent the call from timing out and ending. Attempting to send a request to a call that ended results in a 404 Not Found error. The resources related to the call should be cleaned up on the application side.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-keepalive?view=graph-rest-1.0";
+            command.Description = "Make a request to this API every 15 to 45 minutes to ensure that an ongoing call remains active. A call that doesn't receive this request within 45 minutes is considered inactive and ends. At least one successful request must be made within 45 minutes of the previous request, or the start of the call. We recommend that you send a request in shorter time intervals (every 15 minutes). Make sure that these requests are successful to prevent the call from timing out and ending. Attempting to send a request to a call that ended results in a 404 Not Found error. The resources related to the call should be cleaned up on the application side.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-keepalive?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

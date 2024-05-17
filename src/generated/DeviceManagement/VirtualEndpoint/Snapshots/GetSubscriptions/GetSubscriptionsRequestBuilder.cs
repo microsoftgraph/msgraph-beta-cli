@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions {
     public class GetSubscriptionsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getSubscriptions
+        /// List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcsnapshot-getsubscriptions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getSubscriptions";
+            command.Description = "List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcsnapshot-getsubscriptions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -107,7 +108,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions {
         {
         }
         /// <summary>
-        /// Invoke function getSubscriptions
+        /// List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +127,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getSubscriptions
+        /// List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
         /// </summary>
         public class GetSubscriptionsRequestBuilderGetQueryParameters 
         {

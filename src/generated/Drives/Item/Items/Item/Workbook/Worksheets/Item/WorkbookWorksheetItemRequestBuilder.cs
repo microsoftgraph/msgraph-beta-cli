@@ -79,14 +79,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return command;
         }
         /// <summary>
-        /// Deletes the worksheet from the workbook.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0" />
+        /// Delete navigation property worksheets for drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes the worksheet from the workbook.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property worksheets for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -127,14 +126,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of worksheet object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0" />
+        /// Represents a collection of worksheets associated with the workbook. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of worksheet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0";
+            command.Description = "Represents a collection of worksheets associated with the workbook. Read-only.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -221,14 +219,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of worksheet object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0" />
+        /// Update the navigation property worksheets in drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of worksheet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property worksheets in drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -478,7 +475,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         {
         }
         /// <summary>
-        /// Deletes the worksheet from the workbook.
+        /// Delete navigation property worksheets for drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -491,13 +488,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of worksheet object.
+        /// Represents a collection of worksheets associated with the workbook. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -516,7 +513,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of worksheet object.
+        /// Update the navigation property worksheets in drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -531,13 +528,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of worksheet object.
+        /// Represents a collection of worksheets associated with the workbook. Read-only.
         /// </summary>
         public class WorkbookWorksheetItemRequestBuilderGetQueryParameters 
         {

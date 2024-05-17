@@ -21,13 +21,13 @@ namespace ApiSdk.Print.Printers.Item.Jobs.Item.Cancel {
     {
         /// <summary>
         /// Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-1.0";
+            command.Description = "Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printjob-cancel?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;

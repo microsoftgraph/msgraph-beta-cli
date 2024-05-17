@@ -21,14 +21,13 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
     public class FilePlanReferenceTemplateItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a filePlanReferenceTemplate object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0" />
+        /// Delete navigation property filePlanReferences for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a filePlanReferenceTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0";
+            command.Description = "Delete navigation property filePlanReferences for security";
             var filePlanReferenceTemplateIdOption = new Option<string>("--file-plan-reference-template-id", description: "The unique identifier of filePlanReferenceTemplate") {
             };
             filePlanReferenceTemplateIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a filePlanReferenceTemplate object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0" />
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a filePlanReferenceTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0";
+            command.Description = "Specifies a unique alpha-numeric identifier for an organization’s retention schedule.";
             var filePlanReferenceTemplateIdOption = new Option<string>("--file-plan-reference-template-id", description: "The unique identifier of filePlanReferenceTemplate") {
             };
             filePlanReferenceTemplateIdOption.IsRequired = true;
@@ -175,7 +173,7 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
         {
         }
         /// <summary>
-        /// Delete a filePlanReferenceTemplate object.
+        /// Delete navigation property filePlanReferences for security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -188,13 +186,13 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a filePlanReferenceTemplate object.
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,13 +226,13 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a filePlanReferenceTemplate object.
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         public class FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters 
         {

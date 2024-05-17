@@ -182,13 +182,12 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes {
         }
         /// <summary>
         /// The collection of content types present in this list.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of content types present in this list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-1.0";
+            command.Description = "The collection of content types present in this list.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -342,7 +341,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

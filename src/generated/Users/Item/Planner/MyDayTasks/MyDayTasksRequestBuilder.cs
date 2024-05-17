@@ -51,13 +51,13 @@ namespace ApiSdk.Users.Item.Planner.MyDayTasks {
             return command;
         }
         /// <summary>
-        /// Get myDayTasks from users
+        /// Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get myDayTasks from users";
+            command.Description = "Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -165,7 +165,7 @@ namespace ApiSdk.Users.Item.Planner.MyDayTasks {
         {
         }
         /// <summary>
-        /// Get myDayTasks from users
+        /// Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace ApiSdk.Users.Item.Planner.MyDayTasks {
             return requestInfo;
         }
         /// <summary>
-        /// Get myDayTasks from users
+        /// Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
         /// </summary>
         public class MyDayTasksRequestBuilderGetQueryParameters 
         {

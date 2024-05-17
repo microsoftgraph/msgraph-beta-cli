@@ -32,6 +32,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Children {
             var commands = new List<Command>();
             var builder = new ApiSdk.Drives.Item.Items.Item.Children.Item.DriveItemItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildContentNavCommand());
+            commands.Add(builder.BuildContentStreamNavCommand());
             executables.Add(builder.BuildGetCommand());
             return new(executables, commands);
         }
@@ -54,13 +55,12 @@ namespace ApiSdk.Drives.Item.Items.Item.Children {
         }
         /// <summary>
         /// Create new navigation property to children for drives
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-post-children?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to children for drives\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-post-children?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to children for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -111,14 +111,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Children {
             return command;
         }
         /// <summary>
-        /// Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-list-children?view=graph-rest-1.0" />
+        /// Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-list-children?view=graph-rest-1.0";
+            command.Description = "Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -232,7 +231,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Children {
         {
         }
         /// <summary>
-        /// Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
+        /// Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -266,13 +265,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Children {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
+        /// Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
         /// </summary>
         public class ChildrenRequestBuilderGetQueryParameters 
         {

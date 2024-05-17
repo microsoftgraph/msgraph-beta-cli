@@ -358,6 +358,14 @@ namespace ApiSdk.Models.DeviceManagement {
 #else
         public ApiSdk.Models.DeviceConfigurationDeviceStateSummary DeviceConfigurationDeviceStateSummaries { get; set; }
 #endif
+        /// <summary>Profile Id of the object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.DeviceConfigurationProfile>? DeviceConfigurationProfiles { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.DeviceConfigurationProfile> DeviceConfigurationProfiles { get; set; }
+#endif
         /// <summary>Restricted apps violations for this account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -550,6 +558,22 @@ namespace ApiSdk.Models.DeviceManagement {
 #else
         public List<ApiSdk.Models.GroupPolicyUploadedDefinitionFile> GroupPolicyUploadedDefinitionFiles { get; set; }
 #endif
+        /// <summary>The hardware configurations for this account.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.HardwareConfiguration>? HardwareConfigurations { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.HardwareConfiguration> HardwareConfigurations { get; set; }
+#endif
+        /// <summary>The hardware password info for this account.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApiSdk.Models.HardwarePasswordInfo>? HardwarePasswordInfo { get; set; }
+#nullable restore
+#else
+        public List<ApiSdk.Models.HardwarePasswordInfo> HardwarePasswordInfo { get; set; }
+#endif
         /// <summary>The imported device identities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -574,7 +598,7 @@ namespace ApiSdk.Models.DeviceManagement {
 #else
         public List<ApiSdk.Models.DeviceManagementIntent> Intents { get; set; }
 #endif
-        /// <summary>Intune Account ID for given tenant</summary>
+        /// <summary>Intune Account Id for given tenant</summary>
         public Guid? IntuneAccountId { get; set; }
         /// <summary>intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -652,7 +676,7 @@ namespace ApiSdk.Models.DeviceManagement {
 #else
         public List<ApiSdk.Models.ManagedDevice> ManagedDevices { get; set; }
 #endif
-        /// <summary>Maximum number of DEP tokens allowed per-tenant.</summary>
+        /// <summary>Maximum number of dep tokens allowed per-tenant.</summary>
         public int? MaximumDepTokens { get; set; }
         /// <summary>Collection of MicrosoftTunnelConfiguration settings associated with account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -1491,6 +1515,7 @@ namespace ApiSdk.Models.DeviceManagement {
                 {"deviceComplianceScripts", n => { DeviceComplianceScripts = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceComplianceScript>(ApiSdk.Models.DeviceComplianceScript.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationConflictSummary", n => { DeviceConfigurationConflictSummary = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationConflictSummary>(ApiSdk.Models.DeviceConfigurationConflictSummary.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationDeviceStateSummaries", n => { DeviceConfigurationDeviceStateSummaries = n.GetObjectValue<ApiSdk.Models.DeviceConfigurationDeviceStateSummary>(ApiSdk.Models.DeviceConfigurationDeviceStateSummary.CreateFromDiscriminatorValue); } },
+                {"deviceConfigurationProfiles", n => { DeviceConfigurationProfiles = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationProfile>(ApiSdk.Models.DeviceConfigurationProfile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationRestrictedAppsViolations", n => { DeviceConfigurationRestrictedAppsViolations = n.GetCollectionOfObjectValues<ApiSdk.Models.RestrictedAppsViolation>(ApiSdk.Models.RestrictedAppsViolation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationUserStateSummaries", n => { DeviceConfigurationUserStateSummaries = n.GetObjectValue<ApiSdk.Models.DeviceConfigurationUserStateSummary>(ApiSdk.Models.DeviceConfigurationUserStateSummary.CreateFromDiscriminatorValue); } },
                 {"deviceConfigurations", n => { DeviceConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceConfiguration>(ApiSdk.Models.DeviceConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1515,6 +1540,8 @@ namespace ApiSdk.Models.DeviceManagement {
                 {"groupPolicyMigrationReports", n => { GroupPolicyMigrationReports = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyMigrationReport>(ApiSdk.Models.GroupPolicyMigrationReport.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"groupPolicyObjectFiles", n => { GroupPolicyObjectFiles = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyObjectFile>(ApiSdk.Models.GroupPolicyObjectFile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"groupPolicyUploadedDefinitionFiles", n => { GroupPolicyUploadedDefinitionFiles = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyUploadedDefinitionFile>(ApiSdk.Models.GroupPolicyUploadedDefinitionFile.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"hardwareConfigurations", n => { HardwareConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.HardwareConfiguration>(ApiSdk.Models.HardwareConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"hardwarePasswordInfo", n => { HardwarePasswordInfo = n.GetCollectionOfObjectValues<ApiSdk.Models.HardwarePasswordInfo>(ApiSdk.Models.HardwarePasswordInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"importedDeviceIdentities", n => { ImportedDeviceIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.ImportedDeviceIdentity>(ApiSdk.Models.ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"importedWindowsAutopilotDeviceIdentities", n => { ImportedWindowsAutopilotDeviceIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.ImportedWindowsAutopilotDeviceIdentity>(ApiSdk.Models.ImportedWindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"intents", n => { Intents = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntent>(ApiSdk.Models.DeviceManagementIntent.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1684,6 +1711,7 @@ namespace ApiSdk.Models.DeviceManagement {
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceComplianceScript>("deviceComplianceScripts", DeviceComplianceScripts);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationConflictSummary>("deviceConfigurationConflictSummary", DeviceConfigurationConflictSummary);
             writer.WriteObjectValue<ApiSdk.Models.DeviceConfigurationDeviceStateSummary>("deviceConfigurationDeviceStateSummaries", DeviceConfigurationDeviceStateSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationProfile>("deviceConfigurationProfiles", DeviceConfigurationProfiles);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.RestrictedAppsViolation>("deviceConfigurationRestrictedAppsViolations", DeviceConfigurationRestrictedAppsViolations);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceConfiguration>("deviceConfigurations", DeviceConfigurations);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedAllDeviceCertificateState>("deviceConfigurationsAllManagedDeviceCertificateStates", DeviceConfigurationsAllManagedDeviceCertificateStates);
@@ -1708,6 +1736,8 @@ namespace ApiSdk.Models.DeviceManagement {
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyMigrationReport>("groupPolicyMigrationReports", GroupPolicyMigrationReports);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyObjectFile>("groupPolicyObjectFiles", GroupPolicyObjectFiles);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyUploadedDefinitionFile>("groupPolicyUploadedDefinitionFiles", GroupPolicyUploadedDefinitionFiles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HardwareConfiguration>("hardwareConfigurations", HardwareConfigurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HardwarePasswordInfo>("hardwarePasswordInfo", HardwarePasswordInfo);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.ImportedDeviceIdentity>("importedDeviceIdentities", ImportedDeviceIdentities);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", ImportedWindowsAutopilotDeviceIdentities);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntent>("intents", Intents);

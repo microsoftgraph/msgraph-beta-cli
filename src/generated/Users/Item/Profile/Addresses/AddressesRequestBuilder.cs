@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
             return command;
         }
         /// <summary>
-        /// Create a new itemAddress object in a user&apos;s profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0" />
+        /// Create new navigation property to addresses for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new itemAddress object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to addresses for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -105,14 +104,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
             return command;
         }
         /// <summary>
-        /// Get the itemAddress resources from the addresses navigation property.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0" />
+        /// Represents details of addresses associated with the user.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the itemAddress resources from the addresses navigation property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0";
+            command.Description = "Represents details of addresses associated with the user.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -220,7 +218,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
         {
         }
         /// <summary>
-        /// Get the itemAddress resources from the addresses navigation property.
+        /// Represents details of addresses associated with the user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +237,7 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new itemAddress object in a user&apos;s profile.
+        /// Create new navigation property to addresses for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,13 +252,13 @@ namespace ApiSdk.Users.Item.Profile.Addresses {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/profile/addresses", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the itemAddress resources from the addresses navigation property.
+        /// Represents details of addresses associated with the user.
         /// </summary>
         public class AddressesRequestBuilderGetQueryParameters 
         {

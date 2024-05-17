@@ -53,14 +53,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return command;
         }
         /// <summary>
-        /// Create a new cloudPcExternalPartnerSetting object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-post-externalpartnersettings?view=graph-rest-1.0" />
+        /// Create new navigation property to externalPartnerSettings for deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new cloudPcExternalPartnerSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-post-externalpartnersettings?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to externalPartnerSettings for deviceManagement";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +98,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return command;
         }
         /// <summary>
-        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-1.0" />
+        /// The external partner settings on a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the cloudPcExternalPartnerSetting objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-1.0";
+            command.Description = "The external partner settings on a Cloud PC.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +206,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
         {
         }
         /// <summary>
-        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
+        /// The external partner settings on a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +225,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new cloudPcExternalPartnerSetting object.
+        /// Create new navigation property to externalPartnerSettings for deviceManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -242,13 +240,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/externalPartnerSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
+        /// The external partner settings on a Cloud PC.
         /// </summary>
         public class ExternalPartnerSettingsRequestBuilderGetQueryParameters 
         {

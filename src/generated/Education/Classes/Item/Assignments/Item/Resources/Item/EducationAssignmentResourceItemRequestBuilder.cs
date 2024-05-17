@@ -22,14 +22,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
     public class EducationAssignmentResourceItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers can&apos;t remove resources that are marked as &apos;distributeToStudents&apos;.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0" />
+        /// Delete navigation property resources for education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers can't remove resources that are marked as 'distributeToStudents'.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property resources for education";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -97,14 +96,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0" />
+        /// Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0";
+            command.Description = "Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -239,7 +237,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         {
         }
         /// <summary>
-        /// Delete a specific educationAssignmentResource attached to an assignment. Only teachers in the class can remove a resource. After an assignment has been published to students, teachers can&apos;t remove resources that are marked as &apos;distributeToStudents&apos;.
+        /// Delete navigation property resources for education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +250,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+        /// Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -292,13 +290,13 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+        /// Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
         /// </summary>
         public class EducationAssignmentResourceItemRequestBuilderGetQueryParameters 
         {

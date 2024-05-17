@@ -21,13 +21,13 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
     {
         /// <summary>
         /// Cancel an eligibility assignment request to a group whose membership and ownership are governed by PIM.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-cancel?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-cancel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Cancel an eligibility assignment request to a group whose membership and ownership are governed by PIM.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-cancel?view=graph-rest-1.0";
+            command.Description = "Cancel an eligibility assignment request to a group whose membership and ownership are governed by PIM.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedulerequest-cancel?view=graph-rest-beta";
             var privilegedAccessGroupEligibilityScheduleRequestIdOption = new Option<string>("--privileged-access-group-eligibility-schedule-request-id", description: "The unique identifier of privilegedAccessGroupEligibilityScheduleRequest") {
             };
             privilegedAccessGroupEligibilityScheduleRequestIdOption.IsRequired = true;

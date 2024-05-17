@@ -21,13 +21,13 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ext
     public class ExternalColumnsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.";
+            command.Description = "The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -153,7 +153,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ext
         {
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -172,7 +172,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Ext
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
         /// </summary>
         public class ExternalColumnsRequestBuilderGetQueryParameters 
         {

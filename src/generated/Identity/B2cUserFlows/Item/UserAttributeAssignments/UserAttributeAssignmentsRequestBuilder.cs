@@ -57,14 +57,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments {
             return command;
         }
         /// <summary>
-        /// Create a new identityUserFlowAttributeAssignment object in a b2cIdentityUserFlow.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-userattributeassignments?view=graph-rest-1.0" />
+        /// Create new navigation property to userAttributeAssignments for identity
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new identityUserFlowAttributeAssignment object in a b2cIdentityUserFlow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-userattributeassignments?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to userAttributeAssignments for identity";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -126,14 +125,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments {
             return command;
         }
         /// <summary>
-        /// Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-userattributeassignments?view=graph-rest-1.0" />
+        /// The user attribute assignments included in the user flow.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-userattributeassignments?view=graph-rest-1.0";
+            command.Description = "The user attribute assignments included in the user flow.";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -258,7 +256,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments {
         {
         }
         /// <summary>
-        /// Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.
+        /// The user attribute assignments included in the user flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,7 +275,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new identityUserFlowAttributeAssignment object in a b2cIdentityUserFlow.
+        /// Create new navigation property to userAttributeAssignments for identity
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -292,13 +290,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/userAttributeAssignments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.
+        /// The user attribute assignments included in the user flow.
         /// </summary>
         public class UserAttributeAssignmentsRequestBuilderGetQueryParameters 
         {

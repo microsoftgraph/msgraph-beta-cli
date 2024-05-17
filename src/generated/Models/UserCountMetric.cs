@@ -6,12 +6,22 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class UserCountMetric : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The total number of users in the tenant over time.</summary>
         public long? Count { get; set; }
         /// <summary>The date of the insight.</summary>
         public Date? FactDate { get; set; }
+        /// <summary>The language property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,6 +42,7 @@ namespace ApiSdk.Models {
             {
                 {"count", n => { Count = n.GetLongValue(); } },
                 {"factDate", n => { FactDate = n.GetDateValue(); } },
+                {"language", n => { Language = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -44,6 +55,7 @@ namespace ApiSdk.Models {
             base.Serialize(writer);
             writer.WriteLongValue("count", Count);
             writer.WriteDateValue("factDate", FactDate);
+            writer.WriteStringValue("language", Language);
         }
     }
 }

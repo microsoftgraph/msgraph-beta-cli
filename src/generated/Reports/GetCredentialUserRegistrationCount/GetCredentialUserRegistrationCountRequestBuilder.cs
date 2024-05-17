@@ -21,13 +21,13 @@ namespace ApiSdk.Reports.GetCredentialUserRegistrationCount {
     {
         /// <summary>
         /// Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-1.0";
+            command.Description = "Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;

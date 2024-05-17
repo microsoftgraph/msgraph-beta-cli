@@ -98,14 +98,13 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
             return command;
         }
         /// <summary>
-        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-appcredentialsigninactivities?view=graph-rest-1.0" />
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-appcredentialsigninactivities?view=graph-rest-1.0";
+            command.Description = "Represents a collection of sign-in activities of application credentials.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
         {
         }
         /// <summary>
-        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/reports/appCredentialSignInActivities", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
+        /// Represents a collection of sign-in activities of application credentials.
         /// </summary>
         public class AppCredentialSignInActivitiesRequestBuilderGetQueryParameters 
         {

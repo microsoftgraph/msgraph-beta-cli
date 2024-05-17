@@ -110,14 +110,13 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions {
             return command;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-1.0" />
+        /// The collection of decisions for this access review.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-1.0";
+            command.Description = "The collection of decisions for this access review.";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -231,7 +230,7 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions {
         {
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
+        /// The collection of decisions for this access review.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,13 +264,13 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}/decisions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
+        /// The collection of decisions for this access review.
         /// </summary>
         public class DecisionsRequestBuilderGetQueryParameters 
         {

@@ -184,7 +184,7 @@ namespace ApiSdk.Sites.Item.RecycleBin.Items.Item.LastModifiedByUser.MailboxSett
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/sites/{site%2Did}/recycleBin/items/{recycleBinItem%2Did}/lastModifiedByUser/mailboxSettings", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

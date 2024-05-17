@@ -50,14 +50,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-1.0" />
+        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-1.0";
+            command.Description = "Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -169,13 +168,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -209,13 +208,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
         /// </summary>
         public class CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters 
         {

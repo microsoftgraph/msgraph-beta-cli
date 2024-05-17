@@ -106,14 +106,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments {
             return command;
         }
         /// <summary>
-        /// Get a list of attachments associated with a service message.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0" />
+        /// A collection of serviceAnnouncementAttachments.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of attachments associated with a service message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0";
+            command.Description = "A collection of serviceAnnouncementAttachments.";
             var serviceUpdateMessageIdOption = new Option<string>("--service-update-message-id", description: "The unique identifier of serviceUpdateMessage") {
             };
             serviceUpdateMessageIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments {
         {
         }
         /// <summary>
-        /// Get a list of attachments associated with a service message.
+        /// A collection of serviceAnnouncementAttachments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of attachments associated with a service message.
+        /// A collection of serviceAnnouncementAttachments.
         /// </summary>
         public class AttachmentsRequestBuilderGetQueryParameters 
         {

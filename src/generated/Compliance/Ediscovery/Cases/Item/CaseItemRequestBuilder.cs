@@ -60,15 +60,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Delete a case object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-1.0" />
+        /// Delete navigation property cases for compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property cases for compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -97,15 +96,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a case object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-1.0" />
+        /// Get cases from compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-1.0";
+            command.Description = "Get cases from compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -269,15 +267,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of a case object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-update?view=graph-rest-1.0" />
+        /// Update the navigation property cases in compliance
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property cases in compliance";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -443,7 +440,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
         {
         }
         /// <summary>
-        /// Delete a case object.
+        /// Delete navigation property cases for compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -457,13 +454,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a case object.
+        /// Get cases from compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -483,7 +480,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a case object.
+        /// Update the navigation property cases in compliance
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -499,13 +496,13 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/compliance/ediscovery/cases/{case%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a case object.
+        /// Get cases from compliance
         /// </summary>
         public class CaseItemRequestBuilderGetQueryParameters 
         {

@@ -82,13 +82,13 @@ namespace ApiSdk.Applications {
         }
         /// <summary>
         /// Create a new application object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0";
+            command.Description = "Create a new application object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -179,13 +179,13 @@ namespace ApiSdk.Applications {
         }
         /// <summary>
         /// Get the list of applications in this organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get the list of applications in this organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list?view=graph-rest-1.0";
+            command.Description = "Get the list of applications in this organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list?view=graph-rest-beta";
             var consistencyLevelOption = new Option<string[]>("--consistency-level", description: "Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -345,7 +345,7 @@ namespace ApiSdk.Applications {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/applications", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

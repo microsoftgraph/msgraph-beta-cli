@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AccessPackageAssignmentResourceRole : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The access package assignments resulting in this role assignment. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public string OriginId { get; set; }
 #endif
-        /// <summary>The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.</summary>
+        /// <summary>The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup, or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OriginSystem { get; set; }
@@ -55,7 +57,7 @@ namespace ApiSdk.Models {
 #else
         public string OriginSystem { get; set; }
 #endif
-        /// <summary>The value is PendingFulfillment when the access package assignment hasn&apos;t yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.</summary>
+        /// <summary>The value is PendingFulfillment before the access package assignment is delivered to the origin system, and Fulfilled after the access package assignment is delivered to the origin system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

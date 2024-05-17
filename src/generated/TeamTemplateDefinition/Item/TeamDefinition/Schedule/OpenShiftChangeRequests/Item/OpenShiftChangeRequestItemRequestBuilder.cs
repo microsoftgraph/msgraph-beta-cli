@@ -62,14 +62,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShiftCh
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0" />
+        /// The open shift requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an openShiftChangeRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0";
+            command.Description = "The open shift requests in the schedule.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShiftCh
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
+        /// The open shift requests in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.OpenShiftCh
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
+        /// The open shift requests in the schedule.
         /// </summary>
         public class OpenShiftChangeRequestItemRequestBuilderGetQueryParameters 
         {

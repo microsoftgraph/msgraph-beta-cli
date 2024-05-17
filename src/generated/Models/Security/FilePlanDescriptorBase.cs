@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class FilePlanDescriptorBase : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Unique string that defines the name for each file plan descriptor associated with a particular retention label.</summary>
+        /// <summary>Unique string that defines the name for the file plan descriptor associated with a particular retention label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -43,12 +45,12 @@ namespace ApiSdk.Models.Security {
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.appliedCategory" => new AppliedCategory(),
-                "#microsoft.graph.security.authority" => new Authority(),
-                "#microsoft.graph.security.citation" => new Citation(),
-                "#microsoft.graph.security.department" => new Department(),
+                "#microsoft.graph.security.filePlanAppliedCategory" => new FilePlanAppliedCategory(),
+                "#microsoft.graph.security.filePlanAuthority" => new FilePlanAuthority(),
+                "#microsoft.graph.security.filePlanCitation" => new FilePlanCitation(),
+                "#microsoft.graph.security.filePlanDepartment" => new FilePlanDepartment(),
                 "#microsoft.graph.security.filePlanReference" => new FilePlanReference(),
-                "#microsoft.graph.security.subCategory" => new SubCategory(),
+                "#microsoft.graph.security.filePlanSubcategory" => new FilePlanSubcategory(),
                 _ => new FilePlanDescriptorBase(),
             };
         }

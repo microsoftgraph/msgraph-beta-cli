@@ -22,14 +22,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.BulkReprovisionCloudPc {
     {
         /// <summary>
         /// Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-bulkreprovisioncloudpc?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-bulkreprovisioncloudpc?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The bulkReprovisionCloudPc action is deprecated and will stop supporting on September 24, 2023. Please use bulk action entity api. as of 2023-05/bulkReprovisionCloudPc")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-bulkreprovisioncloudpc?view=graph-rest-1.0";
+            command.Description = "Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-bulkreprovisioncloudpc?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

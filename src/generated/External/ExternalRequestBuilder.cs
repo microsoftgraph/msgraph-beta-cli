@@ -138,6 +138,7 @@ namespace ApiSdk.External {
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildInboundFlowsNavCommand());
             nonExecCommands.Add(builder.BuildOperationsNavCommand());
+            nonExecCommands.Add(builder.BuildOutboundProvisioningFlowSetsNavCommand());
             nonExecCommands.Add(builder.BuildReferenceDefinitionsNavCommand());
             nonExecCommands.Add(builder.BuildRoleGroupsNavCommand());
             nonExecCommands.Add(builder.BuildRunsNavCommand());
@@ -247,7 +248,7 @@ namespace ApiSdk.External {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

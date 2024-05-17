@@ -53,14 +53,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return command;
         }
         /// <summary>
-        /// Create an instance of a swapShiftsChangeRequest object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0" />
+        /// Create new navigation property to swapShiftsChangeRequests for teamwork
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create an instance of a swapShiftsChangeRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to swapShiftsChangeRequests for teamwork";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -111,14 +110,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return command;
         }
         /// <summary>
-        /// Retrieve a list of swapShiftsChangeRequest objects in a team.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0" />
+        /// The swap requests for shifts in the schedule.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of swapShiftsChangeRequest objects in a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0";
+            command.Description = "The swap requests for shifts in the schedule.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -232,7 +230,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
         }
         /// <summary>
-        /// Retrieve a list of swapShiftsChangeRequest objects in a team.
+        /// The swap requests for shifts in the schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,7 +249,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
             return requestInfo;
         }
         /// <summary>
-        /// Create an instance of a swapShiftsChangeRequest object.
+        /// Create new navigation property to swapShiftsChangeRequests for teamwork
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -266,13 +264,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/schedule/swapShiftsChangeRequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of swapShiftsChangeRequest objects in a team.
+        /// The swap requests for shifts in the schedule.
         /// </summary>
         public class SwapShiftsChangeRequestsRequestBuilderGetQueryParameters 
         {

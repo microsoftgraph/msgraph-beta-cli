@@ -20,13 +20,14 @@ namespace ApiSdk.Users.Item.ReminderViewWithStartDateTimeWithEndDateTime {
     public class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function reminderView
+        /// Return a list of event reminders in a user calendar within the specified start and end times.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-reminderview?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function reminderView";
+            command.Description = "Return a list of event reminders in a user calendar within the specified start and end times.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-reminderview?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -125,7 +126,7 @@ namespace ApiSdk.Users.Item.ReminderViewWithStartDateTimeWithEndDateTime {
         {
         }
         /// <summary>
-        /// Invoke function reminderView
+        /// Return a list of event reminders in a user calendar within the specified start and end times.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +145,7 @@ namespace ApiSdk.Users.Item.ReminderViewWithStartDateTimeWithEndDateTime {
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function reminderView
+        /// Return a list of event reminders in a user calendar within the specified start and end times.
         /// </summary>
         public class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
         {

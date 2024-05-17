@@ -104,13 +104,13 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails {
             return command;
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Language specific details on a training.";
+            command.Description = "Details about the language used in the training.";
             var trainingIdOption = new Option<string>("--training-id", description: "The unique identifier of training") {
             };
             trainingIdOption.IsRequired = true;
@@ -218,7 +218,7 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails {
         {
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,13 +252,13 @@ namespace ApiSdk.Security.AttackSimulation.Trainings.Item.LanguageDetails {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Language specific details on a training.
+        /// Details about the language used in the training.
         /// </summary>
         public class LanguageDetailsRequestBuilderGetQueryParameters 
         {

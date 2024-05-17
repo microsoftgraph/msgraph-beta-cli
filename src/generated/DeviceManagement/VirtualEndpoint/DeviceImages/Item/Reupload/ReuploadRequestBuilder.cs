@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item.Reupload {
     {
         /// <summary>
         /// Reupload a cloudPcDeviceImage object that failed to upload.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reupload a cloudPcDeviceImage object that failed to upload.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-1.0";
+            command.Description = "Reupload a cloudPcDeviceImage object that failed to upload.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-beta";
             var cloudPcDeviceImageIdOption = new Option<string>("--cloud-pc-device-image-id", description: "The unique identifier of cloudPcDeviceImage") {
             };
             cloudPcDeviceImageIdOption.IsRequired = true;

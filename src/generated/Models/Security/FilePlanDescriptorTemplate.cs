@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Security {
+    #pragma warning disable CS1591
     public class FilePlanDescriptorTemplate : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Represents the user who created the filePlanDescriptorTemplate column.</summary>
+        /// <summary>Represents the user who created the filePlanDescriptorTemplate column. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.IdentitySet? CreatedBy { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models.Security {
 #else
         public ApiSdk.Models.IdentitySet CreatedBy { get; set; }
 #endif
-        /// <summary>Represents the date and time in which the filePlanDescriptorTemplate is created.</summary>
+        /// <summary>Represents the date and time in which the filePlanDescriptorTemplate is created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Unique string that defines a filePlanDescriptorTemplate name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +43,7 @@ namespace ApiSdk.Models.Security {
                 "#microsoft.graph.security.citationTemplate" => new CitationTemplate(),
                 "#microsoft.graph.security.departmentTemplate" => new DepartmentTemplate(),
                 "#microsoft.graph.security.filePlanReferenceTemplate" => new FilePlanReferenceTemplate(),
-                "#microsoft.graph.security.subCategoryTemplate" => new SubCategoryTemplate(),
+                "#microsoft.graph.security.subcategoryTemplate" => new SubcategoryTemplate(),
                 _ => new FilePlanDescriptorTemplate(),
             };
         }

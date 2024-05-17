@@ -23,14 +23,13 @@ namespace ApiSdk.Planner.Rosters.Item {
     public class PlannerRosterItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a plannerRoster object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0" />
+        /// Delete navigation property rosters for planner
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a plannerRoster object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property rosters for planner";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -59,14 +58,13 @@ namespace ApiSdk.Planner.Rosters.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerRoster object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns a collection of the specified rosters
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a plannerRoster object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0";
+            command.Description = "Read-only. Nullable. Returns a collection of the specified rosters";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -230,7 +228,7 @@ namespace ApiSdk.Planner.Rosters.Item {
         {
         }
         /// <summary>
-        /// Delete a plannerRoster object.
+        /// Delete navigation property rosters for planner
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,13 +241,13 @@ namespace ApiSdk.Planner.Rosters.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/planner/rosters/{plannerRoster%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerRoster object.
+        /// Read-only. Nullable. Returns a collection of the specified rosters
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,13 +281,13 @@ namespace ApiSdk.Planner.Rosters.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/planner/rosters/{plannerRoster%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a plannerRoster object.
+        /// Read-only. Nullable. Returns a collection of the specified rosters
         /// </summary>
         public class PlannerRosterItemRequestBuilderGetQueryParameters 
         {

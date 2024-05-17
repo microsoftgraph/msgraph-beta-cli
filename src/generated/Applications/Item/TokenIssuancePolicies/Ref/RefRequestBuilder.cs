@@ -21,14 +21,13 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
     public class RefRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Remove a tokenIssuancePolicy from an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-delete-tokenissuancepolicies?view=graph-rest-1.0" />
+        /// Delete ref of navigation property tokenIssuancePolicies for applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Remove a tokenIssuancePolicy from an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-delete-tokenissuancepolicies?view=graph-rest-1.0";
+            command.Description = "Delete ref of navigation property tokenIssuancePolicies for applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -63,14 +62,13 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
             return command;
         }
         /// <summary>
-        /// List the tokenIssuancePolicy objects that are assigned to an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-tokenissuancepolicies?view=graph-rest-1.0" />
+        /// Get ref of tokenIssuancePolicies from applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "List the tokenIssuancePolicy objects that are assigned to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-tokenissuancepolicies?view=graph-rest-1.0";
+            command.Description = "Get ref of tokenIssuancePolicies from applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -150,14 +148,13 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
             return command;
         }
         /// <summary>
-        /// Assign a tokenIssuancePolicy to an application.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-tokenissuancepolicies?view=graph-rest-1.0" />
+        /// Create new navigation property ref to tokenIssuancePolicies for applications
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Assign a tokenIssuancePolicy to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-tokenissuancepolicies?view=graph-rest-1.0";
+            command.Description = "Create new navigation property ref to tokenIssuancePolicies for applications";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -195,18 +192,18 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
+        public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
+        public RefRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Remove a tokenIssuancePolicy from an application.
+        /// Delete ref of navigation property tokenIssuancePolicies for applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +222,7 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// List the tokenIssuancePolicy objects that are assigned to an application.
+        /// Get ref of tokenIssuancePolicies from applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,13 +235,13 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RefRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Assign a tokenIssuancePolicy to an application.
+        /// Create new navigation property ref to tokenIssuancePolicies for applications
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,7 +262,7 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Remove a tokenIssuancePolicy from an application.
+        /// Delete ref of navigation property tokenIssuancePolicies for applications
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -281,7 +278,7 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies.Ref {
 #endif
         }
         /// <summary>
-        /// List the tokenIssuancePolicy objects that are assigned to an application.
+        /// Get ref of tokenIssuancePolicies from applications
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

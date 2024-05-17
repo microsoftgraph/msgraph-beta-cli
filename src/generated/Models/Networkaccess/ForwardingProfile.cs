@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class ForwardingProfile : Profile, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.</summary>
+        /// <summary>Specifies the users, groups, devices, and remote networks whose traffic is associated with the given traffic forwarding profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Association>? Associations { get; set; }

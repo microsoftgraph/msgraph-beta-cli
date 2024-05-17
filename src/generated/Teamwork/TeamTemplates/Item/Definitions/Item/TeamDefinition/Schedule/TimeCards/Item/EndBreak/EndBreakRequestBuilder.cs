@@ -22,13 +22,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
     {
         /// <summary>
         /// End the open break in a specific timeCard.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "End the open break in a specific timeCard.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-1.0";
+            command.Description = "End the open break in a specific timeCard.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-beta";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;

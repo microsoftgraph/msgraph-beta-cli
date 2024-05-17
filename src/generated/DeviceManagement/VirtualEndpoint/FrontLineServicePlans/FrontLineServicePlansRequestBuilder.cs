@@ -98,14 +98,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans {
             return command;
         }
         /// <summary>
-        /// Get a list of the cloudPcFrontLineServicePlan objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-frontlineserviceplans?view=graph-rest-1.0" />
+        /// Front-line service plans for a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the cloudPcFrontLineServicePlan objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-frontlineserviceplans?view=graph-rest-1.0";
+            command.Description = "Front-line service plans for a Cloud PC.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans {
         {
         }
         /// <summary>
-        /// Get a list of the cloudPcFrontLineServicePlan objects and their properties.
+        /// Front-line service plans for a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/virtualEndpoint/frontLineServicePlans", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the cloudPcFrontLineServicePlan objects and their properties.
+        /// Front-line service plans for a Cloud PC.
         /// </summary>
         public class FrontLineServicePlansRequestBuilderGetQueryParameters 
         {

@@ -106,14 +106,13 @@ namespace ApiSdk.Programs.Item.Controls {
             return command;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-listcontrols?view=graph-rest-1.0" />
+        /// Controls associated with the program.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-listcontrols?view=graph-rest-1.0";
+            command.Description = "Controls associated with the program.";
             var programIdOption = new Option<string>("--program-id", description: "The unique identifier of program") {
             };
             programIdOption.IsRequired = true;
@@ -221,7 +220,7 @@ namespace ApiSdk.Programs.Item.Controls {
         {
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
+        /// Controls associated with the program.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,13 +254,13 @@ namespace ApiSdk.Programs.Item.Controls {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/programs/{program%2Did}/controls", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
+        /// Controls associated with the program.
         /// </summary>
         public class ControlsRequestBuilderGetQueryParameters 
         {

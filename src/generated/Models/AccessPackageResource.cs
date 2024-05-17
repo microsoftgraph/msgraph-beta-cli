@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class AccessPackageResource : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment&apos;s originId. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +69,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>True if the resource is not yet available for assignment. Read-only.</summary>
         public bool? IsPendingOnboarding { get; set; }
-        /// <summary>The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, originId is the identifier of the group.</summary>
+        /// <summary>The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, originId is the identifier of the group. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OriginId { get; set; }
@@ -75,7 +77,7 @@ namespace ApiSdk.Models {
 #else
         public string OriginId { get; set; }
 #endif
-        /// <summary>The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup.</summary>
+        /// <summary>The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OriginSystem { get; set; }

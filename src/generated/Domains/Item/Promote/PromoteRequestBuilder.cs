@@ -21,13 +21,13 @@ namespace ApiSdk.Domains.Item.Promote {
     {
         /// <summary>
         /// Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0";
+            command.Description = "Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;

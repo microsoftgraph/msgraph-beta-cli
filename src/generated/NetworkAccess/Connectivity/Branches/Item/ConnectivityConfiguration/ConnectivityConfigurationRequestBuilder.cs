@@ -58,15 +58,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
             return command;
         }
         /// <summary>
-        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchconnectivityconfiguration-get?view=graph-rest-1.0" />
+        /// Specifies the connectivity details of all device links associated with a branch.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization's router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchconnectivityconfiguration-get?view=graph-rest-1.0";
+            command.Description = "Specifies the connectivity details of all device links associated with a branch.";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -219,13 +218,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
+        /// Specifies the connectivity details of all device links associated with a branch.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,13 +260,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
+        /// Specifies the connectivity details of all device links associated with a branch.
         /// </summary>
         public class ConnectivityConfigurationRequestBuilderGetQueryParameters 
         {

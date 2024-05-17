@@ -64,14 +64,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/governancerolesetting-get?view=graph-rest-1.0" />
+        /// A collection of role settings for the provider.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a governanceRoleSetting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/governancerolesetting-get?view=graph-rest-1.0";
+            command.Description = "A collection of role settings for the provider.";
             var privilegedAccessIdOption = new Option<string>("--privileged-access-id", description: "The unique identifier of privilegedAccess") {
             };
             privilegedAccessIdOption.IsRequired = true;
@@ -123,14 +122,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of governanceRoleSetting.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/governancerolesetting-update?view=graph-rest-1.0" />
+        /// Update the navigation property roleSettings in privilegedAccess
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of governanceRoleSetting.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/governancerolesetting-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property roleSettings in privilegedAccess";
             var privilegedAccessIdOption = new Option<string>("--privileged-access-id", description: "The unique identifier of privilegedAccess") {
             };
             privilegedAccessIdOption.IsRequired = true;
@@ -251,13 +249,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleSettings/{governanceRoleSetting%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
+        /// A collection of role settings for the provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -276,7 +274,7 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of governanceRoleSetting.
+        /// Update the navigation property roleSettings in privilegedAccess
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -291,13 +289,13 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleSettings/{governanceRoleSetting%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a governanceRoleSetting.
+        /// A collection of role settings for the provider.
         /// </summary>
         public class GovernanceRoleSettingItemRequestBuilderGetQueryParameters 
         {

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcAuditEvent : Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Friendly name of the activity. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,7 +23,7 @@ namespace ApiSdk.Models {
         public CloudPcAuditActivityOperationType? ActivityOperationType { get; set; }
         /// <summary>The activityResult property</summary>
         public CloudPcAuditActivityResult? ActivityResult { get; set; }
-        /// <summary>The type of activity that was performed. Read-only.</summary>
+        /// <summary>The type of the activity that was performed. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActivityType { get; set; }
@@ -47,7 +49,7 @@ namespace ApiSdk.Models {
 #else
         public string ComponentName { get; set; }
 #endif
-        /// <summary>The client request identifier, used to correlate activity within the system. Read-only.</summary>
+        /// <summary>The client request ID that is used to correlate activity within the system. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CorrelationId { get; set; }

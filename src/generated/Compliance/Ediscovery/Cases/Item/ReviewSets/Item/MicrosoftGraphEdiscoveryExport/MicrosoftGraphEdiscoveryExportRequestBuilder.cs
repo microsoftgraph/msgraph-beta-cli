@@ -21,14 +21,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
     {
         /// <summary>
         /// Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-1.0";
+            command.Description = "Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;

@@ -21,13 +21,13 @@ namespace ApiSdk.Users.Item.Presence.ClearUserPreferredPresence {
     {
         /// <summary>
         /// Clear the preferred availability and activity status for a user.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-clearuserpreferredpresence?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-clearuserpreferredpresence?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Clear the preferred availability and activity status for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-clearuserpreferredpresence?view=graph-rest-1.0";
+            command.Description = "Clear the preferred availability and activity status for a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-clearuserpreferredpresence?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

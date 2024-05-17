@@ -23,14 +23,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
     public class IndustryDataConnectorItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an azureDataLakeConnector object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-delete?view=graph-rest-1.0" />
+        /// Delete navigation property dataConnectors for external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an azureDataLakeConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property dataConnectors for external";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -59,14 +58,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataConnector object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-get?view=graph-rest-1.0" />
+        /// Set of connectors for importing data from source systems.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an industryDataConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-get?view=graph-rest-1.0";
+            command.Description = "Set of connectors for importing data from source systems.";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -129,14 +127,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an azureDataLakeConnector object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-update?view=graph-rest-1.0" />
+        /// Update the navigation property dataConnectors in external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an azureDataLakeConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property dataConnectors in external";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -212,7 +209,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
         {
         }
         /// <summary>
-        /// Delete an azureDataLakeConnector object.
+        /// Delete navigation property dataConnectors for external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,13 +222,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataConnector object.
+        /// Set of connectors for importing data from source systems.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +247,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an azureDataLakeConnector object.
+        /// Update the navigation property dataConnectors in external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,13 +262,13 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an industryDataConnector object.
+        /// Set of connectors for importing data from source systems.
         /// </summary>
         public class IndustryDataConnectorItemRequestBuilderGetQueryParameters 
         {

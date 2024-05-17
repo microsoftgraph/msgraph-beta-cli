@@ -56,14 +56,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations.Item {
             return command;
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/engagementasyncoperation-get?view=graph-rest-1.0" />
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get an engagementAsyncOperation to track a long-running operation request.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/engagementasyncoperation-get?view=graph-rest-1.0";
+            command.Description = "A collection of long-running, asynchronous operations related to Viva Engage.";
             var engagementAsyncOperationIdOption = new Option<string>("--engagement-async-operation-id", description: "The unique identifier of engagementAsyncOperation") {
             };
             engagementAsyncOperationIdOption.IsRequired = true;
@@ -187,13 +186,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/employeeExperience/engagementAsyncOperations/{engagementAsyncOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,13 +226,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/employeeExperience/engagementAsyncOperations/{engagementAsyncOperation%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get an engagementAsyncOperation to track a long-running operation request.
+        /// A collection of long-running, asynchronous operations related to Viva Engage.
         /// </summary>
         public class EngagementAsyncOperationItemRequestBuilderGetQueryParameters 
         {

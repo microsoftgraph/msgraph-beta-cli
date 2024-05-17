@@ -346,7 +346,7 @@ namespace ApiSdk.NetworkAccess {
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRbCommand());
-            nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimeRbCommand());
@@ -458,7 +458,7 @@ namespace ApiSdk.NetworkAccess {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

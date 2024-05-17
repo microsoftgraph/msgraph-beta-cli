@@ -112,13 +112,13 @@ namespace ApiSdk.AccessReviews.Item.Instances {
             return command;
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of access reviews instances past, present and future, if this object is a recurring access review.";
+            command.Description = "The collection of access reviews instances past, present, and future, if this object is a recurring access review.";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -226,7 +226,7 @@ namespace ApiSdk.AccessReviews.Item.Instances {
         {
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,13 +260,13 @@ namespace ApiSdk.AccessReviews.Item.Instances {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/accessReviews/{accessReview%2Did}/instances", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// The collection of access reviews instances past, present and future, if this object is a recurring access review.
+        /// The collection of access reviews instances past, present, and future, if this object is a recurring access review.
         /// </summary>
         public class InstancesRequestBuilderGetQueryParameters 
         {

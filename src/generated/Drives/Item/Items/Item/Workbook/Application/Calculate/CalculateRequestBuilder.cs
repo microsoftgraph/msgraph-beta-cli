@@ -21,13 +21,13 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Application.Calculate {
     {
         /// <summary>
         /// Recalculate all currently opened workbooks in Excel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Recalculate all currently opened workbooks in Excel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-1.0";
+            command.Description = "Recalculate all currently opened workbooks in Excel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

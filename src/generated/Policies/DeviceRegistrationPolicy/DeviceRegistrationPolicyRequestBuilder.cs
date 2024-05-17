@@ -21,14 +21,13 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
     public class DeviceRegistrationPolicyRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-1.0" />
+        /// Get deviceRegistrationPolicy from policies
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-1.0";
+            command.Description = "Get deviceRegistrationPolicy from policies";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -61,52 +60,6 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
             return command;
         }
         /// <summary>
-        /// Update the properties of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-1.0" />
-        /// </summary>
-        /// <returns>A <see cref="Command"/></returns>
-        public Command BuildPatchCommand()
-        {
-            var command = new Command("patch");
-            command.Description = "Update the properties of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-1.0";
-            var bodyOption = new Option<string>("--body", description: "The request body") {
-            };
-            bodyOption.IsRequired = true;
-            command.AddOption(bodyOption);
-            var outputOption = new Option<FormatterType>("--output", () => FormatterType.JSON);
-            command.AddOption(outputOption);
-            var queryOption = new Option<string>("--query");
-            command.AddOption(queryOption);
-            command.SetHandler(async (invocationContext) => {
-                var body = invocationContext.ParseResult.GetValueForOption(bodyOption) ?? string.Empty;
-                var output = invocationContext.ParseResult.GetValueForOption(outputOption);
-                var query = invocationContext.ParseResult.GetValueForOption(queryOption);
-                IOutputFilter outputFilter = invocationContext.BindingContext.GetService(typeof(IOutputFilter)) as IOutputFilter ?? throw new ArgumentNullException("outputFilter");
-                IOutputFormatterFactory outputFormatterFactory = invocationContext.BindingContext.GetService(typeof(IOutputFormatterFactory)) as IOutputFormatterFactory ?? throw new ArgumentNullException("outputFormatterFactory");
-                var cancellationToken = invocationContext.GetCancellationToken();
-                var reqAdapter = invocationContext.GetRequestAdapter();
-                using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
-                var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceRegistrationPolicy>(ApiSdk.Models.DeviceRegistrationPolicy.CreateFromDiscriminatorValue);
-                if (model is null) {
-                    Console.Error.WriteLine("No model data to send.");
-                    return;
-                }
-                var requestInfo = ToPatchRequestInformation(model, q => {
-                });
-                requestInfo.SetContentFromParsable(reqAdapter, "application/json", model);
-                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                    {"4XX", ODataError.CreateFromDiscriminatorValue},
-                    {"5XX", ODataError.CreateFromDiscriminatorValue},
-                };
-                var response = await reqAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken) ?? Stream.Null;
-                response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
-                var formatter = outputFormatterFactory.GetFormatter(output);
-                await formatter.WriteOutputAsync(response, cancellationToken);
-            });
-            return command;
-        }
-        /// <summary>
         /// Instantiates a new <see cref="DeviceRegistrationPolicyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -121,7 +74,7 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
+        /// Get deviceRegistrationPolicy from policies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,28 +93,7 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceRegistrationPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceRegistrationPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/policies/deviceRegistrationPolicy", PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
-        }
-        /// <summary>
-        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
+        /// Get deviceRegistrationPolicy from policies
         /// </summary>
         public class DeviceRegistrationPolicyRequestBuilderGetQueryParameters 
         {

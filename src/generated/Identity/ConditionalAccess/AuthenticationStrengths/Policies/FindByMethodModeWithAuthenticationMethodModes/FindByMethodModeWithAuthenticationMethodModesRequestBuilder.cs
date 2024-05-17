@@ -20,14 +20,15 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Fin
     public class FindByMethodModeWithAuthenticationMethodModesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function findByMethodMode
+        /// Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-findbymethodmode?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The &apos;authenticationStrengths&apos; segment is deprecated. Please use &apos;authenticationStrength&apos; instead. as of 2023-02/AuthenticationStrengthsRemove")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function findByMethodMode";
+            command.Description = "Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-findbymethodmode?view=graph-rest-beta";
             var authenticationMethodModesOption = new Option<string>("--authentication-method-modes", description: "Usage: authenticationMethodModes={authenticationMethodModes}") {
             };
             authenticationMethodModesOption.IsRequired = true;
@@ -135,7 +136,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Fin
         {
         }
         /// <summary>
-        /// Invoke function findByMethodMode
+        /// Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +156,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Fin
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function findByMethodMode
+        /// Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
         /// </summary>
         public class FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetQueryParameters 
         {

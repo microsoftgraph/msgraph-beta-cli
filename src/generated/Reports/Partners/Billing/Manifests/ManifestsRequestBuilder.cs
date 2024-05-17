@@ -98,13 +98,13 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a manifest object.
+        /// Represents metadata for the exported data.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a manifest object.";
+            command.Description = "Represents metadata for the exported data.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -206,7 +206,7 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a manifest object.
+        /// Represents metadata for the exported data.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,13 +240,13 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/reports/partners/billing/manifests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a manifest object.
+        /// Represents metadata for the exported data.
         /// </summary>
         public class ManifestsRequestBuilderGetQueryParameters 
         {

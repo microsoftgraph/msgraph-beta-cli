@@ -152,14 +152,13 @@ namespace ApiSdk.ServicePrincipals.Item.OwnedObjects {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0" />
+        /// Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0";
+            command.Description = "Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -267,7 +266,7 @@ namespace ApiSdk.ServicePrincipals.Item.OwnedObjects {
         {
         }
         /// <summary>
-        /// Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+        /// Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -286,7 +285,7 @@ namespace ApiSdk.ServicePrincipals.Item.OwnedObjects {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+        /// Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
         /// </summary>
         public class OwnedObjectsRequestBuilderGetQueryParameters 
         {

@@ -98,14 +98,13 @@ namespace ApiSdk.Solutions.BookingCurrencies {
             return command;
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0" />
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of bookingCurrency objects available to a Microsoft Bookings business.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0";
+            command.Description = "Get bookingCurrencies from solutions";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +206,7 @@ namespace ApiSdk.Solutions.BookingCurrencies {
         {
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,13 +240,13 @@ namespace ApiSdk.Solutions.BookingCurrencies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/solutions/bookingCurrencies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         public class BookingCurrenciesRequestBuilderGetQueryParameters 
         {

@@ -21,14 +21,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
     public class LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0" />
+        /// Delete navigation property learningCourseActivities for employeeExperience
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property learningCourseActivities for employeeExperience";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -121,14 +120,13 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
             return command;
         }
         /// <summary>
-        /// Update the properties of a learningCourseActivity object. 
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0" />
+        /// Update the navigation property learningCourseActivities in employeeExperience
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of a learningCourseActivity object. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property learningCourseActivities in employeeExperience";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -193,7 +191,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
         {
         }
         /// <summary>
-        /// Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+        /// Delete navigation property learningCourseActivities for employeeExperience
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +204,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -231,7 +229,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a learningCourseActivity object. 
+        /// Update the navigation property learningCourseActivities in employeeExperience
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +244,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}')", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

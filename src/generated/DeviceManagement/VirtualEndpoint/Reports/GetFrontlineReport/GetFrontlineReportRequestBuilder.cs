@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport {
     {
         /// <summary>
         /// Get the Windows 365 Frontline reports, such as real-time or historical data reports.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcreports-getfrontlinereport?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcreports-getfrontlinereport?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Get the Windows 365 Frontline reports, such as real-time or historical data reports.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcreports-getfrontlinereport?view=graph-rest-1.0";
+            command.Description = "Get the Windows 365 Frontline reports, such as real-time or historical data reports.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcreports-getfrontlinereport?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

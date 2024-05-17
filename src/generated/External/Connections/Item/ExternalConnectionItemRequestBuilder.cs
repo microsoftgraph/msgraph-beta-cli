@@ -26,14 +26,13 @@ namespace ApiSdk.External.Connections.Item {
     public class ExternalConnectionItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete an externalConnection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0" />
+        /// Delete navigation property connections for external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete an externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property connections for external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -62,14 +61,13 @@ namespace ApiSdk.External.Connections.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an externalConnection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0" />
+        /// Get connections from external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of an externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0";
+            command.Description = "Get connections from external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -196,14 +194,13 @@ namespace ApiSdk.External.Connections.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an externalConnection.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0" />
+        /// Update the navigation property connections in external
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property connections in external";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -299,7 +296,7 @@ namespace ApiSdk.External.Connections.Item {
         {
         }
         /// <summary>
-        /// Delete an externalConnection.
+        /// Delete navigation property connections for external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -312,13 +309,13 @@ namespace ApiSdk.External.Connections.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/external/connections/{externalConnection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an externalConnection.
+        /// Get connections from external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -337,7 +334,7 @@ namespace ApiSdk.External.Connections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an externalConnection.
+        /// Update the navigation property connections in external
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -352,13 +349,13 @@ namespace ApiSdk.External.Connections.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/external/connections/{externalConnection%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an externalConnection.
+        /// Get connections from external
         /// </summary>
         public class ExternalConnectionItemRequestBuilderGetQueryParameters 
         {

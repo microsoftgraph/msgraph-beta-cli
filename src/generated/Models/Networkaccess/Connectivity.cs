@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.Networkaccess {
+    #pragma warning disable CS1591
     public class Connectivity : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Branches represent locations for connectivity.</summary>
+        /// <summary>Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BranchSite>? Branches { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public List<BranchSite> Branches { get; set; }
 #endif
-        /// <summary>The remoteNetworks property</summary>
+        /// <summary>Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<RemoteNetwork>? RemoteNetworks { get; set; }

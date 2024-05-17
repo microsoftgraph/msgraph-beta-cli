@@ -5,9 +5,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class PlannerTaskPropertyRule : PlannerPropertyRule, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>Rules and restrictions for applied categories. This value does not currently support overrides. Accepted values for the default rule and individual overrides are allow, block.</summary>
+        /// <summary>Rules and restrictions for applied categories. This value doesn&apos;t currently support overrides. Accepted values for the default rule and individual overrides are allow, block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerFieldRules? AppliedCategories { get; set; }
@@ -15,7 +17,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerFieldRules AppliedCategories { get; set; }
 #endif
-        /// <summary>The approvalAttachment property</summary>
+        /// <summary>Rules and restrictions for approval. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are: allow, add, remove, block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerFieldRules? ApprovalAttachment { get; set; }
@@ -63,7 +65,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> DueDate { get; set; }
 #endif
-        /// <summary>The forms property</summary>
+        /// <summary>Rules and restrictions for forms. Allowed overrides are userCreated and applicationCreated. The following are the accepted values for the default rule and individual overrides: allow, add, addResponse, remove, update, block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerFieldRules? Forms { get; set; }

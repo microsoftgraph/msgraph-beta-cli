@@ -180,6 +180,7 @@ namespace ApiSdk.Identity {
             nonExecCommands.Add(builder.BuildAuthenticationContextClassReferencesNavCommand());
             nonExecCommands.Add(builder.BuildAuthenticationStrengthNavCommand());
             nonExecCommands.Add(builder.BuildAuthenticationStrengthsNavCommand());
+            nonExecCommands.Add(builder.BuildEvaluateNavCommand());
             nonExecCommands.Add(builder.BuildNamedLocationsNavCommand());
             nonExecCommands.Add(builder.BuildPoliciesNavCommand());
             nonExecCommands.Add(builder.BuildTemplatesNavCommand());
@@ -458,7 +459,7 @@ namespace ApiSdk.Identity {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/identity", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

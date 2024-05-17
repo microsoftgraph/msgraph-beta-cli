@@ -56,15 +56,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
             return command;
         }
         /// <summary>
-        /// Create an Outlook task in the specified task folder. The POST method always ignores the time portion of startDateTime and dueDateTime in the request body, and assumes the time to be always midnight in the specified time zone.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktaskfolder-post-tasks?view=graph-rest-1.0" />
+        /// Create new navigation property to tasks for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create an Outlook task in the specified task folder. The POST method always ignores the time portion of startDateTime and dueDateTime in the request body, and assumes the time to be always midnight in the specified time zone.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-post-tasks?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to tasks for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -121,15 +120,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
             return command;
         }
         /// <summary>
-        /// Get all the Outlook tasks in the specified folder. By default, this operation (and the POST, PATCH, and complete task operations) returnsdate-related properties in UTC.  You can use a Prefer: outlook.timezone request header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks. If there is more than one task group, and you want to get all the tasks in a specific task group, firstget all the task folders in that task group,and then get the tasks in each of these task folders.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktaskfolder-list-tasks?view=graph-rest-1.0" />
+        /// The tasks in this task folder. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get all the Outlook tasks in the specified folder. By default, this operation (and the POST, PATCH, and complete task operations) returnsdate-related properties in UTC.  You can use a Prefer: outlook.timezone request header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks. If there is more than one task group, and you want to get all the tasks in a specific task group, firstget all the task folders in that task group,and then get the tasks in each of these task folders.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-list-tasks?view=graph-rest-1.0";
+            command.Description = "The tasks in this task folder. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -236,7 +234,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
         {
         }
         /// <summary>
-        /// Get all the Outlook tasks in the specified folder. By default, this operation (and the POST, PATCH, and complete task operations) returnsdate-related properties in UTC.  You can use a Prefer: outlook.timezone request header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks. If there is more than one task group, and you want to get all the tasks in a specific task group, firstget all the task folders in that task group,and then get the tasks in each of these task folders.
+        /// The tasks in this task folder. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,7 +254,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Create an Outlook task in the specified task folder. The POST method always ignores the time portion of startDateTime and dueDateTime in the request body, and assumes the time to be always midnight in the specified time zone.
+        /// Create new navigation property to tasks for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -272,13 +270,13 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/outlook/taskGroups/{outlookTaskGroup%2Did}/taskFolders/{outlookTaskFolder%2Did}/tasks", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get all the Outlook tasks in the specified folder. By default, this operation (and the POST, PATCH, and complete task operations) returnsdate-related properties in UTC.  You can use a Prefer: outlook.timezone request header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks. If there is more than one task group, and you want to get all the tasks in a specific task group, firstget all the task folders in that task group,and then get the tasks in each of these task folders.
+        /// The tasks in this task folder. Read-only. Nullable.
         /// </summary>
         public class TasksRequestBuilderGetQueryParameters 
         {

@@ -22,13 +22,13 @@ namespace ApiSdk.Communications.Calls.Item.Participants.Item.StopHoldMusic {
     {
         /// <summary>
         /// Reincorporate a participant previously put on hold to the call.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reincorporate a participant previously put on hold to the call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-1.0";
+            command.Description = "Reincorporate a participant previously put on hold to the call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;

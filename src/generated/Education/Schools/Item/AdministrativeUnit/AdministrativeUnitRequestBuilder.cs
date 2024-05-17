@@ -21,14 +21,13 @@ namespace ApiSdk.Education.Schools.Item.AdministrativeUnit {
     public class AdministrativeUnitRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Retrieve the directory administrativeUnit that corresponds to this educationSchool.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-get-administrativeUnit?view=graph-rest-1.0" />
+        /// Get administrativeUnit from education
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the directory administrativeUnit that corresponds to this educationSchool.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationschool-get-administrativeUnit?view=graph-rest-1.0";
+            command.Description = "Get administrativeUnit from education";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
             };
             educationSchoolIdOption.IsRequired = true;
@@ -139,7 +138,7 @@ namespace ApiSdk.Education.Schools.Item.AdministrativeUnit {
         {
         }
         /// <summary>
-        /// Retrieve the directory administrativeUnit that corresponds to this educationSchool.
+        /// Get administrativeUnit from education
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -173,13 +172,13 @@ namespace ApiSdk.Education.Schools.Item.AdministrativeUnit {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the directory administrativeUnit that corresponds to this educationSchool.
+        /// Get administrativeUnit from education
         /// </summary>
         public class AdministrativeUnitRequestBuilderGetQueryParameters 
         {

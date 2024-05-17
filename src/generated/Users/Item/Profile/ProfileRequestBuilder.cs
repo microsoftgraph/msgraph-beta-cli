@@ -175,14 +175,13 @@ namespace ApiSdk.Users.Item.Profile {
             return command;
         }
         /// <summary>
-        /// Deletes a profile object from a user&apos;s account.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0" />
+        /// Delete navigation property profile for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Deletes a profile object from a user's account.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property profile for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -265,14 +264,13 @@ namespace ApiSdk.Users.Item.Profile {
             return command;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profile-get?view=graph-rest-1.0" />
+        /// Represents properties that are descriptive of a user in a tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profile-get?view=graph-rest-1.0";
+            command.Description = "Represents properties that are descriptive of a user in a tenant.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -707,7 +705,7 @@ namespace ApiSdk.Users.Item.Profile {
         {
         }
         /// <summary>
-        /// Deletes a profile object from a user&apos;s account.
+        /// Delete navigation property profile for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -720,13 +718,13 @@ namespace ApiSdk.Users.Item.Profile {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/profile", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.
+        /// Represents properties that are descriptive of a user in a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -760,13 +758,13 @@ namespace ApiSdk.Users.Item.Profile {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/profile", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.
+        /// Represents properties that are descriptive of a user in a tenant.
         /// </summary>
         public class ProfileRequestBuilderGetQueryParameters 
         {

@@ -21,13 +21,13 @@ namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Pause {
     {
         /// <summary>
         /// Temporarily stop a running synchronization job. All the progress, including job state, is persisted, and the job continues from where it left off when a start call is made.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Temporarily stop a running synchronization job. All the progress, including job state, is persisted, and the job continues from where it left off when a start call is made.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-1.0";
+            command.Description = "Temporarily stop a running synchronization job. All the progress, including job state, is persisted, and the job continues from where it left off when a start call is made.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;

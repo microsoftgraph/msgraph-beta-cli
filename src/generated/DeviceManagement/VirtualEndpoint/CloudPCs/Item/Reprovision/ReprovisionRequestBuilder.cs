@@ -21,13 +21,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Reprovision {
     {
         /// <summary>
         /// Reprovision a specific Cloud PC.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-reprovision?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-reprovision?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Reprovision a specific Cloud PC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-reprovision?view=graph-rest-1.0";
+            command.Description = "Reprovision a specific Cloud PC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-reprovision?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;

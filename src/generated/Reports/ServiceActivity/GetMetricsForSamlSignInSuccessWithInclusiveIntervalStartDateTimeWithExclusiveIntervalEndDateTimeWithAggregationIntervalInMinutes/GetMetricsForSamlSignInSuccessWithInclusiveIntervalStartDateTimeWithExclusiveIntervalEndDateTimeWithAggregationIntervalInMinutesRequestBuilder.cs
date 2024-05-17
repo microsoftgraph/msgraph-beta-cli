@@ -20,13 +20,14 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForSamlSignInSuccessWithInclu
     public class GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getMetricsForSamlSignInSuccess
+        /// Get the number of SAML 2.0 authentications successfully processed by the Microsoft Entra cloud service for the tenant during a specified time period. This health signal currently doesn&apos;t include WS-FED/SAML 1.1 apps that are integrated with Microsoft Entra.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceactivity-getmetricsforsamlsigninsuccess?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getMetricsForSamlSignInSuccess";
+            command.Description = "Get the number of SAML 2.0 authentications successfully processed by the Microsoft Entra cloud service for the tenant during a specified time period. This health signal currently doesn't include WS-FED/SAML 1.1 apps that are integrated with Microsoft Entra.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceactivity-getmetricsforsamlsigninsuccess?view=graph-rest-beta";
             var inclusiveIntervalStartDateTimeOption = new Option<string>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
             };
             inclusiveIntervalStartDateTimeOption.IsRequired = true;
@@ -125,7 +126,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForSamlSignInSuccessWithInclu
         {
         }
         /// <summary>
-        /// Invoke function getMetricsForSamlSignInSuccess
+        /// Get the number of SAML 2.0 authentications successfully processed by the Microsoft Entra cloud service for the tenant during a specified time period. This health signal currently doesn&apos;t include WS-FED/SAML 1.1 apps that are integrated with Microsoft Entra.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +145,7 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForSamlSignInSuccessWithInclu
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getMetricsForSamlSignInSuccess
+        /// Get the number of SAML 2.0 authentications successfully processed by the Microsoft Entra cloud service for the tenant during a specified time period. This health signal currently doesn&apos;t include WS-FED/SAML 1.1 apps that are integrated with Microsoft Entra.
         /// </summary>
         public class GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
         {

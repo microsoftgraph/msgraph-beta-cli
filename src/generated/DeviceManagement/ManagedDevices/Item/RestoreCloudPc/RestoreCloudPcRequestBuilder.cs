@@ -21,14 +21,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.RestoreCloudPc {
     {
         /// <summary>
         /// Restore a Cloud PC device to a previous state with an Intune managed device ID.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The restoreCloudPc API is deprecated and will stop returning on Sep 30, 2023. Please use restore instead as of 2023-07/restoreCloudPc")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Restore a Cloud PC device to a previous state with an Intune managed device ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-1.0";
+            command.Description = "Restore a Cloud PC device to a previous state with an Intune managed device ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-beta";
             var managedDeviceIdOption = new Option<string>("--managed-device-id", description: "The unique identifier of managedDevice") {
             };
             managedDeviceIdOption.IsRequired = true;

@@ -80,14 +80,13 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of an alert object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-1.0" />
+        /// A collection of alerts in Microsoft 365 Defender.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of an alert object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-1.0";
+            command.Description = "A collection of alerts in Microsoft 365 Defender.";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -133,14 +132,13 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return command;
         }
         /// <summary>
-        /// Update the properties of an alert object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-alert-update?view=graph-rest-1.0" />
+        /// Update the navigation property alerts_v2 in security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the properties of an alert object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-alert-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property alerts_v2 in security";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -212,13 +210,13 @@ namespace ApiSdk.Security.Alerts_v2.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/alerts_v2/{alert%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an alert object.
+        /// A collection of alerts in Microsoft 365 Defender.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +235,7 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an alert object.
+        /// Update the navigation property alerts_v2 in security
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -252,13 +250,13 @@ namespace ApiSdk.Security.Alerts_v2.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/alerts_v2/{alert%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an alert object.
+        /// A collection of alerts in Microsoft 365 Defender.
         /// </summary>
         public class AlertItemRequestBuilderGetQueryParameters 
         {

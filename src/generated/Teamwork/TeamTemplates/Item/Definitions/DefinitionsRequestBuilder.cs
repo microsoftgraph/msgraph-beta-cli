@@ -106,13 +106,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of a teamTemplateDefinition object.
+        /// A generic representation of a team template definition for a team with a specific structure and configuration.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read the properties and relationships of a teamTemplateDefinition object.";
+            command.Description = "A generic representation of a team template definition for a team with a specific structure and configuration.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -220,7 +220,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
         {
         }
         /// <summary>
-        /// Read the properties and relationships of a teamTemplateDefinition object.
+        /// A generic representation of a team template definition for a team with a specific structure and configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,13 +254,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a teamTemplateDefinition object.
+        /// A generic representation of a team template definition for a team with a specific structure and configuration.
         /// </summary>
         public class DefinitionsRequestBuilderGetQueryParameters 
         {

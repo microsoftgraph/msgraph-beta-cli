@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class ContentCustomization : IAdditionalDataHolder, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,6 +34,22 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string OdataType { get; set; }
+#endif
+        /// <summary>The registrationCampaign property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<KeyValue>? RegistrationCampaign { get; set; }
+#nullable restore
+#else
+        public List<KeyValue> RegistrationCampaign { get; set; }
+#endif
+        /// <summary>The registrationCampaignRelativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RegistrationCampaignRelativeUrl { get; set; }
+#nullable restore
+#else
+        public string RegistrationCampaignRelativeUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="ContentCustomization"/> and sets the default values.
@@ -61,6 +79,8 @@ namespace ApiSdk.Models {
                 {"attributeCollection", n => { AttributeCollection = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"attributeCollectionRelativeUrl", n => { AttributeCollectionRelativeUrl = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"registrationCampaign", n => { RegistrationCampaign = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"registrationCampaignRelativeUrl", n => { RegistrationCampaignRelativeUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -73,6 +93,8 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<KeyValue>("attributeCollection", AttributeCollection);
             writer.WriteStringValue("attributeCollectionRelativeUrl", AttributeCollectionRelativeUrl);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<KeyValue>("registrationCampaign", RegistrationCampaign);
+            writer.WriteStringValue("registrationCampaignRelativeUrl", RegistrationCampaignRelativeUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

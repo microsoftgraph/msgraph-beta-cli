@@ -138,13 +138,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item {
             return command;
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get remoteNetworks from networkAccess";
+            command.Description = "Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -268,13 +268,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -308,13 +308,13 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get remoteNetworks from networkAccess
+        /// Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
         /// </summary>
         public class RemoteNetworkItemRequestBuilderGetQueryParameters 
         {

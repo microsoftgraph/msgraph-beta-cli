@@ -6,6 +6,7 @@ using ApiSdk.Drives.Item.Items.Item.Checkin;
 using ApiSdk.Drives.Item.Items.Item.Checkout;
 using ApiSdk.Drives.Item.Items.Item.Children;
 using ApiSdk.Drives.Item.Items.Item.Content;
+using ApiSdk.Drives.Item.Items.Item.ContentStream;
 using ApiSdk.Drives.Item.Items.Item.Copy;
 using ApiSdk.Drives.Item.Items.Item.CreateLink;
 using ApiSdk.Drives.Item.Items.Item.CreateUploadSession;
@@ -201,6 +202,24 @@ namespace ApiSdk.Drives.Item.Items.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to manage the media for the drive entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildContentStreamNavCommand()
+        {
+            var command = new Command("content-stream");
+            command.Description = "Provides operations to manage the media for the drive entity.";
+            var builder = new ContentStreamRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPutCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the copy method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -276,14 +295,13 @@ namespace ApiSdk.Drives.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0" />
+        /// Delete navigation property items for drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property items for drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -519,14 +537,13 @@ namespace ApiSdk.Drives.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0" />
+        /// Update the navigation property items in drives
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0";
+            command.Description = "Update the navigation property items in drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -856,7 +873,7 @@ namespace ApiSdk.Drives.Item.Items.Item {
         {
         }
         /// <summary>
-        /// Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
+        /// Delete navigation property items for drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -869,7 +886,7 @@ namespace ApiSdk.Drives.Item.Items.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -894,7 +911,7 @@ namespace ApiSdk.Drives.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
+        /// Update the navigation property items in drives
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -909,7 +926,7 @@ namespace ApiSdk.Drives.Item.Items.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

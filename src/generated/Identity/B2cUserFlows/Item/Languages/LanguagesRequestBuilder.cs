@@ -107,14 +107,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-languages?view=graph-rest-1.0" />
+        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-languages?view=graph-rest-1.0";
+            command.Description = "The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -222,7 +221,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages {
         {
         }
         /// <summary>
-        /// Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.
+        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,13 +255,13 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/identity/b2cUserFlows/{b2cIdentityUserFlow%2Did}/languages", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of languages supported for customization in an Azure AD B2C user flow. Note: To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.
+        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
         /// </summary>
         public class LanguagesRequestBuilderGetQueryParameters 
         {

@@ -22,15 +22,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
     public class OutlookTaskFolderItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete the specified Outlook task folder.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktaskfolder-delete?view=graph-rest-1.0" />
+        /// Delete navigation property taskFolders for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete the specified Outlook task folder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property taskFolders for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -65,15 +64,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of the specified Outlook task folder.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktaskfolder-get?view=graph-rest-1.0" />
+        /// Get taskFolders from users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of the specified Outlook task folder.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-get?view=graph-rest-1.0";
+            command.Description = "Get taskFolders from users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -118,15 +116,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
             return command;
         }
         /// <summary>
-        /// Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, &apos;Tasks&apos;.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outlooktaskfolder-update?view=graph-rest-1.0" />
+        /// Update the navigation property taskFolders in users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outlooktaskfolder-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property taskFolders in users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -218,7 +215,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
         {
         }
         /// <summary>
-        /// Delete the specified Outlook task folder.
+        /// Delete navigation property taskFolders for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,13 +229,13 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users/{user%2Did}/outlook/taskFolders/{outlookTaskFolder%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of the specified Outlook task folder.
+        /// Get taskFolders from users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +255,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, &apos;Tasks&apos;.
+        /// Update the navigation property taskFolders in users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -274,13 +271,13 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/users/{user%2Did}/outlook/taskFolders/{outlookTaskFolder%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of the specified Outlook task folder.
+        /// Get taskFolders from users
         /// </summary>
         public class OutlookTaskFolderItemRequestBuilderGetQueryParameters 
         {

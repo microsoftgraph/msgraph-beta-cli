@@ -22,13 +22,13 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak {
     {
         /// <summary>
         /// End the open break in a specific timeCard.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "End the open break in a specific timeCard.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-1.0";
+            command.Description = "End the open break in a specific timeCard.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-endbreak?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;

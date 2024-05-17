@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class DriveItem : BaseItem, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The list of recent activities that took place on this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,6 +56,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public byte[] Content { get; set; }
+#endif
+        /// <summary>The content stream, if the item represents a file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? ContentStream { get; set; }
+#nullable restore
+#else
+        public byte[] ContentStream { get; set; }
 #endif
         /// <summary>An eTag for the content of the item. This eTag isn&apos;t changed if only the metadata is changed. Note This property isn&apos;t returned if the item is a folder. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -249,7 +259,7 @@ namespace ApiSdk.Models {
 #else
         public List<Subscription> Subscriptions { get; set; }
 #endif
-        /// <summary>Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.</summary>
+        /// <summary>Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ThumbnailSet>? Thumbnails { get; set; }
@@ -257,7 +267,7 @@ namespace ApiSdk.Models {
 #else
         public List<ThumbnailSet> Thumbnails { get; set; }
 #endif
-        /// <summary>The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.</summary>
+        /// <summary>The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DriveItemVersion>? Versions { get; set; }
@@ -321,6 +331,7 @@ namespace ApiSdk.Models {
                 {"cTag", n => { CTag = n.GetStringValue(); } },
                 {"children", n => { Children = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"content", n => { Content = n.GetByteArrayValue(); } },
+                {"contentStream", n => { ContentStream = n.GetByteArrayValue(); } },
                 {"deleted", n => { Deleted = n.GetObjectValue<ApiSdk.Models.Deleted>(ApiSdk.Models.Deleted.CreateFromDiscriminatorValue); } },
                 {"file", n => { File = n.GetObjectValue<FileObject>(FileObject.CreateFromDiscriminatorValue); } },
                 {"fileSystemInfo", n => { FileSystemInfo = n.GetObjectValue<ApiSdk.Models.FileSystemInfo>(ApiSdk.Models.FileSystemInfo.CreateFromDiscriminatorValue); } },
@@ -366,6 +377,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.Bundle>("bundle", Bundle);
             writer.WriteCollectionOfObjectValues<DriveItem>("children", Children);
             writer.WriteByteArrayValue("content", Content);
+            writer.WriteByteArrayValue("contentStream", ContentStream);
             writer.WriteStringValue("cTag", CTag);
             writer.WriteObjectValue<ApiSdk.Models.Deleted>("deleted", Deleted);
             writer.WriteObjectValue<FileObject>("file", File);

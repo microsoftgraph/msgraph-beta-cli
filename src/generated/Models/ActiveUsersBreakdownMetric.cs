@@ -6,9 +6,11 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class ActiveUsersBreakdownMetric : Entity, IParsable 
+    #pragma warning restore CS1591
     {
-        /// <summary>The ID of the Microsoft Entra application.</summary>
+        /// <summary>The appId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppId { get; set; }
@@ -16,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public string AppId { get; set; }
 #endif
-        /// <summary>Name of the application users authenticated to.</summary>
+        /// <summary>The appName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppName { get; set; }
@@ -24,11 +26,11 @@ namespace ApiSdk.Models {
 #else
         public string AppName { get; set; }
 #endif
-        /// <summary>The total number of users who made at least one authentication request within the specified time period.</summary>
+        /// <summary>The count property</summary>
         public long? Count { get; set; }
-        /// <summary>The date of the insight.</summary>
+        /// <summary>The factDate property</summary>
         public Date? FactDate { get; set; }
-        /// <summary>The platform for the device that the customers used. Supports $filter (eq).</summary>
+        /// <summary>The os property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Os { get; set; }

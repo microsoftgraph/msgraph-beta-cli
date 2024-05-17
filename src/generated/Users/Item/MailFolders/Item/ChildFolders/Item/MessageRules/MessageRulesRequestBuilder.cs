@@ -53,14 +53,13 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules {
             return command;
         }
         /// <summary>
-        /// Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user&apos;s Inbox meets the specified conditions.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mailfolder-post-messagerules?view=graph-rest-1.0" />
+        /// Create new navigation property to messageRules for users
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user's Inbox meets the specified conditions.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-post-messagerules?view=graph-rest-1.0";
+            command.Description = "Create new navigation property to messageRules for users";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -117,14 +116,13 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules {
             return command;
         }
         /// <summary>
-        /// Get all the messageRule objects defined for the user&apos;s inbox.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mailfolder-list-messagerules?view=graph-rest-1.0" />
+        /// The collection of rules that apply to the user&apos;s Inbox folder.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get all the messageRule objects defined for the user's inbox.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mailfolder-list-messagerules?view=graph-rest-1.0";
+            command.Description = "The collection of rules that apply to the user's Inbox folder.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -231,7 +229,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules {
         {
         }
         /// <summary>
-        /// Get all the messageRule objects defined for the user&apos;s inbox.
+        /// The collection of rules that apply to the user&apos;s Inbox folder.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +248,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules {
             return requestInfo;
         }
         /// <summary>
-        /// Create a messageRule object by specifying a set of conditions and actions. Outlook carries out those actions if an incoming message in the user&apos;s Inbox meets the specified conditions.
+        /// Create new navigation property to messageRules for users
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,13 +263,13 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messageRules", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get all the messageRule objects defined for the user&apos;s inbox.
+        /// The collection of rules that apply to the user&apos;s Inbox folder.
         /// </summary>
         public class MessageRulesRequestBuilderGetQueryParameters 
         {

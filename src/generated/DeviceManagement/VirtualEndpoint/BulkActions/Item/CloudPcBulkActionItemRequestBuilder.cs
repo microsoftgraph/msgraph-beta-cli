@@ -56,13 +56,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
             return command;
         }
         /// <summary>
-        /// Get bulkActions from deviceManagement
+        /// Bulk actions applied to a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get bulkActions from deviceManagement";
+            command.Description = "Bulk actions applied to a Cloud PC.";
             var cloudPcBulkActionIdOption = new Option<string>("--cloud-pc-bulk-action-id", description: "The unique identifier of cloudPcBulkAction") {
             };
             cloudPcBulkActionIdOption.IsRequired = true;
@@ -186,13 +186,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/virtualEndpoint/bulkActions/{cloudPcBulkAction%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get bulkActions from deviceManagement
+        /// Bulk actions applied to a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -226,13 +226,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/virtualEndpoint/bulkActions/{cloudPcBulkAction%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get bulkActions from deviceManagement
+        /// Bulk actions applied to a Cloud PC.
         /// </summary>
         public class CloudPcBulkActionItemRequestBuilderGetQueryParameters 
         {

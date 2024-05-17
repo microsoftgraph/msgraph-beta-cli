@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConne
     public class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getRealTimeRemoteConnectionStatus
+        /// Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionstatus?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getRealTimeRemoteConnectionStatus";
+            command.Description = "Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionstatus?view=graph-rest-beta";
             var cloudPcIdOption = new Option<string>("--cloud-pc-id", description: "Usage: cloudPcId='{cloudPcId}'") {
             };
             cloudPcIdOption.IsRequired = true;
@@ -74,7 +75,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConne
         {
         }
         /// <summary>
-        /// Invoke function getRealTimeRemoteConnectionStatus
+        /// Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

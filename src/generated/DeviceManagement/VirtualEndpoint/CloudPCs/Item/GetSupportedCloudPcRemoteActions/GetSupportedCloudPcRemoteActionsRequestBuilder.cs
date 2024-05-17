@@ -20,13 +20,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetSupportedClou
     public class GetSupportedCloudPcRemoteActionsRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Invoke function getSupportedCloudPcRemoteActions
+        /// Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-getsupportedcloudpcremoteactions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getSupportedCloudPcRemoteActions";
+            command.Description = "Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-getsupportedcloudpcremoteactions?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;
@@ -113,7 +114,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetSupportedClou
         {
         }
         /// <summary>
-        /// Invoke function getSupportedCloudPcRemoteActions
+        /// Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +133,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetSupportedClou
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getSupportedCloudPcRemoteActions
+        /// Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
         /// </summary>
         public class GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters 
         {

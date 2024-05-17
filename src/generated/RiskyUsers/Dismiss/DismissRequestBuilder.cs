@@ -21,13 +21,13 @@ namespace ApiSdk.RiskyUsers.Dismiss {
     {
         /// <summary>
         /// Dismiss the risk of one or more riskyUser objects. This action sets the targeted user&apos;s risk level to none. The maximum count of users to dismiss in one call is 60.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none. The maximum count of users to dismiss in one call is 60.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-1.0";
+            command.Description = "Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none. The maximum count of users to dismiss in one call is 60.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;

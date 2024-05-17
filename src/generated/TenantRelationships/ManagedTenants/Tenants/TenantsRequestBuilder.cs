@@ -101,14 +101,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants {
             return command;
         }
         /// <summary>
-        /// Get a list of the tenant objects and their properties.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenants?view=graph-rest-1.0" />
+        /// The collection of tenants associated with the managing entity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get a list of the tenant objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenants?view=graph-rest-1.0";
+            command.Description = "The collection of tenants associated with the managing entity.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -210,7 +209,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants {
         {
         }
         /// <summary>
-        /// Get a list of the tenant objects and their properties.
+        /// The collection of tenants associated with the managing entity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,13 +243,13 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/tenantRelationships/managedTenants/tenants", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the tenant objects and their properties.
+        /// The collection of tenants associated with the managing entity.
         /// </summary>
         public class TenantsRequestBuilderGetQueryParameters 
         {

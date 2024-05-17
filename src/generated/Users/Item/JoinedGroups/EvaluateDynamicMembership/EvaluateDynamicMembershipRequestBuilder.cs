@@ -22,13 +22,13 @@ namespace ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership {
     {
         /// <summary>
         /// Invoke action evaluateDynamicMembership
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action evaluateDynamicMembership\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-1.0";
+            command.Description = "Invoke action evaluateDynamicMembership\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;

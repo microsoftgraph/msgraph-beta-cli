@@ -5,8 +5,20 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models {
+    #pragma warning disable CS1591
     public class CloudPcManagementGroupAssignmentTarget : CloudPcManagementAssignmentTarget, IParsable 
+    #pragma warning restore CS1591
     {
+        /// <summary>The allotmentDisplayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AllotmentDisplayName { get; set; }
+#nullable restore
+#else
+        public string AllotmentDisplayName { get; set; }
+#endif
+        /// <summary>The allotmentLicensesCount property</summary>
+        public int? AllotmentLicensesCount { get; set; }
         /// <summary>The ID of the target group for the assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +60,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                {"allotmentDisplayName", n => { AllotmentDisplayName = n.GetStringValue(); } },
+                {"allotmentLicensesCount", n => { AllotmentLicensesCount = n.GetIntValue(); } },
                 {"groupId", n => { GroupId = n.GetStringValue(); } },
                 {"servicePlanId", n => { ServicePlanId = n.GetStringValue(); } },
             };
@@ -60,6 +74,8 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("allotmentDisplayName", AllotmentDisplayName);
+            writer.WriteIntValue("allotmentLicensesCount", AllotmentLicensesCount);
             writer.WriteStringValue("groupId", GroupId);
             writer.WriteStringValue("servicePlanId", ServicePlanId);
         }

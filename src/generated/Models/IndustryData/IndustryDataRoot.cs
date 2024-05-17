@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace ApiSdk.Models.IndustryData {
+    #pragma warning disable CS1591
     public class IndustryDataRoot : ApiSdk.Models.Entity, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>Set of connectors for importing data from source systems.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,6 +32,14 @@ namespace ApiSdk.Models.IndustryData {
 #nullable restore
 #else
         public List<ApiSdk.Models.LongRunningOperation> Operations { get; set; }
+#endif
+        /// <summary>The outboundProvisioningFlowSets property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OutboundProvisioningFlowSet>? OutboundProvisioningFlowSets { get; set; }
+#nullable restore
+#else
+        public List<OutboundProvisioningFlowSet> OutboundProvisioningFlowSets { get; set; }
 #endif
         /// <summary>Set of user modifiable system picker types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,6 +102,7 @@ namespace ApiSdk.Models.IndustryData {
                 {"dataConnectors", n => { DataConnectors = n.GetCollectionOfObjectValues<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"inboundFlows", n => { InboundFlows = n.GetCollectionOfObjectValues<InboundFlow>(InboundFlow.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>(ApiSdk.Models.LongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"outboundProvisioningFlowSets", n => { OutboundProvisioningFlowSets = n.GetCollectionOfObjectValues<OutboundProvisioningFlowSet>(OutboundProvisioningFlowSet.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"referenceDefinitions", n => { ReferenceDefinitions = n.GetCollectionOfObjectValues<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"roleGroups", n => { RoleGroups = n.GetCollectionOfObjectValues<RoleGroup>(RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"runs", n => { Runs = n.GetCollectionOfObjectValues<IndustryDataRun>(IndustryDataRun.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -110,6 +121,7 @@ namespace ApiSdk.Models.IndustryData {
             writer.WriteCollectionOfObjectValues<IndustryDataConnector>("dataConnectors", DataConnectors);
             writer.WriteCollectionOfObjectValues<InboundFlow>("inboundFlows", InboundFlows);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>("operations", Operations);
+            writer.WriteCollectionOfObjectValues<OutboundProvisioningFlowSet>("outboundProvisioningFlowSets", OutboundProvisioningFlowSets);
             writer.WriteCollectionOfObjectValues<ReferenceDefinition>("referenceDefinitions", ReferenceDefinitions);
             writer.WriteCollectionOfObjectValues<RoleGroup>("roleGroups", RoleGroups);
             writer.WriteCollectionOfObjectValues<IndustryDataRun>("runs", Runs);

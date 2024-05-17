@@ -22,13 +22,12 @@ namespace ApiSdk.Drives.Item.Items.Item.Versions.Item.Content {
     {
         /// <summary>
         /// Get content for the navigation property versions from drives
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/driveitem-list-versions?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get content for the navigation property versions from drives\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/driveitem-list-versions?view=graph-rest-1.0";
+            command.Description = "Get content for the navigation property versions from drives";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;

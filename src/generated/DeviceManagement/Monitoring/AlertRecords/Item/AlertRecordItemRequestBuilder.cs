@@ -57,14 +57,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
             return command;
         }
         /// <summary>
-        /// Read the properties and relationships of an alertRecord object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrecord-get?view=graph-rest-1.0" />
+        /// The collection of records of alert events.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the properties and relationships of an alertRecord object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrecord-get?view=graph-rest-1.0";
+            command.Description = "The collection of records of alert events.";
             var alertRecordIdOption = new Option<string>("--alert-record-id", description: "The unique identifier of alertRecord") {
             };
             alertRecordIdOption.IsRequired = true;
@@ -205,13 +204,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/deviceManagement/monitoring/alertRecords/{alertRecord%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an alertRecord object.
+        /// The collection of records of alert events.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,13 +244,13 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceManagement/monitoring/alertRecords/{alertRecord%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of an alertRecord object.
+        /// The collection of records of alert events.
         /// </summary>
         public class AlertRecordItemRequestBuilderGetQueryParameters 
         {

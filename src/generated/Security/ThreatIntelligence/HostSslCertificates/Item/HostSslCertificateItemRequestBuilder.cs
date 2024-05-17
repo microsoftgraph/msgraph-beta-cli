@@ -58,14 +58,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostSslCertificate object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostsslcertificate-get?view=graph-rest-1.0" />
+        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties and relationships of a hostSslCertificate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostsslcertificate-get?view=graph-rest-1.0";
+            command.Description = "Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.";
             var hostSslCertificateIdOption = new Option<string>("--host-ssl-certificate-id", description: "The unique identifier of hostSslCertificate") {
             };
             hostSslCertificateIdOption.IsRequired = true;
@@ -223,13 +222,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostSslCertificate object.
+        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,13 +262,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a hostSslCertificate object.
+        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
         /// </summary>
         public class HostSslCertificateItemRequestBuilderGetQueryParameters 
         {

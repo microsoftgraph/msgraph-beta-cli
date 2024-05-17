@@ -21,14 +21,13 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
     public class CustomAppScopeItemRequestBuilder : BaseCliRequestBuilder 
     {
         /// <summary>
-        /// Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customappscope-delete?view=graph-rest-1.0" />
+        /// Delete navigation property customAppScopes for roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customappscope-delete?view=graph-rest-1.0";
+            command.Description = "Delete navigation property customAppScopes for roleManagement";
             var customAppScopeIdOption = new Option<string>("--custom-app-scope-id", description: "The unique identifier of customAppScope") {
             };
             customAppScopeIdOption.IsRequired = true;
@@ -57,14 +56,13 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
             return command;
         }
         /// <summary>
-        /// Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customappscope-get?view=graph-rest-1.0" />
+        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customappscope-get?view=graph-rest-1.0";
+            command.Description = "Workload-specific scope object that represents the resources for which the principal has been granted access.";
             var customAppScopeIdOption = new Option<string>("--custom-app-scope-id", description: "The unique identifier of customAppScope") {
             };
             customAppScopeIdOption.IsRequired = true;
@@ -110,14 +108,13 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
             return command;
         }
         /// <summary>
-        /// Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customappscope-update?view=graph-rest-1.0" />
+        /// Update the navigation property customAppScopes in roleManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customappscope-update?view=graph-rest-1.0";
+            command.Description = "Update the navigation property customAppScopes in roleManagement";
             var customAppScopeIdOption = new Option<string>("--custom-app-scope-id", description: "The unique identifier of customAppScope") {
             };
             customAppScopeIdOption.IsRequired = true;
@@ -176,7 +173,7 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
         {
         }
         /// <summary>
-        /// Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Delete navigation property customAppScopes for roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,13 +186,13 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/roleManagement/exchange/customAppScopes/{customAppScope%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +211,7 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Update the navigation property customAppScopes in roleManagement
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -229,13 +226,13 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/roleManagement/exchange/customAppScopes/{customAppScope%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
         /// </summary>
         public class CustomAppScopeItemRequestBuilderGetQueryParameters 
         {

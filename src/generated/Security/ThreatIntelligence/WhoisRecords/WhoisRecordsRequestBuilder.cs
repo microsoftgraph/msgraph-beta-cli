@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords {
+namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords
+{
     /// <summary>
     /// Provides operations to manage the whoisRecords property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class WhoisRecordsRequestBuilder : BaseCliRequestBuilder 
+    public class WhoisRecordsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the whoisRecords property of the microsoft.graph.security.threatIntelligence entity.
@@ -101,13 +102,14 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords {
             return command;
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get a list of whoisRecord objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-threatintelligence-list-whoisrecords?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A list of whoisRecord objects.";
+            command.Description = "Get a list of whoisRecord objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-threatintelligence-list-whoisrecords?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +185,9 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +213,7 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords {
         {
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get a list of whoisRecord objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -249,7 +253,7 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords {
             return requestInfo;
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get a list of whoisRecord objects.
         /// </summary>
         public class WhoisRecordsRequestBuilderGetQueryParameters 
         {

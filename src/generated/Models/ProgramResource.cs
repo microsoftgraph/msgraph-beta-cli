@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProgramResource : Identity, IParsable 
+    public class ProgramResource : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Type of the resource, indicating whether it is a group or an app.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

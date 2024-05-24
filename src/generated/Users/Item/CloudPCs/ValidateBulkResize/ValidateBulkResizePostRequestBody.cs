@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.ValidateBulkResize {
+namespace ApiSdk.Users.Item.CloudPCs.ValidateBulkResize
+{
     #pragma warning disable CS1591
-    public class ValidateBulkResizePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ValidateBulkResizePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.Users.Item.CloudPCs.ValidateBulkResize {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"targetServicePlanId", n => { TargetServicePlanId = n.GetStringValue(); } },
+                { "cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "targetServicePlanId", n => { TargetServicePlanId = n.GetStringValue(); } },
             };
         }
         /// <summary>

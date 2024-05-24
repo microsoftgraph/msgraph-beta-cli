@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This entity contains the properties used to assign a windows driver update profile to a group.
     /// </summary>
-    public class WindowsDriverUpdateProfileAssignment : Entity, IParsable 
+    public class WindowsDriverUpdateProfileAssignment : Entity, IParsable
     {
         /// <summary>Base type for assignment targets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

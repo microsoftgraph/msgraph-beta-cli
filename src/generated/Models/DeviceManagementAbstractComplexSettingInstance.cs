@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A setting instance representing a complex value for an abstract setting
     /// </summary>
-    public class DeviceManagementAbstractComplexSettingInstance : DeviceManagementSettingInstance, IParsable 
+    public class DeviceManagementAbstractComplexSettingInstance : DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The definition ID for the chosen implementation of this complex setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"implementationId", n => { ImplementationId = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "implementationId", n => { ImplementationId = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

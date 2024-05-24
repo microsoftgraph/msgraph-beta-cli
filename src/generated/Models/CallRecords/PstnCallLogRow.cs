@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class PstnCallLogRow : CallLogRow, IParsable 
+    public class PstnCallLogRow : CallLogRow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.</summary>
@@ -175,29 +176,29 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callDurationSource", n => { CallDurationSource = n.GetEnumValue<PstnCallDurationSource>(); } },
-                {"callId", n => { CallId = n.GetStringValue(); } },
-                {"callType", n => { CallType = n.GetStringValue(); } },
-                {"calleeNumber", n => { CalleeNumber = n.GetStringValue(); } },
-                {"callerNumber", n => { CallerNumber = n.GetStringValue(); } },
-                {"charge", n => { Charge = n.GetDecimalValue(); } },
-                {"clientLocalIpV4Address", n => { ClientLocalIpV4Address = n.GetStringValue(); } },
-                {"clientLocalIpV6Address", n => { ClientLocalIpV6Address = n.GetStringValue(); } },
-                {"clientPublicIpV4Address", n => { ClientPublicIpV4Address = n.GetStringValue(); } },
-                {"clientPublicIpV6Address", n => { ClientPublicIpV6Address = n.GetStringValue(); } },
-                {"conferenceId", n => { ConferenceId = n.GetStringValue(); } },
-                {"connectionCharge", n => { ConnectionCharge = n.GetDecimalValue(); } },
-                {"currency", n => { Currency = n.GetStringValue(); } },
-                {"destinationContext", n => { DestinationContext = n.GetStringValue(); } },
-                {"destinationName", n => { DestinationName = n.GetStringValue(); } },
-                {"duration", n => { Duration = n.GetIntValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"inventoryType", n => { InventoryType = n.GetStringValue(); } },
-                {"licenseCapability", n => { LicenseCapability = n.GetStringValue(); } },
-                {"operator", n => { Operator = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tenantCountryCode", n => { TenantCountryCode = n.GetStringValue(); } },
-                {"usageCountryCode", n => { UsageCountryCode = n.GetStringValue(); } },
+                { "callDurationSource", n => { CallDurationSource = n.GetEnumValue<PstnCallDurationSource>(); } },
+                { "callId", n => { CallId = n.GetStringValue(); } },
+                { "callType", n => { CallType = n.GetStringValue(); } },
+                { "calleeNumber", n => { CalleeNumber = n.GetStringValue(); } },
+                { "callerNumber", n => { CallerNumber = n.GetStringValue(); } },
+                { "charge", n => { Charge = n.GetDecimalValue(); } },
+                { "clientLocalIpV4Address", n => { ClientLocalIpV4Address = n.GetStringValue(); } },
+                { "clientLocalIpV6Address", n => { ClientLocalIpV6Address = n.GetStringValue(); } },
+                { "clientPublicIpV4Address", n => { ClientPublicIpV4Address = n.GetStringValue(); } },
+                { "clientPublicIpV6Address", n => { ClientPublicIpV6Address = n.GetStringValue(); } },
+                { "conferenceId", n => { ConferenceId = n.GetStringValue(); } },
+                { "connectionCharge", n => { ConnectionCharge = n.GetDecimalValue(); } },
+                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "destinationContext", n => { DestinationContext = n.GetStringValue(); } },
+                { "destinationName", n => { DestinationName = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetIntValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "inventoryType", n => { InventoryType = n.GetStringValue(); } },
+                { "licenseCapability", n => { LicenseCapability = n.GetStringValue(); } },
+                { "operator", n => { Operator = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tenantCountryCode", n => { TenantCountryCode = n.GetStringValue(); } },
+                { "usageCountryCode", n => { UsageCountryCode = n.GetStringValue(); } },
             };
         }
         /// <summary>

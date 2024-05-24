@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Restore {
+namespace ApiSdk.Drives.Item.Items.Item.Restore
+{
     #pragma warning disable CS1591
-    public class RestorePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RestorePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Restore {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"parentReference", n => { ParentReference = n.GetObjectValue<ItemReference>(ItemReference.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "parentReference", n => { ParentReference = n.GetObjectValue<ItemReference>(ItemReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

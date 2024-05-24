@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators {
+namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators
+{
     /// <summary>
     /// Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class IntelligenceProfileIndicatorsRequestBuilder : BaseCliRequestBuilder 
+    public class IntelligenceProfileIndicatorsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
@@ -100,13 +101,13 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators {
             return command;
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get intelligenceProfileIndicators from security";
+            command.Description = "Read the properties and relationships of a intelligenceProfileIndicator object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +183,9 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +211,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators {
         {
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +251,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators {
             return requestInfo;
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
         /// </summary>
         public class IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters 
         {

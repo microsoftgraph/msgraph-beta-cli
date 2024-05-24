@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.PrivilegedApproval.MyRequests {
+namespace ApiSdk.PrivilegedApproval.MyRequests
+{
     #pragma warning disable CS1591
-    public class MyRequestsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class MyRequestsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.PrivilegedApproval.MyRequests {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PrivilegedApproval>(ApiSdk.Models.PrivilegedApproval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PrivilegedApproval>(ApiSdk.Models.PrivilegedApproval.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

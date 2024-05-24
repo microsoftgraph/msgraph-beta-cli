@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Start {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Start
+{
     /// <summary>
     /// Provides operations to call the start method.
     /// </summary>
-    public class StartRequestBuilder : BaseCliRequestBuilder 
+    public class StartRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.

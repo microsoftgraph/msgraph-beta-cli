@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSharePointActivityUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetSharePointActivityUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getSharePointActivityUserCounts method.
     /// </summary>
-    public class GetSharePointActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharePointActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSharePointActivityUserCounts

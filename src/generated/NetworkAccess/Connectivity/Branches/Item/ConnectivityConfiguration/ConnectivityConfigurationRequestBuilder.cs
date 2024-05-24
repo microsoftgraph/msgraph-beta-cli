@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration
+{
     /// <summary>
     /// Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.branchSite entity.
     /// </summary>
-    public class ConnectivityConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectivityConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property connectivityConfiguration for networkAccess
@@ -58,14 +59,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
             return command;
         }
         /// <summary>
-        /// Specifies the connectivity details of all device links associated with a branch.
+        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchconnectivityconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Specifies the connectivity details of all device links associated with a branch.";
+            command.Description = "Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization's router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchconnectivityconfiguration-get?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -224,7 +226,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the connectivity details of all device links associated with a branch.
+        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -266,7 +268,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the connectivity details of all device links associated with a branch.
+        /// Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization&apos;s router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
         /// </summary>
         public class ConnectivityConfigurationRequestBuilderGetQueryParameters 
         {

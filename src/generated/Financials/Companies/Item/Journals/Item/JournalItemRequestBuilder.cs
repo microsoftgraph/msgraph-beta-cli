@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Journals.Item {
+namespace ApiSdk.Financials.Companies.Item.Journals.Item
+{
     /// <summary>
     /// Provides operations to manage the journals property of the microsoft.graph.company entity.
     /// </summary>
-    public class JournalItemRequestBuilder : BaseCliRequestBuilder 
+    public class JournalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.journal entity.
@@ -48,11 +49,11 @@ namespace ApiSdk.Financials.Companies.Item.Journals.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property journals for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalIdOption = new Option<string>("--journal-id", description: "The unique identifier of journal") {
+            var journalIdOption = new Option<Guid?>("--journal-id", description: "The unique identifier of journal") {
             };
             journalIdOption.IsRequired = true;
             command.AddOption(journalIdOption);
@@ -89,11 +90,11 @@ namespace ApiSdk.Financials.Companies.Item.Journals.Item {
         {
             var command = new Command("get");
             command.Description = "Get journals from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalIdOption = new Option<string>("--journal-id", description: "The unique identifier of journal") {
+            var journalIdOption = new Option<Guid?>("--journal-id", description: "The unique identifier of journal") {
             };
             journalIdOption.IsRequired = true;
             command.AddOption(journalIdOption);
@@ -174,11 +175,11 @@ namespace ApiSdk.Financials.Companies.Item.Journals.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property journals in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalIdOption = new Option<string>("--journal-id", description: "The unique identifier of journal") {
+            var journalIdOption = new Option<Guid?>("--journal-id", description: "The unique identifier of journal") {
             };
             journalIdOption.IsRequired = true;
             command.AddOption(journalIdOption);

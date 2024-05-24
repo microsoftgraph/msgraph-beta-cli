@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SubjectRightsRequestEnumeratedMailboxLocation : SubjectRightsRequestMailboxLocation, IParsable 
+    public class SubjectRightsRequestEnumeratedMailboxLocation : SubjectRightsRequestMailboxLocation, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The upns property</summary>
+        /// <summary>Collection of mailboxes that should be included in the search. Includes the UPN of each mailbox, for example, Monica.Thompson@contoso.com. Going forward, use the userPrincipalNames property. If you specify either upns or userPrincipalNames, the same values are populated automatically to the other property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Upns { get; set; }
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"upns", n => { Upns = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"userPrincipalNames", n => { UserPrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "upns", n => { Upns = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "userPrincipalNames", n => { UserPrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

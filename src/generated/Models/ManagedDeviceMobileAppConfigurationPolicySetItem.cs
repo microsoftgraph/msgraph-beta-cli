@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for managed device mobile app configuration PolicySetItem.
     /// </summary>
-    public class ManagedDeviceMobileAppConfigurationPolicySetItem : PolicySetItem, IParsable 
+    public class ManagedDeviceMobileAppConfigurationPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="ManagedDeviceMobileAppConfigurationPolicySetItem"/> and sets the default values.

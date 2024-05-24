@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class UserMatchingSetting : IAdditionalDataHolder, IParsable 
+    public class UserMatchingSetting : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"matchTarget", n => { MatchTarget = n.GetObjectValue<UserMatchTargetReferenceValue>(UserMatchTargetReferenceValue.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"priorityOrder", n => { PriorityOrder = n.GetIntValue(); } },
-                {"roleGroup", n => { RoleGroup = n.GetObjectValue<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue); } },
-                {"sourceIdentifier", n => { SourceIdentifier = n.GetObjectValue<IdentifierTypeReferenceValue>(IdentifierTypeReferenceValue.CreateFromDiscriminatorValue); } },
+                { "matchTarget", n => { MatchTarget = n.GetObjectValue<UserMatchTargetReferenceValue>(UserMatchTargetReferenceValue.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "priorityOrder", n => { PriorityOrder = n.GetIntValue(); } },
+                { "roleGroup", n => { RoleGroup = n.GetObjectValue<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue); } },
+                { "sourceIdentifier", n => { SourceIdentifier = n.GetObjectValue<IdentifierTypeReferenceValue>(IdentifierTypeReferenceValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventPresenter : Entity, IParsable 
+    public class VirtualEventPresenter : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Email address of the presenter.</summary>
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>Identity information of the presenter. The supported identites are: communicationsGuestIdentity and communicationsUserIdentity.</summary>
+        /// <summary>Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.Identity? Identity { get; set; }
@@ -25,7 +26,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.Identity Identity { get; set; }
 #endif
-        /// <summary>Other detail information of the presenter.</summary>
+        /// <summary>Other detail information of the presenter. This property returns null when the virtual event type is virtualEventTownhall.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public VirtualEventPresenterDetails? PresenterDetails { get; set; }
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
-                {"presenterDetails", n => { PresenterDetails = n.GetObjectValue<VirtualEventPresenterDetails>(VirtualEventPresenterDetails.CreateFromDiscriminatorValue); } },
-                {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
+                { "presenterDetails", n => { PresenterDetails = n.GetObjectValue<VirtualEventPresenterDetails>(VirtualEventPresenterDetails.CreateFromDiscriminatorValue); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

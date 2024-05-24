@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Enrollment Profile used to enroll Android Enterprise devices using Google&apos;s Cloud Management.
     /// </summary>
-    public class AndroidDeviceOwnerEnrollmentProfile : Entity, IParsable 
+    public class AndroidDeviceOwnerEnrollmentProfile : Entity, IParsable
     {
         /// <summary>Tenant GUID the enrollment profile belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,27 +125,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountId", n => { AccountId = n.GetStringValue(); } },
-                {"configureWifi", n => { ConfigureWifi = n.GetBoolValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
-                {"enrollmentMode", n => { EnrollmentMode = n.GetEnumValue<AndroidDeviceOwnerEnrollmentMode>(); } },
-                {"enrollmentTokenType", n => { EnrollmentTokenType = n.GetEnumValue<AndroidDeviceOwnerEnrollmentTokenType>(); } },
-                {"enrollmentTokenUsageCount", n => { EnrollmentTokenUsageCount = n.GetIntValue(); } },
-                {"isTeamsDeviceProfile", n => { IsTeamsDeviceProfile = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
-                {"qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tokenCreationDateTime", n => { TokenCreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tokenValue", n => { TokenValue = n.GetStringValue(); } },
-                {"wifiHidden", n => { WifiHidden = n.GetBoolValue(); } },
-                {"wifiPassword", n => { WifiPassword = n.GetStringValue(); } },
-                {"wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<AospWifiSecurityType>(); } },
-                {"wifiSsid", n => { WifiSsid = n.GetStringValue(); } },
+                { "accountId", n => { AccountId = n.GetStringValue(); } },
+                { "configureWifi", n => { ConfigureWifi = n.GetBoolValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
+                { "enrollmentMode", n => { EnrollmentMode = n.GetEnumValue<AndroidDeviceOwnerEnrollmentMode>(); } },
+                { "enrollmentTokenType", n => { EnrollmentTokenType = n.GetEnumValue<AndroidDeviceOwnerEnrollmentTokenType>(); } },
+                { "enrollmentTokenUsageCount", n => { EnrollmentTokenUsageCount = n.GetIntValue(); } },
+                { "isTeamsDeviceProfile", n => { IsTeamsDeviceProfile = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
+                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "tokenCreationDateTime", n => { TokenCreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tokenValue", n => { TokenValue = n.GetStringValue(); } },
+                { "wifiHidden", n => { WifiHidden = n.GetBoolValue(); } },
+                { "wifiPassword", n => { WifiPassword = n.GetStringValue(); } },
+                { "wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<AospWifiSecurityType>(); } },
+                { "wifiSsid", n => { WifiSsid = n.GetStringValue(); } },
             };
         }
         /// <summary>

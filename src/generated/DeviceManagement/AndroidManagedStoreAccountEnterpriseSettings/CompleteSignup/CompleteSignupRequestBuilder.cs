@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup
+{
     /// <summary>
     /// Provides operations to call the completeSignup method.
     /// </summary>
-    public class CompleteSignupRequestBuilder : BaseCliRequestBuilder 
+    public class CompleteSignupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action completeSignup

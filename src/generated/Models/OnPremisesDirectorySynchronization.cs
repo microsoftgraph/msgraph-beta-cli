@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesDirectorySynchronization : Entity, IParsable 
+    public class OnPremisesDirectorySynchronization : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configuration", n => { Configuration = n.GetObjectValue<OnPremisesDirectorySynchronizationConfiguration>(OnPremisesDirectorySynchronizationConfiguration.CreateFromDiscriminatorValue); } },
-                {"features", n => { Features = n.GetObjectValue<OnPremisesDirectorySynchronizationFeature>(OnPremisesDirectorySynchronizationFeature.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<OnPremisesDirectorySynchronizationConfiguration>(OnPremisesDirectorySynchronizationConfiguration.CreateFromDiscriminatorValue); } },
+                { "features", n => { Features = n.GetObjectValue<OnPremisesDirectorySynchronizationFeature>(OnPremisesDirectorySynchronizationFeature.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

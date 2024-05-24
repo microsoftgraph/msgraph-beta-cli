@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AssignmentFilters.Item {
+namespace ApiSdk.DeviceManagement.AssignmentFilters.Item
+{
     /// <summary>
     /// Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceAndAppManagementAssignmentFilterItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceAndAppManagementAssignmentFilterItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignmentFilters for deviceManagement

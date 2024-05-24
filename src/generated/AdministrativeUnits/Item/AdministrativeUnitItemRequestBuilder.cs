@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item {
+namespace ApiSdk.AdministrativeUnits.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of administrativeUnit entities.
     /// </summary>
-    public class AdministrativeUnitItemRequestBuilder : BaseCliRequestBuilder 
+    public class AdministrativeUnitItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the checkMemberGroups method.

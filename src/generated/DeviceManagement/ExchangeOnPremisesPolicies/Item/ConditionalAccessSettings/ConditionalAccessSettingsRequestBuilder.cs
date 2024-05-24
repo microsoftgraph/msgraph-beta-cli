@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ExchangeOnPremisesPolicies.Item.ConditionalAccessSettings {
+namespace ApiSdk.DeviceManagement.ExchangeOnPremisesPolicies.Item.ConditionalAccessSettings
+{
     /// <summary>
     /// Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagementExchangeOnPremisesPolicy entity.
     /// </summary>
-    public class ConditionalAccessSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionalAccessSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property conditionalAccessSettings for deviceManagement

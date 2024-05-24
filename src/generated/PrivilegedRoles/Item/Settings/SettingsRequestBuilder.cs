@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoles.Item.Settings {
+namespace ApiSdk.PrivilegedRoles.Item.Settings
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.privilegedRole entity.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settings for privilegedRoles

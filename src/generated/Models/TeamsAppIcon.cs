@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppIcon : Entity, IParsable 
+    public class TeamsAppIcon : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contents of the app icon if the icon is hosted within the Teams infrastructure.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"hostedContent", n => { HostedContent = n.GetObjectValue<TeamworkHostedContent>(TeamworkHostedContent.CreateFromDiscriminatorValue); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "hostedContent", n => { HostedContent = n.GetObjectValue<TeamworkHostedContent>(TeamworkHostedContent.CreateFromDiscriminatorValue); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

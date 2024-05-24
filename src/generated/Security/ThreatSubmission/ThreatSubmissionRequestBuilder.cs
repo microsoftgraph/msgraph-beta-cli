@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatSubmission {
+namespace ApiSdk.Security.ThreatSubmission
+{
     /// <summary>
     /// Provides operations to manage the threatSubmission property of the microsoft.graph.security entity.
     /// </summary>
-    public class ThreatSubmissionRequestBuilder : BaseCliRequestBuilder 
+    public class ThreatSubmissionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property threatSubmission for security

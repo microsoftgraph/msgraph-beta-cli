@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class ConnectivityConfigurationLink : ApiSdk.Models.Entity, IParsable 
+    public class ConnectivityConfigurationLink : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the name of the link.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"localConfigurations", n => { LocalConfigurations = n.GetCollectionOfObjectValues<LocalConnectivityConfiguration>(LocalConnectivityConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"peerConfiguration", n => { PeerConfiguration = n.GetObjectValue<PeerConnectivityConfiguration>(PeerConnectivityConfiguration.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "localConfigurations", n => { LocalConfigurations = n.GetCollectionOfObjectValues<LocalConnectivityConfiguration>(LocalConnectivityConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "peerConfiguration", n => { PeerConfiguration = n.GetObjectValue<PeerConnectivityConfiguration>(PeerConnectivityConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

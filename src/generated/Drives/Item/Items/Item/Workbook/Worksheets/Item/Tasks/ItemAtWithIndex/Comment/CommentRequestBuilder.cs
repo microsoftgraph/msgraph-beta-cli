@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.ItemAtWithIndex.Comment {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.ItemAtWithIndex.Comment
+{
     /// <summary>
     /// Provides operations to manage the comment property of the microsoft.graph.workbookDocumentTask entity.
     /// </summary>
-    public class CommentRequestBuilder : BaseCliRequestBuilder 
+    public class CommentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property comment for drives

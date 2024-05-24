@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.AggregatedPolicyCompliances.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.AggregatedPolicyCompliances.Item
+{
     /// <summary>
     /// Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class AggregatedPolicyComplianceItemRequestBuilder : BaseCliRequestBuilder 
+    public class AggregatedPolicyComplianceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property aggregatedPolicyCompliances for tenantRelationships

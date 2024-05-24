@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Contract : DirectoryObject, IParsable 
+    public class Contract : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.</summary>
@@ -60,10 +61,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contractType", n => { ContractType = n.GetStringValue(); } },
-                {"customerId", n => { CustomerId = n.GetGuidValue(); } },
-                {"defaultDomainName", n => { DefaultDomainName = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "contractType", n => { ContractType = n.GetStringValue(); } },
+                { "customerId", n => { CustomerId = n.GetGuidValue(); } },
+                { "defaultDomainName", n => { DefaultDomainName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

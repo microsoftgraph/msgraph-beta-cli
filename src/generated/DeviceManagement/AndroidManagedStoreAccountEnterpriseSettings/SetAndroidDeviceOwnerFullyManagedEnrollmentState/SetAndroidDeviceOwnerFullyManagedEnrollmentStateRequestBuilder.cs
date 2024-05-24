@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SetAndroidDeviceOwnerFullyManagedEnrollmentState {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SetAndroidDeviceOwnerFullyManagedEnrollmentState
+{
     /// <summary>
     /// Provides operations to call the setAndroidDeviceOwnerFullyManagedEnrollmentState method.
     /// </summary>
-    public class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder : BaseCliRequestBuilder 
+    public class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Sets the AndroidManagedStoreAccountEnterpriseSettings AndroidDeviceOwnerFullyManagedEnrollmentEnabled to the given value.

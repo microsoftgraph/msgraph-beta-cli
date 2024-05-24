@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Journals.Item.Post {
+namespace ApiSdk.Financials.Companies.Item.Journals.Item.Post
+{
     /// <summary>
     /// Provides operations to call the post method.
     /// </summary>
-    public class PostRequestBuilder : BaseCliRequestBuilder 
+    public class PostRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action post
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.Journals.Item.Post {
         {
             var command = new Command("post");
             command.Description = "Invoke action post";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalIdOption = new Option<string>("--journal-id", description: "The unique identifier of journal") {
+            var journalIdOption = new Option<Guid?>("--journal-id", description: "The unique identifier of journal") {
             };
             journalIdOption.IsRequired = true;
             command.AddOption(journalIdOption);

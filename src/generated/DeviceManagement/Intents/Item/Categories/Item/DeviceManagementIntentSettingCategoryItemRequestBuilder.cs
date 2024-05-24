@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.Categories.Item {
+namespace ApiSdk.DeviceManagement.Intents.Item.Categories.Item
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.
     /// </summary>
-    public class DeviceManagementIntentSettingCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementIntentSettingCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property categories for deviceManagement

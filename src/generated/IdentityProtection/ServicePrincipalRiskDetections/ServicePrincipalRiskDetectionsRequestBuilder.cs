@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections {
+namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections
+{
     /// <summary>
     /// Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
     /// </summary>
-    public class ServicePrincipalRiskDetectionsRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalRiskDetectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections {
             return command;
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents information about detected at-risk service principals in a Microsoft Entra tenant.";
+            command.Description = "Retrieve the properties of a collection of servicePrincipalRiskDetection objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections {
         {
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections {
             return requestInfo;
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
         /// </summary>
         public class ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
         {

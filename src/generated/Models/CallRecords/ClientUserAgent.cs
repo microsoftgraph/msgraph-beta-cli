@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class ClientUserAgent : UserAgent, IParsable 
+    public class ClientUserAgent : UserAgent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier of the Microsoft Entra application used by this endpoint.</summary>
@@ -54,10 +55,10 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureADAppId", n => { AzureADAppId = n.GetStringValue(); } },
-                {"communicationServiceId", n => { CommunicationServiceId = n.GetStringValue(); } },
-                {"platform", n => { Platform = n.GetEnumValue<ClientPlatform>(); } },
-                {"productFamily", n => { ProductFamily = n.GetEnumValue<ProductFamily>(); } },
+                { "azureADAppId", n => { AzureADAppId = n.GetStringValue(); } },
+                { "communicationServiceId", n => { CommunicationServiceId = n.GetStringValue(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ClientPlatform>(); } },
+                { "productFamily", n => { ProductFamily = n.GetEnumValue<ProductFamily>(); } },
             };
         }
         /// <summary>

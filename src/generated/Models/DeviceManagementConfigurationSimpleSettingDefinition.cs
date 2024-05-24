@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSimpleSettingDefinition : DeviceManagementConfigurationSettingDefinition, IParsable 
+    public class DeviceManagementConfigurationSimpleSettingDefinition : DeviceManagementConfigurationSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Default setting value for this setting</summary>
+        /// <summary>Default setting value for this setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DeviceManagementConfigurationSettingValue? DefaultValue { get; set; }
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public DeviceManagementConfigurationSettingValue DefaultValue { get; set; }
 #endif
-        /// <summary>list of child settings that depend on this setting</summary>
+        /// <summary>list of child settings that depend on this setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DeviceManagementConfigurationSettingDependedOnBy>? DependedOnBy { get; set; }
@@ -25,7 +26,7 @@ namespace ApiSdk.Models {
 #else
         public List<DeviceManagementConfigurationSettingDependedOnBy> DependedOnBy { get; set; }
 #endif
-        /// <summary>list of parent settings this setting is dependent on</summary>
+        /// <summary>list of parent settings this setting is dependent on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DeviceManagementConfigurationDependentOn>? DependentOn { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public List<DeviceManagementConfigurationDependentOn> DependentOn { get; set; }
 #endif
-        /// <summary>Definition of the value for this setting</summary>
+        /// <summary>Definition of the value for this setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DeviceManagementConfigurationSettingValueDefinition? ValueDefinition { get; set; }
@@ -64,10 +65,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetObjectValue<DeviceManagementConfigurationSettingValue>(DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
-                {"dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"valueDefinition", n => { ValueDefinition = n.GetObjectValue<DeviceManagementConfigurationSettingValueDefinition>(DeviceManagementConfigurationSettingValueDefinition.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<DeviceManagementConfigurationSettingValue>(DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
+                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "valueDefinition", n => { ValueDefinition = n.GetObjectValue<DeviceManagementConfigurationSettingValueDefinition>(DeviceManagementConfigurationSettingValueDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

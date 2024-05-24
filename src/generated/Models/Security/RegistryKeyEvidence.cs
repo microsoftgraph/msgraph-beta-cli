@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RegistryKeyEvidence : AlertEvidence, IParsable 
+    public class RegistryKeyEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Registry hive of the key that the recorded action was applied to.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"registryHive", n => { RegistryHive = n.GetStringValue(); } },
-                {"registryKey", n => { RegistryKey = n.GetStringValue(); } },
+                { "registryHive", n => { RegistryHive = n.GetStringValue(); } },
+                { "registryKey", n => { RegistryKey = n.GetStringValue(); } },
             };
         }
         /// <summary>

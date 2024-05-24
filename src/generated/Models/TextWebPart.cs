@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TextWebPart : WebPart, IParsable 
+    public class TextWebPart : WebPart, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The HTML string in text web part.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"innerHtml", n => { InnerHtml = n.GetStringValue(); } },
+                { "innerHtml", n => { InnerHtml = n.GetStringValue(); } },
             };
         }
         /// <summary>

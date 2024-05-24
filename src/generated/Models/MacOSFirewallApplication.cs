@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an app in the list of macOS firewall applications
     /// </summary>
-    public class MacOSFirewallApplication : IAdditionalDataHolder, IParsable 
+    public class MacOSFirewallApplication : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowsIncomingConnections", n => { AllowsIncomingConnections = n.GetBoolValue(); } },
-                {"bundleId", n => { BundleId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowsIncomingConnections", n => { AllowsIncomingConnections = n.GetBoolValue(); } },
+                { "bundleId", n => { BundleId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

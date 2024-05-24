@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageResourceRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return command;
         }
         /// <summary>
-        /// Create new navigation property to accessPackageResourceRequests for identityGovernance
+        /// Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to accessPackageResourceRequests for identityGovernance";
+            command.Description = "Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return command;
         }
         /// <summary>
-        /// Represents a request to add or remove a resource to or from a catalog respectively.
+        /// Retrieve a list of accessPackageResourceRequest objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents a request to add or remove a resource to or from a catalog respectively.";
+            command.Description = "Retrieve a list of accessPackageResourceRequest objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
         {
         }
         /// <summary>
-        /// Represents a request to add or remove a resource to or from a catalog respectively.
+        /// Retrieve a list of accessPackageResourceRequest objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to accessPackageResourceRequests for identityGovernance
+        /// Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceR
             return requestInfo;
         }
         /// <summary>
-        /// Represents a request to add or remove a resource to or from a catalog respectively.
+        /// Retrieve a list of accessPackageResourceRequest objects.
         /// </summary>
         public class AccessPackageResourceRequestsRequestBuilderGetQueryParameters 
         {

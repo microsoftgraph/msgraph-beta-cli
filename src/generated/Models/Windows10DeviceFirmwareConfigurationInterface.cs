@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Graph properties for Device Firmware Configuration Interface 
     /// </summary>
-    public class Windows10DeviceFirmwareConfigurationInterface : DeviceConfiguration, IParsable 
+    public class Windows10DeviceFirmwareConfigurationInterface : DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
         public Enablement? Bluetooth { get; set; }
@@ -77,27 +78,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bluetooth", n => { Bluetooth = n.GetEnumValue<Enablement>(); } },
-                {"bootFromBuiltInNetworkAdapters", n => { BootFromBuiltInNetworkAdapters = n.GetEnumValue<Enablement>(); } },
-                {"bootFromExternalMedia", n => { BootFromExternalMedia = n.GetEnumValue<Enablement>(); } },
-                {"cameras", n => { Cameras = n.GetEnumValue<Enablement>(); } },
-                {"changeUefiSettingsPermission", n => { ChangeUefiSettingsPermission = n.GetEnumValue<ChangeUefiSettingsPermission>(); } },
-                {"frontCamera", n => { FrontCamera = n.GetEnumValue<Enablement>(); } },
-                {"infraredCamera", n => { InfraredCamera = n.GetEnumValue<Enablement>(); } },
-                {"microphone", n => { Microphone = n.GetEnumValue<Enablement>(); } },
-                {"microphonesAndSpeakers", n => { MicrophonesAndSpeakers = n.GetEnumValue<Enablement>(); } },
-                {"nearFieldCommunication", n => { NearFieldCommunication = n.GetEnumValue<Enablement>(); } },
-                {"radios", n => { Radios = n.GetEnumValue<Enablement>(); } },
-                {"rearCamera", n => { RearCamera = n.GetEnumValue<Enablement>(); } },
-                {"sdCard", n => { SdCard = n.GetEnumValue<Enablement>(); } },
-                {"simultaneousMultiThreading", n => { SimultaneousMultiThreading = n.GetEnumValue<Enablement>(); } },
-                {"usbTypeAPort", n => { UsbTypeAPort = n.GetEnumValue<Enablement>(); } },
-                {"virtualizationOfCpuAndIO", n => { VirtualizationOfCpuAndIO = n.GetEnumValue<Enablement>(); } },
-                {"wakeOnLAN", n => { WakeOnLAN = n.GetEnumValue<Enablement>(); } },
-                {"wakeOnPower", n => { WakeOnPower = n.GetEnumValue<Enablement>(); } },
-                {"wiFi", n => { WiFi = n.GetEnumValue<Enablement>(); } },
-                {"windowsPlatformBinaryTable", n => { WindowsPlatformBinaryTable = n.GetEnumValue<Enablement>(); } },
-                {"wirelessWideAreaNetwork", n => { WirelessWideAreaNetwork = n.GetEnumValue<Enablement>(); } },
+                { "bluetooth", n => { Bluetooth = n.GetEnumValue<Enablement>(); } },
+                { "bootFromBuiltInNetworkAdapters", n => { BootFromBuiltInNetworkAdapters = n.GetEnumValue<Enablement>(); } },
+                { "bootFromExternalMedia", n => { BootFromExternalMedia = n.GetEnumValue<Enablement>(); } },
+                { "cameras", n => { Cameras = n.GetEnumValue<Enablement>(); } },
+                { "changeUefiSettingsPermission", n => { ChangeUefiSettingsPermission = n.GetEnumValue<ChangeUefiSettingsPermission>(); } },
+                { "frontCamera", n => { FrontCamera = n.GetEnumValue<Enablement>(); } },
+                { "infraredCamera", n => { InfraredCamera = n.GetEnumValue<Enablement>(); } },
+                { "microphone", n => { Microphone = n.GetEnumValue<Enablement>(); } },
+                { "microphonesAndSpeakers", n => { MicrophonesAndSpeakers = n.GetEnumValue<Enablement>(); } },
+                { "nearFieldCommunication", n => { NearFieldCommunication = n.GetEnumValue<Enablement>(); } },
+                { "radios", n => { Radios = n.GetEnumValue<Enablement>(); } },
+                { "rearCamera", n => { RearCamera = n.GetEnumValue<Enablement>(); } },
+                { "sdCard", n => { SdCard = n.GetEnumValue<Enablement>(); } },
+                { "simultaneousMultiThreading", n => { SimultaneousMultiThreading = n.GetEnumValue<Enablement>(); } },
+                { "usbTypeAPort", n => { UsbTypeAPort = n.GetEnumValue<Enablement>(); } },
+                { "virtualizationOfCpuAndIO", n => { VirtualizationOfCpuAndIO = n.GetEnumValue<Enablement>(); } },
+                { "wakeOnLAN", n => { WakeOnLAN = n.GetEnumValue<Enablement>(); } },
+                { "wakeOnPower", n => { WakeOnPower = n.GetEnumValue<Enablement>(); } },
+                { "wiFi", n => { WiFi = n.GetEnumValue<Enablement>(); } },
+                { "windowsPlatformBinaryTable", n => { WindowsPlatformBinaryTable = n.GetEnumValue<Enablement>(); } },
+                { "wirelessWideAreaNetwork", n => { WirelessWideAreaNetwork = n.GetEnumValue<Enablement>(); } },
             };
         }
         /// <summary>

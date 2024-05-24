@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.DayNotes.Item {
+namespace ApiSdk.Teams.Item.Schedule.DayNotes.Item
+{
     /// <summary>
     /// Provides operations to manage the dayNotes property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class DayNoteItemRequestBuilder : BaseCliRequestBuilder 
+    public class DayNoteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dayNotes for teams
@@ -120,13 +121,14 @@ namespace ApiSdk.Teams.Item.Schedule.DayNotes.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property dayNotes in teams
+        /// Update the properties of a day note.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/daynote-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property dayNotes in teams";
+            command.Description = "Update the properties of a day note.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/daynote-update?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -229,7 +231,7 @@ namespace ApiSdk.Teams.Item.Schedule.DayNotes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property dayNotes in teams
+        /// Update the properties of a day note.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

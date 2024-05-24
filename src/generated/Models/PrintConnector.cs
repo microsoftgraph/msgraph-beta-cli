@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintConnector : Entity, IParsable 
+    public class PrintConnector : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The connector&apos;s version.</summary>
@@ -85,14 +86,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appVersion", n => { AppVersion = n.GetStringValue(); } },
-                {"deviceHealth", n => { DeviceHealth = n.GetObjectValue<ApiSdk.Models.DeviceHealth>(ApiSdk.Models.DeviceHealth.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"fullyQualifiedDomainName", n => { FullyQualifiedDomainName = n.GetStringValue(); } },
-                {"location", n => { Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
-                {"registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "appVersion", n => { AppVersion = n.GetStringValue(); } },
+                { "deviceHealth", n => { DeviceHealth = n.GetObjectValue<ApiSdk.Models.DeviceHealth>(ApiSdk.Models.DeviceHealth.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "fullyQualifiedDomainName", n => { FullyQualifiedDomainName = n.GetStringValue(); } },
+                { "location", n => { Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                { "registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

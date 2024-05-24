@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProvisioningObjectSummary : Entity, IParsable 
+    public class ProvisioningObjectSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The action property</summary>
+        /// <summary>Indicates the activity name or the operation name (for example, Create user, Add member to group). For a list of activities logged, refer to Microsoft Entra activity list. This is deprecated. Please use provisioningAction instead. Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Action { get; set; }
@@ -103,7 +104,7 @@ namespace ApiSdk.Models {
 #else
         public ProvisioningSystem SourceSystem { get; set; }
 #endif
-        /// <summary>The statusInfo property</summary>
+        /// <summary>Details of provisioning status. This is deprecated. Please use provisioningStatusInfo instead. Supports $filter (eq, contains) for status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public StatusBase? StatusInfo { get; set; }
@@ -153,24 +154,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"action", n => { Action = n.GetStringValue(); } },
-                {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
-                {"changeId", n => { ChangeId = n.GetStringValue(); } },
-                {"cycleId", n => { CycleId = n.GetStringValue(); } },
-                {"durationInMilliseconds", n => { DurationInMilliseconds = n.GetIntValue(); } },
-                {"initiatedBy", n => { InitiatedBy = n.GetObjectValue<Initiator>(Initiator.CreateFromDiscriminatorValue); } },
-                {"jobId", n => { JobId = n.GetStringValue(); } },
-                {"modifiedProperties", n => { ModifiedProperties = n.GetCollectionOfObjectValues<ModifiedProperty>(ModifiedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"provisioningAction", n => { ProvisioningAction = n.GetEnumValue<ProvisioningAction>(); } },
-                {"provisioningStatusInfo", n => { ProvisioningStatusInfo = n.GetObjectValue<ApiSdk.Models.ProvisioningStatusInfo>(ApiSdk.Models.ProvisioningStatusInfo.CreateFromDiscriminatorValue); } },
-                {"provisioningSteps", n => { ProvisioningSteps = n.GetCollectionOfObjectValues<ProvisioningStep>(ProvisioningStep.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ProvisioningServicePrincipal>(ProvisioningServicePrincipal.CreateFromDiscriminatorValue); } },
-                {"sourceIdentity", n => { SourceIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
-                {"sourceSystem", n => { SourceSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
-                {"statusInfo", n => { StatusInfo = n.GetObjectValue<StatusBase>(StatusBase.CreateFromDiscriminatorValue); } },
-                {"targetIdentity", n => { TargetIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
-                {"targetSystem", n => { TargetSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetStringValue(); } },
+                { "activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
+                { "changeId", n => { ChangeId = n.GetStringValue(); } },
+                { "cycleId", n => { CycleId = n.GetStringValue(); } },
+                { "durationInMilliseconds", n => { DurationInMilliseconds = n.GetIntValue(); } },
+                { "initiatedBy", n => { InitiatedBy = n.GetObjectValue<Initiator>(Initiator.CreateFromDiscriminatorValue); } },
+                { "jobId", n => { JobId = n.GetStringValue(); } },
+                { "modifiedProperties", n => { ModifiedProperties = n.GetCollectionOfObjectValues<ModifiedProperty>(ModifiedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "provisioningAction", n => { ProvisioningAction = n.GetEnumValue<ProvisioningAction>(); } },
+                { "provisioningStatusInfo", n => { ProvisioningStatusInfo = n.GetObjectValue<ApiSdk.Models.ProvisioningStatusInfo>(ApiSdk.Models.ProvisioningStatusInfo.CreateFromDiscriminatorValue); } },
+                { "provisioningSteps", n => { ProvisioningSteps = n.GetCollectionOfObjectValues<ProvisioningStep>(ProvisioningStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ProvisioningServicePrincipal>(ProvisioningServicePrincipal.CreateFromDiscriminatorValue); } },
+                { "sourceIdentity", n => { SourceIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
+                { "sourceSystem", n => { SourceSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
+                { "statusInfo", n => { StatusInfo = n.GetObjectValue<StatusBase>(StatusBase.CreateFromDiscriminatorValue); } },
+                { "targetIdentity", n => { TargetIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
+                { "targetSystem", n => { TargetSystem = n.GetObjectValue<ProvisioningSystem>(ProvisioningSystem.CreateFromDiscriminatorValue); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

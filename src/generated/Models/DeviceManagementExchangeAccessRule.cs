@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device Access Rules in Exchange.
     /// </summary>
-    public class DeviceManagementExchangeAccessRule : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementExchangeAccessRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Access Level in Exchange.</summary>
         public DeviceManagementExchangeAccessLevel? AccessLevel { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessLevel", n => { AccessLevel = n.GetEnumValue<DeviceManagementExchangeAccessLevel>(); } },
-                {"deviceClass", n => { DeviceClass = n.GetObjectValue<DeviceManagementExchangeDeviceClass>(DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "accessLevel", n => { AccessLevel = n.GetEnumValue<DeviceManagementExchangeAccessLevel>(); } },
+                { "deviceClass", n => { DeviceClass = n.GetObjectValue<DeviceManagementExchangeDeviceClass>(DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

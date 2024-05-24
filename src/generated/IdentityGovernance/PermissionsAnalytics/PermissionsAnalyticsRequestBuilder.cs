@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
+{
     /// <summary>
     /// Provides operations to manage the permissionsAnalytics property of the microsoft.graph.identityGovernance entity.
     /// </summary>
-    public class PermissionsAnalyticsRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsAnalyticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the aws property of the microsoft.graph.permissionsAnalyticsAggregation entity.

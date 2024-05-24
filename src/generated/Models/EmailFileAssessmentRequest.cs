@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EmailFileAssessmentRequest : ThreatAssessmentRequest, IParsable 
+    public class EmailFileAssessmentRequest : ThreatAssessmentRequest, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Base64 encoded .eml email file content. The file content can&apos;t fetch back because it isn&apos;t stored.</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentData", n => { ContentData = n.GetStringValue(); } },
-                {"destinationRoutingReason", n => { DestinationRoutingReason = n.GetEnumValue<MailDestinationRoutingReason>(); } },
-                {"recipientEmail", n => { RecipientEmail = n.GetStringValue(); } },
+                { "contentData", n => { ContentData = n.GetStringValue(); } },
+                { "destinationRoutingReason", n => { DestinationRoutingReason = n.GetEnumValue<MailDestinationRoutingReason>(); } },
+                { "recipientEmail", n => { RecipientEmail = n.GetStringValue(); } },
             };
         }
         /// <summary>

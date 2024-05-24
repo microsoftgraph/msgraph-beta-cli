@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Schools {
+namespace ApiSdk.Education.Schools
+{
     /// <summary>
     /// Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class SchoolsRequestBuilder : BaseCliRequestBuilder 
+    public class SchoolsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
@@ -58,13 +59,14 @@ namespace ApiSdk.Education.Schools {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to schools for education
+        /// Create a school.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-post-schools?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to schools for education";
+            command.Description = "Create a school.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-post-schools?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Education.Schools {
             return command;
         }
         /// <summary>
-        /// Get schools from education
+        /// Retrieve a list of all school objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-list-schools?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get schools from education";
+            command.Description = "Retrieve a list of all school objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-list-schools?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -202,7 +205,9 @@ namespace ApiSdk.Education.Schools {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -228,7 +233,7 @@ namespace ApiSdk.Education.Schools {
         {
         }
         /// <summary>
-        /// Get schools from education
+        /// Retrieve a list of all school objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +252,7 @@ namespace ApiSdk.Education.Schools {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to schools for education
+        /// Create a school.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +273,7 @@ namespace ApiSdk.Education.Schools {
             return requestInfo;
         }
         /// <summary>
-        /// Get schools from education
+        /// Retrieve a list of all school objects.
         /// </summary>
         public class SchoolsRequestBuilderGetQueryParameters 
         {

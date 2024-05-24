@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Approve {
+namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Approve
+{
     /// <summary>
     /// Provides operations to call the approve method.
     /// </summary>
-    public class ApproveRequestBuilder : BaseCliRequestBuilder 
+    public class ApproveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action approve

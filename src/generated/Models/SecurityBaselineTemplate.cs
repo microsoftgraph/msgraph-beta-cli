@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The security baseline template of the account
     /// </summary>
-    public class SecurityBaselineTemplate : DeviceManagementTemplate, IParsable 
+    public class SecurityBaselineTemplate : DeviceManagementTemplate, IParsable
     {
         /// <summary>The security baseline per category device state summary</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categoryDeviceStateSummaries", n => { CategoryDeviceStateSummaries = n.GetCollectionOfObjectValues<SecurityBaselineCategoryStateSummary>(SecurityBaselineCategoryStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<SecurityBaselineStateSummary>(SecurityBaselineStateSummary.CreateFromDiscriminatorValue); } },
-                {"deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<SecurityBaselineDeviceState>(SecurityBaselineDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categoryDeviceStateSummaries", n => { CategoryDeviceStateSummaries = n.GetCollectionOfObjectValues<SecurityBaselineCategoryStateSummary>(SecurityBaselineCategoryStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<SecurityBaselineStateSummary>(SecurityBaselineStateSummary.CreateFromDiscriminatorValue); } },
+                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<SecurityBaselineDeviceState>(SecurityBaselineDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

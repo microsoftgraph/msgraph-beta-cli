@@ -16,20 +16,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item
+{
     /// <summary>
     /// Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
     /// </summary>
-    public class RunItemRequestBuilder : BaseCliRequestBuilder 
+    public class RunItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Workflow runs.
+        /// Read the properties and relationships of a run object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-run-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Workflow runs.";
+            command.Description = "Read the properties and relationships of a run object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-run-get?view=graph-rest-beta";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
             };
             workflowIdOption.IsRequired = true;
@@ -148,7 +150,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item 
         {
         }
         /// <summary>
-        /// Workflow runs.
+        /// Read the properties and relationships of a run object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +169,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Workflow runs.
+        /// Read the properties and relationships of a run object.
         /// </summary>
         public class RunItemRequestBuilderGetQueryParameters 
         {

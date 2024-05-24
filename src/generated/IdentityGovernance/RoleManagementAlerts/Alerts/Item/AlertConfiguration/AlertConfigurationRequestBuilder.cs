@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertConfiguration {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertConfiguration
+{
     /// <summary>
     /// Provides operations to manage the alertConfiguration property of the microsoft.graph.unifiedRoleManagementAlert entity.
     /// </summary>
-    public class AlertConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class AlertConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The configuration of the alert in PIM for Microsoft Entra roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.

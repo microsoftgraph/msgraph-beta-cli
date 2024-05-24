@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharedDriveItem : BaseItem, IParsable 
+    public class SharedDriveItem : BaseItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Used to access the underlying driveItem</summary>
@@ -98,14 +99,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"driveItem", n => { DriveItem = n.GetObjectValue<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"list", n => { List = n.GetObjectValue<ApiSdk.Models.List>(ApiSdk.Models.List.CreateFromDiscriminatorValue); } },
-                {"listItem", n => { ListItem = n.GetObjectValue<ApiSdk.Models.ListItem>(ApiSdk.Models.ListItem.CreateFromDiscriminatorValue); } },
-                {"owner", n => { Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"permission", n => { Permission = n.GetObjectValue<ApiSdk.Models.Permission>(ApiSdk.Models.Permission.CreateFromDiscriminatorValue); } },
-                {"root", n => { Root = n.GetObjectValue<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue); } },
-                {"site", n => { Site = n.GetObjectValue<ApiSdk.Models.Site>(ApiSdk.Models.Site.CreateFromDiscriminatorValue); } },
+                { "driveItem", n => { DriveItem = n.GetObjectValue<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "list", n => { List = n.GetObjectValue<ApiSdk.Models.List>(ApiSdk.Models.List.CreateFromDiscriminatorValue); } },
+                { "listItem", n => { ListItem = n.GetObjectValue<ApiSdk.Models.ListItem>(ApiSdk.Models.ListItem.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "permission", n => { Permission = n.GetObjectValue<ApiSdk.Models.Permission>(ApiSdk.Models.Permission.CreateFromDiscriminatorValue); } },
+                { "root", n => { Root = n.GetObjectValue<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue); } },
+                { "site", n => { Site = n.GetObjectValue<ApiSdk.Models.Site>(ApiSdk.Models.Site.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.Issues.Item.IncidentReport {
+namespace ApiSdk.Admin.ServiceAnnouncement.Issues.Item.IncidentReport
+{
     /// <summary>
     /// Provides operations to call the incidentReport method.
     /// </summary>
-    public class IncidentReportRequestBuilder : BaseCliRequestBuilder 
+    public class IncidentReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provide the Post-Incident Review (PIR) document of a specified service issue for tenant. An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn&apos;t exist for the tenant or if PIR document does not exist for the issue.

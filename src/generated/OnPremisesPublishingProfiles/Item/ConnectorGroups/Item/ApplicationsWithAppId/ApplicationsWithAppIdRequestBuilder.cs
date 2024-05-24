@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.ApplicationsWithAppId {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.ApplicationsWithAppId
+{
     /// <summary>
     /// Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
     /// </summary>
-    public class ApplicationsWithAppIdRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationsWithAppIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get applications from onPremisesPublishingProfiles

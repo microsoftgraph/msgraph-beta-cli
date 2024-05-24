@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Pv {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Pv
+{
     #pragma warning disable CS1591
-    public class PvPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PvPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -77,11 +78,11 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Pv {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"fv", n => { Fv = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"nper", n => { Nper = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"pmt", n => { Pmt = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"rate", n => { Rate = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"type", n => { Type = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "fv", n => { Fv = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "nper", n => { Nper = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "pmt", n => { Pmt = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "rate", n => { Rate = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

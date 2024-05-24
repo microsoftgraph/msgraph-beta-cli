@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
+namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups
+{
     /// <summary>
     /// Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class SchedulingGroupsRequestBuilder : BaseCliRequestBuilder 
+    public class SchedulingGroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to schedulingGroups for teams
+        /// Create a new schedulingGroup.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to schedulingGroups for teams";
+            command.Description = "Create a new schedulingGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
             return command;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Get the list of schedulingGroups in this schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The logical grouping of users in the schedule (usually by role).";
+            command.Description = "Get the list of schedulingGroups in this schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -185,7 +188,9 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -211,7 +216,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
         {
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Get the list of schedulingGroups in this schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -230,7 +235,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to schedulingGroups for teams
+        /// Create a new schedulingGroup.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -251,7 +256,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups {
             return requestInfo;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Get the list of schedulingGroups in this schedule.
         /// </summary>
         public class SchedulingGroupsRequestBuilderGetQueryParameters 
         {

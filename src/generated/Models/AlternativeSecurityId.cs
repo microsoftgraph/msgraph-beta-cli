@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AlternativeSecurityId : IAdditionalDataHolder, IParsable 
+    public class AlternativeSecurityId : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
-                {"key", n => { Key = n.GetByteArrayValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetIntValue(); } },
+                { "identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetByteArrayValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetIntValue(); } },
             };
         }
         /// <summary>

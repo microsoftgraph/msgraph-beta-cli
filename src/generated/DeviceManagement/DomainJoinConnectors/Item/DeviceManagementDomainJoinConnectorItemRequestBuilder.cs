@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DomainJoinConnectors.Item {
+namespace ApiSdk.DeviceManagement.DomainJoinConnectors.Item
+{
     /// <summary>
     /// Provides operations to manage the domainJoinConnectors property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementDomainJoinConnectorItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementDomainJoinConnectorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property domainJoinConnectors for deviceManagement

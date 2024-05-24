@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RetentionEventType : ApiSdk.Models.Entity, IParsable 
+    public class RetentionEventType : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user who created the retentionEventType.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

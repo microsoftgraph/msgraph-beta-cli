@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.AlertDefinitions.Item {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.AlertDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the alertDefinitions property of the microsoft.graph.roleManagementAlert entity.
     /// </summary>
-    public class UnifiedRoleManagementAlertDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleManagementAlertDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertDefinitions for identityGovernance

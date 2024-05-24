@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class ValidateOperation : ApiSdk.Models.LongRunningOperation, IParsable 
+    public class ValidateOperation : ApiSdk.Models.LongRunningOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Set of errors discovered through validation.</summary>
@@ -48,8 +49,8 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errors", n => { Errors = n.GetCollectionOfObjectValues<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"warnings", n => { Warnings = n.GetCollectionOfObjectValues<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

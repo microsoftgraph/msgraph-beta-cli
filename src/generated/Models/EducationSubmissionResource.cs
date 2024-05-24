@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationSubmissionResource : Entity, IParsable 
+    public class EducationSubmissionResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Pointer to the assignment from which the resource was copied. If the value is null, the student uploaded the resource.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentResourceUrl", n => { AssignmentResourceUrl = n.GetStringValue(); } },
-                {"dependentResources", n => { DependentResources = n.GetCollectionOfObjectValues<EducationSubmissionResource>(EducationSubmissionResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"resource", n => { Resource = n.GetObjectValue<EducationResource>(EducationResource.CreateFromDiscriminatorValue); } },
+                { "assignmentResourceUrl", n => { AssignmentResourceUrl = n.GetStringValue(); } },
+                { "dependentResources", n => { DependentResources = n.GetCollectionOfObjectValues<EducationSubmissionResource>(EducationSubmissionResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resource", n => { Resource = n.GetObjectValue<EducationResource>(EducationResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

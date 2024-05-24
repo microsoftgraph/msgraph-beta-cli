@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.App.Calls.Item.PlayPrompt {
+namespace ApiSdk.App.Calls.Item.PlayPrompt
+{
     #pragma warning disable CS1591
-    public class PlayPromptPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PlayPromptPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,9 +56,9 @@ namespace ApiSdk.App.Calls.Item.PlayPrompt {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"clientContext", n => { ClientContext = n.GetStringValue(); } },
-                {"loop", n => { Loop = n.GetBoolValue(); } },
-                {"prompts", n => { Prompts = n.GetCollectionOfObjectValues<Prompt>(Prompt.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "clientContext", n => { ClientContext = n.GetStringValue(); } },
+                { "loop", n => { Loop = n.GetBoolValue(); } },
+                { "prompts", n => { Prompts = n.GetCollectionOfObjectValues<Prompt>(Prompt.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

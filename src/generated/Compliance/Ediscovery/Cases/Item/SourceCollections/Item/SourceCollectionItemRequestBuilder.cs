@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item
+{
     /// <summary>
     /// Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class SourceCollectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class SourceCollectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
@@ -98,14 +99,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property sourceCollections for compliance
+        /// Delete a sourceCollection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property sourceCollections for compliance";
+            command.Description = "Delete a sourceCollection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -276,14 +278,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property sourceCollections in compliance
+        /// Update the properties of a sourceCollection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property sourceCollections in compliance";
+            command.Description = "Update the properties of a sourceCollection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -348,7 +351,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property sourceCollections for compliance
+        /// Delete a sourceCollection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -388,7 +391,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property sourceCollections in compliance
+        /// Update the properties of a sourceCollection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

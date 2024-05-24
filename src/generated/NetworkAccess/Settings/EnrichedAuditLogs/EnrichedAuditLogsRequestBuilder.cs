@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Settings.EnrichedAuditLogs {
+namespace ApiSdk.NetworkAccess.Settings.EnrichedAuditLogs
+{
     /// <summary>
     /// Provides operations to manage the enrichedAuditLogs property of the microsoft.graph.networkaccess.settings entity.
     /// </summary>
-    public class EnrichedAuditLogsRequestBuilder : BaseCliRequestBuilder 
+    public class EnrichedAuditLogsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property enrichedAuditLogs for networkAccess
@@ -96,13 +97,14 @@ namespace ApiSdk.NetworkAccess.Settings.EnrichedAuditLogs {
             return command;
         }
         /// <summary>
-        /// Update the navigation property enrichedAuditLogs in networkAccess
+        /// Update the settings for the enriched audit logs workloads to control the enrichment feature for each partner workload, such as SharePoint, Teams, and Exchange.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-enrichedauditlogs-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property enrichedAuditLogs in networkAccess";
+            command.Description = "Update the settings for the enriched audit logs workloads to control the enrichment feature for each partner workload, such as SharePoint, Teams, and Exchange.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-enrichedauditlogs-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -193,7 +195,7 @@ namespace ApiSdk.NetworkAccess.Settings.EnrichedAuditLogs {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property enrichedAuditLogs in networkAccess
+        /// Update the settings for the enriched audit logs workloads to control the enrichment feature for each partner workload, such as SharePoint, Teams, and Exchange.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

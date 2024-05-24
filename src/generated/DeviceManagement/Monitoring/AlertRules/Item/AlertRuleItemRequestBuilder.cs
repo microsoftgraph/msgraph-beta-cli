@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
+namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item
+{
     /// <summary>
     /// Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
     /// </summary>
-    public class AlertRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertRules for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
             return command;
         }
         /// <summary>
-        /// The collection of alert rules.
+        /// Read the properties and relationships of an alertRule object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrule-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of alert rules.";
+            command.Description = "Read the properties and relationships of an alertRule object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrule-get?view=graph-rest-beta";
             var alertRuleIdOption = new Option<string>("--alert-rule-id", description: "The unique identifier of alertRule") {
             };
             alertRuleIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property alertRules in deviceManagement
+        /// Update the properties of an alertRule object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrule-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property alertRules in deviceManagement";
+            command.Description = "Update the properties of an alertRule object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrule-update?view=graph-rest-beta";
             var alertRuleIdOption = new Option<string>("--alert-rule-id", description: "The unique identifier of alertRule") {
             };
             alertRuleIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of alert rules.
+        /// Read the properties and relationships of an alertRule object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property alertRules in deviceManagement
+        /// Update the properties of an alertRule object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of alert rules.
+        /// Read the properties and relationships of an alertRule object.
         /// </summary>
         public class AlertRuleItemRequestBuilderGetQueryParameters 
         {

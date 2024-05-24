@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.CellWithRowWithColumn {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.CellWithRowWithColumn
+{
     /// <summary>
     /// Provides operations to call the cell method.
     /// </summary>
-    public class CellWithRowWithColumnRequestBuilder : BaseCliRequestBuilder 
+    public class CellWithRowWithColumnRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it&apos;s stays within the worksheet grid.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Emails.Item {
+namespace ApiSdk.Users.Item.Profile.Emails.Item
+{
     /// <summary>
     /// Provides operations to manage the emails property of the microsoft.graph.profile entity.
     /// </summary>
-    public class ItemEmailItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemEmailItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property emails for users
@@ -62,13 +63,14 @@ namespace ApiSdk.Users.Item.Profile.Emails.Item {
             return command;
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itememail-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents detailed information about email addresses associated with the user.";
+            command.Description = "Retrieve the properties and relationships of an itemEmail object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itememail-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Users.Item.Profile.Emails.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property emails in users
+        /// Update the properties of an itemEmail object in a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itememail-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property emails in users";
+            command.Description = "Update the properties of an itemEmail object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itememail-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -210,7 +213,7 @@ namespace ApiSdk.Users.Item.Profile.Emails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.Users.Item.Profile.Emails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property emails in users
+        /// Update the properties of an itemEmail object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.Users.Item.Profile.Emails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
         /// </summary>
         public class ItemEmailItemRequestBuilderGetQueryParameters 
         {

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Buckets {
+namespace ApiSdk.Planner.Buckets
+{
     /// <summary>
     /// Provides operations to manage the buckets property of the microsoft.graph.planner entity.
     /// </summary>
-    public class BucketsRequestBuilder : BaseCliRequestBuilder 
+    public class BucketsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the buckets property of the microsoft.graph.planner entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.Planner.Buckets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to buckets for planner
+        /// Create a new plannerBucket object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to buckets for planner";
+            command.Description = "Create a new plannerBucket object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -118,13 +120,14 @@ namespace ApiSdk.Planner.Buckets {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of plannerbucket objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified buckets";
+            command.Description = "Retrieve a list of plannerbucket objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -200,7 +203,9 @@ namespace ApiSdk.Planner.Buckets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -226,7 +231,7 @@ namespace ApiSdk.Planner.Buckets {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of plannerbucket objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,7 +250,7 @@ namespace ApiSdk.Planner.Buckets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to buckets for planner
+        /// Create a new plannerBucket object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -266,7 +271,7 @@ namespace ApiSdk.Planner.Buckets {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of plannerbucket objects.
         /// </summary>
         public class BucketsRequestBuilderGetQueryParameters 
         {

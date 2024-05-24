@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.Count {
+namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource

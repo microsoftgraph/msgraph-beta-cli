@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.TermStore {
+namespace ApiSdk.Models.TermStore
+{
     #pragma warning disable CS1591
-    public class Group : ApiSdk.Models.Entity, IParsable 
+    public class Group : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date and time of the group creation. Read-only.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models.TermStore {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"parentSiteId", n => { ParentSiteId = n.GetStringValue(); } },
-                {"scope", n => { Scope = n.GetEnumValue<TermGroupScope>(); } },
-                {"sets", n => { Sets = n.GetCollectionOfObjectValues<Set>(Set.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "parentSiteId", n => { ParentSiteId = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetEnumValue<TermGroupScope>(); } },
+                { "sets", n => { Sets = n.GetCollectionOfObjectValues<Set>(Set.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

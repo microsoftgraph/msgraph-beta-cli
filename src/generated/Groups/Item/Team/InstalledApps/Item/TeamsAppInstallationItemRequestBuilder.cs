@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.InstalledApps.Item {
+namespace ApiSdk.Groups.Item.Team.InstalledApps.Item
+{
     /// <summary>
     /// Provides operations to manage the installedApps property of the microsoft.graph.team entity.
     /// </summary>
-    public class TeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property installedApps for groups

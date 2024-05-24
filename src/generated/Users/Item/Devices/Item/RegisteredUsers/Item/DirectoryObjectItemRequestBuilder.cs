@@ -13,11 +13,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Item {
+namespace ApiSdk.Users.Item.Devices.Item.RegisteredUsers.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \users\{user-id}\devices\{device-id}\registeredUsers\{directoryObject-id}
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Casts the previous resource to endpoint.

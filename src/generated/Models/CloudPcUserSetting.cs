@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcUserSetting : Entity, IParsable 
+    public class CloudPcUserSetting : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.</summary>
@@ -49,7 +50,7 @@ namespace ApiSdk.Models {
 #else
         public CloudPcRestorePointSetting RestorePointSetting { get; set; }
 #endif
-        /// <summary>The selfServiceEnabled property</summary>
+        /// <summary>Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and will stop returning data on December 1, 2023.</summary>
         public bool? SelfServiceEnabled { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,15 +70,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<CloudPcUserSettingAssignment>(CloudPcUserSettingAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"crossRegionDisasterRecoverySetting", n => { CrossRegionDisasterRecoverySetting = n.GetObjectValue<CloudPcCrossRegionDisasterRecoverySetting>(CloudPcCrossRegionDisasterRecoverySetting.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"localAdminEnabled", n => { LocalAdminEnabled = n.GetBoolValue(); } },
-                {"resetEnabled", n => { ResetEnabled = n.GetBoolValue(); } },
-                {"restorePointSetting", n => { RestorePointSetting = n.GetObjectValue<CloudPcRestorePointSetting>(CloudPcRestorePointSetting.CreateFromDiscriminatorValue); } },
-                {"selfServiceEnabled", n => { SelfServiceEnabled = n.GetBoolValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<CloudPcUserSettingAssignment>(CloudPcUserSettingAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "crossRegionDisasterRecoverySetting", n => { CrossRegionDisasterRecoverySetting = n.GetObjectValue<CloudPcCrossRegionDisasterRecoverySetting>(CloudPcCrossRegionDisasterRecoverySetting.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "localAdminEnabled", n => { LocalAdminEnabled = n.GetBoolValue(); } },
+                { "resetEnabled", n => { ResetEnabled = n.GetBoolValue(); } },
+                { "restorePointSetting", n => { RestorePointSetting = n.GetObjectValue<CloudPcRestorePointSetting>(CloudPcRestorePointSetting.CreateFromDiscriminatorValue); } },
+                { "selfServiceEnabled", n => { SelfServiceEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

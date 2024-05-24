@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetRemediationHistory {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetRemediationHistory
+{
     /// <summary>
     /// Provides operations to call the getRemediationHistory method.
     /// </summary>
-    public class GetRemediationHistoryRequestBuilder : BaseCliRequestBuilder 
+    public class GetRemediationHistoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Function to get the number of remediations by a device health scripts

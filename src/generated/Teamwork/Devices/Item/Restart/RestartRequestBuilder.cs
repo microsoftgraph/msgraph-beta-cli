@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.Restart {
+namespace ApiSdk.Teamwork.Devices.Item.Restart
+{
     /// <summary>
     /// Provides operations to call the restart method.
     /// </summary>
-    public class RestartRequestBuilder : BaseCliRequestBuilder 
+    public class RestartRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restart the specified Microsoft Teams-enabled device asynchronously.  A device is restarted after the async operation completes successfully, which might occur subsequent to a response from this API.

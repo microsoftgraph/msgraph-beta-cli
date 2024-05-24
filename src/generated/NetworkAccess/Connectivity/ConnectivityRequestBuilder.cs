@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity {
+namespace ApiSdk.NetworkAccess.Connectivity
+{
     /// <summary>
     /// Provides operations to manage the connectivity property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class ConnectivityRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the branches property of the microsoft.graph.networkaccess.connectivity entity.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallEvent : Entity, IParsable 
+    public class CallEvent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The callEventType property</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callEventType", n => { CallEventType = n.GetEnumValue<CallEventType>(); } },
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"participants", n => { Participants = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "callEventType", n => { CallEventType = n.GetEnumValue<CallEventType>(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

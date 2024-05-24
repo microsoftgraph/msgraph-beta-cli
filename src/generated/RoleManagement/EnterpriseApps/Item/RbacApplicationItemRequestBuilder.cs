@@ -27,11 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps.Item {
+namespace ApiSdk.RoleManagement.EnterpriseApps.Item
+{
     /// <summary>
     /// Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class RbacApplicationItemRequestBuilder : BaseCliRequestBuilder 
+    public class RbacApplicationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property enterpriseApps for roleManagement

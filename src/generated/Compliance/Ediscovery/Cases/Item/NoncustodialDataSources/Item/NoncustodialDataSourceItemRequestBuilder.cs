@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
+{
     /// <summary>
     /// Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class NoncustodialDataSourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class NoncustodialDataSourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dataSource property of the microsoft.graph.ediscovery.noncustodialDataSource entity.
@@ -88,14 +89,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+        /// Read the properties and relationships of a noncustodialDataSource object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of case noncustodialDataSource objects for this case.  Nullable.";
+            command.Description = "Read the properties and relationships of a noncustodialDataSource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-get?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -324,7 +326,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+        /// Read the properties and relationships of a noncustodialDataSource object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -366,7 +368,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+        /// Read the properties and relationships of a noncustodialDataSource object.
         /// </summary>
         public class NoncustodialDataSourceItemRequestBuilderGetQueryParameters 
         {

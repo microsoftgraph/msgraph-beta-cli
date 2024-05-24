@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The class used to identify an autologon kiosk configuration
     /// </summary>
-    public class WindowsKioskAutologon : WindowsKioskUser, IParsable 
+    public class WindowsKioskAutologon : WindowsKioskUser, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="WindowsKioskAutologon"/> and sets the default values.

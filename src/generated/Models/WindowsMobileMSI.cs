@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Windows Mobile MSI Line Of Business apps.
     /// </summary>
-    public class WindowsMobileMSI : MobileLobApp, IParsable 
+    public class WindowsMobileMSI : MobileLobApp, IParsable
     {
         /// <summary>The command line.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,12 +72,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"commandLine", n => { CommandLine = n.GetStringValue(); } },
-                {"identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                {"ignoreVersionDetection", n => { IgnoreVersionDetection = n.GetBoolValue(); } },
-                {"productCode", n => { ProductCode = n.GetStringValue(); } },
-                {"productVersion", n => { ProductVersion = n.GetStringValue(); } },
-                {"useDeviceContext", n => { UseDeviceContext = n.GetBoolValue(); } },
+                { "commandLine", n => { CommandLine = n.GetStringValue(); } },
+                { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
+                { "ignoreVersionDetection", n => { IgnoreVersionDetection = n.GetBoolValue(); } },
+                { "productCode", n => { ProductCode = n.GetStringValue(); } },
+                { "productVersion", n => { ProductVersion = n.GetStringValue(); } },
+                { "useDeviceContext", n => { UseDeviceContext = n.GetBoolValue(); } },
             };
         }
         /// <summary>

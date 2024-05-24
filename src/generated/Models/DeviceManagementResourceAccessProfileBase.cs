@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base Profile Type for Resource Access
     /// </summary>
-    public class DeviceManagementResourceAccessProfileBase : Entity, IParsable 
+    public class DeviceManagementResourceAccessProfileBase : Entity, IParsable
     {
         /// <summary>The list of assignments for the device configuration profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,13 +76,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileAssignment>(DeviceManagementResourceAccessProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileAssignment>(DeviceManagementResourceAccessProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

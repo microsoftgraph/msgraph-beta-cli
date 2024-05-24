@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Monitoring.AlertRules.Item {
+namespace ApiSdk.Monitoring.AlertRules.Item
+{
     /// <summary>
     /// Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
     /// </summary>
-    public class AlertRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertRules for monitoring

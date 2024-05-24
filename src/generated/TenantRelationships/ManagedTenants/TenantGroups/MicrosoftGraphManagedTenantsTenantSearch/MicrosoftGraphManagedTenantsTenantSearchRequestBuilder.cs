@@ -13,20 +13,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.MicrosoftGraphManagedTenantsTenantSearch {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.MicrosoftGraphManagedTenantsTenantSearch
+{
     /// <summary>
     /// Provides operations to call the tenantSearch method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsTenantSearchRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsTenantSearchRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke action tenantSearch
+        /// Searches for the specified managed tenants across tenant groups.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action tenantSearch";
+            command.Description = "Searches for the specified managed tenants across tenant groups.";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -64,7 +65,9 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.MicrosoftGraphM
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -90,7 +93,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.MicrosoftGraphM
         {
         }
         /// <summary>
-        /// Invoke action tenantSearch
+        /// Searches for the specified managed tenants across tenant groups.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Endpoints.Item {
+namespace ApiSdk.Groups.Item.Endpoints.Item
+{
     /// <summary>
     /// Provides operations to manage the endpoints property of the microsoft.graph.group entity.
     /// </summary>
-    public class EndpointItemRequestBuilder : BaseCliRequestBuilder 
+    public class EndpointItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property endpoints for groups
@@ -62,13 +63,14 @@ namespace ApiSdk.Groups.Item.Endpoints.Item {
             return command;
         }
         /// <summary>
-        /// Endpoints for the group. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a specific endpoint object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/endpoint-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Endpoints for the group. Read-only. Nullable.";
+            command.Description = "Retrieve the properties and relationships of a specific endpoint object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/endpoint-get?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Groups.Item.Endpoints.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Endpoints for the group. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a specific endpoint object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Groups.Item.Endpoints.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Endpoints for the group. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a specific endpoint object.
         /// </summary>
         public class EndpointItemRequestBuilderGetQueryParameters 
         {

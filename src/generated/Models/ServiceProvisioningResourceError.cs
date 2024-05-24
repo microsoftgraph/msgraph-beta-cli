@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServiceProvisioningResourceError : ServiceProvisioningError, IParsable 
+    public class ServiceProvisioningResourceError : ServiceProvisioningError, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The errors property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errors", n => { Errors = n.GetCollectionOfObjectValues<ServiceProvisioningResourceErrorDetail>(ServiceProvisioningResourceErrorDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<ServiceProvisioningResourceErrorDetail>(ServiceProvisioningResourceErrorDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

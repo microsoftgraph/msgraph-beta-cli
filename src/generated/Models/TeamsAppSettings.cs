@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppSettings : Entity, IParsable 
+    public class TeamsAppSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether users are allowed to request access to the unavailable Teams apps.</summary>
@@ -33,9 +34,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowUserRequestsForAppAccess", n => { AllowUserRequestsForAppAccess = n.GetBoolValue(); } },
-                {"isChatResourceSpecificConsentEnabled", n => { IsChatResourceSpecificConsentEnabled = n.GetBoolValue(); } },
-                {"isUserPersonalScopeResourceSpecificConsentEnabled", n => { IsUserPersonalScopeResourceSpecificConsentEnabled = n.GetBoolValue(); } },
+                { "allowUserRequestsForAppAccess", n => { AllowUserRequestsForAppAccess = n.GetBoolValue(); } },
+                { "isChatResourceSpecificConsentEnabled", n => { IsChatResourceSpecificConsentEnabled = n.GetBoolValue(); } },
+                { "isUserPersonalScopeResourceSpecificConsentEnabled", n => { IsUserPersonalScopeResourceSpecificConsentEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

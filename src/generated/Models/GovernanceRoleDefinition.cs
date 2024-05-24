@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GovernanceRoleDefinition : Entity, IParsable 
+    public class GovernanceRoleDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the role definition.</summary>
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The external id of the role definition.</summary>
+        /// <summary>The external ID of the role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalId { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public GovernanceResource Resource { get; set; }
 #endif
-        /// <summary>Required. The id of the resource associated with the role definition.</summary>
+        /// <summary>Required. The ID of the resource associated with the role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceId { get; set; }
@@ -49,7 +50,7 @@ namespace ApiSdk.Models {
 #else
         public GovernanceRoleSetting RoleSetting { get; set; }
 #endif
-        /// <summary>The templateId property</summary>
+        /// <summary>The unique identifier for the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TemplateId { get; set; }
@@ -75,12 +76,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"roleSetting", n => { RoleSetting = n.GetObjectValue<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue); } },
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "roleSetting", n => { RoleSetting = n.GetObjectValue<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Assignments.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
     /// </summary>
-    public class ManagedEBookAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedEBookAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceAppManagement

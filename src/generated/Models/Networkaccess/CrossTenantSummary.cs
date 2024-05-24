@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class CrossTenantSummary : IAdditionalDataHolder, IParsable 
+    public class CrossTenantSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,7 +26,7 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The rarelyUsedTenantCount property</summary>
+        /// <summary>The number of tenants that are rarely used.</summary>
         public int? RarelyUsedTenantCount { get; set; }
         /// <summary>The number of unique tenants that were accessed, not including the device&apos;s tenant.</summary>
         public int? TenantCount { get; set; }
@@ -56,13 +57,13 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authTransactionCount", n => { AuthTransactionCount = n.GetIntValue(); } },
-                {"deviceCount", n => { DeviceCount = n.GetIntValue(); } },
-                {"newTenantCount", n => { NewTenantCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"rarelyUsedTenantCount", n => { RarelyUsedTenantCount = n.GetIntValue(); } },
-                {"tenantCount", n => { TenantCount = n.GetIntValue(); } },
-                {"userCount", n => { UserCount = n.GetIntValue(); } },
+                { "authTransactionCount", n => { AuthTransactionCount = n.GetIntValue(); } },
+                { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
+                { "newTenantCount", n => { NewTenantCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "rarelyUsedTenantCount", n => { RarelyUsedTenantCount = n.GetIntValue(); } },
+                { "tenantCount", n => { TenantCount = n.GetIntValue(); } },
+                { "userCount", n => { UserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

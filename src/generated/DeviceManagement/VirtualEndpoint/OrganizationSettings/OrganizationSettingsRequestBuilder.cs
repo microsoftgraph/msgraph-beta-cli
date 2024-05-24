@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings
+{
     /// <summary>
     /// Provides operations to manage the organizationSettings property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class OrganizationSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class OrganizationSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property organizationSettings for deviceManagement
@@ -50,13 +51,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
             return command;
         }
         /// <summary>
-        /// The Cloud PC organization settings for a tenant.
+        /// Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The Cloud PC organization settings for a tenant.";
+            command.Description = "Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
             return command;
         }
         /// <summary>
-        /// Update the navigation property organizationSettings in deviceManagement
+        /// Update the properties of the cloudPcOrganizationSettings object in a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property organizationSettings in deviceManagement";
+            command.Description = "Update the properties of the cloudPcOrganizationSettings object in a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
             return requestInfo;
         }
         /// <summary>
-        /// The Cloud PC organization settings for a tenant.
+        /// Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property organizationSettings in deviceManagement
+        /// Update the properties of the cloudPcOrganizationSettings object in a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings {
             return requestInfo;
         }
         /// <summary>
-        /// The Cloud PC organization settings for a tenant.
+        /// Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
         /// </summary>
         public class OrganizationSettingsRequestBuilderGetQueryParameters 
         {

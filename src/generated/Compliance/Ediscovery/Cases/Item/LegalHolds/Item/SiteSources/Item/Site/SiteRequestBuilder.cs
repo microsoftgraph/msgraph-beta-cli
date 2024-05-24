@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources.Item.Site {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.SiteSources.Item.Site
+{
     /// <summary>
     /// Provides operations to manage the site property of the microsoft.graph.ediscovery.siteSource entity.
     /// </summary>
-    public class SiteRequestBuilder : BaseCliRequestBuilder 
+    public class SiteRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The SharePoint site associated with the siteSource.

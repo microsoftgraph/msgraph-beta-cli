@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PersonCertification : ItemFacet, IParsable 
+    public class PersonCertification : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The referenceable identifier for the certification.</summary>
@@ -97,16 +98,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificationId", n => { CertificationId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endDate", n => { EndDate = n.GetDateValue(); } },
-                {"issuedDate", n => { IssuedDate = n.GetDateValue(); } },
-                {"issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
-                {"issuingCompany", n => { IssuingCompany = n.GetStringValue(); } },
-                {"startDate", n => { StartDate = n.GetDateValue(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "certificationId", n => { CertificationId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endDate", n => { EndDate = n.GetDateValue(); } },
+                { "issuedDate", n => { IssuedDate = n.GetDateValue(); } },
+                { "issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
+                { "issuingCompany", n => { IssuingCompany = n.GetStringValue(); } },
+                { "startDate", n => { StartDate = n.GetDateValue(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

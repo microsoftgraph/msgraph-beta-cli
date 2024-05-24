@@ -13,17 +13,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators {
+namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
+{
     /// <summary>
     /// Provides operations to call the updateTiIndicators method.
     /// </summary>
-    public class UpdateTiIndicatorsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateTiIndicatorsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
@@ -65,7 +67,9 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -96,6 +100,7 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators {
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(UpdateTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

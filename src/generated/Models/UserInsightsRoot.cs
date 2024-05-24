@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserInsightsRoot : Entity, IParsable 
+    public class UserInsightsRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"daily", n => { Daily = n.GetObjectValue<DailyUserInsightMetricsRoot>(DailyUserInsightMetricsRoot.CreateFromDiscriminatorValue); } },
-                {"monthly", n => { Monthly = n.GetObjectValue<MonthlyUserInsightMetricsRoot>(MonthlyUserInsightMetricsRoot.CreateFromDiscriminatorValue); } },
+                { "daily", n => { Daily = n.GetObjectValue<DailyUserInsightMetricsRoot>(DailyUserInsightMetricsRoot.CreateFromDiscriminatorValue); } },
+                { "monthly", n => { Monthly = n.GetObjectValue<MonthlyUserInsightMetricsRoot>(MonthlyUserInsightMetricsRoot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

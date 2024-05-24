@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class StrongAuthenticationPhoneAppDetail : Entity, IParsable 
+    public class StrongAuthenticationPhoneAppDetail : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authenticationType property</summary>
@@ -123,21 +124,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationType", n => { AuthenticationType = n.GetStringValue(); } },
-                {"authenticatorFlavor", n => { AuthenticatorFlavor = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetGuidValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceTag", n => { DeviceTag = n.GetStringValue(); } },
-                {"deviceToken", n => { DeviceToken = n.GetStringValue(); } },
-                {"hashFunction", n => { HashFunction = n.GetStringValue(); } },
-                {"lastAuthenticatedDateTime", n => { LastAuthenticatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"notificationType", n => { NotificationType = n.GetStringValue(); } },
-                {"oathSecretKey", n => { OathSecretKey = n.GetStringValue(); } },
-                {"oathTokenMetadata", n => { OathTokenMetadata = n.GetObjectValue<ApiSdk.Models.OathTokenMetadata>(ApiSdk.Models.OathTokenMetadata.CreateFromDiscriminatorValue); } },
-                {"oathTokenTimeDriftInSeconds", n => { OathTokenTimeDriftInSeconds = n.GetIntValue(); } },
-                {"phoneAppVersion", n => { PhoneAppVersion = n.GetStringValue(); } },
-                {"tenantDeviceId", n => { TenantDeviceId = n.GetStringValue(); } },
-                {"tokenGenerationIntervalInSeconds", n => { TokenGenerationIntervalInSeconds = n.GetIntValue(); } },
+                { "authenticationType", n => { AuthenticationType = n.GetStringValue(); } },
+                { "authenticatorFlavor", n => { AuthenticatorFlavor = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetGuidValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceTag", n => { DeviceTag = n.GetStringValue(); } },
+                { "deviceToken", n => { DeviceToken = n.GetStringValue(); } },
+                { "hashFunction", n => { HashFunction = n.GetStringValue(); } },
+                { "lastAuthenticatedDateTime", n => { LastAuthenticatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "notificationType", n => { NotificationType = n.GetStringValue(); } },
+                { "oathSecretKey", n => { OathSecretKey = n.GetStringValue(); } },
+                { "oathTokenMetadata", n => { OathTokenMetadata = n.GetObjectValue<ApiSdk.Models.OathTokenMetadata>(ApiSdk.Models.OathTokenMetadata.CreateFromDiscriminatorValue); } },
+                { "oathTokenTimeDriftInSeconds", n => { OathTokenTimeDriftInSeconds = n.GetIntValue(); } },
+                { "phoneAppVersion", n => { PhoneAppVersion = n.GetStringValue(); } },
+                { "tenantDeviceId", n => { TenantDeviceId = n.GetStringValue(); } },
+                { "tokenGenerationIntervalInSeconds", n => { TokenGenerationIntervalInSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>

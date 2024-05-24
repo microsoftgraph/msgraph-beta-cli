@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Localizations.Item {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration.Localizations.Item
+{
     /// <summary>
     /// Provides operations to manage the localizations property of the microsoft.graph.plannerPlanConfiguration entity.
     /// </summary>
-    public class PlannerPlanConfigurationLocalizationItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerPlanConfigurationLocalizationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property localizations for solutions

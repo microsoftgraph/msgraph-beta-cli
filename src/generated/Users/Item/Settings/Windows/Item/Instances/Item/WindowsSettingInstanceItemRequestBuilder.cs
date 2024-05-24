@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.Windows.Item.Instances.Item {
+namespace ApiSdk.Users.Item.Settings.Windows.Item.Instances.Item
+{
     /// <summary>
     /// Provides operations to manage the instances property of the microsoft.graph.windowsSetting entity.
     /// </summary>
-    public class WindowsSettingInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsSettingInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property instances for users

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.CreateServerLogCollectionRequest {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.CreateServerLogCollectionRequest
+{
     /// <summary>
     /// Provides operations to call the createServerLogCollectionRequest method.
     /// </summary>
-    public class CreateServerLogCollectionRequestRequestBuilder : BaseCliRequestBuilder 
+    public class CreateServerLogCollectionRequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createServerLogCollectionRequest

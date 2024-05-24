@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.AcceptedFor {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.AcceptedFor
+{
     /// <summary>
     /// Provides operations to manage the acceptedFor property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     /// </summary>
-    public class AcceptedForRequestBuilder : BaseCliRequestBuilder 
+    public class AcceptedForRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get acceptedFor from tenantRelationships

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AnalyzedEmailAttachment : IAdditionalDataHolder, IParsable 
+    public class AnalyzedEmailAttachment : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -86,13 +87,13 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"detonationDetails", n => { DetonationDetails = n.GetObjectValue<ApiSdk.Models.Security.DetonationDetails>(ApiSdk.Models.Security.DetonationDetails.CreateFromDiscriminatorValue); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
-                {"fileType", n => { FileType = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"sha256", n => { Sha256 = n.GetStringValue(); } },
-                {"threatName", n => { ThreatName = n.GetStringValue(); } },
-                {"threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
+                { "detonationDetails", n => { DetonationDetails = n.GetObjectValue<ApiSdk.Models.Security.DetonationDetails>(ApiSdk.Models.Security.DetonationDetails.CreateFromDiscriminatorValue); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
+                { "fileType", n => { FileType = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "sha256", n => { Sha256 = n.GetStringValue(); } },
+                { "threatName", n => { ThreatName = n.GetStringValue(); } },
+                { "threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
             };
         }
         /// <summary>

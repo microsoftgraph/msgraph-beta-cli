@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CountriesRegions.Item {
+namespace ApiSdk.Financials.Companies.Item.CountriesRegions.Item
+{
     /// <summary>
     /// Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
     /// </summary>
-    public class CountryRegionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CountryRegionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property countriesRegions for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.CountriesRegions.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property countriesRegions for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var countryRegionIdOption = new Option<string>("--country-region-id", description: "The unique identifier of countryRegion") {
+            var countryRegionIdOption = new Option<Guid?>("--country-region-id", description: "The unique identifier of countryRegion") {
             };
             countryRegionIdOption.IsRequired = true;
             command.AddOption(countryRegionIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.CountriesRegions.Item {
         {
             var command = new Command("get");
             command.Description = "Get countriesRegions from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var countryRegionIdOption = new Option<string>("--country-region-id", description: "The unique identifier of countryRegion") {
+            var countryRegionIdOption = new Option<Guid?>("--country-region-id", description: "The unique identifier of countryRegion") {
             };
             countryRegionIdOption.IsRequired = true;
             command.AddOption(countryRegionIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.CountriesRegions.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property countriesRegions in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var countryRegionIdOption = new Option<string>("--country-region-id", description: "The unique identifier of countryRegion") {
+            var countryRegionIdOption = new Option<Guid?>("--country-region-id", description: "The unique identifier of countryRegion") {
             };
             countryRegionIdOption.IsRequired = true;
             command.AddOption(countryRegionIdOption);

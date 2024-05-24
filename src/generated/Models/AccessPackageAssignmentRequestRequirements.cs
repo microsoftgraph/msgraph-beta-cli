@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentRequestRequirements : IAdditionalDataHolder, IParsable 
+    public class AccessPackageAssignmentRequestRequirements : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -108,18 +109,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"existingAnswers", n => { ExistingAnswers = n.GetCollectionOfObjectValues<AccessPackageAnswer>(AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isApprovalRequired", n => { IsApprovalRequired = n.GetBoolValue(); } },
-                {"isApprovalRequiredForExtension", n => { IsApprovalRequiredForExtension = n.GetBoolValue(); } },
-                {"isCustomAssignmentScheduleAllowed", n => { IsCustomAssignmentScheduleAllowed = n.GetBoolValue(); } },
-                {"isRequestorJustificationRequired", n => { IsRequestorJustificationRequired = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"policyDescription", n => { PolicyDescription = n.GetStringValue(); } },
-                {"policyDisplayName", n => { PolicyDisplayName = n.GetStringValue(); } },
-                {"policyId", n => { PolicyId = n.GetStringValue(); } },
-                {"questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                {"verifiableCredentialRequirementStatus", n => { VerifiableCredentialRequirementStatus = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialRequirementStatus>(ApiSdk.Models.VerifiableCredentialRequirementStatus.CreateFromDiscriminatorValue); } },
+                { "existingAnswers", n => { ExistingAnswers = n.GetCollectionOfObjectValues<AccessPackageAnswer>(AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isApprovalRequired", n => { IsApprovalRequired = n.GetBoolValue(); } },
+                { "isApprovalRequiredForExtension", n => { IsApprovalRequiredForExtension = n.GetBoolValue(); } },
+                { "isCustomAssignmentScheduleAllowed", n => { IsCustomAssignmentScheduleAllowed = n.GetBoolValue(); } },
+                { "isRequestorJustificationRequired", n => { IsRequestorJustificationRequired = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "policyDescription", n => { PolicyDescription = n.GetStringValue(); } },
+                { "policyDisplayName", n => { PolicyDisplayName = n.GetStringValue(); } },
+                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "verifiableCredentialRequirementStatus", n => { VerifiableCredentialRequirementStatus = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialRequirementStatus>(ApiSdk.Models.VerifiableCredentialRequirementStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

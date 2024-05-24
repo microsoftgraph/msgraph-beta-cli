@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FileSystemInfo : IAdditionalDataHolder, IParsable 
+    public class FileSystemInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastAccessedDateTime", n => { LastAccessedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastAccessedDateTime", n => { LastAccessedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

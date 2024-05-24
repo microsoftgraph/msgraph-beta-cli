@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class GeoLocation : IAdditionalDataHolder, IParsable 
+    public class GeoLocation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,12 +73,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"city", n => { City = n.GetStringValue(); } },
-                {"countryName", n => { CountryName = n.GetStringValue(); } },
-                {"latitude", n => { Latitude = n.GetDoubleValue(); } },
-                {"longitude", n => { Longitude = n.GetDoubleValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"state", n => { State = n.GetStringValue(); } },
+                { "city", n => { City = n.GetStringValue(); } },
+                { "countryName", n => { CountryName = n.GetStringValue(); } },
+                { "latitude", n => { Latitude = n.GetDoubleValue(); } },
+                { "longitude", n => { Longitude = n.GetDoubleValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "state", n => { State = n.GetStringValue(); } },
             };
         }
         /// <summary>

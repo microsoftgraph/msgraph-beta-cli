@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues
+{
     #pragma warning disable CS1591
-    public class UpdateDefinitionValuesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateDefinitionValuesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The added property</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"added", n => { Added = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deletedIds", n => { DeletedIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"updated", n => { Updated = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "added", n => { Added = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedIds", n => { DeletedIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "updated", n => { Updated = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

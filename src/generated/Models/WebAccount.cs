@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WebAccount : ItemFacet, IParsable 
+    public class WebAccount : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the description the user has provided for the account on the service being referenced.</summary>
@@ -82,12 +83,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"service", n => { Service = n.GetObjectValue<ServiceInformation>(ServiceInformation.CreateFromDiscriminatorValue); } },
-                {"statusMessage", n => { StatusMessage = n.GetStringValue(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "service", n => { Service = n.GetObjectValue<ServiceInformation>(ServiceInformation.CreateFromDiscriminatorValue); } },
+                { "statusMessage", n => { StatusMessage = n.GetStringValue(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

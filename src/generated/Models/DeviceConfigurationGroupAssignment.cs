@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device configuration group assignment.
     /// </summary>
-    public class DeviceConfigurationGroupAssignment : Entity, IParsable 
+    public class DeviceConfigurationGroupAssignment : Entity, IParsable
     {
         /// <summary>The navigation link to the Device Configuration being targeted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceConfiguration", n => { DeviceConfiguration = n.GetObjectValue<ApiSdk.Models.DeviceConfiguration>(ApiSdk.Models.DeviceConfiguration.CreateFromDiscriminatorValue); } },
-                {"excludeGroup", n => { ExcludeGroup = n.GetBoolValue(); } },
-                {"targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
+                { "deviceConfiguration", n => { DeviceConfiguration = n.GetObjectValue<ApiSdk.Models.DeviceConfiguration>(ApiSdk.Models.DeviceConfiguration.CreateFromDiscriminatorValue); } },
+                { "excludeGroup", n => { ExcludeGroup = n.GetBoolValue(); } },
+                { "targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
             };
         }
         /// <summary>

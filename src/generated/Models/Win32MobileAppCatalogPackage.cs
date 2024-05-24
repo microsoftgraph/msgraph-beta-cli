@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// win32MobileAppCatalogPackage extends mobileAppCatalogPackage by providing information necessary for the creation of a win32CatalogApp instance.
     /// </summary>
-    public class Win32MobileAppCatalogPackage : MobileAppCatalogPackage, IParsable 
+    public class Win32MobileAppCatalogPackage : MobileAppCatalogPackage, IParsable
     {
         /// <summary>Contains properties for Windows architecture.</summary>
         public WindowsArchitecture? ApplicableArchitectures { get; set; }
@@ -55,10 +56,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
-                {"branchDisplayName", n => { BranchDisplayName = n.GetStringValue(); } },
-                {"locales", n => { Locales = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"packageAutoUpdateCapable", n => { PackageAutoUpdateCapable = n.GetBoolValue(); } },
+                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "branchDisplayName", n => { BranchDisplayName = n.GetStringValue(); } },
+                { "locales", n => { Locales = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "packageAutoUpdateCapable", n => { PackageAutoUpdateCapable = n.GetBoolValue(); } },
             };
         }
         /// <summary>

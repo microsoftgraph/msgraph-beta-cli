@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.FilterByCurrentUserWithOn {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.FilterByCurrentUserWithOn
+{
     #pragma warning disable CS1591
-    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.FilterByCur
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AccessReviewStage>(AccessReviewStage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AccessReviewStage>(AccessReviewStage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

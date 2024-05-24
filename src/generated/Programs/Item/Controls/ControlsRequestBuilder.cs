@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Programs.Item.Controls {
+namespace ApiSdk.Programs.Item.Controls
+{
     /// <summary>
     /// Provides operations to manage the controls property of the microsoft.graph.program entity.
     /// </summary>
-    public class ControlsRequestBuilder : BaseCliRequestBuilder 
+    public class ControlsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the controls property of the microsoft.graph.program entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.Programs.Item.Controls {
             return command;
         }
         /// <summary>
-        /// Controls associated with the program.
+        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/program-listcontrols?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Controls associated with the program.";
+            command.Description = "In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/program-listcontrols?view=graph-rest-beta";
             var programIdOption = new Option<string>("--program-id", description: "The unique identifier of program") {
             };
             programIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.Programs.Item.Controls {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.Programs.Item.Controls {
         {
         }
         /// <summary>
-        /// Controls associated with the program.
+        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.Programs.Item.Controls {
             return requestInfo;
         }
         /// <summary>
-        /// Controls associated with the program.
+        /// In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
         /// </summary>
         public class ControlsRequestBuilderGetQueryParameters 
         {

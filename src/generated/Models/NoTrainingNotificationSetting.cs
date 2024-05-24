@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class NoTrainingNotificationSetting : EndUserNotificationSetting, IParsable 
+    public class NoTrainingNotificationSetting : EndUserNotificationSetting, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The notification for the user who is part of the simulation.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"simulationNotification", n => { SimulationNotification = n.GetObjectValue<ApiSdk.Models.SimulationNotification>(ApiSdk.Models.SimulationNotification.CreateFromDiscriminatorValue); } },
+                { "simulationNotification", n => { SimulationNotification = n.GetObjectValue<ApiSdk.Models.SimulationNotification>(ApiSdk.Models.SimulationNotification.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

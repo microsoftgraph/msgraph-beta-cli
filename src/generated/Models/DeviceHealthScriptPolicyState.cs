@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for policy run state of the device health script.
     /// </summary>
-    public class DeviceHealthScriptPolicyState : IAdditionalDataHolder, IParsable 
+    public class DeviceHealthScriptPolicyState : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -159,25 +160,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"policyId", n => { PolicyId = n.GetStringValue(); } },
-                {"policyName", n => { PolicyName = n.GetStringValue(); } },
-                {"postRemediationDetectionScriptError", n => { PostRemediationDetectionScriptError = n.GetStringValue(); } },
-                {"postRemediationDetectionScriptOutput", n => { PostRemediationDetectionScriptOutput = n.GetStringValue(); } },
-                {"preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
-                {"preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
-                {"remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
-                {"remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
+                { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "policyName", n => { PolicyName = n.GetStringValue(); } },
+                { "postRemediationDetectionScriptError", n => { PostRemediationDetectionScriptError = n.GetStringValue(); } },
+                { "postRemediationDetectionScriptOutput", n => { PostRemediationDetectionScriptOutput = n.GetStringValue(); } },
+                { "preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
+                { "preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
+                { "remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
             };
         }
         /// <summary>

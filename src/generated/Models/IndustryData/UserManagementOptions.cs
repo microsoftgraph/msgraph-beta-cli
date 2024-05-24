@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class UserManagementOptions : IAdditionalDataHolder, IParsable 
+    public class UserManagementOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The different attribute choices for the users to be provisioned. The possible values are: userGradeLevel, userNumber, unknownFutureValue.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<AdditionalUserAttributes>()?.ToList(); } },
-                {"additionalOptions", n => { AdditionalOptions = n.GetObjectValue<AdditionalUserOptions>(AdditionalUserOptions.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<AdditionalUserAttributes>()?.ToList(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetObjectValue<AdditionalUserOptions>(AdditionalUserOptions.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

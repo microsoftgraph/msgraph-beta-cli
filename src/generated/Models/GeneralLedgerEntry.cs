@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GeneralLedgerEntry : IAdditionalDataHolder, IParsable 
+    public class GeneralLedgerEntry : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -97,18 +98,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
-                {"accountId", n => { AccountId = n.GetGuidValue(); } },
-                {"accountNumber", n => { AccountNumber = n.GetStringValue(); } },
-                {"creditAmount", n => { CreditAmount = n.GetDecimalValue(); } },
-                {"debitAmount", n => { DebitAmount = n.GetDecimalValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
-                {"documentType", n => { DocumentType = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"postingDate", n => { PostingDate = n.GetDateValue(); } },
+                { "account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
+                { "accountId", n => { AccountId = n.GetGuidValue(); } },
+                { "accountNumber", n => { AccountNumber = n.GetStringValue(); } },
+                { "creditAmount", n => { CreditAmount = n.GetDecimalValue(); } },
+                { "debitAmount", n => { DebitAmount = n.GetDecimalValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
+                { "documentType", n => { DocumentType = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "postingDate", n => { PostingDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

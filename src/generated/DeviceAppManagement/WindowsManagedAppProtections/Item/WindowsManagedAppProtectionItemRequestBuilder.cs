@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item {
+namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class WindowsManagedAppProtectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsManagedAppProtectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the apps property of the microsoft.graph.windowsManagedAppProtection entity.

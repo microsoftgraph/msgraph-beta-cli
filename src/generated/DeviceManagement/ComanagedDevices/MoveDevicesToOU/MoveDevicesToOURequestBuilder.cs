@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.MoveDevicesToOU {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.MoveDevicesToOU
+{
     /// <summary>
     /// Provides operations to call the moveDevicesToOU method.
     /// </summary>
-    public class MoveDevicesToOURequestBuilder : BaseCliRequestBuilder 
+    public class MoveDevicesToOURequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action moveDevicesToOU

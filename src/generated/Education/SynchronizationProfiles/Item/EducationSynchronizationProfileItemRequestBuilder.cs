@@ -21,20 +21,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item {
+namespace ApiSdk.Education.SynchronizationProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class EducationSynchronizationProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationSynchronizationProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property synchronizationProfiles for education
+        /// Delete a school data synchronization profile in the tenant based on the identifier.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofile-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property synchronizationProfiles for education";
+            command.Description = "Delete a school data synchronization profile in the tenant based on the identifier.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofile-delete?view=graph-rest-beta";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;
@@ -90,13 +92,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve a school data synchronization profile in the tenant based on the identifier.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get synchronizationProfiles from education";
+            command.Description = "Retrieve a school data synchronization profile in the tenant based on the identifier.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofile-get?view=graph-rest-beta";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;
@@ -311,7 +314,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property synchronizationProfiles for education
+        /// Delete a school data synchronization profile in the tenant based on the identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -330,7 +333,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve a school data synchronization profile in the tenant based on the identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -370,7 +373,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve a school data synchronization profile in the tenant based on the identifier.
         /// </summary>
         public class EducationSynchronizationProfileItemRequestBuilderGetQueryParameters 
         {

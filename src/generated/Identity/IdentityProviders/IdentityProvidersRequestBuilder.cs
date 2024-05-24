@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.IdentityProviders {
+namespace ApiSdk.Identity.IdentityProviders
+{
     /// <summary>
     /// Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the availableProviderTypes method.
@@ -71,13 +72,14 @@ namespace ApiSdk.Identity.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to identityProviders for identity
+        /// Create an identity provider object that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently create a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-post-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to identityProviders for identity";
+            command.Description = "Create an identity provider object that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently create a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-post-identityproviders?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -116,13 +118,14 @@ namespace ApiSdk.Identity.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For a Microsoft Entra tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, openIdConnectIdentityProvider, or appleManagedIdentityProvider objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-list-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents entry point for identity provider base.";
+            command.Description = "Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For a Microsoft Entra tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, openIdConnectIdentityProvider, or appleManagedIdentityProvider objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-list-identityproviders?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -198,7 +201,9 @@ namespace ApiSdk.Identity.IdentityProviders {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +229,7 @@ namespace ApiSdk.Identity.IdentityProviders {
         {
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For a Microsoft Entra tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, openIdConnectIdentityProvider, or appleManagedIdentityProvider objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -243,7 +248,7 @@ namespace ApiSdk.Identity.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to identityProviders for identity
+        /// Create an identity provider object that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently create a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -264,7 +269,7 @@ namespace ApiSdk.Identity.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For a Microsoft Entra tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, openIdConnectIdentityProvider, or appleManagedIdentityProvider objects.
         /// </summary>
         public class IdentityProvidersRequestBuilderGetQueryParameters 
         {

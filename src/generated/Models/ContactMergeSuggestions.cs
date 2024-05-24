@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ContactMergeSuggestions : Entity, IParsable 
+    public class ContactMergeSuggestions : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>true if the duplicate contact merge suggestions feature is enabled for the user; false if the feature is disabled. Default value is true.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

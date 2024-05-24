@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleRequests {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleRequests
+{
     /// <summary>
     /// Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class RoleEligibilityScheduleRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class RoleEligibilityScheduleRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -61,13 +62,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
             return command;
         }
         /// <summary>
-        /// Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+        /// Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to roleEligibilityScheduleRequests for roleManagement";
+            command.Description = "Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -123,13 +125,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
             return command;
         }
         /// <summary>
-        /// Get roleEligibilityScheduleRequests from roleManagement
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get roleEligibilityScheduleRequests from roleManagement";
+            command.Description = "Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -205,7 +208,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -231,7 +236,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
         {
         }
         /// <summary>
-        /// Get roleEligibilityScheduleRequests from roleManagement
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +255,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+        /// Create a new unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -271,7 +276,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleReques
             return requestInfo;
         }
         /// <summary>
-        /// Get roleEligibilityScheduleRequests from roleManagement
+        /// Get a list of the unifiedRoleEligibilityScheduleRequest objects and their properties.
         /// </summary>
         public class RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.ItemAtWithIndex.Rows {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.ItemAtWithIndex.Rows
+{
     /// <summary>
     /// Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class RowsRequestBuilder : BaseCliRequestBuilder 
+    public class RowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Represents a collection of all the rows in the table. Read-only.
@@ -127,7 +128,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.ItemAtWi
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

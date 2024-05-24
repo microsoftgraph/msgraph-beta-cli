@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ReferenceAttachment : Attachment, IParsable 
+    public class ReferenceAttachment : Attachment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.</summary>
@@ -64,12 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isFolder", n => { IsFolder = n.GetBoolValue(); } },
-                {"permission", n => { Permission = n.GetEnumValue<ReferenceAttachmentPermission>(); } },
-                {"previewUrl", n => { PreviewUrl = n.GetStringValue(); } },
-                {"providerType", n => { ProviderType = n.GetEnumValue<ReferenceAttachmentProvider>(); } },
-                {"sourceUrl", n => { SourceUrl = n.GetStringValue(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "isFolder", n => { IsFolder = n.GetBoolValue(); } },
+                { "permission", n => { Permission = n.GetEnumValue<ReferenceAttachmentPermission>(); } },
+                { "previewUrl", n => { PreviewUrl = n.GetStringValue(); } },
+                { "providerType", n => { ProviderType = n.GetEnumValue<ReferenceAttachmentProvider>(); } },
+                { "sourceUrl", n => { SourceUrl = n.GetStringValue(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

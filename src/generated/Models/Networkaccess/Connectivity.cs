@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Connectivity : ApiSdk.Models.Entity, IParsable 
+    public class Connectivity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"branches", n => { Branches = n.GetCollectionOfObjectValues<BranchSite>(BranchSite.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<RemoteNetwork>(RemoteNetwork.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"webCategories", n => { WebCategories = n.GetCollectionOfObjectValues<WebCategory>(WebCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "branches", n => { Branches = n.GetCollectionOfObjectValues<BranchSite>(BranchSite.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<RemoteNetwork>(RemoteNetwork.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "webCategories", n => { WebCategories = n.GetCollectionOfObjectValues<WebCategory>(WebCategory.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

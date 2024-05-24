@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChanges.Item {
+namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChanges.Item
+{
     /// <summary>
     /// Provides operations to manage the permissionsRequestChanges property of the microsoft.graph.permissionsManagement entity.
     /// </summary>
-    public class PermissionsRequestChangeItemRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsRequestChangeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property permissionsRequestChanges for identityGovernance
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
             return command;
         }
         /// <summary>
-        /// Represents a change event of the scheduledPermissionsRequest entity.
+        /// Read the properties and relationships of a permissionsRequestChange object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissionsrequestchange-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a change event of the scheduledPermissionsRequest entity.";
+            command.Description = "Read the properties and relationships of a permissionsRequestChange object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissionsrequestchange-get?view=graph-rest-beta";
             var permissionsRequestChangeIdOption = new Option<string>("--permissions-request-change-id", description: "The unique identifier of permissionsRequestChange") {
             };
             permissionsRequestChangeIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
             return requestInfo;
         }
         /// <summary>
-        /// Represents a change event of the scheduledPermissionsRequest entity.
+        /// Read the properties and relationships of a permissionsRequestChange object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChan
             return requestInfo;
         }
         /// <summary>
-        /// Represents a change event of the scheduledPermissionsRequest entity.
+        /// Read the properties and relationships of a permissionsRequestChange object.
         /// </summary>
         public class PermissionsRequestChangeItemRequestBuilderGetQueryParameters 
         {

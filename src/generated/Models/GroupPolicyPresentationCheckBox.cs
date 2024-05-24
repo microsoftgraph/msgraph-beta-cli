@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an ADMX checkBox element and an ADMX boolean element.
     /// </summary>
-    public class GroupPolicyPresentationCheckBox : GroupPolicyUploadedPresentation, IParsable 
+    public class GroupPolicyPresentationCheckBox : GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>Default value for the check box. The default value is false.</summary>
         public bool? DefaultChecked { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultChecked", n => { DefaultChecked = n.GetBoolValue(); } },
+                { "defaultChecked", n => { DefaultChecked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.SendReminder {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.SendReminder
+{
     /// <summary>
     /// Provides operations to call the sendReminder method.
     /// </summary>
-    public class SendReminderRequestBuilder : BaseCliRequestBuilder 
+    public class SendReminderRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Send a reminder to the reviewers of a currently active accessReviewInstance.

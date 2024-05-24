@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity representing the defintion for a collection setting
     /// </summary>
-    public class DeviceManagementCollectionSettingDefinition : DeviceManagementSettingDefinition, IParsable 
+    public class DeviceManagementCollectionSettingDefinition : DeviceManagementSettingDefinition, IParsable
     {
         /// <summary>The Setting Definition ID that describes what each element of the collection looks like</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"elementDefinitionId", n => { ElementDefinitionId = n.GetStringValue(); } },
+                { "elementDefinitionId", n => { ElementDefinitionId = n.GetStringValue(); } },
             };
         }
         /// <summary>

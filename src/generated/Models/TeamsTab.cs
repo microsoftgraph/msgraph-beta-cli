@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsTab : Entity, IParsable 
+    public class TeamsTab : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Container for custom settings applied to a tab. The tab is considered configured only once this property is set.</summary>
@@ -49,7 +50,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.TeamsApp TeamsApp { get; set; }
 #endif
-        /// <summary>The teamsAppId property</summary>
+        /// <summary>App definition identifier of the tab. This value can&apos;t be changed after tab creation. Because this property is deprecated, we recommend expanding teamsApp to retrieve the application that is linked to the tab.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TeamsAppId { get; set; }
@@ -83,13 +84,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configuration", n => { Configuration = n.GetObjectValue<TeamsTabConfiguration>(TeamsTabConfiguration.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"messageId", n => { MessageId = n.GetStringValue(); } },
-                {"sortOrderIndex", n => { SortOrderIndex = n.GetStringValue(); } },
-                {"teamsApp", n => { TeamsApp = n.GetObjectValue<ApiSdk.Models.TeamsApp>(ApiSdk.Models.TeamsApp.CreateFromDiscriminatorValue); } },
-                {"teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<TeamsTabConfiguration>(TeamsTabConfiguration.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "messageId", n => { MessageId = n.GetStringValue(); } },
+                { "sortOrderIndex", n => { SortOrderIndex = n.GetStringValue(); } },
+                { "teamsApp", n => { TeamsApp = n.GetObjectValue<ApiSdk.Models.TeamsApp>(ApiSdk.Models.TeamsApp.CreateFromDiscriminatorValue); } },
+                { "teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

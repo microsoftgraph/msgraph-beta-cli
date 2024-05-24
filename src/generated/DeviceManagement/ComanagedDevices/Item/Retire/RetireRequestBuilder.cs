@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.Retire {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.Retire
+{
     /// <summary>
     /// Provides operations to call the retire method.
     /// </summary>
-    public class RetireRequestBuilder : BaseCliRequestBuilder 
+    public class RetireRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retire a device

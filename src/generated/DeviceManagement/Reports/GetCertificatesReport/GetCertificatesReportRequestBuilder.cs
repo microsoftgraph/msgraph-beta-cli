@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetCertificatesReport {
+namespace ApiSdk.DeviceManagement.Reports.GetCertificatesReport
+{
     /// <summary>
     /// Provides operations to call the getCertificatesReport method.
     /// </summary>
-    public class GetCertificatesReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetCertificatesReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getCertificatesReport

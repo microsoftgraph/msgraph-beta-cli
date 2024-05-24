@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class RateDrivenRolloutSettings : GradualRolloutSettings, IParsable 
+    public class RateDrivenRolloutSettings : GradualRolloutSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the number of devices that are offered at the same time. When not set, all devices in the deployment are offered content at the same time.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"devicesPerOffer", n => { DevicesPerOffer = n.GetIntValue(); } },
+                { "devicesPerOffer", n => { DevicesPerOffer = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SearchHit : IAdditionalDataHolder, IParsable 
+    public class SearchHit : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The _summary property</summary>
@@ -114,18 +115,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentSource", n => { ContentSource = n.GetStringValue(); } },
-                {"hitId", n => { HitId = n.GetStringValue(); } },
-                {"_id", n => { Id = n.GetStringValue(); } },
-                {"isCollapsed", n => { IsCollapsed = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"rank", n => { Rank = n.GetIntValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
-                {"resultTemplateId", n => { ResultTemplateId = n.GetStringValue(); } },
-                {"_score", n => { Score = n.GetIntValue(); } },
-                {"_source", n => { Source = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
-                {"summary", n => { Summary = n.GetStringValue(); } },
-                {"_summary", n => { _summary = n.GetStringValue(); } },
+                { "contentSource", n => { ContentSource = n.GetStringValue(); } },
+                { "hitId", n => { HitId = n.GetStringValue(); } },
+                { "_id", n => { Id = n.GetStringValue(); } },
+                { "isCollapsed", n => { IsCollapsed = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "rank", n => { Rank = n.GetIntValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
+                { "resultTemplateId", n => { ResultTemplateId = n.GetStringValue(); } },
+                { "_score", n => { Score = n.GetIntValue(); } },
+                { "_source", n => { Source = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetStringValue(); } },
+                { "_summary", n => { _summary = n.GetStringValue(); } },
             };
         }
         /// <summary>

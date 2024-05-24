@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.ItemInsights {
+namespace ApiSdk.Users.Item.Settings.ItemInsights
+{
     /// <summary>
     /// Provides operations to manage the itemInsights property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class ItemInsightsRequestBuilder : BaseCliRequestBuilder 
+    public class ItemInsightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property itemInsights for users
@@ -108,13 +109,14 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
             return command;
         }
         /// <summary>
-        /// Update the navigation property itemInsights in users
+        /// Update the privacy settings for itemInsights and meeting hours insights of a user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property itemInsights in users";
+            command.Description = "Update the privacy settings for itemInsights and meeting hours insights of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -211,7 +213,7 @@ namespace ApiSdk.Users.Item.Settings.ItemInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property itemInsights in users
+        /// Update the privacy settings for itemInsights and meeting hours insights of a user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

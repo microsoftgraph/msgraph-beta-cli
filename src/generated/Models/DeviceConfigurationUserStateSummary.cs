@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceConfigurationUserStateSummary : Entity, IParsable 
+    public class DeviceConfigurationUserStateSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of compliant users</summary>
@@ -41,13 +42,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"compliantUserCount", n => { CompliantUserCount = n.GetIntValue(); } },
-                {"conflictUserCount", n => { ConflictUserCount = n.GetIntValue(); } },
-                {"errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
-                {"nonCompliantUserCount", n => { NonCompliantUserCount = n.GetIntValue(); } },
-                {"notApplicableUserCount", n => { NotApplicableUserCount = n.GetIntValue(); } },
-                {"remediatedUserCount", n => { RemediatedUserCount = n.GetIntValue(); } },
-                {"unknownUserCount", n => { UnknownUserCount = n.GetIntValue(); } },
+                { "compliantUserCount", n => { CompliantUserCount = n.GetIntValue(); } },
+                { "conflictUserCount", n => { ConflictUserCount = n.GetIntValue(); } },
+                { "errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
+                { "nonCompliantUserCount", n => { NonCompliantUserCount = n.GetIntValue(); } },
+                { "notApplicableUserCount", n => { NotApplicableUserCount = n.GetIntValue(); } },
+                { "remediatedUserCount", n => { RemediatedUserCount = n.GetIntValue(); } },
+                { "unknownUserCount", n => { UnknownUserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

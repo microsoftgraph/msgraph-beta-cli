@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ReusableSettings.Item {
+namespace ApiSdk.DeviceManagement.ReusableSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the reusableSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reusableSettings for deviceManagement

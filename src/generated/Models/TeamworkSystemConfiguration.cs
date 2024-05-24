@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkSystemConfiguration : IAdditionalDataHolder, IParsable 
+    public class TeamworkSystemConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -104,19 +105,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dateTimeConfiguration", n => { DateTimeConfiguration = n.GetObjectValue<TeamworkDateTimeConfiguration>(TeamworkDateTimeConfiguration.CreateFromDiscriminatorValue); } },
-                {"defaultPassword", n => { DefaultPassword = n.GetStringValue(); } },
-                {"deviceLockTimeout", n => { DeviceLockTimeout = n.GetTimeSpanValue(); } },
-                {"isDeviceLockEnabled", n => { IsDeviceLockEnabled = n.GetBoolValue(); } },
-                {"isLoggingEnabled", n => { IsLoggingEnabled = n.GetBoolValue(); } },
-                {"isPowerSavingEnabled", n => { IsPowerSavingEnabled = n.GetBoolValue(); } },
-                {"isScreenCaptureEnabled", n => { IsScreenCaptureEnabled = n.GetBoolValue(); } },
-                {"isSilentModeEnabled", n => { IsSilentModeEnabled = n.GetBoolValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"lockPin", n => { LockPin = n.GetStringValue(); } },
-                {"loggingLevel", n => { LoggingLevel = n.GetStringValue(); } },
-                {"networkConfiguration", n => { NetworkConfiguration = n.GetObjectValue<TeamworkNetworkConfiguration>(TeamworkNetworkConfiguration.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "dateTimeConfiguration", n => { DateTimeConfiguration = n.GetObjectValue<TeamworkDateTimeConfiguration>(TeamworkDateTimeConfiguration.CreateFromDiscriminatorValue); } },
+                { "defaultPassword", n => { DefaultPassword = n.GetStringValue(); } },
+                { "deviceLockTimeout", n => { DeviceLockTimeout = n.GetTimeSpanValue(); } },
+                { "isDeviceLockEnabled", n => { IsDeviceLockEnabled = n.GetBoolValue(); } },
+                { "isLoggingEnabled", n => { IsLoggingEnabled = n.GetBoolValue(); } },
+                { "isPowerSavingEnabled", n => { IsPowerSavingEnabled = n.GetBoolValue(); } },
+                { "isScreenCaptureEnabled", n => { IsScreenCaptureEnabled = n.GetBoolValue(); } },
+                { "isSilentModeEnabled", n => { IsSilentModeEnabled = n.GetBoolValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "lockPin", n => { LockPin = n.GetStringValue(); } },
+                { "loggingLevel", n => { LoggingLevel = n.GetStringValue(); } },
+                { "networkConfiguration", n => { NetworkConfiguration = n.GetObjectValue<TeamworkNetworkConfiguration>(TeamworkNetworkConfiguration.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

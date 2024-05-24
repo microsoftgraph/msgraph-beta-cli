@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.
     /// </summary>
-    public class WindowsAutopilotDeviceIdentity : Entity, IParsable 
+    public class WindowsAutopilotDeviceIdentity : Entity, IParsable
     {
         /// <summary>Addressable user name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -204,34 +205,34 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
-                {"azureActiveDirectoryDeviceId", n => { AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
-                {"azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
-                {"deploymentProfile", n => { DeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
-                {"deploymentProfileAssignedDateTime", n => { DeploymentProfileAssignedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deploymentProfileAssignmentDetailedStatus", n => { DeploymentProfileAssignmentDetailedStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentDetailedStatus>(); } },
-                {"deploymentProfileAssignmentStatus", n => { DeploymentProfileAssignmentStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentStatus>(); } },
-                {"deviceAccountPassword", n => { DeviceAccountPassword = n.GetStringValue(); } },
-                {"deviceAccountUpn", n => { DeviceAccountUpn = n.GetStringValue(); } },
-                {"deviceFriendlyName", n => { DeviceFriendlyName = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
-                {"groupTag", n => { GroupTag = n.GetStringValue(); } },
-                {"intendedDeploymentProfile", n => { IntendedDeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
-                {"lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"productKey", n => { ProductKey = n.GetStringValue(); } },
-                {"purchaseOrderIdentifier", n => { PurchaseOrderIdentifier = n.GetStringValue(); } },
-                {"remediationState", n => { RemediationState = n.GetEnumValue<WindowsAutopilotDeviceRemediationState>(); } },
-                {"remediationStateLastModifiedDateTime", n => { RemediationStateLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resourceName", n => { ResourceName = n.GetStringValue(); } },
-                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
-                {"skuNumber", n => { SkuNumber = n.GetStringValue(); } },
-                {"systemFamily", n => { SystemFamily = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userlessEnrollmentStatus", n => { UserlessEnrollmentStatus = n.GetEnumValue<WindowsAutopilotUserlessEnrollmentStatus>(); } },
+                { "addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
+                { "azureActiveDirectoryDeviceId", n => { AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
+                { "azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
+                { "deploymentProfile", n => { DeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
+                { "deploymentProfileAssignedDateTime", n => { DeploymentProfileAssignedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deploymentProfileAssignmentDetailedStatus", n => { DeploymentProfileAssignmentDetailedStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentDetailedStatus>(); } },
+                { "deploymentProfileAssignmentStatus", n => { DeploymentProfileAssignmentStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentStatus>(); } },
+                { "deviceAccountPassword", n => { DeviceAccountPassword = n.GetStringValue(); } },
+                { "deviceAccountUpn", n => { DeviceAccountUpn = n.GetStringValue(); } },
+                { "deviceFriendlyName", n => { DeviceFriendlyName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                { "groupTag", n => { GroupTag = n.GetStringValue(); } },
+                { "intendedDeploymentProfile", n => { IntendedDeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
+                { "lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "productKey", n => { ProductKey = n.GetStringValue(); } },
+                { "purchaseOrderIdentifier", n => { PurchaseOrderIdentifier = n.GetStringValue(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<WindowsAutopilotDeviceRemediationState>(); } },
+                { "remediationStateLastModifiedDateTime", n => { RemediationStateLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resourceName", n => { ResourceName = n.GetStringValue(); } },
+                { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                { "skuNumber", n => { SkuNumber = n.GetStringValue(); } },
+                { "systemFamily", n => { SystemFamily = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userlessEnrollmentStatus", n => { UserlessEnrollmentStatus = n.GetEnumValue<WindowsAutopilotUserlessEnrollmentStatus>(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantTicketingEndpoints.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantTicketingEndpoints.Item
+{
     /// <summary>
     /// Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagedTenantTicketingEndpointItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedTenantTicketingEndpointItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedTenantTicketingEndpoints for tenantRelationships

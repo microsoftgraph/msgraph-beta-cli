@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Partners.Billing {
+namespace ApiSdk.Models.Partners.Billing
+{
     #pragma warning disable CS1591
-    public class ExportSuccessOperation : Operation, IParsable 
+    public class ExportSuccessOperation : Operation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The resourceLocation property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.Partners.Billing {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"resourceLocation", n => { ResourceLocation = n.GetObjectValue<Manifest>(Manifest.CreateFromDiscriminatorValue); } },
+                { "resourceLocation", n => { ResourceLocation = n.GetObjectValue<Manifest>(Manifest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FileClassificationRequest : Entity, IParsable 
+    public class FileClassificationRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The file property</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"file", n => { File = n.GetByteArrayValue(); } },
-                {"sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "file", n => { File = n.GetByteArrayValue(); } },
+                { "sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsResetTenantOnboardingStatus {
+namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsResetTenantOnboardingStatus
+{
     /// <summary>
     /// Provides operations to call the resetTenantOnboardingStatus method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Carries out the appropriate procedures to reset the onboarding status for the managed tenant that was removed from the multitenant management platform using the offboardTenant action. By invoking this action the platform attempts to onboard the managed tenant for management.

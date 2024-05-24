@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CredentialUserRegistrationCount : Entity, IParsable 
+    public class CredentialUserRegistrationCount : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Provides the count of users with accountEnabled set to true in the tenant.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"totalUserCount", n => { TotalUserCount = n.GetLongValue(); } },
-                {"userRegistrationCounts", n => { UserRegistrationCounts = n.GetCollectionOfObjectValues<UserRegistrationCount>(UserRegistrationCount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "totalUserCount", n => { TotalUserCount = n.GetLongValue(); } },
+                { "userRegistrationCounts", n => { UserRegistrationCounts = n.GetCollectionOfObjectValues<UserRegistrationCount>(UserRegistrationCount.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

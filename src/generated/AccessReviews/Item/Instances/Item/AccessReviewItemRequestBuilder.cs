@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Instances.Item {
+namespace ApiSdk.AccessReviews.Item.Instances.Item
+{
     /// <summary>
     /// Provides operations to manage the instances property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class AccessReviewItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the applyDecisions method.

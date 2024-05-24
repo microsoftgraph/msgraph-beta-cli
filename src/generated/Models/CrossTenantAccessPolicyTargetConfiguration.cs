@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CrossTenantAccessPolicyTargetConfiguration : IAdditionalDataHolder, IParsable 
+    public class CrossTenantAccessPolicyTargetConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessType", n => { AccessType = n.GetEnumValue<CrossTenantAccessPolicyTargetConfigurationAccessType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"targets", n => { Targets = n.GetCollectionOfObjectValues<CrossTenantAccessPolicyTarget>(CrossTenantAccessPolicyTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<CrossTenantAccessPolicyTargetConfigurationAccessType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "targets", n => { Targets = n.GetCollectionOfObjectValues<CrossTenantAccessPolicyTarget>(CrossTenantAccessPolicyTarget.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

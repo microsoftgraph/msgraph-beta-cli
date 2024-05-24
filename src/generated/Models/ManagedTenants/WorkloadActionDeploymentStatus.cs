@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class WorkloadActionDeploymentStatus : IAdditionalDataHolder, IParsable 
+    public class WorkloadActionDeploymentStatus : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the workload action. Required. Read-only.</summary>
@@ -90,15 +91,15 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionId", n => { ActionId = n.GetStringValue(); } },
-                {"deployedPolicyId", n => { DeployedPolicyId = n.GetStringValue(); } },
-                {"error", n => { Error = n.GetObjectValue<ApiSdk.Models.GenericError>(ApiSdk.Models.GenericError.CreateFromDiscriminatorValue); } },
-                {"excludeGroups", n => { ExcludeGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"includeAllUsers", n => { IncludeAllUsers = n.GetBoolValue(); } },
-                {"includeGroups", n => { IncludeGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"lastDeploymentDateTime", n => { LastDeploymentDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<WorkloadActionStatus>(); } },
+                { "actionId", n => { ActionId = n.GetStringValue(); } },
+                { "deployedPolicyId", n => { DeployedPolicyId = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetObjectValue<ApiSdk.Models.GenericError>(ApiSdk.Models.GenericError.CreateFromDiscriminatorValue); } },
+                { "excludeGroups", n => { ExcludeGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "includeAllUsers", n => { IncludeAllUsers = n.GetBoolValue(); } },
+                { "includeGroups", n => { IncludeGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "lastDeploymentDateTime", n => { LastDeploymentDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<WorkloadActionStatus>(); } },
             };
         }
         /// <summary>

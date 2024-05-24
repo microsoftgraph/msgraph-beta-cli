@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item
+{
     /// <summary>
     /// Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class EdiscoveryCustodianItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryCustodianItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property custodians for security
@@ -71,13 +72,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Read the properties and relationships of an ediscoveryCustodian object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycustodian-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of case ediscoveryCustodian objects for this case.";
+            command.Description = "Read the properties and relationships of an ediscoveryCustodian object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycustodian-get?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -402,7 +404,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Read the properties and relationships of an ediscoveryCustodian object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -442,7 +444,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Read the properties and relationships of an ediscoveryCustodian object.
         /// </summary>
         public class EdiscoveryCustodianItemRequestBuilderGetQueryParameters 
         {

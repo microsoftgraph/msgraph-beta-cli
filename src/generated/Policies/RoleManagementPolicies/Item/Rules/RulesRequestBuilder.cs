@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules {
+namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules
+{
     /// <summary>
     /// Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
     /// </summary>
-    public class RulesRequestBuilder : BaseCliRequestBuilder 
+    public class RulesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules {
             return command;
         }
         /// <summary>
-        /// The collection of rules like approval rules and expiration rules. Supports $expand.
+        /// Get the rules defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicy-list-rules?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of rules like approval rules and expiration rules. Supports $expand.";
+            command.Description = "Get the rules defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicy-list-rules?view=graph-rest-beta";
             var unifiedRoleManagementPolicyIdOption = new Option<string>("--unified-role-management-policy-id", description: "The unique identifier of unifiedRoleManagementPolicy") {
             };
             unifiedRoleManagementPolicyIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules {
         {
         }
         /// <summary>
-        /// The collection of rules like approval rules and expiration rules. Supports $expand.
+        /// Get the rules defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Policies.RoleManagementPolicies.Item.Rules {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of rules like approval rules and expiration rules. Supports $expand.
+        /// Get the rules defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
         /// </summary>
         public class RulesRequestBuilderGetQueryParameters 
         {

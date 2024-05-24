@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that stores the server log collection status.
     /// </summary>
-    public class MicrosoftTunnelServerLogCollectionResponse : Entity, IParsable 
+    public class MicrosoftTunnelServerLogCollectionResponse : Entity, IParsable
     {
         /// <summary>The end time of the logs collected</summary>
         public DateTimeOffset? EndDateTime { get; set; }
@@ -48,13 +49,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
-                {"serverId", n => { ServerId = n.GetStringValue(); } },
-                {"sizeInBytes", n => { SizeInBytes = n.GetLongValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<MicrosoftTunnelLogCollectionStatus>(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
+                { "serverId", n => { ServerId = n.GetStringValue(); } },
+                { "sizeInBytes", n => { SizeInBytes = n.GetLongValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<MicrosoftTunnelLogCollectionStatus>(); } },
             };
         }
         /// <summary>

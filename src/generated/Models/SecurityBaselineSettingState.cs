@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The security baseline compliance state of a setting for a device
     /// </summary>
-    public class SecurityBaselineSettingState : Entity, IParsable 
+    public class SecurityBaselineSettingState : Entity, IParsable
     {
         /// <summary>The policies that contribute to this setting instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,14 +87,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contributingPolicies", n => { ContributingPolicies = n.GetCollectionOfObjectValues<SecurityBaselineContributingPolicy>(SecurityBaselineContributingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"settingCategoryId", n => { SettingCategoryId = n.GetStringValue(); } },
-                {"settingCategoryName", n => { SettingCategoryName = n.GetStringValue(); } },
-                {"settingId", n => { SettingId = n.GetStringValue(); } },
-                {"settingName", n => { SettingName = n.GetStringValue(); } },
-                {"sourcePolicies", n => { SourcePolicies = n.GetCollectionOfObjectValues<SettingSource>(SettingSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
+                { "contributingPolicies", n => { ContributingPolicies = n.GetCollectionOfObjectValues<SecurityBaselineContributingPolicy>(SecurityBaselineContributingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "settingCategoryId", n => { SettingCategoryId = n.GetStringValue(); } },
+                { "settingCategoryName", n => { SettingCategoryName = n.GetStringValue(); } },
+                { "settingId", n => { SettingId = n.GetStringValue(); } },
+                { "settingName", n => { SettingName = n.GetStringValue(); } },
+                { "sourcePolicies", n => { SourcePolicies = n.GetCollectionOfObjectValues<SettingSource>(SettingSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
             };
         }
         /// <summary>

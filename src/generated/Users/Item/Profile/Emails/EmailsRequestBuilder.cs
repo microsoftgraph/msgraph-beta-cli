@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Emails {
+namespace ApiSdk.Users.Item.Profile.Emails
+{
     /// <summary>
     /// Provides operations to manage the emails property of the microsoft.graph.profile entity.
     /// </summary>
-    public class EmailsRequestBuilder : BaseCliRequestBuilder 
+    public class EmailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the emails property of the microsoft.graph.profile entity.
@@ -104,13 +105,13 @@ namespace ApiSdk.Users.Item.Profile.Emails {
             return command;
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents detailed information about email addresses associated with the user.";
+            command.Description = "Retrieve the properties and relationships of an itemEmail object in a user's profile.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -192,7 +193,9 @@ namespace ApiSdk.Users.Item.Profile.Emails {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +221,7 @@ namespace ApiSdk.Users.Item.Profile.Emails {
         {
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +261,7 @@ namespace ApiSdk.Users.Item.Profile.Emails {
             return requestInfo;
         }
         /// <summary>
-        /// Represents detailed information about email addresses associated with the user.
+        /// Retrieve the properties and relationships of an itemEmail object in a user&apos;s profile.
         /// </summary>
         public class EmailsRequestBuilderGetQueryParameters 
         {

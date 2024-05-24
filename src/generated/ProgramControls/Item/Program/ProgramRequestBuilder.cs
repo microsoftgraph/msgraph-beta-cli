@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ProgramControls.Item.Program {
+namespace ApiSdk.ProgramControls.Item.Program
+{
     /// <summary>
     /// Provides operations to manage the program property of the microsoft.graph.programControl entity.
     /// </summary>
-    public class ProgramRequestBuilder : BaseCliRequestBuilder 
+    public class ProgramRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the controls property of the microsoft.graph.program entity.

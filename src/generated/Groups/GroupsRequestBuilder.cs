@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups {
+namespace ApiSdk.Groups
+{
     /// <summary>
     /// Provides operations to manage the collection of group entities.
     /// </summary>
-    public class GroupsRequestBuilder : BaseCliRequestBuilder 
+    public class GroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of group entities.
@@ -106,14 +107,14 @@ namespace ApiSdk.Groups {
             return command;
         }
         /// <summary>
-        /// Create a new group object if it doesn&apos;t exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta" />
+        /// Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create a new group object if it doesn't exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta";
+            command.Description = "Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -310,7 +311,9 @@ namespace ApiSdk.Groups {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -372,7 +375,7 @@ namespace ApiSdk.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new group object if it doesn&apos;t exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
+        /// Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DateDrivenRolloutSettings : GradualRolloutSettings, IParsable 
+    public class DateDrivenRolloutSettings : GradualRolloutSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the date before which all devices currently in the deployment are offered the update. Devices added after this date are offered immediately. When the endDateTime isn&apos;t set, all devices in the deployment are offered content at the same time.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

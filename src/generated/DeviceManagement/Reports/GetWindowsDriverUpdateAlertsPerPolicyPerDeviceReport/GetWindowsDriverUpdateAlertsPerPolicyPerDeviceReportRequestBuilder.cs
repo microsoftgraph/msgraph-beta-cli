@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport method.
     /// </summary>
-    public class GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport

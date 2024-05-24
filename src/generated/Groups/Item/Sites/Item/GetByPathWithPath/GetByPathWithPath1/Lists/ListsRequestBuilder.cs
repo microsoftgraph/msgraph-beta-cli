@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Lists {
+namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Lists
+{
     /// <summary>
     /// Provides operations to manage the lists property of the microsoft.graph.site entity.
     /// </summary>
-    public class ListsRequestBuilder : BaseCliRequestBuilder 
+    public class ListsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The collection of lists under this site.
@@ -127,7 +128,9 @@ namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Lis
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

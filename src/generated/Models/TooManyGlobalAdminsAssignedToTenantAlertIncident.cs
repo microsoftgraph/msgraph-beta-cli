@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TooManyGlobalAdminsAssignedToTenantAlertIncident : UnifiedRoleManagementAlertIncident, IParsable 
+    public class TooManyGlobalAdminsAssignedToTenantAlertIncident : UnifiedRoleManagementAlertIncident, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Display name of the subject that the incident applies to.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assigneeDisplayName", n => { AssigneeDisplayName = n.GetStringValue(); } },
-                {"assigneeId", n => { AssigneeId = n.GetStringValue(); } },
-                {"assigneeUserPrincipalName", n => { AssigneeUserPrincipalName = n.GetStringValue(); } },
+                { "assigneeDisplayName", n => { AssigneeDisplayName = n.GetStringValue(); } },
+                { "assigneeId", n => { AssigneeId = n.GetStringValue(); } },
+                { "assigneeUserPrincipalName", n => { AssigneeUserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

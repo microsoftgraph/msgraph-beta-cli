@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Dimensions.Item {
+namespace ApiSdk.Financials.Companies.Item.Dimensions.Item
+{
     /// <summary>
     /// Provides operations to manage the dimensions property of the microsoft.graph.company entity.
     /// </summary>
-    public class DimensionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DimensionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
@@ -55,11 +56,11 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions.Item {
         {
             var command = new Command("get");
             command.Description = "Get dimensions from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var dimensionIdOption = new Option<string>("--dimension-id", description: "The unique identifier of dimension") {
+            var dimensionIdOption = new Option<Guid?>("--dimension-id", description: "The unique identifier of dimension") {
             };
             dimensionIdOption.IsRequired = true;
             command.AddOption(dimensionIdOption);

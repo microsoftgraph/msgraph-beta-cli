@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod {
+namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod
+{
     #pragma warning disable CS1591
-    public class GetOffice365GroupsActivityDetailWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetOffice365GroupsActivityDetailWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Office365GroupsActivityDetail>(Office365GroupsActivityDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<Office365GroupsActivityDetail>(Office365GroupsActivityDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

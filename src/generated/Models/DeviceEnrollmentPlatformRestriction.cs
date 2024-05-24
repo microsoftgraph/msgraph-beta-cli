@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Platform specific enrollment restrictions
     /// </summary>
-    public class DeviceEnrollmentPlatformRestriction : IAdditionalDataHolder, IParsable 
+    public class DeviceEnrollmentPlatformRestriction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -81,13 +82,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"blockedManufacturers", n => { BlockedManufacturers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"blockedSkus", n => { BlockedSkus = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
-                {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
-                {"personalDeviceEnrollmentBlocked", n => { PersonalDeviceEnrollmentBlocked = n.GetBoolValue(); } },
-                {"platformBlocked", n => { PlatformBlocked = n.GetBoolValue(); } },
+                { "blockedManufacturers", n => { BlockedManufacturers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "blockedSkus", n => { BlockedSkus = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                { "osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
+                { "personalDeviceEnrollmentBlocked", n => { PersonalDeviceEnrollmentBlocked = n.GetBoolValue(); } },
+                { "platformBlocked", n => { PlatformBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

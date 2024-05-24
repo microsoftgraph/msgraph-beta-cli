@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks {
+namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks
+{
     /// <summary>
     /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.logs entity.
     /// </summary>
-    public class RemoteNetworksRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteNetworksRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.logs entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks {
             return command;
         }
         /// <summary>
-        /// A collection of remote network health events.
+        /// Retrieve a list of remote network health status microsoft.graph.networkaccess.remoteNetworkHealthStatusEvent events, providing insights into the health and status of remote networks.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-remotenetworkhealthstatusevent-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of remote network health events.";
+            command.Description = "Retrieve a list of remote network health status microsoft.graph.networkaccess.remoteNetworkHealthStatusEvent events, providing insights into the health and status of remote networks.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-remotenetworkhealthstatusevent-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks {
         {
         }
         /// <summary>
-        /// A collection of remote network health events.
+        /// Retrieve a list of remote network health status microsoft.graph.networkaccess.remoteNetworkHealthStatusEvent events, providing insights into the health and status of remote networks.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of remote network health events.
+        /// Retrieve a list of remote network health status microsoft.graph.networkaccess.remoteNetworkHealthStatusEvent events, providing insights into the health and status of remote networks.
         /// </summary>
         public class RemoteNetworksRequestBuilderGetQueryParameters 
         {

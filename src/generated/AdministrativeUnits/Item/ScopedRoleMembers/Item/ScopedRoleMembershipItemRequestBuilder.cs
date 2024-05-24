@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item {
+namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item
+{
     /// <summary>
     /// Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
     /// </summary>
-    public class ScopedRoleMembershipItemRequestBuilder : BaseCliRequestBuilder 
+    public class ScopedRoleMembershipItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property scopedRoleMembers for administrativeUnits
+        /// Remove a Microsoft Entra role assignment with administrative unit scope.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property scopedRoleMembers for administrativeUnits";
+            command.Description = "Remove a Microsoft Entra role assignment with administrative unit scope.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-beta";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return command;
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// Get a Microsoft Entra role assignment with administrative unit scope.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Scoped-role members of this administrative unit.";
+            command.Description = "Get a Microsoft Entra role assignment with administrative unit scope.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-beta";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property scopedRoleMembers for administrativeUnits
+        /// Remove a Microsoft Entra role assignment with administrative unit scope.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// Get a Microsoft Entra role assignment with administrative unit scope.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// Get a Microsoft Entra role assignment with administrative unit scope.
         /// </summary>
         public class ScopedRoleMembershipItemRequestBuilderGetQueryParameters 
         {

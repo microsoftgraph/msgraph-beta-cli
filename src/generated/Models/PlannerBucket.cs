@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerBucket : PlannerDelta, IParsable 
+    public class PlannerBucket : PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The archivalInfo property</summary>
@@ -77,13 +78,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"archivalInfo", n => { ArchivalInfo = n.GetObjectValue<PlannerArchivalInfo>(PlannerArchivalInfo.CreateFromDiscriminatorValue); } },
-                {"creationSource", n => { CreationSource = n.GetObjectValue<PlannerBucketCreation>(PlannerBucketCreation.CreateFromDiscriminatorValue); } },
-                {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"orderHint", n => { OrderHint = n.GetStringValue(); } },
-                {"planId", n => { PlanId = n.GetStringValue(); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<PlannerTask>(PlannerTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "archivalInfo", n => { ArchivalInfo = n.GetObjectValue<PlannerArchivalInfo>(PlannerArchivalInfo.CreateFromDiscriminatorValue); } },
+                { "creationSource", n => { CreationSource = n.GetObjectValue<PlannerBucketCreation>(PlannerBucketCreation.CreateFromDiscriminatorValue); } },
+                { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "orderHint", n => { OrderHint = n.GetStringValue(); } },
+                { "planId", n => { PlanId = n.GetStringValue(); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<PlannerTask>(PlannerTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

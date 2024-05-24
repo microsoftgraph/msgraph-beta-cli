@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets
+{
     /// <summary>
     /// Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class ReviewSetsRequestBuilder : BaseCliRequestBuilder 
+    public class ReviewSetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -58,13 +59,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to reviewSets for security
+        /// Create a new ediscoveryReviewSet object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to reviewSets for security";
+            command.Description = "Create a new ediscoveryReviewSet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -109,13 +111,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
             return command;
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of eDiscoveryReviewSet objects in the case.";
+            command.Description = "Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -197,7 +200,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -223,7 +228,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
         {
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -242,7 +247,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to reviewSets for security
+        /// Create a new ediscoveryReviewSet object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -263,7 +268,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
         /// </summary>
         public class ReviewSetsRequestBuilderGetQueryParameters 
         {

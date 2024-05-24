@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Alerts.Item {
+namespace ApiSdk.NetworkAccess.Alerts.Item
+{
     /// <summary>
     /// Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class AlertItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alerts for networkAccess

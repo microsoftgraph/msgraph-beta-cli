@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Axes.CategoryAxis.MinorGridlines {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Axes.CategoryAxis.MinorGridlines
+{
     /// <summary>
     /// Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
     /// </summary>
-    public class MinorGridlinesRequestBuilder : BaseCliRequestBuilder 
+    public class MinorGridlinesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property minorGridlines for drives

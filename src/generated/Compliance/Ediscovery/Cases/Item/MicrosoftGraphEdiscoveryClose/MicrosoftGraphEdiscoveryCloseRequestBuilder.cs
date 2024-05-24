@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryClose {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryClose
+{
     /// <summary>
     /// Provides operations to call the close method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryCloseRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryCloseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Close an eDiscovery case. For details, see Close a case.

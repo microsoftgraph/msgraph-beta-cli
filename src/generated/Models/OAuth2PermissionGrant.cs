@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OAuth2PermissionGrant : Entity, IParsable 
+    public class OAuth2PermissionGrant : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The object id (not appId) of the client service principal for the application that is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"clientId", n => { ClientId = n.GetStringValue(); } },
-                {"consentType", n => { ConsentType = n.GetStringValue(); } },
-                {"expiryTime", n => { ExpiryTime = n.GetDateTimeOffsetValue(); } },
-                {"principalId", n => { PrincipalId = n.GetStringValue(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"scope", n => { Scope = n.GetStringValue(); } },
-                {"startTime", n => { StartTime = n.GetDateTimeOffsetValue(); } },
+                { "clientId", n => { ClientId = n.GetStringValue(); } },
+                { "consentType", n => { ConsentType = n.GetStringValue(); } },
+                { "expiryTime", n => { ExpiryTime = n.GetDateTimeOffsetValue(); } },
+                { "principalId", n => { PrincipalId = n.GetStringValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetStringValue(); } },
+                { "startTime", n => { StartTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

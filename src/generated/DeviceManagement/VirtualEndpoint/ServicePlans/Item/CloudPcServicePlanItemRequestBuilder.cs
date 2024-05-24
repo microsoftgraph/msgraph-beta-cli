@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans.Item
+{
     /// <summary>
     /// Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcServicePlanItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcServicePlanItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property servicePlans for deviceManagement

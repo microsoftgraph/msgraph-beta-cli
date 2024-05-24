@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetOneDriveActivityFileCountsWithPeriod {
+namespace ApiSdk.Reports.GetOneDriveActivityFileCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getOneDriveActivityFileCounts method.
     /// </summary>
-    public class GetOneDriveActivityFileCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetOneDriveActivityFileCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getOneDriveActivityFileCounts

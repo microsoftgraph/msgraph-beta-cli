@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.UserRunStates.Item {
+namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.UserRunStates.Item
+{
     /// <summary>
     /// Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.
     /// </summary>
-    public class DeviceManagementScriptUserStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementScriptUserStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userRunStates for deviceManagement

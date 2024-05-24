@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RecordOperation : CommsOperation, IParsable 
+    public class RecordOperation : CommsOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"completionReason", n => { CompletionReason = n.GetEnumValue<RecordCompletionReason>(); } },
-                {"recordingAccessToken", n => { RecordingAccessToken = n.GetStringValue(); } },
-                {"recordingLocation", n => { RecordingLocation = n.GetStringValue(); } },
+                { "completionReason", n => { CompletionReason = n.GetEnumValue<RecordCompletionReason>(); } },
+                { "recordingAccessToken", n => { RecordingAccessToken = n.GetStringValue(); } },
+                { "recordingLocation", n => { RecordingLocation = n.GetStringValue(); } },
             };
         }
         /// <summary>

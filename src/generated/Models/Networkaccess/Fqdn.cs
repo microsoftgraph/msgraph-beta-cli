@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Fqdn : RuleDestination, IParsable 
+    public class Fqdn : RuleDestination, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines the FQDN used in a destination for a rule.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

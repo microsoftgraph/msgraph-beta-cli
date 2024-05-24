@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesEnrollAssetsById {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesEnrollAssetsById
+{
     #pragma warning disable CS1591
-    public class EnrollAssetsByIdPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EnrollAssetsByIdPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,9 +56,9 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Microsof
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"memberEntityType", n => { MemberEntityType = n.GetStringValue(); } },
-                {"updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "memberEntityType", n => { MemberEntityType = n.GetStringValue(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
             };
         }
         /// <summary>

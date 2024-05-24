@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Employees.Item {
+namespace ApiSdk.Financials.Companies.Item.Employees.Item
+{
     /// <summary>
     /// Provides operations to manage the employees property of the microsoft.graph.company entity.
     /// </summary>
-    public class EmployeeItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmployeeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property employees for financials
@@ -29,11 +30,11 @@ namespace ApiSdk.Financials.Companies.Item.Employees.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property employees for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var employeeIdOption = new Option<string>("--employee-id", description: "The unique identifier of employee") {
+            var employeeIdOption = new Option<Guid?>("--employee-id", description: "The unique identifier of employee") {
             };
             employeeIdOption.IsRequired = true;
             command.AddOption(employeeIdOption);
@@ -70,11 +71,11 @@ namespace ApiSdk.Financials.Companies.Item.Employees.Item {
         {
             var command = new Command("get");
             command.Description = "Get employees from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var employeeIdOption = new Option<string>("--employee-id", description: "The unique identifier of employee") {
+            var employeeIdOption = new Option<Guid?>("--employee-id", description: "The unique identifier of employee") {
             };
             employeeIdOption.IsRequired = true;
             command.AddOption(employeeIdOption);
@@ -128,11 +129,11 @@ namespace ApiSdk.Financials.Companies.Item.Employees.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property employees in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var employeeIdOption = new Option<string>("--employee-id", description: "The unique identifier of employee") {
+            var employeeIdOption = new Option<Guid?>("--employee-id", description: "The unique identifier of employee") {
             };
             employeeIdOption.IsRequired = true;
             command.AddOption(employeeIdOption);

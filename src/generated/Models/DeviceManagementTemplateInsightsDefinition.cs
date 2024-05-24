@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// template insights definition
     /// </summary>
-    public class DeviceManagementTemplateInsightsDefinition : Entity, IParsable 
+    public class DeviceManagementTemplateInsightsDefinition : Entity, IParsable
     {
         /// <summary>Setting insights in a template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"settingInsights", n => { SettingInsights = n.GetCollectionOfObjectValues<DeviceManagementSettingInsightsDefinition>(DeviceManagementSettingInsightsDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settingInsights", n => { SettingInsights = n.GetCollectionOfObjectValues<DeviceManagementSettingInsightsDefinition>(DeviceManagementSettingInsightsDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

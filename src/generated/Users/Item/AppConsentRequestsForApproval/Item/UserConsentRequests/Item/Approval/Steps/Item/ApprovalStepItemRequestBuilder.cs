@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentRequests.Item.Approval.Steps.Item {
+namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item.UserConsentRequests.Item.Approval.Steps.Item
+{
     /// <summary>
     /// Provides operations to manage the steps property of the microsoft.graph.approval entity.
     /// </summary>
-    public class ApprovalStepItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalStepItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property steps for users

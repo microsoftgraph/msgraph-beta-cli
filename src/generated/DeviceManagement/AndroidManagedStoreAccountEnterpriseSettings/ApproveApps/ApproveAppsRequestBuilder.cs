@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps
+{
     /// <summary>
     /// Provides operations to call the approveApps method.
     /// </summary>
-    public class ApproveAppsRequestBuilder : BaseCliRequestBuilder 
+    public class ApproveAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action approveApps

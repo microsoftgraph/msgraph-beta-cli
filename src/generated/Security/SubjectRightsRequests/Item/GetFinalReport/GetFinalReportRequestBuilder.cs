@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.SubjectRightsRequests.Item.GetFinalReport {
+namespace ApiSdk.Security.SubjectRightsRequests.Item.GetFinalReport
+{
     /// <summary>
     /// Provides operations to call the getFinalReport method.
     /// </summary>
-    public class GetFinalReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetFinalReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the final report for a subject rights request. The report is a text file that contains information about the files that were included by the privacy administrator.

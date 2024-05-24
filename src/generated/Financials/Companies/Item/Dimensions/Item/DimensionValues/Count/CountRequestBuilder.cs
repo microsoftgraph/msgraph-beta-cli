@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Count {
+namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Count
         {
             var command = new Command("get");
             command.Description = "Get the number of the resource";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var dimensionIdOption = new Option<string>("--dimension-id", description: "The unique identifier of dimension") {
+            var dimensionIdOption = new Option<Guid?>("--dimension-id", description: "The unique identifier of dimension") {
             };
             dimensionIdOption.IsRequired = true;
             command.AddOption(dimensionIdOption);

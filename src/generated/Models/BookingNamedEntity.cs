@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Booking entities that provide a display name.
     /// </summary>
-    public class BookingNamedEntity : Entity, IParsable 
+    public class BookingNamedEntity : Entity, IParsable
     {
         /// <summary>A name for the derived entity, which interfaces with customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +46,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

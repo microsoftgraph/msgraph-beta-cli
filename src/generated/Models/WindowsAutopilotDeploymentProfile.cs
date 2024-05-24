@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Autopilot Deployment Profile
     /// </summary>
-    public class WindowsAutopilotDeploymentProfile : Entity, IParsable 
+    public class WindowsAutopilotDeploymentProfile : Entity, IParsable
     {
         /// <summary>The list of assigned devices for the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,25 +145,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignedDevices", n => { AssignedDevices = n.GetCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>(WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsAutopilotDeploymentProfileAssignment>(WindowsAutopilotDeploymentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceNameTemplate", n => { DeviceNameTemplate = n.GetStringValue(); } },
-                {"deviceType", n => { DeviceType = n.GetEnumValue<WindowsAutopilotDeviceType>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enableWhiteGlove", n => { EnableWhiteGlove = n.GetBoolValue(); } },
-                {"enrollmentStatusScreenSettings", n => { EnrollmentStatusScreenSettings = n.GetObjectValue<WindowsEnrollmentStatusScreenSettings>(WindowsEnrollmentStatusScreenSettings.CreateFromDiscriminatorValue); } },
-                {"extractHardwareHash", n => { ExtractHardwareHash = n.GetBoolValue(); } },
-                {"hardwareHashExtractionEnabled", n => { HardwareHashExtractionEnabled = n.GetBoolValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"locale", n => { Locale = n.GetStringValue(); } },
-                {"managementServiceAppId", n => { ManagementServiceAppId = n.GetStringValue(); } },
-                {"outOfBoxExperienceSetting", n => { OutOfBoxExperienceSetting = n.GetObjectValue<ApiSdk.Models.OutOfBoxExperienceSetting>(ApiSdk.Models.OutOfBoxExperienceSetting.CreateFromDiscriminatorValue); } },
-                {"outOfBoxExperienceSettings", n => { OutOfBoxExperienceSettings = n.GetObjectValue<ApiSdk.Models.OutOfBoxExperienceSettings>(ApiSdk.Models.OutOfBoxExperienceSettings.CreateFromDiscriminatorValue); } },
-                {"preprovisioningAllowed", n => { PreprovisioningAllowed = n.GetBoolValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "assignedDevices", n => { AssignedDevices = n.GetCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>(WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsAutopilotDeploymentProfileAssignment>(WindowsAutopilotDeploymentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceNameTemplate", n => { DeviceNameTemplate = n.GetStringValue(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<WindowsAutopilotDeviceType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enableWhiteGlove", n => { EnableWhiteGlove = n.GetBoolValue(); } },
+                { "enrollmentStatusScreenSettings", n => { EnrollmentStatusScreenSettings = n.GetObjectValue<WindowsEnrollmentStatusScreenSettings>(WindowsEnrollmentStatusScreenSettings.CreateFromDiscriminatorValue); } },
+                { "extractHardwareHash", n => { ExtractHardwareHash = n.GetBoolValue(); } },
+                { "hardwareHashExtractionEnabled", n => { HardwareHashExtractionEnabled = n.GetBoolValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "locale", n => { Locale = n.GetStringValue(); } },
+                { "managementServiceAppId", n => { ManagementServiceAppId = n.GetStringValue(); } },
+                { "outOfBoxExperienceSetting", n => { OutOfBoxExperienceSetting = n.GetObjectValue<ApiSdk.Models.OutOfBoxExperienceSetting>(ApiSdk.Models.OutOfBoxExperienceSetting.CreateFromDiscriminatorValue); } },
+                { "outOfBoxExperienceSettings", n => { OutOfBoxExperienceSettings = n.GetObjectValue<ApiSdk.Models.OutOfBoxExperienceSettings>(ApiSdk.Models.OutOfBoxExperienceSettings.CreateFromDiscriminatorValue); } },
+                { "preprovisioningAllowed", n => { PreprovisioningAllowed = n.GetBoolValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

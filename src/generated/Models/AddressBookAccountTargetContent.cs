@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AddressBookAccountTargetContent : AccountTargetContent, IParsable 
+    public class AddressBookAccountTargetContent : AccountTargetContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of user emails targeted for an attack simulation training campaign.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountTargetEmails", n => { AccountTargetEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "accountTargetEmails", n => { AccountTargetEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

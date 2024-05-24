@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Messages {
+namespace ApiSdk.Chats.Item.Messages
+{
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.chat entity.
     /// </summary>
-    public class MessagesRequestBuilder : BaseCliRequestBuilder 
+    public class MessagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the messages property of the microsoft.graph.chat entity.
@@ -61,13 +62,14 @@ namespace ApiSdk.Chats.Item.Messages {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to messages for chats
+        /// Send a new chatMessage in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before creating a chat message.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-messages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to messages for chats";
+            command.Description = "Send a new chatMessage in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before creating a chat message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post-messages?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -129,13 +131,14 @@ namespace ApiSdk.Chats.Item.Messages {
             return command;
         }
         /// <summary>
-        /// A collection of all the messages in the chat. Nullable.
+        /// Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list-messages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the messages in the chat. Nullable.";
+            command.Description = "Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-messages?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -217,7 +220,9 @@ namespace ApiSdk.Chats.Item.Messages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -243,7 +248,7 @@ namespace ApiSdk.Chats.Item.Messages {
         {
         }
         /// <summary>
-        /// A collection of all the messages in the chat. Nullable.
+        /// Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -262,7 +267,7 @@ namespace ApiSdk.Chats.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to messages for chats
+        /// Send a new chatMessage in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before creating a chat message.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -283,7 +288,7 @@ namespace ApiSdk.Chats.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the messages in the chat. Nullable.
+        /// Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
         /// </summary>
         public class MessagesRequestBuilderGetQueryParameters 
         {

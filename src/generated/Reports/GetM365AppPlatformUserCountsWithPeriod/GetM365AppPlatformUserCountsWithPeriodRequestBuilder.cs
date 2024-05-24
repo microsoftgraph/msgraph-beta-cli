@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetM365AppPlatformUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetM365AppPlatformUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getM365AppPlatformUserCounts method.
     /// </summary>
-    public class GetM365AppPlatformUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetM365AppPlatformUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a report that provides the trend of active users across all apps for each platform (Windows, Mac, web, and mobile) in your organization.

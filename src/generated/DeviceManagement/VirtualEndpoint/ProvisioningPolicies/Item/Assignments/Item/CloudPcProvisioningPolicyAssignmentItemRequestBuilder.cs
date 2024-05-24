@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.cloudPcProvisioningPolicy entity.
     /// </summary>
-    public class CloudPcProvisioningPolicyAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcProvisioningPolicyAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
@@ -51,7 +52,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// Delete navigation property assignments for deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
@@ -93,7 +93,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
@@ -152,7 +151,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// Update the navigation property assignments in deviceManagement
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
@@ -225,7 +223,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -245,7 +242,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CloudPcProvisioningPolicyAssignmentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -266,7 +262,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Assi
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(CloudPcProvisioningPolicyAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

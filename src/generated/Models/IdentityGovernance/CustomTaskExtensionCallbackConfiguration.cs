@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class CustomTaskExtensionCallbackConfiguration : ApiSdk.Models.CustomExtensionCallbackConfiguration, IParsable 
+    public class CustomTaskExtensionCallbackConfiguration : ApiSdk.Models.CustomExtensionCallbackConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorizedApps property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizedApps", n => { AuthorizedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.Application>(ApiSdk.Models.Application.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authorizedApps", n => { AuthorizedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.Application>(ApiSdk.Models.Application.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

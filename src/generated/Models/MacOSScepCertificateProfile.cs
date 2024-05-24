@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Mac OS SCEP certificate profile.
     /// </summary>
-    public class MacOSScepCertificateProfile : MacOSCertificateProfileBase, IParsable 
+    public class MacOSScepCertificateProfile : MacOSCertificateProfileBase, IParsable
     {
         /// <summary>AllowAllAppsAccess setting</summary>
         public bool? AllowAllAppsAccess { get; set; }
@@ -101,18 +102,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowAllAppsAccess", n => { AllowAllAppsAccess = n.GetBoolValue(); } },
-                {"certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
-                {"customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hashAlgorithm", n => { HashAlgorithm = n.GetEnumValue<HashAlgorithms>(); } },
-                {"keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
-                {"keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
-                {"managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"rootCertificate", n => { RootCertificate = n.GetObjectValue<MacOSTrustedRootCertificate>(MacOSTrustedRootCertificate.CreateFromDiscriminatorValue); } },
-                {"scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
-                {"subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
+                { "allowAllAppsAccess", n => { AllowAllAppsAccess = n.GetBoolValue(); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
+                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hashAlgorithm", n => { HashAlgorithm = n.GetEnumValue<HashAlgorithms>(); } },
+                { "keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<MacOSTrustedRootCertificate>(MacOSTrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
+                { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
             };
         }
         /// <summary>

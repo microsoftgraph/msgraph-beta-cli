@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MetadataAction : InformationProtectionAction, IParsable 
+    public class MetadataAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of key value pairs that should be added to the file.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"metadataToAdd", n => { MetadataToAdd = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"metadataToRemove", n => { MetadataToRemove = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "metadataToAdd", n => { MetadataToAdd = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "metadataToRemove", n => { MetadataToRemove = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

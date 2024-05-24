@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Secrets {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Secrets
+{
     #pragma warning disable CS1591
-    public class SecretsPutRequestBody : IAdditionalDataHolder, IParsable 
+    public class SecretsPutRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Secrets {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(SynchronizationSecretKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(SynchronizationSecretKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

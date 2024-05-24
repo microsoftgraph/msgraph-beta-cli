@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Patents.Item {
+namespace ApiSdk.Users.Item.Profile.Patents.Item
+{
     /// <summary>
     /// Provides operations to manage the patents property of the microsoft.graph.profile entity.
     /// </summary>
-    public class ItemPatentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemPatentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property patents for users
+        /// Deletes an itemPatent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itempatent-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property patents for users";
+            command.Description = "Deletes an itemPatent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itempatent-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Users.Item.Profile.Patents.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property patents in users
+        /// Update the properties of an itemPatent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itempatent-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property patents in users";
+            command.Description = "Update the properties of an itemPatent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itempatent-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Users.Item.Profile.Patents.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property patents for users
+        /// Deletes an itemPatent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.Users.Item.Profile.Patents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property patents in users
+        /// Update the properties of an itemPatent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

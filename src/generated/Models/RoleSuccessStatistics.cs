@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RoleSuccessStatistics : IAdditionalDataHolder, IParsable 
+    public class RoleSuccessStatistics : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -74,16 +75,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"permanentFail", n => { PermanentFail = n.GetLongValue(); } },
-                {"permanentSuccess", n => { PermanentSuccess = n.GetLongValue(); } },
-                {"removeFail", n => { RemoveFail = n.GetLongValue(); } },
-                {"removeSuccess", n => { RemoveSuccess = n.GetLongValue(); } },
-                {"roleId", n => { RoleId = n.GetStringValue(); } },
-                {"roleName", n => { RoleName = n.GetStringValue(); } },
-                {"temporaryFail", n => { TemporaryFail = n.GetLongValue(); } },
-                {"temporarySuccess", n => { TemporarySuccess = n.GetLongValue(); } },
-                {"unknownFail", n => { UnknownFail = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "permanentFail", n => { PermanentFail = n.GetLongValue(); } },
+                { "permanentSuccess", n => { PermanentSuccess = n.GetLongValue(); } },
+                { "removeFail", n => { RemoveFail = n.GetLongValue(); } },
+                { "removeSuccess", n => { RemoveSuccess = n.GetLongValue(); } },
+                { "roleId", n => { RoleId = n.GetStringValue(); } },
+                { "roleName", n => { RoleName = n.GetStringValue(); } },
+                { "temporaryFail", n => { TemporaryFail = n.GetLongValue(); } },
+                { "temporarySuccess", n => { TemporarySuccess = n.GetLongValue(); } },
+                { "unknownFail", n => { UnknownFail = n.GetLongValue(); } },
             };
         }
         /// <summary>

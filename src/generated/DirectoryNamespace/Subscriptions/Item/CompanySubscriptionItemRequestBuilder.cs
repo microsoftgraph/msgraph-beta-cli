@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Subscriptions.Item {
+namespace ApiSdk.DirectoryNamespace.Subscriptions.Item
+{
     /// <summary>
     /// Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
     /// </summary>
-    public class CompanySubscriptionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CompanySubscriptionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property subscriptions for directory
@@ -56,13 +57,14 @@ namespace ApiSdk.DirectoryNamespace.Subscriptions.Item {
             return command;
         }
         /// <summary>
-        /// List of commercial subscriptions that an organization has.
+        /// Get a specific commercial subscription that an organization has acquired.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/companysubscription-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "List of commercial subscriptions that an organization has.";
+            command.Description = "Get a specific commercial subscription that an organization has acquired.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/companysubscription-get?view=graph-rest-beta";
             var companySubscriptionIdOption = new Option<string>("--company-subscription-id", description: "The unique identifier of companySubscription") {
             };
             companySubscriptionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.DirectoryNamespace.Subscriptions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// List of commercial subscriptions that an organization has.
+        /// Get a specific commercial subscription that an organization has acquired.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.DirectoryNamespace.Subscriptions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// List of commercial subscriptions that an organization has.
+        /// Get a specific commercial subscription that an organization has acquired.
         /// </summary>
         public class CompanySubscriptionItemRequestBuilderGetQueryParameters 
         {

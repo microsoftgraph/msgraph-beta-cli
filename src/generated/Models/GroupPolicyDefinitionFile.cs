@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The entity represents an ADMX (Administrative Template) XML file. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
     /// </summary>
-    public class GroupPolicyDefinitionFile : Entity, IParsable 
+    public class GroupPolicyDefinitionFile : Entity, IParsable
     {
         /// <summary>The group policy definitions associated with the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,16 +102,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"definitions", n => { Definitions = n.GetCollectionOfObjectValues<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
-                {"languageCodes", n => { LanguageCodes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
-                {"revision", n => { Revision = n.GetStringValue(); } },
-                {"targetNamespace", n => { TargetNamespace = n.GetStringValue(); } },
-                {"targetPrefix", n => { TargetPrefix = n.GetStringValue(); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
+                { "languageCodes", n => { LanguageCodes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
+                { "revision", n => { Revision = n.GetStringValue(); } },
+                { "targetNamespace", n => { TargetNamespace = n.GetStringValue(); } },
+                { "targetPrefix", n => { TargetPrefix = n.GetStringValue(); } },
             };
         }
         /// <summary>

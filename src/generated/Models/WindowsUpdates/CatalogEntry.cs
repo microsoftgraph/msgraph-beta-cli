@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class CatalogEntry : ApiSdk.Models.Entity, IParsable 
+    public class CatalogEntry : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date on which the content is no longer available to deploy using the service. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
@@ -47,9 +48,9 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deployableUntilDateTime", n => { DeployableUntilDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deployableUntilDateTime", n => { DeployableUntilDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

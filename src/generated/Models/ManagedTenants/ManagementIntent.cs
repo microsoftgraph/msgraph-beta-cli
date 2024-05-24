@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementIntent : ApiSdk.Models.Entity, IParsable 
+    public class ManagementIntent : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name for the management intent. Optional. Read-only.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isGlobal", n => { IsGlobal = n.GetBoolValue(); } },
-                {"managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ManagementTemplateDetailedInfo>(ManagementTemplateDetailedInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isGlobal", n => { IsGlobal = n.GetBoolValue(); } },
+                { "managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ManagementTemplateDetailedInfo>(ManagementTemplateDetailedInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

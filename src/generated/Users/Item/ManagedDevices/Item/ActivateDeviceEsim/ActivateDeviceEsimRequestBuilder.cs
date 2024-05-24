@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim
+{
     /// <summary>
     /// Provides operations to call the activateDeviceEsim method.
     /// </summary>
-    public class ActivateDeviceEsimRequestBuilder : BaseCliRequestBuilder 
+    public class ActivateDeviceEsimRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Activate eSIM on the device.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Managed App log collection response
     /// </summary>
-    public class ManagedAppLogCollectionRequest : Entity, IParsable 
+    public class ManagedAppLogCollectionRequest : Entity, IParsable
     {
         /// <summary>DateTime of when the log upload request was completed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
@@ -82,15 +83,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedAppRegistrationId", n => { ManagedAppRegistrationId = n.GetStringValue(); } },
-                {"requestedBy", n => { RequestedBy = n.GetStringValue(); } },
-                {"requestedByUserPrincipalName", n => { RequestedByUserPrincipalName = n.GetStringValue(); } },
-                {"requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"uploadedLogs", n => { UploadedLogs = n.GetCollectionOfObjectValues<ManagedAppLogUpload>(ManagedAppLogUpload.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userLogUploadConsent", n => { UserLogUploadConsent = n.GetEnumValue<ManagedAppLogUploadConsent>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedAppRegistrationId", n => { ManagedAppRegistrationId = n.GetStringValue(); } },
+                { "requestedBy", n => { RequestedBy = n.GetStringValue(); } },
+                { "requestedByUserPrincipalName", n => { RequestedByUserPrincipalName = n.GetStringValue(); } },
+                { "requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "uploadedLogs", n => { UploadedLogs = n.GetCollectionOfObjectValues<ManagedAppLogUpload>(ManagedAppLogUpload.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userLogUploadConsent", n => { UserLogUploadConsent = n.GetEnumValue<ManagedAppLogUploadConsent>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

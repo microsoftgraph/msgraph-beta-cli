@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuditUserIdentity : UserIdentity, IParsable 
+    public class AuditUserIdentity : UserIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>For user sign ins, the identifier of the tenant that the user is a member of.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"homeTenantId", n => { HomeTenantId = n.GetStringValue(); } },
-                {"homeTenantName", n => { HomeTenantName = n.GetStringValue(); } },
+                { "homeTenantId", n => { HomeTenantId = n.GetStringValue(); } },
+                { "homeTenantName", n => { HomeTenantName = n.GetStringValue(); } },
             };
         }
         /// <summary>

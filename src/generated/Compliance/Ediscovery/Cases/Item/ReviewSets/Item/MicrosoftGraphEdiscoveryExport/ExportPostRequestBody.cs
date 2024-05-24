@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryExport {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryExport
+{
     #pragma warning disable CS1591
-    public class ExportPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExportPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -73,12 +74,12 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
-                {"azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
-                {"exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
-                {"outputName", n => { OutputName = n.GetStringValue(); } },
+                { "azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
+                { "azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
+                { "exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
+                { "outputName", n => { OutputName = n.GetStringValue(); } },
             };
         }
         /// <summary>

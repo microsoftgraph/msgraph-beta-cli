@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CommunicationsApplicationIdentity : Identity, IParsable 
+    public class CommunicationsApplicationIdentity : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>First-party Microsoft application that presents this identity.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicationType", n => { ApplicationType = n.GetStringValue(); } },
-                {"hidden", n => { Hidden = n.GetBoolValue(); } },
+                { "applicationType", n => { ApplicationType = n.GetStringValue(); } },
+                { "hidden", n => { Hidden = n.GetBoolValue(); } },
             };
         }
         /// <summary>

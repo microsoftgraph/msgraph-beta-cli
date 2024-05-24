@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class Hostname : Host, IParsable 
+    public class Hostname : Host, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The company or individual who registered this hostname, from WHOIS data.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"registrant", n => { Registrant = n.GetStringValue(); } },
-                {"registrar", n => { Registrar = n.GetStringValue(); } },
+                { "registrant", n => { Registrant = n.GetStringValue(); } },
+                { "registrar", n => { Registrar = n.GetStringValue(); } },
             };
         }
         /// <summary>

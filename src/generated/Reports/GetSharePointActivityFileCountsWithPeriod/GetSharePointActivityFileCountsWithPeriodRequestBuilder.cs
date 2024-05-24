@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSharePointActivityFileCountsWithPeriod {
+namespace ApiSdk.Reports.GetSharePointActivityFileCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getSharePointActivityFileCounts method.
     /// </summary>
-    public class GetSharePointActivityFileCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharePointActivityFileCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSharePointActivityFileCounts

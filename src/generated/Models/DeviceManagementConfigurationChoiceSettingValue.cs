@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Setting value
     /// </summary>
-    public class DeviceManagementConfigurationChoiceSettingValue : DeviceManagementConfigurationSettingValue, IParsable 
+    public class DeviceManagementConfigurationChoiceSettingValue : DeviceManagementConfigurationSettingValue, IParsable
     {
         /// <summary>Child settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"children", n => { Children = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingInstance>(DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "children", n => { Children = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingInstance>(DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

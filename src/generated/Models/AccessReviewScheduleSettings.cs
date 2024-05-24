@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewScheduleSettings : IAdditionalDataHolder, IParsable 
+    public class AccessReviewScheduleSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,20 +95,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applyActions", n => { ApplyActions = n.GetCollectionOfObjectValues<AccessReviewApplyAction>(AccessReviewApplyAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"autoApplyDecisionsEnabled", n => { AutoApplyDecisionsEnabled = n.GetBoolValue(); } },
-                {"decisionHistoriesForReviewersEnabled", n => { DecisionHistoriesForReviewersEnabled = n.GetBoolValue(); } },
-                {"defaultDecision", n => { DefaultDecision = n.GetStringValue(); } },
-                {"defaultDecisionEnabled", n => { DefaultDecisionEnabled = n.GetBoolValue(); } },
-                {"instanceDurationInDays", n => { InstanceDurationInDays = n.GetIntValue(); } },
-                {"justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
-                {"mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"recommendationLookBackDuration", n => { RecommendationLookBackDuration = n.GetTimeSpanValue(); } },
-                {"recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
-                {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
-                {"reminderNotificationsEnabled", n => { ReminderNotificationsEnabled = n.GetBoolValue(); } },
+                { "applyActions", n => { ApplyActions = n.GetCollectionOfObjectValues<AccessReviewApplyAction>(AccessReviewApplyAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "autoApplyDecisionsEnabled", n => { AutoApplyDecisionsEnabled = n.GetBoolValue(); } },
+                { "decisionHistoriesForReviewersEnabled", n => { DecisionHistoriesForReviewersEnabled = n.GetBoolValue(); } },
+                { "defaultDecision", n => { DefaultDecision = n.GetStringValue(); } },
+                { "defaultDecisionEnabled", n => { DefaultDecisionEnabled = n.GetBoolValue(); } },
+                { "instanceDurationInDays", n => { InstanceDurationInDays = n.GetIntValue(); } },
+                { "justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
+                { "mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recommendationLookBackDuration", n => { RecommendationLookBackDuration = n.GetTimeSpanValue(); } },
+                { "recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
+                { "recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
+                { "reminderNotificationsEnabled", n => { ReminderNotificationsEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

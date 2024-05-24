@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentRequest : Entity, IParsable 
+    public class AccessPackageAssignmentRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.</summary>
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.AccessPackage AccessPackage { get; set; }
 #endif
-        /// <summary>For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.</summary>
+        /// <summary>For a requestType of UserAdd or AdminAdd, an access package assignment requested to be created. For a requestType of UserRemove, AdminRemove, or SystemRemove, this property has the id property of an existing assignment to be removed. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.AccessPackageAssignment? AccessPackageAssignment { get; set; }
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
 #else
         public List<CustomExtensionHandlerInstance> CustomExtensionHandlerInstances { get; set; }
 #endif
-        /// <summary>The expirationDateTime property</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
-        /// <summary>True if the request is not to be processed for assignment.</summary>
+        /// <summary>True if the request isn&apos;t to be processed for assignment.</summary>
         public bool? IsValidationOnly { get; set; }
         /// <summary>The requestor&apos;s supplied justification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +74,7 @@ namespace ApiSdk.Models {
 #else
         public AccessPackageSubject Requestor { get; set; }
 #endif
-        /// <summary>One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only.</summary>
+        /// <summary>One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted, or Scheduled. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequestState { get; set; }
@@ -89,7 +90,7 @@ namespace ApiSdk.Models {
 #else
         public string RequestStatus { get; set; }
 #endif
-        /// <summary>One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.</summary>
+        /// <summary>One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove, or SystemRemove. A request from the user has a requestType of UserAdd, UserUpdate, or UserRemove. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequestType { get; set; }
@@ -105,7 +106,7 @@ namespace ApiSdk.Models {
 #else
         public RequestSchedule Schedule { get; set; }
 #endif
-        /// <summary>The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.</summary>
+        /// <summary>The details of the verifiable credential that the requestor presented, such as the issuer and claims. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<VerifiedCredentialData>? VerifiedCredentialsData { get; set; }
@@ -131,22 +132,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
-                {"accessPackageAssignment", n => { AccessPackageAssignment = n.GetObjectValue<ApiSdk.Models.AccessPackageAssignment>(ApiSdk.Models.AccessPackageAssignment.CreateFromDiscriminatorValue); } },
-                {"answers", n => { Answers = n.GetCollectionOfObjectValues<AccessPackageAnswer>(AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"completedDate", n => { CompletedDate = n.GetDateTimeOffsetValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customExtensionCalloutInstances", n => { CustomExtensionCalloutInstances = n.GetCollectionOfObjectValues<CustomExtensionCalloutInstance>(CustomExtensionCalloutInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customExtensionHandlerInstances", n => { CustomExtensionHandlerInstances = n.GetCollectionOfObjectValues<CustomExtensionHandlerInstance>(CustomExtensionHandlerInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"requestState", n => { RequestState = n.GetStringValue(); } },
-                {"requestStatus", n => { RequestStatus = n.GetStringValue(); } },
-                {"requestType", n => { RequestType = n.GetStringValue(); } },
-                {"requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                {"verifiedCredentialsData", n => { VerifiedCredentialsData = n.GetCollectionOfObjectValues<VerifiedCredentialData>(VerifiedCredentialData.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                { "accessPackageAssignment", n => { AccessPackageAssignment = n.GetObjectValue<ApiSdk.Models.AccessPackageAssignment>(ApiSdk.Models.AccessPackageAssignment.CreateFromDiscriminatorValue); } },
+                { "answers", n => { Answers = n.GetCollectionOfObjectValues<AccessPackageAnswer>(AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "completedDate", n => { CompletedDate = n.GetDateTimeOffsetValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customExtensionCalloutInstances", n => { CustomExtensionCalloutInstances = n.GetCollectionOfObjectValues<CustomExtensionCalloutInstance>(CustomExtensionCalloutInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customExtensionHandlerInstances", n => { CustomExtensionHandlerInstances = n.GetCollectionOfObjectValues<CustomExtensionHandlerInstance>(CustomExtensionHandlerInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "requestState", n => { RequestState = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetStringValue(); } },
+                { "requestType", n => { RequestType = n.GetStringValue(); } },
+                { "requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "verifiedCredentialsData", n => { VerifiedCredentialsData = n.GetCollectionOfObjectValues<VerifiedCredentialData>(VerifiedCredentialData.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

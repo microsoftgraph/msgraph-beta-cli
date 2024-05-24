@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Services.Item.Endpoints {
+namespace ApiSdk.Print.Services.Item.Endpoints
+{
     /// <summary>
     /// Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
     /// </summary>
-    public class EndpointsRequestBuilder : BaseCliRequestBuilder 
+    public class EndpointsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Print.Services.Item.Endpoints {
             return command;
         }
         /// <summary>
-        /// Endpoints that can be used to access the service. Read-only. Nullable.
+        /// Retrieve a list of endpoints exposed by a print service.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Endpoints that can be used to access the service. Read-only. Nullable.";
+            command.Description = "Retrieve a list of endpoints exposed by a print service.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-beta";
             var printServiceIdOption = new Option<string>("--print-service-id", description: "The unique identifier of printService") {
             };
             printServiceIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Print.Services.Item.Endpoints {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Print.Services.Item.Endpoints {
         {
         }
         /// <summary>
-        /// Endpoints that can be used to access the service. Read-only. Nullable.
+        /// Retrieve a list of endpoints exposed by a print service.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Print.Services.Item.Endpoints {
             return requestInfo;
         }
         /// <summary>
-        /// Endpoints that can be used to access the service. Read-only. Nullable.
+        /// Retrieve a list of endpoints exposed by a print service.
         /// </summary>
         public class EndpointsRequestBuilderGetQueryParameters 
         {

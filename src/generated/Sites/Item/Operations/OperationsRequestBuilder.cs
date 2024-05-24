@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Operations {
+namespace ApiSdk.Sites.Item.Operations
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.site entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    public class OperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the operations property of the microsoft.graph.site entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Sites.Item.Operations {
             return command;
         }
         /// <summary>
-        /// The collection of long running operations for the site.
+        /// Get the list of richLongRunningOperations associated with a site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of long running operations for the site.";
+            command.Description = "Get the list of richLongRunningOperations associated with a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Sites.Item.Operations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Sites.Item.Operations {
         {
         }
         /// <summary>
-        /// The collection of long running operations for the site.
+        /// Get the list of richLongRunningOperations associated with a site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Sites.Item.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of long running operations for the site.
+        /// Get the list of richLongRunningOperations associated with a site.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

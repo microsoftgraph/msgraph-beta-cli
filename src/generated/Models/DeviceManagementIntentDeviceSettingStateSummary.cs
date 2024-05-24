@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents device setting state summary for an intent
     /// </summary>
-    public class DeviceManagementIntentDeviceSettingStateSummary : Entity, IParsable 
+    public class DeviceManagementIntentDeviceSettingStateSummary : Entity, IParsable
     {
         /// <summary>Number of compliant devices</summary>
         public int? CompliantCount { get; set; }
@@ -48,13 +49,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"compliantCount", n => { CompliantCount = n.GetIntValue(); } },
-                {"conflictCount", n => { ConflictCount = n.GetIntValue(); } },
-                {"errorCount", n => { ErrorCount = n.GetIntValue(); } },
-                {"nonCompliantCount", n => { NonCompliantCount = n.GetIntValue(); } },
-                {"notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
-                {"remediatedCount", n => { RemediatedCount = n.GetIntValue(); } },
-                {"settingName", n => { SettingName = n.GetStringValue(); } },
+                { "compliantCount", n => { CompliantCount = n.GetIntValue(); } },
+                { "conflictCount", n => { ConflictCount = n.GetIntValue(); } },
+                { "errorCount", n => { ErrorCount = n.GetIntValue(); } },
+                { "nonCompliantCount", n => { NonCompliantCount = n.GetIntValue(); } },
+                { "notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
+                { "remediatedCount", n => { RemediatedCount = n.GetIntValue(); } },
+                { "settingName", n => { SettingName = n.GetStringValue(); } },
             };
         }
         /// <summary>

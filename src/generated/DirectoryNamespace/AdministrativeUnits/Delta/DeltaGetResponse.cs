@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectoryNamespace.AdministrativeUnits.Delta {
+namespace ApiSdk.DirectoryNamespace.AdministrativeUnits.Delta
+{
     #pragma warning disable CS1591
-    public class DeltaGetResponse : BaseDeltaFunctionResponse, IParsable 
+    public class DeltaGetResponse : BaseDeltaFunctionResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DirectoryNamespace.AdministrativeUnits.Delta {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.AdministrativeUnit>(ApiSdk.Models.AdministrativeUnit.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.AdministrativeUnit>(ApiSdk.Models.AdministrativeUnit.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

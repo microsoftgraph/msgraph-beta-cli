@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions
+{
     /// <summary>
     /// Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     /// </summary>
-    public class CustomTaskExtensionsRequestBuilder : BaseCliRequestBuilder 
+    public class CustomTaskExtensionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to customTaskExtensions for identityGovernance
+        /// Create a new customTaskExtension object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-customtaskextensions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to customTaskExtensions for identityGovernance";
+            command.Description = "Create a new customTaskExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-customtaskextensions?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
             return command;
         }
         /// <summary>
-        /// The customTaskExtension instance.
+        /// Get a list of the customTaskExtension objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-customtaskextensions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The customTaskExtension instance.";
+            command.Description = "Get a list of the customTaskExtension objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-customtaskextensions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
         {
         }
         /// <summary>
-        /// The customTaskExtension instance.
+        /// Get a list of the customTaskExtension objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to customTaskExtensions for identityGovernance
+        /// Create a new customTaskExtension object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.CustomTaskExtensions {
             return requestInfo;
         }
         /// <summary>
-        /// The customTaskExtension instance.
+        /// Get a list of the customTaskExtension objects and their properties.
         /// </summary>
         public class CustomTaskExtensionsRequestBuilderGetQueryParameters 
         {

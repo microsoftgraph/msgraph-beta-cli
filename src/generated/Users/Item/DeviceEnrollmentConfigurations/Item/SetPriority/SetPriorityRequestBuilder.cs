@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority {
+namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
+{
     /// <summary>
     /// Provides operations to call the setPriority method.
     /// </summary>
-    public class SetPriorityRequestBuilder : BaseCliRequestBuilder 
+    public class SetPriorityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action setPriority

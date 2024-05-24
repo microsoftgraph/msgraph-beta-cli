@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.MoveToCatalog {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.MoveToCatalog
+{
     #pragma warning disable CS1591
-    public class MoveToCatalogPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MoveToCatalogPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Mo
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"catalogId", n => { CatalogId = n.GetStringValue(); } },
+                { "catalogId", n => { CatalogId = n.GetStringValue(); } },
             };
         }
         /// <summary>

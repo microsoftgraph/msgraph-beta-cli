@@ -13,17 +13,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.SecurityActions.Item.CancelSecurityAction {
+namespace ApiSdk.Security.SecurityActions.Item.CancelSecurityAction
+{
     /// <summary>
     /// Provides operations to call the cancelSecurityAction method.
     /// </summary>
-    public class CancelSecurityActionRequestBuilder : BaseCliRequestBuilder 
+    public class CancelSecurityActionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Cancel a security operation.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
@@ -67,6 +69,7 @@ namespace ApiSdk.Security.SecurityActions.Item.CancelSecurityAction {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

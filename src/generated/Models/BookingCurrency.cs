@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BookingCurrency : Entity, IParsable 
+    public class BookingCurrency : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"symbol", n => { Symbol = n.GetStringValue(); } },
+                { "symbol", n => { Symbol = n.GetStringValue(); } },
             };
         }
         /// <summary>

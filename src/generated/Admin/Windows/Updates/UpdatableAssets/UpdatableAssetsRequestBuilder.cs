@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
+namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets
+{
     /// <summary>
     /// Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class UpdatableAssetsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatableAssetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
@@ -62,13 +63,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to updatableAssets for admin
+        /// Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatableassets-updatableassetgroup?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to updatableAssets for admin";
+            command.Description = "Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatableassets-updatableassetgroup?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -107,13 +109,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return command;
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Assets registered with the deployment service that can receive updates.";
+            command.Description = "Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -189,7 +192,9 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -283,7 +288,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
         {
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -302,7 +307,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to updatableAssets for admin
+        /// Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -323,7 +328,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets {
             return requestInfo;
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
         /// </summary>
         public class UpdatableAssetsRequestBuilderGetQueryParameters 
         {

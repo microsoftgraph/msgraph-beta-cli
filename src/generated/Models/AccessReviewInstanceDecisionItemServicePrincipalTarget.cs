@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewInstanceDecisionItemServicePrincipalTarget : AccessReviewInstanceDecisionItemTarget, IParsable 
+    public class AccessReviewInstanceDecisionItemServicePrincipalTarget : AccessReviewInstanceDecisionItemTarget, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId for the service principal entity being reviewed.</summary>
@@ -25,7 +26,7 @@ namespace ApiSdk.Models {
 #else
         public string ServicePrincipalDisplayName { get; set; }
 #endif
-        /// <summary>The servicePrincipalId property</summary>
+        /// <summary>The identifier of the service principal whose access is being reviewed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServicePrincipalId { get; set; }
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"servicePrincipalDisplayName", n => { ServicePrincipalDisplayName = n.GetStringValue(); } },
-                {"servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "servicePrincipalDisplayName", n => { ServicePrincipalDisplayName = n.GetStringValue(); } },
+                { "servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
             };
         }
         /// <summary>

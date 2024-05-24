@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnAttributeCollectionSubmitListener : AuthenticationEventListener, IParsable 
+    public class OnAttributeCollectionSubmitListener : AuthenticationEventListener, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Configuration for what to invoke if the event resolves to this listener.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"handler", n => { Handler = n.GetObjectValue<OnAttributeCollectionSubmitHandler>(OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
+                { "handler", n => { Handler = n.GetObjectValue<OnAttributeCollectionSubmitHandler>(OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MfaDetail : IAdditionalDataHolder, IParsable 
+    public class MfaDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is &apos;Yes&apos;.</summary>
+        /// <summary>Indicates the MFA auth detail for the corresponding sign-in activity when the MFA Required is &apos;Yes&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthDetail { get; set; }
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public string AuthDetail { get; set; }
 #endif
-        /// <summary>Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is &apos;Yes&apos;.</summary>
+        /// <summary>Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the values) for the corresponding sign-in activity when the MFA Required field is &apos;Yes&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthMethod { get; set; }
@@ -60,9 +61,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authDetail", n => { AuthDetail = n.GetStringValue(); } },
-                {"authMethod", n => { AuthMethod = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "authDetail", n => { AuthDetail = n.GetStringValue(); } },
+                { "authMethod", n => { AuthMethod = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

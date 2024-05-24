@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item.TriggerDeviceScopeAction {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item.TriggerDeviceScopeAction
+{
     /// <summary>
     /// Provides operations to call the triggerDeviceScopeAction method.
     /// </summary>
-    public class TriggerDeviceScopeActionRequestBuilder : BaseCliRequestBuilder 
+    public class TriggerDeviceScopeActionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action triggerDeviceScopeAction

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.Reset {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.Reset
+{
     /// <summary>
     /// Provides operations to call the reset method.
     /// </summary>
-    public class ResetRequestBuilder : BaseCliRequestBuilder 
+    public class ResetRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reset the sync of a specific school data synchronization profile in the tenant.

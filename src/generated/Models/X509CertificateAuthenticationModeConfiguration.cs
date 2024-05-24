@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class X509CertificateAuthenticationModeConfiguration : IAdditionalDataHolder, IParsable 
+    public class X509CertificateAuthenticationModeConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,10 +57,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"rules", n => { Rules = n.GetCollectionOfObjectValues<X509CertificateRule>(X509CertificateRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"x509CertificateAuthenticationDefaultMode", n => { X509CertificateAuthenticationDefaultMode = n.GetEnumValue<X509CertificateAuthenticationMode>(); } },
-                {"x509CertificateDefaultRequiredAffinityLevel", n => { X509CertificateDefaultRequiredAffinityLevel = n.GetEnumValue<X509CertificateAffinityLevel>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<X509CertificateRule>(X509CertificateRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "x509CertificateAuthenticationDefaultMode", n => { X509CertificateAuthenticationDefaultMode = n.GetEnumValue<X509CertificateAuthenticationMode>(); } },
+                { "x509CertificateDefaultRequiredAffinityLevel", n => { X509CertificateDefaultRequiredAffinityLevel = n.GetEnumValue<X509CertificateAffinityLevel>(); } },
             };
         }
         /// <summary>

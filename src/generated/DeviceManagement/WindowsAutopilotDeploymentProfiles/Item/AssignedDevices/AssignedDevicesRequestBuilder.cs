@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices
+{
     /// <summary>
     /// Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
     /// </summary>
-    public class AssignedDevicesRequestBuilder : BaseCliRequestBuilder 
+    public class AssignedDevicesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
@@ -201,7 +202,9 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.Assign
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkPosition : ItemFacet, IParsable 
+    public class WorkPosition : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Categories that the user has associated with this position.</summary>
@@ -68,11 +69,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"colleagues", n => { Colleagues = n.GetCollectionOfObjectValues<RelatedPerson>(RelatedPerson.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"detail", n => { Detail = n.GetObjectValue<PositionDetail>(PositionDetail.CreateFromDiscriminatorValue); } },
-                {"isCurrent", n => { IsCurrent = n.GetBoolValue(); } },
-                {"manager", n => { Manager = n.GetObjectValue<RelatedPerson>(RelatedPerson.CreateFromDiscriminatorValue); } },
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "colleagues", n => { Colleagues = n.GetCollectionOfObjectValues<RelatedPerson>(RelatedPerson.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "detail", n => { Detail = n.GetObjectValue<PositionDetail>(PositionDetail.CreateFromDiscriminatorValue); } },
+                { "isCurrent", n => { IsCurrent = n.GetBoolValue(); } },
+                { "manager", n => { Manager = n.GetObjectValue<RelatedPerson>(RelatedPerson.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

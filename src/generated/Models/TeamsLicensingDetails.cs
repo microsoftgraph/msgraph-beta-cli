@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsLicensingDetails : Entity, IParsable 
+    public class TeamsLicensingDetails : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether the user has a valid license to use Microsoft Teams.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"hasTeamsLicense", n => { HasTeamsLicense = n.GetBoolValue(); } },
+                { "hasTeamsLicense", n => { HasTeamsLicense = n.GetBoolValue(); } },
             };
         }
         /// <summary>

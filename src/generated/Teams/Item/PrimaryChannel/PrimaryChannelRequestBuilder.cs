@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.PrimaryChannel {
+namespace ApiSdk.Teams.Item.PrimaryChannel
+{
     /// <summary>
     /// Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.
     /// </summary>
-    public class PrimaryChannelRequestBuilder : BaseCliRequestBuilder 
+    public class PrimaryChannelRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the archive method.
@@ -142,13 +143,14 @@ namespace ApiSdk.Teams.Item.PrimaryChannel {
             return command;
         }
         /// <summary>
-        /// The general channel for the team.
+        /// Get the default channel, General, of a team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The general channel for the team.";
+            command.Description = "Get the default channel, General, of a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -439,7 +441,7 @@ namespace ApiSdk.Teams.Item.PrimaryChannel {
             return requestInfo;
         }
         /// <summary>
-        /// The general channel for the team.
+        /// Get the default channel, General, of a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -479,7 +481,7 @@ namespace ApiSdk.Teams.Item.PrimaryChannel {
             return requestInfo;
         }
         /// <summary>
-        /// The general channel for the team.
+        /// Get the default channel, General, of a team.
         /// </summary>
         public class PrimaryChannelRequestBuilderGetQueryParameters 
         {

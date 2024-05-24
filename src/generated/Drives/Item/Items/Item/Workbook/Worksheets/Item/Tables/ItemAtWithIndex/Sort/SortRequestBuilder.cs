@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.ItemAtWithIndex.Sort {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.ItemAtWithIndex.Sort
+{
     /// <summary>
     /// Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class SortRequestBuilder : BaseCliRequestBuilder 
+    public class SortRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sort for drives

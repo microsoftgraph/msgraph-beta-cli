@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcExternalPartnerSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcExternalPartnerSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property externalPartnerSettings for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
             return command;
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Read the properties and relationships of a cloudPcExternalPartnerSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The external partner settings on a Cloud PC.";
+            command.Description = "Read the properties and relationships of a cloudPcExternalPartnerSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-get?view=graph-rest-beta";
             var cloudPcExternalPartnerSettingIdOption = new Option<string>("--cloud-pc-external-partner-setting-id", description: "The unique identifier of cloudPcExternalPartnerSetting") {
             };
             cloudPcExternalPartnerSettingIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property externalPartnerSettings in deviceManagement
+        /// Update the properties of a cloudPcExternalPartnerSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property externalPartnerSettings in deviceManagement";
+            command.Description = "Update the properties of a cloudPcExternalPartnerSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-update?view=graph-rest-beta";
             var cloudPcExternalPartnerSettingIdOption = new Option<string>("--cloud-pc-external-partner-setting-id", description: "The unique identifier of cloudPcExternalPartnerSetting") {
             };
             cloudPcExternalPartnerSettingIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Read the properties and relationships of a cloudPcExternalPartnerSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property externalPartnerSettings in deviceManagement
+        /// Update the properties of a cloudPcExternalPartnerSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Read the properties and relationships of a cloudPcExternalPartnerSetting object.
         /// </summary>
         public class CloudPcExternalPartnerSettingItemRequestBuilderGetQueryParameters 
         {

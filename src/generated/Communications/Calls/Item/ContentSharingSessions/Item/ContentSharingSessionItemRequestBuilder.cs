@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions.Item {
+namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions.Item
+{
     /// <summary>
     /// Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
     /// </summary>
-    public class ContentSharingSessionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ContentSharingSessionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property contentSharingSessions for communications
@@ -62,13 +63,14 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions.Item {
             return command;
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve the properties of a contentSharingSession object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/contentsharingsession-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get contentSharingSessions from communications";
+            command.Description = "Retrieve the properties of a contentSharingSession object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/contentsharingsession-get?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve the properties of a contentSharingSession object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve the properties of a contentSharingSession object.
         /// </summary>
         public class ContentSharingSessionItemRequestBuilderGetQueryParameters 
         {

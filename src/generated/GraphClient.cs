@@ -134,11 +134,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk {
+namespace ApiSdk
+{
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class GraphClient : BaseCliRequestBuilder 
+    public class GraphClient : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of accessReviewDecision entities.
@@ -3446,6 +3447,7 @@ namespace ApiSdk {
             nonExecCommands.Add(builder.BuildIpSecurityProfilesNavCommand());
             nonExecCommands.Add(builder.BuildLabelsNavCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphSecurityRunHuntingQueryNavCommand());
+            nonExecCommands.Add(builder.BuildPartnerNavCommand());
             execCommands.Add(builder.BuildPatchCommand());
             nonExecCommands.Add(builder.BuildProviderTenantSettingsNavCommand());
             nonExecCommands.Add(builder.BuildRulesNavCommand());

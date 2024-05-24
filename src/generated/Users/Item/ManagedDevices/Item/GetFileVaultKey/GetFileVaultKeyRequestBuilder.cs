@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.GetFileVaultKey {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.GetFileVaultKey
+{
     /// <summary>
     /// Provides operations to call the getFileVaultKey method.
     /// </summary>
-    public class GetFileVaultKeyRequestBuilder : BaseCliRequestBuilder 
+    public class GetFileVaultKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getFileVaultKey

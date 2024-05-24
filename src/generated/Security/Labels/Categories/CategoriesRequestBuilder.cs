@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Categories {
+namespace ApiSdk.Security.Labels.Categories
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class CategoriesRequestBuilder : BaseCliRequestBuilder 
+    public class CategoriesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the categories property of the microsoft.graph.security.labelsRoot entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Security.Labels.Categories {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to categories for security
+        /// Create a new categoryTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-post-categories?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to categories for security";
+            command.Description = "Create a new categoryTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-labelsroot-post-categories?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Security.Labels.Categories {
             return command;
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Get a list of the categoryTemplate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-list-categories?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Specifies a group of similar types of content in a particular department.";
+            command.Description = "Get a list of the categoryTemplate objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-labelsroot-list-categories?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Security.Labels.Categories {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Security.Labels.Categories {
         {
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Get a list of the categoryTemplate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Security.Labels.Categories {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to categories for security
+        /// Create a new categoryTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Security.Labels.Categories {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Get a list of the categoryTemplate objects and their properties.
         /// </summary>
         public class CategoriesRequestBuilderGetQueryParameters 
         {

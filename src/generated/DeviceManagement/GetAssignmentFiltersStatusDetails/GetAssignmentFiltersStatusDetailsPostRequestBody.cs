@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.GetAssignmentFiltersStatusDetails {
+namespace ApiSdk.DeviceManagement.GetAssignmentFiltersStatusDetails
+{
     #pragma warning disable CS1591
-    public class GetAssignmentFiltersStatusDetailsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetAssignmentFiltersStatusDetailsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,12 +73,12 @@ namespace ApiSdk.DeviceManagement.GetAssignmentFiltersStatusDetails {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                {"payloadId", n => { PayloadId = n.GetStringValue(); } },
-                {"skip", n => { Skip = n.GetIntValue(); } },
-                {"top", n => { Top = n.GetIntValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "payloadId", n => { PayloadId = n.GetStringValue(); } },
+                { "skip", n => { Skip = n.GetIntValue(); } },
+                { "top", n => { Top = n.GetIntValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource : AccessReviewInstanceDecisionItemResource, IParsable 
+    public class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource : AccessReviewInstanceDecisionItemResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Display name of the access package to which access has been granted.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageDisplayName", n => { AccessPackageDisplayName = n.GetStringValue(); } },
-                {"accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
+                { "accessPackageDisplayName", n => { AccessPackageDisplayName = n.GetStringValue(); } },
+                { "accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
             };
         }
         /// <summary>

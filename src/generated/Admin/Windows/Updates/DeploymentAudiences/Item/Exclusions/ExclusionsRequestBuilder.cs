@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions
+{
     /// <summary>
     /// Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     /// </summary>
-    public class ExclusionsRequestBuilder : BaseCliRequestBuilder 
+    public class ExclusionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
@@ -113,13 +114,14 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
             return command;
         }
         /// <summary>
-        /// Specifies the assets to exclude from the audience.
+        /// List the updatableAsset resources that are excluded from a deploymentAudience.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Specifies the assets to exclude from the audience.";
+            command.Description = "List the updatableAsset resources that are excluded from a deploymentAudience.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta";
             var deploymentAudienceIdOption = new Option<string>("--deployment-audience-id", description: "The unique identifier of deploymentAudience") {
             };
             deploymentAudienceIdOption.IsRequired = true;
@@ -201,7 +203,9 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -295,7 +299,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
         {
         }
         /// <summary>
-        /// Specifies the assets to exclude from the audience.
+        /// List the updatableAsset resources that are excluded from a deploymentAudience.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -335,7 +339,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the assets to exclude from the audience.
+        /// List the updatableAsset resources that are excluded from a deploymentAudience.
         /// </summary>
         public class ExclusionsRequestBuilderGetQueryParameters 
         {

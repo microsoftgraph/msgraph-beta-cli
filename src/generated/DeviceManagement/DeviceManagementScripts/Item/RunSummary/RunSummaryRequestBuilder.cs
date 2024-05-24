@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.RunSummary {
+namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.RunSummary
+{
     /// <summary>
     /// Provides operations to manage the runSummary property of the microsoft.graph.deviceManagementScript entity.
     /// </summary>
-    public class RunSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class RunSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Run summary for device management script.

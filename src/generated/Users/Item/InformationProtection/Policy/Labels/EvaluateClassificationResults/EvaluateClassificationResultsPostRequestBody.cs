@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassificationResults {
+namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassificationResults
+{
     #pragma warning disable CS1591
-    public class EvaluateClassificationResultsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluateClassificationResultsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassifi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"classificationResults", n => { ClassificationResults = n.GetCollectionOfObjectValues<ClassificationResult>(ClassificationResult.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.ContentInfo>(ApiSdk.Models.ContentInfo.CreateFromDiscriminatorValue); } },
+                { "classificationResults", n => { ClassificationResults = n.GetCollectionOfObjectValues<ClassificationResult>(ClassificationResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.ContentInfo>(ApiSdk.Models.ContentInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

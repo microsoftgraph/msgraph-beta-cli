@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
     /// </summary>
-    public class DataProcessorServiceForWindowsFeaturesOnboarding : IAdditionalDataHolder, IParsable 
+    public class DataProcessorServiceForWindowsFeaturesOnboarding : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -49,9 +50,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"areDataProcessorServiceForWindowsFeaturesEnabled", n => { AreDataProcessorServiceForWindowsFeaturesEnabled = n.GetBoolValue(); } },
-                {"hasValidWindowsLicense", n => { HasValidWindowsLicense = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "areDataProcessorServiceForWindowsFeaturesEnabled", n => { AreDataProcessorServiceForWindowsFeaturesEnabled = n.GetBoolValue(); } },
+                { "hasValidWindowsLicense", n => { HasValidWindowsLicense = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.OwnedObjects.Item {
+namespace ApiSdk.ServicePrincipals.Item.OwnedObjects.Item
+{
     /// <summary>
     /// Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).

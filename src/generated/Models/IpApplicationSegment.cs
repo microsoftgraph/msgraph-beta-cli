@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class IpApplicationSegment : ApplicationSegment, IParsable 
+    public class IpApplicationSegment : ApplicationSegment, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The application property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.Application? Application { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.Application Application { get; set; }
+#endif
         /// <summary>The destinationHost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,11 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"destinationHost", n => { DestinationHost = n.GetStringValue(); } },
-                {"destinationType", n => { DestinationType = n.GetEnumValue<PrivateNetworkDestinationType>(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
-                {"ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"protocol", n => { Protocol = n.GetEnumValue<PrivateNetworkProtocol>(); } },
+                { "application", n => { Application = n.GetObjectValue<ApiSdk.Models.Application>(ApiSdk.Models.Application.CreateFromDiscriminatorValue); } },
+                { "destinationHost", n => { DestinationHost = n.GetStringValue(); } },
+                { "destinationType", n => { DestinationType = n.GetEnumValue<PrivateNetworkDestinationType>(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
+                { "ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "protocol", n => { Protocol = n.GetEnumValue<PrivateNetworkProtocol>(); } },
             };
         }
         /// <summary>
@@ -71,6 +81,7 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<ApiSdk.Models.Application>("application", Application);
             writer.WriteStringValue("destinationHost", DestinationHost);
             writer.WriteEnumValue<PrivateNetworkDestinationType>("destinationType", DestinationType);
             writer.WriteIntValue("port", Port);

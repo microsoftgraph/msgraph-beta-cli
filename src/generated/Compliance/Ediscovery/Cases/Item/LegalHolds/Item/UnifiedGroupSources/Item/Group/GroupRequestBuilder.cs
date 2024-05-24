@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.UnifiedGroupSources.Item.Group {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.UnifiedGroupSources.Item.Group
+{
     /// <summary>
     /// Provides operations to manage the group property of the microsoft.graph.ediscovery.unifiedGroupSource entity.
     /// </summary>
-    public class GroupRequestBuilder : BaseCliRequestBuilder 
+    public class GroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The group associated with the unifiedGroupSource.

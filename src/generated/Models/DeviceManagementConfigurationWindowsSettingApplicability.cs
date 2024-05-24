@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationWindowsSettingApplicability : DeviceManagementConfigurationSettingApplicability, IParsable 
+    public class DeviceManagementConfigurationWindowsSettingApplicability : DeviceManagementConfigurationSettingApplicability, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Version of CSP setting is a part of</summary>
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configurationServiceProviderVersion", n => { ConfigurationServiceProviderVersion = n.GetStringValue(); } },
-                {"maximumSupportedVersion", n => { MaximumSupportedVersion = n.GetStringValue(); } },
-                {"minimumSupportedVersion", n => { MinimumSupportedVersion = n.GetStringValue(); } },
-                {"requiredAzureAdTrustType", n => { RequiredAzureAdTrustType = n.GetEnumValue<DeviceManagementConfigurationAzureAdTrustType>(); } },
-                {"requiresAzureAd", n => { RequiresAzureAd = n.GetBoolValue(); } },
-                {"windowsSkus", n => { WindowsSkus = n.GetCollectionOfEnumValues<DeviceManagementConfigurationWindowsSkus>()?.ToList(); } },
+                { "configurationServiceProviderVersion", n => { ConfigurationServiceProviderVersion = n.GetStringValue(); } },
+                { "maximumSupportedVersion", n => { MaximumSupportedVersion = n.GetStringValue(); } },
+                { "minimumSupportedVersion", n => { MinimumSupportedVersion = n.GetStringValue(); } },
+                { "requiredAzureAdTrustType", n => { RequiredAzureAdTrustType = n.GetEnumValue<DeviceManagementConfigurationAzureAdTrustType>(); } },
+                { "requiresAzureAd", n => { RequiresAzureAd = n.GetBoolValue(); } },
+                { "windowsSkus", n => { WindowsSkus = n.GetCollectionOfEnumValues<DeviceManagementConfigurationWindowsSkus>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.Confirm {
+namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.Confirm
+{
     /// <summary>
     /// Provides operations to call the confirm method.
     /// </summary>
-    public class ConfirmRequestBuilder : BaseCliRequestBuilder 
+    public class ConfirmRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Confirm a specific timeCard.

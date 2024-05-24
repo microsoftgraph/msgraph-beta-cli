@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Categories.Item {
+namespace ApiSdk.DeviceManagement.Categories.Item
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementSettingCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementSettingCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property categories for deviceManagement

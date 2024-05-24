@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken
+{
     /// <summary>
     /// Provides operations to call the createGooglePlayWebToken method.
     /// </summary>
-    public class CreateGooglePlayWebTokenRequestBuilder : BaseCliRequestBuilder 
+    public class CreateGooglePlayWebTokenRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Generates a web token that is used in an embeddable component.

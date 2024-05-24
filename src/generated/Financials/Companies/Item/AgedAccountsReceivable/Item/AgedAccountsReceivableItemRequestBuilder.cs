@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.AgedAccountsReceivable.Item {
+namespace ApiSdk.Financials.Companies.Item.AgedAccountsReceivable.Item
+{
     /// <summary>
     /// Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
     /// </summary>
-    public class AgedAccountsReceivableItemRequestBuilder : BaseCliRequestBuilder 
+    public class AgedAccountsReceivableItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get agedAccountsReceivable from financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.AgedAccountsReceivable.Item {
         {
             var command = new Command("get");
             command.Description = "Get agedAccountsReceivable from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var agedAccountsReceivableIdOption = new Option<string>("--aged-accounts-receivable-id", description: "The unique identifier of agedAccountsReceivable") {
+            var agedAccountsReceivableIdOption = new Option<Guid?>("--aged-accounts-receivable-id", description: "The unique identifier of agedAccountsReceivable") {
             };
             agedAccountsReceivableIdOption.IsRequired = true;
             command.AddOption(agedAccountsReceivableIdOption);

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintServiceEndpoint : Entity, IParsable 
+    public class PrintServiceEndpoint : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A human-readable display name for the endpoint.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"uri", n => { Uri = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
         /// <summary>

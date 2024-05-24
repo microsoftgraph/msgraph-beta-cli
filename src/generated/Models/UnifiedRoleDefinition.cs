@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleDefinition : Entity, IParsable 
+    public class UnifiedRoleDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).</summary>
@@ -91,17 +92,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedPrincipalTypes", n => { AllowedPrincipalTypes = n.GetEnumValue<AllowedRolePrincipalTypes>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"inheritsPermissionsFrom", n => { InheritsPermissionsFrom = n.GetCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
-                {"resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<UnifiedRolePermission>(UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "allowedPrincipalTypes", n => { AllowedPrincipalTypes = n.GetEnumValue<AllowedRolePrincipalTypes>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "inheritsPermissionsFrom", n => { InheritsPermissionsFrom = n.GetCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
+                { "resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<UnifiedRolePermission>(UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

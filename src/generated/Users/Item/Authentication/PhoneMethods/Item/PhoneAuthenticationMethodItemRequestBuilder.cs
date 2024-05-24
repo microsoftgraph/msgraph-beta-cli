@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class PhoneAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class PhoneAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property phoneMethods for users
@@ -120,13 +121,14 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property phoneMethods in users
+        /// Update the phone number associated with a phone authentication method. You can&apos;t change a phone&apos;s type. To change a phone&apos;s type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property phoneMethods in users";
+            command.Description = "Update the phone number associated with a phone authentication method. You can't change a phone's type. To change a phone's type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -229,7 +231,7 @@ namespace ApiSdk.Users.Item.Authentication.PhoneMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property phoneMethods in users
+        /// Update the phone number associated with a phone authentication method. You can&apos;t change a phone&apos;s type. To change a phone&apos;s type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the mobile number is changed, the system attempts to register the number for use in that system.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.Assign {
+namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.Assign
+{
     /// <summary>
     /// Provides operations to call the assign method.
     /// </summary>
-    public class AssignRequestBuilder : BaseCliRequestBuilder 
+    public class AssignRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action assign

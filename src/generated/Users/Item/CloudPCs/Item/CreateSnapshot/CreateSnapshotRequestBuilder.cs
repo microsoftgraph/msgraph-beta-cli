@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot {
+namespace ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot
+{
     /// <summary>
     /// Provides operations to call the createSnapshot method.
     /// </summary>
-    public class CreateSnapshotRequestBuilder : BaseCliRequestBuilder 
+    public class CreateSnapshotRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createSnapshot

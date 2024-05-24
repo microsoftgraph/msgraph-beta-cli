@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBy {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBy
+{
     /// <summary>
     /// Provides operations to call the usageProfiling method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function usageProfiling
@@ -27,11 +28,11 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfiling
         {
             var command = new Command("get");
             command.Description = "Invoke function usageProfiling";
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);
@@ -99,7 +100,9 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfiling
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

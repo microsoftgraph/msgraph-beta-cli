@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure
+{
     /// <summary>
     /// Provides operations to manage the azure property of the microsoft.graph.permissionsAnalyticsAggregation entity.
     /// </summary>
-    public class AzureRequestBuilder : BaseCliRequestBuilder 
+    public class AzureRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property azure for identityGovernance

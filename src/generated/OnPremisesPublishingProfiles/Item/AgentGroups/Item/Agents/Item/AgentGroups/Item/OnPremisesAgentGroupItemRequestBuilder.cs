@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.Item.AgentGroups.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.Item.AgentGroups.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \onPremisesPublishingProfiles\{onPremisesPublishingProfile-id}\agentGroups\{onPremisesAgentGroup-id}\agents\{onPremisesAgent-id}\agentGroups\{onPremisesAgentGroup-id1}
     /// </summary>
-    public class OnPremisesAgentGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesAgentGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of onPremisesPublishingProfile entities.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Managed Device Mobile App Configuration State for a given device.
     /// </summary>
-    public class ManagedDeviceMobileAppConfigurationState : Entity, IParsable 
+    public class ManagedDeviceMobileAppConfigurationState : Entity, IParsable
     {
         /// <summary>The name of the policy for this policyBase</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,14 +69,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
-                {"settingCount", n => { SettingCount = n.GetIntValue(); } },
-                {"settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationSettingState>(ManagedDeviceMobileAppConfigurationSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
+                { "settingCount", n => { SettingCount = n.GetIntValue(); } },
+                { "settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationSettingState>(ManagedDeviceMobileAppConfigurationSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

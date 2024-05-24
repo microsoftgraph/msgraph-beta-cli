@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetRelatedAppsStatusReport {
+namespace ApiSdk.DeviceManagement.Reports.GetRelatedAppsStatusReport
+{
     /// <summary>
     /// Provides operations to call the getRelatedAppsStatusReport method.
     /// </summary>
-    public class GetRelatedAppsStatusReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetRelatedAppsStatusReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getRelatedAppsStatusReport

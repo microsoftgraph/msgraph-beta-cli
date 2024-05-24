@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken
+{
     /// <summary>
     /// Provides operations to call the uploadDepToken method.
     /// </summary>
-    public class UploadDepTokenRequestBuilder : BaseCliRequestBuilder 
+    public class UploadDepTokenRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Uploads a new Device Enrollment Program token

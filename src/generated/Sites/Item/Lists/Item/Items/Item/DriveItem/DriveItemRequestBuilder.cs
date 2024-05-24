@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem {
+namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem
+{
     /// <summary>
     /// Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
     /// </summary>
-    public class DriveItemRequestBuilder : BaseCliRequestBuilder 
+    public class DriveItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the site entity.

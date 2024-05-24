@@ -13,20 +13,68 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.HostedContents.Item.Value {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.HostedContents.Item.Value
+{
     /// <summary>
     /// Provides operations to manage the media for the teamTemplateDefinition entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    public class ContentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get media content for the navigation property hostedContents from teamTemplateDefinition
+        /// The unique identifier for an entity. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "The unique identifier for an entity. Read-only.";
+            var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
+            };
+            teamTemplateDefinitionIdOption.IsRequired = true;
+            command.AddOption(teamTemplateDefinitionIdOption);
+            var chatMessageIdOption = new Option<string>("--chat-message-id", description: "The unique identifier of chatMessage") {
+            };
+            chatMessageIdOption.IsRequired = true;
+            command.AddOption(chatMessageIdOption);
+            var chatMessageHostedContentIdOption = new Option<string>("--chat-message-hosted-content-id", description: "The unique identifier of chatMessageHostedContent") {
+            };
+            chatMessageHostedContentIdOption.IsRequired = true;
+            command.AddOption(chatMessageHostedContentIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var teamTemplateDefinitionId = invocationContext.ParseResult.GetValueForOption(teamTemplateDefinitionIdOption);
+                var chatMessageId = invocationContext.ParseResult.GetValueForOption(chatMessageIdOption);
+                var chatMessageHostedContentId = invocationContext.ParseResult.GetValueForOption(chatMessageHostedContentIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (teamTemplateDefinitionId is not null) requestInfo.PathParameters.Add("teamTemplateDefinition%2Did", teamTemplateDefinitionId);
+                if (chatMessageId is not null) requestInfo.PathParameters.Add("chatMessage%2Did", chatMessageId);
+                if (chatMessageHostedContentId is not null) requestInfo.PathParameters.Add("chatMessageHostedContent%2Did", chatMessageHostedContentId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
+        /// <summary>
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get media content for the navigation property hostedContents from teamTemplateDefinition";
+            command.Description = "The unique identifier for an entity. Read-only.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -72,13 +120,13 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
             return command;
         }
         /// <summary>
-        /// Update media content for the navigation property hostedContents in teamTemplateDefinition
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update media content for the navigation property hostedContents in teamTemplateDefinition";
+            command.Description = "The unique identifier for an entity. Read-only.";
             var teamTemplateDefinitionIdOption = new Option<string>("--team-template-definition-id", description: "The unique identifier of teamTemplateDefinition") {
             };
             teamTemplateDefinitionIdOption.IsRequired = true;
@@ -148,7 +196,26 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
         {
         }
         /// <summary>
-        /// Get media content for the navigation property hostedContents from teamTemplateDefinition
+        /// The unique identifier for an entity. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +234,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
             return requestInfo;
         }
         /// <summary>
-        /// Update media content for the navigation property hostedContents in teamTemplateDefinition
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>

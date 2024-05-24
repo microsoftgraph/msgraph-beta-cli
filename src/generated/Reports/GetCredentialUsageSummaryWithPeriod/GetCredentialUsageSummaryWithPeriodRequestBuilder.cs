@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
+namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getCredentialUsageSummary method.
     /// </summary>
-    public class GetCredentialUsageSummaryWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetCredentialUsageSummaryWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Report the current state of how many users in your organization used the self-service password reset capabilities.
@@ -109,7 +110,9 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

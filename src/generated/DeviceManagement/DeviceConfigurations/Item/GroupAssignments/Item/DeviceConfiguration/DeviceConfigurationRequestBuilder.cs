@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.GroupAssignments.Item.DeviceConfiguration {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.GroupAssignments.Item.DeviceConfiguration
+{
     /// <summary>
     /// Provides operations to manage the deviceConfiguration property of the microsoft.graph.deviceConfigurationGroupAssignment entity.
     /// </summary>
-    public class DeviceConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The navigation link to the Device Configuration being targeted.

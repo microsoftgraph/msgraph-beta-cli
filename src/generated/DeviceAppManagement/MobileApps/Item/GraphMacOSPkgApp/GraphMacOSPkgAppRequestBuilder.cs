@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp
+{
     /// <summary>
     /// Casts the previous resource to macOSPkgApp.
     /// </summary>
-    public class GraphMacOSPkgAppRequestBuilder : BaseCliRequestBuilder 
+    public class GraphMacOSPkgAppRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

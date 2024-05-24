@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an ADMX dropdownList element and an ADMX enum element.
     /// </summary>
-    public class GroupPolicyPresentationDropdownList : GroupPolicyUploadedPresentation, IParsable 
+    public class GroupPolicyPresentationDropdownList : GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>Localized string value identifying the default choice of the list of items.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultItem", n => { DefaultItem = n.GetObjectValue<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"required", n => { Required = n.GetBoolValue(); } },
+                { "defaultItem", n => { DefaultItem = n.GetObjectValue<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.TermStore {
+namespace ApiSdk.Models.TermStore
+{
     #pragma warning disable CS1591
-    public class GroupCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable 
+    public class GroupCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.TermStore {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Group>(Group.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<Group>(Group.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

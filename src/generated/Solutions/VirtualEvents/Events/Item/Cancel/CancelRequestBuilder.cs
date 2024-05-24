@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Cancel {
+namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Cancel
+{
     /// <summary>
     /// Provides operations to call the cancel method.
     /// </summary>
-    public class CancelRequestBuilder : BaseCliRequestBuilder 
+    public class CancelRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action cancel

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Windows Phone XAP Line Of Business apps.
     /// </summary>
-    public class WindowsPhoneXAP : MobileLobApp, IParsable 
+    public class WindowsPhoneXAP : MobileLobApp, IParsable
     {
         /// <summary>The identity version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                {"minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
-                {"productIdentifier", n => { ProductIdentifier = n.GetStringValue(); } },
+                { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "productIdentifier", n => { ProductIdentifier = n.GetStringValue(); } },
             };
         }
         /// <summary>

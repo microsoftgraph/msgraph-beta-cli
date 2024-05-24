@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Tabs.Item {
+namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Tabs.Item
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.channel entity.
     /// </summary>
-    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tabs for groups

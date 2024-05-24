@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DeploymentState : IAdditionalDataHolder, IParsable 
+    public class DeploymentState : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,10 +57,10 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"effectiveValue", n => { EffectiveValue = n.GetEnumValue<DeploymentStateValue>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"reasons", n => { Reasons = n.GetCollectionOfObjectValues<DeploymentStateReason>(DeploymentStateReason.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"requestedValue", n => { RequestedValue = n.GetEnumValue<RequestedDeploymentStateValue>(); } },
+                { "effectiveValue", n => { EffectiveValue = n.GetEnumValue<DeploymentStateValue>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "reasons", n => { Reasons = n.GetCollectionOfObjectValues<DeploymentStateReason>(DeploymentStateReason.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "requestedValue", n => { RequestedValue = n.GetEnumValue<RequestedDeploymentStateValue>(); } },
             };
         }
         /// <summary>

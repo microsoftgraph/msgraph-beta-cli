@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class TagsRequestBuilder : BaseCliRequestBuilder 
+    public class TagsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to tags for security
+        /// Create a new ediscoveryReviewTag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-post-tags?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to tags for security";
+            command.Description = "Create a new ediscoveryReviewTag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-post-tags?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
             return command;
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Get a list of eDiscoveryReviewTag objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of ediscoveryReviewTag objects associated to this case.";
+            command.Description = "Get a list of eDiscoveryReviewTag objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -196,7 +199,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -239,7 +244,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
         {
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Get a list of eDiscoveryReviewTag objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tags for security
+        /// Create a new ediscoveryReviewTag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -279,7 +284,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Get a list of eDiscoveryReviewTag objects and their properties.
         /// </summary>
         public class TagsRequestBuilderGetQueryParameters 
         {

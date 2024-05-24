@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EnableAndroidDeviceAdministratorEnrollment {
+namespace ApiSdk.DeviceManagement.EnableAndroidDeviceAdministratorEnrollment
+{
     /// <summary>
     /// Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
     /// </summary>
-    public class EnableAndroidDeviceAdministratorEnrollmentRequestBuilder : BaseCliRequestBuilder 
+    public class EnableAndroidDeviceAdministratorEnrollmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enableAndroidDeviceAdministratorEnrollment

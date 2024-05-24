@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.Presenters.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.Presenters.Item
+{
     /// <summary>
     /// Provides operations to manage the presenters property of the microsoft.graph.virtualEventSession entity.
     /// </summary>
-    public class VirtualEventPresenterItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventPresenterItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get presenters from solutions

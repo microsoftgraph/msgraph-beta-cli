@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GovernanceSubject : Entity, IParsable 
+    public class GovernanceSubject : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the subject.</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"principalName", n => { PrincipalName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "principalName", n => { PrincipalName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

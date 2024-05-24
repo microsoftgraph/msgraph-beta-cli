@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Thumbnails.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Thumbnails.Item
+{
     /// <summary>
     /// Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
     /// </summary>
-    public class ThumbnailSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class ThumbnailSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property thumbnails for drives

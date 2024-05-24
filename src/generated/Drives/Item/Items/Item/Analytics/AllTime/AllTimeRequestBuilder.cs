@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Analytics.AllTime {
+namespace ApiSdk.Drives.Item.Items.Item.Analytics.AllTime
+{
     /// <summary>
     /// Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
     /// </summary>
-    public class AllTimeRequestBuilder : BaseCliRequestBuilder 
+    public class AllTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get allTime from drives

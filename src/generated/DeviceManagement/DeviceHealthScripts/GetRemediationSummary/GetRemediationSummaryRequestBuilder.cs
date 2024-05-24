@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.GetRemediationSummary {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.GetRemediationSummary
+{
     /// <summary>
     /// Provides operations to call the getRemediationSummary method.
     /// </summary>
-    public class GetRemediationSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class GetRemediationSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getRemediationSummary

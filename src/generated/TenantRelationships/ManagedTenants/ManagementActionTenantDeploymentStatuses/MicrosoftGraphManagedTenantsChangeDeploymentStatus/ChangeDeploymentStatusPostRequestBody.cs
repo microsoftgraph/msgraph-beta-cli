@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus
+{
     #pragma warning disable CS1591
-    public class ChangeDeploymentStatusPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ChangeDeploymentStatusPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -78,12 +79,12 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"managementActionId", n => { ManagementActionId = n.GetStringValue(); } },
-                {"managementTemplateId", n => { ManagementTemplateId = n.GetStringValue(); } },
-                {"managementTemplateVersion", n => { ManagementTemplateVersion = n.GetIntValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"tenantGroupId", n => { TenantGroupId = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "managementActionId", n => { ManagementActionId = n.GetStringValue(); } },
+                { "managementTemplateId", n => { ManagementTemplateId = n.GetStringValue(); } },
+                { "managementTemplateVersion", n => { ManagementTemplateVersion = n.GetIntValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tenantGroupId", n => { TenantGroupId = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

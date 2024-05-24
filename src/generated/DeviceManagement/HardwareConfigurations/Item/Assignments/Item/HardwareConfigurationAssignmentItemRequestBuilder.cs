@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.hardwareConfiguration entity.
     /// </summary>
-    public class HardwareConfigurationAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class HardwareConfigurationAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

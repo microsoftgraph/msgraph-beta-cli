@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Apple device features configuration profile.
     /// </summary>
-    public class EasEmailProfileConfigurationBase : DeviceConfiguration, IParsable 
+    public class EasEmailProfileConfigurationBase : DeviceConfiguration, IParsable
     {
         /// <summary>Custom domain name value used while generating an email profile before installing on the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,10 +57,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customDomainName", n => { CustomDomainName = n.GetStringValue(); } },
-                {"userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<DomainNameSource>(); } },
-                {"usernameAADSource", n => { UsernameAADSource = n.GetEnumValue<UsernameSource>(); } },
-                {"usernameSource", n => { UsernameSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "customDomainName", n => { CustomDomainName = n.GetStringValue(); } },
+                { "userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<DomainNameSource>(); } },
+                { "usernameAADSource", n => { UsernameAADSource = n.GetEnumValue<UsernameSource>(); } },
+                { "usernameSource", n => { UsernameSource = n.GetEnumValue<UserEmailSource>(); } },
             };
         }
         /// <summary>

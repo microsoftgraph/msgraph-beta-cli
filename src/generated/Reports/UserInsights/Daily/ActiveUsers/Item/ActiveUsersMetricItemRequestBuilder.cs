@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers.Item
+{
     /// <summary>
     /// Provides operations to manage the activeUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class ActiveUsersMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class ActiveUsersMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Insights for active users on apps registered in the tenant for a specified period.

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet
+{
     /// <summary>
     /// Provides operations to call the addToReviewSet method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a caseExportOperation.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Domain Join device configuration.
     /// </summary>
-    public class WindowsDomainJoinConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsDomainJoinConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Active Directory domain name to join.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,7 +29,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Dynamically generated characters used as suffix for computer name. Valid values 3 to 14</summary>
         public int? ComputerNameSuffixRandomCharCount { get; set; }
-        /// <summary>Reference to device configurations required for network connectivity. This collection can contain a maximum of 2 elements.</summary>
+        /// <summary>Reference to device configurations required for network connectivity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DeviceConfiguration>? NetworkAccessConfigurations { get; set; }
@@ -69,11 +70,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeDirectoryDomainName", n => { ActiveDirectoryDomainName = n.GetStringValue(); } },
-                {"computerNameStaticPrefix", n => { ComputerNameStaticPrefix = n.GetStringValue(); } },
-                {"computerNameSuffixRandomCharCount", n => { ComputerNameSuffixRandomCharCount = n.GetIntValue(); } },
-                {"networkAccessConfigurations", n => { NetworkAccessConfigurations = n.GetCollectionOfObjectValues<DeviceConfiguration>(DeviceConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
+                { "activeDirectoryDomainName", n => { ActiveDirectoryDomainName = n.GetStringValue(); } },
+                { "computerNameStaticPrefix", n => { ComputerNameStaticPrefix = n.GetStringValue(); } },
+                { "computerNameSuffixRandomCharCount", n => { ComputerNameSuffixRandomCharCount = n.GetIntValue(); } },
+                { "networkAccessConfigurations", n => { NetworkAccessConfigurations = n.GetCollectionOfObjectValues<DeviceConfiguration>(DeviceConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
             };
         }
         /// <summary>

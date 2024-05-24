@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.TemplateStep {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.TemplateStep
+{
     /// <summary>
     /// Provides operations to manage the templateStep property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     /// </summary>
-    public class TemplateStepRequestBuilder : BaseCliRequestBuilder 
+    public class TemplateStepRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get templateStep from tenantRelationships

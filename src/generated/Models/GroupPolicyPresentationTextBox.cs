@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an ADMX textBox element and an ADMX text element.
     /// </summary>
-    public class GroupPolicyPresentationTextBox : GroupPolicyUploadedPresentation, IParsable 
+    public class GroupPolicyPresentationTextBox : GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>Localized default string displayed in the text box. The default value is empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetStringValue(); } },
-                {"maxLength", n => { MaxLength = n.GetLongValue(); } },
-                {"required", n => { Required = n.GetBoolValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetStringValue(); } },
+                { "maxLength", n => { MaxLength = n.GetLongValue(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.RunSummary {
+namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.RunSummary
+{
     /// <summary>
     /// Provides operations to manage the runSummary property of the microsoft.graph.hardwareConfiguration entity.
     /// </summary>
-    public class RunSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class RunSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property runSummary for deviceManagement

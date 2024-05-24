@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class DeviceHealthStatus : ApiSdk.Models.Entity, IParsable 
+    public class DeviceHealthStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The blueScreenCount property</summary>
@@ -117,21 +118,21 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"blueScreenCount", n => { BlueScreenCount = n.GetIntValue(); } },
-                {"bootTotalDurationInSeconds", n => { BootTotalDurationInSeconds = n.GetDoubleValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceMake", n => { DeviceMake = n.GetStringValue(); } },
-                {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"healthStatus", n => { HealthStatus = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"primaryDiskType", n => { PrimaryDiskType = n.GetStringValue(); } },
-                {"restartCount", n => { RestartCount = n.GetIntValue(); } },
-                {"startupPerformanceScore", n => { StartupPerformanceScore = n.GetDoubleValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"topProcesses", n => { TopProcesses = n.GetStringValue(); } },
+                { "blueScreenCount", n => { BlueScreenCount = n.GetIntValue(); } },
+                { "bootTotalDurationInSeconds", n => { BootTotalDurationInSeconds = n.GetDoubleValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceMake", n => { DeviceMake = n.GetStringValue(); } },
+                { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "healthStatus", n => { HealthStatus = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "primaryDiskType", n => { PrimaryDiskType = n.GetStringValue(); } },
+                { "restartCount", n => { RestartCount = n.GetIntValue(); } },
+                { "startupPerformanceScore", n => { StartupPerformanceScore = n.GetDoubleValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "topProcesses", n => { TopProcesses = n.GetStringValue(); } },
             };
         }
         /// <summary>

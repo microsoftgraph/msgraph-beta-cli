@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Categories.Item.SettingDefinitions {
+namespace ApiSdk.DeviceManagement.Categories.Item.SettingDefinitions
+{
     /// <summary>
     /// Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
     /// </summary>
-    public class SettingDefinitionsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingDefinitionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
@@ -192,7 +193,9 @@ namespace ApiSdk.DeviceManagement.Categories.Item.SettingDefinitions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

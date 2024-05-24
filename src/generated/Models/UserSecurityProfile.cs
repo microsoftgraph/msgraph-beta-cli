@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserSecurityProfile : Entity, IParsable 
+    public class UserSecurityProfile : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accounts property</summary>
@@ -95,16 +96,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accounts", n => { Accounts = n.GetCollectionOfObjectValues<UserAccount>(UserAccount.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
-                {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"riskScore", n => { RiskScore = n.GetStringValue(); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<UserAccount>(UserAccount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
+                { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "riskScore", n => { RiskScore = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

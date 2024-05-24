@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesDirectorySynchronizationConfiguration : IAdditionalDataHolder, IParsable 
+    public class OnPremisesDirectorySynchronizationConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the accidental deletion prevention configuration for a tenant.</summary>
@@ -96,15 +97,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accidentalDeletionPrevention", n => { AccidentalDeletionPrevention = n.GetObjectValue<OnPremisesAccidentalDeletionPrevention>(OnPremisesAccidentalDeletionPrevention.CreateFromDiscriminatorValue); } },
-                {"anchorAttribute", n => { AnchorAttribute = n.GetStringValue(); } },
-                {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
-                {"currentExportData", n => { CurrentExportData = n.GetObjectValue<OnPremisesCurrentExportData>(OnPremisesCurrentExportData.CreateFromDiscriminatorValue); } },
-                {"customerRequestedSynchronizationInterval", n => { CustomerRequestedSynchronizationInterval = n.GetTimeSpanValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"synchronizationClientVersion", n => { SynchronizationClientVersion = n.GetStringValue(); } },
-                {"synchronizationInterval", n => { SynchronizationInterval = n.GetTimeSpanValue(); } },
-                {"writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<OnPremisesWritebackConfiguration>(OnPremisesWritebackConfiguration.CreateFromDiscriminatorValue); } },
+                { "accidentalDeletionPrevention", n => { AccidentalDeletionPrevention = n.GetObjectValue<OnPremisesAccidentalDeletionPrevention>(OnPremisesAccidentalDeletionPrevention.CreateFromDiscriminatorValue); } },
+                { "anchorAttribute", n => { AnchorAttribute = n.GetStringValue(); } },
+                { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
+                { "currentExportData", n => { CurrentExportData = n.GetObjectValue<OnPremisesCurrentExportData>(OnPremisesCurrentExportData.CreateFromDiscriminatorValue); } },
+                { "customerRequestedSynchronizationInterval", n => { CustomerRequestedSynchronizationInterval = n.GetTimeSpanValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "synchronizationClientVersion", n => { SynchronizationClientVersion = n.GetStringValue(); } },
+                { "synchronizationInterval", n => { SynchronizationInterval = n.GetTimeSpanValue(); } },
+                { "writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<OnPremisesWritebackConfiguration>(OnPremisesWritebackConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

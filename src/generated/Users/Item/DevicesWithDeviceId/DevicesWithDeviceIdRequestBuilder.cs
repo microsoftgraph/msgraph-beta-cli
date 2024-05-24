@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.DevicesWithDeviceId {
+namespace ApiSdk.Users.Item.DevicesWithDeviceId
+{
     /// <summary>
     /// Provides operations to manage the devices property of the microsoft.graph.user entity.
     /// </summary>
-    public class DevicesWithDeviceIdRequestBuilder : BaseCliRequestBuilder 
+    public class DevicesWithDeviceIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property devices for users

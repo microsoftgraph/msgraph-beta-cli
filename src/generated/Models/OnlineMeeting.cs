@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnlineMeeting : OnlineMeetingBase, IParsable 
+    public class OnlineMeeting : OnlineMeetingBase, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The alternativeRecording property</summary>
+        /// <summary>The content stream of the alternative recording of a Microsoft Teams live event. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? AlternativeRecording { get; set; }
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public byte[] AlternativeRecording { get; set; }
 #endif
-        /// <summary>The attendeeReport property</summary>
+        /// <summary>The content stream of the attendee report of a Teams live event. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? AttendeeReport { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public byte[] BroadcastRecording { get; set; }
 #endif
-        /// <summary>The broadcastSettings property</summary>
+        /// <summary>Settings related to a live event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public BroadcastMeetingSettings? BroadcastSettings { get; set; }
@@ -41,7 +42,7 @@ namespace ApiSdk.Models {
 #else
         public BroadcastMeetingSettings BroadcastSettings { get; set; }
 #endif
-        /// <summary>The capabilities property</summary>
+        /// <summary>The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MeetingCapabilities?>? Capabilities { get; set; }
@@ -61,7 +62,7 @@ namespace ApiSdk.Models {
 #else
         public string ExternalId { get; set; }
 #endif
-        /// <summary>The isBroadcast property</summary>
+        /// <summary>Indicates whether this event is a Teams live event.</summary>
         public bool? IsBroadcast { get; set; }
         /// <summary>The joinUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +72,7 @@ namespace ApiSdk.Models {
 #else
         public string JoinUrl { get; set; }
 #endif
-        /// <summary>The meetingAttendanceReport property</summary>
+        /// <summary>The attendance report of the latest online meeting session. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.MeetingAttendanceReport? MeetingAttendanceReport { get; set; }
@@ -95,7 +96,7 @@ namespace ApiSdk.Models {
 #else
         public MeetingParticipants Participants { get; set; }
 #endif
-        /// <summary>The recording property</summary>
+        /// <summary>The content stream of the recording of a Teams live event. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Recording { get; set; }
@@ -154,24 +155,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alternativeRecording", n => { AlternativeRecording = n.GetByteArrayValue(); } },
-                {"attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
-                {"broadcastRecording", n => { BroadcastRecording = n.GetByteArrayValue(); } },
-                {"broadcastSettings", n => { BroadcastSettings = n.GetObjectValue<BroadcastMeetingSettings>(BroadcastMeetingSettings.CreateFromDiscriminatorValue); } },
-                {"capabilities", n => { Capabilities = n.GetCollectionOfEnumValues<MeetingCapabilities>()?.ToList(); } },
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"isBroadcast", n => { IsBroadcast = n.GetBoolValue(); } },
-                {"joinUrl", n => { JoinUrl = n.GetStringValue(); } },
-                {"meetingAttendanceReport", n => { MeetingAttendanceReport = n.GetObjectValue<ApiSdk.Models.MeetingAttendanceReport>(ApiSdk.Models.MeetingAttendanceReport.CreateFromDiscriminatorValue); } },
-                {"meetingTemplateId", n => { MeetingTemplateId = n.GetStringValue(); } },
-                {"participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
-                {"recording", n => { Recording = n.GetByteArrayValue(); } },
-                {"recordings", n => { Recordings = n.GetCollectionOfObjectValues<CallRecording>(CallRecording.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registration", n => { Registration = n.GetObjectValue<MeetingRegistration>(MeetingRegistration.CreateFromDiscriminatorValue); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"transcripts", n => { Transcripts = n.GetCollectionOfObjectValues<CallTranscript>(CallTranscript.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alternativeRecording", n => { AlternativeRecording = n.GetByteArrayValue(); } },
+                { "attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
+                { "broadcastRecording", n => { BroadcastRecording = n.GetByteArrayValue(); } },
+                { "broadcastSettings", n => { BroadcastSettings = n.GetObjectValue<BroadcastMeetingSettings>(BroadcastMeetingSettings.CreateFromDiscriminatorValue); } },
+                { "capabilities", n => { Capabilities = n.GetCollectionOfEnumValues<MeetingCapabilities>()?.ToList(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "isBroadcast", n => { IsBroadcast = n.GetBoolValue(); } },
+                { "joinUrl", n => { JoinUrl = n.GetStringValue(); } },
+                { "meetingAttendanceReport", n => { MeetingAttendanceReport = n.GetObjectValue<ApiSdk.Models.MeetingAttendanceReport>(ApiSdk.Models.MeetingAttendanceReport.CreateFromDiscriminatorValue); } },
+                { "meetingTemplateId", n => { MeetingTemplateId = n.GetStringValue(); } },
+                { "participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
+                { "recording", n => { Recording = n.GetByteArrayValue(); } },
+                { "recordings", n => { Recordings = n.GetCollectionOfObjectValues<CallRecording>(CallRecording.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registration", n => { Registration = n.GetObjectValue<MeetingRegistration>(MeetingRegistration.CreateFromDiscriminatorValue); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "transcripts", n => { Transcripts = n.GetCollectionOfObjectValues<CallTranscript>(CallTranscript.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

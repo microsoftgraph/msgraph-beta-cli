@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Publish {
+namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Publish
+{
     /// <summary>
     /// Provides operations to call the publish method.
     /// </summary>
-    public class PublishRequestBuilder : BaseCliRequestBuilder 
+    public class PublishRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Publish the specified browserSiteList for devices to download.

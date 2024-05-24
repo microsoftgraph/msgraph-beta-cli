@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Quality Update Profile
     /// </summary>
-    public class WindowsQualityUpdateProfile : Entity, IParsable 
+    public class WindowsQualityUpdateProfile : Entity, IParsable
     {
         /// <summary>The list of group assignments of the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,15 +89,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsQualityUpdateProfileAssignment>(WindowsQualityUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deployableContentDisplayName", n => { DeployableContentDisplayName = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"expeditedUpdateSettings", n => { ExpeditedUpdateSettings = n.GetObjectValue<ExpeditedWindowsQualityUpdateSettings>(ExpeditedWindowsQualityUpdateSettings.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"releaseDateDisplayName", n => { ReleaseDateDisplayName = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsQualityUpdateProfileAssignment>(WindowsQualityUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deployableContentDisplayName", n => { DeployableContentDisplayName = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "expeditedUpdateSettings", n => { ExpeditedUpdateSettings = n.GetObjectValue<ExpeditedWindowsQualityUpdateSettings>(ExpeditedWindowsQualityUpdateSettings.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "releaseDateDisplayName", n => { ReleaseDateDisplayName = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

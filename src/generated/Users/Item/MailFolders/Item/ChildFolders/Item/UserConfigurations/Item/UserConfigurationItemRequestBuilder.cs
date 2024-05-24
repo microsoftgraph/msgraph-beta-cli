@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.Item {
+namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
     /// </summary>
-    public class UserConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get userConfigurations from users

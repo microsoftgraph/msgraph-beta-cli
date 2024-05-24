@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionsRequestChange : Entity, IParsable 
+    public class PermissionsRequestChange : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The status of the active occurence of the schedule if one exists. The possible values are: grantingFailed, granted, granting, revoked, revoking, revokingFailed, unknownFutureValue.</summary>
@@ -49,11 +50,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeOccurrenceStatus", n => { ActiveOccurrenceStatus = n.GetEnumValue<PermissionsRequestOccurrenceStatus>(); } },
-                {"modificationDateTime", n => { ModificationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"permissionsRequestId", n => { PermissionsRequestId = n.GetStringValue(); } },
-                {"statusDetail", n => { StatusDetail = n.GetEnumValue<StatusDetail>(); } },
-                {"ticketId", n => { TicketId = n.GetStringValue(); } },
+                { "activeOccurrenceStatus", n => { ActiveOccurrenceStatus = n.GetEnumValue<PermissionsRequestOccurrenceStatus>(); } },
+                { "modificationDateTime", n => { ModificationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "permissionsRequestId", n => { PermissionsRequestId = n.GetStringValue(); } },
+                { "statusDetail", n => { StatusDetail = n.GetEnumValue<StatusDetail>(); } },
+                { "ticketId", n => { TicketId = n.GetStringValue(); } },
             };
         }
         /// <summary>

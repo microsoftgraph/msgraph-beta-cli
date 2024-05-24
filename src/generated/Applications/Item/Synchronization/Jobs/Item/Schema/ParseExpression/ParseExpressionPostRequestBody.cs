@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Schema.ParseExpression {
+namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Schema.ParseExpression
+{
     #pragma warning disable CS1591
-    public class ParseExpressionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ParseExpressionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Schema.ParseExpress
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"expression", n => { Expression = n.GetStringValue(); } },
-                {"targetAttributeDefinition", n => { TargetAttributeDefinition = n.GetObjectValue<AttributeDefinition>(AttributeDefinition.CreateFromDiscriminatorValue); } },
-                {"testInputObject", n => { TestInputObject = n.GetObjectValue<ExpressionInputObject>(ExpressionInputObject.CreateFromDiscriminatorValue); } },
+                { "expression", n => { Expression = n.GetStringValue(); } },
+                { "targetAttributeDefinition", n => { TargetAttributeDefinition = n.GetObjectValue<AttributeDefinition>(AttributeDefinition.CreateFromDiscriminatorValue); } },
+                { "testInputObject", n => { TestInputObject = n.GetObjectValue<ExpressionInputObject>(ExpressionInputObject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

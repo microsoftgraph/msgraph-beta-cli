@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ArchivedPrintJob : IAdditionalDataHolder, IParsable 
+    public class ArchivedPrintJob : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>True if the job was acquired by a printer; false otherwise. Read-only.</summary>
@@ -98,22 +99,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"acquiredByPrinter", n => { AcquiredByPrinter = n.GetBoolValue(); } },
-                {"acquiredDateTime", n => { AcquiredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"blackAndWhitePageCount", n => { BlackAndWhitePageCount = n.GetIntValue(); } },
-                {"colorPageCount", n => { ColorPageCount = n.GetIntValue(); } },
-                {"completionDateTime", n => { CompletionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"copiesPrinted", n => { CopiesPrinted = n.GetIntValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"duplexPageCount", n => { DuplexPageCount = n.GetIntValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"pageCount", n => { PageCount = n.GetIntValue(); } },
-                {"printerId", n => { PrinterId = n.GetStringValue(); } },
-                {"printerName", n => { PrinterName = n.GetStringValue(); } },
-                {"processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
-                {"simplexPageCount", n => { SimplexPageCount = n.GetIntValue(); } },
+                { "acquiredByPrinter", n => { AcquiredByPrinter = n.GetBoolValue(); } },
+                { "acquiredDateTime", n => { AcquiredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "blackAndWhitePageCount", n => { BlackAndWhitePageCount = n.GetIntValue(); } },
+                { "colorPageCount", n => { ColorPageCount = n.GetIntValue(); } },
+                { "completionDateTime", n => { CompletionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "copiesPrinted", n => { CopiesPrinted = n.GetIntValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "duplexPageCount", n => { DuplexPageCount = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "pageCount", n => { PageCount = n.GetIntValue(); } },
+                { "printerId", n => { PrinterId = n.GetStringValue(); } },
+                { "printerName", n => { PrinterName = n.GetStringValue(); } },
+                { "processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
+                { "simplexPageCount", n => { SimplexPageCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

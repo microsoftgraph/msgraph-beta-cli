@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class NetworkConnectionEvidence : AlertEvidence, IParsable 
+    public class NetworkConnectionEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The destinationAddress property</summary>
@@ -56,11 +57,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"destinationAddress", n => { DestinationAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
-                {"destinationPort", n => { DestinationPort = n.GetIntValue(); } },
-                {"protocol", n => { Protocol = n.GetEnumValue<ProtocolType>(); } },
-                {"sourceAddress", n => { SourceAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
-                {"sourcePort", n => { SourcePort = n.GetIntValue(); } },
+                { "destinationAddress", n => { DestinationAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
+                { "destinationPort", n => { DestinationPort = n.GetIntValue(); } },
+                { "protocol", n => { Protocol = n.GetEnumValue<ProtocolType>(); } },
+                { "sourceAddress", n => { SourceAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
+                { "sourcePort", n => { SourcePort = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ParentLabelDetails : IAdditionalDataHolder, IParsable 
+    public class ParentLabelDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -101,15 +102,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"color", n => { Color = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
-                {"sensitivity", n => { Sensitivity = n.GetIntValue(); } },
-                {"tooltip", n => { Tooltip = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
+                { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
+                { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
         }
         /// <summary>

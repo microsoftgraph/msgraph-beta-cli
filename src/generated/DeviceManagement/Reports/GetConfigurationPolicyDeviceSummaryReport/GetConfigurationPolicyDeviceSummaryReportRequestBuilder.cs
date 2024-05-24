@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDeviceSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDeviceSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getConfigurationPolicyDeviceSummaryReport method.
     /// </summary>
-    public class GetConfigurationPolicyDeviceSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetConfigurationPolicyDeviceSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getConfigurationPolicyDeviceSummaryReport

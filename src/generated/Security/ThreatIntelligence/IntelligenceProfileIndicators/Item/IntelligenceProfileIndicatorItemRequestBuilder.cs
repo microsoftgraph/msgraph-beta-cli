@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators.Item {
+namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators.Item
+{
     /// <summary>
     /// Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class IntelligenceProfileIndicatorItemRequestBuilder : BaseCliRequestBuilder 
+    public class IntelligenceProfileIndicatorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the artifact property of the microsoft.graph.security.indicator entity.
@@ -74,13 +75,14 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators.Item 
             return command;
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get intelligenceProfileIndicators from security";
+            command.Description = "Read the properties and relationships of a intelligenceProfileIndicator object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-beta";
             var intelligenceProfileIndicatorIdOption = new Option<string>("--intelligence-profile-indicator-id", description: "The unique identifier of intelligenceProfileIndicator") {
             };
             intelligenceProfileIndicatorIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelligenceProfileIndicators.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Get intelligenceProfileIndicators from security
+        /// Read the properties and relationships of a intelligenceProfileIndicator object.
         /// </summary>
         public class IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters 
         {

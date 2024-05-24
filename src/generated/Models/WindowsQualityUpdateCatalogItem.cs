@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows update catalog item entity
     /// </summary>
-    public class WindowsQualityUpdateCatalogItem : WindowsUpdateCatalogItem, IParsable 
+    public class WindowsQualityUpdateCatalogItem : WindowsUpdateCatalogItem, IParsable
     {
         /// <summary>Windows quality update classification</summary>
         public WindowsQualityUpdateClassification? Classification { get; set; }
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"classification", n => { Classification = n.GetEnumValue<WindowsQualityUpdateClassification>(); } },
-                {"isExpeditable", n => { IsExpeditable = n.GetBoolValue(); } },
-                {"kbArticleId", n => { KbArticleId = n.GetStringValue(); } },
+                { "classification", n => { Classification = n.GetEnumValue<WindowsQualityUpdateClassification>(); } },
+                { "isExpeditable", n => { IsExpeditable = n.GetBoolValue(); } },
+                { "kbArticleId", n => { KbArticleId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item.PresentationValues.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item.PresentationValues.Item
+{
     /// <summary>
     /// Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
     /// </summary>
-    public class GroupPolicyPresentationValueItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyPresentationValueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definitionValue property of the microsoft.graph.groupPolicyPresentationValue entity.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkSpeakerConfiguration : IAdditionalDataHolder, IParsable 
+    public class TeamworkSpeakerConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,12 +73,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"defaultCommunicationSpeaker", n => { DefaultCommunicationSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
-                {"defaultSpeaker", n => { DefaultSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
-                {"isCommunicationSpeakerOptional", n => { IsCommunicationSpeakerOptional = n.GetBoolValue(); } },
-                {"isSpeakerOptional", n => { IsSpeakerOptional = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"speakers", n => { Speakers = n.GetCollectionOfObjectValues<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultCommunicationSpeaker", n => { DefaultCommunicationSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "defaultSpeaker", n => { DefaultSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "isCommunicationSpeakerOptional", n => { IsCommunicationSpeakerOptional = n.GetBoolValue(); } },
+                { "isSpeakerOptional", n => { IsSpeakerOptional = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "speakers", n => { Speakers = n.GetCollectionOfObjectValues<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

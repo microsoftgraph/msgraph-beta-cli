@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Sites.Item.ContentTypes.Item.AssociateWithHubSites {
+namespace ApiSdk.Sites.Item.ContentTypes.Item.AssociateWithHubSites
+{
     #pragma warning disable CS1591
-    public class AssociateWithHubSitesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AssociateWithHubSitesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,8 +47,8 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.AssociateWithHubSites {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"hubSiteUrls", n => { HubSiteUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"propagateToExistingLists", n => { PropagateToExistingLists = n.GetBoolValue(); } },
+                { "hubSiteUrls", n => { HubSiteUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "propagateToExistingLists", n => { PropagateToExistingLists = n.GetBoolValue(); } },
             };
         }
         /// <summary>

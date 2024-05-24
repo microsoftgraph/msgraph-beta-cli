@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ActivityStatistics : Entity, IParsable 
+    public class ActivityStatistics : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.</summary>
@@ -53,11 +54,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activity", n => { Activity = n.GetEnumValue<AnalyticsActivityType>(); } },
-                {"duration", n => { Duration = n.GetTimeSpanValue(); } },
-                {"endDate", n => { EndDate = n.GetDateValue(); } },
-                {"startDate", n => { StartDate = n.GetDateValue(); } },
-                {"timeZoneUsed", n => { TimeZoneUsed = n.GetStringValue(); } },
+                { "activity", n => { Activity = n.GetEnumValue<AnalyticsActivityType>(); } },
+                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "endDate", n => { EndDate = n.GetDateValue(); } },
+                { "startDate", n => { StartDate = n.GetDateValue(); } },
+                { "timeZoneUsed", n => { TimeZoneUsed = n.GetStringValue(); } },
             };
         }
         /// <summary>

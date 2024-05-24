@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.MicrosoftGraphWindowsUpdatesUpdateAudience {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.MicrosoftGraphWindowsUpdatesUpdateAudience
+{
     #pragma warning disable CS1591
-    public class UpdateAudiencePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateAudiencePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The addExclusions property</summary>
@@ -69,10 +70,10 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.MicrosoftGraphWi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"addExclusions", n => { AddExclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"addMembers", n => { AddMembers = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"removeExclusions", n => { RemoveExclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"removeMembers", n => { RemoveMembers = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addExclusions", n => { AddExclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addMembers", n => { AddMembers = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "removeExclusions", n => { RemoveExclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "removeMembers", n => { RemoveMembers = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

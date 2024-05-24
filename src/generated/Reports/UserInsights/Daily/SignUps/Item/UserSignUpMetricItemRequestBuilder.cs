@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.SignUps.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.SignUps.Item
+{
     /// <summary>
     /// Provides operations to manage the signUps property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class UserSignUpMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserSignUpMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Total sign-ups on apps registered in the tenant for a specified period.

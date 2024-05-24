@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// MobileApp Intent and Install State for a given device.
     /// </summary>
-    public class MobileAppIntentAndState : Entity, IParsable 
+    public class MobileAppIntentAndState : Entity, IParsable
     {
         /// <summary>Device identifier created or collected by Intune.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"managedDeviceIdentifier", n => { ManagedDeviceIdentifier = n.GetStringValue(); } },
-                {"mobileAppList", n => { MobileAppList = n.GetCollectionOfObjectValues<MobileAppIntentAndStateDetail>(MobileAppIntentAndStateDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "managedDeviceIdentifier", n => { ManagedDeviceIdentifier = n.GetStringValue(); } },
+                { "mobileAppList", n => { MobileAppList = n.GetCollectionOfObjectValues<MobileAppIntentAndStateDetail>(MobileAppIntentAndStateDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

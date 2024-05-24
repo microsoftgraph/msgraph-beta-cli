@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcProvisioningPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcProvisioningPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the apply method.
@@ -85,14 +86,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property provisioningPolicies for deviceManagement
+        /// Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property provisioningPolicies for deviceManagement";
+            command.Description = "Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-delete?view=graph-rest-beta";
             var cloudPcProvisioningPolicyIdOption = new Option<string>("--cloud-pc-provisioning-policy-id", description: "The unique identifier of cloudPcProvisioningPolicy") {
             };
             cloudPcProvisioningPolicyIdOption.IsRequired = true;
@@ -121,14 +122,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Cloud PC provisioning policy.
+        /// Read the properties and relationships of a cloudPcProvisioningPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Cloud PC provisioning policy.";
+            command.Description = "Read the properties and relationships of a cloudPcProvisioningPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-get?view=graph-rest-beta";
             var cloudPcProvisioningPolicyIdOption = new Option<string>("--cloud-pc-provisioning-policy-id", description: "The unique identifier of cloudPcProvisioningPolicy") {
             };
             cloudPcProvisioningPolicyIdOption.IsRequired = true;
@@ -174,14 +175,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property provisioningPolicies in deviceManagement
+        /// Update the properties of a cloudPcProvisioningPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property provisioningPolicies in deviceManagement";
+            command.Description = "Update the properties of a cloudPcProvisioningPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-update?view=graph-rest-beta";
             var cloudPcProvisioningPolicyIdOption = new Option<string>("--cloud-pc-provisioning-policy-id", description: "The unique identifier of cloudPcProvisioningPolicy") {
             };
             cloudPcProvisioningPolicyIdOption.IsRequired = true;
@@ -240,11 +241,10 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property provisioningPolicies for deviceManagement
+        /// Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -260,11 +260,10 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC provisioning policy.
+        /// Read the properties and relationships of a cloudPcProvisioningPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CloudPcProvisioningPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -280,12 +279,11 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property provisioningPolicies in deviceManagement
+        /// Update the properties of a cloudPcProvisioningPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(CloudPcProvisioningPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -302,7 +300,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC provisioning policy.
+        /// Read the properties and relationships of a cloudPcProvisioningPolicy object.
         /// </summary>
         public class CloudPcProvisioningPolicyItemRequestBuilderGetQueryParameters 
         {

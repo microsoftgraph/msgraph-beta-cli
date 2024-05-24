@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Chats {
+namespace ApiSdk.Users.Item.Chats
+{
     /// <summary>
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.
     /// </summary>
-    public class ChatsRequestBuilder : BaseCliRequestBuilder 
+    public class ChatsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the allMessages method.
@@ -173,13 +174,14 @@ namespace ApiSdk.Users.Item.Chats {
             return command;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get chats from users";
+            command.Description = "Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -261,7 +263,9 @@ namespace ApiSdk.Users.Item.Chats {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -287,7 +291,7 @@ namespace ApiSdk.Users.Item.Chats {
         {
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -327,7 +331,7 @@ namespace ApiSdk.Users.Item.Chats {
             return requestInfo;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
         /// </summary>
         public class ChatsRequestBuilderGetQueryParameters 
         {

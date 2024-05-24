@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item {
+namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item
+{
     /// <summary>
     /// Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.company entity.
     /// </summary>
-    public class PurchaseInvoiceLineItemRequestBuilder : BaseCliRequestBuilder 
+    public class PurchaseInvoiceLineItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.purchaseInvoiceLine entity.
@@ -47,7 +48,7 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item {
         {
             var command = new Command("get");
             command.Description = "Get purchaseInvoiceLines from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -131,7 +132,7 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property purchaseInvoiceLines in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);

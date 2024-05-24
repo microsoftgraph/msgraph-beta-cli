@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows defender advanced threat protection onboarding state summary across the account.
     /// </summary>
-    public class AdvancedThreatProtectionOnboardingStateSummary : Entity, IParsable 
+    public class AdvancedThreatProtectionOnboardingStateSummary : Entity, IParsable
     {
         /// <summary>The advancedThreatProtectionOnboardingDeviceSettingStates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,15 +53,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedThreatProtectionOnboardingDeviceSettingStates", n => { AdvancedThreatProtectionOnboardingDeviceSettingStates = n.GetCollectionOfObjectValues<AdvancedThreatProtectionOnboardingDeviceSettingState>(AdvancedThreatProtectionOnboardingDeviceSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"compliantDeviceCount", n => { CompliantDeviceCount = n.GetIntValue(); } },
-                {"conflictDeviceCount", n => { ConflictDeviceCount = n.GetIntValue(); } },
-                {"errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
-                {"nonCompliantDeviceCount", n => { NonCompliantDeviceCount = n.GetIntValue(); } },
-                {"notApplicableDeviceCount", n => { NotApplicableDeviceCount = n.GetIntValue(); } },
-                {"notAssignedDeviceCount", n => { NotAssignedDeviceCount = n.GetIntValue(); } },
-                {"remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
-                {"unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
+                { "advancedThreatProtectionOnboardingDeviceSettingStates", n => { AdvancedThreatProtectionOnboardingDeviceSettingStates = n.GetCollectionOfObjectValues<AdvancedThreatProtectionOnboardingDeviceSettingState>(AdvancedThreatProtectionOnboardingDeviceSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "compliantDeviceCount", n => { CompliantDeviceCount = n.GetIntValue(); } },
+                { "conflictDeviceCount", n => { ConflictDeviceCount = n.GetIntValue(); } },
+                { "errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
+                { "nonCompliantDeviceCount", n => { NonCompliantDeviceCount = n.GetIntValue(); } },
+                { "notApplicableDeviceCount", n => { NotApplicableDeviceCount = n.GetIntValue(); } },
+                { "notAssignedDeviceCount", n => { NotAssignedDeviceCount = n.GetIntValue(); } },
+                { "remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
+                { "unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

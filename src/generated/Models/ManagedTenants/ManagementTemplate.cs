@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementTemplate : ApiSdk.Models.Entity, IParsable 
+    public class ManagementTemplate : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.</summary>
@@ -119,22 +120,22 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
-                {"createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"informationLinks", n => { InformationLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
-                {"lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ManagementTemplateCollection>(ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"parameters", n => { Parameters = n.GetCollectionOfObjectValues<TemplateParameter>(TemplateParameter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"provider", n => { Provider = n.GetEnumValue<ManagementProvider>(); } },
-                {"userImpact", n => { UserImpact = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
-                {"workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "informationLinks", n => { InformationLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
+                { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ManagementTemplateCollection>(ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<TemplateParameter>(TemplateParameter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<ManagementProvider>(); } },
+                { "userImpact", n => { UserImpact = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
+                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

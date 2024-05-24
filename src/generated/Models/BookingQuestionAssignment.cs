@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BookingQuestionAssignment : IAdditionalDataHolder, IParsable 
+    public class BookingQuestionAssignment : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -21,7 +22,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>If it&apos;s mandatory to answer the custom question.</summary>
+        /// <summary>The ID of the custom question.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? QuestionId { get; set; }
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"isRequired", n => { IsRequired = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"questionId", n => { QuestionId = n.GetStringValue(); } },
+                { "isRequired", n => { IsRequired = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "questionId", n => { QuestionId = n.GetStringValue(); } },
             };
         }
         /// <summary>

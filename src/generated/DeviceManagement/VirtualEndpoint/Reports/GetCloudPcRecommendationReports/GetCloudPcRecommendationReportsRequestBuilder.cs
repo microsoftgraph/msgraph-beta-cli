@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcRecommendationReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcRecommendationReports
+{
     /// <summary>
     /// Provides operations to call the getCloudPcRecommendationReports method.
     /// </summary>
-    public class GetCloudPcRecommendationReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetCloudPcRecommendationReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the device recommendation reports for Cloud PCs, such as the usage category report. The usage category report categorizes a Cloud PC as Undersized, Oversized, Rightsized, or Underutilized, and also provides the recommended SKU when the Cloud PC isn&apos;t Rightsized.

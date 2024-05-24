@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This class contains compliance settings for Windows 10.
     /// </summary>
-    public class Windows10CompliancePolicy : DeviceCompliancePolicy, IParsable 
+    public class Windows10CompliancePolicy : DeviceCompliancePolicy, IParsable
     {
         /// <summary>Require active firewall on Windows devices.</summary>
         public bool? ActiveFirewallRequired { get; set; }
@@ -149,42 +150,42 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeFirewallRequired", n => { ActiveFirewallRequired = n.GetBoolValue(); } },
-                {"antiSpywareRequired", n => { AntiSpywareRequired = n.GetBoolValue(); } },
-                {"antivirusRequired", n => { AntivirusRequired = n.GetBoolValue(); } },
-                {"bitLockerEnabled", n => { BitLockerEnabled = n.GetBoolValue(); } },
-                {"codeIntegrityEnabled", n => { CodeIntegrityEnabled = n.GetBoolValue(); } },
-                {"configurationManagerComplianceRequired", n => { ConfigurationManagerComplianceRequired = n.GetBoolValue(); } },
-                {"defenderEnabled", n => { DefenderEnabled = n.GetBoolValue(); } },
-                {"defenderVersion", n => { DefenderVersion = n.GetStringValue(); } },
-                {"deviceCompliancePolicyScript", n => { DeviceCompliancePolicyScript = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>(ApiSdk.Models.DeviceCompliancePolicyScript.CreateFromDiscriminatorValue); } },
-                {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
-                {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
-                {"earlyLaunchAntiMalwareDriverEnabled", n => { EarlyLaunchAntiMalwareDriverEnabled = n.GetBoolValue(); } },
-                {"firmwareProtectionEnabled", n => { FirmwareProtectionEnabled = n.GetBoolValue(); } },
-                {"kernelDmaProtectionEnabled", n => { KernelDmaProtectionEnabled = n.GetBoolValue(); } },
-                {"memoryIntegrityEnabled", n => { MemoryIntegrityEnabled = n.GetBoolValue(); } },
-                {"mobileOsMaximumVersion", n => { MobileOsMaximumVersion = n.GetStringValue(); } },
-                {"mobileOsMinimumVersion", n => { MobileOsMinimumVersion = n.GetStringValue(); } },
-                {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
-                {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
-                {"passwordBlockSimple", n => { PasswordBlockSimple = n.GetBoolValue(); } },
-                {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
-                {"passwordMinimumCharacterSetCount", n => { PasswordMinimumCharacterSetCount = n.GetIntValue(); } },
-                {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
-                {"passwordMinutesOfInactivityBeforeLock", n => { PasswordMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
-                {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
-                {"passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
-                {"passwordRequiredToUnlockFromIdle", n => { PasswordRequiredToUnlockFromIdle = n.GetBoolValue(); } },
-                {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
-                {"requireHealthyDeviceReport", n => { RequireHealthyDeviceReport = n.GetBoolValue(); } },
-                {"rtpEnabled", n => { RtpEnabled = n.GetBoolValue(); } },
-                {"secureBootEnabled", n => { SecureBootEnabled = n.GetBoolValue(); } },
-                {"signatureOutOfDate", n => { SignatureOutOfDate = n.GetBoolValue(); } },
-                {"storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
-                {"tpmRequired", n => { TpmRequired = n.GetBoolValue(); } },
-                {"validOperatingSystemBuildRanges", n => { ValidOperatingSystemBuildRanges = n.GetCollectionOfObjectValues<OperatingSystemVersionRange>(OperatingSystemVersionRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"virtualizationBasedSecurityEnabled", n => { VirtualizationBasedSecurityEnabled = n.GetBoolValue(); } },
+                { "activeFirewallRequired", n => { ActiveFirewallRequired = n.GetBoolValue(); } },
+                { "antiSpywareRequired", n => { AntiSpywareRequired = n.GetBoolValue(); } },
+                { "antivirusRequired", n => { AntivirusRequired = n.GetBoolValue(); } },
+                { "bitLockerEnabled", n => { BitLockerEnabled = n.GetBoolValue(); } },
+                { "codeIntegrityEnabled", n => { CodeIntegrityEnabled = n.GetBoolValue(); } },
+                { "configurationManagerComplianceRequired", n => { ConfigurationManagerComplianceRequired = n.GetBoolValue(); } },
+                { "defenderEnabled", n => { DefenderEnabled = n.GetBoolValue(); } },
+                { "defenderVersion", n => { DefenderVersion = n.GetStringValue(); } },
+                { "deviceCompliancePolicyScript", n => { DeviceCompliancePolicyScript = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>(ApiSdk.Models.DeviceCompliancePolicyScript.CreateFromDiscriminatorValue); } },
+                { "deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
+                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "earlyLaunchAntiMalwareDriverEnabled", n => { EarlyLaunchAntiMalwareDriverEnabled = n.GetBoolValue(); } },
+                { "firmwareProtectionEnabled", n => { FirmwareProtectionEnabled = n.GetBoolValue(); } },
+                { "kernelDmaProtectionEnabled", n => { KernelDmaProtectionEnabled = n.GetBoolValue(); } },
+                { "memoryIntegrityEnabled", n => { MemoryIntegrityEnabled = n.GetBoolValue(); } },
+                { "mobileOsMaximumVersion", n => { MobileOsMaximumVersion = n.GetStringValue(); } },
+                { "mobileOsMinimumVersion", n => { MobileOsMinimumVersion = n.GetStringValue(); } },
+                { "osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                { "osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
+                { "passwordBlockSimple", n => { PasswordBlockSimple = n.GetBoolValue(); } },
+                { "passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
+                { "passwordMinimumCharacterSetCount", n => { PasswordMinimumCharacterSetCount = n.GetIntValue(); } },
+                { "passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
+                { "passwordMinutesOfInactivityBeforeLock", n => { PasswordMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
+                { "passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
+                { "passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
+                { "passwordRequiredToUnlockFromIdle", n => { PasswordRequiredToUnlockFromIdle = n.GetBoolValue(); } },
+                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
+                { "requireHealthyDeviceReport", n => { RequireHealthyDeviceReport = n.GetBoolValue(); } },
+                { "rtpEnabled", n => { RtpEnabled = n.GetBoolValue(); } },
+                { "secureBootEnabled", n => { SecureBootEnabled = n.GetBoolValue(); } },
+                { "signatureOutOfDate", n => { SignatureOutOfDate = n.GetBoolValue(); } },
+                { "storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
+                { "tpmRequired", n => { TpmRequired = n.GetBoolValue(); } },
+                { "validOperatingSystemBuildRanges", n => { ValidOperatingSystemBuildRanges = n.GetCollectionOfObjectValues<OperatingSystemVersionRange>(OperatingSystemVersionRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "virtualizationBasedSecurityEnabled", n => { VirtualizationBasedSecurityEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

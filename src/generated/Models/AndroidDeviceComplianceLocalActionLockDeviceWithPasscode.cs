@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Local Action Lock Device with Passcode Configuration
     /// </summary>
-    public class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode : AndroidDeviceComplianceLocalActionBase, IParsable 
+    public class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode : AndroidDeviceComplianceLocalActionBase, IParsable
     {
         /// <summary>Passcode to reset to Android device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"passcode", n => { Passcode = n.GetStringValue(); } },
-                {"passcodeSignInFailureCountBeforeWipe", n => { PasscodeSignInFailureCountBeforeWipe = n.GetIntValue(); } },
+                { "passcode", n => { Passcode = n.GetStringValue(); } },
+                { "passcodeSignInFailureCountBeforeWipe", n => { PasscodeSignInFailureCountBeforeWipe = n.GetIntValue(); } },
             };
         }
         /// <summary>

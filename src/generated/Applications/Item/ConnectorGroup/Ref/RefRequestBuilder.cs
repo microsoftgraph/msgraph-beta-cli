@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.ConnectorGroup.Ref {
+namespace ApiSdk.Applications.Item.ConnectorGroup.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property connectorGroup for applications
@@ -86,13 +87,14 @@ namespace ApiSdk.Applications.Item.ConnectorGroup.Ref {
             return command;
         }
         /// <summary>
-        /// Update the ref of navigation property connectorGroup in applications
+        /// Assign a connectorGroup to an application.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectorgroup-post-applications?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the ref of navigation property connectorGroup in applications";
+            command.Description = "Assign a connectorGroup to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectorgroup-post-applications?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -179,7 +181,7 @@ namespace ApiSdk.Applications.Item.ConnectorGroup.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Update the ref of navigation property connectorGroup in applications
+        /// Assign a connectorGroup to an application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

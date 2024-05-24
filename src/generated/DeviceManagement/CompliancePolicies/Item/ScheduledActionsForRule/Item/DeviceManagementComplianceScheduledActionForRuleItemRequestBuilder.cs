@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.ScheduledActionsForRule.Item {
+namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.ScheduledActionsForRule.Item
+{
     /// <summary>
     /// Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
     /// </summary>
-    public class DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property scheduledActionsForRule for deviceManagement

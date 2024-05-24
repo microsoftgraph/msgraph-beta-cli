@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.

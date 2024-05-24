@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Rules {
+namespace ApiSdk.Security.Rules
+{
     /// <summary>
     /// Provides operations to manage the rules property of the microsoft.graph.security entity.
     /// </summary>
-    public class RulesRequestBuilder : BaseCliRequestBuilder 
+    public class RulesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property rules for security

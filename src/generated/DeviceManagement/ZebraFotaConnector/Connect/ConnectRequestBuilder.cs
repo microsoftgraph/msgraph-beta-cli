@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaConnector.Connect {
+namespace ApiSdk.DeviceManagement.ZebraFotaConnector.Connect
+{
     /// <summary>
     /// Provides operations to call the connect method.
     /// </summary>
-    public class ConnectRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action connect

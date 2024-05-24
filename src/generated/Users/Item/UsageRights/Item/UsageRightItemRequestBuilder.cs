@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.UsageRights.Item {
+namespace ApiSdk.Users.Item.UsageRights.Item
+{
     /// <summary>
     /// Provides operations to manage the usageRights property of the microsoft.graph.user entity.
     /// </summary>
-    public class UsageRightItemRequestBuilder : BaseCliRequestBuilder 
+    public class UsageRightItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property usageRights for users

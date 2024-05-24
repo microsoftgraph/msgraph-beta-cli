@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.SessionsWithJoinWebUrl {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.SessionsWithJoinWebUrl
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class SessionsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder 
+    public class SessionsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sessions for solutions
@@ -62,13 +63,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.SessionsWithJoinWebUrl {
             return command;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventsession-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Sessions for the virtual event.";
+            command.Description = "Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventsession-get?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.SessionsWithJoinWebUrl {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.SessionsWithJoinWebUrl {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
         /// </summary>
         public class SessionsWithJoinWebUrlRequestBuilderGetQueryParameters 
         {

@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item {
+namespace ApiSdk.Domains.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of domain entities.
     /// </summary>
-    public class DomainItemRequestBuilder : BaseCliRequestBuilder 
+    public class DomainItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete a domain from a tenant.

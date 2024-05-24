@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class KnownIssue : ApiSdk.Models.Entity, IParsable 
+    public class KnownIssue : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the particular known issue.</summary>
@@ -91,17 +92,17 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"knownIssueHistories", n => { KnownIssueHistories = n.GetCollectionOfObjectValues<KnownIssueHistoryItem>(KnownIssueHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"originatingKnowledgeBaseArticle", n => { OriginatingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
-                {"resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resolvingKnowledgeBaseArticle", n => { ResolvingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
-                {"safeguardHoldIds", n => { SafeguardHoldIds = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<WindowsReleaseHealthStatus>(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
-                {"webViewUrl", n => { WebViewUrl = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "knownIssueHistories", n => { KnownIssueHistories = n.GetCollectionOfObjectValues<KnownIssueHistoryItem>(KnownIssueHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "originatingKnowledgeBaseArticle", n => { OriginatingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
+                { "resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resolvingKnowledgeBaseArticle", n => { ResolvingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
+                { "safeguardHoldIds", n => { SafeguardHoldIds = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<WindowsReleaseHealthStatus>(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
+                { "webViewUrl", n => { WebViewUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

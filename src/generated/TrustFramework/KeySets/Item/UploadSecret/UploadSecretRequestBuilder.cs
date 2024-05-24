@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.UploadSecret {
+namespace ApiSdk.TrustFramework.KeySets.Item.UploadSecret
+{
     /// <summary>
     /// Provides operations to call the uploadSecret method.
     /// </summary>
-    public class UploadSecretRequestBuilder : BaseCliRequestBuilder 
+    public class UploadSecretRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Upload a plain text secret to a trustFrameworkKeyset. Examples of secrets are application secrets in Microsoft Entra ID, Google, Facebook, or any other identity provider. his method returns trustFrameworkKey.

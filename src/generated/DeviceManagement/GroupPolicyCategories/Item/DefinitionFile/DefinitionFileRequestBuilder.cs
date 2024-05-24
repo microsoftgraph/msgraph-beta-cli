@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item.DefinitionFile {
+namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item.DefinitionFile
+{
     /// <summary>
     /// Provides operations to manage the definitionFile property of the microsoft.graph.groupPolicyCategory entity.
     /// </summary>
-    public class DefinitionFileRequestBuilder : BaseCliRequestBuilder 
+    public class DefinitionFileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The id of the definition file the category came from

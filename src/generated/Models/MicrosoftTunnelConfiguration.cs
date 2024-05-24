@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents a collection of Microsoft Tunnel settings
     /// </summary>
-    public class MicrosoftTunnelConfiguration : Entity, IParsable 
+    public class MicrosoftTunnelConfiguration : Entity, IParsable
     {
         /// <summary>Additional settings that may be applied to the server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,21 +131,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedSettings", n => { AdvancedSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"defaultDomainSuffix", n => { DefaultDomainSuffix = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"disableUdpConnections", n => { DisableUdpConnections = n.GetBoolValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"dnsServers", n => { DnsServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"listenPort", n => { ListenPort = n.GetIntValue(); } },
-                {"network", n => { Network = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"routeExcludes", n => { RouteExcludes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"routeIncludes", n => { RouteIncludes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"routesExclude", n => { RoutesExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"routesInclude", n => { RoutesInclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"splitDNS", n => { SplitDNS = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "advancedSettings", n => { AdvancedSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultDomainSuffix", n => { DefaultDomainSuffix = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "disableUdpConnections", n => { DisableUdpConnections = n.GetBoolValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "dnsServers", n => { DnsServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "listenPort", n => { ListenPort = n.GetIntValue(); } },
+                { "network", n => { Network = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "routeExcludes", n => { RouteExcludes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "routeIncludes", n => { RouteIncludes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "routesExclude", n => { RoutesExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "routesInclude", n => { RoutesInclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "splitDNS", n => { SplitDNS = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

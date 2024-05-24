@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A key-value pair with a string key and a string value.
     /// </summary>
-    public class KeyStringValuePair : KeyTypedValuePair, IParsable 
+    public class KeyStringValuePair : KeyTypedValuePair, IParsable
     {
         /// <summary>The string value of the key-value pair.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

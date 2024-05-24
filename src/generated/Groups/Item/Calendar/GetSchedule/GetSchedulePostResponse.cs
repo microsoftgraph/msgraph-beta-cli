@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.Calendar.GetSchedule {
+namespace ApiSdk.Groups.Item.Calendar.GetSchedule
+{
     #pragma warning disable CS1591
-    public class GetSchedulePostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetSchedulePostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Groups.Item.Calendar.GetSchedule {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ScheduleInformation>(ScheduleInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ScheduleInformation>(ScheduleInformation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

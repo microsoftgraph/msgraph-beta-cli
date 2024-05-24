@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item
+{
     /// <summary>
     /// Provides operations to manage the knownIssues property of the microsoft.graph.windowsUpdates.product entity.
     /// </summary>
-    public class KnownIssueItemRequestBuilder : BaseCliRequestBuilder 
+    public class KnownIssueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property knownIssues for admin

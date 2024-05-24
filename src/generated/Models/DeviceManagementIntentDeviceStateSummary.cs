@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents device state summary for an intent
     /// </summary>
-    public class DeviceManagementIntentDeviceStateSummary : Entity, IParsable 
+    public class DeviceManagementIntentDeviceStateSummary : Entity, IParsable
     {
         /// <summary>Number of devices in conflict</summary>
         public int? ConflictCount { get; set; }
@@ -40,12 +41,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"conflictCount", n => { ConflictCount = n.GetIntValue(); } },
-                {"errorCount", n => { ErrorCount = n.GetIntValue(); } },
-                {"failedCount", n => { FailedCount = n.GetIntValue(); } },
-                {"notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
-                {"notApplicablePlatformCount", n => { NotApplicablePlatformCount = n.GetIntValue(); } },
-                {"successCount", n => { SuccessCount = n.GetIntValue(); } },
+                { "conflictCount", n => { ConflictCount = n.GetIntValue(); } },
+                { "errorCount", n => { ErrorCount = n.GetIntValue(); } },
+                { "failedCount", n => { FailedCount = n.GetIntValue(); } },
+                { "notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
+                { "notApplicablePlatformCount", n => { NotApplicablePlatformCount = n.GetIntValue(); } },
+                { "successCount", n => { SuccessCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

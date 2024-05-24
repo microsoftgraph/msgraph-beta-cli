@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Operations.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.workbook entity.
     /// </summary>
-    public class WorkbookOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for drives

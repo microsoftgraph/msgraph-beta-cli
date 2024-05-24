@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TermStore {
+namespace ApiSdk.TermStore
+{
     /// <summary>
     /// Provides operations to manage the store singleton.
     /// </summary>
-    public class TermStoreRequestBuilder : BaseCliRequestBuilder 
+    public class TermStoreRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read the properties and relationships of a store object.

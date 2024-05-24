@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Enrollment Notification Configuration which is used to send notification
     /// </summary>
-    public class DeviceEnrollmentNotificationConfiguration : DeviceEnrollmentConfiguration, IParsable 
+    public class DeviceEnrollmentNotificationConfiguration : DeviceEnrollmentConfiguration, IParsable
     {
         /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
         public EnrollmentNotificationBrandingOptions? BrandingOptions { get; set; }
@@ -59,12 +60,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"brandingOptions", n => { BrandingOptions = n.GetEnumValue<EnrollmentNotificationBrandingOptions>(); } },
-                {"defaultLocale", n => { DefaultLocale = n.GetStringValue(); } },
-                {"notificationMessageTemplateId", n => { NotificationMessageTemplateId = n.GetGuidValue(); } },
-                {"notificationTemplates", n => { NotificationTemplates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"platformType", n => { PlatformType = n.GetEnumValue<EnrollmentRestrictionPlatformType>(); } },
-                {"templateType", n => { TemplateType = n.GetEnumValue<EnrollmentNotificationTemplateType>(); } },
+                { "brandingOptions", n => { BrandingOptions = n.GetEnumValue<EnrollmentNotificationBrandingOptions>(); } },
+                { "defaultLocale", n => { DefaultLocale = n.GetStringValue(); } },
+                { "notificationMessageTemplateId", n => { NotificationMessageTemplateId = n.GetGuidValue(); } },
+                { "notificationTemplates", n => { NotificationTemplates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<EnrollmentRestrictionPlatformType>(); } },
+                { "templateType", n => { TemplateType = n.GetEnumValue<EnrollmentNotificationTemplateType>(); } },
             };
         }
         /// <summary>

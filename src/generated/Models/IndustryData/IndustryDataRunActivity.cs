@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataRunActivity : ApiSdk.Models.Entity, IParsable 
+    public class IndustryDataRunActivity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The flow that was run by this activity.</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activity", n => { Activity = n.GetObjectValue<IndustryDataActivity>(IndustryDataActivity.CreateFromDiscriminatorValue); } },
-                {"blockingError", n => { BlockingError = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
+                { "activity", n => { Activity = n.GetObjectValue<IndustryDataActivity>(IndustryDataActivity.CreateFromDiscriminatorValue); } },
+                { "blockingError", n => { BlockingError = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
             };
         }
         /// <summary>

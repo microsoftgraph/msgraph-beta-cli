@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Default and customized value of a setting in a Security Baseline
     /// </summary>
-    public class DeviceManagementIntentCustomizedSetting : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementIntentCustomizedSetting : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,10 +70,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"customizedJson", n => { CustomizedJson = n.GetStringValue(); } },
-                {"defaultJson", n => { DefaultJson = n.GetStringValue(); } },
-                {"definitionId", n => { DefinitionId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "customizedJson", n => { CustomizedJson = n.GetStringValue(); } },
+                { "defaultJson", n => { DefaultJson = n.GetStringValue(); } },
+                { "definitionId", n => { DefinitionId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

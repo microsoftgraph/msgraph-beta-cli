@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UpdateDeviceProperties {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UpdateDeviceProperties
+{
     /// <summary>
     /// Provides operations to call the updateDeviceProperties method.
     /// </summary>
-    public class UpdateDevicePropertiesRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateDevicePropertiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Updates properties on Autopilot devices.

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default
+{
     /// <summary>
     /// Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
     /// </summary>
-    public class DefaultRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property default for policies
@@ -51,13 +52,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
             return command;
         }
         /// <summary>
-        /// Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+        /// Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.";
+            command.Description = "Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,13 +99,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
             return command;
         }
         /// <summary>
-        /// Update the navigation property default in policies
+        /// Update the default configuration of a cross-tenant access policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property default in policies";
+            command.Description = "Update the default configuration of a cross-tenant access policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
             return requestInfo;
         }
         /// <summary>
-        /// Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+        /// Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property default in policies
+        /// Update the default configuration of a cross-tenant access policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Default {
             return requestInfo;
         }
         /// <summary>
-        /// Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+        /// Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
         /// </summary>
         public class DefaultRequestBuilderGetQueryParameters 
         {

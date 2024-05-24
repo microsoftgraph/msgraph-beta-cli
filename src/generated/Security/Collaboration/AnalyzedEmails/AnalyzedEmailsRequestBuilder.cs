@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Collaboration.AnalyzedEmails {
+namespace ApiSdk.Security.Collaboration.AnalyzedEmails
+{
     /// <summary>
     /// Provides operations to manage the analyzedEmails property of the microsoft.graph.security.collaborationRoot entity.
     /// </summary>
-    public class AnalyzedEmailsRequestBuilder : BaseCliRequestBuilder 
+    public class AnalyzedEmailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the analyzedEmails property of the microsoft.graph.security.collaborationRoot entity.
@@ -99,13 +100,13 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails {
             return command;
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Contains metadata for analyzed emails.";
+            command.Description = "Read the properties and relationships of an analyzedEmail object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -181,7 +182,9 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +227,7 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails {
         {
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +267,7 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails {
             return requestInfo;
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
         /// </summary>
         public class AnalyzedEmailsRequestBuilderGetQueryParameters 
         {

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages.Item {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages.Item
+{
     /// <summary>
     /// Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
     /// </summary>
-    public class AccessReviewStageItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewStageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.

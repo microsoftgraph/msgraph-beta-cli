@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.OfferShiftRequests.Item {
+namespace ApiSdk.Teams.Item.Schedule.OfferShiftRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class OfferShiftRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class OfferShiftRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property offerShiftRequests for teams
@@ -62,13 +63,14 @@ namespace ApiSdk.Teams.Item.Schedule.OfferShiftRequests.Item {
             return command;
         }
         /// <summary>
-        /// The offer requests for shifts in the schedule.
+        /// Retrieve the properties and relationships of an offerShiftRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/offershiftrequest-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The offer requests for shifts in the schedule.";
+            command.Description = "Retrieve the properties and relationships of an offerShiftRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/offershiftrequest-get?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Teams.Item.Schedule.OfferShiftRequests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The offer requests for shifts in the schedule.
+        /// Retrieve the properties and relationships of an offerShiftRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Teams.Item.Schedule.OfferShiftRequests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The offer requests for shifts in the schedule.
+        /// Retrieve the properties and relationships of an offerShiftRequest object.
         /// </summary>
         public class OfferShiftRequestItemRequestBuilderGetQueryParameters 
         {

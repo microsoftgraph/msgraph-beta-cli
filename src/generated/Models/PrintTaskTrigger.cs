@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintTaskTrigger : Entity, IParsable 
+    public class PrintTaskTrigger : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The definition property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"definition", n => { Definition = n.GetObjectValue<PrintTaskDefinition>(PrintTaskDefinition.CreateFromDiscriminatorValue); } },
-                {"event", n => { Event = n.GetEnumValue<PrintEvent>(); } },
+                { "definition", n => { Definition = n.GetObjectValue<PrintTaskDefinition>(PrintTaskDefinition.CreateFromDiscriminatorValue); } },
+                { "event", n => { Event = n.GetEnumValue<PrintEvent>(); } },
             };
         }
         /// <summary>

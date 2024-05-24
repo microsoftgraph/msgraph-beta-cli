@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses {
+namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
+{
     /// <summary>
     /// Provides operations to call the revokeLicenses method.
     /// </summary>
-    public class RevokeLicensesRequestBuilder : BaseCliRequestBuilder 
+    public class RevokeLicensesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Revoke licenses associated with a specific appleVolumePurchaseProgramToken

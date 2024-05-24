@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ClientCertificateAuthentication : ApiAuthenticationConfigurationBase, IParsable 
+    public class ClientCertificateAuthentication : ApiAuthenticationConfigurationBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of certificates uploaded for this API connector.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateList", n => { CertificateList = n.GetCollectionOfObjectValues<Pkcs12CertificateInformation>(Pkcs12CertificateInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "certificateList", n => { CertificateList = n.GetCollectionOfObjectValues<Pkcs12CertificateInformation>(Pkcs12CertificateInformation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

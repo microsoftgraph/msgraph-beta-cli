@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.CreateInstance {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.CreateInstance
+{
     /// <summary>
     /// Provides operations to call the createInstance method.
     /// </summary>
-    public class CreateInstanceRequestBuilder : BaseCliRequestBuilder 
+    public class CreateInstanceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createInstance

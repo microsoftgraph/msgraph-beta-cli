@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceLocalCredential : Entity, IParsable 
+    public class DeviceLocalCredential : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the local admin account for which LAPS is enabled.</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountName", n => { AccountName = n.GetStringValue(); } },
-                {"accountSid", n => { AccountSid = n.GetStringValue(); } },
-                {"backupDateTime", n => { BackupDateTime = n.GetDateTimeOffsetValue(); } },
-                {"passwordBase64", n => { PasswordBase64 = n.GetStringValue(); } },
+                { "accountName", n => { AccountName = n.GetStringValue(); } },
+                { "accountSid", n => { AccountSid = n.GetStringValue(); } },
+                { "backupDateTime", n => { BackupDateTime = n.GetDateTimeOffsetValue(); } },
+                { "passwordBase64", n => { PasswordBase64 = n.GetStringValue(); } },
             };
         }
         /// <summary>

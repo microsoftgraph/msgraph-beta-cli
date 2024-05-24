@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Defines results for actions on iOS Vpp Apps, contains inherited properties for ActionResult.
     /// </summary>
-    public class IosVppAppRevokeLicensesActionResult : IAdditionalDataHolder, IParsable 
+    public class IosVppAppRevokeLicensesActionResult : IAdditionalDataHolder, IParsable
     {
         /// <summary>Possible types of reasons for an Apple Volume Purchase Program token action failure.</summary>
         public VppTokenActionFailureReason? ActionFailureReason { get; set; }
@@ -81,16 +82,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionFailureReason", n => { ActionFailureReason = n.GetEnumValue<VppTokenActionFailureReason>(); } },
-                {"actionName", n => { ActionName = n.GetStringValue(); } },
-                {"actionState", n => { ActionState = n.GetEnumValue<ActionState>(); } },
-                {"failedLicensesCount", n => { FailedLicensesCount = n.GetIntValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"totalLicensesCount", n => { TotalLicensesCount = n.GetIntValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "actionFailureReason", n => { ActionFailureReason = n.GetEnumValue<VppTokenActionFailureReason>(); } },
+                { "actionName", n => { ActionName = n.GetStringValue(); } },
+                { "actionState", n => { ActionState = n.GetEnumValue<ActionState>(); } },
+                { "failedLicensesCount", n => { FailedLicensesCount = n.GetIntValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "totalLicensesCount", n => { TotalLicensesCount = n.GetIntValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

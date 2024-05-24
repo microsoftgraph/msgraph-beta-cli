@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.Members.Item.GraphServicePrincipal {
+namespace ApiSdk.AdministrativeUnits.Item.Members.Item.GraphServicePrincipal
+{
     /// <summary>
     /// Casts the previous resource to servicePrincipal.
     /// </summary>
-    public class GraphServicePrincipalRequestBuilder : BaseCliRequestBuilder 
+    public class GraphServicePrincipalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the item of type microsoft.graph.directoryObject as microsoft.graph.servicePrincipal

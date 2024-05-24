@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MuteParticipantsOperation : CommsOperation, IParsable 
+    public class MuteParticipantsOperation : CommsOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The participants property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"participants", n => { Participants = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

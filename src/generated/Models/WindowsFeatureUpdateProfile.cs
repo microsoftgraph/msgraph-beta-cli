@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Feature Update Profile
     /// </summary>
-    public class WindowsFeatureUpdateProfile : Entity, IParsable 
+    public class WindowsFeatureUpdateProfile : Entity, IParsable
     {
         /// <summary>The list of group assignments of the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,6 +55,8 @@ namespace ApiSdk.Models {
 #else
         public string FeatureUpdateVersion { get; set; }
 #endif
+        /// <summary>If true, the Windows 11 update will become optional</summary>
+        public bool? InstallFeatureUpdatesOptional { get; set; }
         /// <summary>If true, the latest Microsoft Windows 10 update will be installed on devices ineligible for Microsoft Windows 11</summary>
         public bool? InstallLatestWindows10OnWindows11IneligibleDevice { get; set; }
         /// <summary>The date time that the profile was last modified.</summary>
@@ -92,17 +95,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsFeatureUpdateProfileAssignment>(WindowsFeatureUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deployableContentDisplayName", n => { DeployableContentDisplayName = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endOfSupportDate", n => { EndOfSupportDate = n.GetDateTimeOffsetValue(); } },
-                {"featureUpdateVersion", n => { FeatureUpdateVersion = n.GetStringValue(); } },
-                {"installLatestWindows10OnWindows11IneligibleDevice", n => { InstallLatestWindows10OnWindows11IneligibleDevice = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"rolloutSettings", n => { RolloutSettings = n.GetObjectValue<WindowsUpdateRolloutSettings>(WindowsUpdateRolloutSettings.CreateFromDiscriminatorValue); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsFeatureUpdateProfileAssignment>(WindowsFeatureUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deployableContentDisplayName", n => { DeployableContentDisplayName = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endOfSupportDate", n => { EndOfSupportDate = n.GetDateTimeOffsetValue(); } },
+                { "featureUpdateVersion", n => { FeatureUpdateVersion = n.GetStringValue(); } },
+                { "installFeatureUpdatesOptional", n => { InstallFeatureUpdatesOptional = n.GetBoolValue(); } },
+                { "installLatestWindows10OnWindows11IneligibleDevice", n => { InstallLatestWindows10OnWindows11IneligibleDevice = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "rolloutSettings", n => { RolloutSettings = n.GetObjectValue<WindowsUpdateRolloutSettings>(WindowsUpdateRolloutSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -120,6 +124,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("endOfSupportDate", EndOfSupportDate);
             writer.WriteStringValue("featureUpdateVersion", FeatureUpdateVersion);
+            writer.WriteBoolValue("installFeatureUpdatesOptional", InstallFeatureUpdatesOptional);
             writer.WriteBoolValue("installLatestWindows10OnWindows11IneligibleDevice", InstallLatestWindows10OnWindows11IneligibleDevice);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);

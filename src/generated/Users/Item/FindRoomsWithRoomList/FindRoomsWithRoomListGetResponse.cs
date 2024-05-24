@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.FindRoomsWithRoomList {
+namespace ApiSdk.Users.Item.FindRoomsWithRoomList
+{
     #pragma warning disable CS1591
-    public class FindRoomsWithRoomListGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FindRoomsWithRoomListGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.FindRoomsWithRoomList {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

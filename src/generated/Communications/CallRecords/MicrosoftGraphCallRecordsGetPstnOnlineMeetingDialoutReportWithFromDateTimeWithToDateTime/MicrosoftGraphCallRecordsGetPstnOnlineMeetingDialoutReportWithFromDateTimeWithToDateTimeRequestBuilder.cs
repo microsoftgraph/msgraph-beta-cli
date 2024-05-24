@@ -13,25 +13,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime {
+namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime
+{
     /// <summary>
     /// Provides operations to call the getPstnOnlineMeetingDialoutReport method.
     /// </summary>
-    public class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke function getPstnOnlineMeetingDialoutReport
+        /// Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getPstnOnlineMeetingDialoutReport";
-            var fromDateTimeOption = new Option<string>("--from-date-time", description: "Usage: fromDateTime={fromDateTime}") {
+            command.Description = "Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:";
+            var fromDateTimeOption = new Option<DateTimeOffset?>("--from-date-time", description: "Usage: fromDateTime={fromDateTime}") {
             };
             fromDateTimeOption.IsRequired = true;
             command.AddOption(fromDateTimeOption);
-            var toDateTimeOption = new Option<string>("--to-date-time", description: "Usage: toDateTime={toDateTime}") {
+            var toDateTimeOption = new Option<DateTimeOffset?>("--to-date-time", description: "Usage: toDateTime={toDateTime}") {
             };
             toDateTimeOption.IsRequired = true;
             command.AddOption(toDateTimeOption);
@@ -93,7 +94,9 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnli
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -119,7 +122,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnli
         {
         }
         /// <summary>
-        /// Invoke function getPstnOnlineMeetingDialoutReport
+        /// Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +141,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnli
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getPstnOnlineMeetingDialoutReport
+        /// Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:
         /// </summary>
         public class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters 
         {

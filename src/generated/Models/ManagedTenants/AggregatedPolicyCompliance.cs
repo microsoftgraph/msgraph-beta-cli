@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class AggregatedPolicyCompliance : ApiSdk.Models.Entity, IParsable 
+    public class AggregatedPolicyCompliance : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Identifier for the device compliance policy. Optional. Read-only.</summary>
@@ -85,17 +86,17 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"compliancePolicyId", n => { CompliancePolicyId = n.GetStringValue(); } },
-                {"compliancePolicyName", n => { CompliancePolicyName = n.GetStringValue(); } },
-                {"compliancePolicyPlatform", n => { CompliancePolicyPlatform = n.GetStringValue(); } },
-                {"compliancePolicyType", n => { CompliancePolicyType = n.GetStringValue(); } },
-                {"lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"numberOfCompliantDevices", n => { NumberOfCompliantDevices = n.GetLongValue(); } },
-                {"numberOfErrorDevices", n => { NumberOfErrorDevices = n.GetLongValue(); } },
-                {"numberOfNonCompliantDevices", n => { NumberOfNonCompliantDevices = n.GetLongValue(); } },
-                {"policyModifiedDateTime", n => { PolicyModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "compliancePolicyId", n => { CompliancePolicyId = n.GetStringValue(); } },
+                { "compliancePolicyName", n => { CompliancePolicyName = n.GetStringValue(); } },
+                { "compliancePolicyPlatform", n => { CompliancePolicyPlatform = n.GetStringValue(); } },
+                { "compliancePolicyType", n => { CompliancePolicyType = n.GetStringValue(); } },
+                { "lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "numberOfCompliantDevices", n => { NumberOfCompliantDevices = n.GetLongValue(); } },
+                { "numberOfErrorDevices", n => { NumberOfErrorDevices = n.GetLongValue(); } },
+                { "numberOfNonCompliantDevices", n => { NumberOfNonCompliantDevices = n.GetLongValue(); } },
+                { "policyModifiedDateTime", n => { PolicyModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

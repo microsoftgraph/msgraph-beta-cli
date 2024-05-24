@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.GetMailTips {
+namespace ApiSdk.Users.Item.GetMailTips
+{
     #pragma warning disable CS1591
-    public class GetMailTipsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetMailTipsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.Users.Item.GetMailTips {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"EmailAddresses", n => { EmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"MailTipsOptions", n => { MailTipsOptions = n.GetEnumValue<MailTipsType>(); } },
+                { "EmailAddresses", n => { EmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "MailTipsOptions", n => { MailTipsOptions = n.GetEnumValue<MailTipsType>(); } },
             };
         }
         /// <summary>

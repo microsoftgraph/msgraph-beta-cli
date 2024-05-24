@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices
+{
     #pragma warning disable CS1591
-    public class GetTargetedUsersAndDevicesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetTargetedUsersAndDevicesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceConfigurationIds", n => { DeviceConfigurationIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deviceConfigurationIds", n => { DeviceConfigurationIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

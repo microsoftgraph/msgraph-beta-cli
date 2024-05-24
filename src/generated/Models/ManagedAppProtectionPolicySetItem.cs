@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for managed app protection PolicySetItem.
     /// </summary>
-    public class ManagedAppProtectionPolicySetItem : PolicySetItem, IParsable 
+    public class ManagedAppProtectionPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>TargetedAppManagementLevels of the ManagedAppPolicySetItem.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"targetedAppManagementLevels", n => { TargetedAppManagementLevels = n.GetStringValue(); } },
+                { "targetedAppManagementLevels", n => { TargetedAppManagementLevels = n.GetStringValue(); } },
             };
         }
         /// <summary>

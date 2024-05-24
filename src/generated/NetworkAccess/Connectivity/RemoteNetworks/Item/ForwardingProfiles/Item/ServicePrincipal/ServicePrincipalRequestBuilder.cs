@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfiles.Item.ServicePrincipal {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfiles.Item.ServicePrincipal
+{
     /// <summary>
     /// Provides operations to manage the servicePrincipal property of the microsoft.graph.networkaccess.forwardingProfile entity.
     /// </summary>
-    public class ServicePrincipalRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get servicePrincipal from networkAccess

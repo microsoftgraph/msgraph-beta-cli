@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookFilter : Entity, IParsable 
+    public class WorkbookFilter : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The criteria property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"criteria", n => { Criteria = n.GetObjectValue<WorkbookFilterCriteria>(WorkbookFilterCriteria.CreateFromDiscriminatorValue); } },
+                { "criteria", n => { Criteria = n.GetObjectValue<WorkbookFilterCriteria>(WorkbookFilterCriteria.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

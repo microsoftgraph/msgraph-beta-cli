@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityPurgeData {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityPurgeData
+{
     #pragma warning disable CS1591
-    public class PurgeDataPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PurgeDataPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -41,8 +42,8 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"purgeAreas", n => { PurgeAreas = n.GetEnumValue<PurgeAreas>(); } },
-                {"purgeType", n => { PurgeType = n.GetEnumValue<PurgeType>(); } },
+                { "purgeAreas", n => { PurgeAreas = n.GetEnumValue<PurgeAreas>(); } },
+                { "purgeType", n => { PurgeType = n.GetEnumValue<PurgeType>(); } },
             };
         }
         /// <summary>

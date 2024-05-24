@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules
+{
     /// <summary>
     /// Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class EligibilitySchedulesRequestBuilder : BaseCliRequestBuilder 
+    public class EligibilitySchedulesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
@@ -119,13 +120,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules 
             return command;
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Get a list of the privilegedAccessGroupEligibilitySchedule objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedules?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The eligibility schedules to activate a just-in-time access.";
+            command.Description = "Get a list of the privilegedAccessGroupEligibilitySchedule objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedules?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -201,7 +203,9 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules 
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -227,7 +231,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules 
         {
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Get a list of the privilegedAccessGroupEligibilitySchedule objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -267,7 +271,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules 
             return requestInfo;
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Get a list of the privilegedAccessGroupEligibilitySchedule objects and their properties.
         /// </summary>
         public class EligibilitySchedulesRequestBuilderGetQueryParameters 
         {

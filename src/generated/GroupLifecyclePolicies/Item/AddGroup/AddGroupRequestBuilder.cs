@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GroupLifecyclePolicies.Item.AddGroup {
+namespace ApiSdk.GroupLifecyclePolicies.Item.AddGroup
+{
     /// <summary>
     /// Provides operations to call the addGroup method.
     /// </summary>
-    public class AddGroupRequestBuilder : BaseCliRequestBuilder 
+    public class AddGroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action addGroup

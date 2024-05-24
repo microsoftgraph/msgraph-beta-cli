@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Pages.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.Pages.Item
+{
     /// <summary>
     /// Provides operations to manage the pages property of the microsoft.graph.site entity.
     /// </summary>
-    public class BaseSitePageItemRequestBuilder : BaseCliRequestBuilder 
+    public class BaseSitePageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.

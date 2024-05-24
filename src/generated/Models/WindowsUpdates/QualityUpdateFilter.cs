@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class QualityUpdateFilter : WindowsUpdateFilter, IParsable 
+    public class QualityUpdateFilter : WindowsUpdateFilter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The cadence property</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cadence", n => { Cadence = n.GetEnumValue<QualityUpdateCadence>(); } },
-                {"classification", n => { Classification = n.GetEnumValue<QualityUpdateClassification>(); } },
+                { "cadence", n => { Cadence = n.GetEnumValue<QualityUpdateCadence>(); } },
+                { "classification", n => { Classification = n.GetEnumValue<QualityUpdateClassification>(); } },
             };
         }
         /// <summary>

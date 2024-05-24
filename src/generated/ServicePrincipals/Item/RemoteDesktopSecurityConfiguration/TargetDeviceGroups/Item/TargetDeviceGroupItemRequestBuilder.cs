@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.TargetDeviceGroups.Item {
+namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.TargetDeviceGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the targetDeviceGroups property of the microsoft.graph.remoteDesktopSecurityConfiguration entity.
     /// </summary>
-    public class TargetDeviceGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class TargetDeviceGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property targetDeviceGroups for servicePrincipals
+        /// Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that&apos;s in the removed targetDeviceGroup doesn&apos;t get SSO prompts.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-delete-targetdevicegroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property targetDeviceGroups for servicePrincipals";
+            command.Description = "Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that's in the removed targetDeviceGroup doesn't get SSO prompts.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-delete-targetdevicegroups?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
             return command;
         }
         /// <summary>
-        /// The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+        /// Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/targetdevicegroup-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.";
+            command.Description = "Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/targetdevicegroup-get?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
             return command;
         }
         /// <summary>
-        /// Update the navigation property targetDeviceGroups in servicePrincipals
+        /// Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/targetdevicegroup-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property targetDeviceGroups in servicePrincipals";
+            command.Description = "Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/targetdevicegroup-update?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
         {
         }
         /// <summary>
-        /// Delete navigation property targetDeviceGroups for servicePrincipals
+        /// Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that&apos;s in the removed targetDeviceGroup doesn&apos;t get SSO prompts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
             return requestInfo;
         }
         /// <summary>
-        /// The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+        /// Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property targetDeviceGroups in servicePrincipals
+        /// Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.ServicePrincipals.Item.RemoteDesktopSecurityConfiguration.Targe
             return requestInfo;
         }
         /// <summary>
-        /// The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+        /// Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
         /// </summary>
         public class TargetDeviceGroupItemRequestBuilderGetQueryParameters 
         {

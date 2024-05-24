@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SamlOrWsFedExternalDomainFederation : SamlOrWsFedProvider, IParsable 
+    public class SamlOrWsFedExternalDomainFederation : SamlOrWsFedProvider, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"domains", n => { Domains = n.GetCollectionOfObjectValues<ExternalDomainName>(ExternalDomainName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "domains", n => { Domains = n.GetCollectionOfObjectValues<ExternalDomainName>(ExternalDomainName.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

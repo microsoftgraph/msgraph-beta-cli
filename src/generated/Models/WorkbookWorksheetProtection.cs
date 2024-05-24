@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookWorksheetProtection : Entity, IParsable 
+    public class WorkbookWorksheetProtection : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Sheet protection options. Read-only.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"options", n => { Options = n.GetObjectValue<WorkbookWorksheetProtectionOptions>(WorkbookWorksheetProtectionOptions.CreateFromDiscriminatorValue); } },
-                {"protected", n => { Protected = n.GetBoolValue(); } },
+                { "options", n => { Options = n.GetObjectValue<WorkbookWorksheetProtectionOptions>(WorkbookWorksheetProtectionOptions.CreateFromDiscriminatorValue); } },
+                { "protected", n => { Protected = n.GetBoolValue(); } },
             };
         }
         /// <summary>

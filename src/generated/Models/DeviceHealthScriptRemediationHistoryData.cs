@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The number of devices remediated by a device health script on a given date.
     /// </summary>
-    public class DeviceHealthScriptRemediationHistoryData : IAdditionalDataHolder, IParsable 
+    public class DeviceHealthScriptRemediationHistoryData : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -54,11 +55,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"date", n => { Date = n.GetDateValue(); } },
-                {"detectFailedDeviceCount", n => { DetectFailedDeviceCount = n.GetIntValue(); } },
-                {"noIssueDeviceCount", n => { NoIssueDeviceCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
+                { "date", n => { Date = n.GetDateValue(); } },
+                { "detectFailedDeviceCount", n => { DetectFailedDeviceCount = n.GetIntValue(); } },
+                { "noIssueDeviceCount", n => { NoIssueDeviceCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

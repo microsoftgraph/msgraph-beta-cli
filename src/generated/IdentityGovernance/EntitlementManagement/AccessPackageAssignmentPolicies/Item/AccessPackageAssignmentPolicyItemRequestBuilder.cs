@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentPolicies.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageAssignmentPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageAssignmentPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageCatalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -113,14 +114,15 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Delete navigation property accessPackageAssignmentPolicies for identityGovernance
+        /// In Microsoft Entra entitlement management, delete an accessPackageAssignmentPolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property accessPackageAssignmentPolicies for identityGovernance";
+            command.Description = "In Microsoft Entra entitlement management, delete an accessPackageAssignmentPolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-beta";
             var accessPackageAssignmentPolicyIdOption = new Option<string>("--access-package-assignment-policy-id", description: "The unique identifier of accessPackageAssignmentPolicy") {
             };
             accessPackageAssignmentPolicyIdOption.IsRequired = true;
@@ -149,14 +151,15 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+        /// In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.";
+            command.Description = "In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-beta";
             var accessPackageAssignmentPolicyIdOption = new Option<string>("--access-package-assignment-policy-id", description: "The unique identifier of accessPackageAssignmentPolicy") {
             };
             accessPackageAssignmentPolicyIdOption.IsRequired = true;
@@ -202,14 +205,15 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Update the navigation property accessPackageAssignmentPolicies in identityGovernance
+        /// Update an existing accessPackageAssignmentPolicy object to change one or more of its properties, such as the display name or description.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the navigation property accessPackageAssignmentPolicies in identityGovernance";
+            command.Description = "Update an existing accessPackageAssignmentPolicy object to change one or more of its properties, such as the display name or description.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-update?view=graph-rest-beta";
             var accessPackageAssignmentPolicyIdOption = new Option<string>("--access-package-assignment-policy-id", description: "The unique identifier of accessPackageAssignmentPolicy") {
             };
             accessPackageAssignmentPolicyIdOption.IsRequired = true;
@@ -268,7 +272,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
         {
         }
         /// <summary>
-        /// Delete navigation property accessPackageAssignmentPolicies for identityGovernance
+        /// In Microsoft Entra entitlement management, delete an accessPackageAssignmentPolicy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +292,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+        /// In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -308,7 +312,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property accessPackageAssignmentPolicies in identityGovernance
+        /// Update an existing accessPackageAssignmentPolicy object to change one or more of its properties, such as the display name or description.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -330,7 +334,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+        /// In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
         /// </summary>
         public class AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationSynchronizationError : Entity, IParsable 
+    public class EducationSynchronizationError : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the sync entity (school, section, student, teacher).</summary>
@@ -69,12 +70,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"entryType", n => { EntryType = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
-                {"joiningValue", n => { JoiningValue = n.GetStringValue(); } },
-                {"recordedDateTime", n => { RecordedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reportableIdentifier", n => { ReportableIdentifier = n.GetStringValue(); } },
+                { "entryType", n => { EntryType = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
+                { "joiningValue", n => { JoiningValue = n.GetStringValue(); } },
+                { "recordedDateTime", n => { RecordedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reportableIdentifier", n => { ReportableIdentifier = n.GetStringValue(); } },
             };
         }
         /// <summary>

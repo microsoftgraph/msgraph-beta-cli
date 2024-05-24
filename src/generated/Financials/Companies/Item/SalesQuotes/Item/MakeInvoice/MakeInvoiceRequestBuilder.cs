@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.MakeInvoice {
+namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.MakeInvoice
+{
     /// <summary>
     /// Provides operations to call the makeInvoice method.
     /// </summary>
-    public class MakeInvoiceRequestBuilder : BaseCliRequestBuilder 
+    public class MakeInvoiceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action makeInvoice
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.MakeInvoice {
         {
             var command = new Command("post");
             command.Description = "Invoke action makeInvoice";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);

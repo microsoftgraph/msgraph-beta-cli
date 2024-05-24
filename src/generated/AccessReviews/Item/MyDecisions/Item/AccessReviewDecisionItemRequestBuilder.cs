@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.MyDecisions.Item {
+namespace ApiSdk.AccessReviews.Item.MyDecisions.Item
+{
     /// <summary>
     /// Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class AccessReviewDecisionItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewDecisionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property myDecisions for accessReviews

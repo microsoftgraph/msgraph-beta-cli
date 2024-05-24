@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles
+{
     /// <summary>
     /// Provides operations to call the updateLanguageFiles method.
     /// </summary>
-    public class UpdateLanguageFilesRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateLanguageFilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateLanguageFiles

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CrossTenantAccessPolicyConfigurationPartner : IAdditionalDataHolder, IParsable 
+    public class CrossTenantAccessPolicyConfigurationPartner : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -120,18 +121,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"automaticUserConsentSettings", n => { AutomaticUserConsentSettings = n.GetObjectValue<InboundOutboundPolicyConfiguration>(InboundOutboundPolicyConfiguration.CreateFromDiscriminatorValue); } },
-                {"b2bCollaborationInbound", n => { B2bCollaborationInbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
-                {"b2bCollaborationOutbound", n => { B2bCollaborationOutbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
-                {"b2bDirectConnectInbound", n => { B2bDirectConnectInbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
-                {"b2bDirectConnectOutbound", n => { B2bDirectConnectOutbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
-                {"identitySynchronization", n => { IdentitySynchronization = n.GetObjectValue<CrossTenantIdentitySyncPolicyPartner>(CrossTenantIdentitySyncPolicyPartner.CreateFromDiscriminatorValue); } },
-                {"inboundTrust", n => { InboundTrust = n.GetObjectValue<CrossTenantAccessPolicyInboundTrust>(CrossTenantAccessPolicyInboundTrust.CreateFromDiscriminatorValue); } },
-                {"isInMultiTenantOrganization", n => { IsInMultiTenantOrganization = n.GetBoolValue(); } },
-                {"isServiceProvider", n => { IsServiceProvider = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"tenantRestrictions", n => { TenantRestrictions = n.GetObjectValue<CrossTenantAccessPolicyTenantRestrictions>(CrossTenantAccessPolicyTenantRestrictions.CreateFromDiscriminatorValue); } },
+                { "automaticUserConsentSettings", n => { AutomaticUserConsentSettings = n.GetObjectValue<InboundOutboundPolicyConfiguration>(InboundOutboundPolicyConfiguration.CreateFromDiscriminatorValue); } },
+                { "b2bCollaborationInbound", n => { B2bCollaborationInbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
+                { "b2bCollaborationOutbound", n => { B2bCollaborationOutbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
+                { "b2bDirectConnectInbound", n => { B2bDirectConnectInbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
+                { "b2bDirectConnectOutbound", n => { B2bDirectConnectOutbound = n.GetObjectValue<CrossTenantAccessPolicyB2BSetting>(CrossTenantAccessPolicyB2BSetting.CreateFromDiscriminatorValue); } },
+                { "identitySynchronization", n => { IdentitySynchronization = n.GetObjectValue<CrossTenantIdentitySyncPolicyPartner>(CrossTenantIdentitySyncPolicyPartner.CreateFromDiscriminatorValue); } },
+                { "inboundTrust", n => { InboundTrust = n.GetObjectValue<CrossTenantAccessPolicyInboundTrust>(CrossTenantAccessPolicyInboundTrust.CreateFromDiscriminatorValue); } },
+                { "isInMultiTenantOrganization", n => { IsInMultiTenantOrganization = n.GetBoolValue(); } },
+                { "isServiceProvider", n => { IsServiceProvider = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "tenantRestrictions", n => { TenantRestrictions = n.GetObjectValue<CrossTenantAccessPolicyTenantRestrictions>(CrossTenantAccessPolicyTenantRestrictions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Group : DirectoryObject, IParsable 
+    public class Group : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here can post.</summary>
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public List<DirectoryObject> AcceptedSenders { get; set; }
 #endif
-        /// <summary>The accessType property</summary>
+        /// <summary>Indicates the type of access to the group. Possible values are none, private, secret, and public.</summary>
         public GroupAccessType? AccessType { get; set; }
         /// <summary>Indicates if people external to the organization can send messages to the group. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? AllowExternalSenders { get; set; }
@@ -187,9 +188,9 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
         public bool? IsArchived { get; set; }
-        /// <summary>Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes can&apos;t contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes can&apos;t contain DynamicMembership). Only callers with at least the Privileged Role Administrator role can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).</summary>
         public bool? IsAssignableToRole { get; set; }
-        /// <summary>The isFavorite property</summary>
+        /// <summary>Indicates whether the user marked the group as favorite.</summary>
         public bool? IsFavorite { get; set; }
         /// <summary>Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. The default value is false. Read-only.  To manage a group member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.</summary>
         public bool? IsManagementRestricted { get; set; }
@@ -369,7 +370,7 @@ namespace ApiSdk.Models {
 #else
         public PlannerGroup Planner { get; set; }
 #endif
-        /// <summary>The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator&apos;s preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo and Create a Microsoft 365 group with a specific PDL. Nullable. Returned by default.</summary>
+        /// <summary>The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator&apos;s preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned at least one of the following Microsoft Entra roles:  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo and Create a Microsoft 365 group with a specific PDL. Nullable. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredDataLocation { get; set; }
@@ -548,86 +549,86 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"acceptedSenders", n => { AcceptedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"accessType", n => { AccessType = n.GetEnumValue<GroupAccessType>(); } },
-                {"allowExternalSenders", n => { AllowExternalSenders = n.GetBoolValue(); } },
-                {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignedLabels", n => { AssignedLabels = n.GetCollectionOfObjectValues<AssignedLabel>(AssignedLabel.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<AssignedLicense>(AssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"autoSubscribeNewMembers", n => { AutoSubscribeNewMembers = n.GetBoolValue(); } },
-                {"calendar", n => { Calendar = n.GetObjectValue<ApiSdk.Models.Calendar>(ApiSdk.Models.Calendar.CreateFromDiscriminatorValue); } },
-                {"calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"classification", n => { Classification = n.GetStringValue(); } },
-                {"conversations", n => { Conversations = n.GetCollectionOfObjectValues<Conversation>(Conversation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdByAppId", n => { CreatedByAppId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"drive", n => { Drive = n.GetObjectValue<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue); } },
-                {"drives", n => { Drives = n.GetCollectionOfObjectValues<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"groupLifecyclePolicies", n => { GroupLifecyclePolicies = n.GetCollectionOfObjectValues<GroupLifecyclePolicy>(GroupLifecyclePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"groupTypes", n => { GroupTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"hasMembersWithLicenseErrors", n => { HasMembersWithLicenseErrors = n.GetBoolValue(); } },
-                {"hideFromAddressLists", n => { HideFromAddressLists = n.GetBoolValue(); } },
-                {"hideFromOutlookClients", n => { HideFromOutlookClients = n.GetBoolValue(); } },
-                {"infoCatalogs", n => { InfoCatalogs = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
-                {"isAssignableToRole", n => { IsAssignableToRole = n.GetBoolValue(); } },
-                {"isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
-                {"isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
-                {"isSubscribedByMail", n => { IsSubscribedByMail = n.GetBoolValue(); } },
-                {"licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<ApiSdk.Models.LicenseProcessingState>(ApiSdk.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
-                {"mail", n => { Mail = n.GetStringValue(); } },
-                {"mailEnabled", n => { MailEnabled = n.GetBoolValue(); } },
-                {"mailNickname", n => { MailNickname = n.GetStringValue(); } },
-                {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"members", n => { Members = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"membersWithLicenseErrors", n => { MembersWithLicenseErrors = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"membershipRule", n => { MembershipRule = n.GetStringValue(); } },
-                {"membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
-                {"membershipRuleProcessingStatus", n => { MembershipRuleProcessingStatus = n.GetObjectValue<ApiSdk.Models.MembershipRuleProcessingStatus>(ApiSdk.Models.MembershipRuleProcessingStatus.CreateFromDiscriminatorValue); } },
-                {"onPremisesDomainName", n => { OnPremisesDomainName = n.GetStringValue(); } },
-                {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onPremisesNetBiosName", n => { OnPremisesNetBiosName = n.GetStringValue(); } },
-                {"onPremisesProvisioningErrors", n => { OnPremisesProvisioningErrors = n.GetCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"onPremisesSamAccountName", n => { OnPremisesSamAccountName = n.GetStringValue(); } },
-                {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
-                {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
-                {"onenote", n => { Onenote = n.GetObjectValue<ApiSdk.Models.Onenote>(ApiSdk.Models.Onenote.CreateFromDiscriminatorValue); } },
-                {"organizationId", n => { OrganizationId = n.GetStringValue(); } },
-                {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"permissionGrants", n => { PermissionGrants = n.GetCollectionOfObjectValues<ResourceSpecificPermissionGrant>(ResourceSpecificPermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
-                {"photos", n => { Photos = n.GetCollectionOfObjectValues<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"planner", n => { Planner = n.GetObjectValue<PlannerGroup>(PlannerGroup.CreateFromDiscriminatorValue); } },
-                {"preferredDataLocation", n => { PreferredDataLocation = n.GetStringValue(); } },
-                {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
-                {"proxyAddresses", n => { ProxyAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"rejectedSenders", n => { RejectedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"renewedDateTime", n => { RenewedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resourceBehaviorOptions", n => { ResourceBehaviorOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"resourceProvisioningOptions", n => { ResourceProvisioningOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"securityEnabled", n => { SecurityEnabled = n.GetBoolValue(); } },
-                {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
-                {"serviceProvisioningErrors", n => { ServiceProvisioningErrors = n.GetCollectionOfObjectValues<ServiceProvisioningError>(ServiceProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"settings", n => { Settings = n.GetCollectionOfObjectValues<DirectorySetting>(DirectorySetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sites", n => { Sites = n.GetCollectionOfObjectValues<Site>(Site.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"team", n => { Team = n.GetObjectValue<ApiSdk.Models.Team>(ApiSdk.Models.Team.CreateFromDiscriminatorValue); } },
-                {"theme", n => { Theme = n.GetStringValue(); } },
-                {"threads", n => { Threads = n.GetCollectionOfObjectValues<ConversationThread>(ConversationThread.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"transitiveMembers", n => { TransitiveMembers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"uniqueName", n => { UniqueName = n.GetStringValue(); } },
-                {"unseenConversationsCount", n => { UnseenConversationsCount = n.GetIntValue(); } },
-                {"unseenCount", n => { UnseenCount = n.GetIntValue(); } },
-                {"unseenMessagesCount", n => { UnseenMessagesCount = n.GetIntValue(); } },
-                {"visibility", n => { Visibility = n.GetStringValue(); } },
-                {"writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<GroupWritebackConfiguration>(GroupWritebackConfiguration.CreateFromDiscriminatorValue); } },
+                { "acceptedSenders", n => { AcceptedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<GroupAccessType>(); } },
+                { "allowExternalSenders", n => { AllowExternalSenders = n.GetBoolValue(); } },
+                { "appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedLabels", n => { AssignedLabels = n.GetCollectionOfObjectValues<AssignedLabel>(AssignedLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<AssignedLicense>(AssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "autoSubscribeNewMembers", n => { AutoSubscribeNewMembers = n.GetBoolValue(); } },
+                { "calendar", n => { Calendar = n.GetObjectValue<ApiSdk.Models.Calendar>(ApiSdk.Models.Calendar.CreateFromDiscriminatorValue); } },
+                { "calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classification", n => { Classification = n.GetStringValue(); } },
+                { "conversations", n => { Conversations = n.GetCollectionOfObjectValues<Conversation>(Conversation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdByAppId", n => { CreatedByAppId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "drive", n => { Drive = n.GetObjectValue<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue); } },
+                { "drives", n => { Drives = n.GetCollectionOfObjectValues<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupLifecyclePolicies", n => { GroupLifecyclePolicies = n.GetCollectionOfObjectValues<GroupLifecyclePolicy>(GroupLifecyclePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupTypes", n => { GroupTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "hasMembersWithLicenseErrors", n => { HasMembersWithLicenseErrors = n.GetBoolValue(); } },
+                { "hideFromAddressLists", n => { HideFromAddressLists = n.GetBoolValue(); } },
+                { "hideFromOutlookClients", n => { HideFromOutlookClients = n.GetBoolValue(); } },
+                { "infoCatalogs", n => { InfoCatalogs = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
+                { "isAssignableToRole", n => { IsAssignableToRole = n.GetBoolValue(); } },
+                { "isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
+                { "isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
+                { "isSubscribedByMail", n => { IsSubscribedByMail = n.GetBoolValue(); } },
+                { "licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<ApiSdk.Models.LicenseProcessingState>(ApiSdk.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
+                { "mail", n => { Mail = n.GetStringValue(); } },
+                { "mailEnabled", n => { MailEnabled = n.GetBoolValue(); } },
+                { "mailNickname", n => { MailNickname = n.GetStringValue(); } },
+                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "membersWithLicenseErrors", n => { MembersWithLicenseErrors = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "membershipRule", n => { MembershipRule = n.GetStringValue(); } },
+                { "membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
+                { "membershipRuleProcessingStatus", n => { MembershipRuleProcessingStatus = n.GetObjectValue<ApiSdk.Models.MembershipRuleProcessingStatus>(ApiSdk.Models.MembershipRuleProcessingStatus.CreateFromDiscriminatorValue); } },
+                { "onPremisesDomainName", n => { OnPremisesDomainName = n.GetStringValue(); } },
+                { "onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "onPremisesNetBiosName", n => { OnPremisesNetBiosName = n.GetStringValue(); } },
+                { "onPremisesProvisioningErrors", n => { OnPremisesProvisioningErrors = n.GetCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "onPremisesSamAccountName", n => { OnPremisesSamAccountName = n.GetStringValue(); } },
+                { "onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
+                { "onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                { "onenote", n => { Onenote = n.GetObjectValue<ApiSdk.Models.Onenote>(ApiSdk.Models.Onenote.CreateFromDiscriminatorValue); } },
+                { "organizationId", n => { OrganizationId = n.GetStringValue(); } },
+                { "owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "permissionGrants", n => { PermissionGrants = n.GetCollectionOfObjectValues<ResourceSpecificPermissionGrant>(ResourceSpecificPermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
+                { "photos", n => { Photos = n.GetCollectionOfObjectValues<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "planner", n => { Planner = n.GetObjectValue<PlannerGroup>(PlannerGroup.CreateFromDiscriminatorValue); } },
+                { "preferredDataLocation", n => { PreferredDataLocation = n.GetStringValue(); } },
+                { "preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
+                { "proxyAddresses", n => { ProxyAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "rejectedSenders", n => { RejectedSenders = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "renewedDateTime", n => { RenewedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resourceBehaviorOptions", n => { ResourceBehaviorOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "resourceProvisioningOptions", n => { ResourceProvisioningOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "securityEnabled", n => { SecurityEnabled = n.GetBoolValue(); } },
+                { "securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
+                { "serviceProvisioningErrors", n => { ServiceProvisioningErrors = n.GetCollectionOfObjectValues<ServiceProvisioningError>(ServiceProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DirectorySetting>(DirectorySetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sites", n => { Sites = n.GetCollectionOfObjectValues<Site>(Site.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "team", n => { Team = n.GetObjectValue<ApiSdk.Models.Team>(ApiSdk.Models.Team.CreateFromDiscriminatorValue); } },
+                { "theme", n => { Theme = n.GetStringValue(); } },
+                { "threads", n => { Threads = n.GetCollectionOfObjectValues<ConversationThread>(ConversationThread.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "transitiveMembers", n => { TransitiveMembers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "uniqueName", n => { UniqueName = n.GetStringValue(); } },
+                { "unseenConversationsCount", n => { UnseenConversationsCount = n.GetIntValue(); } },
+                { "unseenCount", n => { UnseenCount = n.GetIntValue(); } },
+                { "unseenMessagesCount", n => { UnseenMessagesCount = n.GetIntValue(); } },
+                { "visibility", n => { Visibility = n.GetStringValue(); } },
+                { "writebackConfiguration", n => { WritebackConfiguration = n.GetObjectValue<GroupWritebackConfiguration>(GroupWritebackConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

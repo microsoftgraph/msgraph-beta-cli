@@ -13,20 +13,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent {
+namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent
+{
     /// <summary>
     /// Provides operations to call the changeAlertRecordsPortalNotificationAsSent method.
     /// </summary>
-    public class MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke action changeAlertRecordsPortalNotificationAsSent
+        /// Set the isPortalNotificationSent property of all portal notification resources associated with the specified alertRecord to true, marking them as sent. A maximum of 100 alertRecord IDs can be received at one time, and a maximum of 100 portal notification resources can be changed in the isPortalNotificationSent property status.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action changeAlertRecordsPortalNotificationAsSent";
+            command.Description = "Set the isPortalNotificationSent property of all portal notification resources associated with the specified alertRecord to true, marking them as sent. A maximum of 100 alertRecord IDs can be received at one time, and a maximum of 100 portal notification resources can be changed in the isPortalNotificationSent property status.";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -69,7 +70,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceMa
         {
         }
         /// <summary>
-        /// Invoke action changeAlertRecordsPortalNotificationAsSent
+        /// Set the isPortalNotificationSent property of all portal notification resources associated with the specified alertRecord to true, marking them as sent. A maximum of 100 alertRecord IDs can be received at one time, and a maximum of 100 portal notification resources can be changed in the isPortalNotificationSent property status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

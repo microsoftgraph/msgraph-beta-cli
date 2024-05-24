@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class IdentitySecurityDefaultsEnforcementPolicy : PolicyBase, IParsable 
+    public class IdentitySecurityDefaultsEnforcementPolicy : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If set to true, Microsoft Entra security defaults are enabled for the tenant.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

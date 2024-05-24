@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class TriggersRoot : ApiSdk.Models.Entity, IParsable 
+    public class TriggersRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The retentionEvents property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"retentionEvents", n => { RetentionEvents = n.GetCollectionOfObjectValues<RetentionEvent>(RetentionEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "retentionEvents", n => { RetentionEvents = n.GetCollectionOfObjectValues<RetentionEvent>(RetentionEvent.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

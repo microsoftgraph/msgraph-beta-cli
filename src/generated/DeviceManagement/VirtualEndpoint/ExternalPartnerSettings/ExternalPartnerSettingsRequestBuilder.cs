@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings
+{
     /// <summary>
     /// Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class ExternalPartnerSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalPartnerSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to externalPartnerSettings for deviceManagement
+        /// Create a new cloudPcExternalPartnerSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-post-externalpartnersettings?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to externalPartnerSettings for deviceManagement";
+            command.Description = "Create a new cloudPcExternalPartnerSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-post-externalpartnersettings?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return command;
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The external partner settings on a Cloud PC.";
+            command.Description = "Get a list of the cloudPcExternalPartnerSetting objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
         {
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to externalPartnerSettings for deviceManagement
+        /// Create a new cloudPcExternalPartnerSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings {
             return requestInfo;
         }
         /// <summary>
-        /// The external partner settings on a Cloud PC.
+        /// Get a list of the cloudPcExternalPartnerSetting objects and their properties.
         /// </summary>
         public class ExternalPartnerSettingsRequestBuilderGetQueryParameters 
         {

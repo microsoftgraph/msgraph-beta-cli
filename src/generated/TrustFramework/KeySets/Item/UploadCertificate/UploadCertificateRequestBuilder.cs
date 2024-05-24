@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.UploadCertificate {
+namespace ApiSdk.TrustFramework.KeySets.Item.UploadCertificate
+{
     /// <summary>
     /// Provides operations to call the uploadCertificate method.
     /// </summary>
-    public class UploadCertificateRequestBuilder : BaseCliRequestBuilder 
+    public class UploadCertificateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey.

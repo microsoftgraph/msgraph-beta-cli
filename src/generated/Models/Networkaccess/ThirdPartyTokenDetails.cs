@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class ThirdPartyTokenDetails : IAdditionalDataHolder, IParsable 
+    public class ThirdPartyTokenDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,11 +59,11 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"issuedAtDateTime", n => { IssuedAtDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"uniqueTokenIdentifier", n => { UniqueTokenIdentifier = n.GetStringValue(); } },
-                {"validFromDateTime", n => { ValidFromDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "issuedAtDateTime", n => { IssuedAtDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "uniqueTokenIdentifier", n => { UniqueTokenIdentifier = n.GetStringValue(); } },
+                { "validFromDateTime", n => { ValidFromDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

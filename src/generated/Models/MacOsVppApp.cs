@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
     /// </summary>
-    public class MacOsVppApp : MobileApp, IParsable 
+    public class MacOsVppApp : MobileApp, IParsable
     {
         /// <summary>The store URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,18 +108,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
-                {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<MacOsVppAppAssignedLicense>(MacOsVppAppAssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"bundleId", n => { BundleId = n.GetStringValue(); } },
-                {"licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
-                {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
-                {"revokeLicenseActionResults", n => { RevokeLicenseActionResults = n.GetCollectionOfObjectValues<MacOsVppAppRevokeLicensesActionResult>(MacOsVppAppRevokeLicensesActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
-                {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
-                {"vppTokenAccountType", n => { VppTokenAccountType = n.GetEnumValue<VppTokenAccountType>(); } },
-                {"vppTokenAppleId", n => { VppTokenAppleId = n.GetStringValue(); } },
-                {"vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
-                {"vppTokenOrganizationName", n => { VppTokenOrganizationName = n.GetStringValue(); } },
+                { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
+                { "assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<MacOsVppAppAssignedLicense>(MacOsVppAppAssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "bundleId", n => { BundleId = n.GetStringValue(); } },
+                { "licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
+                { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                { "revokeLicenseActionResults", n => { RevokeLicenseActionResults = n.GetCollectionOfObjectValues<MacOsVppAppRevokeLicensesActionResult>(MacOsVppAppRevokeLicensesActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
+                { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
+                { "vppTokenAccountType", n => { VppTokenAccountType = n.GetEnumValue<VppTokenAccountType>(); } },
+                { "vppTokenAppleId", n => { VppTokenAppleId = n.GetStringValue(); } },
+                { "vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
+                { "vppTokenOrganizationName", n => { VppTokenOrganizationName = n.GetStringValue(); } },
             };
         }
         /// <summary>

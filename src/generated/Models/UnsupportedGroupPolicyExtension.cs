@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Unsupported Group Policy Extension.
     /// </summary>
-    public class UnsupportedGroupPolicyExtension : Entity, IParsable 
+    public class UnsupportedGroupPolicyExtension : Entity, IParsable
     {
         /// <summary>ExtensionType of the unsupported extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,10 +55,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"extensionType", n => { ExtensionType = n.GetStringValue(); } },
-                {"namespaceUrl", n => { NamespaceUrl = n.GetStringValue(); } },
-                {"nodeName", n => { NodeName = n.GetStringValue(); } },
-                {"settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
+                { "extensionType", n => { ExtensionType = n.GetStringValue(); } },
+                { "namespaceUrl", n => { NamespaceUrl = n.GetStringValue(); } },
+                { "nodeName", n => { NodeName = n.GetStringValue(); } },
+                { "settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
             };
         }
         /// <summary>

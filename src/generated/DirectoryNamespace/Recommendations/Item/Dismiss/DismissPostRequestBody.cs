@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss
+{
     #pragma warning disable CS1591
-    public class DismissPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DismissPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dismissReason", n => { DismissReason = n.GetStringValue(); } },
+                { "dismissReason", n => { DismissReason = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Intune will provide customer the ability to run their Powershell Compliance scripts (detection) on the enrolled windows 10 Azure Active Directory joined devices.
     /// </summary>
-    public class DeviceComplianceScript : Entity, IParsable 
+    public class DeviceComplianceScript : Entity, IParsable
     {
         /// <summary>The list of group assignments for the device compliance script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,20 +111,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceHealthScriptAssignment>(DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"detectionScriptContent", n => { DetectionScriptContent = n.GetByteArrayValue(); } },
-                {"deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<DeviceComplianceScriptDeviceState>(DeviceComplianceScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"publisher", n => { Publisher = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
-                {"runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
-                {"runSummary", n => { RunSummary = n.GetObjectValue<DeviceComplianceScriptRunSummary>(DeviceComplianceScriptRunSummary.CreateFromDiscriminatorValue); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceHealthScriptAssignment>(DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "detectionScriptContent", n => { DetectionScriptContent = n.GetByteArrayValue(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<DeviceComplianceScriptDeviceState>(DeviceComplianceScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "publisher", n => { Publisher = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
+                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
+                { "runSummary", n => { RunSummary = n.GetObjectValue<DeviceComplianceScriptRunSummary>(DeviceComplianceScriptRunSummary.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

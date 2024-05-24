@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResourceAttributeQuestion : AccessPackageResourceAttributeSource, IParsable 
+    public class AccessPackageResourceAttributeQuestion : AccessPackageResourceAttributeSource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The question asked in order to get the value of the attribute</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"question", n => { Question = n.GetObjectValue<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue); } },
+                { "question", n => { Question = n.GetObjectValue<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

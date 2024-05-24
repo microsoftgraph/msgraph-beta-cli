@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Customers.Item.Currency {
+namespace ApiSdk.Financials.Companies.Item.Customers.Item.Currency
+{
     /// <summary>
     /// Provides operations to manage the currency property of the microsoft.graph.customer entity.
     /// </summary>
-    public class CurrencyRequestBuilder : BaseCliRequestBuilder 
+    public class CurrencyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property currency for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.Customers.Item.Currency {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property currency for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerIdOption = new Option<string>("--customer-id", description: "The unique identifier of customer") {
+            var customerIdOption = new Option<Guid?>("--customer-id", description: "The unique identifier of customer") {
             };
             customerIdOption.IsRequired = true;
             command.AddOption(customerIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.Customers.Item.Currency {
         {
             var command = new Command("get");
             command.Description = "Get currency from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerIdOption = new Option<string>("--customer-id", description: "The unique identifier of customer") {
+            var customerIdOption = new Option<Guid?>("--customer-id", description: "The unique identifier of customer") {
             };
             customerIdOption.IsRequired = true;
             command.AddOption(customerIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.Customers.Item.Currency {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property currency in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerIdOption = new Option<string>("--customer-id", description: "The unique identifier of customer") {
+            var customerIdOption = new Option<Guid?>("--customer-id", description: "The unique identifier of customer") {
             };
             customerIdOption.IsRequired = true;
             command.AddOption(customerIdOption);

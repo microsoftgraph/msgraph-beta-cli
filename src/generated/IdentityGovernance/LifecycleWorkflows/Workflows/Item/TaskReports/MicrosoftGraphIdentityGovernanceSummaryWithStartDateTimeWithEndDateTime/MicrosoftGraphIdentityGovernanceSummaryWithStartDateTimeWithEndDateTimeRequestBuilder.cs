@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReports.MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReports.MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime
+{
     /// <summary>
     /// Provides operations to call the summary method.
     /// </summary>
-    public class MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function summary
@@ -32,11 +33,11 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReport
             };
             workflowIdOption.IsRequired = true;
             command.AddOption(workflowIdOption);
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);

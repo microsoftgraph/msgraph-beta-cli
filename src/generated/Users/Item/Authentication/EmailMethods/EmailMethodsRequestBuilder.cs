@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.EmailMethods {
+namespace ApiSdk.Users.Item.Authentication.EmailMethods
+{
     /// <summary>
     /// Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class EmailMethodsRequestBuilder : BaseCliRequestBuilder 
+    public class EmailMethodsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to emailMethods for users
+        /// Set a user&apos;s emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to emailMethods for users";
+            command.Description = "Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -237,7 +241,7 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to emailMethods for users
+        /// Set a user&apos;s emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
+namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item
+{
     /// <summary>
     /// Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class EmailThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmailThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property emailThreats for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
             return command;
         }
         /// <summary>
-        /// Get emailThreats from security
+        /// Read the properties and relationships of an emailThreatSubmission object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-emailthreatsubmission-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get emailThreats from security";
+            command.Description = "Read the properties and relationships of an emailThreatSubmission object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-emailthreatsubmission-get?view=graph-rest-beta";
             var emailThreatSubmissionIdOption = new Option<string>("--email-threat-submission-id", description: "The unique identifier of emailThreatSubmission") {
             };
             emailThreatSubmissionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get emailThreats from security
+        /// Read the properties and relationships of an emailThreatSubmission object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get emailThreats from security
+        /// Read the properties and relationships of an emailThreatSubmission object.
         /// </summary>
         public class EmailThreatSubmissionItemRequestBuilderGetQueryParameters 
         {

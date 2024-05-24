@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions
+{
     /// <summary>
     /// Builds and executes requests for operations under \identity\authenticationEventsFlows\{authenticationEventsFlow-id}\conditions
     /// </summary>
-    public class ConditionsRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The applications property

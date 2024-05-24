@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AuditLogRecord : ApiSdk.Models.Entity, IParsable 
+    public class AuditLogRecord : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The administrative units tagged to an audit log record.</summary>
@@ -105,18 +106,18 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"administrativeUnits", n => { AdministrativeUnits = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"auditData", n => { AuditData = n.GetObjectValue<ApiSdk.Models.Security.AuditData>(ApiSdk.Models.Security.AuditData.CreateFromDiscriminatorValue); } },
-                {"auditLogRecordType", n => { AuditLogRecordType = n.GetEnumValue<AuditLogRecordType>(); } },
-                {"clientIp", n => { ClientIp = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"objectId", n => { ObjectId = n.GetStringValue(); } },
-                {"operation", n => { Operation = n.GetStringValue(); } },
-                {"organizationId", n => { OrganizationId = n.GetStringValue(); } },
-                {"service", n => { Service = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<AuditLogUserType>(); } },
+                { "administrativeUnits", n => { AdministrativeUnits = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "auditData", n => { AuditData = n.GetObjectValue<ApiSdk.Models.Security.AuditData>(ApiSdk.Models.Security.AuditData.CreateFromDiscriminatorValue); } },
+                { "auditLogRecordType", n => { AuditLogRecordType = n.GetEnumValue<AuditLogRecordType>(); } },
+                { "clientIp", n => { ClientIp = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "objectId", n => { ObjectId = n.GetStringValue(); } },
+                { "operation", n => { Operation = n.GetStringValue(); } },
+                { "organizationId", n => { OrganizationId = n.GetStringValue(); } },
+                { "service", n => { Service = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<AuditLogUserType>(); } },
             };
         }
         /// <summary>

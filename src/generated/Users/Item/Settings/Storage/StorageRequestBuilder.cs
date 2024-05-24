@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.Storage {
+namespace ApiSdk.Users.Item.Settings.Storage
+{
     /// <summary>
     /// Provides operations to manage the storage property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class StorageRequestBuilder : BaseCliRequestBuilder 
+    public class StorageRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property storage for users

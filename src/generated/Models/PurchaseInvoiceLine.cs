@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PurchaseInvoiceLine : Entity, IParsable 
+    public class PurchaseInvoiceLine : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -104,29 +105,29 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
-                {"accountId", n => { AccountId = n.GetGuidValue(); } },
-                {"amountExcludingTax", n => { AmountExcludingTax = n.GetDecimalValue(); } },
-                {"amountIncludingTax", n => { AmountIncludingTax = n.GetDecimalValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"discountAmount", n => { DiscountAmount = n.GetDecimalValue(); } },
-                {"discountAppliedBeforeTax", n => { DiscountAppliedBeforeTax = n.GetBoolValue(); } },
-                {"discountPercent", n => { DiscountPercent = n.GetDecimalValue(); } },
-                {"documentId", n => { DocumentId = n.GetGuidValue(); } },
-                {"expectedReceiptDate", n => { ExpectedReceiptDate = n.GetDateValue(); } },
-                {"invoiceDiscountAllocation", n => { InvoiceDiscountAllocation = n.GetDecimalValue(); } },
-                {"item", n => { Item = n.GetObjectValue<ApiSdk.Models.Item>(ApiSdk.Models.Item.CreateFromDiscriminatorValue); } },
-                {"itemId", n => { ItemId = n.GetGuidValue(); } },
-                {"lineType", n => { LineType = n.GetStringValue(); } },
-                {"netAmount", n => { NetAmount = n.GetDecimalValue(); } },
-                {"netAmountIncludingTax", n => { NetAmountIncludingTax = n.GetDecimalValue(); } },
-                {"netTaxAmount", n => { NetTaxAmount = n.GetDecimalValue(); } },
-                {"quantity", n => { Quantity = n.GetDecimalValue(); } },
-                {"sequence", n => { Sequence = n.GetIntValue(); } },
-                {"taxCode", n => { TaxCode = n.GetStringValue(); } },
-                {"taxPercent", n => { TaxPercent = n.GetDecimalValue(); } },
-                {"totalTaxAmount", n => { TotalTaxAmount = n.GetDecimalValue(); } },
-                {"unitCost", n => { UnitCost = n.GetDecimalValue(); } },
+                { "account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
+                { "accountId", n => { AccountId = n.GetGuidValue(); } },
+                { "amountExcludingTax", n => { AmountExcludingTax = n.GetDecimalValue(); } },
+                { "amountIncludingTax", n => { AmountIncludingTax = n.GetDecimalValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "discountAmount", n => { DiscountAmount = n.GetDecimalValue(); } },
+                { "discountAppliedBeforeTax", n => { DiscountAppliedBeforeTax = n.GetBoolValue(); } },
+                { "discountPercent", n => { DiscountPercent = n.GetDecimalValue(); } },
+                { "documentId", n => { DocumentId = n.GetGuidValue(); } },
+                { "expectedReceiptDate", n => { ExpectedReceiptDate = n.GetDateValue(); } },
+                { "invoiceDiscountAllocation", n => { InvoiceDiscountAllocation = n.GetDecimalValue(); } },
+                { "item", n => { Item = n.GetObjectValue<ApiSdk.Models.Item>(ApiSdk.Models.Item.CreateFromDiscriminatorValue); } },
+                { "itemId", n => { ItemId = n.GetGuidValue(); } },
+                { "lineType", n => { LineType = n.GetStringValue(); } },
+                { "netAmount", n => { NetAmount = n.GetDecimalValue(); } },
+                { "netAmountIncludingTax", n => { NetAmountIncludingTax = n.GetDecimalValue(); } },
+                { "netTaxAmount", n => { NetTaxAmount = n.GetDecimalValue(); } },
+                { "quantity", n => { Quantity = n.GetDecimalValue(); } },
+                { "sequence", n => { Sequence = n.GetIntValue(); } },
+                { "taxCode", n => { TaxCode = n.GetStringValue(); } },
+                { "taxPercent", n => { TaxPercent = n.GetDecimalValue(); } },
+                { "totalTaxAmount", n => { TotalTaxAmount = n.GetDecimalValue(); } },
+                { "unitCost", n => { UnitCost = n.GetDecimalValue(); } },
             };
         }
         /// <summary>

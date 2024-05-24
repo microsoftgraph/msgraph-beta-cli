@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SecurityActionState : IAdditionalDataHolder, IParsable 
+    public class SecurityActionState : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -64,11 +65,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
-                {"updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"user", n => { User = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
+                { "updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>

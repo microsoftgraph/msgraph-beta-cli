@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class TenantCustomizedInformation : ApiSdk.Models.Entity, IParsable 
+    public class TenantCustomizedInformation : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Describes the relationship between the Managed Services Provider and the managed tenant; for example, Managed, Co-managed, Licensing. The maximum length is 250 characters. Optional.</summary>
@@ -101,16 +102,16 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"businessRelationship", n => { BusinessRelationship = n.GetStringValue(); } },
-                {"complianceRequirements", n => { ComplianceRequirements = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"contacts", n => { Contacts = n.GetCollectionOfObjectValues<TenantContactInformation>(TenantContactInformation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"managedServicesPlans", n => { ManagedServicesPlans = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"note", n => { Note = n.GetStringValue(); } },
-                {"noteLastModifiedDateTime", n => { NoteLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"partnerRelationshipManagerUserIds", n => { PartnerRelationshipManagerUserIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"website", n => { Website = n.GetStringValue(); } },
+                { "businessRelationship", n => { BusinessRelationship = n.GetStringValue(); } },
+                { "complianceRequirements", n => { ComplianceRequirements = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "contacts", n => { Contacts = n.GetCollectionOfObjectValues<TenantContactInformation>(TenantContactInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "managedServicesPlans", n => { ManagedServicesPlans = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
+                { "noteLastModifiedDateTime", n => { NoteLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "partnerRelationshipManagerUserIds", n => { PartnerRelationshipManagerUserIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "website", n => { Website = n.GetStringValue(); } },
             };
         }
         /// <summary>

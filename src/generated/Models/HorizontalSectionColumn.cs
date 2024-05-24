@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class HorizontalSectionColumn : Entity, IParsable 
+    public class HorizontalSectionColumn : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of WebParts in this column.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"webparts", n => { Webparts = n.GetCollectionOfObjectValues<WebPart>(WebPart.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"width", n => { Width = n.GetIntValue(); } },
+                { "webparts", n => { Webparts = n.GetCollectionOfObjectValues<WebPart>(WebPart.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "width", n => { Width = n.GetIntValue(); } },
             };
         }
         /// <summary>

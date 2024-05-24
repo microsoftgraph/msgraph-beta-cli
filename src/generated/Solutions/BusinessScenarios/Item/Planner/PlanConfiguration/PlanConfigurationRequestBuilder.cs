@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.PlanConfiguration
+{
     /// <summary>
     /// Provides operations to manage the planConfiguration property of the microsoft.graph.businessScenarioPlanner entity.
     /// </summary>
-    public class PlanConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class PlanConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property planConfiguration for solutions

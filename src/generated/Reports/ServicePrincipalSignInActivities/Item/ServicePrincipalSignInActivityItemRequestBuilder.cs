@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
+namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item
+{
     /// <summary>
     /// Provides operations to manage the servicePrincipalSignInActivities property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class ServicePrincipalSignInActivityItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalSignInActivityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property servicePrincipalSignInActivities for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
             return command;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of service principals.
+        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipalsigninactivity-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a collection of sign-in activities of service principals.";
+            command.Description = "Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipalsigninactivity-get?view=graph-rest-beta";
             var servicePrincipalSignInActivityIdOption = new Option<string>("--service-principal-sign-in-activity-id", description: "The unique identifier of servicePrincipalSignInActivity") {
             };
             servicePrincipalSignInActivityIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of service principals.
+        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.ServicePrincipalSignInActivities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of service principals.
+        /// Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
         /// </summary>
         public class ServicePrincipalSignInActivityItemRequestBuilderGetQueryParameters 
         {

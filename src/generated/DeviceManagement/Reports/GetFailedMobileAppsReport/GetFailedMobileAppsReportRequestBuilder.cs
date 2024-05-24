@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetFailedMobileAppsReport {
+namespace ApiSdk.DeviceManagement.Reports.GetFailedMobileAppsReport
+{
     /// <summary>
     /// Provides operations to call the getFailedMobileAppsReport method.
     /// </summary>
-    public class GetFailedMobileAppsReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetFailedMobileAppsReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getFailedMobileAppsReport

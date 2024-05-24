@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class Participant : ParticipantBase, IParsable 
+    public class Participant : ParticipantBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

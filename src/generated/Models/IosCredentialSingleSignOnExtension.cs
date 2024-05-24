@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a Credential-type Single Sign-On extension profile for iOS devices.
     /// </summary>
-    public class IosCredentialSingleSignOnExtension : IosSingleSignOnExtension, IParsable 
+    public class IosCredentialSingleSignOnExtension : IosSingleSignOnExtension, IParsable
     {
         /// <summary>Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,11 +76,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configurations", n => { Configurations = n.GetCollectionOfObjectValues<KeyTypedValuePair>(KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"extensionIdentifier", n => { ExtensionIdentifier = n.GetStringValue(); } },
-                {"realm", n => { Realm = n.GetStringValue(); } },
-                {"teamIdentifier", n => { TeamIdentifier = n.GetStringValue(); } },
+                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<KeyTypedValuePair>(KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "extensionIdentifier", n => { ExtensionIdentifier = n.GetStringValue(); } },
+                { "realm", n => { Realm = n.GetStringValue(); } },
+                { "teamIdentifier", n => { TeamIdentifier = n.GetStringValue(); } },
             };
         }
         /// <summary>

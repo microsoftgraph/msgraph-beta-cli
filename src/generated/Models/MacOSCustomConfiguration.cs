@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
     /// </summary>
-    public class MacOSCustomConfiguration : DeviceConfiguration, IParsable 
+    public class MacOSCustomConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel</summary>
         public AppleDeploymentChannel? DeploymentChannel { get; set; }
@@ -61,10 +62,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deploymentChannel", n => { DeploymentChannel = n.GetEnumValue<AppleDeploymentChannel>(); } },
-                {"payload", n => { Payload = n.GetByteArrayValue(); } },
-                {"payloadFileName", n => { PayloadFileName = n.GetStringValue(); } },
-                {"payloadName", n => { PayloadName = n.GetStringValue(); } },
+                { "deploymentChannel", n => { DeploymentChannel = n.GetEnumValue<AppleDeploymentChannel>(); } },
+                { "payload", n => { Payload = n.GetByteArrayValue(); } },
+                { "payloadFileName", n => { PayloadFileName = n.GetStringValue(); } },
+                { "payloadName", n => { PayloadName = n.GetStringValue(); } },
             };
         }
         /// <summary>

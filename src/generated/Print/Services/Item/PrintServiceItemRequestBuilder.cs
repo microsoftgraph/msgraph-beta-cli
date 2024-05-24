@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Services.Item {
+namespace ApiSdk.Print.Services.Item
+{
     /// <summary>
     /// Provides operations to manage the services property of the microsoft.graph.print entity.
     /// </summary>
-    public class PrintServiceItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrintServiceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property services for print
@@ -84,13 +85,14 @@ namespace ApiSdk.Print.Services.Item {
             return command;
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve the properties and relationships of a print service.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printservice-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The list of available Universal Print service endpoints.";
+            command.Description = "Retrieve the properties and relationships of a print service.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printservice-get?view=graph-rest-beta";
             var printServiceIdOption = new Option<string>("--print-service-id", description: "The unique identifier of printService") {
             };
             printServiceIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Print.Services.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve the properties and relationships of a print service.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Print.Services.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve the properties and relationships of a print service.
         /// </summary>
         public class PrintServiceItemRequestBuilderGetQueryParameters 
         {

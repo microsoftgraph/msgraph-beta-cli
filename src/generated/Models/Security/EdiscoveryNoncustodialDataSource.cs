@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class EdiscoveryNoncustodialDataSource : DataSourceContainer, IParsable 
+    public class EdiscoveryNoncustodialDataSource : DataSourceContainer, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>User source or SharePoint site data source as non-custodial data source.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dataSource", n => { DataSource = n.GetObjectValue<ApiSdk.Models.Security.DataSource>(ApiSdk.Models.Security.DataSource.CreateFromDiscriminatorValue); } },
-                {"lastIndexOperation", n => { LastIndexOperation = n.GetObjectValue<EdiscoveryIndexOperation>(EdiscoveryIndexOperation.CreateFromDiscriminatorValue); } },
+                { "dataSource", n => { DataSource = n.GetObjectValue<ApiSdk.Models.Security.DataSource>(ApiSdk.Models.Security.DataSource.CreateFromDiscriminatorValue); } },
+                { "lastIndexOperation", n => { LastIndexOperation = n.GetObjectValue<EdiscoveryIndexOperation>(EdiscoveryIndexOperation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Enrollment status screen setting
     /// </summary>
-    public class WindowsEnrollmentStatusScreenSettings : IAdditionalDataHolder, IParsable 
+    public class WindowsEnrollmentStatusScreenSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -65,14 +66,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowDeviceUseBeforeProfileAndAppInstallComplete", n => { AllowDeviceUseBeforeProfileAndAppInstallComplete = n.GetBoolValue(); } },
-                {"allowDeviceUseOnInstallFailure", n => { AllowDeviceUseOnInstallFailure = n.GetBoolValue(); } },
-                {"allowLogCollectionOnInstallFailure", n => { AllowLogCollectionOnInstallFailure = n.GetBoolValue(); } },
-                {"blockDeviceSetupRetryByUser", n => { BlockDeviceSetupRetryByUser = n.GetBoolValue(); } },
-                {"customErrorMessage", n => { CustomErrorMessage = n.GetStringValue(); } },
-                {"hideInstallationProgress", n => { HideInstallationProgress = n.GetBoolValue(); } },
-                {"installProgressTimeoutInMinutes", n => { InstallProgressTimeoutInMinutes = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowDeviceUseBeforeProfileAndAppInstallComplete", n => { AllowDeviceUseBeforeProfileAndAppInstallComplete = n.GetBoolValue(); } },
+                { "allowDeviceUseOnInstallFailure", n => { AllowDeviceUseOnInstallFailure = n.GetBoolValue(); } },
+                { "allowLogCollectionOnInstallFailure", n => { AllowLogCollectionOnInstallFailure = n.GetBoolValue(); } },
+                { "blockDeviceSetupRetryByUser", n => { BlockDeviceSetupRetryByUser = n.GetBoolValue(); } },
+                { "customErrorMessage", n => { CustomErrorMessage = n.GetStringValue(); } },
+                { "hideInstallationProgress", n => { HideInstallationProgress = n.GetBoolValue(); } },
+                { "installProgressTimeoutInMinutes", n => { InstallProgressTimeoutInMinutes = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

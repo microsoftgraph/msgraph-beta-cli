@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PersonAnnualEvent : ItemFacet, IParsable 
+    public class PersonAnnualEvent : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date property</summary>
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"date", n => { Date = n.GetDateValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<PersonAnnualEventType>(); } },
+                { "date", n => { Date = n.GetDateValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<PersonAnnualEventType>(); } },
             };
         }
         /// <summary>

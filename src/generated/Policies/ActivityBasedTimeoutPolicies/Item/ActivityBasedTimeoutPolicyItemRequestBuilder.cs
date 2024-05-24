@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
+namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class ActivityBasedTimeoutPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityBasedTimeoutPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.stsPolicy entity.
@@ -48,13 +49,14 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property activityBasedTimeoutPolicies for policies
+        /// Delete an activityBasedTimeoutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property activityBasedTimeoutPolicies for policies";
+            command.Description = "Delete an activityBasedTimeoutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-delete?view=graph-rest-beta";
             var activityBasedTimeoutPolicyIdOption = new Option<string>("--activity-based-timeout-policy-id", description: "The unique identifier of activityBasedTimeoutPolicy") {
             };
             activityBasedTimeoutPolicyIdOption.IsRequired = true;
@@ -83,13 +85,14 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The policy that controls the idle time-out for web sessions for applications.
+        /// Get the properties of an activityBasedTimeoutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The policy that controls the idle time-out for web sessions for applications.";
+            command.Description = "Get the properties of an activityBasedTimeoutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-get?view=graph-rest-beta";
             var activityBasedTimeoutPolicyIdOption = new Option<string>("--activity-based-timeout-policy-id", description: "The unique identifier of activityBasedTimeoutPolicy") {
             };
             activityBasedTimeoutPolicyIdOption.IsRequired = true;
@@ -135,13 +138,14 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property activityBasedTimeoutPolicies in policies
+        /// Update the properties of an activityBasedTimeoutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property activityBasedTimeoutPolicies in policies";
+            command.Description = "Update the properties of an activityBasedTimeoutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-update?view=graph-rest-beta";
             var activityBasedTimeoutPolicyIdOption = new Option<string>("--activity-based-timeout-policy-id", description: "The unique identifier of activityBasedTimeoutPolicy") {
             };
             activityBasedTimeoutPolicyIdOption.IsRequired = true;
@@ -200,7 +204,7 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property activityBasedTimeoutPolicies for policies
+        /// Delete an activityBasedTimeoutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -219,7 +223,7 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policy that controls the idle time-out for web sessions for applications.
+        /// Get the properties of an activityBasedTimeoutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property activityBasedTimeoutPolicies in policies
+        /// Update the properties of an activityBasedTimeoutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +263,7 @@ namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policy that controls the idle time-out for web sessions for applications.
+        /// Get the properties of an activityBasedTimeoutPolicy object.
         /// </summary>
         public class ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters 
         {

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.ItemAtWithIndex {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.ItemAtWithIndex
+{
     /// <summary>
     /// Provides operations to call the itemAt method.
     /// </summary>
-    public class ItemAtWithIndexRequestBuilder : BaseCliRequestBuilder 
+    public class ItemAtWithIndexRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.

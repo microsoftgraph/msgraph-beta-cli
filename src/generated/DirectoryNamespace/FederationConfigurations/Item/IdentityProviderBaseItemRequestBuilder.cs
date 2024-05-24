@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.FederationConfigurations.Item {
+namespace ApiSdk.DirectoryNamespace.FederationConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
     /// </summary>
-    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property federationConfigurations for directory
+        /// Delete a samlOrWsFedExternalDomainFederation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/samlorwsfedexternaldomainfederation-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property federationConfigurations for directory";
+            command.Description = "Delete a samlOrWsFedExternalDomainFederation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/samlorwsfedexternaldomainfederation-delete?view=graph-rest-beta";
             var identityProviderBaseIdOption = new Option<string>("--identity-provider-base-id", description: "The unique identifier of identityProviderBase") {
             };
             identityProviderBaseIdOption.IsRequired = true;
@@ -173,7 +175,7 @@ namespace ApiSdk.DirectoryNamespace.FederationConfigurations.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property federationConfigurations for directory
+        /// Delete a samlOrWsFedExternalDomainFederation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

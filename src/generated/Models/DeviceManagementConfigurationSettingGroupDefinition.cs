@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSettingGroupDefinition : DeviceManagementConfigurationSettingDefinition, IParsable 
+    public class DeviceManagementConfigurationSettingGroupDefinition : DeviceManagementConfigurationSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Dependent child settings to this group of settings</summary>
+        /// <summary>Dependent child settings to this group of settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ChildIds { get; set; }
@@ -56,9 +57,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"childIds", n => { ChildIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "childIds", n => { ChildIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

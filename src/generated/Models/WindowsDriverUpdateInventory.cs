@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A new entity to represent driver inventories.
     /// </summary>
-    public class WindowsDriverUpdateInventory : Entity, IParsable 
+    public class WindowsDriverUpdateInventory : Entity, IParsable
     {
         /// <summary>The number of devices for which this driver is applicable.</summary>
         public int? ApplicableDeviceCount { get; set; }
@@ -70,15 +71,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableDeviceCount", n => { ApplicableDeviceCount = n.GetIntValue(); } },
-                {"approvalStatus", n => { ApprovalStatus = n.GetEnumValue<DriverApprovalStatus>(); } },
-                {"category", n => { Category = n.GetEnumValue<DriverCategory>(); } },
-                {"deployDateTime", n => { DeployDateTime = n.GetDateTimeOffsetValue(); } },
-                {"driverClass", n => { DriverClass = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "applicableDeviceCount", n => { ApplicableDeviceCount = n.GetIntValue(); } },
+                { "approvalStatus", n => { ApprovalStatus = n.GetEnumValue<DriverApprovalStatus>(); } },
+                { "category", n => { Category = n.GetEnumValue<DriverCategory>(); } },
+                { "deployDateTime", n => { DeployDateTime = n.GetDateTimeOffsetValue(); } },
+                { "driverClass", n => { DriverClass = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

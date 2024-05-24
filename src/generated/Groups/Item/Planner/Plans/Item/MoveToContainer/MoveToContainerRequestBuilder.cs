@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Planner.Plans.Item.MoveToContainer {
+namespace ApiSdk.Groups.Item.Planner.Plans.Item.MoveToContainer
+{
     /// <summary>
     /// Provides operations to call the moveToContainer method.
     /// </summary>
-    public class MoveToContainerRequestBuilder : BaseCliRequestBuilder 
+    public class MoveToContainerRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Move a planner plan object from one planner plan container to another. Planner plans can only be moved from a user container to a group container.

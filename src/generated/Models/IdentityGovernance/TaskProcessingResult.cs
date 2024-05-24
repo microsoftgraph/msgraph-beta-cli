@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class TaskProcessingResult : ApiSdk.Models.Entity, IParsable 
+    public class TaskProcessingResult : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.</summary>
@@ -59,13 +60,13 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"failureReason", n => { FailureReason = n.GetStringValue(); } },
-                {"processingStatus", n => { ProcessingStatus = n.GetEnumValue<LifecycleWorkflowProcessingStatus>(); } },
-                {"startedDateTime", n => { StartedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"subject", n => { Subject = n.GetObjectValue<ApiSdk.Models.User>(ApiSdk.Models.User.CreateFromDiscriminatorValue); } },
-                {"task", n => { Task = n.GetObjectValue<TaskObject>(TaskObject.CreateFromDiscriminatorValue); } },
+                { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "failureReason", n => { FailureReason = n.GetStringValue(); } },
+                { "processingStatus", n => { ProcessingStatus = n.GetEnumValue<LifecycleWorkflowProcessingStatus>(); } },
+                { "startedDateTime", n => { StartedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "subject", n => { Subject = n.GetObjectValue<ApiSdk.Models.User>(ApiSdk.Models.User.CreateFromDiscriminatorValue); } },
+                { "task", n => { Task = n.GetObjectValue<TaskObject>(TaskObject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

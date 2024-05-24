@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EntitlementManagement.RoleDefinitions.Item {
+namespace ApiSdk.RoleManagement.EntitlementManagement.RoleDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignedPrincipals method.
@@ -75,13 +76,14 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get roleDefinitions from roleManagement";
+            command.Description = "Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-beta";
             var unifiedRoleDefinitionIdOption = new Option<string>("--unified-role-definition-id", description: "The unique identifier of unifiedRoleDefinition") {
             };
             unifiedRoleDefinitionIdOption.IsRequired = true;
@@ -238,7 +240,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -278,7 +280,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
         /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamTemplate : Entity, IParsable 
+    public class TeamTemplate : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A generic representation of a team template definition for a team with a specific structure and configuration.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"definitions", n => { Definitions = n.GetCollectionOfObjectValues<TeamTemplateDefinition>(TeamTemplateDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<TeamTemplateDefinition>(TeamTemplateDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

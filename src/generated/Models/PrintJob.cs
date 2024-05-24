@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintJob : Entity, IParsable 
+    public class PrintJob : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acknowledgedDateTime property</summary>
@@ -101,19 +102,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"acknowledgedDateTime", n => { AcknowledgedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"configuration", n => { Configuration = n.GetObjectValue<PrintJobConfiguration>(PrintJobConfiguration.CreateFromDiscriminatorValue); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"documents", n => { Documents = n.GetCollectionOfObjectValues<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
-                {"isFetchable", n => { IsFetchable = n.GetBoolValue(); } },
-                {"redirectedFrom", n => { RedirectedFrom = n.GetStringValue(); } },
-                {"redirectedTo", n => { RedirectedTo = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetObjectValue<PrintJobStatus>(PrintJobStatus.CreateFromDiscriminatorValue); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<PrintTask>(PrintTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "acknowledgedDateTime", n => { AcknowledgedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<PrintJobConfiguration>(PrintJobConfiguration.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "documents", n => { Documents = n.GetCollectionOfObjectValues<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
+                { "isFetchable", n => { IsFetchable = n.GetBoolValue(); } },
+                { "redirectedFrom", n => { RedirectedFrom = n.GetStringValue(); } },
+                { "redirectedTo", n => { RedirectedTo = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetObjectValue<PrintJobStatus>(PrintJobStatus.CreateFromDiscriminatorValue); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<PrintTask>(PrintTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

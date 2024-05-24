@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryRelease {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryRelease
+{
     /// <summary>
     /// Provides operations to call the release method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryReleaseRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryReleaseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Release a custodian from a case. For details, see Release a custodian from a case.

@@ -37,11 +37,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item {
+namespace ApiSdk.Applications.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class ApplicationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addKey method.
@@ -410,6 +411,7 @@ namespace ApiSdk.Applications.Item {
             command.Description = "Provides operations to manage the media for the application entity.";
             var builder = new LogoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

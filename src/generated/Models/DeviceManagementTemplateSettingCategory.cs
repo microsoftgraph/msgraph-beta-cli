@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity representing a template setting category
     /// </summary>
-    public class DeviceManagementTemplateSettingCategory : DeviceManagementSettingCategory, IParsable 
+    public class DeviceManagementTemplateSettingCategory : DeviceManagementSettingCategory, IParsable
     {
         /// <summary>The settings this category contains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"recommendedSettings", n => { RecommendedSettings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recommendedSettings", n => { RecommendedSettings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

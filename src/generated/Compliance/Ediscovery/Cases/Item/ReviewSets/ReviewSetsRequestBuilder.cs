@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets
+{
     /// <summary>
     /// Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class ReviewSetsRequestBuilder : BaseCliRequestBuilder 
+    public class ReviewSetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
@@ -57,14 +58,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to reviewSets for compliance
+        /// Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-post-reviewsets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to reviewSets for compliance";
+            command.Description = "Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-post-reviewsets?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -109,14 +111,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
             return command;
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of reviewSet objects in the case. Read-only. Nullable.";
+            command.Description = "Retrieve the properties and relationships of a reviewSet object.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -198,7 +200,9 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +228,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
         {
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,7 +248,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to reviewSets for compliance
+        /// Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -266,7 +270,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
         /// </summary>
         public class ReviewSetsRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.TeamsUserConfiguration {
+namespace ApiSdk.Models.TeamsUserConfiguration
+{
     #pragma warning disable CS1591
-    public class TeamsAdminRoot : ApiSdk.Models.Entity, IParsable 
+    public class TeamsAdminRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

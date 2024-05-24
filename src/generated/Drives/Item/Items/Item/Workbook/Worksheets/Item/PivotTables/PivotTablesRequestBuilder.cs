@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables
+{
     /// <summary>
     /// Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
-    public class PivotTablesRequestBuilder : BaseCliRequestBuilder 
+    public class PivotTablesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -220,7 +221,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

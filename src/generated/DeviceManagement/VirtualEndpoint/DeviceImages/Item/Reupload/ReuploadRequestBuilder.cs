@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item.Reupload {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item.Reupload
+{
     /// <summary>
     /// Provides operations to call the reupload method.
     /// </summary>
-    public class ReuploadRequestBuilder : BaseCliRequestBuilder 
+    public class ReuploadRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reupload a cloudPcDeviceImage object that failed to upload.

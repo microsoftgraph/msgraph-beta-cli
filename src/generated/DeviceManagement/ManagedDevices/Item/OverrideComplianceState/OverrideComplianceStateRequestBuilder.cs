@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.OverrideComplianceState {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.OverrideComplianceState
+{
     /// <summary>
     /// Provides operations to call the overrideComplianceState method.
     /// </summary>
-    public class OverrideComplianceStateRequestBuilder : BaseCliRequestBuilder 
+    public class OverrideComplianceStateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action overrideComplianceState

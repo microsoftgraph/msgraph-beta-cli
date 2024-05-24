@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.Tasks.Item
+{
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.businessScenarioPlanner entity.
     /// </summary>
-    public class BusinessScenarioTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class BusinessScenarioTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.

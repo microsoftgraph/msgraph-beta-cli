@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurationConflictSummary.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurationConflictSummary.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceConfigurationConflictSummary property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceConfigurationConflictSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationConflictSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceConfigurationConflictSummary for deviceManagement

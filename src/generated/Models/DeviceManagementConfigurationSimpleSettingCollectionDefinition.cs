@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSimpleSettingCollectionDefinition : DeviceManagementConfigurationSimpleSettingDefinition, IParsable 
+    public class DeviceManagementConfigurationSimpleSettingCollectionDefinition : DeviceManagementConfigurationSimpleSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Maximum number of simple settings in the collection. Valid values 1 to 100</summary>
@@ -31,8 +32,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumCount", n => { MaximumCount = n.GetIntValue(); } },
-                {"minimumCount", n => { MinimumCount = n.GetIntValue(); } },
+                { "maximumCount", n => { MaximumCount = n.GetIntValue(); } },
+                { "minimumCount", n => { MinimumCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

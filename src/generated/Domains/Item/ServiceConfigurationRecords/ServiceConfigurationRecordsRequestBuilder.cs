@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.ServiceConfigurationRecords {
+namespace ApiSdk.Domains.Item.ServiceConfigurationRecords
+{
     /// <summary>
     /// Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
     /// </summary>
-    public class ServiceConfigurationRecordsRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceConfigurationRecordsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Domains.Item.ServiceConfigurationRecords {
             return command;
         }
         /// <summary>
-        /// DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+        /// Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.";
+            command.Description = "Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Domains.Item.ServiceConfigurationRecords {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Domains.Item.ServiceConfigurationRecords {
         {
         }
         /// <summary>
-        /// DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+        /// Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Domains.Item.ServiceConfigurationRecords {
             return requestInfo;
         }
         /// <summary>
-        /// DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+        /// Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
         /// </summary>
         public class ServiceConfigurationRecordsRequestBuilderGetQueryParameters 
         {

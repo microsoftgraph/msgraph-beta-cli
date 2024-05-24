@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class ThreatSubmissionRoot : ApiSdk.Models.Entity, IParsable 
+    public class ThreatSubmissionRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The emailThreats property</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"emailThreatSubmissionPolicies", n => { EmailThreatSubmissionPolicies = n.GetCollectionOfObjectValues<EmailThreatSubmissionPolicy>(EmailThreatSubmissionPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"emailThreats", n => { EmailThreats = n.GetCollectionOfObjectValues<EmailThreatSubmission>(EmailThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"fileThreats", n => { FileThreats = n.GetCollectionOfObjectValues<FileThreatSubmission>(FileThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"urlThreats", n => { UrlThreats = n.GetCollectionOfObjectValues<UrlThreatSubmission>(UrlThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emailThreatSubmissionPolicies", n => { EmailThreatSubmissionPolicies = n.GetCollectionOfObjectValues<EmailThreatSubmissionPolicy>(EmailThreatSubmissionPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emailThreats", n => { EmailThreats = n.GetCollectionOfObjectValues<EmailThreatSubmission>(EmailThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "fileThreats", n => { FileThreats = n.GetCollectionOfObjectValues<FileThreatSubmission>(FileThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "urlThreats", n => { UrlThreats = n.GetCollectionOfObjectValues<UrlThreatSubmission>(UrlThreatSubmission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

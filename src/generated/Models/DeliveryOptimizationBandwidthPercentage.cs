@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Bandwidth limits specified as a percentage.
     /// </summary>
-    public class DeliveryOptimizationBandwidthPercentage : DeliveryOptimizationBandwidth, IParsable 
+    public class DeliveryOptimizationBandwidthPercentage : DeliveryOptimizationBandwidth, IParsable
     {
         /// <summary>Specifies the maximum background download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100</summary>
         public int? MaximumBackgroundBandwidthPercentage { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumBackgroundBandwidthPercentage", n => { MaximumBackgroundBandwidthPercentage = n.GetIntValue(); } },
-                {"maximumForegroundBandwidthPercentage", n => { MaximumForegroundBandwidthPercentage = n.GetIntValue(); } },
+                { "maximumBackgroundBandwidthPercentage", n => { MaximumBackgroundBandwidthPercentage = n.GetIntValue(); } },
+                { "maximumForegroundBandwidthPercentage", n => { MaximumForegroundBandwidthPercentage = n.GetIntValue(); } },
             };
         }
         /// <summary>

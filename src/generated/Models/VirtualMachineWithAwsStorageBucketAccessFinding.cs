@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualMachineWithAwsStorageBucketAccessFinding : Finding, IParsable 
+    public class VirtualMachineWithAwsStorageBucketAccessFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The total number of storage buckets that the EC2 instance can access using the role.</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessibleCount", n => { AccessibleCount = n.GetIntValue(); } },
-                {"bucketCount", n => { BucketCount = n.GetIntValue(); } },
-                {"ec2Instance", n => { Ec2Instance = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                {"role", n => { Role = n.GetObjectValue<AwsRole>(AwsRole.CreateFromDiscriminatorValue); } },
+                { "accessibleCount", n => { AccessibleCount = n.GetIntValue(); } },
+                { "bucketCount", n => { BucketCount = n.GetIntValue(); } },
+                { "ec2Instance", n => { Ec2Instance = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<AwsRole>(AwsRole.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EncryptContent : LabelActionBase, IParsable 
+    public class EncryptContent : LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The encryptWith property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"encryptWith", n => { EncryptWith = n.GetEnumValue<EncryptWith>(); } },
+                { "encryptWith", n => { EncryptWith = n.GetEnumValue<EncryptWith>(); } },
             };
         }
         /// <summary>

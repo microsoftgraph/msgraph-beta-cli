@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The base presentation value entity that stores the value for a single group policy presentation.
     /// </summary>
-    public class GroupPolicyPresentationValue : Entity, IParsable 
+    public class GroupPolicyPresentationValue : Entity, IParsable
     {
         /// <summary>The date and time the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -58,10 +59,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"definitionValue", n => { DefinitionValue = n.GetObjectValue<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"presentation", n => { Presentation = n.GetObjectValue<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "definitionValue", n => { DefinitionValue = n.GetObjectValue<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "presentation", n => { Presentation = n.GetObjectValue<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PeopleAdminSettings : Entity, IParsable 
+    public class PeopleAdminSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents administrator settings that manage the support for item insights in an organization.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"itemInsights", n => { ItemInsights = n.GetObjectValue<InsightsSettings>(InsightsSettings.CreateFromDiscriminatorValue); } },
-                {"profileCardProperties", n => { ProfileCardProperties = n.GetCollectionOfObjectValues<ProfileCardProperty>(ProfileCardProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"pronouns", n => { Pronouns = n.GetObjectValue<PronounsSettings>(PronounsSettings.CreateFromDiscriminatorValue); } },
+                { "itemInsights", n => { ItemInsights = n.GetObjectValue<InsightsSettings>(InsightsSettings.CreateFromDiscriminatorValue); } },
+                { "profileCardProperties", n => { ProfileCardProperties = n.GetCollectionOfObjectValues<ProfileCardProperty>(ProfileCardProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "pronouns", n => { Pronouns = n.GetObjectValue<PronounsSettings>(PronounsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

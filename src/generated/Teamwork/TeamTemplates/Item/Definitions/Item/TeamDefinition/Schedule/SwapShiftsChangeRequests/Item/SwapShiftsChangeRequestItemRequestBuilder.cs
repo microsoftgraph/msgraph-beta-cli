@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.SwapShiftsChangeRequests.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.SwapShiftsChangeRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class SwapShiftsChangeRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class SwapShiftsChangeRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property swapShiftsChangeRequests for teamwork

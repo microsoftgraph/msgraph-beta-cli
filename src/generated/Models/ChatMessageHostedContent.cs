@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ChatMessageHostedContent : TeamworkHostedContent, IParsable 
+    public class ChatMessageHostedContent : TeamworkHostedContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

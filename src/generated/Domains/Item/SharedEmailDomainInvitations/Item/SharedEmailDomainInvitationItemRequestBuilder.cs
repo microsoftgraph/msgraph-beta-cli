@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.SharedEmailDomainInvitations.Item {
+namespace ApiSdk.Domains.Item.SharedEmailDomainInvitations.Item
+{
     /// <summary>
     /// Provides operations to manage the sharedEmailDomainInvitations property of the microsoft.graph.domain entity.
     /// </summary>
-    public class SharedEmailDomainInvitationItemRequestBuilder : BaseCliRequestBuilder 
+    public class SharedEmailDomainInvitationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sharedEmailDomainInvitations for domains

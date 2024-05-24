@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.CompareWithTemplateId {
+namespace ApiSdk.DeviceManagement.Intents.Item.CompareWithTemplateId
+{
     #pragma warning disable CS1591
-    public class CompareWithTemplateIdGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class CompareWithTemplateIdGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item.CompareWithTemplateId {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementSettingComparison>(DeviceManagementSettingComparison.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementSettingComparison>(DeviceManagementSettingComparison.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

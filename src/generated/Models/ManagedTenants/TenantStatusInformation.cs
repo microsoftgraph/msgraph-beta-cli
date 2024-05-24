@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class TenantStatusInformation : IAdditionalDataHolder, IParsable 
+    public class TenantStatusInformation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -80,16 +81,16 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"delegatedPrivilegeStatus", n => { DelegatedPrivilegeStatus = n.GetEnumValue<DelegatedPrivilegeStatus>(); } },
-                {"lastDelegatedPrivilegeRefreshDateTime", n => { LastDelegatedPrivilegeRefreshDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"offboardedByUserId", n => { OffboardedByUserId = n.GetStringValue(); } },
-                {"offboardedDateTime", n => { OffboardedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onboardedByUserId", n => { OnboardedByUserId = n.GetStringValue(); } },
-                {"onboardedDateTime", n => { OnboardedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<TenantOnboardingStatus>(); } },
-                {"tenantOnboardingEligibilityReason", n => { TenantOnboardingEligibilityReason = n.GetEnumValue<TenantOnboardingEligibilityReason>(); } },
-                {"workloadStatuses", n => { WorkloadStatuses = n.GetCollectionOfObjectValues<WorkloadStatus>(WorkloadStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "delegatedPrivilegeStatus", n => { DelegatedPrivilegeStatus = n.GetEnumValue<DelegatedPrivilegeStatus>(); } },
+                { "lastDelegatedPrivilegeRefreshDateTime", n => { LastDelegatedPrivilegeRefreshDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "offboardedByUserId", n => { OffboardedByUserId = n.GetStringValue(); } },
+                { "offboardedDateTime", n => { OffboardedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "onboardedByUserId", n => { OnboardedByUserId = n.GetStringValue(); } },
+                { "onboardedDateTime", n => { OnboardedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<TenantOnboardingStatus>(); } },
+                { "tenantOnboardingEligibilityReason", n => { TenantOnboardingEligibilityReason = n.GetEnumValue<TenantOnboardingEligibilityReason>(); } },
+                { "workloadStatuses", n => { WorkloadStatuses = n.GetCollectionOfObjectValues<WorkloadStatus>(WorkloadStatus.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

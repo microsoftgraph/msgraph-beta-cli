@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Android for Work (AFW) Apps.
     /// </summary>
-    public class AndroidForWorkApp : MobileApp, IParsable 
+    public class AndroidForWorkApp : MobileApp, IParsable
     {
         /// <summary>The Identity Name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,11 +64,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appIdentifier", n => { AppIdentifier = n.GetStringValue(); } },
-                {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
-                {"packageId", n => { PackageId = n.GetStringValue(); } },
-                {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
-                {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
+                { "appIdentifier", n => { AppIdentifier = n.GetStringValue(); } },
+                { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
+                { "packageId", n => { PackageId = n.GetStringValue(); } },
+                { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
+                { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

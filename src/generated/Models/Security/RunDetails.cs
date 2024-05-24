@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RunDetails : IAdditionalDataHolder, IParsable 
+    public class RunDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,11 +59,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"errorCode", n => { ErrorCode = n.GetEnumValue<HuntingRuleErrorCode>(); } },
-                {"failureReason", n => { FailureReason = n.GetStringValue(); } },
-                {"lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<HuntingRuleRunStatus>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<HuntingRuleErrorCode>(); } },
+                { "failureReason", n => { FailureReason = n.GetStringValue(); } },
+                { "lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<HuntingRuleRunStatus>(); } },
             };
         }
         /// <summary>

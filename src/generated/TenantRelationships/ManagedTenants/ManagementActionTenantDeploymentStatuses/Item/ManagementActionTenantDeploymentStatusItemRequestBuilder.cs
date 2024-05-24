@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.Item
+{
     /// <summary>
     /// Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementActionTenantDeploymentStatusItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementActionTenantDeploymentStatusItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementActionTenantDeploymentStatuses for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
             return command;
         }
         /// <summary>
-        /// The tenant level status of management actions across managed tenants.
+        /// Read the properties and relationships of a managementActionTenantDeploymentStatus object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementactiontenantdeploymentstatus-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The tenant level status of management actions across managed tenants.";
+            command.Description = "Read the properties and relationships of a managementActionTenantDeploymentStatus object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementactiontenantdeploymentstatus-get?view=graph-rest-beta";
             var managementActionTenantDeploymentStatusIdOption = new Option<string>("--management-action-tenant-deployment-status-id", description: "The unique identifier of managementActionTenantDeploymentStatus") {
             };
             managementActionTenantDeploymentStatusIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
             return requestInfo;
         }
         /// <summary>
-        /// The tenant level status of management actions across managed tenants.
+        /// Read the properties and relationships of a managementActionTenantDeploymentStatus object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
             return requestInfo;
         }
         /// <summary>
-        /// The tenant level status of management actions across managed tenants.
+        /// Read the properties and relationships of a managementActionTenantDeploymentStatus object.
         /// </summary>
         public class ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters 
         {

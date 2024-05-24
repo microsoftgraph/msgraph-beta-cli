@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookChart : Entity, IParsable 
+    public class WorkbookChart : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents chart axes. Read-only.</summary>
@@ -99,18 +100,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"axes", n => { Axes = n.GetObjectValue<WorkbookChartAxes>(WorkbookChartAxes.CreateFromDiscriminatorValue); } },
-                {"dataLabels", n => { DataLabels = n.GetObjectValue<WorkbookChartDataLabels>(WorkbookChartDataLabels.CreateFromDiscriminatorValue); } },
-                {"format", n => { Format = n.GetObjectValue<WorkbookChartAreaFormat>(WorkbookChartAreaFormat.CreateFromDiscriminatorValue); } },
-                {"height", n => { Height = n.GetDoubleValue(); } },
-                {"left", n => { Left = n.GetDoubleValue(); } },
-                {"legend", n => { Legend = n.GetObjectValue<WorkbookChartLegend>(WorkbookChartLegend.CreateFromDiscriminatorValue); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"series", n => { Series = n.GetCollectionOfObjectValues<WorkbookChartSeries>(WorkbookChartSeries.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"title", n => { Title = n.GetObjectValue<WorkbookChartTitle>(WorkbookChartTitle.CreateFromDiscriminatorValue); } },
-                {"top", n => { Top = n.GetDoubleValue(); } },
-                {"width", n => { Width = n.GetDoubleValue(); } },
-                {"worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
+                { "axes", n => { Axes = n.GetObjectValue<WorkbookChartAxes>(WorkbookChartAxes.CreateFromDiscriminatorValue); } },
+                { "dataLabels", n => { DataLabels = n.GetObjectValue<WorkbookChartDataLabels>(WorkbookChartDataLabels.CreateFromDiscriminatorValue); } },
+                { "format", n => { Format = n.GetObjectValue<WorkbookChartAreaFormat>(WorkbookChartAreaFormat.CreateFromDiscriminatorValue); } },
+                { "height", n => { Height = n.GetDoubleValue(); } },
+                { "left", n => { Left = n.GetDoubleValue(); } },
+                { "legend", n => { Legend = n.GetObjectValue<WorkbookChartLegend>(WorkbookChartLegend.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "series", n => { Series = n.GetCollectionOfObjectValues<WorkbookChartSeries>(WorkbookChartSeries.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "title", n => { Title = n.GetObjectValue<WorkbookChartTitle>(WorkbookChartTitle.CreateFromDiscriminatorValue); } },
+                { "top", n => { Top = n.GetDoubleValue(); } },
+                { "width", n => { Width = n.GetDoubleValue(); } },
+                { "worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

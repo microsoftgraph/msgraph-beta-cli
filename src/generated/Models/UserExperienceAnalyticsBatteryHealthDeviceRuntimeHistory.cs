@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics battery health runtime history entity contains the trend of runtime of a device over a period of 30 days
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory : Entity, IParsable 
+    public class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory : Entity, IParsable
     {
         /// <summary>The unique identifier of the device, Intune DeviceID or SCCM device id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"estimatedRuntimeInMinutes", n => { EstimatedRuntimeInMinutes = n.GetIntValue(); } },
-                {"runtimeDateTime", n => { RuntimeDateTime = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "estimatedRuntimeInMinutes", n => { EstimatedRuntimeInMinutes = n.GetIntValue(); } },
+                { "runtimeDateTime", n => { RuntimeDateTime = n.GetStringValue(); } },
             };
         }
         /// <summary>

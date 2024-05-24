@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons {
+namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons
+{
     /// <summary>
     /// Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffReasonsRequestBuilder : BaseCliRequestBuilder 
+    public class TimeOffReasonsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to timeOffReasons for teams
+        /// Create a new timeOffReason.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to timeOffReasons for teams";
+            command.Description = "Create a new timeOffReason.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -105,12 +107,13 @@ namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons {
         }
         /// <summary>
         /// The set of reasons for a time off in the schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The set of reasons for a time off in the schedule.";
+            command.Description = "The set of reasons for a time off in the schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -185,7 +188,9 @@ namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -230,7 +235,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeOffReasons {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to timeOffReasons for teams
+        /// Create a new timeOffReason.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

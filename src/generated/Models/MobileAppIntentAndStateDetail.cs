@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Mobile App Intent and Install State for a given device.
     /// </summary>
-    public class MobileAppIntentAndStateDetail : IAdditionalDataHolder, IParsable 
+    public class MobileAppIntentAndStateDetail : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -81,13 +82,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
-                {"installState", n => { InstallState = n.GetEnumValue<ResultantAppState>(); } },
-                {"mobileAppIntent", n => { MobileAppIntent = n.GetEnumValue<MobileAppIntent>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"supportedDeviceTypes", n => { SupportedDeviceTypes = n.GetCollectionOfObjectValues<MobileAppSupportedDeviceType>(MobileAppSupportedDeviceType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
+                { "installState", n => { InstallState = n.GetEnumValue<ResultantAppState>(); } },
+                { "mobileAppIntent", n => { MobileAppIntent = n.GetEnumValue<MobileAppIntent>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "supportedDeviceTypes", n => { SupportedDeviceTypes = n.GetCollectionOfObjectValues<MobileAppSupportedDeviceType>(MobileAppSupportedDeviceType.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

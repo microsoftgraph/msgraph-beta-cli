@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Communities {
+namespace ApiSdk.EmployeeExperience.Communities
+{
     /// <summary>
     /// Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class CommunitiesRequestBuilder : BaseCliRequestBuilder 
+    public class CommunitiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.EmployeeExperience.Communities {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to communities for employeeExperience
+        /// Create a new community in Viva Engage.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/employeeexperience-post-communities?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to communities for employeeExperience";
+            command.Description = "Create a new community in Viva Engage.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/employeeexperience-post-communities?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,13 @@ namespace ApiSdk.EmployeeExperience.Communities {
             return command;
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of communities in Viva Engage.";
+            command.Description = "Read the properties and relationships of a community object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +185,9 @@ namespace ApiSdk.EmployeeExperience.Communities {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +213,7 @@ namespace ApiSdk.EmployeeExperience.Communities {
         {
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.EmployeeExperience.Communities {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to communities for employeeExperience
+        /// Create a new community in Viva Engage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +253,7 @@ namespace ApiSdk.EmployeeExperience.Communities {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
         /// </summary>
         public class CommunitiesRequestBuilderGetQueryParameters 
         {

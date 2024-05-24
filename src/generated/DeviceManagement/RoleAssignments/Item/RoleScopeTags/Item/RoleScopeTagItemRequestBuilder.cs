@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RoleAssignments.Item.RoleScopeTags.Item {
+namespace ApiSdk.DeviceManagement.RoleAssignments.Item.RoleScopeTags.Item
+{
     /// <summary>
     /// Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
     /// </summary>
-    public class RoleScopeTagItemRequestBuilder : BaseCliRequestBuilder 
+    public class RoleScopeTagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The set of Role Scope Tags defined on the Role Assignment.

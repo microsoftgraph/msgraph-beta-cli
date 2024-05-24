@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SyncApps {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SyncApps
+{
     /// <summary>
     /// Provides operations to call the syncApps method.
     /// </summary>
-    public class SyncAppsRequestBuilder : BaseCliRequestBuilder 
+    public class SyncAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action syncApps

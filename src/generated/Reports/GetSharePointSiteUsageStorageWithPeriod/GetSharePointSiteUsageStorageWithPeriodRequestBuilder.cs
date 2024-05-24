@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSharePointSiteUsageStorageWithPeriod {
+namespace ApiSdk.Reports.GetSharePointSiteUsageStorageWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getSharePointSiteUsageStorage method.
     /// </summary>
-    public class GetSharePointSiteUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharePointSiteUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSharePointSiteUsageStorage

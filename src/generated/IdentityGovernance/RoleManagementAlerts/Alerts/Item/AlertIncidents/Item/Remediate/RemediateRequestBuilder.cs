@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item.Remediate {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item.Remediate
+{
     /// <summary>
     /// Provides operations to call the remediate method.
     /// </summary>
-    public class RemediateRequestBuilder : BaseCliRequestBuilder 
+    public class RemediateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action remediate

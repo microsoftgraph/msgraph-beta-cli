@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
+namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy
+{
     /// <summary>
     /// Provides operations to manage the continuousAccessEvaluationPolicy property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class ContinuousAccessEvaluationPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class ContinuousAccessEvaluationPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property continuousAccessEvaluationPolicy for identity
@@ -50,13 +51,14 @@ namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
             return command;
         }
         /// <summary>
-        /// Represents entry point for continuous access evaluation policy.
+        /// Read the properties and relationships of a continuousAccessEvaluationPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents entry point for continuous access evaluation policy.";
+            command.Description = "Read the properties and relationships of a continuousAccessEvaluationPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
             return command;
         }
         /// <summary>
-        /// Update the navigation property continuousAccessEvaluationPolicy in identity
+        /// Update the properties of a continuousAccessEvaluationPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property continuousAccessEvaluationPolicy in identity";
+            command.Description = "Update the properties of a continuousAccessEvaluationPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for continuous access evaluation policy.
+        /// Read the properties and relationships of a continuousAccessEvaluationPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property continuousAccessEvaluationPolicy in identity
+        /// Update the properties of a continuousAccessEvaluationPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Identity.ContinuousAccessEvaluationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for continuous access evaluation policy.
+        /// Read the properties and relationships of a continuousAccessEvaluationPolicy object.
         /// </summary>
         public class ContinuousAccessEvaluationPolicyRequestBuilderGetQueryParameters 
         {

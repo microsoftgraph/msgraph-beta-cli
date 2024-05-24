@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
+{
     /// <summary>
     /// Provides operations to manage the revisions property of the microsoft.graph.windowsUpdates.product entity.
     /// </summary>
-    public class ProductRevisionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProductRevisionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the catalogEntry property of the microsoft.graph.windowsUpdates.productRevision entity.

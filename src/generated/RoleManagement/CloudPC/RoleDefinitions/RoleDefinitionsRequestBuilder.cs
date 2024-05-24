@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
+namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions
+{
     /// <summary>
     /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
     /// </summary>
-    public class RoleDefinitionsRequestBuilder : BaseCliRequestBuilder 
+    public class RoleDefinitionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to roleDefinitions for roleManagement
+        /// Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-post-roledefinitions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to roleDefinitions for roleManagement";
+            command.Description = "Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-post-roledefinitions?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
             return command;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get roleDefinitions from roleManagement";
+            command.Description = "Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
         {
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to roleDefinitions for roleManagement
+        /// Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
         /// </summary>
         public class RoleDefinitionsRequestBuilderGetQueryParameters 
         {

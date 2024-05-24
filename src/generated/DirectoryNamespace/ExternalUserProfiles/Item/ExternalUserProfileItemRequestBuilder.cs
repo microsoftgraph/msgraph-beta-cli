@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
+namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the externalUserProfiles property of the microsoft.graph.directory entity.
     /// </summary>
-    public class ExternalUserProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalUserProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property externalUserProfiles for directory
+        /// Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-delete-externaluserprofiles?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property externalUserProfiles for directory";
+            command.Description = "Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-delete-externaluserprofiles?view=graph-rest-beta";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of a specific externalUserProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externaluserprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of external user profiles that represent collaborators in the directory.";
+            command.Description = "Retrieve the properties of a specific externalUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externaluserprofile-get?view=graph-rest-beta";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property externalUserProfiles in directory
+        /// Update the properties of a externalUserProfile object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externaluserprofile-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property externalUserProfiles in directory";
+            command.Description = "Update the properties of a externalUserProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externaluserprofile-update?view=graph-rest-beta";
             var externalUserProfileIdOption = new Option<string>("--external-user-profile-id", description: "The unique identifier of externalUserProfile") {
             };
             externalUserProfileIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property externalUserProfiles for directory
+        /// Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of a specific externalUserProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property externalUserProfiles in directory
+        /// Update the properties of a externalUserProfile object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of a specific externalUserProfile.
         /// </summary>
         public class ExternalUserProfileItemRequestBuilderGetQueryParameters 
         {

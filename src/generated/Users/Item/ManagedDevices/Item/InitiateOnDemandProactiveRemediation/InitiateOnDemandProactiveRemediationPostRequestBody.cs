@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateOnDemandProactiveRemediation {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateOnDemandProactiveRemediation
+{
     #pragma warning disable CS1591
-    public class InitiateOnDemandProactiveRemediationPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class InitiateOnDemandProactiveRemediationPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateOnDemandProactiveRemedia
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"scriptPolicyId", n => { ScriptPolicyId = n.GetStringValue(); } },
+                { "scriptPolicyId", n => { ScriptPolicyId = n.GetStringValue(); } },
             };
         }
         /// <summary>

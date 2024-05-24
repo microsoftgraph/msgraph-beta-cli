@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class TagOperation : CaseOperation, IParsable 
+    public class TagOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

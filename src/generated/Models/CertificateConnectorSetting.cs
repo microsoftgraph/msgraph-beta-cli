@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Certificate connector settings.
     /// </summary>
-    public class CertificateConnectorSetting : IAdditionalDataHolder, IParsable 
+    public class CertificateConnectorSetting : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,13 +70,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"certExpiryTime", n => { CertExpiryTime = n.GetDateTimeOffsetValue(); } },
-                {"connectorVersion", n => { ConnectorVersion = n.GetStringValue(); } },
-                {"enrollmentError", n => { EnrollmentError = n.GetStringValue(); } },
-                {"lastConnectorConnectionTime", n => { LastConnectorConnectionTime = n.GetDateTimeOffsetValue(); } },
-                {"lastUploadVersion", n => { LastUploadVersion = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetIntValue(); } },
+                { "certExpiryTime", n => { CertExpiryTime = n.GetDateTimeOffsetValue(); } },
+                { "connectorVersion", n => { ConnectorVersion = n.GetStringValue(); } },
+                { "enrollmentError", n => { EnrollmentError = n.GetStringValue(); } },
+                { "lastConnectorConnectionTime", n => { LastConnectorConnectionTime = n.GetDateTimeOffsetValue(); } },
+                { "lastUploadVersion", n => { LastUploadVersion = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetIntValue(); } },
             };
         }
         /// <summary>

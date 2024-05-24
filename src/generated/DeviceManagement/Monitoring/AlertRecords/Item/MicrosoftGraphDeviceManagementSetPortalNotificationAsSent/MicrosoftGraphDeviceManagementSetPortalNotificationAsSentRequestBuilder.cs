@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetPortalNotificationAsSent {
+namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetPortalNotificationAsSent
+{
     /// <summary>
     /// Provides operations to call the setPortalNotificationAsSent method.
     /// </summary>
-    public class MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Set the status of the notification associated with the specified alertRecord on the Microsoft EndPoint Manager admin center as sent, by setting the isPortalNotificationSent property of the portal notification to true.

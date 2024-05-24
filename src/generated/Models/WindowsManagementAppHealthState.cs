@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows management app health state entity.
     /// </summary>
-    public class WindowsManagementAppHealthState : Entity, IParsable 
+    public class WindowsManagementAppHealthState : Entity, IParsable
     {
         /// <summary>Name of the device on which Windows management app is installed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,11 +57,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceOSVersion", n => { DeviceOSVersion = n.GetStringValue(); } },
-                {"healthState", n => { HealthState = n.GetEnumValue<HealthState>(); } },
-                {"installedVersion", n => { InstalledVersion = n.GetStringValue(); } },
-                {"lastCheckInDateTime", n => { LastCheckInDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceOSVersion", n => { DeviceOSVersion = n.GetStringValue(); } },
+                { "healthState", n => { HealthState = n.GetEnumValue<HealthState>(); } },
+                { "installedVersion", n => { InstalledVersion = n.GetStringValue(); } },
+                { "lastCheckInDateTime", n => { LastCheckInDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

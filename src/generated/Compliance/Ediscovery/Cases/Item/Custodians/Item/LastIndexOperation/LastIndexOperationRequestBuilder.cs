@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.LastIndexOperation {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.LastIndexOperation
+{
     /// <summary>
     /// Provides operations to manage the lastIndexOperation property of the microsoft.graph.ediscovery.dataSourceContainer entity.
     /// </summary>
-    public class LastIndexOperationRequestBuilder : BaseCliRequestBuilder 
+    public class LastIndexOperationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get lastIndexOperation from compliance

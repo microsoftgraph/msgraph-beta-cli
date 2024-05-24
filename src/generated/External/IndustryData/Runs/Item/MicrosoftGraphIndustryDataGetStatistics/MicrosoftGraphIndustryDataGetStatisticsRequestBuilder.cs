@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetStatistics {
+namespace ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetStatistics
+{
     /// <summary>
     /// Provides operations to call the getStatistics method.
     /// </summary>
-    public class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get statistics for an industryDataRun.

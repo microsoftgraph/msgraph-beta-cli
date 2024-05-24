@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class TenantAllowOrBlockListAction : IAdditionalDataHolder, IParsable 
+    public class TenantAllowOrBlockListAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.</summary>
@@ -64,11 +65,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<TenantAllowBlockListAction>(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"note", n => { Note = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"results", n => { Results = n.GetCollectionOfObjectValues<TenantAllowBlockListEntryResult>(TenantAllowBlockListEntryResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "action", n => { Action = n.GetEnumValue<TenantAllowBlockListAction>(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<TenantAllowBlockListEntryResult>(TenantAllowBlockListEntryResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

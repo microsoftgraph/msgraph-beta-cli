@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item.Request {
+namespace ApiSdk.PrivilegedApproval.Item.Request
+{
     /// <summary>
     /// Provides operations to manage the request property of the microsoft.graph.privilegedApproval entity.
     /// </summary>
-    public class RequestRequestBuilder : BaseCliRequestBuilder 
+    public class RequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get request from privilegedApproval

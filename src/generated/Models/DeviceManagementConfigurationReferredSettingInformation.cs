@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Referred setting information about reusable setting
     /// </summary>
-    public class DeviceManagementConfigurationReferredSettingInformation : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementConfigurationReferredSettingInformation : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -20,7 +21,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Setting definition id that is being referred to a setting. Applicable for reusable setting.</summary>
+        /// <summary>Setting definition id that is being referred to a setting. Applicable for reusable setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SettingDefinitionId { get; set; }
@@ -53,8 +54,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"settingDefinitionId", n => { SettingDefinitionId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "settingDefinitionId", n => { SettingDefinitionId = n.GetStringValue(); } },
             };
         }
         /// <summary>

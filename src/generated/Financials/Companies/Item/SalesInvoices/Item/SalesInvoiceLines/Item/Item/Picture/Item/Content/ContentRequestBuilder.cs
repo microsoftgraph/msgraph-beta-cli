@@ -14,12 +14,66 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.Item.Item.Picture.Item.Content {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.Item.Item.Picture.Item.Content
+{
     /// <summary>
     /// Provides operations to manage the media for the financials entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    public class ContentRequestBuilder : BaseCliRequestBuilder
     {
+        /// <summary>
+        /// Delete content for the navigation property picture in financials
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "Delete content for the navigation property picture in financials";
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
+            };
+            companyIdOption.IsRequired = true;
+            command.AddOption(companyIdOption);
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            };
+            salesInvoiceIdOption.IsRequired = true;
+            command.AddOption(salesInvoiceIdOption);
+            var salesInvoiceLineIdOption = new Option<string>("--sales-invoice-line-id", description: "The unique identifier of salesInvoiceLine") {
+            };
+            salesInvoiceLineIdOption.IsRequired = true;
+            command.AddOption(salesInvoiceLineIdOption);
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
+            };
+            pictureIdOption.IsRequired = true;
+            command.AddOption(pictureIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var companyId = invocationContext.ParseResult.GetValueForOption(companyIdOption);
+                var salesInvoiceId = invocationContext.ParseResult.GetValueForOption(salesInvoiceIdOption);
+                var salesInvoiceLineId = invocationContext.ParseResult.GetValueForOption(salesInvoiceLineIdOption);
+                var pictureId = invocationContext.ParseResult.GetValueForOption(pictureIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (companyId is not null) requestInfo.PathParameters.Add("company%2Did", companyId);
+                if (salesInvoiceId is not null) requestInfo.PathParameters.Add("salesInvoice%2Did", salesInvoiceId);
+                if (salesInvoiceLineId is not null) requestInfo.PathParameters.Add("salesInvoiceLine%2Did", salesInvoiceLineId);
+                if (pictureId is not null) requestInfo.PathParameters.Add("picture%2Did", pictureId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
         /// <summary>
         /// Get content for the navigation property picture from financials
         /// </summary>
@@ -28,11 +82,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         {
             var command = new Command("get");
             command.Description = "Get content for the navigation property picture from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -40,7 +94,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             };
             salesInvoiceLineIdOption.IsRequired = true;
             command.AddOption(salesInvoiceLineIdOption);
-            var pictureIdOption = new Option<string>("--picture-id", description: "The unique identifier of picture") {
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
             };
             pictureIdOption.IsRequired = true;
             command.AddOption(pictureIdOption);
@@ -86,11 +140,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         {
             var command = new Command("put");
             command.Description = "Update content for the navigation property picture in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -98,7 +152,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             };
             salesInvoiceLineIdOption.IsRequired = true;
             command.AddOption(salesInvoiceLineIdOption);
-            var pictureIdOption = new Option<string>("--picture-id", description: "The unique identifier of picture") {
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
             };
             pictureIdOption.IsRequired = true;
             command.AddOption(pictureIdOption);
@@ -157,6 +211,25 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices/{salesInvoice%2Did}/salesInvoiceLines/{salesInvoiceLine%2Did}/item/picture/{picture%2Did}/content", rawUrl)
         {
+        }
+        /// <summary>
+        /// Delete content for the navigation property picture in financials
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Get content for the navigation property picture from financials

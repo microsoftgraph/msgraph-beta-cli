@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.EnableGlobalScripts {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.EnableGlobalScripts
+{
     /// <summary>
     /// Provides operations to call the enableGlobalScripts method.
     /// </summary>
-    public class EnableGlobalScriptsRequestBuilder : BaseCliRequestBuilder 
+    public class EnableGlobalScriptsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enableGlobalScripts

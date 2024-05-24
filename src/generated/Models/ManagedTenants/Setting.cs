@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class Setting : IAdditionalDataHolder, IParsable 
+    public class Setting : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,12 +73,12 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"jsonValue", n => { JsonValue = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"overwriteAllowed", n => { OverwriteAllowed = n.GetBoolValue(); } },
-                {"settingId", n => { SettingId = n.GetStringValue(); } },
-                {"valueType", n => { ValueType = n.GetEnumValue<ManagementParameterValueType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "jsonValue", n => { JsonValue = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "overwriteAllowed", n => { OverwriteAllowed = n.GetBoolValue(); } },
+                { "settingId", n => { SettingId = n.GetStringValue(); } },
+                { "valueType", n => { ValueType = n.GetEnumValue<ManagementParameterValueType>(); } },
             };
         }
         /// <summary>

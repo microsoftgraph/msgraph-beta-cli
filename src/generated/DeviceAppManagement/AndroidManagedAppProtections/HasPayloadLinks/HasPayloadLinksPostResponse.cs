@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks {
+namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks
+{
     #pragma warning disable CS1591
-    public class HasPayloadLinksPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class HasPayloadLinksPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<HasPayloadLinkResultItem>(HasPayloadLinkResultItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<HasPayloadLinkResultItem>(HasPayloadLinkResultItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

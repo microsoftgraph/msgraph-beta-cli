@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ScopedForResourceWithResource {
+namespace ApiSdk.DeviceManagement.ScopedForResourceWithResource
+{
     /// <summary>
     /// Provides operations to call the scopedForResource method.
     /// </summary>
-    public class ScopedForResourceWithResourceRequestBuilder : BaseCliRequestBuilder 
+    public class ScopedForResourceWithResourceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function scopedForResource

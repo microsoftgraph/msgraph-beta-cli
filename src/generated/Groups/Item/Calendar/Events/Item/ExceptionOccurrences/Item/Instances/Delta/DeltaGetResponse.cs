@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.Calendar.Events.Item.ExceptionOccurrences.Item.Instances.Delta {
+namespace ApiSdk.Groups.Item.Calendar.Events.Item.ExceptionOccurrences.Item.Instances.Delta
+{
     #pragma warning disable CS1591
-    public class DeltaGetResponse : BaseDeltaFunctionResponse, IParsable 
+    public class DeltaGetResponse : BaseDeltaFunctionResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Groups.Item.Calendar.Events.Item.ExceptionOccurrences.Item.Inst
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

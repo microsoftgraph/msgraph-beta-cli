@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The DepMacOSEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile specific to macOS configuration. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
     /// </summary>
-    public class DepMacOSEnrollmentProfile : DepEnrollmentBaseProfile, IParsable 
+    public class DepMacOSEnrollmentProfile : DepEnrollmentBaseProfile, IParsable
     {
         /// <summary>Indicates if Accessibility screen is disabled</summary>
         public bool? AccessibilityScreenDisabled { get; set; }
@@ -107,27 +108,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessibilityScreenDisabled", n => { AccessibilityScreenDisabled = n.GetBoolValue(); } },
-                {"adminAccountFullName", n => { AdminAccountFullName = n.GetStringValue(); } },
-                {"adminAccountPassword", n => { AdminAccountPassword = n.GetStringValue(); } },
-                {"adminAccountUserName", n => { AdminAccountUserName = n.GetStringValue(); } },
-                {"autoAdvanceSetupEnabled", n => { AutoAdvanceSetupEnabled = n.GetBoolValue(); } },
-                {"autoUnlockWithWatchDisabled", n => { AutoUnlockWithWatchDisabled = n.GetBoolValue(); } },
-                {"chooseYourLockScreenDisabled", n => { ChooseYourLockScreenDisabled = n.GetBoolValue(); } },
-                {"dontAutoPopulatePrimaryAccountInfo", n => { DontAutoPopulatePrimaryAccountInfo = n.GetBoolValue(); } },
-                {"enableRestrictEditing", n => { EnableRestrictEditing = n.GetBoolValue(); } },
-                {"fileVaultDisabled", n => { FileVaultDisabled = n.GetBoolValue(); } },
-                {"hideAdminAccount", n => { HideAdminAccount = n.GetBoolValue(); } },
-                {"iCloudDiagnosticsDisabled", n => { ICloudDiagnosticsDisabled = n.GetBoolValue(); } },
-                {"iCloudStorageDisabled", n => { ICloudStorageDisabled = n.GetBoolValue(); } },
-                {"passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
-                {"primaryAccountFullName", n => { PrimaryAccountFullName = n.GetStringValue(); } },
-                {"primaryAccountUserName", n => { PrimaryAccountUserName = n.GetStringValue(); } },
-                {"registrationDisabled", n => { RegistrationDisabled = n.GetBoolValue(); } },
-                {"requestRequiresNetworkTether", n => { RequestRequiresNetworkTether = n.GetBoolValue(); } },
-                {"setPrimarySetupAccountAsRegularUser", n => { SetPrimarySetupAccountAsRegularUser = n.GetBoolValue(); } },
-                {"skipPrimarySetupAccountCreation", n => { SkipPrimarySetupAccountCreation = n.GetBoolValue(); } },
-                {"zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
+                { "accessibilityScreenDisabled", n => { AccessibilityScreenDisabled = n.GetBoolValue(); } },
+                { "adminAccountFullName", n => { AdminAccountFullName = n.GetStringValue(); } },
+                { "adminAccountPassword", n => { AdminAccountPassword = n.GetStringValue(); } },
+                { "adminAccountUserName", n => { AdminAccountUserName = n.GetStringValue(); } },
+                { "autoAdvanceSetupEnabled", n => { AutoAdvanceSetupEnabled = n.GetBoolValue(); } },
+                { "autoUnlockWithWatchDisabled", n => { AutoUnlockWithWatchDisabled = n.GetBoolValue(); } },
+                { "chooseYourLockScreenDisabled", n => { ChooseYourLockScreenDisabled = n.GetBoolValue(); } },
+                { "dontAutoPopulatePrimaryAccountInfo", n => { DontAutoPopulatePrimaryAccountInfo = n.GetBoolValue(); } },
+                { "enableRestrictEditing", n => { EnableRestrictEditing = n.GetBoolValue(); } },
+                { "fileVaultDisabled", n => { FileVaultDisabled = n.GetBoolValue(); } },
+                { "hideAdminAccount", n => { HideAdminAccount = n.GetBoolValue(); } },
+                { "iCloudDiagnosticsDisabled", n => { ICloudDiagnosticsDisabled = n.GetBoolValue(); } },
+                { "iCloudStorageDisabled", n => { ICloudStorageDisabled = n.GetBoolValue(); } },
+                { "passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
+                { "primaryAccountFullName", n => { PrimaryAccountFullName = n.GetStringValue(); } },
+                { "primaryAccountUserName", n => { PrimaryAccountUserName = n.GetStringValue(); } },
+                { "registrationDisabled", n => { RegistrationDisabled = n.GetBoolValue(); } },
+                { "requestRequiresNetworkTether", n => { RequestRequiresNetworkTether = n.GetBoolValue(); } },
+                { "setPrimarySetupAccountAsRegularUser", n => { SetPrimarySetupAccountAsRegularUser = n.GetBoolValue(); } },
+                { "skipPrimarySetupAccountCreation", n => { SkipPrimarySetupAccountCreation = n.GetBoolValue(); } },
+                { "zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

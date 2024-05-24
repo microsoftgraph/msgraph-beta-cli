@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// KioskModeApp v4 for Win32 app support
     /// </summary>
-    public class WindowsKioskWin32App : WindowsKioskAppBase, IParsable 
+    public class WindowsKioskWin32App : WindowsKioskAppBase, IParsable
     {
         /// <summary>This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,11 +58,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"classicAppPath", n => { ClassicAppPath = n.GetStringValue(); } },
-                {"edgeKiosk", n => { EdgeKiosk = n.GetStringValue(); } },
-                {"edgeKioskIdleTimeoutMinutes", n => { EdgeKioskIdleTimeoutMinutes = n.GetIntValue(); } },
-                {"edgeKioskType", n => { EdgeKioskType = n.GetEnumValue<WindowsEdgeKioskType>(); } },
-                {"edgeNoFirstRun", n => { EdgeNoFirstRun = n.GetBoolValue(); } },
+                { "classicAppPath", n => { ClassicAppPath = n.GetStringValue(); } },
+                { "edgeKiosk", n => { EdgeKiosk = n.GetStringValue(); } },
+                { "edgeKioskIdleTimeoutMinutes", n => { EdgeKioskIdleTimeoutMinutes = n.GetIntValue(); } },
+                { "edgeKioskType", n => { EdgeKioskType = n.GetEnumValue<WindowsEdgeKioskType>(); } },
+                { "edgeNoFirstRun", n => { EdgeNoFirstRun = n.GetBoolValue(); } },
             };
         }
         /// <summary>

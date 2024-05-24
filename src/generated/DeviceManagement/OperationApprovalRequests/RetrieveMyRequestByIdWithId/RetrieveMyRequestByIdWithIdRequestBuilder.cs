@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByIdWithId {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByIdWithId
+{
     /// <summary>
     /// Provides operations to call the retrieveMyRequestById method.
     /// </summary>
-    public class RetrieveMyRequestByIdWithIdRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveMyRequestByIdWithIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function retrieveMyRequestById

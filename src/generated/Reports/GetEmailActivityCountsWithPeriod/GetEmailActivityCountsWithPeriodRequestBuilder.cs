@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetEmailActivityCountsWithPeriod {
+namespace ApiSdk.Reports.GetEmailActivityCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getEmailActivityCounts method.
     /// </summary>
-    public class GetEmailActivityCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetEmailActivityCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getEmailActivityCounts

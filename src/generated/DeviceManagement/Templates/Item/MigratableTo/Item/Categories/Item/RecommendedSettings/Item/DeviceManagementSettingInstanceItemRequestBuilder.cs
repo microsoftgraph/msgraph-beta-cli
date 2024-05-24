@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item.RecommendedSettings.Item {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item.RecommendedSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
     /// </summary>
-    public class DeviceManagementSettingInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementSettingInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property recommendedSettings for deviceManagement

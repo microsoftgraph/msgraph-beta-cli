@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class DetectionAction : IAdditionalDataHolder, IParsable 
+    public class DetectionAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"alertTemplate", n => { AlertTemplate = n.GetObjectValue<ApiSdk.Models.Security.AlertTemplate>(ApiSdk.Models.Security.AlertTemplate.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"organizationalScope", n => { OrganizationalScope = n.GetObjectValue<ApiSdk.Models.Security.OrganizationalScope>(ApiSdk.Models.Security.OrganizationalScope.CreateFromDiscriminatorValue); } },
-                {"responseActions", n => { ResponseActions = n.GetCollectionOfObjectValues<ResponseAction>(ResponseAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertTemplate", n => { AlertTemplate = n.GetObjectValue<ApiSdk.Models.Security.AlertTemplate>(ApiSdk.Models.Security.AlertTemplate.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "organizationalScope", n => { OrganizationalScope = n.GetObjectValue<ApiSdk.Models.Security.OrganizationalScope>(ApiSdk.Models.Security.OrganizationalScope.CreateFromDiscriminatorValue); } },
+                { "responseActions", n => { ResponseActions = n.GetCollectionOfObjectValues<ResponseAction>(ResponseAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

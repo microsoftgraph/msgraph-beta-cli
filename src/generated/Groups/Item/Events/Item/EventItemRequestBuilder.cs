@@ -26,11 +26,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Events.Item {
+namespace ApiSdk.Groups.Item.Events.Item
+{
     /// <summary>
     /// Provides operations to manage the events property of the microsoft.graph.group entity.
     /// </summary>
-    public class EventItemRequestBuilder : BaseCliRequestBuilder 
+    public class EventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the accept method.
@@ -129,13 +130,14 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property events for groups
+        /// Delete an event object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-delete-event?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property events for groups";
+            command.Description = "Delete an event object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-delete-event?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -258,13 +260,14 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return command;
         }
         /// <summary>
-        /// The group&apos;s events.
+        /// Get an event object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-get-event?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The group's events.";
+            command.Description = "Get an event object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-get-event?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -336,13 +339,14 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property events in groups
+        /// Update an event object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-update-event?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property events in groups";
+            command.Description = "Update an event object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-update-event?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -441,7 +445,7 @@ namespace ApiSdk.Groups.Item.Events.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property events for groups
+        /// Delete an event object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -460,7 +464,7 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The group&apos;s events.
+        /// Get an event object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -479,7 +483,7 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property events in groups
+        /// Update an event object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -500,7 +504,7 @@ namespace ApiSdk.Groups.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The group&apos;s events.
+        /// Get an event object.
         /// </summary>
         public class EventItemRequestBuilderGetQueryParameters 
         {

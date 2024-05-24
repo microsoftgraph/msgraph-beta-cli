@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign a WinGet app to a group.
     /// </summary>
-    public class WinGetAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class WinGetAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
         /// <summary>The install time settings to apply for this app assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"installTimeSettings", n => { InstallTimeSettings = n.GetObjectValue<WinGetAppInstallTimeSettings>(WinGetAppInstallTimeSettings.CreateFromDiscriminatorValue); } },
-                {"notifications", n => { Notifications = n.GetEnumValue<WinGetAppNotification>(); } },
-                {"restartSettings", n => { RestartSettings = n.GetObjectValue<WinGetAppRestartSettings>(WinGetAppRestartSettings.CreateFromDiscriminatorValue); } },
+                { "installTimeSettings", n => { InstallTimeSettings = n.GetObjectValue<WinGetAppInstallTimeSettings>(WinGetAppInstallTimeSettings.CreateFromDiscriminatorValue); } },
+                { "notifications", n => { Notifications = n.GetEnumValue<WinGetAppNotification>(); } },
+                { "restartSettings", n => { RestartSettings = n.GetObjectValue<WinGetAppRestartSettings>(WinGetAppRestartSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkSoftwareUpdateStatus : IAdditionalDataHolder, IParsable 
+    public class TeamworkSoftwareUpdateStatus : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"availableVersion", n => { AvailableVersion = n.GetStringValue(); } },
-                {"currentVersion", n => { CurrentVersion = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"softwareFreshness", n => { SoftwareFreshness = n.GetEnumValue<TeamworkSoftwareFreshness>(); } },
+                { "availableVersion", n => { AvailableVersion = n.GetStringValue(); } },
+                { "currentVersion", n => { CurrentVersion = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "softwareFreshness", n => { SoftwareFreshness = n.GetEnumValue<TeamworkSoftwareFreshness>(); } },
             };
         }
         /// <summary>

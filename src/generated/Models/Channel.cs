@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Channel : Entity, IParsable 
+    public class Channel : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Read only. Timestamp at which the channel was created.</summary>
@@ -131,22 +132,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"filesFolder", n => { FilesFolder = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
-                {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
-                {"isFavoriteByDefault", n => { IsFavoriteByDefault = n.GetBoolValue(); } },
-                {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
-                {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"moderationSettings", n => { ModerationSettings = n.GetObjectValue<ChannelModerationSettings>(ChannelModerationSettings.CreateFromDiscriminatorValue); } },
-                {"sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<SharedWithChannelTeamInfo>(SharedWithChannelTeamInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"summary", n => { Summary = n.GetObjectValue<ChannelSummary>(ChannelSummary.CreateFromDiscriminatorValue); } },
-                {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "filesFolder", n => { FilesFolder = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
+                { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
+                { "isFavoriteByDefault", n => { IsFavoriteByDefault = n.GetBoolValue(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "moderationSettings", n => { ModerationSettings = n.GetObjectValue<ChannelModerationSettings>(ChannelModerationSettings.CreateFromDiscriminatorValue); } },
+                { "sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<SharedWithChannelTeamInfo>(SharedWithChannelTeamInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "summary", n => { Summary = n.GetObjectValue<ChannelSummary>(ChannelSummary.CreateFromDiscriminatorValue); } },
+                { "tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

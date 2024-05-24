@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2xUserFlows.Item.ApiConnectorConfiguration.PreTokenIssuance {
+namespace ApiSdk.Identity.B2xUserFlows.Item.ApiConnectorConfiguration.PreTokenIssuance
+{
     /// <summary>
     /// Provides operations to manage the preTokenIssuance property of the microsoft.graph.userFlowApiConnectorConfiguration entity.
     /// </summary>
-    public class PreTokenIssuanceRequestBuilder : BaseCliRequestBuilder 
+    public class PreTokenIssuanceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property preTokenIssuance for identity

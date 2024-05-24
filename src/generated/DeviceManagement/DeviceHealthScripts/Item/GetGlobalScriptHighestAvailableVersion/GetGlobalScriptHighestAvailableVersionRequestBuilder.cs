@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighestAvailableVersion {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighestAvailableVersion
+{
     /// <summary>
     /// Provides operations to call the getGlobalScriptHighestAvailableVersion method.
     /// </summary>
-    public class GetGlobalScriptHighestAvailableVersionRequestBuilder : BaseCliRequestBuilder 
+    public class GetGlobalScriptHighestAvailableVersionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the Proprietary Device Health Script

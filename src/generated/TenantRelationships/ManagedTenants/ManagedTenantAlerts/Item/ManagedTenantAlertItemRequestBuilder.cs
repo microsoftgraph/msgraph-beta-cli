@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item
+{
     /// <summary>
     /// Provides operations to manage the managedTenantAlerts property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagedTenantAlertItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedTenantAlertItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.

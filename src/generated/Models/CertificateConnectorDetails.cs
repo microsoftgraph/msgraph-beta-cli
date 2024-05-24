@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity used to retrieve information about Intune Certificate Connectors.
     /// </summary>
-    public class CertificateConnectorDetails : Entity, IParsable 
+    public class CertificateConnectorDetails : Entity, IParsable
     {
         /// <summary>Connector name (set during enrollment).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,11 +57,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectorName", n => { ConnectorName = n.GetStringValue(); } },
-                {"connectorVersion", n => { ConnectorVersion = n.GetStringValue(); } },
-                {"enrollmentDateTime", n => { EnrollmentDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastCheckinDateTime", n => { LastCheckinDateTime = n.GetDateTimeOffsetValue(); } },
-                {"machineName", n => { MachineName = n.GetStringValue(); } },
+                { "connectorName", n => { ConnectorName = n.GetStringValue(); } },
+                { "connectorVersion", n => { ConnectorVersion = n.GetStringValue(); } },
+                { "enrollmentDateTime", n => { EnrollmentDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastCheckinDateTime", n => { LastCheckinDateTime = n.GetDateTimeOffsetValue(); } },
+                { "machineName", n => { MachineName = n.GetStringValue(); } },
             };
         }
         /// <summary>

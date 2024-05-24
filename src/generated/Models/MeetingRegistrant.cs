@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MeetingRegistrant : MeetingRegistrantBase, IParsable 
+    public class MeetingRegistrant : MeetingRegistrantBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The registrant&apos;s answer to custom questions.</summary>
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customQuestionAnswers", n => { CustomQuestionAnswers = n.GetCollectionOfObjectValues<CustomQuestionAnswer>(CustomQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"firstName", n => { FirstName = n.GetStringValue(); } },
-                {"lastName", n => { LastName = n.GetStringValue(); } },
-                {"registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<MeetingRegistrantStatus>(); } },
+                { "customQuestionAnswers", n => { CustomQuestionAnswers = n.GetCollectionOfObjectValues<CustomQuestionAnswer>(CustomQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "firstName", n => { FirstName = n.GetStringValue(); } },
+                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<MeetingRegistrantStatus>(); } },
             };
         }
         /// <summary>

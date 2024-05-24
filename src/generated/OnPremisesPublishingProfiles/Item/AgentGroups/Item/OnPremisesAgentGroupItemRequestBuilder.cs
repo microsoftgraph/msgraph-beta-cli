@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
     /// </summary>
-    public class OnPremisesAgentGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesAgentGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.

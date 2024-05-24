@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.Intents.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
     /// </summary>
-    public class DeviceManagementIntentAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementIntentAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

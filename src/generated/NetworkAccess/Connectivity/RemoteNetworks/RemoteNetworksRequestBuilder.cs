@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks
+{
     /// <summary>
     /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.connectivity entity.
     /// </summary>
-    public class RemoteNetworksRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteNetworksRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.connectivity entity.
@@ -57,13 +58,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to remoteNetworks for networkAccess
+        /// Create a new remote network.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-remotenetworks?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to remoteNetworks for networkAccess";
+            command.Description = "Create a new remote network.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-remotenetworks?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -184,7 +186,9 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -229,7 +233,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to remoteNetworks for networkAccess
+        /// Create a new remote network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

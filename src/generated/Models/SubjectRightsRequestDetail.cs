@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SubjectRightsRequestDetail : IAdditionalDataHolder, IParsable 
+    public class SubjectRightsRequestDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,14 +71,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"excludedItemCount", n => { ExcludedItemCount = n.GetLongValue(); } },
-                {"insightCounts", n => { InsightCounts = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"itemCount", n => { ItemCount = n.GetLongValue(); } },
-                {"itemNeedReview", n => { ItemNeedReview = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"productItemCounts", n => { ProductItemCounts = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"signedOffItemCount", n => { SignedOffItemCount = n.GetLongValue(); } },
-                {"totalItemSize", n => { TotalItemSize = n.GetLongValue(); } },
+                { "excludedItemCount", n => { ExcludedItemCount = n.GetLongValue(); } },
+                { "insightCounts", n => { InsightCounts = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "itemCount", n => { ItemCount = n.GetLongValue(); } },
+                { "itemNeedReview", n => { ItemNeedReview = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "productItemCounts", n => { ProductItemCounts = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "signedOffItemCount", n => { SignedOffItemCount = n.GetLongValue(); } },
+                { "totalItemSize", n => { TotalItemSize = n.GetLongValue(); } },
             };
         }
         /// <summary>

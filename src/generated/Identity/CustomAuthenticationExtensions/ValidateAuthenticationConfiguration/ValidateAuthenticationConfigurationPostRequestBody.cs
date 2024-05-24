@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Identity.CustomAuthenticationExtensions.ValidateAuthenticationConfiguration {
+namespace ApiSdk.Identity.CustomAuthenticationExtensions.ValidateAuthenticationConfiguration
+{
     #pragma warning disable CS1591
-    public class ValidateAuthenticationConfigurationPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ValidateAuthenticationConfigurationPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.ValidateAuthenticationC
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authenticationConfiguration", n => { AuthenticationConfiguration = n.GetObjectValue<CustomExtensionAuthenticationConfiguration>(CustomExtensionAuthenticationConfiguration.CreateFromDiscriminatorValue); } },
-                {"endpointConfiguration", n => { EndpointConfiguration = n.GetObjectValue<CustomExtensionEndpointConfiguration>(CustomExtensionEndpointConfiguration.CreateFromDiscriminatorValue); } },
+                { "authenticationConfiguration", n => { AuthenticationConfiguration = n.GetObjectValue<CustomExtensionAuthenticationConfiguration>(CustomExtensionAuthenticationConfiguration.CreateFromDiscriminatorValue); } },
+                { "endpointConfiguration", n => { EndpointConfiguration = n.GetObjectValue<CustomExtensionEndpointConfiguration>(CustomExtensionEndpointConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurationsAllManagedDeviceCertificateStates.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurationsAllManagedDeviceCertificateStates.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ManagedAllDeviceCertificateStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedAllDeviceCertificateStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceConfigurationsAllManagedDeviceCertificateStates for deviceManagement

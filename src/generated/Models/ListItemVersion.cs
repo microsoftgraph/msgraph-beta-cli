@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ListItemVersion : BaseItemVersion, IParsable 
+    public class ListItemVersion : BaseItemVersion, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
@@ -47,7 +48,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fields", n => { Fields = n.GetObjectValue<FieldValueSet>(FieldValueSet.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<FieldValueSet>(FieldValueSet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

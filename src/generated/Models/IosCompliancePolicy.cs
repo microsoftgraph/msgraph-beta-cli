@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This class contains compliance settings for IOS.
     /// </summary>
-    public class IosCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    public class IosCompliancePolicy : DeviceCompliancePolicy, IParsable
     {
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
         public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
@@ -103,25 +104,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
-                {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
-                {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
-                {"managedEmailProfileRequired", n => { ManagedEmailProfileRequired = n.GetBoolValue(); } },
-                {"osMaximumBuildVersion", n => { OsMaximumBuildVersion = n.GetStringValue(); } },
-                {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
-                {"osMinimumBuildVersion", n => { OsMinimumBuildVersion = n.GetStringValue(); } },
-                {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
-                {"passcodeBlockSimple", n => { PasscodeBlockSimple = n.GetBoolValue(); } },
-                {"passcodeExpirationDays", n => { PasscodeExpirationDays = n.GetIntValue(); } },
-                {"passcodeMinimumCharacterSetCount", n => { PasscodeMinimumCharacterSetCount = n.GetIntValue(); } },
-                {"passcodeMinimumLength", n => { PasscodeMinimumLength = n.GetIntValue(); } },
-                {"passcodeMinutesOfInactivityBeforeLock", n => { PasscodeMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
-                {"passcodeMinutesOfInactivityBeforeScreenTimeout", n => { PasscodeMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
-                {"passcodePreviousPasscodeBlockCount", n => { PasscodePreviousPasscodeBlockCount = n.GetIntValue(); } },
-                {"passcodeRequired", n => { PasscodeRequired = n.GetBoolValue(); } },
-                {"passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
-                {"restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
+                { "advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
+                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "managedEmailProfileRequired", n => { ManagedEmailProfileRequired = n.GetBoolValue(); } },
+                { "osMaximumBuildVersion", n => { OsMaximumBuildVersion = n.GetStringValue(); } },
+                { "osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                { "osMinimumBuildVersion", n => { OsMinimumBuildVersion = n.GetStringValue(); } },
+                { "osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
+                { "passcodeBlockSimple", n => { PasscodeBlockSimple = n.GetBoolValue(); } },
+                { "passcodeExpirationDays", n => { PasscodeExpirationDays = n.GetIntValue(); } },
+                { "passcodeMinimumCharacterSetCount", n => { PasscodeMinimumCharacterSetCount = n.GetIntValue(); } },
+                { "passcodeMinimumLength", n => { PasscodeMinimumLength = n.GetIntValue(); } },
+                { "passcodeMinutesOfInactivityBeforeLock", n => { PasscodeMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
+                { "passcodeMinutesOfInactivityBeforeScreenTimeout", n => { PasscodeMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
+                { "passcodePreviousPasscodeBlockCount", n => { PasscodePreviousPasscodeBlockCount = n.GetIntValue(); } },
+                { "passcodeRequired", n => { PasscodeRequired = n.GetBoolValue(); } },
+                { "passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
+                { "restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
             };
         }
         /// <summary>

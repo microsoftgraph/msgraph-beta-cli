@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.FindTenantInformationByDomainNameWithDomainName {
+namespace ApiSdk.TenantRelationships.FindTenantInformationByDomainNameWithDomainName
+{
     /// <summary>
     /// Provides operations to call the findTenantInformationByDomainName method.
     /// </summary>
-    public class FindTenantInformationByDomainNameWithDomainNameRequestBuilder : BaseCliRequestBuilder 
+    public class FindTenantInformationByDomainNameWithDomainNameRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Given a domain name, search for a tenant and read its tenantInformation. You can use this API to validate tenant information and use their tenantId to configure cross-tenant access settings between you and the tenant.

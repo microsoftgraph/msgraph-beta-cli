@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Steps {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Steps
+{
     /// <summary>
     /// Provides operations to manage the steps property of the microsoft.graph.approval entity.
     /// </summary>
-    public class StepsRequestBuilder : BaseCliRequestBuilder 
+    public class StepsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the steps property of the microsoft.graph.approval entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/approval-list-steps?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Used to represent the decision associated with a single step in the approval process configured in approvalStage.";
+            command.Description = "List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approval-list-steps?view=graph-rest-beta";
             var approvalIdOption = new Option<string>("--approval-id", description: "The unique identifier of approval") {
             };
             approvalIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
         {
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
         /// </summary>
         public class StepsRequestBuilderGetQueryParameters 
         {

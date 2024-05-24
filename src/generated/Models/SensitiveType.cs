@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SensitiveType : Entity, IParsable 
+    public class SensitiveType : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The classificationMethod property</summary>
@@ -81,15 +82,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ClassificationMethod>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"publisherName", n => { PublisherName = n.GetStringValue(); } },
-                {"rulePackageId", n => { RulePackageId = n.GetStringValue(); } },
-                {"rulePackageType", n => { RulePackageType = n.GetStringValue(); } },
-                {"scope", n => { Scope = n.GetEnumValue<SensitiveTypeScope>(); } },
-                {"sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<SensitiveTypeSource>(); } },
-                {"state", n => { State = n.GetStringValue(); } },
+                { "classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ClassificationMethod>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "publisherName", n => { PublisherName = n.GetStringValue(); } },
+                { "rulePackageId", n => { RulePackageId = n.GetStringValue(); } },
+                { "rulePackageType", n => { RulePackageType = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetEnumValue<SensitiveTypeScope>(); } },
+                { "sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<SensitiveTypeSource>(); } },
+                { "state", n => { State = n.GetStringValue(); } },
             };
         }
         /// <summary>

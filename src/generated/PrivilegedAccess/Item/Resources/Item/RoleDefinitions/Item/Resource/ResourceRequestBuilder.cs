@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleDefinitions.Item.Resource {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleDefinitions.Item.Resource
+{
     /// <summary>
     /// Provides operations to manage the resource property of the microsoft.graph.governanceRoleDefinition entity.
     /// </summary>
-    public class ResourceRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. The associated resource for the role definition.

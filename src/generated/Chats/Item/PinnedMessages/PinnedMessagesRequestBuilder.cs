@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.PinnedMessages {
+namespace ApiSdk.Chats.Item.PinnedMessages
+{
     /// <summary>
     /// Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
     /// </summary>
-    public class PinnedMessagesRequestBuilder : BaseCliRequestBuilder 
+    public class PinnedMessagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to pinnedMessages for chats
+        /// Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-pinnedmessages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to pinnedMessages for chats";
+            command.Description = "Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post-pinnedmessages?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -106,13 +108,14 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
             return command;
         }
         /// <summary>
-        /// A collection of all the pinned messages in the chat. Nullable.
+        /// Get a list of pinnedChatMessages in a chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list-pinnedmessages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the pinned messages in the chat. Nullable.";
+            command.Description = "Get a list of pinnedChatMessages in a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-pinnedmessages?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
         {
         }
         /// <summary>
-        /// A collection of all the pinned messages in the chat. Nullable.
+        /// Get a list of pinnedChatMessages in a chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to pinnedMessages for chats
+        /// Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the pinned messages in the chat. Nullable.
+        /// Get a list of pinnedChatMessages in a chat.
         /// </summary>
         public class PinnedMessagesRequestBuilderGetQueryParameters 
         {

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassificationResults {
+namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassificationResults
+{
     /// <summary>
     /// Provides operations to call the evaluateClassificationResults method.
     /// </summary>
-    public class EvaluateClassificationResultsRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateClassificationResultsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Using classification results, compute the information protection label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set automatically based on classification of the file contents, rather than labeled directly by a user or service. To evaluate based on classification results, provide contentInfo, which includes existing content metadata key/value pairs, and classification results. The API returns an informationProtectionAction that contains one of more of the following:
@@ -72,7 +73,9 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassifi
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

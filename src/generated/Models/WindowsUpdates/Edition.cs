@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class Edition : ApiSdk.Models.Entity, IParsable 
+    public class Edition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The device family targeted by the edition.</summary>
@@ -65,13 +66,13 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceFamily", n => { DeviceFamily = n.GetStringValue(); } },
-                {"endOfServiceDateTime", n => { EndOfServiceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"generalAvailabilityDateTime", n => { GeneralAvailabilityDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isInService", n => { IsInService = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"releasedName", n => { ReleasedName = n.GetStringValue(); } },
-                {"servicingPeriods", n => { ServicingPeriods = n.GetCollectionOfObjectValues<ServicingPeriod>(ServicingPeriod.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceFamily", n => { DeviceFamily = n.GetStringValue(); } },
+                { "endOfServiceDateTime", n => { EndOfServiceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "generalAvailabilityDateTime", n => { GeneralAvailabilityDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isInService", n => { IsInService = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "releasedName", n => { ReleasedName = n.GetStringValue(); } },
+                { "servicingPeriods", n => { ServicingPeriods = n.GetCollectionOfObjectValues<ServicingPeriod>(ServicingPeriod.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

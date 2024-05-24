@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
     /// </summary>
-    public class DepOnboardingSetting : Entity, IParsable 
+    public class DepOnboardingSetting : Entity, IParsable
     {
         /// <summary>The Apple ID used to obtain the current token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,22 +103,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appleIdentifier", n => { AppleIdentifier = n.GetStringValue(); } },
-                {"dataSharingConsentGranted", n => { DataSharingConsentGranted = n.GetBoolValue(); } },
-                {"defaultIosEnrollmentProfile", n => { DefaultIosEnrollmentProfile = n.GetObjectValue<DepIOSEnrollmentProfile>(DepIOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
-                {"defaultMacOsEnrollmentProfile", n => { DefaultMacOsEnrollmentProfile = n.GetObjectValue<DepMacOSEnrollmentProfile>(DepMacOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
-                {"enrollmentProfiles", n => { EnrollmentProfiles = n.GetCollectionOfObjectValues<EnrollmentProfile>(EnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ImportedAppleDeviceIdentity>(ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSuccessfulSyncDateTime", n => { LastSuccessfulSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncErrorCode", n => { LastSyncErrorCode = n.GetIntValue(); } },
-                {"lastSyncTriggeredDateTime", n => { LastSyncTriggeredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"shareTokenWithSchoolDataSyncService", n => { ShareTokenWithSchoolDataSyncService = n.GetBoolValue(); } },
-                {"syncedDeviceCount", n => { SyncedDeviceCount = n.GetIntValue(); } },
-                {"tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tokenName", n => { TokenName = n.GetStringValue(); } },
-                {"tokenType", n => { TokenType = n.GetEnumValue<DepTokenType>(); } },
+                { "appleIdentifier", n => { AppleIdentifier = n.GetStringValue(); } },
+                { "dataSharingConsentGranted", n => { DataSharingConsentGranted = n.GetBoolValue(); } },
+                { "defaultIosEnrollmentProfile", n => { DefaultIosEnrollmentProfile = n.GetObjectValue<DepIOSEnrollmentProfile>(DepIOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
+                { "defaultMacOsEnrollmentProfile", n => { DefaultMacOsEnrollmentProfile = n.GetObjectValue<DepMacOSEnrollmentProfile>(DepMacOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
+                { "enrollmentProfiles", n => { EnrollmentProfiles = n.GetCollectionOfObjectValues<EnrollmentProfile>(EnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ImportedAppleDeviceIdentity>(ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSuccessfulSyncDateTime", n => { LastSuccessfulSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncErrorCode", n => { LastSyncErrorCode = n.GetIntValue(); } },
+                { "lastSyncTriggeredDateTime", n => { LastSyncTriggeredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "shareTokenWithSchoolDataSyncService", n => { ShareTokenWithSchoolDataSyncService = n.GetBoolValue(); } },
+                { "syncedDeviceCount", n => { SyncedDeviceCount = n.GetIntValue(); } },
+                { "tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tokenName", n => { TokenName = n.GetStringValue(); } },
+                { "tokenType", n => { TokenType = n.GetEnumValue<DepTokenType>(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365ServicesUserCounts : Entity, IParsable 
+    public class Office365ServicesUserCounts : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of active users on Exchange. Any user who can read and send email is considered an active user.</summary>
@@ -66,22 +67,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exchangeActive", n => { ExchangeActive = n.GetLongValue(); } },
-                {"exchangeInactive", n => { ExchangeInactive = n.GetLongValue(); } },
-                {"office365Active", n => { Office365Active = n.GetLongValue(); } },
-                {"office365Inactive", n => { Office365Inactive = n.GetLongValue(); } },
-                {"oneDriveActive", n => { OneDriveActive = n.GetLongValue(); } },
-                {"oneDriveInactive", n => { OneDriveInactive = n.GetLongValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"sharePointActive", n => { SharePointActive = n.GetLongValue(); } },
-                {"sharePointInactive", n => { SharePointInactive = n.GetLongValue(); } },
-                {"skypeForBusinessActive", n => { SkypeForBusinessActive = n.GetLongValue(); } },
-                {"skypeForBusinessInactive", n => { SkypeForBusinessInactive = n.GetLongValue(); } },
-                {"teamsActive", n => { TeamsActive = n.GetLongValue(); } },
-                {"teamsInactive", n => { TeamsInactive = n.GetLongValue(); } },
-                {"yammerActive", n => { YammerActive = n.GetLongValue(); } },
-                {"yammerInactive", n => { YammerInactive = n.GetLongValue(); } },
+                { "exchangeActive", n => { ExchangeActive = n.GetLongValue(); } },
+                { "exchangeInactive", n => { ExchangeInactive = n.GetLongValue(); } },
+                { "office365Active", n => { Office365Active = n.GetLongValue(); } },
+                { "office365Inactive", n => { Office365Inactive = n.GetLongValue(); } },
+                { "oneDriveActive", n => { OneDriveActive = n.GetLongValue(); } },
+                { "oneDriveInactive", n => { OneDriveInactive = n.GetLongValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "sharePointActive", n => { SharePointActive = n.GetLongValue(); } },
+                { "sharePointInactive", n => { SharePointInactive = n.GetLongValue(); } },
+                { "skypeForBusinessActive", n => { SkypeForBusinessActive = n.GetLongValue(); } },
+                { "skypeForBusinessInactive", n => { SkypeForBusinessInactive = n.GetLongValue(); } },
+                { "teamsActive", n => { TeamsActive = n.GetLongValue(); } },
+                { "teamsInactive", n => { TeamsInactive = n.GetLongValue(); } },
+                { "yammerActive", n => { YammerActive = n.GetLongValue(); } },
+                { "yammerInactive", n => { YammerInactive = n.GetLongValue(); } },
             };
         }
         /// <summary>

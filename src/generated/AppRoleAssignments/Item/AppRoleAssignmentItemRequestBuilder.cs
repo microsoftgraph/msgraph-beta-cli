@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppRoleAssignments.Item {
+namespace ApiSdk.AppRoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of appRoleAssignment entities.
     /// </summary>
-    public class AppRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from appRoleAssignments

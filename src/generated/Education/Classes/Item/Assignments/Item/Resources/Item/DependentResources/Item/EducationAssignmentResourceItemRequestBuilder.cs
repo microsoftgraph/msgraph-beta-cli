@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item.DependentResources.Item {
+namespace ApiSdk.Education.Classes.Item.Assignments.Item.Resources.Item.DependentResources.Item
+{
     /// <summary>
     /// Provides operations to manage the dependentResources property of the microsoft.graph.educationAssignmentResource entity.
     /// </summary>
-    public class EducationAssignmentResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationAssignmentResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dependentResources for education

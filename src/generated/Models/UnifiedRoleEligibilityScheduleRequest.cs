@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleEligibilityScheduleRequest : Request, IParsable 
+    public class UnifiedRoleEligibilityScheduleRequest : Request, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the type of operation on the role eligibility request. The possible values are: AdminAssign: For administrators to assign eligible roles to principals.AdminRemove: For administrators to remove eligible roles from principals. AdminUpdate: For administrators to change existing role eligibilities.AdminExtend: For administrators to extend expiring role eligibilities.AdminRenew: For administrators to renew expired eligibilities.UserAdd: For users to activate their eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRenew: For users to request to renew their expired eligible assignments.</summary>
@@ -148,21 +149,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"action", n => { Action = n.GetStringValue(); } },
-                {"appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
-                {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
-                {"directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
-                {"directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
-                {"isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"principal", n => { Principal = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
-                {"principalId", n => { PrincipalId = n.GetStringValue(); } },
-                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
-                {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
-                {"scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                {"targetSchedule", n => { TargetSchedule = n.GetObjectValue<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
-                {"targetScheduleId", n => { TargetScheduleId = n.GetStringValue(); } },
-                {"ticketInfo", n => { TicketInfo = n.GetObjectValue<ApiSdk.Models.TicketInfo>(ApiSdk.Models.TicketInfo.CreateFromDiscriminatorValue); } },
+                { "action", n => { Action = n.GetStringValue(); } },
+                { "appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
+                { "appScopeId", n => { AppScopeId = n.GetStringValue(); } },
+                { "directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
+                { "isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "principal", n => { Principal = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "principalId", n => { PrincipalId = n.GetStringValue(); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
+                { "scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "targetSchedule", n => { TargetSchedule = n.GetObjectValue<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
+                { "targetScheduleId", n => { TargetScheduleId = n.GetStringValue(); } },
+                { "ticketInfo", n => { TicketInfo = n.GetObjectValue<ApiSdk.Models.TicketInfo>(ApiSdk.Models.TicketInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

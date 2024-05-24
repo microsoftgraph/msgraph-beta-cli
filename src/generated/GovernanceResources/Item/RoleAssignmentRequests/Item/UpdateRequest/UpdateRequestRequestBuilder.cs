@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item.RoleAssignmentRequests.Item.UpdateRequest {
+namespace ApiSdk.GovernanceResources.Item.RoleAssignmentRequests.Item.UpdateRequest
+{
     /// <summary>
     /// Provides operations to call the updateRequest method.
     /// </summary>
-    public class UpdateRequestRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateRequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateRequest

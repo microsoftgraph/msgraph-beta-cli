@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventRegistrationConfiguration : Entity, IParsable 
+    public class VirtualEventRegistrationConfiguration : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Total capacity of the virtual event.</summary>
@@ -50,9 +51,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"capacity", n => { Capacity = n.GetIntValue(); } },
-                {"questions", n => { Questions = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>(VirtualEventRegistrationQuestionBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registrationWebUrl", n => { RegistrationWebUrl = n.GetStringValue(); } },
+                { "capacity", n => { Capacity = n.GetIntValue(); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>(VirtualEventRegistrationQuestionBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registrationWebUrl", n => { RegistrationWebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

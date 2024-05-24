@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class TraceRouteHop : IAdditionalDataHolder, IParsable 
+    public class TraceRouteHop : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,10 +57,10 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"hopCount", n => { HopCount = n.GetIntValue(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"roundTripTime", n => { RoundTripTime = n.GetTimeSpanValue(); } },
+                { "hopCount", n => { HopCount = n.GetIntValue(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "roundTripTime", n => { RoundTripTime = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

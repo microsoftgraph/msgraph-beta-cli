@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Collection of app diagnostics associated with a user.
     /// </summary>
-    public class PowerliftIncidentMetadata : IAdditionalDataHolder, IParsable 
+    public class PowerliftIncidentMetadata : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -97,15 +98,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"application", n => { Application = n.GetStringValue(); } },
-                {"clientVersion", n => { ClientVersion = n.GetStringValue(); } },
-                {"createdAtDateTime", n => { CreatedAtDateTime = n.GetDateTimeOffsetValue(); } },
-                {"easyId", n => { EasyId = n.GetStringValue(); } },
-                {"fileNames", n => { FileNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"locale", n => { Locale = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"platform", n => { Platform = n.GetStringValue(); } },
-                {"powerliftId", n => { PowerliftId = n.GetGuidValue(); } },
+                { "application", n => { Application = n.GetStringValue(); } },
+                { "clientVersion", n => { ClientVersion = n.GetStringValue(); } },
+                { "createdAtDateTime", n => { CreatedAtDateTime = n.GetDateTimeOffsetValue(); } },
+                { "easyId", n => { EasyId = n.GetStringValue(); } },
+                { "fileNames", n => { FileNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "locale", n => { Locale = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "platform", n => { Platform = n.GetStringValue(); } },
+                { "powerliftId", n => { PowerliftId = n.GetGuidValue(); } },
             };
         }
         /// <summary>

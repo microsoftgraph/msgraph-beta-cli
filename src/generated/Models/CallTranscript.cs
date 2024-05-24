@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallTranscript : Entity, IParsable 
+    public class CallTranscript : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content of the transcript. Read-only.</summary>
@@ -77,13 +78,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetByteArrayValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"meetingId", n => { MeetingId = n.GetStringValue(); } },
-                {"meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"meetingOrganizerId", n => { MeetingOrganizerId = n.GetStringValue(); } },
-                {"metadataContent", n => { MetadataContent = n.GetByteArrayValue(); } },
-                {"transcriptContentUrl", n => { TranscriptContentUrl = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetByteArrayValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "meetingId", n => { MeetingId = n.GetStringValue(); } },
+                { "meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "meetingOrganizerId", n => { MeetingOrganizerId = n.GetStringValue(); } },
+                { "metadataContent", n => { MetadataContent = n.GetByteArrayValue(); } },
+                { "transcriptContentUrl", n => { TranscriptContentUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

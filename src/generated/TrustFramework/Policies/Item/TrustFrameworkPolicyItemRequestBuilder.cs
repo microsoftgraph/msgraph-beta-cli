@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.Policies.Item {
+namespace ApiSdk.TrustFramework.Policies.Item
+{
     /// <summary>
     /// Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
     /// </summary>
-    public class TrustFrameworkPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class TrustFrameworkPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the trustFramework entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.TrustFramework.Policies.Item {
             command.Description = "Provides operations to manage the media for the trustFramework entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -40,13 +42,14 @@ namespace ApiSdk.TrustFramework.Policies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property policies for trustFramework
+        /// Delete an existing trustFrameworkPolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property policies for trustFramework";
+            command.Description = "Delete an existing trustFrameworkPolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkpolicy-delete?view=graph-rest-beta";
             var trustFrameworkPolicyIdOption = new Option<string>("--trust-framework-policy-id", description: "The unique identifier of trustFrameworkPolicy") {
             };
             trustFrameworkPolicyIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.TrustFramework.Policies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property policies for trustFramework
+        /// Delete an existing trustFrameworkPolicy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

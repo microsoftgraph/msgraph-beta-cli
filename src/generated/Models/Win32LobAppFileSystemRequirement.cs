@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains file or folder path to detect a Win32 App
     /// </summary>
-    public class Win32LobAppFileSystemRequirement : Win32LobAppRequirement, IParsable 
+    public class Win32LobAppFileSystemRequirement : Win32LobAppRequirement, IParsable
     {
         /// <summary>A value indicating whether this file or folder is for checking 32-bit app on 64-bit system</summary>
         public bool? Check32BitOn64System { get; set; }
@@ -55,10 +56,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"check32BitOn64System", n => { Check32BitOn64System = n.GetBoolValue(); } },
-                {"detectionType", n => { DetectionType = n.GetEnumValue<Win32LobAppFileSystemDetectionType>(); } },
-                {"fileOrFolderName", n => { FileOrFolderName = n.GetStringValue(); } },
-                {"path", n => { Path = n.GetStringValue(); } },
+                { "check32BitOn64System", n => { Check32BitOn64System = n.GetBoolValue(); } },
+                { "detectionType", n => { DetectionType = n.GetEnumValue<Win32LobAppFileSystemDetectionType>(); } },
+                { "fileOrFolderName", n => { FileOrFolderName = n.GetStringValue(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
             };
         }
         /// <summary>

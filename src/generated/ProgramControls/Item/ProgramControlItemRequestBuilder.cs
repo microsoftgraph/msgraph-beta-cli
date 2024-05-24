@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ProgramControls.Item {
+namespace ApiSdk.ProgramControls.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of programControl entities.
     /// </summary>
-    public class ProgramControlItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProgramControlItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, delete a programControl object.  This unlinks an access review from a program.

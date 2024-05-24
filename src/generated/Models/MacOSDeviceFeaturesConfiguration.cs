@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// MacOS device features configuration profile.
     /// </summary>
-    public class MacOSDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable 
+    public class MacOSDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable
     {
         /// <summary>Whether to show admin host information on the login window.</summary>
         public bool? AdminShowHostInfo { get; set; }
@@ -197,48 +198,48 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"adminShowHostInfo", n => { AdminShowHostInfo = n.GetBoolValue(); } },
-                {"appAssociatedDomains", n => { AppAssociatedDomains = n.GetCollectionOfObjectValues<MacOSAssociatedDomainsItem>(MacOSAssociatedDomainsItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"associatedDomains", n => { AssociatedDomains = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authorizedUsersListHidden", n => { AuthorizedUsersListHidden = n.GetBoolValue(); } },
-                {"authorizedUsersListHideAdminUsers", n => { AuthorizedUsersListHideAdminUsers = n.GetBoolValue(); } },
-                {"authorizedUsersListHideLocalUsers", n => { AuthorizedUsersListHideLocalUsers = n.GetBoolValue(); } },
-                {"authorizedUsersListHideMobileAccounts", n => { AuthorizedUsersListHideMobileAccounts = n.GetBoolValue(); } },
-                {"authorizedUsersListIncludeNetworkUsers", n => { AuthorizedUsersListIncludeNetworkUsers = n.GetBoolValue(); } },
-                {"authorizedUsersListShowOtherManagedUsers", n => { AuthorizedUsersListShowOtherManagedUsers = n.GetBoolValue(); } },
-                {"autoLaunchItems", n => { AutoLaunchItems = n.GetCollectionOfObjectValues<MacOSLaunchItem>(MacOSLaunchItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"consoleAccessDisabled", n => { ConsoleAccessDisabled = n.GetBoolValue(); } },
-                {"contentCachingBlockDeletion", n => { ContentCachingBlockDeletion = n.GetBoolValue(); } },
-                {"contentCachingClientListenRanges", n => { ContentCachingClientListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contentCachingClientPolicy", n => { ContentCachingClientPolicy = n.GetEnumValue<MacOSContentCachingClientPolicy>(); } },
-                {"contentCachingDataPath", n => { ContentCachingDataPath = n.GetStringValue(); } },
-                {"contentCachingDisableConnectionSharing", n => { ContentCachingDisableConnectionSharing = n.GetBoolValue(); } },
-                {"contentCachingEnabled", n => { ContentCachingEnabled = n.GetBoolValue(); } },
-                {"contentCachingForceConnectionSharing", n => { ContentCachingForceConnectionSharing = n.GetBoolValue(); } },
-                {"contentCachingKeepAwake", n => { ContentCachingKeepAwake = n.GetBoolValue(); } },
-                {"contentCachingLogClientIdentities", n => { ContentCachingLogClientIdentities = n.GetBoolValue(); } },
-                {"contentCachingMaxSizeBytes", n => { ContentCachingMaxSizeBytes = n.GetLongValue(); } },
-                {"contentCachingParentSelectionPolicy", n => { ContentCachingParentSelectionPolicy = n.GetEnumValue<MacOSContentCachingParentSelectionPolicy>(); } },
-                {"contentCachingParents", n => { ContentCachingParents = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"contentCachingPeerFilterRanges", n => { ContentCachingPeerFilterRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contentCachingPeerListenRanges", n => { ContentCachingPeerListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contentCachingPeerPolicy", n => { ContentCachingPeerPolicy = n.GetEnumValue<MacOSContentCachingPeerPolicy>(); } },
-                {"contentCachingPort", n => { ContentCachingPort = n.GetIntValue(); } },
-                {"contentCachingPublicRanges", n => { ContentCachingPublicRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contentCachingShowAlerts", n => { ContentCachingShowAlerts = n.GetBoolValue(); } },
-                {"contentCachingType", n => { ContentCachingType = n.GetEnumValue<MacOSContentCachingType>(); } },
-                {"logOutDisabledWhileLoggedIn", n => { LogOutDisabledWhileLoggedIn = n.GetBoolValue(); } },
-                {"loginWindowText", n => { LoginWindowText = n.GetStringValue(); } },
-                {"macOSSingleSignOnExtension", n => { MacOSSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.MacOSSingleSignOnExtension>(ApiSdk.Models.MacOSSingleSignOnExtension.CreateFromDiscriminatorValue); } },
-                {"powerOffDisabledWhileLoggedIn", n => { PowerOffDisabledWhileLoggedIn = n.GetBoolValue(); } },
-                {"restartDisabled", n => { RestartDisabled = n.GetBoolValue(); } },
-                {"restartDisabledWhileLoggedIn", n => { RestartDisabledWhileLoggedIn = n.GetBoolValue(); } },
-                {"screenLockDisableImmediate", n => { ScreenLockDisableImmediate = n.GetBoolValue(); } },
-                {"shutDownDisabled", n => { ShutDownDisabled = n.GetBoolValue(); } },
-                {"shutDownDisabledWhileLoggedIn", n => { ShutDownDisabledWhileLoggedIn = n.GetBoolValue(); } },
-                {"singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
-                {"singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<MacOSCertificateProfileBase>(MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"sleepDisabled", n => { SleepDisabled = n.GetBoolValue(); } },
+                { "adminShowHostInfo", n => { AdminShowHostInfo = n.GetBoolValue(); } },
+                { "appAssociatedDomains", n => { AppAssociatedDomains = n.GetCollectionOfObjectValues<MacOSAssociatedDomainsItem>(MacOSAssociatedDomainsItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedDomains", n => { AssociatedDomains = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authorizedUsersListHidden", n => { AuthorizedUsersListHidden = n.GetBoolValue(); } },
+                { "authorizedUsersListHideAdminUsers", n => { AuthorizedUsersListHideAdminUsers = n.GetBoolValue(); } },
+                { "authorizedUsersListHideLocalUsers", n => { AuthorizedUsersListHideLocalUsers = n.GetBoolValue(); } },
+                { "authorizedUsersListHideMobileAccounts", n => { AuthorizedUsersListHideMobileAccounts = n.GetBoolValue(); } },
+                { "authorizedUsersListIncludeNetworkUsers", n => { AuthorizedUsersListIncludeNetworkUsers = n.GetBoolValue(); } },
+                { "authorizedUsersListShowOtherManagedUsers", n => { AuthorizedUsersListShowOtherManagedUsers = n.GetBoolValue(); } },
+                { "autoLaunchItems", n => { AutoLaunchItems = n.GetCollectionOfObjectValues<MacOSLaunchItem>(MacOSLaunchItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "consoleAccessDisabled", n => { ConsoleAccessDisabled = n.GetBoolValue(); } },
+                { "contentCachingBlockDeletion", n => { ContentCachingBlockDeletion = n.GetBoolValue(); } },
+                { "contentCachingClientListenRanges", n => { ContentCachingClientListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingClientPolicy", n => { ContentCachingClientPolicy = n.GetEnumValue<MacOSContentCachingClientPolicy>(); } },
+                { "contentCachingDataPath", n => { ContentCachingDataPath = n.GetStringValue(); } },
+                { "contentCachingDisableConnectionSharing", n => { ContentCachingDisableConnectionSharing = n.GetBoolValue(); } },
+                { "contentCachingEnabled", n => { ContentCachingEnabled = n.GetBoolValue(); } },
+                { "contentCachingForceConnectionSharing", n => { ContentCachingForceConnectionSharing = n.GetBoolValue(); } },
+                { "contentCachingKeepAwake", n => { ContentCachingKeepAwake = n.GetBoolValue(); } },
+                { "contentCachingLogClientIdentities", n => { ContentCachingLogClientIdentities = n.GetBoolValue(); } },
+                { "contentCachingMaxSizeBytes", n => { ContentCachingMaxSizeBytes = n.GetLongValue(); } },
+                { "contentCachingParentSelectionPolicy", n => { ContentCachingParentSelectionPolicy = n.GetEnumValue<MacOSContentCachingParentSelectionPolicy>(); } },
+                { "contentCachingParents", n => { ContentCachingParents = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "contentCachingPeerFilterRanges", n => { ContentCachingPeerFilterRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingPeerListenRanges", n => { ContentCachingPeerListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingPeerPolicy", n => { ContentCachingPeerPolicy = n.GetEnumValue<MacOSContentCachingPeerPolicy>(); } },
+                { "contentCachingPort", n => { ContentCachingPort = n.GetIntValue(); } },
+                { "contentCachingPublicRanges", n => { ContentCachingPublicRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingShowAlerts", n => { ContentCachingShowAlerts = n.GetBoolValue(); } },
+                { "contentCachingType", n => { ContentCachingType = n.GetEnumValue<MacOSContentCachingType>(); } },
+                { "logOutDisabledWhileLoggedIn", n => { LogOutDisabledWhileLoggedIn = n.GetBoolValue(); } },
+                { "loginWindowText", n => { LoginWindowText = n.GetStringValue(); } },
+                { "macOSSingleSignOnExtension", n => { MacOSSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.MacOSSingleSignOnExtension>(ApiSdk.Models.MacOSSingleSignOnExtension.CreateFromDiscriminatorValue); } },
+                { "powerOffDisabledWhileLoggedIn", n => { PowerOffDisabledWhileLoggedIn = n.GetBoolValue(); } },
+                { "restartDisabled", n => { RestartDisabled = n.GetBoolValue(); } },
+                { "restartDisabledWhileLoggedIn", n => { RestartDisabledWhileLoggedIn = n.GetBoolValue(); } },
+                { "screenLockDisableImmediate", n => { ScreenLockDisableImmediate = n.GetBoolValue(); } },
+                { "shutDownDisabled", n => { ShutDownDisabled = n.GetBoolValue(); } },
+                { "shutDownDisabledWhileLoggedIn", n => { ShutDownDisabledWhileLoggedIn = n.GetBoolValue(); } },
+                { "singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
+                { "singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<MacOSCertificateProfileBase>(MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "sleepDisabled", n => { SleepDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

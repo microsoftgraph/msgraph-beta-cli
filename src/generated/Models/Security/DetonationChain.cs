@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class DetonationChain : IAdditionalDataHolder, IParsable 
+    public class DetonationChain : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"childNodes", n => { ChildNodes = n.GetCollectionOfObjectValues<DetonationChain>(DetonationChain.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "childNodes", n => { ChildNodes = n.GetCollectionOfObjectValues<DetonationChain>(DetonationChain.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.SecureScoreControlProfiles.Item {
+namespace ApiSdk.Security.SecureScoreControlProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
     /// </summary>
-    public class SecureScoreControlProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class SecureScoreControlProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property secureScoreControlProfiles for security
@@ -108,13 +109,14 @@ namespace ApiSdk.Security.SecureScoreControlProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property secureScoreControlProfiles in security
+        /// Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securescorecontrolprofiles-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property secureScoreControlProfiles in security";
+            command.Description = "Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securescorecontrolprofiles-update?view=graph-rest-beta";
             var secureScoreControlProfileIdOption = new Option<string>("--secure-score-control-profile-id", description: "The unique identifier of secureScoreControlProfile") {
             };
             secureScoreControlProfileIdOption.IsRequired = true;
@@ -211,7 +213,7 @@ namespace ApiSdk.Security.SecureScoreControlProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property secureScoreControlProfiles in security
+        /// Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

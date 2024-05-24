@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class Tag : ApiSdk.Models.Entity, IParsable 
+    public class Tag : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"childSelectability", n => { ChildSelectability = n.GetEnumValue<ChildSelectability>(); } },
-                {"childTags", n => { ChildTags = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"parent", n => { Parent = n.GetObjectValue<Tag>(Tag.CreateFromDiscriminatorValue); } },
+                { "childSelectability", n => { ChildSelectability = n.GetEnumValue<ChildSelectability>(); } },
+                { "childTags", n => { ChildTags = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "parent", n => { Parent = n.GetObjectValue<Tag>(Tag.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

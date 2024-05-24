@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomExtensionHandlerInstance : IAdditionalDataHolder, IParsable 
+    public class CustomExtensionHandlerInstance : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -64,11 +65,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"customExtensionId", n => { CustomExtensionId = n.GetStringValue(); } },
-                {"externalCorrelationId", n => { ExternalCorrelationId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
-                {"status", n => { Status = n.GetEnumValue<AccessPackageCustomExtensionHandlerStatus>(); } },
+                { "customExtensionId", n => { CustomExtensionId = n.GetStringValue(); } },
+                { "externalCorrelationId", n => { ExternalCorrelationId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
+                { "status", n => { Status = n.GetEnumValue<AccessPackageCustomExtensionHandlerStatus>(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The entity describes all of the information about a single group policy.
     /// </summary>
-    public class GroupPolicyDefinition : Entity, IParsable 
+    public class GroupPolicyDefinition : Entity, IParsable
     {
         /// <summary>The group policy category associated with the definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,23 +135,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"category", n => { Category = n.GetObjectValue<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue); } },
-                {"categoryPath", n => { CategoryPath = n.GetStringValue(); } },
-                {"classType", n => { ClassType = n.GetEnumValue<GroupPolicyDefinitionClassType>(); } },
-                {"definitionFile", n => { DefinitionFile = n.GetObjectValue<GroupPolicyDefinitionFile>(GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"explainText", n => { ExplainText = n.GetStringValue(); } },
-                {"groupPolicyCategoryId", n => { GroupPolicyCategoryId = n.GetGuidValue(); } },
-                {"hasRelatedDefinitions", n => { HasRelatedDefinitions = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"minDeviceCspVersion", n => { MinDeviceCspVersion = n.GetStringValue(); } },
-                {"minUserCspVersion", n => { MinUserCspVersion = n.GetStringValue(); } },
-                {"nextVersionDefinition", n => { NextVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
-                {"policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
-                {"presentations", n => { Presentations = n.GetCollectionOfObjectValues<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"previousVersionDefinition", n => { PreviousVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
-                {"supportedOn", n => { SupportedOn = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetObjectValue<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue); } },
+                { "categoryPath", n => { CategoryPath = n.GetStringValue(); } },
+                { "classType", n => { ClassType = n.GetEnumValue<GroupPolicyDefinitionClassType>(); } },
+                { "definitionFile", n => { DefinitionFile = n.GetObjectValue<GroupPolicyDefinitionFile>(GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "explainText", n => { ExplainText = n.GetStringValue(); } },
+                { "groupPolicyCategoryId", n => { GroupPolicyCategoryId = n.GetGuidValue(); } },
+                { "hasRelatedDefinitions", n => { HasRelatedDefinitions = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "minDeviceCspVersion", n => { MinDeviceCspVersion = n.GetStringValue(); } },
+                { "minUserCspVersion", n => { MinUserCspVersion = n.GetStringValue(); } },
+                { "nextVersionDefinition", n => { NextVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
+                { "presentations", n => { Presentations = n.GetCollectionOfObjectValues<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "previousVersionDefinition", n => { PreviousVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
+                { "supportedOn", n => { SupportedOn = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

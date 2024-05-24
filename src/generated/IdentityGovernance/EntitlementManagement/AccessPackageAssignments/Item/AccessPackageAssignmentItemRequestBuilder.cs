@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignments property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageAssignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.

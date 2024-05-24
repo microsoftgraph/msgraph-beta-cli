@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AgreementFile : AgreementFileProperties, IParsable 
+    public class AgreementFile : AgreementFileProperties, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"localizations", n => { Localizations = n.GetCollectionOfObjectValues<AgreementFileLocalization>(AgreementFileLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "localizations", n => { Localizations = n.GetCollectionOfObjectValues<AgreementFileLocalization>(AgreementFileLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthorizationSystemIdentity : Entity, IParsable 
+    public class AuthorizationSystemIdentity : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Navigation to the authorizationSystem object</summary>
@@ -81,10 +82,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"source", n => { Source = n.GetObjectValue<AuthorizationSystemIdentitySource>(AuthorizationSystemIdentitySource.CreateFromDiscriminatorValue); } },
+                { "authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetObjectValue<AuthorizationSystemIdentitySource>(AuthorizationSystemIdentitySource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

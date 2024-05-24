@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.Refresh {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.Refresh
+{
     /// <summary>
     /// Provides operations to call the refresh method.
     /// </summary>
-    public class RefreshRequestBuilder : BaseCliRequestBuilder 
+    public class RefreshRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In Azure AD entitlement management, refresh the accessPackageResource object to fetch the latest details for displayName, description, and resourceType from the origin system. For the AadApplication originSystem, this operation also updates the displayName and description for the accessPackageResourceRole. 

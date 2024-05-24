@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerRosterMember : Entity, IParsable 
+    public class PlannerRosterMember : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"roles", n => { Roles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "roles", n => { Roles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

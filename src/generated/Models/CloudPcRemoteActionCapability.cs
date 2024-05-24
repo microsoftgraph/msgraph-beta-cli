@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcRemoteActionCapability : IAdditionalDataHolder, IParsable 
+    public class CloudPcRemoteActionCapability : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.</summary>
@@ -48,9 +49,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionCapability", n => { ActionCapability = n.GetEnumValue<ActionCapability>(); } },
-                {"actionName", n => { ActionName = n.GetEnumValue<CloudPcRemoteActionName>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "actionCapability", n => { ActionCapability = n.GetEnumValue<ActionCapability>(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<CloudPcRemoteActionName>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

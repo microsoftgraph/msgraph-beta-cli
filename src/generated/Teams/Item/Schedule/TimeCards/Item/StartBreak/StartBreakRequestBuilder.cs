@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item.StartBreak {
+namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item.StartBreak
+{
     /// <summary>
     /// Provides operations to call the startBreak method.
     /// </summary>
-    public class StartBreakRequestBuilder : BaseCliRequestBuilder 
+    public class StartBreakRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Start a break in a specific timeCard.

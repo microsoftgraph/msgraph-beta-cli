@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps {
+namespace ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps
+{
     /// <summary>
     /// Provides operations to call the approveFotaApps method.
     /// </summary>
-    public class ApproveFotaAppsRequestBuilder : BaseCliRequestBuilder 
+    public class ApproveFotaAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action approveFotaApps

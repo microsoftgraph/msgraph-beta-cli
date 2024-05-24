@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetTotalAggregatedRemoteConnectionReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetTotalAggregatedRemoteConnectionReports
+{
     /// <summary>
     /// Provides operations to call the getTotalAggregatedRemoteConnectionReports method.
     /// </summary>
-    public class GetTotalAggregatedRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetTotalAggregatedRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the total aggregated remote connection usage of a Cloud PC during a given time span.

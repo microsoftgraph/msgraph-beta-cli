@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternalIdentitiesPolicy : PolicyBase, IParsable 
+    public class ExternalIdentitiesPolicy : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Reserved for future use.</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowDeletedIdentitiesDataRemoval", n => { AllowDeletedIdentitiesDataRemoval = n.GetBoolValue(); } },
-                {"allowExternalIdentitiesToLeave", n => { AllowExternalIdentitiesToLeave = n.GetBoolValue(); } },
+                { "allowDeletedIdentitiesDataRemoval", n => { AllowDeletedIdentitiesDataRemoval = n.GetBoolValue(); } },
+                { "allowExternalIdentitiesToLeave", n => { AllowExternalIdentitiesToLeave = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction {
+namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
+{
     #pragma warning disable CS1591
-    public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>An enum type to represent approval actions of single or list of drivers.</summary>
@@ -49,9 +50,9 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionName", n => { ActionName = n.GetEnumValue<DriverApprovalAction>(); } },
-                {"deploymentDate", n => { DeploymentDate = n.GetDateTimeOffsetValue(); } },
-                {"driverIds", n => { DriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<DriverApprovalAction>(); } },
+                { "deploymentDate", n => { DeploymentDate = n.GetDateTimeOffsetValue(); } },
+                { "driverIds", n => { DriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

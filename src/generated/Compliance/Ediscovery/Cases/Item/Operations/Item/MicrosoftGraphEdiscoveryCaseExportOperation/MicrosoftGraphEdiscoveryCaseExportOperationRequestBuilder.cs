@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation
+{
     /// <summary>
     /// Casts the previous resource to caseExportOperation.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the item of type microsoft.graph.ediscovery.caseOperation as microsoft.graph.ediscovery.caseExportOperation

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Search.Qnas.Item {
+namespace ApiSdk.Search.Qnas.Item
+{
     /// <summary>
     /// Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
     /// </summary>
-    public class QnaItemRequestBuilder : BaseCliRequestBuilder 
+    public class QnaItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property qnas for search
+        /// Delete a qna object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property qnas for search";
+            command.Description = "Delete a qna object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-beta";
             var qnaIdOption = new Option<string>("--qna-id", description: "The unique identifier of qna") {
             };
             qnaIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Search.Qnas.Item {
             return command;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Read the properties and relationships of a qna object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.";
+            command.Description = "Read the properties and relationships of a qna object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-beta";
             var qnaIdOption = new Option<string>("--qna-id", description: "The unique identifier of qna") {
             };
             qnaIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Search.Qnas.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property qnas in search
+        /// Update the properties of a qna object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-qna-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property qnas in search";
+            command.Description = "Update the properties of a qna object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-qna-update?view=graph-rest-beta";
             var qnaIdOption = new Option<string>("--qna-id", description: "The unique identifier of qna") {
             };
             qnaIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Search.Qnas.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property qnas for search
+        /// Delete a qna object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Search.Qnas.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Read the properties and relationships of a qna object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Search.Qnas.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property qnas in search
+        /// Update the properties of a qna object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Search.Qnas.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Read the properties and relationships of a qna object.
         /// </summary>
         public class QnaItemRequestBuilderGetQueryParameters 
         {

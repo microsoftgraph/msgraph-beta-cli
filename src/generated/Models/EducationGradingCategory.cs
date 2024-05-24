@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationGradingCategory : Entity, IParsable 
+    public class EducationGradingCategory : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the grading category.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"percentageWeight", n => { PercentageWeight = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "percentageWeight", n => { PercentageWeight = n.GetIntValue(); } },
             };
         }
         /// <summary>

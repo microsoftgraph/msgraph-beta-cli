@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserActivity : Entity, IParsable 
+    public class UserActivity : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.</summary>
@@ -69,7 +70,7 @@ namespace ApiSdk.Models {
 #else
         public string FallbackUrl { get; set; }
 #endif
-        /// <summary>Optional. NavigationProperty/Containment; navigation property to the activity&apos;s historyItems.</summary>
+        /// <summary>Optional. NavigationProperty/Containment; navigation property to the activity&apos;s activityHistoryItems.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ActivityHistoryItem>? HistoryItems { get; set; }
@@ -115,20 +116,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activationUrl", n => { ActivationUrl = n.GetStringValue(); } },
-                {"activitySourceHost", n => { ActivitySourceHost = n.GetStringValue(); } },
-                {"appActivityId", n => { AppActivityId = n.GetStringValue(); } },
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"contentInfo", n => { ContentInfo = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"contentUrl", n => { ContentUrl = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
-                {"historyItems", n => { HistoryItems = n.GetCollectionOfObjectValues<ActivityHistoryItem>(ActivityHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<Status>(); } },
-                {"userTimezone", n => { UserTimezone = n.GetStringValue(); } },
-                {"visualElements", n => { VisualElements = n.GetObjectValue<VisualInfo>(VisualInfo.CreateFromDiscriminatorValue); } },
+                { "activationUrl", n => { ActivationUrl = n.GetStringValue(); } },
+                { "activitySourceHost", n => { ActivitySourceHost = n.GetStringValue(); } },
+                { "appActivityId", n => { AppActivityId = n.GetStringValue(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "contentInfo", n => { ContentInfo = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "contentUrl", n => { ContentUrl = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
+                { "historyItems", n => { HistoryItems = n.GetCollectionOfObjectValues<ActivityHistoryItem>(ActivityHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<Status>(); } },
+                { "userTimezone", n => { UserTimezone = n.GetStringValue(); } },
+                { "visualElements", n => { VisualElements = n.GetObjectValue<VisualInfo>(VisualInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

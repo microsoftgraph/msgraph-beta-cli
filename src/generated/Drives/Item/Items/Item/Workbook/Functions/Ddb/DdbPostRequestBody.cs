@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Ddb {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Ddb
+{
     #pragma warning disable CS1591
-    public class DdbPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DdbPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -77,11 +78,11 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Ddb {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cost", n => { Cost = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"factor", n => { Factor = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"life", n => { Life = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"period", n => { Period = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"salvage", n => { Salvage = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "cost", n => { Cost = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "factor", n => { Factor = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "life", n => { Life = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "period", n => { Period = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "salvage", n => { Salvage = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

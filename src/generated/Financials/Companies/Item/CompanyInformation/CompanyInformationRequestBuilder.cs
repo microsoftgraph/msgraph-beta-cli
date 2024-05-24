@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CompanyInformation {
+namespace ApiSdk.Financials.Companies.Item.CompanyInformation
+{
     /// <summary>
     /// Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
     /// </summary>
-    public class CompanyInformationRequestBuilder : BaseCliRequestBuilder 
+    public class CompanyInformationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
@@ -61,7 +62,7 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation {
         {
             var command = new Command("list");
             command.Description = "Get companyInformation from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -142,7 +143,9 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

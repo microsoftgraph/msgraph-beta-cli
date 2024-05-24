@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Data sharing consent information.
     /// </summary>
-    public class DataSharingConsent : Entity, IParsable 
+    public class DataSharingConsent : Entity, IParsable
     {
         /// <summary>The time consent was granted for this account</summary>
         public DateTimeOffset? GrantDateTime { get; set; }
@@ -64,12 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"grantDateTime", n => { GrantDateTime = n.GetDateTimeOffsetValue(); } },
-                {"granted", n => { Granted = n.GetBoolValue(); } },
-                {"grantedByUpn", n => { GrantedByUpn = n.GetStringValue(); } },
-                {"grantedByUserId", n => { GrantedByUserId = n.GetStringValue(); } },
-                {"serviceDisplayName", n => { ServiceDisplayName = n.GetStringValue(); } },
-                {"termsUrl", n => { TermsUrl = n.GetStringValue(); } },
+                { "grantDateTime", n => { GrantDateTime = n.GetDateTimeOffsetValue(); } },
+                { "granted", n => { Granted = n.GetBoolValue(); } },
+                { "grantedByUpn", n => { GrantedByUpn = n.GetStringValue(); } },
+                { "grantedByUserId", n => { GrantedByUserId = n.GetStringValue(); } },
+                { "serviceDisplayName", n => { ServiceDisplayName = n.GetStringValue(); } },
+                { "termsUrl", n => { TermsUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

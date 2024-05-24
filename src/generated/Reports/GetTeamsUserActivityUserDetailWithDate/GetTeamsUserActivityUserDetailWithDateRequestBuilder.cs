@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetTeamsUserActivityUserDetailWithDate {
+namespace ApiSdk.Reports.GetTeamsUserActivityUserDetailWithDate
+{
     /// <summary>
     /// Provides operations to call the getTeamsUserActivityUserDetail method.
     /// </summary>
-    public class GetTeamsUserActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    public class GetTeamsUserActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getTeamsUserActivityUserDetail
@@ -27,7 +28,7 @@ namespace ApiSdk.Reports.GetTeamsUserActivityUserDetailWithDate {
         {
             var command = new Command("get");
             command.Description = "Invoke function getTeamsUserActivityUserDetail";
-            var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
+            var dateOption = new Option<Date?>("--date", description: "Usage: date={date}") {
             };
             dateOption.IsRequired = true;
             command.AddOption(dateOption);

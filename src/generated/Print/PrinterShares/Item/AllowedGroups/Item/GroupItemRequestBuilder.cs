@@ -11,11 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.Print.PrinterShares.Item.AllowedGroups.Item {
+namespace ApiSdk.Print.PrinterShares.Item.AllowedGroups.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \print\printerShares\{printerShare-id}\allowedGroups\{group-id}
     /// </summary>
-    public class GroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of print entities.

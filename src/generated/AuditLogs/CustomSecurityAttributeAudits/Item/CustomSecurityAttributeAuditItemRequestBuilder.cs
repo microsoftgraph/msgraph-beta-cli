@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item {
+namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item
+{
     /// <summary>
     /// Provides operations to manage the customSecurityAttributeAudits property of the microsoft.graph.auditLogRoot entity.
     /// </summary>
-    public class CustomSecurityAttributeAuditItemRequestBuilder : BaseCliRequestBuilder 
+    public class CustomSecurityAttributeAuditItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property customSecurityAttributeAudits for auditLogs

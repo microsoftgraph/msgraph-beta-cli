@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing information about the payloads on which filter has been applied.
     /// </summary>
-    public class AssignmentFilterEvaluationStatusDetails : Entity, IParsable 
+    public class AssignmentFilterEvaluationStatusDetails : Entity, IParsable
     {
         /// <summary>PayloadId on which filter has been applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"payloadId", n => { PayloadId = n.GetStringValue(); } },
+                { "payloadId", n => { PayloadId = n.GetStringValue(); } },
             };
         }
         /// <summary>

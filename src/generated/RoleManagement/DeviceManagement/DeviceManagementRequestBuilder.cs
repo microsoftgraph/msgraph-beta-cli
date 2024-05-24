@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement {
+namespace ApiSdk.RoleManagement.DeviceManagement
+{
     /// <summary>
     /// Provides operations to manage the deviceManagement property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class DeviceManagementRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceManagement for roleManagement

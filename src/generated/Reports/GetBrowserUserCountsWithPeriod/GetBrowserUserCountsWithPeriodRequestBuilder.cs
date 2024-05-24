@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetBrowserUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetBrowserUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getBrowserUserCounts method.
     /// </summary>
-    public class GetBrowserUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetBrowserUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getBrowserUserCounts

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag {
+namespace ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag
+{
     /// <summary>
     /// Provides operations to call the hasCustomRoleScopeTag method.
     /// </summary>
-    public class HasCustomRoleScopeTagRequestBuilder : BaseCliRequestBuilder 
+    public class HasCustomRoleScopeTagRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function hasCustomRoleScopeTag

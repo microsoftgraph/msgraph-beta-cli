@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaArtifacts.Item {
+namespace ApiSdk.DeviceManagement.ZebraFotaArtifacts.Item
+{
     /// <summary>
     /// Provides operations to manage the zebraFotaArtifacts property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ZebraFotaArtifactItemRequestBuilder : BaseCliRequestBuilder 
+    public class ZebraFotaArtifactItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property zebraFotaArtifacts for deviceManagement

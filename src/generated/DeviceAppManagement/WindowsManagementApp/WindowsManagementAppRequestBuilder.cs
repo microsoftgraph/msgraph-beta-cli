@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsManagementApp {
+namespace ApiSdk.DeviceAppManagement.WindowsManagementApp
+{
     /// <summary>
     /// Provides operations to manage the windowsManagementApp property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class WindowsManagementAppRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsManagementAppRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Windows management app.

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
+namespace ApiSdk.Users.Item.Outlook.Tasks.Item
+{
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
     /// </summary>
-    public class OutlookTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutlookTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attachments property of the microsoft.graph.outlookTask entity.
@@ -110,14 +111,14 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return command;
         }
         /// <summary>
-        /// Get tasks from users
+        /// The user&apos;s Outlook tasks. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get tasks from users";
+            command.Description = "The user's Outlook tasks. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -254,7 +255,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get tasks from users
+        /// The user&apos;s Outlook tasks. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -296,7 +297,7 @@ namespace ApiSdk.Users.Item.Outlook.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get tasks from users
+        /// The user&apos;s Outlook tasks. Read-only. Nullable.
         /// </summary>
         public class OutlookTaskItemRequestBuilderGetQueryParameters 
         {

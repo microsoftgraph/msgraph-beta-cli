@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.TermStore {
+namespace ApiSdk.Groups.Item.Sites.Item.TermStore
+{
     /// <summary>
     /// Provides operations to manage the termStore property of the microsoft.graph.site entity.
     /// </summary>
-    public class TermStoreRequestBuilder : BaseCliRequestBuilder 
+    public class TermStoreRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property termStore for groups

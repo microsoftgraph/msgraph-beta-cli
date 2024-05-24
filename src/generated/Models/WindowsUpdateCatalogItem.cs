@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows update catalog item entity
     /// </summary>
-    public class WindowsUpdateCatalogItem : Entity, IParsable 
+    public class WindowsUpdateCatalogItem : Entity, IParsable
     {
         /// <summary>The display name for the catalog item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endOfSupportDate", n => { EndOfSupportDate = n.GetDateTimeOffsetValue(); } },
-                {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endOfSupportDate", n => { EndOfSupportDate = n.GetDateTimeOffsetValue(); } },
+                { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

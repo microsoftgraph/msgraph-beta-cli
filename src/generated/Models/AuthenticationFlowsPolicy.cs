@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationFlowsPolicy : Entity, IParsable 
+    public class AuthenticationFlowsPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Inherited property. A description of the policy. This property isn&apos;t a key. Optional. Read-only.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"selfServiceSignUp", n => { SelfServiceSignUp = n.GetObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>(SelfServiceSignUpAuthenticationFlowConfiguration.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "selfServiceSignUp", n => { SelfServiceSignUp = n.GetObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>(SelfServiceSignUpAuthenticationFlowConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

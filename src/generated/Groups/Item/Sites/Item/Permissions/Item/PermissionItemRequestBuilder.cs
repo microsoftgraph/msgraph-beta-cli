@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Permissions.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.Permissions.Item
+{
     /// <summary>
     /// Provides operations to manage the permissions property of the microsoft.graph.site entity.
     /// </summary>
-    public class PermissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property permissions for groups

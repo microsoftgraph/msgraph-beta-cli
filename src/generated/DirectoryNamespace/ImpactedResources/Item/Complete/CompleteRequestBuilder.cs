@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Complete {
+namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Complete
+{
     /// <summary>
     /// Provides operations to call the complete method.
     /// </summary>
-    public class CompleteRequestBuilder : BaseCliRequestBuilder 
+    public class CompleteRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Complete an impactedResource object and update its status to completedByUser.

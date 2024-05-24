@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UriClickSecurityState : IAdditionalDataHolder, IParsable 
+    public class UriClickSecurityState : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -86,13 +87,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"clickAction", n => { ClickAction = n.GetStringValue(); } },
-                {"clickDateTime", n => { ClickDateTime = n.GetDateTimeOffsetValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"sourceId", n => { SourceId = n.GetStringValue(); } },
-                {"uriDomain", n => { UriDomain = n.GetStringValue(); } },
-                {"verdict", n => { Verdict = n.GetStringValue(); } },
+                { "clickAction", n => { ClickAction = n.GetStringValue(); } },
+                { "clickDateTime", n => { ClickDateTime = n.GetDateTimeOffsetValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "sourceId", n => { SourceId = n.GetStringValue(); } },
+                { "uriDomain", n => { UriDomain = n.GetStringValue(); } },
+                { "verdict", n => { Verdict = n.GetStringValue(); } },
             };
         }
         /// <summary>

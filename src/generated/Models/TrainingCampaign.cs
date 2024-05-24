@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TrainingCampaign : Entity, IParsable 
+    public class TrainingCampaign : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Details about the schedule and current status for a training campaign</summary>
@@ -111,18 +112,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"campaignSchedule", n => { CampaignSchedule = n.GetObjectValue<ApiSdk.Models.CampaignSchedule>(ApiSdk.Models.CampaignSchedule.CreateFromDiscriminatorValue); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endUserNotificationSetting", n => { EndUserNotificationSetting = n.GetObjectValue<ApiSdk.Models.EndUserNotificationSetting>(ApiSdk.Models.EndUserNotificationSetting.CreateFromDiscriminatorValue); } },
-                {"excludedAccountTarget", n => { ExcludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
-                {"includedAccountTarget", n => { IncludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"report", n => { Report = n.GetObjectValue<TrainingCampaignReport>(TrainingCampaignReport.CreateFromDiscriminatorValue); } },
-                {"trainingSetting", n => { TrainingSetting = n.GetObjectValue<ApiSdk.Models.TrainingSetting>(ApiSdk.Models.TrainingSetting.CreateFromDiscriminatorValue); } },
+                { "campaignSchedule", n => { CampaignSchedule = n.GetObjectValue<ApiSdk.Models.CampaignSchedule>(ApiSdk.Models.CampaignSchedule.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endUserNotificationSetting", n => { EndUserNotificationSetting = n.GetObjectValue<ApiSdk.Models.EndUserNotificationSetting>(ApiSdk.Models.EndUserNotificationSetting.CreateFromDiscriminatorValue); } },
+                { "excludedAccountTarget", n => { ExcludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
+                { "includedAccountTarget", n => { IncludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "report", n => { Report = n.GetObjectValue<TrainingCampaignReport>(TrainingCampaignReport.CreateFromDiscriminatorValue); } },
+                { "trainingSetting", n => { TrainingSetting = n.GetObjectValue<ApiSdk.Models.TrainingSetting>(ApiSdk.Models.TrainingSetting.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item {
+namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item
+{
     /// <summary>
     /// Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
     /// </summary>
-    public class RetentionEventTypeItemRequestBuilder : BaseCliRequestBuilder 
+    public class RetentionEventTypeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property retentionEventTypes for security
+        /// Delete a retentionEventType object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-retentioneventtype-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property retentionEventTypes for security";
+            command.Description = "Delete a retentionEventType object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-retentioneventtype-delete?view=graph-rest-beta";
             var retentionEventTypeIdOption = new Option<string>("--retention-event-type-id", description: "The unique identifier of retentionEventType") {
             };
             retentionEventTypeIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item {
             return command;
         }
         /// <summary>
-        /// Get retentionEventTypes from security
+        /// Read the properties and relationships of a retentionEventType object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-retentioneventtype-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get retentionEventTypes from security";
+            command.Description = "Read the properties and relationships of a retentionEventType object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-retentioneventtype-get?view=graph-rest-beta";
             var retentionEventTypeIdOption = new Option<string>("--retention-event-type-id", description: "The unique identifier of retentionEventType") {
             };
             retentionEventTypeIdOption.IsRequired = true;
@@ -173,7 +176,7 @@ namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property retentionEventTypes for security
+        /// Delete a retentionEventType object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +195,7 @@ namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get retentionEventTypes from security
+        /// Read the properties and relationships of a retentionEventType object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Security.TriggerTypes.RetentionEventTypes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get retentionEventTypes from security
+        /// Read the properties and relationships of a retentionEventType object.
         /// </summary>
         public class RetentionEventTypeItemRequestBuilderGetQueryParameters 
         {

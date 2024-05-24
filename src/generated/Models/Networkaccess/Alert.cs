@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Alert : ApiSdk.Models.Entity, IParsable 
+    public class Alert : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actions property</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<AlertAction>(AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alertType", n => { AlertType = n.GetEnumValue<AlertType>(); } },
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<RelatedResource>(RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AlertAction>(AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertType", n => { AlertType = n.GetEnumValue<AlertType>(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<RelatedResource>(RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

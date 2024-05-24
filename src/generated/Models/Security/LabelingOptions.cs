@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class LabelingOptions : IAdditionalDataHolder, IParsable 
+    public class LabelingOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentMethod", n => { AssignmentMethod = n.GetEnumValue<AssignmentMethod>(); } },
-                {"downgradeJustification", n => { DowngradeJustification = n.GetObjectValue<ApiSdk.Models.Security.DowngradeJustification>(ApiSdk.Models.Security.DowngradeJustification.CreateFromDiscriminatorValue); } },
-                {"extendedProperties", n => { ExtendedProperties = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"labelId", n => { LabelId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "assignmentMethod", n => { AssignmentMethod = n.GetEnumValue<AssignmentMethod>(); } },
+                { "downgradeJustification", n => { DowngradeJustification = n.GetObjectValue<ApiSdk.Models.Security.DowngradeJustification>(ApiSdk.Models.Security.DowngradeJustification.CreateFromDiscriminatorValue); } },
+                { "extendedProperties", n => { ExtendedProperties = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labelId", n => { LabelId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

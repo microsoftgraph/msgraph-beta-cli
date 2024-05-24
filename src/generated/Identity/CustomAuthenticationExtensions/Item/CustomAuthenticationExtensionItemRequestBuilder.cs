@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item {
+namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item
+{
     /// <summary>
     /// Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class CustomAuthenticationExtensionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CustomAuthenticationExtensionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property customAuthenticationExtensions for identity
+        /// Delete a customAuthenticationExtension object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customauthenticationextension-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property customAuthenticationExtensions for identity";
+            command.Description = "Delete a customAuthenticationExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customauthenticationextension-delete?view=graph-rest-beta";
             var customAuthenticationExtensionIdOption = new Option<string>("--custom-authentication-extension-id", description: "The unique identifier of customAuthenticationExtension") {
             };
             customAuthenticationExtensionIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item {
             return command;
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Read the properties and relationships of a customAuthenticationExtension object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get customAuthenticationExtensions from identity";
+            command.Description = "Read the properties and relationships of a customAuthenticationExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-beta";
             var customAuthenticationExtensionIdOption = new Option<string>("--custom-authentication-extension-id", description: "The unique identifier of customAuthenticationExtension") {
             };
             customAuthenticationExtensionIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property customAuthenticationExtensions for identity
+        /// Delete a customAuthenticationExtension object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Read the properties and relationships of a customAuthenticationExtension object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Read the properties and relationships of a customAuthenticationExtension object.
         /// </summary>
         public class CustomAuthenticationExtensionItemRequestBuilderGetQueryParameters 
         {

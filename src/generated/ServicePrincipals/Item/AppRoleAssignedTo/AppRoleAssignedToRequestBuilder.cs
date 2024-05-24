@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
+namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo
+{
     /// <summary>
     /// Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class AppRoleAssignedToRequestBuilder : BaseCliRequestBuilder 
+    public class AppRoleAssignedToRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignedTo for servicePrincipals
+        /// Assign an app role for a resource service principal, to a user, group, or client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment, you need three identifiers:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignedto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to appRoleAssignedTo for servicePrincipals";
+            command.Description = "Assign an app role for a resource service principal, to a user, group, or client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment, you need three identifiers:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignedto?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return command;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// Read the properties and relationships of an appRoleAssignment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-approleassignedto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.";
+            command.Description = "Read the properties and relationships of an appRoleAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-approleassignedto?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
         {
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// Read the properties and relationships of an appRoleAssignment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignedTo for servicePrincipals
+        /// Assign an app role for a resource service principal, to a user, group, or client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment, you need three identifiers:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// Read the properties and relationships of an appRoleAssignment object.
         /// </summary>
         public class AppRoleAssignedToRequestBuilderGetQueryParameters 
         {

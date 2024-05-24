@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities {
+namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities
+{
     #pragma warning disable CS1591
-    public class AddActivitiesPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class AddActivitiesPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConn
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ExternalActivityResult>(ExternalActivityResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ExternalActivityResult>(ExternalActivityResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
+namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item
+{
     /// <summary>
     /// Provides operations to manage the languages property of the microsoft.graph.b2cIdentityUserFlow entity.
     /// </summary>
-    public class UserFlowLanguageConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserFlowLanguageConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -50,13 +51,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property languages for identity
+        /// Deletes a userFlowLanguageConfiguration object from a Azure AD B2C user flow. Note: You cannot delete languages from an Microsoft Entra user flow.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property languages for identity";
+            command.Description = "Deletes a userFlowLanguageConfiguration object from a Azure AD B2C user flow. Note: You cannot delete languages from an Microsoft Entra user flow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-delete?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -91,13 +93,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return command;
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+        /// Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.";
+            command.Description = "Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -176,13 +179,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property languages in identity
+        /// This method is used to create or update a custom language in an Azure AD B2C user flow. Note: You must enable language customization in the Azure AD B2C user flow before you can create a custom language. For more information, see Update b2cIdentityUserFlow.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-put-languages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property languages in identity";
+            command.Description = "This method is used to create or update a custom language in an Azure AD B2C user flow. Note: You must enable language customization in the Azure AD B2C user flow before you can create a custom language. For more information, see Update b2cIdentityUserFlow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-put-languages?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -247,7 +251,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property languages for identity
+        /// Deletes a userFlowLanguageConfiguration object from a Azure AD B2C user flow. Note: You cannot delete languages from an Microsoft Entra user flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -266,7 +270,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+        /// Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -285,7 +289,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property languages in identity
+        /// This method is used to create or update a custom language in an Azure AD B2C user flow. Note: You must enable language customization in the Azure AD B2C user flow before you can create a custom language. For more information, see Update b2cIdentityUserFlow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -306,7 +310,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.Languages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+        /// Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.
         /// </summary>
         public class UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters 
         {

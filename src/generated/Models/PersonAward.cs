@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PersonAward : ItemFacet, IParsable 
+    public class PersonAward : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Descpription of the award or honor.</summary>
@@ -77,12 +78,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"issuedDate", n => { IssuedDate = n.GetDateValue(); } },
-                {"issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "issuedDate", n => { IssuedDate = n.GetDateValue(); } },
+                { "issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Operations {
+namespace ApiSdk.Chats.Item.Operations
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.chat entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    public class OperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the operations property of the microsoft.graph.chat entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Chats.Item.Operations {
             return command;
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// List all Teams async operations that ran or are running on the specified chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list-operations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the Teams async operations that ran or are running on the chat. Nullable.";
+            command.Description = "List all Teams async operations that ran or are running on the specified chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-operations?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Chats.Item.Operations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Chats.Item.Operations {
         {
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// List all Teams async operations that ran or are running on the specified chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Chats.Item.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// List all Teams async operations that ran or are running on the specified chat.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

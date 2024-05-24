@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.RestoreCloudPc {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.RestoreCloudPc
+{
     #pragma warning disable CS1591
-    public class RestoreCloudPcPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RestoreCloudPcPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.RestoreCloudPc {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cloudPcSnapshotId", n => { CloudPcSnapshotId = n.GetStringValue(); } },
+                { "cloudPcSnapshotId", n => { CloudPcSnapshotId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Hardware information of a given device.
     /// </summary>
-    public class HardwareInformation : IAdditionalDataHolder, IParsable 
+    public class HardwareInformation : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -275,47 +276,47 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"batteryChargeCycles", n => { BatteryChargeCycles = n.GetIntValue(); } },
-                {"batteryHealthPercentage", n => { BatteryHealthPercentage = n.GetIntValue(); } },
-                {"batteryLevelPercentage", n => { BatteryLevelPercentage = n.GetDoubleValue(); } },
-                {"batterySerialNumber", n => { BatterySerialNumber = n.GetStringValue(); } },
-                {"cellularTechnology", n => { CellularTechnology = n.GetStringValue(); } },
-                {"deviceFullQualifiedDomainName", n => { DeviceFullQualifiedDomainName = n.GetStringValue(); } },
-                {"deviceGuardLocalSystemAuthorityCredentialGuardState", n => { DeviceGuardLocalSystemAuthorityCredentialGuardState = n.GetEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardState>(); } },
-                {"deviceGuardVirtualizationBasedSecurityHardwareRequirementState", n => { DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>(); } },
-                {"deviceGuardVirtualizationBasedSecurityState", n => { DeviceGuardVirtualizationBasedSecurityState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityState>(); } },
-                {"deviceLicensingLastErrorCode", n => { DeviceLicensingLastErrorCode = n.GetIntValue(); } },
-                {"deviceLicensingLastErrorDescription", n => { DeviceLicensingLastErrorDescription = n.GetStringValue(); } },
-                {"deviceLicensingStatus", n => { DeviceLicensingStatus = n.GetEnumValue<DeviceLicensingStatus>(); } },
-                {"esimIdentifier", n => { EsimIdentifier = n.GetStringValue(); } },
-                {"freeStorageSpace", n => { FreeStorageSpace = n.GetLongValue(); } },
-                {"imei", n => { Imei = n.GetStringValue(); } },
-                {"ipAddressV4", n => { IpAddressV4 = n.GetStringValue(); } },
-                {"isEncrypted", n => { IsEncrypted = n.GetBoolValue(); } },
-                {"isSharedDevice", n => { IsSharedDevice = n.GetBoolValue(); } },
-                {"isSupervised", n => { IsSupervised = n.GetBoolValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"meid", n => { Meid = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operatingSystemEdition", n => { OperatingSystemEdition = n.GetStringValue(); } },
-                {"operatingSystemLanguage", n => { OperatingSystemLanguage = n.GetStringValue(); } },
-                {"operatingSystemProductType", n => { OperatingSystemProductType = n.GetIntValue(); } },
-                {"osBuildNumber", n => { OsBuildNumber = n.GetStringValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"productName", n => { ProductName = n.GetStringValue(); } },
-                {"residentUsersCount", n => { ResidentUsersCount = n.GetIntValue(); } },
-                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
-                {"sharedDeviceCachedUsers", n => { SharedDeviceCachedUsers = n.GetCollectionOfObjectValues<SharedAppleDeviceUser>(SharedAppleDeviceUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"subnetAddress", n => { SubnetAddress = n.GetStringValue(); } },
-                {"subscriberCarrier", n => { SubscriberCarrier = n.GetStringValue(); } },
-                {"systemManagementBIOSVersion", n => { SystemManagementBIOSVersion = n.GetStringValue(); } },
-                {"totalStorageSpace", n => { TotalStorageSpace = n.GetLongValue(); } },
-                {"tpmManufacturer", n => { TpmManufacturer = n.GetStringValue(); } },
-                {"tpmSpecificationVersion", n => { TpmSpecificationVersion = n.GetStringValue(); } },
-                {"tpmVersion", n => { TpmVersion = n.GetStringValue(); } },
-                {"wifiMac", n => { WifiMac = n.GetStringValue(); } },
-                {"wiredIPv4Addresses", n => { WiredIPv4Addresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "batteryChargeCycles", n => { BatteryChargeCycles = n.GetIntValue(); } },
+                { "batteryHealthPercentage", n => { BatteryHealthPercentage = n.GetIntValue(); } },
+                { "batteryLevelPercentage", n => { BatteryLevelPercentage = n.GetDoubleValue(); } },
+                { "batterySerialNumber", n => { BatterySerialNumber = n.GetStringValue(); } },
+                { "cellularTechnology", n => { CellularTechnology = n.GetStringValue(); } },
+                { "deviceFullQualifiedDomainName", n => { DeviceFullQualifiedDomainName = n.GetStringValue(); } },
+                { "deviceGuardLocalSystemAuthorityCredentialGuardState", n => { DeviceGuardLocalSystemAuthorityCredentialGuardState = n.GetEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardState>(); } },
+                { "deviceGuardVirtualizationBasedSecurityHardwareRequirementState", n => { DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>(); } },
+                { "deviceGuardVirtualizationBasedSecurityState", n => { DeviceGuardVirtualizationBasedSecurityState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityState>(); } },
+                { "deviceLicensingLastErrorCode", n => { DeviceLicensingLastErrorCode = n.GetIntValue(); } },
+                { "deviceLicensingLastErrorDescription", n => { DeviceLicensingLastErrorDescription = n.GetStringValue(); } },
+                { "deviceLicensingStatus", n => { DeviceLicensingStatus = n.GetEnumValue<DeviceLicensingStatus>(); } },
+                { "esimIdentifier", n => { EsimIdentifier = n.GetStringValue(); } },
+                { "freeStorageSpace", n => { FreeStorageSpace = n.GetLongValue(); } },
+                { "imei", n => { Imei = n.GetStringValue(); } },
+                { "ipAddressV4", n => { IpAddressV4 = n.GetStringValue(); } },
+                { "isEncrypted", n => { IsEncrypted = n.GetBoolValue(); } },
+                { "isSharedDevice", n => { IsSharedDevice = n.GetBoolValue(); } },
+                { "isSupervised", n => { IsSupervised = n.GetBoolValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "meid", n => { Meid = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "operatingSystemEdition", n => { OperatingSystemEdition = n.GetStringValue(); } },
+                { "operatingSystemLanguage", n => { OperatingSystemLanguage = n.GetStringValue(); } },
+                { "operatingSystemProductType", n => { OperatingSystemProductType = n.GetIntValue(); } },
+                { "osBuildNumber", n => { OsBuildNumber = n.GetStringValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "productName", n => { ProductName = n.GetStringValue(); } },
+                { "residentUsersCount", n => { ResidentUsersCount = n.GetIntValue(); } },
+                { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                { "sharedDeviceCachedUsers", n => { SharedDeviceCachedUsers = n.GetCollectionOfObjectValues<SharedAppleDeviceUser>(SharedAppleDeviceUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "subnetAddress", n => { SubnetAddress = n.GetStringValue(); } },
+                { "subscriberCarrier", n => { SubscriberCarrier = n.GetStringValue(); } },
+                { "systemManagementBIOSVersion", n => { SystemManagementBIOSVersion = n.GetStringValue(); } },
+                { "totalStorageSpace", n => { TotalStorageSpace = n.GetLongValue(); } },
+                { "tpmManufacturer", n => { TpmManufacturer = n.GetStringValue(); } },
+                { "tpmSpecificationVersion", n => { TpmSpecificationVersion = n.GetStringValue(); } },
+                { "tpmVersion", n => { TpmVersion = n.GetStringValue(); } },
+                { "wifiMac", n => { WifiMac = n.GetStringValue(); } },
+                { "wiredIPv4Addresses", n => { WiredIPv4Addresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

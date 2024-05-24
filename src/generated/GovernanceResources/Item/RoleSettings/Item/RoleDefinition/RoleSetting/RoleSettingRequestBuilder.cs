@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item.RoleSettings.Item.RoleDefinition.RoleSetting {
+namespace ApiSdk.GovernanceResources.Item.RoleSettings.Item.RoleDefinition.RoleSetting
+{
     /// <summary>
     /// Provides operations to manage the roleSetting property of the microsoft.graph.governanceRoleDefinition entity.
     /// </summary>
-    public class RoleSettingRequestBuilder : BaseCliRequestBuilder 
+    public class RoleSettingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The associated role setting for the role definition.

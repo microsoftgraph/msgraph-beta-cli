@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// String constraints
     /// </summary>
-    public class DeviceManagementConfigurationStringSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable 
+    public class DeviceManagementConfigurationStringSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable
     {
         /// <summary>Supported file types for this setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,12 +60,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileTypes", n => { FileTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"format", n => { Format = n.GetEnumValue<DeviceManagementConfigurationStringFormat>(); } },
-                {"inputValidationSchema", n => { InputValidationSchema = n.GetStringValue(); } },
-                {"isSecret", n => { IsSecret = n.GetBoolValue(); } },
-                {"maximumLength", n => { MaximumLength = n.GetLongValue(); } },
-                {"minimumLength", n => { MinimumLength = n.GetLongValue(); } },
+                { "fileTypes", n => { FileTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "format", n => { Format = n.GetEnumValue<DeviceManagementConfigurationStringFormat>(); } },
+                { "inputValidationSchema", n => { InputValidationSchema = n.GetStringValue(); } },
+                { "isSecret", n => { IsSecret = n.GetBoolValue(); } },
+                { "maximumLength", n => { MaximumLength = n.GetLongValue(); } },
+                { "minimumLength", n => { MinimumLength = n.GetLongValue(); } },
             };
         }
         /// <summary>

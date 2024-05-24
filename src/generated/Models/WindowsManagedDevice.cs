@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows devices that are managed or pre-enrolled through Intune
     /// </summary>
-    public class WindowsManagedDevice : ManagedDevice, IParsable 
+    public class WindowsManagedDevice : ManagedDevice, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="WindowsManagedDevice"/> and sets the default values.

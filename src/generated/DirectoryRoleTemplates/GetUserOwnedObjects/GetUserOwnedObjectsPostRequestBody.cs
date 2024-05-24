@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectoryRoleTemplates.GetUserOwnedObjects {
+namespace ApiSdk.DirectoryRoleTemplates.GetUserOwnedObjects
+{
     #pragma warning disable CS1591
-    public class GetUserOwnedObjectsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetUserOwnedObjectsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.DirectoryRoleTemplates.GetUserOwnedObjects {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

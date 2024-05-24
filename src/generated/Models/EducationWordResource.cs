@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationWordResource : EducationResource, IParsable 
+    public class EducationWordResource : EducationResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Location of the file on disk.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileUrl", n => { FileUrl = n.GetStringValue(); } },
+                { "fileUrl", n => { FileUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

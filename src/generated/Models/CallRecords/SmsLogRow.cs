@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class SmsLogRow : CallLogRow, IParsable 
+    public class SmsLogRow : CallLogRow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Amount of money or cost of the SMS that is charged.</summary>
@@ -113,19 +114,19 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callCharge", n => { CallCharge = n.GetDecimalValue(); } },
-                {"currency", n => { Currency = n.GetStringValue(); } },
-                {"destinationContext", n => { DestinationContext = n.GetStringValue(); } },
-                {"destinationName", n => { DestinationName = n.GetStringValue(); } },
-                {"destinationNumber", n => { DestinationNumber = n.GetStringValue(); } },
-                {"licenseCapability", n => { LicenseCapability = n.GetStringValue(); } },
-                {"sentDateTime", n => { SentDateTime = n.GetDateTimeOffsetValue(); } },
-                {"smsId", n => { SmsId = n.GetStringValue(); } },
-                {"smsType", n => { SmsType = n.GetStringValue(); } },
-                {"smsUnits", n => { SmsUnits = n.GetIntValue(); } },
-                {"sourceNumber", n => { SourceNumber = n.GetStringValue(); } },
-                {"tenantCountryCode", n => { TenantCountryCode = n.GetStringValue(); } },
-                {"userCountryCode", n => { UserCountryCode = n.GetStringValue(); } },
+                { "callCharge", n => { CallCharge = n.GetDecimalValue(); } },
+                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "destinationContext", n => { DestinationContext = n.GetStringValue(); } },
+                { "destinationName", n => { DestinationName = n.GetStringValue(); } },
+                { "destinationNumber", n => { DestinationNumber = n.GetStringValue(); } },
+                { "licenseCapability", n => { LicenseCapability = n.GetStringValue(); } },
+                { "sentDateTime", n => { SentDateTime = n.GetDateTimeOffsetValue(); } },
+                { "smsId", n => { SmsId = n.GetStringValue(); } },
+                { "smsType", n => { SmsType = n.GetStringValue(); } },
+                { "smsUnits", n => { SmsUnits = n.GetIntValue(); } },
+                { "sourceNumber", n => { SourceNumber = n.GetStringValue(); } },
+                { "tenantCountryCode", n => { TenantCountryCode = n.GetStringValue(); } },
+                { "userCountryCode", n => { UserCountryCode = n.GetStringValue(); } },
             };
         }
         /// <summary>

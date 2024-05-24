@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Calendar {
+namespace ApiSdk.Users.Item.Calendar
+{
     /// <summary>
     /// Provides operations to manage the calendar property of the microsoft.graph.user entity.
     /// </summary>
-    public class CalendarRequestBuilder : BaseCliRequestBuilder 
+    public class CalendarRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the allowedCalendarSharingRoles method.

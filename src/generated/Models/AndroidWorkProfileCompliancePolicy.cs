@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This class contains compliance settings for Android Work Profile.
     /// </summary>
-    public class AndroidWorkProfileCompliancePolicy : DeviceCompliancePolicy, IParsable 
+    public class AndroidWorkProfileCompliancePolicy : DeviceCompliancePolicy, IParsable
     {
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
         public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
@@ -117,38 +118,38 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
-                {"deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
-                {"deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
-                {"minAndroidSecurityPatchLevel", n => { MinAndroidSecurityPatchLevel = n.GetStringValue(); } },
-                {"osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
-                {"osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
-                {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
-                {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
-                {"passwordMinutesOfInactivityBeforeLock", n => { PasswordMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
-                {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
-                {"passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
-                {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidRequiredPasswordType>(); } },
-                {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
-                {"requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
-                {"securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
-                {"securityDisableUsbDebugging", n => { SecurityDisableUsbDebugging = n.GetBoolValue(); } },
-                {"securityPreventInstallAppsFromUnknownSources", n => { SecurityPreventInstallAppsFromUnknownSources = n.GetBoolValue(); } },
-                {"securityRequireCompanyPortalAppIntegrity", n => { SecurityRequireCompanyPortalAppIntegrity = n.GetBoolValue(); } },
-                {"securityRequireGooglePlayServices", n => { SecurityRequireGooglePlayServices = n.GetBoolValue(); } },
-                {"securityRequireSafetyNetAttestationBasicIntegrity", n => { SecurityRequireSafetyNetAttestationBasicIntegrity = n.GetBoolValue(); } },
-                {"securityRequireSafetyNetAttestationCertifiedDevice", n => { SecurityRequireSafetyNetAttestationCertifiedDevice = n.GetBoolValue(); } },
-                {"securityRequireUpToDateSecurityProviders", n => { SecurityRequireUpToDateSecurityProviders = n.GetBoolValue(); } },
-                {"securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
-                {"securityRequiredAndroidSafetyNetEvaluationType", n => { SecurityRequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidSafetyNetEvaluationType>(); } },
-                {"storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
-                {"workProfileInactiveBeforeScreenLockInMinutes", n => { WorkProfileInactiveBeforeScreenLockInMinutes = n.GetIntValue(); } },
-                {"workProfilePasswordExpirationInDays", n => { WorkProfilePasswordExpirationInDays = n.GetIntValue(); } },
-                {"workProfilePasswordMinimumLength", n => { WorkProfilePasswordMinimumLength = n.GetIntValue(); } },
-                {"workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<AndroidWorkProfileRequiredPasswordType>(); } },
-                {"workProfilePreviousPasswordBlockCount", n => { WorkProfilePreviousPasswordBlockCount = n.GetIntValue(); } },
-                {"workProfileRequirePassword", n => { WorkProfileRequirePassword = n.GetBoolValue(); } },
-                {"workProfileRequiredPasswordComplexity", n => { WorkProfileRequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
+                { "advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
+                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "minAndroidSecurityPatchLevel", n => { MinAndroidSecurityPatchLevel = n.GetStringValue(); } },
+                { "osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
+                { "osMinimumVersion", n => { OsMinimumVersion = n.GetStringValue(); } },
+                { "passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
+                { "passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
+                { "passwordMinutesOfInactivityBeforeLock", n => { PasswordMinutesOfInactivityBeforeLock = n.GetIntValue(); } },
+                { "passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
+                { "passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
+                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidRequiredPasswordType>(); } },
+                { "passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
+                { "requiredPasswordComplexity", n => { RequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
+                { "securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
+                { "securityDisableUsbDebugging", n => { SecurityDisableUsbDebugging = n.GetBoolValue(); } },
+                { "securityPreventInstallAppsFromUnknownSources", n => { SecurityPreventInstallAppsFromUnknownSources = n.GetBoolValue(); } },
+                { "securityRequireCompanyPortalAppIntegrity", n => { SecurityRequireCompanyPortalAppIntegrity = n.GetBoolValue(); } },
+                { "securityRequireGooglePlayServices", n => { SecurityRequireGooglePlayServices = n.GetBoolValue(); } },
+                { "securityRequireSafetyNetAttestationBasicIntegrity", n => { SecurityRequireSafetyNetAttestationBasicIntegrity = n.GetBoolValue(); } },
+                { "securityRequireSafetyNetAttestationCertifiedDevice", n => { SecurityRequireSafetyNetAttestationCertifiedDevice = n.GetBoolValue(); } },
+                { "securityRequireUpToDateSecurityProviders", n => { SecurityRequireUpToDateSecurityProviders = n.GetBoolValue(); } },
+                { "securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
+                { "securityRequiredAndroidSafetyNetEvaluationType", n => { SecurityRequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidSafetyNetEvaluationType>(); } },
+                { "storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
+                { "workProfileInactiveBeforeScreenLockInMinutes", n => { WorkProfileInactiveBeforeScreenLockInMinutes = n.GetIntValue(); } },
+                { "workProfilePasswordExpirationInDays", n => { WorkProfilePasswordExpirationInDays = n.GetIntValue(); } },
+                { "workProfilePasswordMinimumLength", n => { WorkProfilePasswordMinimumLength = n.GetIntValue(); } },
+                { "workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<AndroidWorkProfileRequiredPasswordType>(); } },
+                { "workProfilePreviousPasswordBlockCount", n => { WorkProfilePreviousPasswordBlockCount = n.GetIntValue(); } },
+                { "workProfileRequirePassword", n => { WorkProfileRequirePassword = n.GetBoolValue(); } },
+                { "workProfileRequiredPasswordComplexity", n => { WorkProfileRequiredPasswordComplexity = n.GetEnumValue<AndroidRequiredPasswordComplexity>(); } },
             };
         }
         /// <summary>

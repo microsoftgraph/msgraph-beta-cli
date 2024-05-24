@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item {
+namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the certificateConnectorDetails property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class CertificateConnectorDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateConnectorDetailsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property certificateConnectorDetails for deviceManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.Item
+{
     /// <summary>
     /// Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagedDeviceComplianceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceComplianceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedDeviceCompliances for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.Ite
             return command;
         }
         /// <summary>
-        /// The collection of compliance for managed devices across managed tenants.
+        /// Read the properties and relationships of a managedDeviceCompliance object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliance-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of compliance for managed devices across managed tenants.";
+            command.Description = "Read the properties and relationships of a managedDeviceCompliance object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliance-get?view=graph-rest-beta";
             var managedDeviceComplianceIdOption = new Option<string>("--managed-device-compliance-id", description: "The unique identifier of managedDeviceCompliance") {
             };
             managedDeviceComplianceIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.Ite
             return requestInfo;
         }
         /// <summary>
-        /// The collection of compliance for managed devices across managed tenants.
+        /// Read the properties and relationships of a managedDeviceCompliance object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.Ite
             return requestInfo;
         }
         /// <summary>
-        /// The collection of compliance for managed devices across managed tenants.
+        /// Read the properties and relationships of a managedDeviceCompliance object.
         /// </summary>
         public class ManagedDeviceComplianceItemRequestBuilderGetQueryParameters 
         {

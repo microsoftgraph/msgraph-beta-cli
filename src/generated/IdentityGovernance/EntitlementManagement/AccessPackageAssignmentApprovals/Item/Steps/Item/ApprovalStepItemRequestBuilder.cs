@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Steps.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Steps.Item
+{
     /// <summary>
     /// Provides operations to manage the steps property of the microsoft.graph.approval entity.
     /// </summary>
-    public class ApprovalStepItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalStepItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property steps for identityGovernance
@@ -62,13 +63,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// Retrieve the properties of an approvalStep object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Used to represent the decision associated with a single step in the approval process configured in approvalStage.";
+            command.Description = "Retrieve the properties of an approvalStep object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-beta";
             var approvalIdOption = new Option<string>("--approval-id", description: "The unique identifier of approval") {
             };
             approvalIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Update the navigation property steps in identityGovernance
+        /// Apply approve or deny decision on an approvalStep object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/approvalstep-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property steps in identityGovernance";
+            command.Description = "Apply approve or deny decision on an approvalStep object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approvalstep-update?view=graph-rest-beta";
             var approvalIdOption = new Option<string>("--approval-id", description: "The unique identifier of approval") {
             };
             approvalIdOption.IsRequired = true;
@@ -210,7 +213,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// Retrieve the properties of an approvalStep object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property steps in identityGovernance
+        /// Apply approve or deny decision on an approvalStep object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+        /// Retrieve the properties of an approvalStep object.
         /// </summary>
         public class ApprovalStepItemRequestBuilderGetQueryParameters 
         {

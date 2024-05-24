@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item {
+namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
+{
     /// <summary>
     /// Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.
     /// </summary>
-    public class CustomerPaymentJournalItemRequestBuilder : BaseCliRequestBuilder 
+    public class CustomerPaymentJournalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.customerPaymentJournal entity.
@@ -74,11 +75,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property customerPaymentJournals for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);
@@ -115,11 +116,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item {
         {
             var command = new Command("get");
             command.Description = "Get customerPaymentJournals from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);
@@ -173,11 +174,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property customerPaymentJournals in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);

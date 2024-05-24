@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Choose {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Choose
+{
     #pragma warning disable CS1591
-    public class ChoosePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ChoosePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Choose {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"indexNum", n => { IndexNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "indexNum", n => { IndexNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

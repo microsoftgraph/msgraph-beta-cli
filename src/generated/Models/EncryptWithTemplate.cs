@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EncryptWithTemplate : EncryptContent, IParsable 
+    public class EncryptWithTemplate : EncryptContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The availableForEncryption property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"availableForEncryption", n => { AvailableForEncryption = n.GetBoolValue(); } },
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "availableForEncryption", n => { AvailableForEncryption = n.GetBoolValue(); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

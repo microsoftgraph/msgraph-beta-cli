@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents one item in the list of managed apps with app details and its associated delegated scope(s).
     /// </summary>
-    public class AndroidDeviceOwnerDelegatedScopeAppSetting : IAdditionalDataHolder, IParsable 
+    public class AndroidDeviceOwnerDelegatedScopeAppSetting : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -61,9 +62,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appDetail", n => { AppDetail = n.GetObjectValue<AppListItem>(AppListItem.CreateFromDiscriminatorValue); } },
-                {"appScopes", n => { AppScopes = n.GetCollectionOfEnumValues<AndroidDeviceOwnerDelegatedAppScopeType>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "appDetail", n => { AppDetail = n.GetObjectValue<AppListItem>(AppListItem.CreateFromDiscriminatorValue); } },
+                { "appScopes", n => { AppScopes = n.GetCollectionOfEnumValues<AndroidDeviceOwnerDelegatedAppScopeType>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

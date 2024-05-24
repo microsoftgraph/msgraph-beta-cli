@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTeamsPublicationInfo : PlannerTaskCreation, IParsable 
+    public class PlannerTeamsPublicationInfo : PlannerTaskCreation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when this task was last modified by the publication process. Read-only.</summary>
@@ -76,12 +77,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"publicationId", n => { PublicationId = n.GetStringValue(); } },
-                {"publishedToPlanId", n => { PublishedToPlanId = n.GetStringValue(); } },
-                {"publishingTeamId", n => { PublishingTeamId = n.GetStringValue(); } },
-                {"publishingTeamName", n => { PublishingTeamName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "publicationId", n => { PublicationId = n.GetStringValue(); } },
+                { "publishedToPlanId", n => { PublishedToPlanId = n.GetStringValue(); } },
+                { "publishingTeamId", n => { PublishingTeamId = n.GetStringValue(); } },
+                { "publishingTeamName", n => { PublishingTeamName = n.GetStringValue(); } },
             };
         }
         /// <summary>

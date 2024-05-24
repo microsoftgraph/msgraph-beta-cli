@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods {
+namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods
+{
     /// <summary>
     /// Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class SoftwareOathMethodsRequestBuilder : BaseCliRequestBuilder 
+    public class SoftwareOathMethodsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -140,7 +141,9 @@ namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

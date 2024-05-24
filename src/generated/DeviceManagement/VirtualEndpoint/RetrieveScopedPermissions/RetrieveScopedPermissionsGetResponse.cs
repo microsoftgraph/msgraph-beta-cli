@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions
+{
     #pragma warning disable CS1591
-    public class RetrieveScopedPermissionsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class RetrieveScopedPermissionsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<CloudPcScopedPermission>(CloudPcScopedPermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcScopedPermission>(CloudPcScopedPermission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

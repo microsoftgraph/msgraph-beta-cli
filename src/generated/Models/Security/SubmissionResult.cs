@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class SubmissionResult : IAdditionalDataHolder, IParsable 
+    public class SubmissionResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -66,12 +67,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"category", n => { Category = n.GetEnumValue<SubmissionResultCategory>(); } },
-                {"detail", n => { Detail = n.GetEnumValue<SubmissionResultDetail>(); } },
-                {"detectedFiles", n => { DetectedFiles = n.GetCollectionOfObjectValues<SubmissionDetectedFile>(SubmissionDetectedFile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"detectedUrls", n => { DetectedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"userMailboxSetting", n => { UserMailboxSetting = n.GetEnumValue<UserMailboxSetting>(); } },
+                { "category", n => { Category = n.GetEnumValue<SubmissionResultCategory>(); } },
+                { "detail", n => { Detail = n.GetEnumValue<SubmissionResultDetail>(); } },
+                { "detectedFiles", n => { DetectedFiles = n.GetCollectionOfObjectValues<SubmissionDetectedFile>(SubmissionDetectedFile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "detectedUrls", n => { DetectedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "userMailboxSetting", n => { UserMailboxSetting = n.GetEnumValue<UserMailboxSetting>(); } },
             };
         }
         /// <summary>

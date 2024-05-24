@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows 10 Enrollment Status Page Configuration
     /// </summary>
-    public class Windows10EnrollmentCompletionPageConfiguration : DeviceEnrollmentConfiguration, IParsable 
+    public class Windows10EnrollmentCompletionPageConfiguration : DeviceEnrollmentConfiguration, IParsable
     {
         /// <summary>When TRUE, allows device reset on installation failure. When false, reset is blocked. The default is false.</summary>
         public bool? AllowDeviceResetOnInstallFailure { get; set; }
@@ -71,18 +72,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowDeviceResetOnInstallFailure", n => { AllowDeviceResetOnInstallFailure = n.GetBoolValue(); } },
-                {"allowDeviceUseOnInstallFailure", n => { AllowDeviceUseOnInstallFailure = n.GetBoolValue(); } },
-                {"allowLogCollectionOnInstallFailure", n => { AllowLogCollectionOnInstallFailure = n.GetBoolValue(); } },
-                {"allowNonBlockingAppInstallation", n => { AllowNonBlockingAppInstallation = n.GetBoolValue(); } },
-                {"blockDeviceSetupRetryByUser", n => { BlockDeviceSetupRetryByUser = n.GetBoolValue(); } },
-                {"customErrorMessage", n => { CustomErrorMessage = n.GetStringValue(); } },
-                {"disableUserStatusTrackingAfterFirstUser", n => { DisableUserStatusTrackingAfterFirstUser = n.GetBoolValue(); } },
-                {"installProgressTimeoutInMinutes", n => { InstallProgressTimeoutInMinutes = n.GetIntValue(); } },
-                {"installQualityUpdates", n => { InstallQualityUpdates = n.GetBoolValue(); } },
-                {"selectedMobileAppIds", n => { SelectedMobileAppIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"showInstallationProgress", n => { ShowInstallationProgress = n.GetBoolValue(); } },
-                {"trackInstallProgressForAutopilotOnly", n => { TrackInstallProgressForAutopilotOnly = n.GetBoolValue(); } },
+                { "allowDeviceResetOnInstallFailure", n => { AllowDeviceResetOnInstallFailure = n.GetBoolValue(); } },
+                { "allowDeviceUseOnInstallFailure", n => { AllowDeviceUseOnInstallFailure = n.GetBoolValue(); } },
+                { "allowLogCollectionOnInstallFailure", n => { AllowLogCollectionOnInstallFailure = n.GetBoolValue(); } },
+                { "allowNonBlockingAppInstallation", n => { AllowNonBlockingAppInstallation = n.GetBoolValue(); } },
+                { "blockDeviceSetupRetryByUser", n => { BlockDeviceSetupRetryByUser = n.GetBoolValue(); } },
+                { "customErrorMessage", n => { CustomErrorMessage = n.GetStringValue(); } },
+                { "disableUserStatusTrackingAfterFirstUser", n => { DisableUserStatusTrackingAfterFirstUser = n.GetBoolValue(); } },
+                { "installProgressTimeoutInMinutes", n => { InstallProgressTimeoutInMinutes = n.GetIntValue(); } },
+                { "installQualityUpdates", n => { InstallQualityUpdates = n.GetBoolValue(); } },
+                { "selectedMobileAppIds", n => { SelectedMobileAppIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "showInstallationProgress", n => { ShowInstallationProgress = n.GetBoolValue(); } },
+                { "trackInstallProgressForAutopilotOnly", n => { TrackInstallProgressForAutopilotOnly = n.GetBoolValue(); } },
             };
         }
         /// <summary>

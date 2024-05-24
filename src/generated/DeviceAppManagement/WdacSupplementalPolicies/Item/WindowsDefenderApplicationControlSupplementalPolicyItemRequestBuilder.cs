@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item {
+namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the wdacSupplementalPolicies property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.

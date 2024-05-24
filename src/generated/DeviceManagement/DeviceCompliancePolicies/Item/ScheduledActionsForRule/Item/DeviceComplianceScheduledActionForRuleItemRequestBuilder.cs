@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule.Item {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule.Item
+{
     /// <summary>
     /// Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
     /// </summary>
-    public class DeviceComplianceScheduledActionForRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceComplianceScheduledActionForRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property scheduledActionsForRule for deviceManagement
@@ -63,13 +64,13 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
             return command;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.";
+            command.Description = "The list of scheduled action for this rule";
             var deviceCompliancePolicyIdOption = new Option<string>("--device-compliance-policy-id", description: "The unique identifier of deviceCompliancePolicy") {
             };
             deviceCompliancePolicyIdOption.IsRequired = true;
@@ -238,7 +239,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -278,7 +279,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         public class DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters 
         {

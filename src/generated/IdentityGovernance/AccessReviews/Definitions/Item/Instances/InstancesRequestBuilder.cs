@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances
+{
     /// <summary>
     /// Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
     /// </summary>
-    public class InstancesRequestBuilder : BaseCliRequestBuilder 
+    public class InstancesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
@@ -134,13 +135,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances {
             return command;
         }
         /// <summary>
-        /// Set of access reviews instances for this access review series. Access reviews that don&apos;t recur will only have one instance; otherwise, there&apos;s an instance for each recurrence.
+        /// Retrieve the accessReviewInstance objects for a specific accessReviewScheduleDefinition. A list of zero or more accessReviewInstance objects are returned, including all of their nested properties. Returned objects do not include associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Set of access reviews instances for this access review series. Access reviews that don't recur will only have one instance; otherwise, there's an instance for each recurrence.";
+            command.Description = "Retrieve the accessReviewInstance objects for a specific accessReviewScheduleDefinition. A list of zero or more accessReviewInstance objects are returned, including all of their nested properties. Returned objects do not include associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-beta";
             var accessReviewScheduleDefinitionIdOption = new Option<string>("--access-review-schedule-definition-id", description: "The unique identifier of accessReviewScheduleDefinition") {
             };
             accessReviewScheduleDefinitionIdOption.IsRequired = true;
@@ -222,7 +224,9 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -248,7 +252,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances {
         {
         }
         /// <summary>
-        /// Set of access reviews instances for this access review series. Access reviews that don&apos;t recur will only have one instance; otherwise, there&apos;s an instance for each recurrence.
+        /// Retrieve the accessReviewInstance objects for a specific accessReviewScheduleDefinition. A list of zero or more accessReviewInstance objects are returned, including all of their nested properties. Returned objects do not include associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +292,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances {
             return requestInfo;
         }
         /// <summary>
-        /// Set of access reviews instances for this access review series. Access reviews that don&apos;t recur will only have one instance; otherwise, there&apos;s an instance for each recurrence.
+        /// Retrieve the accessReviewInstance objects for a specific accessReviewScheduleDefinition. A list of zero or more accessReviewInstance objects are returned, including all of their nested properties. Returned objects do not include associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.
         /// </summary>
         public class InstancesRequestBuilderGetQueryParameters 
         {

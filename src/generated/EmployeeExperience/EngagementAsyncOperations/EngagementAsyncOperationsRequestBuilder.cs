@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
+namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations
+{
     /// <summary>
     /// Provides operations to manage the engagementAsyncOperations property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class EngagementAsyncOperationsRequestBuilder : BaseCliRequestBuilder 
+    public class EngagementAsyncOperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the engagementAsyncOperations property of the microsoft.graph.employeeExperience entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
             return command;
         }
         /// <summary>
-        /// A collection of long-running, asynchronous operations related to Viva Engage.
+        /// Get an engagementAsyncOperation to track a long-running operation request.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of long-running, asynchronous operations related to Viva Engage.";
+            command.Description = "Get an engagementAsyncOperation to track a long-running operation request.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
         {
         }
         /// <summary>
-        /// A collection of long-running, asynchronous operations related to Viva Engage.
+        /// Get an engagementAsyncOperation to track a long-running operation request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.EmployeeExperience.EngagementAsyncOperations {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of long-running, asynchronous operations related to Viva Engage.
+        /// Get an engagementAsyncOperation to track a long-running operation request.
         /// </summary>
         public class EngagementAsyncOperationsRequestBuilderGetQueryParameters 
         {

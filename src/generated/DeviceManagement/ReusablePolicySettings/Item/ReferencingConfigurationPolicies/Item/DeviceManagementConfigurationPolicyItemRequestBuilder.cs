@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item {
+namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
     /// </summary>
-    public class DeviceManagementConfigurationPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementConfigurationPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignJustInTimeConfiguration method.

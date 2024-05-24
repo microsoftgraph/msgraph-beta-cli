@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device Configuration.
     /// </summary>
-    public class WindowsWifiConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsWifiConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Specify whether the wifi connection should connect automatically when in range.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -96,19 +97,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectAutomatically", n => { ConnectAutomatically = n.GetBoolValue(); } },
-                {"connectToPreferredNetwork", n => { ConnectToPreferredNetwork = n.GetBoolValue(); } },
-                {"connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
-                {"forceFIPSCompliance", n => { ForceFIPSCompliance = n.GetBoolValue(); } },
-                {"meteredConnectionLimit", n => { MeteredConnectionLimit = n.GetEnumValue<MeteredConnectionLimitType>(); } },
-                {"networkName", n => { NetworkName = n.GetStringValue(); } },
-                {"preSharedKey", n => { PreSharedKey = n.GetStringValue(); } },
-                {"proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
-                {"proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
-                {"proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
-                {"proxySetting", n => { ProxySetting = n.GetEnumValue<WiFiProxySetting>(); } },
-                {"ssid", n => { Ssid = n.GetStringValue(); } },
-                {"wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<WiFiSecurityType>(); } },
+                { "connectAutomatically", n => { ConnectAutomatically = n.GetBoolValue(); } },
+                { "connectToPreferredNetwork", n => { ConnectToPreferredNetwork = n.GetBoolValue(); } },
+                { "connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
+                { "forceFIPSCompliance", n => { ForceFIPSCompliance = n.GetBoolValue(); } },
+                { "meteredConnectionLimit", n => { MeteredConnectionLimit = n.GetEnumValue<MeteredConnectionLimitType>(); } },
+                { "networkName", n => { NetworkName = n.GetStringValue(); } },
+                { "preSharedKey", n => { PreSharedKey = n.GetStringValue(); } },
+                { "proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
+                { "proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
+                { "proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
+                { "proxySetting", n => { ProxySetting = n.GetEnumValue<WiFiProxySetting>(); } },
+                { "ssid", n => { Ssid = n.GetStringValue(); } },
+                { "wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<WiFiSecurityType>(); } },
             };
         }
         /// <summary>

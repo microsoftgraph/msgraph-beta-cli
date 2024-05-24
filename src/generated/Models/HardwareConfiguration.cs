@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// BIOS configuration and other settings provides customers the ability to configure hardware/bios settings on the enrolled Windows 10/11 Entra ID joined devices by uploading a configuration file generated with their OEM tool (e.g. Dell Command tool). A BIOS configuration policy can be assigned to multiple devices, allowing admins to remotely control a device&apos;s hardware properties (e.g. enable Secure Boot) from the Intune Portal.
     /// </summary>
-    public class HardwareConfiguration : Entity, IParsable 
+    public class HardwareConfiguration : Entity, IParsable
     {
         /// <summary>A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,20 +111,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<HardwareConfigurationAssignment>(HardwareConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"configurationFileContent", n => { ConfigurationFileContent = n.GetByteArrayValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationDeviceState>(HardwareConfigurationDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
-                {"hardwareConfigurationFormat", n => { HardwareConfigurationFormat = n.GetEnumValue<HardwareConfigurationFormat>(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"perDevicePasswordDisabled", n => { PerDevicePasswordDisabled = n.GetBoolValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"runSummary", n => { RunSummary = n.GetObjectValue<HardwareConfigurationRunSummary>(HardwareConfigurationRunSummary.CreateFromDiscriminatorValue); } },
-                {"userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationUserState>(HardwareConfigurationUserState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<HardwareConfigurationAssignment>(HardwareConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configurationFileContent", n => { ConfigurationFileContent = n.GetByteArrayValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationDeviceState>(HardwareConfigurationDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
+                { "hardwareConfigurationFormat", n => { HardwareConfigurationFormat = n.GetEnumValue<HardwareConfigurationFormat>(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "perDevicePasswordDisabled", n => { PerDevicePasswordDisabled = n.GetBoolValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "runSummary", n => { RunSummary = n.GetObjectValue<HardwareConfigurationRunSummary>(HardwareConfigurationRunSummary.CreateFromDiscriminatorValue); } },
+                { "userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationUserState>(HardwareConfigurationUserState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

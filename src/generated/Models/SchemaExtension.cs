@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SchemaExtension : Entity, IParsable 
+    public class SchemaExtension : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Description for the schema extension. Supports $filter (eq).</summary>
@@ -67,11 +68,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"owner", n => { Owner = n.GetStringValue(); } },
-                {"properties", n => { Properties = n.GetCollectionOfObjectValues<ExtensionSchemaProperty>(ExtensionSchemaProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"targetTypes", n => { TargetTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
+                { "properties", n => { Properties = n.GetCollectionOfObjectValues<ExtensionSchemaProperty>(ExtensionSchemaProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "targetTypes", n => { TargetTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

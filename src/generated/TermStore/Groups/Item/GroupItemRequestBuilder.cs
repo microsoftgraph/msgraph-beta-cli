@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TermStore.Groups.Item {
+namespace ApiSdk.TermStore.Groups.Item
+{
     /// <summary>
     /// Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
     /// </summary>
-    public class GroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property groups for termStore
+        /// Delete a group object in a term [store].
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-group-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property groups for termStore";
+            command.Description = "Delete a group object in a term [store].\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-group-delete?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.TermStore.Groups.Item {
             return command;
         }
         /// <summary>
-        /// Collection of all groups available in the term store.
+        /// Read the properties and relationships of a term store group object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-group-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of all groups available in the term store.";
+            command.Description = "Read the properties and relationships of a term store group object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-group-get?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -201,7 +204,7 @@ namespace ApiSdk.TermStore.Groups.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property groups for termStore
+        /// Delete a group object in a term [store].
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +223,7 @@ namespace ApiSdk.TermStore.Groups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of all groups available in the term store.
+        /// Read the properties and relationships of a term store group object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +263,7 @@ namespace ApiSdk.TermStore.Groups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of all groups available in the term store.
+        /// Read the properties and relationships of a term store group object.
         /// </summary>
         public class GroupItemRequestBuilderGetQueryParameters 
         {

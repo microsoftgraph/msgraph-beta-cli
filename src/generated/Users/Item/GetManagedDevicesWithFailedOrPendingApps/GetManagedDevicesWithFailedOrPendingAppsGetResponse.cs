@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps {
+namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps
+{
     #pragma warning disable CS1591
-    public class GetManagedDevicesWithFailedOrPendingAppsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetManagedDevicesWithFailedOrPendingAppsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ManagedDeviceSummarizedAppState>(ManagedDeviceSummarizedAppState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ManagedDeviceSummarizedAppState>(ManagedDeviceSummarizedAppState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

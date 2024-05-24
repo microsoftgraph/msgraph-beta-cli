@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionGrantPolicy : PolicyBase, IParsable 
+    public class PermissionGrantPolicy : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"excludes", n => { Excludes = n.GetCollectionOfObjectValues<PermissionGrantConditionSet>(PermissionGrantConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"includes", n => { Includes = n.GetCollectionOfObjectValues<PermissionGrantConditionSet>(PermissionGrantConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"resourceScopeType", n => { ResourceScopeType = n.GetEnumValue<ResourceScopeType>(); } },
+                { "excludes", n => { Excludes = n.GetCollectionOfObjectValues<PermissionGrantConditionSet>(PermissionGrantConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includes", n => { Includes = n.GetCollectionOfObjectValues<PermissionGrantConditionSet>(PermissionGrantConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resourceScopeType", n => { ResourceScopeType = n.GetEnumValue<ResourceScopeType>(); } },
             };
         }
         /// <summary>

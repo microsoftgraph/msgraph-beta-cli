@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsPolicyPermissionsDefinitionAction : AwsPermissionsDefinitionAction, IParsable 
+    public class AwsPolicyPermissionsDefinitionAction : AwsPermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>ID for the role.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignToRoleId", n => { AssignToRoleId = n.GetStringValue(); } },
-                {"policies", n => { Policies = n.GetCollectionOfObjectValues<PermissionsDefinitionAwsPolicy>(PermissionsDefinitionAwsPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignToRoleId", n => { AssignToRoleId = n.GetStringValue(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<PermissionsDefinitionAwsPolicy>(PermissionsDefinitionAwsPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

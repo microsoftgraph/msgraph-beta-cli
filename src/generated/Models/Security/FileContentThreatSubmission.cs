@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class FileContentThreatSubmission : FileThreatSubmission, IParsable 
+    public class FileContentThreatSubmission : FileThreatSubmission, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>It specifies the file content in base 64 format.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileContent", n => { FileContent = n.GetStringValue(); } },
+                { "fileContent", n => { FileContent = n.GetStringValue(); } },
             };
         }
         /// <summary>

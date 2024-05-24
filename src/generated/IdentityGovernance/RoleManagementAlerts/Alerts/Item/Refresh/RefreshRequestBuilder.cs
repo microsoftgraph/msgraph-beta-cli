@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.Refresh {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.Refresh
+{
     /// <summary>
     /// Provides operations to call the refresh method.
     /// </summary>
-    public class RefreshRequestBuilder : BaseCliRequestBuilder 
+    public class RefreshRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action refresh

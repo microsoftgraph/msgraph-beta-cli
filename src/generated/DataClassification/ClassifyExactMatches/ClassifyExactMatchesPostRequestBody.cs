@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DataClassification.ClassifyExactMatches {
+namespace ApiSdk.DataClassification.ClassifyExactMatches
+{
     #pragma warning disable CS1591
-    public class ClassifyExactMatchesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ClassifyExactMatchesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -69,10 +70,10 @@ namespace ApiSdk.DataClassification.ClassifyExactMatches {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentClassifications", n => { ContentClassifications = n.GetCollectionOfObjectValues<ContentClassification>(ContentClassification.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
-                {"timeoutInMs", n => { TimeoutInMs = n.GetStringValue(); } },
+                { "contentClassifications", n => { ContentClassifications = n.GetCollectionOfObjectValues<ContentClassification>(ContentClassification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "timeoutInMs", n => { TimeoutInMs = n.GetStringValue(); } },
             };
         }
         /// <summary>

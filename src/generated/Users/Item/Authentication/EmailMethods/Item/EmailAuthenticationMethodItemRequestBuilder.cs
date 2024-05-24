@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class EmailAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmailAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property emailMethods for users
+        /// Deletes a user&apos;s email Authentication Method object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property emailMethods for users";
+            command.Description = "Deletes a user's email Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property emailMethods in users
+        /// Update a user&apos;s email address associated with an email Authentication Method object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property emailMethods in users";
+            command.Description = "Update a user's email address associated with an email Authentication Method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property emailMethods for users
+        /// Deletes a user&apos;s email Authentication Method object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.Users.Item.Authentication.EmailMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property emailMethods in users
+        /// Update a user&apos;s email address associated with an email Authentication Method object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

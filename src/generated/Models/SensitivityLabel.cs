@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SensitivityLabel : Entity, IParsable 
+    public class SensitivityLabel : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicableTo property</summary>
@@ -101,19 +102,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
-                {"applicationMode", n => { ApplicationMode = n.GetEnumValue<ApplicationMode>(); } },
-                {"assignedPolicies", n => { AssignedPolicies = n.GetCollectionOfObjectValues<LabelPolicy>(LabelPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"autoLabeling", n => { AutoLabeling = n.GetObjectValue<ApiSdk.Models.AutoLabeling>(ApiSdk.Models.AutoLabeling.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"isEndpointProtectionEnabled", n => { IsEndpointProtectionEnabled = n.GetBoolValue(); } },
-                {"labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<LabelActionBase>(LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"sublabels", n => { Sublabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"toolTip", n => { ToolTip = n.GetStringValue(); } },
+                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
+                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApplicationMode>(); } },
+                { "assignedPolicies", n => { AssignedPolicies = n.GetCollectionOfObjectValues<LabelPolicy>(LabelPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "autoLabeling", n => { AutoLabeling = n.GetObjectValue<ApiSdk.Models.AutoLabeling>(ApiSdk.Models.AutoLabeling.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "isEndpointProtectionEnabled", n => { IsEndpointProtectionEnabled = n.GetBoolValue(); } },
+                { "labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<LabelActionBase>(LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "sublabels", n => { Sublabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "toolTip", n => { ToolTip = n.GetStringValue(); } },
             };
         }
         /// <summary>

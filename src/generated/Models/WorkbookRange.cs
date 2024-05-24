@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookRange : Entity, IParsable 
+    public class WorkbookRange : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the range reference in A1-style. Address value contains the Sheet reference (for example, Sheet1!A1:B4). Read-only.</summary>
@@ -139,26 +140,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"address", n => { Address = n.GetStringValue(); } },
-                {"addressLocal", n => { AddressLocal = n.GetStringValue(); } },
-                {"cellCount", n => { CellCount = n.GetIntValue(); } },
-                {"columnCount", n => { ColumnCount = n.GetIntValue(); } },
-                {"columnHidden", n => { ColumnHidden = n.GetBoolValue(); } },
-                {"columnIndex", n => { ColumnIndex = n.GetIntValue(); } },
-                {"format", n => { Format = n.GetObjectValue<WorkbookRangeFormat>(WorkbookRangeFormat.CreateFromDiscriminatorValue); } },
-                {"formulas", n => { Formulas = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"formulasLocal", n => { FormulasLocal = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"formulasR1C1", n => { FormulasR1C1 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"hidden", n => { Hidden = n.GetBoolValue(); } },
-                {"numberFormat", n => { NumberFormat = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"rowCount", n => { RowCount = n.GetIntValue(); } },
-                {"rowHidden", n => { RowHidden = n.GetBoolValue(); } },
-                {"rowIndex", n => { RowIndex = n.GetIntValue(); } },
-                {"sort", n => { Sort = n.GetObjectValue<WorkbookRangeSort>(WorkbookRangeSort.CreateFromDiscriminatorValue); } },
-                {"text", n => { Text = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"valueTypes", n => { ValueTypes = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "addressLocal", n => { AddressLocal = n.GetStringValue(); } },
+                { "cellCount", n => { CellCount = n.GetIntValue(); } },
+                { "columnCount", n => { ColumnCount = n.GetIntValue(); } },
+                { "columnHidden", n => { ColumnHidden = n.GetBoolValue(); } },
+                { "columnIndex", n => { ColumnIndex = n.GetIntValue(); } },
+                { "format", n => { Format = n.GetObjectValue<WorkbookRangeFormat>(WorkbookRangeFormat.CreateFromDiscriminatorValue); } },
+                { "formulas", n => { Formulas = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "formulasLocal", n => { FormulasLocal = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "formulasR1C1", n => { FormulasR1C1 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "hidden", n => { Hidden = n.GetBoolValue(); } },
+                { "numberFormat", n => { NumberFormat = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "rowCount", n => { RowCount = n.GetIntValue(); } },
+                { "rowHidden", n => { RowHidden = n.GetBoolValue(); } },
+                { "rowIndex", n => { RowIndex = n.GetIntValue(); } },
+                { "sort", n => { Sort = n.GetObjectValue<WorkbookRangeSort>(WorkbookRangeSort.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "valueTypes", n => { ValueTypes = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

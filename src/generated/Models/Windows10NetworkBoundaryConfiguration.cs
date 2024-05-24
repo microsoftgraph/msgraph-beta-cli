@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows10 Network Boundary Configuration
     /// </summary>
-    public class Windows10NetworkBoundaryConfiguration : DeviceConfiguration, IParsable 
+    public class Windows10NetworkBoundaryConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Windows Network Isolation Policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"windowsNetworkIsolationPolicy", n => { WindowsNetworkIsolationPolicy = n.GetObjectValue<ApiSdk.Models.WindowsNetworkIsolationPolicy>(ApiSdk.Models.WindowsNetworkIsolationPolicy.CreateFromDiscriminatorValue); } },
+                { "windowsNetworkIsolationPolicy", n => { WindowsNetworkIsolationPolicy = n.GetObjectValue<ApiSdk.Models.WindowsNetworkIsolationPolicy>(ApiSdk.Models.WindowsNetworkIsolationPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

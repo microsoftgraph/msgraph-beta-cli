@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class Segment : ApiSdk.Models.Entity, IParsable 
+    public class Segment : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Endpoint that answered this segment.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callee", n => { Callee = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
-                {"caller", n => { Caller = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"failureInfo", n => { FailureInfo = n.GetObjectValue<ApiSdk.Models.CallRecords.FailureInfo>(ApiSdk.Models.CallRecords.FailureInfo.CreateFromDiscriminatorValue); } },
-                {"media", n => { Media = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.Media>(ApiSdk.Models.CallRecords.Media.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "callee", n => { Callee = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
+                { "caller", n => { Caller = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "failureInfo", n => { FailureInfo = n.GetObjectValue<ApiSdk.Models.CallRecords.FailureInfo>(ApiSdk.Models.CallRecords.FailureInfo.CreateFromDiscriminatorValue); } },
+                { "media", n => { Media = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.Media>(ApiSdk.Models.CallRecords.Media.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.AuthorizationSystems.Item.DataCollectionInfo {
+namespace ApiSdk.External.AuthorizationSystems.Item.DataCollectionInfo
+{
     /// <summary>
     /// Provides operations to manage the dataCollectionInfo property of the microsoft.graph.authorizationSystem entity.
     /// </summary>
-    public class DataCollectionInfoRequestBuilder : BaseCliRequestBuilder 
+    public class DataCollectionInfoRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dataCollectionInfo for external

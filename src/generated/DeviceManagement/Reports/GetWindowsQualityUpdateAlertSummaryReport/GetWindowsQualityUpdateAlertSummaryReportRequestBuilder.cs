@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsQualityUpdateAlertSummaryReport method.
     /// </summary>
-    public class GetWindowsQualityUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsQualityUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsQualityUpdateAlertSummaryReport

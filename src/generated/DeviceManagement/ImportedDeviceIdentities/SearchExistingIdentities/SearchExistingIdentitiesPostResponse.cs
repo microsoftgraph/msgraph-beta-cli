@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.SearchExistingIdentities {
+namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.SearchExistingIdentities
+{
     #pragma warning disable CS1591
-    public class SearchExistingIdentitiesPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class SearchExistingIdentitiesPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.SearchExistingIdentit
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ImportedDeviceIdentity>(ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ImportedDeviceIdentity>(ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class UsageProfilingPoint : IAdditionalDataHolder, IParsable 
+    public class UsageProfilingPoint : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,12 +55,12 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"internetAccessTrafficCount", n => { InternetAccessTrafficCount = n.GetLongValue(); } },
-                {"microsoft365AccessTrafficCount", n => { Microsoft365AccessTrafficCount = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"privateAccessTrafficCount", n => { PrivateAccessTrafficCount = n.GetLongValue(); } },
-                {"timeStampDateTime", n => { TimeStampDateTime = n.GetDateTimeOffsetValue(); } },
-                {"totalTrafficCount", n => { TotalTrafficCount = n.GetLongValue(); } },
+                { "internetAccessTrafficCount", n => { InternetAccessTrafficCount = n.GetLongValue(); } },
+                { "microsoft365AccessTrafficCount", n => { Microsoft365AccessTrafficCount = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "privateAccessTrafficCount", n => { PrivateAccessTrafficCount = n.GetLongValue(); } },
+                { "timeStampDateTime", n => { TimeStampDateTime = n.GetDateTimeOffsetValue(); } },
+                { "totalTrafficCount", n => { TotalTrafficCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

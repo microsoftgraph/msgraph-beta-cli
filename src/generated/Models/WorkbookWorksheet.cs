@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookWorksheet : Entity, IParsable 
+    public class WorkbookWorksheet : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Returns collection of charts that are part of the worksheet. Read-only.</summary>
@@ -93,15 +94,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"charts", n => { Charts = n.GetCollectionOfObjectValues<WorkbookChart>(WorkbookChart.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"names", n => { Names = n.GetCollectionOfObjectValues<WorkbookNamedItem>(WorkbookNamedItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"pivotTables", n => { PivotTables = n.GetCollectionOfObjectValues<WorkbookPivotTable>(WorkbookPivotTable.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"position", n => { Position = n.GetIntValue(); } },
-                {"protection", n => { Protection = n.GetObjectValue<WorkbookWorksheetProtection>(WorkbookWorksheetProtection.CreateFromDiscriminatorValue); } },
-                {"tables", n => { Tables = n.GetCollectionOfObjectValues<WorkbookTable>(WorkbookTable.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"visibility", n => { Visibility = n.GetStringValue(); } },
+                { "charts", n => { Charts = n.GetCollectionOfObjectValues<WorkbookChart>(WorkbookChart.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "names", n => { Names = n.GetCollectionOfObjectValues<WorkbookNamedItem>(WorkbookNamedItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "pivotTables", n => { PivotTables = n.GetCollectionOfObjectValues<WorkbookPivotTable>(WorkbookPivotTable.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "position", n => { Position = n.GetIntValue(); } },
+                { "protection", n => { Protection = n.GetObjectValue<WorkbookWorksheetProtection>(WorkbookWorksheetProtection.CreateFromDiscriminatorValue); } },
+                { "tables", n => { Tables = n.GetCollectionOfObjectValues<WorkbookTable>(WorkbookTable.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "visibility", n => { Visibility = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InvitedBy {
+namespace ApiSdk.Users.Item.InvitedBy
+{
     /// <summary>
     /// Provides operations to manage the invitedBy property of the microsoft.graph.user entity.
     /// </summary>
-    public class InvitedByRequestBuilder : BaseCliRequestBuilder 
+    public class InvitedByRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get invitedBy from users
+        /// Get the user or servicePrincipal that invited the specified user into the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-invitedby?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get invitedBy from users";
+            command.Description = "Get the user or servicePrincipal that invited the specified user into the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-invitedby?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Users.Item.InvitedBy {
         {
         }
         /// <summary>
-        /// Get invitedBy from users
+        /// Get the user or servicePrincipal that invited the specified user into the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Users.Item.InvitedBy {
             return requestInfo;
         }
         /// <summary>
-        /// Get invitedBy from users
+        /// Get the user or servicePrincipal that invited the specified user into the tenant.
         /// </summary>
         public class InvitedByRequestBuilderGetQueryParameters 
         {

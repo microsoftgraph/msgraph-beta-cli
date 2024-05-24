@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment
+{
     /// <summary>
     /// Provides operations to call the updateDeviceProfileAssignment method.
     /// </summary>
-    public class UpdateDeviceProfileAssignmentRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateDeviceProfileAssignmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateDeviceProfileAssignment

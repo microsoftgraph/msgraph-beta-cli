@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.PartnerInformation {
+namespace ApiSdk.Organization.Item.PartnerInformation
+{
     /// <summary>
     /// Provides operations to manage the partnerInformation property of the microsoft.graph.organization entity.
     /// </summary>
-    public class PartnerInformationRequestBuilder : BaseCliRequestBuilder 
+    public class PartnerInformationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property partnerInformation for organization

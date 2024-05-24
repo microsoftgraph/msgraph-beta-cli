@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.Assignments.Item.Categories.Item.Ref {
+namespace ApiSdk.Education.Users.Item.Assignments.Item.Categories.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of educationRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property categories for education

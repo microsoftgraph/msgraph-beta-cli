@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Certifications {
+namespace ApiSdk.Users.Item.Profile.Certifications
+{
     /// <summary>
     /// Provides operations to manage the certifications property of the microsoft.graph.profile entity.
     /// </summary>
-    public class CertificationsRequestBuilder : BaseCliRequestBuilder 
+    public class CertificationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the certifications property of the microsoft.graph.profile entity.
@@ -192,7 +193,9 @@ namespace ApiSdk.Users.Item.Profile.Certifications {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

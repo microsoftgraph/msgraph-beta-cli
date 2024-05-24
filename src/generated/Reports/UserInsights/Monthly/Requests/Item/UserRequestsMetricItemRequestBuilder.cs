@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Monthly.Requests.Item {
+namespace ApiSdk.Reports.UserInsights.Monthly.Requests.Item
+{
     /// <summary>
     /// Provides operations to manage the requests property of the microsoft.graph.monthlyUserInsightMetricsRoot entity.
     /// </summary>
-    public class UserRequestsMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserRequestsMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Insights for all user requests on apps registered in the tenant for a specified period.

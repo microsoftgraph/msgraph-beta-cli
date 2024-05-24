@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GroupLifecyclePolicy : Entity, IParsable 
+    public class GroupLifecyclePolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alternateNotificationEmails", n => { AlternateNotificationEmails = n.GetStringValue(); } },
-                {"groupLifetimeInDays", n => { GroupLifetimeInDays = n.GetIntValue(); } },
-                {"managedGroupTypes", n => { ManagedGroupTypes = n.GetStringValue(); } },
+                { "alternateNotificationEmails", n => { AlternateNotificationEmails = n.GetStringValue(); } },
+                { "groupLifetimeInDays", n => { GroupLifetimeInDays = n.GetIntValue(); } },
+                { "managedGroupTypes", n => { ManagedGroupTypes = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetInaccessibleCloudPcReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetInaccessibleCloudPcReports
+{
     /// <summary>
     /// Provides operations to call the getInaccessibleCloudPcReports method.
     /// </summary>
-    public class GetInaccessibleCloudPcReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetInaccessibleCloudPcReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure.

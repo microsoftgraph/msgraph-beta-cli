@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SynchronizationJob : Entity, IParsable 
+    public class SynchronizationJob : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The bulk upload operation for the job.</summary>
@@ -75,12 +76,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bulkUpload", n => { BulkUpload = n.GetObjectValue<ApiSdk.Models.BulkUpload>(ApiSdk.Models.BulkUpload.CreateFromDiscriminatorValue); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<SynchronizationSchedule>(SynchronizationSchedule.CreateFromDiscriminatorValue); } },
-                {"schema", n => { Schema = n.GetObjectValue<SynchronizationSchema>(SynchronizationSchema.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetObjectValue<SynchronizationStatus>(SynchronizationStatus.CreateFromDiscriminatorValue); } },
-                {"synchronizationJobSettings", n => { SynchronizationJobSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "bulkUpload", n => { BulkUpload = n.GetObjectValue<ApiSdk.Models.BulkUpload>(ApiSdk.Models.BulkUpload.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<SynchronizationSchedule>(SynchronizationSchedule.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<SynchronizationSchema>(SynchronizationSchema.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<SynchronizationStatus>(SynchronizationStatus.CreateFromDiscriminatorValue); } },
+                { "synchronizationJobSettings", n => { SynchronizationJobSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

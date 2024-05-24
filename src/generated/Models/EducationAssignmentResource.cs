@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationAssignmentResource : Entity, IParsable 
+    public class EducationAssignmentResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dependentResources property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dependentResources", n => { DependentResources = n.GetCollectionOfObjectValues<EducationAssignmentResource>(EducationAssignmentResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"distributeForStudentWork", n => { DistributeForStudentWork = n.GetBoolValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<EducationResource>(EducationResource.CreateFromDiscriminatorValue); } },
+                { "dependentResources", n => { DependentResources = n.GetCollectionOfObjectValues<EducationAssignmentResource>(EducationAssignmentResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "distributeForStudentWork", n => { DistributeForStudentWork = n.GetBoolValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<EducationResource>(EducationResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

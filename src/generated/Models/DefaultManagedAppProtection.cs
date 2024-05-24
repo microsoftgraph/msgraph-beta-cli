@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy
     /// </summary>
-    public class DefaultManagedAppProtection : ManagedAppProtection, IParsable 
+    public class DefaultManagedAppProtection : ManagedAppProtection, IParsable
     {
         /// <summary>Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work. (Android only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,6 +35,8 @@ namespace ApiSdk.Models {
 #else
         public string AllowedIosDeviceModels { get; set; }
 #endif
+        /// <summary>Indicates  if content sync for widgets is allowed for iOS on App Protection Policies</summary>
+        public bool? AllowWidgetContentSync { get; set; }
         /// <summary>Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.</summary>
         public ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
@@ -307,64 +310,65 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedAndroidDeviceManufacturers", n => { AllowedAndroidDeviceManufacturers = n.GetStringValue(); } },
-                {"allowedAndroidDeviceModels", n => { AllowedAndroidDeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"allowedIosDeviceModels", n => { AllowedIosDeviceModels = n.GetStringValue(); } },
-                {"appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"biometricAuthenticationBlocked", n => { BiometricAuthenticationBlocked = n.GetBoolValue(); } },
-                {"blockAfterCompanyPortalUpdateDeferralInDays", n => { BlockAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
-                {"connectToVpnOnLaunch", n => { ConnectToVpnOnLaunch = n.GetBoolValue(); } },
-                {"customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
-                {"customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
-                {"customBrowserProtocol", n => { CustomBrowserProtocol = n.GetStringValue(); } },
-                {"customDialerAppDisplayName", n => { CustomDialerAppDisplayName = n.GetStringValue(); } },
-                {"customDialerAppPackageId", n => { CustomDialerAppPackageId = n.GetStringValue(); } },
-                {"customDialerAppProtocol", n => { CustomDialerAppProtocol = n.GetStringValue(); } },
-                {"customSettings", n => { CustomSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"deviceLockRequired", n => { DeviceLockRequired = n.GetBoolValue(); } },
-                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
-                {"disableProtectionOfManagedOutboundOpenInData", n => { DisableProtectionOfManagedOutboundOpenInData = n.GetBoolValue(); } },
-                {"encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
-                {"exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
-                {"filterOpenInToOnlyManagedApps", n => { FilterOpenInToOnlyManagedApps = n.GetBoolValue(); } },
-                {"fingerprintAndBiometricEnabled", n => { FingerprintAndBiometricEnabled = n.GetBoolValue(); } },
-                {"messagingRedirectAppDisplayName", n => { MessagingRedirectAppDisplayName = n.GetStringValue(); } },
-                {"messagingRedirectAppPackageId", n => { MessagingRedirectAppPackageId = n.GetStringValue(); } },
-                {"messagingRedirectAppUrlScheme", n => { MessagingRedirectAppUrlScheme = n.GetStringValue(); } },
-                {"minimumRequiredCompanyPortalVersion", n => { MinimumRequiredCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
-                {"minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
-                {"minimumWarningCompanyPortalVersion", n => { MinimumWarningCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
-                {"minimumWarningSdkVersion", n => { MinimumWarningSdkVersion = n.GetStringValue(); } },
-                {"minimumWipeCompanyPortalVersion", n => { MinimumWipeCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumWipePatchVersion", n => { MinimumWipePatchVersion = n.GetStringValue(); } },
-                {"minimumWipeSdkVersion", n => { MinimumWipeSdkVersion = n.GetStringValue(); } },
-                {"protectInboundDataFromUnknownSources", n => { ProtectInboundDataFromUnknownSources = n.GetBoolValue(); } },
-                {"requireClass3Biometrics", n => { RequireClass3Biometrics = n.GetBoolValue(); } },
-                {"requirePinAfterBiometricChange", n => { RequirePinAfterBiometricChange = n.GetBoolValue(); } },
-                {"requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>(); } },
-                {"requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
-                {"requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidManagedAppSafetyNetEvaluationType>(); } },
-                {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
-                {"thirdPartyKeyboardsBlocked", n => { ThirdPartyKeyboardsBlocked = n.GetBoolValue(); } },
-                {"warnAfterCompanyPortalUpdateDeferralInDays", n => { WarnAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
-                {"wipeAfterCompanyPortalUpdateDeferralInDays", n => { WipeAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "allowWidgetContentSync", n => { AllowWidgetContentSync = n.GetBoolValue(); } },
+                { "allowedAndroidDeviceManufacturers", n => { AllowedAndroidDeviceManufacturers = n.GetStringValue(); } },
+                { "allowedAndroidDeviceModels", n => { AllowedAndroidDeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowedIosDeviceModels", n => { AllowedIosDeviceModels = n.GetStringValue(); } },
+                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "biometricAuthenticationBlocked", n => { BiometricAuthenticationBlocked = n.GetBoolValue(); } },
+                { "blockAfterCompanyPortalUpdateDeferralInDays", n => { BlockAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "connectToVpnOnLaunch", n => { ConnectToVpnOnLaunch = n.GetBoolValue(); } },
+                { "customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
+                { "customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
+                { "customBrowserProtocol", n => { CustomBrowserProtocol = n.GetStringValue(); } },
+                { "customDialerAppDisplayName", n => { CustomDialerAppDisplayName = n.GetStringValue(); } },
+                { "customDialerAppPackageId", n => { CustomDialerAppPackageId = n.GetStringValue(); } },
+                { "customDialerAppProtocol", n => { CustomDialerAppProtocol = n.GetStringValue(); } },
+                { "customSettings", n => { CustomSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                { "deviceLockRequired", n => { DeviceLockRequired = n.GetBoolValue(); } },
+                { "disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
+                { "disableProtectionOfManagedOutboundOpenInData", n => { DisableProtectionOfManagedOutboundOpenInData = n.GetBoolValue(); } },
+                { "encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
+                { "exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
+                { "filterOpenInToOnlyManagedApps", n => { FilterOpenInToOnlyManagedApps = n.GetBoolValue(); } },
+                { "fingerprintAndBiometricEnabled", n => { FingerprintAndBiometricEnabled = n.GetBoolValue(); } },
+                { "messagingRedirectAppDisplayName", n => { MessagingRedirectAppDisplayName = n.GetStringValue(); } },
+                { "messagingRedirectAppPackageId", n => { MessagingRedirectAppPackageId = n.GetStringValue(); } },
+                { "messagingRedirectAppUrlScheme", n => { MessagingRedirectAppUrlScheme = n.GetStringValue(); } },
+                { "minimumRequiredCompanyPortalVersion", n => { MinimumRequiredCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
+                { "minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
+                { "minimumWarningCompanyPortalVersion", n => { MinimumWarningCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
+                { "minimumWarningSdkVersion", n => { MinimumWarningSdkVersion = n.GetStringValue(); } },
+                { "minimumWipeCompanyPortalVersion", n => { MinimumWipeCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumWipePatchVersion", n => { MinimumWipePatchVersion = n.GetStringValue(); } },
+                { "minimumWipeSdkVersion", n => { MinimumWipeSdkVersion = n.GetStringValue(); } },
+                { "protectInboundDataFromUnknownSources", n => { ProtectInboundDataFromUnknownSources = n.GetBoolValue(); } },
+                { "requireClass3Biometrics", n => { RequireClass3Biometrics = n.GetBoolValue(); } },
+                { "requirePinAfterBiometricChange", n => { RequirePinAfterBiometricChange = n.GetBoolValue(); } },
+                { "requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>(); } },
+                { "requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
+                { "requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidManagedAppSafetyNetEvaluationType>(); } },
+                { "screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
+                { "thirdPartyKeyboardsBlocked", n => { ThirdPartyKeyboardsBlocked = n.GetBoolValue(); } },
+                { "warnAfterCompanyPortalUpdateDeferralInDays", n => { WarnAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "wipeAfterCompanyPortalUpdateDeferralInDays", n => { WipeAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -378,6 +382,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("allowedAndroidDeviceManufacturers", AllowedAndroidDeviceManufacturers);
             writer.WriteCollectionOfPrimitiveValues<string>("allowedAndroidDeviceModels", AllowedAndroidDeviceModels);
             writer.WriteStringValue("allowedIosDeviceModels", AllowedIosDeviceModels);
+            writer.WriteBoolValue("allowWidgetContentSync", AllowWidgetContentSync);
             writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
             writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidDeviceManufacturerNotAllowed", AppActionIfAndroidDeviceManufacturerNotAllowed);
             writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidDeviceModelNotAllowed", AppActionIfAndroidDeviceModelNotAllowed);

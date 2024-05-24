@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items {
+namespace ApiSdk.Drives.Item.Items
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.drive entity.
     /// </summary>
-    public class ItemsRequestBuilder : BaseCliRequestBuilder 
+    public class ItemsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the items property of the microsoft.graph.drive entity.
@@ -137,13 +138,14 @@ namespace ApiSdk.Drives.Item.Items {
             return command;
         }
         /// <summary>
-        /// All items contained in the drive. Read-only. Nullable.
+        /// Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they&apos;re items from a different drive.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/drive-sharedwithme?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "All items contained in the drive. Read-only. Nullable.";
+            command.Description = "Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they're items from a different drive.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/drive-sharedwithme?view=graph-rest-beta";
             var driveIdOption = new Option<string>("--drive-id", description: "The unique identifier of drive") {
             };
             driveIdOption.IsRequired = true;
@@ -225,7 +227,9 @@ namespace ApiSdk.Drives.Item.Items {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -251,7 +255,7 @@ namespace ApiSdk.Drives.Item.Items {
         {
         }
         /// <summary>
-        /// All items contained in the drive. Read-only. Nullable.
+        /// Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they&apos;re items from a different drive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -291,7 +295,7 @@ namespace ApiSdk.Drives.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// All items contained in the drive. Read-only. Nullable.
+        /// Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they&apos;re items from a different drive.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters 
         {

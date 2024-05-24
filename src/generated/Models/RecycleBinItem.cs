@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RecycleBinItem : BaseItem, IParsable 
+    public class RecycleBinItem : BaseItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date and time when the item was deleted. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deletedFromLocation", n => { DeletedFromLocation = n.GetStringValue(); } },
-                {"size", n => { Size = n.GetLongValue(); } },
+                { "deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deletedFromLocation", n => { DeletedFromLocation = n.GetStringValue(); } },
+                { "size", n => { Size = n.GetLongValue(); } },
             };
         }
         /// <summary>

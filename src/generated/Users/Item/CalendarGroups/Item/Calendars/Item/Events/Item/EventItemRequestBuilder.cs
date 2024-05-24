@@ -26,11 +26,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item {
+namespace ApiSdk.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item
+{
     /// <summary>
     /// Provides operations to manage the events property of the microsoft.graph.calendar entity.
     /// </summary>
-    public class EventItemRequestBuilder : BaseCliRequestBuilder 
+    public class EventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the accept method.

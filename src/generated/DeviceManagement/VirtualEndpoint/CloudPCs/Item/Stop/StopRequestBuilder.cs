@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Stop {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Stop
+{
     /// <summary>
     /// Provides operations to call the stop method.
     /// </summary>
-    public class StopRequestBuilder : BaseCliRequestBuilder 
+    public class StopRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Stop a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationSynchronizationCustomizations : EducationSynchronizationCustomizationsBase, IParsable 
+    public class EducationSynchronizationCustomizations : EducationSynchronizationCustomizationsBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Customizations for School entities.</summary>
@@ -82,12 +83,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"school", n => { School = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                {"section", n => { Section = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                {"student", n => { Student = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                {"studentEnrollment", n => { StudentEnrollment = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                {"teacher", n => { Teacher = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                {"teacherRoster", n => { TeacherRoster = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "school", n => { School = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "section", n => { Section = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "student", n => { Student = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "studentEnrollment", n => { StudentEnrollment = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "teacher", n => { Teacher = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "teacherRoster", n => { TeacherRoster = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

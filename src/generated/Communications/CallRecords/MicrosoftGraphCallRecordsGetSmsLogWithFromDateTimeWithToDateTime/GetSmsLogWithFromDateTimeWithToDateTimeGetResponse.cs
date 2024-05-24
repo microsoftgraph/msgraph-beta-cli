@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime {
+namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime
+{
     #pragma warning disable CS1591
-    public class GetSmsLogWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetSmsLogWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<SmsLogRow>(SmsLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<SmsLogRow>(SmsLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

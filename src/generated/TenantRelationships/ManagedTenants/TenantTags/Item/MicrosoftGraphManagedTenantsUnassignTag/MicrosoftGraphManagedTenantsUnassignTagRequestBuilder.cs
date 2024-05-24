@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsUnassignTag {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsUnassignTag
+{
     /// <summary>
     /// Provides operations to call the unassignTag method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Un-assigns the tenant tag from the specified managed tenants.

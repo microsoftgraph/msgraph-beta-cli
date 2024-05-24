@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.WindowsDefenderUpdateSignatures {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.WindowsDefenderUpdateSignatures
+{
     /// <summary>
     /// Provides operations to call the windowsDefenderUpdateSignatures method.
     /// </summary>
-    public class WindowsDefenderUpdateSignaturesRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDefenderUpdateSignaturesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action windowsDefenderUpdateSignatures

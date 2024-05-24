@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Categories.Item {
+namespace ApiSdk.Security.Labels.Categories.Item
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class CategoryTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class CategoryTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property categories for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.Labels.Categories.Item {
             return command;
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Read the properties and relationships of a categoryTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-categorytemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Specifies a group of similar types of content in a particular department.";
+            command.Description = "Read the properties and relationships of a categoryTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-categorytemplate-get?view=graph-rest-beta";
             var categoryTemplateIdOption = new Option<string>("--category-template-id", description: "The unique identifier of categoryTemplate") {
             };
             categoryTemplateIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Security.Labels.Categories.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Read the properties and relationships of a categoryTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Security.Labels.Categories.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies a group of similar types of content in a particular department.
+        /// Read the properties and relationships of a categoryTemplate object.
         /// </summary>
         public class CategoryTemplateItemRequestBuilderGetQueryParameters 
         {

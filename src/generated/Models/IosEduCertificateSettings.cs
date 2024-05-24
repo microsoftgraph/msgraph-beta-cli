@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Trusted Root and PFX certificates for iOS EDU.
     /// </summary>
-    public class IosEduCertificateSettings : IAdditionalDataHolder, IParsable 
+    public class IosEduCertificateSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -91,15 +92,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"certFileName", n => { CertFileName = n.GetStringValue(); } },
-                {"certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
-                {"certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
-                {"certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                {"certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
-                {"certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                {"trustedRootCertificate", n => { TrustedRootCertificate = n.GetByteArrayValue(); } },
+                { "certFileName", n => { CertFileName = n.GetStringValue(); } },
+                { "certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
+                { "certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
+                { "certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
+                { "trustedRootCertificate", n => { TrustedRootCertificate = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

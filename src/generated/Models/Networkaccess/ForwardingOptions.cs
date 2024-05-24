@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class ForwardingOptions : ApiSdk.Models.Entity, IParsable 
+    public class ForwardingOptions : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The skipDnsLookupState property</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"skipDnsLookupState", n => { SkipDnsLookupState = n.GetEnumValue<Status>(); } },
+                { "skipDnsLookupState", n => { SkipDnsLookupState = n.GetEnumValue<Status>(); } },
             };
         }
         /// <summary>

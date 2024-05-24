@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationPartnerConfiguration.ResetToDefaultSettings {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationPartnerConfiguration.ResetToDefaultSettings
+{
     /// <summary>
     /// Provides operations to call the resetToDefaultSettings method.
     /// </summary>
-    public class ResetToDefaultSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ResetToDefaultSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reset the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization to the default values. In its reset state, the template has no impact on partner configuration settings, other than that an unconfigured partner configuration is created if needed, for every multitenant organization tenant.

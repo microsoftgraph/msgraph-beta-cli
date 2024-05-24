@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
+namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class SchedulingGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class SchedulingGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property schedulingGroups for teams
+        /// Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property schedulingGroups for teams";
+            command.Description = "Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
             return command;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The logical grouping of users in the schedule (usually by role).";
+            command.Description = "Retrieve the properties and relationships of a schedulingGroup by ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -113,13 +116,14 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property schedulingGroups in teams
+        /// Replace an existing schedulingGroup. If the specified schedulingGroup doesn&apos;t exist, this method returns 404 Not found.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedulinggroup-put?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property schedulingGroups in teams";
+            command.Description = "Replace an existing schedulingGroup. If the specified schedulingGroup doesn't exist, this method returns 404 Not found.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedulinggroup-put?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -184,7 +188,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property schedulingGroups for teams
+        /// Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -203,7 +207,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +226,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property schedulingGroups in teams
+        /// Replace an existing schedulingGroup. If the specified schedulingGroup doesn&apos;t exist, this method returns 404 Not found.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -243,7 +247,7 @@ namespace ApiSdk.Teams.Item.Schedule.SchedulingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
         /// </summary>
         public class SchedulingGroupItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class CredentialUserRegistrationsSummary : ApiSdk.Models.Entity, IParsable 
+    public class CredentialUserRegistrationsSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.</summary>
@@ -75,18 +76,18 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"mfaAndSsprCapableUserCount", n => { MfaAndSsprCapableUserCount = n.GetIntValue(); } },
-                {"mfaConditionalAccessPolicyState", n => { MfaConditionalAccessPolicyState = n.GetStringValue(); } },
-                {"mfaExcludedUserCount", n => { MfaExcludedUserCount = n.GetIntValue(); } },
-                {"mfaRegisteredUserCount", n => { MfaRegisteredUserCount = n.GetIntValue(); } },
-                {"securityDefaultsEnabled", n => { SecurityDefaultsEnabled = n.GetBoolValue(); } },
-                {"ssprEnabledUserCount", n => { SsprEnabledUserCount = n.GetIntValue(); } },
-                {"ssprRegisteredUserCount", n => { SsprRegisteredUserCount = n.GetIntValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"tenantLicenseType", n => { TenantLicenseType = n.GetStringValue(); } },
-                {"totalUserCount", n => { TotalUserCount = n.GetIntValue(); } },
+                { "lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "mfaAndSsprCapableUserCount", n => { MfaAndSsprCapableUserCount = n.GetIntValue(); } },
+                { "mfaConditionalAccessPolicyState", n => { MfaConditionalAccessPolicyState = n.GetStringValue(); } },
+                { "mfaExcludedUserCount", n => { MfaExcludedUserCount = n.GetIntValue(); } },
+                { "mfaRegisteredUserCount", n => { MfaRegisteredUserCount = n.GetIntValue(); } },
+                { "securityDefaultsEnabled", n => { SecurityDefaultsEnabled = n.GetBoolValue(); } },
+                { "ssprEnabledUserCount", n => { SsprEnabledUserCount = n.GetIntValue(); } },
+                { "ssprRegisteredUserCount", n => { SsprRegisteredUserCount = n.GetIntValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "tenantLicenseType", n => { TenantLicenseType = n.GetStringValue(); } },
+                { "totalUserCount", n => { TotalUserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

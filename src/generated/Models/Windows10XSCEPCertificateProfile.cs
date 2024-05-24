@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows X SCEP Certificate configuration profile
     /// </summary>
-    public class Windows10XSCEPCertificateProfile : Windows10XCertificateProfile, IParsable 
+    public class Windows10XSCEPCertificateProfile : Windows10XCertificateProfile, IParsable
     {
         /// <summary>CertificateStore types</summary>
         public ApiSdk.Models.CertificateStore? CertificateStore { get; set; }
@@ -91,19 +92,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
-                {"certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
-                {"certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                {"extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hashAlgorithm", n => { HashAlgorithm = n.GetCollectionOfEnumValues<HashAlgorithms>()?.ToList(); } },
-                {"keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
-                {"keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
-                {"keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
-                {"renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                {"rootCertificateId", n => { RootCertificateId = n.GetGuidValue(); } },
-                {"scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"subjectAlternativeNameFormats", n => { SubjectAlternativeNameFormats = n.GetCollectionOfObjectValues<Windows10XCustomSubjectAlternativeName>(Windows10XCustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hashAlgorithm", n => { HashAlgorithm = n.GetCollectionOfEnumValues<HashAlgorithms>()?.ToList(); } },
+                { "keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
+                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
+                { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
+                { "rootCertificateId", n => { RootCertificateId = n.GetGuidValue(); } },
+                { "scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "subjectAlternativeNameFormats", n => { SubjectAlternativeNameFormats = n.GetCollectionOfObjectValues<Windows10XCustomSubjectAlternativeName>(Windows10XCustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
             };
         }
         /// <summary>

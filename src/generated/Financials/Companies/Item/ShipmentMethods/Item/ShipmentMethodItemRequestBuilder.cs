@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.ShipmentMethods.Item {
+namespace ApiSdk.Financials.Companies.Item.ShipmentMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.
     /// </summary>
-    public class ShipmentMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class ShipmentMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property shipmentMethods for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.ShipmentMethods.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property shipmentMethods for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var shipmentMethodIdOption = new Option<string>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
+            var shipmentMethodIdOption = new Option<Guid?>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
             };
             shipmentMethodIdOption.IsRequired = true;
             command.AddOption(shipmentMethodIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.ShipmentMethods.Item {
         {
             var command = new Command("get");
             command.Description = "Get shipmentMethods from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var shipmentMethodIdOption = new Option<string>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
+            var shipmentMethodIdOption = new Option<Guid?>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
             };
             shipmentMethodIdOption.IsRequired = true;
             command.AddOption(shipmentMethodIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.ShipmentMethods.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property shipmentMethods in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var shipmentMethodIdOption = new Option<string>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
+            var shipmentMethodIdOption = new Option<Guid?>("--shipment-method-id", description: "The unique identifier of shipmentMethod") {
             };
             shipmentMethodIdOption.IsRequired = true;
             command.AddOption(shipmentMethodIdOption);

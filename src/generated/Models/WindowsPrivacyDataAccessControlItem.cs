@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Specify access control level per privacy data category
     /// </summary>
-    public class WindowsPrivacyDataAccessControlItem : Entity, IParsable 
+    public class WindowsPrivacyDataAccessControlItem : Entity, IParsable
     {
         /// <summary>Determine the access level to specific Windows privacy data category.</summary>
         public WindowsPrivacyDataAccessLevel? AccessLevel { get; set; }
@@ -48,10 +49,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessLevel", n => { AccessLevel = n.GetEnumValue<WindowsPrivacyDataAccessLevel>(); } },
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"appPackageFamilyName", n => { AppPackageFamilyName = n.GetStringValue(); } },
-                {"dataCategory", n => { DataCategory = n.GetEnumValue<WindowsPrivacyDataCategory>(); } },
+                { "accessLevel", n => { AccessLevel = n.GetEnumValue<WindowsPrivacyDataAccessLevel>(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "appPackageFamilyName", n => { AppPackageFamilyName = n.GetStringValue(); } },
+                { "dataCategory", n => { DataCategory = n.GetEnumValue<WindowsPrivacyDataCategory>(); } },
             };
         }
         /// <summary>

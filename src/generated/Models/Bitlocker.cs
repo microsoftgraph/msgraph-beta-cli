@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Bitlocker : Entity, IParsable 
+    public class Bitlocker : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The recovery keys associated with the bitlocker entity.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"recoveryKeys", n => { RecoveryKeys = n.GetCollectionOfObjectValues<BitlockerRecoveryKey>(BitlockerRecoveryKey.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recoveryKeys", n => { RecoveryKeys = n.GetCollectionOfObjectValues<BitlockerRecoveryKey>(BitlockerRecoveryKey.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

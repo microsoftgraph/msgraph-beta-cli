@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class GroupBasedSubjectSet : ApiSdk.Models.SubjectSet, IParsable 
+    public class GroupBasedSubjectSet : ApiSdk.Models.SubjectSet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The groups property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"groups", n => { Groups = n.GetCollectionOfObjectValues<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groups", n => { Groups = n.GetCollectionOfObjectValues<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

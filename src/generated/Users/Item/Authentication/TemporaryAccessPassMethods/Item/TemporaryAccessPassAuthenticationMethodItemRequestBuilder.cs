@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class TemporaryAccessPassAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class TemporaryAccessPassAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property temporaryAccessPassMethods for users
+        /// Delete a users&apos;s temporaryAccessPassAuthenticationMethod object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property temporaryAccessPassMethods for users";
+            command.Description = "Delete a users's temporaryAccessPassAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item {
             return command;
         }
         /// <summary>
-        /// Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+        /// Retrieve a user&apos;s single temporaryAccessPassAuthenticationMethod object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.";
+            command.Description = "Retrieve a user's single temporaryAccessPassAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -134,7 +137,7 @@ namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property temporaryAccessPassMethods for users
+        /// Delete a users&apos;s temporaryAccessPassAuthenticationMethod object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +156,7 @@ namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+        /// Retrieve a user&apos;s single temporaryAccessPassAuthenticationMethod object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -172,7 +175,7 @@ namespace ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+        /// Retrieve a user&apos;s single temporaryAccessPassAuthenticationMethod object.
         /// </summary>
         public class TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters 
         {

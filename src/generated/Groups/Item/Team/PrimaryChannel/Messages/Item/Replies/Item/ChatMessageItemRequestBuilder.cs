@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item {
+namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item
+{
     /// <summary>
     /// Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
     /// </summary>
-    public class ChatMessageItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChatMessageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property replies for groups

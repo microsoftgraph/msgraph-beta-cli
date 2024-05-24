@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
+namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class AssignedToTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class AssignedToTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignedToTaskBoardFormat for planner
@@ -56,13 +57,14 @@ namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.";
+            command.Description = "Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Update the navigation property assignedToTaskBoardFormat in planner
+        /// Update the properties of plannerAssignedToTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property assignedToTaskBoardFormat in planner";
+            command.Description = "Update the properties of plannerAssignedToTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -199,7 +202,7 @@ namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -218,7 +221,7 @@ namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property assignedToTaskBoardFormat in planner
+        /// Update the properties of plannerAssignedToTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -239,7 +242,7 @@ namespace ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+        /// Retrieve the properties and relationships of plannerAssignedToTaskBoardTaskFormat object.
         /// </summary>
         public class AssignedToTaskBoardFormatRequestBuilderGetQueryParameters 
         {

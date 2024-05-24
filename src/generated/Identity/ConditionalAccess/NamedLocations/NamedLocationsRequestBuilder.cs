@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
+namespace ApiSdk.Identity.ConditionalAccess.NamedLocations
+{
     /// <summary>
     /// Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
     /// </summary>
-    public class NamedLocationsRequestBuilder : BaseCliRequestBuilder 
+    public class NamedLocationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to namedLocations for identity
+        /// Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to namedLocations for identity";
+            command.Description = "Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified named locations.
+        /// Get a list of namedLocation objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified named locations.";
+            command.Description = "Get a list of namedLocation objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified named locations.
+        /// Get a list of namedLocation objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to namedLocations for identity
+        /// Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified named locations.
+        /// Get a list of namedLocation objects.
         /// </summary>
         public class NamedLocationsRequestBuilderGetQueryParameters 
         {

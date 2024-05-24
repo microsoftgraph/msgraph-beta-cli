@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
+namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod
+{
     #pragma warning disable CS1591
-    public class GetCredentialUsageSummaryWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetCredentialUsageSummaryWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<CredentialUsageSummary>(CredentialUsageSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<CredentialUsageSummary>(CredentialUsageSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

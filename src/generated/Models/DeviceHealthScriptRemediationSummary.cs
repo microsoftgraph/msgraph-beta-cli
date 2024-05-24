@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The number of device health scripts deployed and the number of devices the scripts remediated.
     /// </summary>
-    public class DeviceHealthScriptRemediationSummary : IAdditionalDataHolder, IParsable 
+    public class DeviceHealthScriptRemediationSummary : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -49,9 +50,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
-                {"scriptCount", n => { ScriptCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "remediatedDeviceCount", n => { RemediatedDeviceCount = n.GetIntValue(); } },
+                { "scriptCount", n => { ScriptCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

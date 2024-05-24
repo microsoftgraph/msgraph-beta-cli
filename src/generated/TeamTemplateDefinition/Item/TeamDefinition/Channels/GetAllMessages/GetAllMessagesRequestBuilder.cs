@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllMessages {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllMessages
+{
     /// <summary>
     /// Provides operations to call the getAllMessages method.
     /// </summary>
-    public class GetAllMessagesRequestBuilder : BaseCliRequestBuilder 
+    public class GetAllMessagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieve messages across all channels in a team, including text, audio, and video conversations. To learn more about using the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
@@ -115,7 +116,9 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllMessa
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

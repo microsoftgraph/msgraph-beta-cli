@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.InboundFlows.Item.DataConnector {
+namespace ApiSdk.External.IndustryData.InboundFlows.Item.DataConnector
+{
     /// <summary>
     /// Provides operations to manage the dataConnector property of the microsoft.graph.industryData.inboundFlow entity.
     /// </summary>
-    public class DataConnectorRequestBuilder : BaseCliRequestBuilder 
+    public class DataConnectorRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The data connector in the context of which this flow pulls in data from a source system.

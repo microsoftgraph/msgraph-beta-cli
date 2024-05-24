@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers
+{
     #pragma warning disable CS1591
-    public class AddMembersPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AddMembersPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Item.
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// History Item contained in the Mobile App Troubleshooting Event.
     /// </summary>
-    public class MobileAppTroubleshootingAppStateHistory : MobileAppTroubleshootingHistoryItem, IParsable 
+    public class MobileAppTroubleshootingAppStateHistory : MobileAppTroubleshootingHistoryItem, IParsable
     {
         /// <summary>Defines the Action Types for an Intune Application.</summary>
         public MobileAppActionType? ActionType { get; set; }
@@ -40,9 +41,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionType", n => { ActionType = n.GetEnumValue<MobileAppActionType>(); } },
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "actionType", n => { ActionType = n.GetEnumValue<MobileAppActionType>(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the iOS device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class IosVpnConfiguration : AppleVpnConfiguration, IParsable 
+    public class IosVpnConfiguration : AppleVpnConfiguration, IParsable
     {
         /// <summary>Zscaler only. Zscaler cloud which the user is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,14 +99,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cloudName", n => { CloudName = n.GetStringValue(); } },
-                {"derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
-                {"excludeList", n => { ExcludeList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
-                {"strictEnforcement", n => { StrictEnforcement = n.GetBoolValue(); } },
-                {"targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userDomain", n => { UserDomain = n.GetStringValue(); } },
+                { "cloudName", n => { CloudName = n.GetStringValue(); } },
+                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "excludeList", n => { ExcludeList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
+                { "strictEnforcement", n => { StrictEnforcement = n.GetBoolValue(); } },
+                { "targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userDomain", n => { UserDomain = n.GetStringValue(); } },
             };
         }
         /// <summary>

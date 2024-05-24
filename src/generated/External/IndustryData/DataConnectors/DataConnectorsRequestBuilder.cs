@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.DataConnectors {
+namespace ApiSdk.External.IndustryData.DataConnectors
+{
     /// <summary>
     /// Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class DataConnectorsRequestBuilder : BaseCliRequestBuilder 
+    public class DataConnectorsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to dataConnectors for external
+        /// Create a new industryDataConnector object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to dataConnectors for external";
+            command.Description = "Create a new industryDataConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
             return command;
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Get a list of the azureDataLakeConnector objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Set of connectors for importing data from source systems.";
+            command.Description = "Get a list of the azureDataLakeConnector objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
         {
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Get a list of the azureDataLakeConnector objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to dataConnectors for external
+        /// Create a new industryDataConnector object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors {
             return requestInfo;
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Get a list of the azureDataLakeConnector objects and their properties.
         /// </summary>
         public class DataConnectorsRequestBuilderGetQueryParameters 
         {

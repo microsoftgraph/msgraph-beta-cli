@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
+namespace ApiSdk.Reports.ApplicationSignInDetailedSummary
+{
     /// <summary>
     /// Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class ApplicationSignInDetailedSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationSignInDetailedSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
             return command;
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the applicationSignInDetailedSummary objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-applicationsignindetailedsummary?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents a detailed summary of an application sign-in.";
+            command.Description = "Retrieve the applicationSignInDetailedSummary objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-applicationsignindetailedsummary?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
         {
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the applicationSignInDetailedSummary objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the applicationSignInDetailedSummary objects.
         /// </summary>
         public class ApplicationSignInDetailedSummaryRequestBuilderGetQueryParameters 
         {

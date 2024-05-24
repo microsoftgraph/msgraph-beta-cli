@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.Settings.ItemInsights {
+namespace ApiSdk.Organization.Item.Settings.ItemInsights
+{
     /// <summary>
     /// Provides operations to manage the itemInsights property of the microsoft.graph.organizationSettings entity.
     /// </summary>
-    public class ItemInsightsRequestBuilder : BaseCliRequestBuilder 
+    public class ItemInsightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property itemInsights for organization
@@ -57,14 +58,15 @@ namespace ApiSdk.Organization.Item.Settings.ItemInsights {
             return command;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organizationsettings-list-iteminsights?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Organization ItemInsights endpoint will stop returning data on January 1st, 2024. Please use the new Admin People ItemInsights endpoint. as of 2023-10/Beta:ItemInsightsOranizationSettings")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.";
+            command.Description = "Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organizationsettings-list-iteminsights?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -196,7 +198,7 @@ namespace ApiSdk.Organization.Item.Settings.ItemInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +240,7 @@ namespace ApiSdk.Organization.Item.Settings.ItemInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy. 
         /// </summary>
         public class ItemInsightsRequestBuilderGetQueryParameters 
         {

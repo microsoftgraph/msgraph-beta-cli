@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsRemoteConnection property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsRemoteConnection for deviceManagement

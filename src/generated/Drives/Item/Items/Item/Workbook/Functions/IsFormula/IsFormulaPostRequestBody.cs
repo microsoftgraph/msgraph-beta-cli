@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.IsFormula {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.IsFormula
+{
     #pragma warning disable CS1591
-    public class IsFormulaPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class IsFormulaPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.IsFormula {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"reference", n => { Reference = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "reference", n => { Reference = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

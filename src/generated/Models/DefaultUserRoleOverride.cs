@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DefaultUserRoleOverride : Entity, IParsable 
+    public class DefaultUserRoleOverride : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The isDefault property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<UnifiedRolePermission>(UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<UnifiedRolePermission>(UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

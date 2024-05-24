@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item.UserSources.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item.UserSources.Item
+{
     /// <summary>
     /// Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
     /// </summary>
-    public class UserSourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserSourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userSources for security

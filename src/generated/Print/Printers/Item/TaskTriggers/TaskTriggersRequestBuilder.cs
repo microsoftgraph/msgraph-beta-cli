@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Printers.Item.TaskTriggers {
+namespace ApiSdk.Print.Printers.Item.TaskTriggers
+{
     /// <summary>
     /// Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
     /// </summary>
-    public class TaskTriggersRequestBuilder : BaseCliRequestBuilder 
+    public class TaskTriggersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to taskTriggers for print
+        /// Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-post-tasktriggers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to taskTriggers for print";
+            command.Description = "Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-post-tasktriggers?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;
@@ -106,13 +108,14 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
             return command;
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-list-tasktriggers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A list of task triggers that are associated with the printer.";
+            command.Description = "Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-list-tasktriggers?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
         {
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to taskTriggers for print
+        /// Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers {
             return requestInfo;
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         public class TaskTriggersRequestBuilderGetQueryParameters 
         {

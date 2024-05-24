@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcSupportedRegion : Entity, IParsable 
+    public class CloudPcSupportedRegion : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name for the supported region. Read-only.</summary>
@@ -41,10 +42,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
-                {"regionStatus", n => { RegionStatus = n.GetEnumValue<CloudPcSupportedRegionStatus>(); } },
-                {"supportedSolution", n => { SupportedSolution = n.GetEnumValue<CloudPcManagementService>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
+                { "regionStatus", n => { RegionStatus = n.GetEnumValue<CloudPcSupportedRegionStatus>(); } },
+                { "supportedSolution", n => { SupportedSolution = n.GetEnumValue<CloudPcManagementService>(); } },
             };
         }
         /// <summary>

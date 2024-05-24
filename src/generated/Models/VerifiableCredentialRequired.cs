@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VerifiableCredentialRequired : VerifiableCredentialRequirementStatus, IParsable 
+    public class VerifiableCredentialRequired : VerifiableCredentialRequirementStatus, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>When the presentation request will expire and a new one will need to be generated.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
-                {"url", n => { Url = n.GetStringValue(); } },
+                { "expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InactiveGroupFinding : Finding, IParsable 
+    public class InactiveGroupFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionSummary property</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
-                {"group", n => { Group = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript
+{
     /// <summary>
     /// Provides operations to call the validateComplianceScript method.
     /// </summary>
-    public class ValidateComplianceScriptRequestBuilder : BaseCliRequestBuilder 
+    public class ValidateComplianceScriptRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action validateComplianceScript

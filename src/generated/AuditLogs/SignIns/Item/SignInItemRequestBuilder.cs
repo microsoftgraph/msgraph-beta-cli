@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.SignIns.Item {
+namespace ApiSdk.AuditLogs.SignIns.Item
+{
     /// <summary>
     /// Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
     /// </summary>
-    public class SignInItemRequestBuilder : BaseCliRequestBuilder 
+    public class SignInItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property signIns for auditLogs
@@ -56,13 +57,14 @@ namespace ApiSdk.AuditLogs.SignIns.Item {
             return command;
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/signin-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get signIns from auditLogs";
+            command.Description = "Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/signin-get?view=graph-rest-beta";
             var signInIdOption = new Option<string>("--sign-in-id", description: "The unique identifier of signIn") {
             };
             signInIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.AuditLogs.SignIns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.AuditLogs.SignIns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
         /// </summary>
         public class SignInItemRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties, inherited properties and actions for AFW mobile app configurations.
     /// </summary>
-    public class AndroidForWorkMobileAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable 
+    public class AndroidForWorkMobileAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable
     {
         /// <summary>Setting to specify whether to allow ConnectedApps experience for this app.</summary>
         public bool? ConnectedAppsEnabled { get; set; }
@@ -63,11 +64,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectedAppsEnabled", n => { ConnectedAppsEnabled = n.GetBoolValue(); } },
-                {"packageId", n => { PackageId = n.GetStringValue(); } },
-                {"payloadJson", n => { PayloadJson = n.GetStringValue(); } },
-                {"permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<AndroidPermissionAction>(AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"profileApplicability", n => { ProfileApplicability = n.GetEnumValue<AndroidProfileApplicability>(); } },
+                { "connectedAppsEnabled", n => { ConnectedAppsEnabled = n.GetBoolValue(); } },
+                { "packageId", n => { PackageId = n.GetStringValue(); } },
+                { "payloadJson", n => { PayloadJson = n.GetStringValue(); } },
+                { "permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<AndroidPermissionAction>(AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "profileApplicability", n => { ProfileApplicability = n.GetEnumValue<AndroidProfileApplicability>(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.PauseConfigurationRefresh {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.PauseConfigurationRefresh
+{
     /// <summary>
     /// Provides operations to call the pauseConfigurationRefresh method.
     /// </summary>
-    public class PauseConfigurationRefreshRequestBuilder : BaseCliRequestBuilder 
+    public class PauseConfigurationRefreshRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Initiates a command to pause config refresh for the device.

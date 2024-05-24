@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stages.Item.Decisions.Item.Instance.Decisions.RecordAllDecisions {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stages.Item.Decisions.Item.Instance.Decisions.RecordAllDecisions
+{
     /// <summary>
     /// Provides operations to call the recordAllDecisions method.
     /// </summary>
-    public class RecordAllDecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class RecordAllDecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// As a reviewer of an access review, record a decision for an accessReviewInstanceDecisionItem that is assigned to you and that matches the principal or resource IDs specified. If no IDs are specified, the decisions will apply to every accessReviewInstanceDecisionItem for which you are the reviewer.

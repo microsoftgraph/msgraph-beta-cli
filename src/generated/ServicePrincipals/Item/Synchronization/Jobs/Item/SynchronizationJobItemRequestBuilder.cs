@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item
+{
     /// <summary>
     /// Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
     /// </summary>
-    public class SynchronizationJobItemRequestBuilder : BaseCliRequestBuilder 
+    public class SynchronizationJobItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the bulkUpload property of the microsoft.graph.synchronizationJob entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property jobs for servicePrincipals
+        /// Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property jobs for servicePrincipals";
+            command.Description = "Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -94,13 +96,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
             return command;
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// Retrieve the existing synchronization job and its properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.";
+            command.Description = "Retrieve the existing synchronization job and its properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -336,7 +339,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property jobs for servicePrincipals
+        /// Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -355,7 +358,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// Retrieve the existing synchronization job and its properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -395,7 +398,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// Retrieve the existing synchronization job and its properties.
         /// </summary>
         public class SynchronizationJobItemRequestBuilderGetQueryParameters 
         {

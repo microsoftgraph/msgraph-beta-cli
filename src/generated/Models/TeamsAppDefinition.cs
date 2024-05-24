@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppDefinition : Entity, IParsable 
+    public class TeamsAppDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of scopes where the Teams app can be installed. Possible values are:team—Indicates that the Teams app can be installed within a team and is authorized to access that team&apos;s data. groupChat—Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat&apos;s data. personal—Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user&apos;s data.</summary>
@@ -129,21 +130,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedInstallationScopes", n => { AllowedInstallationScopes = n.GetEnumValue<TeamsAppInstallationScopes>(); } },
-                {"authorization", n => { Authorization = n.GetObjectValue<TeamsAppAuthorization>(TeamsAppAuthorization.CreateFromDiscriminatorValue); } },
-                {"azureADAppId", n => { AzureADAppId = n.GetStringValue(); } },
-                {"bot", n => { Bot = n.GetObjectValue<TeamworkBot>(TeamworkBot.CreateFromDiscriminatorValue); } },
-                {"colorIcon", n => { ColorIcon = n.GetObjectValue<TeamsAppIcon>(TeamsAppIcon.CreateFromDiscriminatorValue); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"dashboardCards", n => { DashboardCards = n.GetCollectionOfObjectValues<TeamsAppDashboardCardDefinition>(TeamsAppDashboardCardDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"outlineIcon", n => { OutlineIcon = n.GetObjectValue<TeamsAppIcon>(TeamsAppIcon.CreateFromDiscriminatorValue); } },
-                {"publishingState", n => { PublishingState = n.GetEnumValue<TeamsAppPublishingState>(); } },
-                {"shortdescription", n => { Shortdescription = n.GetStringValue(); } },
-                {"teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "allowedInstallationScopes", n => { AllowedInstallationScopes = n.GetEnumValue<TeamsAppInstallationScopes>(); } },
+                { "authorization", n => { Authorization = n.GetObjectValue<TeamsAppAuthorization>(TeamsAppAuthorization.CreateFromDiscriminatorValue); } },
+                { "azureADAppId", n => { AzureADAppId = n.GetStringValue(); } },
+                { "bot", n => { Bot = n.GetObjectValue<TeamworkBot>(TeamworkBot.CreateFromDiscriminatorValue); } },
+                { "colorIcon", n => { ColorIcon = n.GetObjectValue<TeamsAppIcon>(TeamsAppIcon.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "dashboardCards", n => { DashboardCards = n.GetCollectionOfObjectValues<TeamsAppDashboardCardDefinition>(TeamsAppDashboardCardDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "outlineIcon", n => { OutlineIcon = n.GetObjectValue<TeamsAppIcon>(TeamsAppIcon.CreateFromDiscriminatorValue); } },
+                { "publishingState", n => { PublishingState = n.GetEnumValue<TeamsAppPublishingState>(); } },
+                { "shortdescription", n => { Shortdescription = n.GetStringValue(); } },
+                { "teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

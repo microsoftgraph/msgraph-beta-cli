@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleDefinitions.Item.InheritsPermissionsFrom.Item {
+namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleDefinitions.Item.InheritsPermissionsFrom.Item
+{
     /// <summary>
     /// Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
     /// </summary>
-    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignedPrincipals method.

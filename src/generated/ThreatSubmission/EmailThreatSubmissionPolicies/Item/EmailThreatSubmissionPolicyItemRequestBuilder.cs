@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ThreatSubmission.EmailThreatSubmissionPolicies.Item {
+namespace ApiSdk.ThreatSubmission.EmailThreatSubmissionPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class EmailThreatSubmissionPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmailThreatSubmissionPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property emailThreatSubmissionPolicies for threatSubmission

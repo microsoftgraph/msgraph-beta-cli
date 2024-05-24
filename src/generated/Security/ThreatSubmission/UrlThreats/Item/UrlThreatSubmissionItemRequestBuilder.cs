@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatSubmission.UrlThreats.Item {
+namespace ApiSdk.Security.ThreatSubmission.UrlThreats.Item
+{
     /// <summary>
     /// Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class UrlThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UrlThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property urlThreats for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.ThreatSubmission.UrlThreats.Item {
             return command;
         }
         /// <summary>
-        /// Get urlThreats from security
+        /// Read the properties and relationships of an urlThreatSubmission object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-urlthreatsubmission-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get urlThreats from security";
+            command.Description = "Read the properties and relationships of an urlThreatSubmission object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-urlthreatsubmission-get?view=graph-rest-beta";
             var urlThreatSubmissionIdOption = new Option<string>("--url-threat-submission-id", description: "The unique identifier of urlThreatSubmission") {
             };
             urlThreatSubmissionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.ThreatSubmission.UrlThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get urlThreats from security
+        /// Read the properties and relationships of an urlThreatSubmission object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.ThreatSubmission.UrlThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get urlThreats from security
+        /// Read the properties and relationships of an urlThreatSubmission object.
         /// </summary>
         public class UrlThreatSubmissionItemRequestBuilderGetQueryParameters 
         {

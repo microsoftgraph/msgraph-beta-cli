@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CertificateAuthorities {
+namespace ApiSdk.DirectoryNamespace.CertificateAuthorities
+{
     /// <summary>
     /// Provides operations to manage the certificateAuthorities property of the microsoft.graph.directory entity.
     /// </summary>
-    public class CertificateAuthoritiesRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateAuthoritiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the certificateBasedApplicationConfigurations property of the microsoft.graph.certificateAuthorityPath entity.

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Channels.Item.Messages {
+namespace ApiSdk.Teams.Item.Channels.Item.Messages
+{
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.channel entity.
     /// </summary>
-    public class MessagesRequestBuilder : BaseCliRequestBuilder 
+    public class MessagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -61,13 +62,14 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to messages for teams
+        /// Send a new chatMessage in the specified channel.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-messages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to messages for teams";
+            command.Description = "Send a new chatMessage in the specified channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-post-messages?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -135,13 +137,14 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
             return command;
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-messages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the messages in the channel. A navigation property. Nullable.";
+            command.Description = "Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-messages?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -229,7 +232,9 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -255,7 +260,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
         {
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -274,7 +279,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to messages for teams
+        /// Send a new chatMessage in the specified channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -295,7 +300,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API. This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
         /// </summary>
         public class MessagesRequestBuilderGetQueryParameters 
         {

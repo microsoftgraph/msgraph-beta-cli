@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls {
+namespace ApiSdk.Communications.Calls
+{
     /// <summary>
     /// Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class CallsRequestBuilder : BaseCliRequestBuilder 
+    public class CallsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
@@ -75,13 +76,14 @@ namespace ApiSdk.Communications.Calls {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to calls for communications
+        /// Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You need to register the calling bot and go through the list of permissions needed.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-calls?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to calls for communications";
+            command.Description = "Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You need to register the calling bot and go through the list of permissions needed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-calls?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -120,13 +122,13 @@ namespace ApiSdk.Communications.Calls {
             return command;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get calls from communications";
+            command.Description = "Retrieve the properties and relationships of a call object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -202,7 +204,9 @@ namespace ApiSdk.Communications.Calls {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -245,7 +249,7 @@ namespace ApiSdk.Communications.Calls {
         {
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +268,7 @@ namespace ApiSdk.Communications.Calls {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to calls for communications
+        /// Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You need to register the calling bot and go through the list of permissions needed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -285,7 +289,7 @@ namespace ApiSdk.Communications.Calls {
             return requestInfo;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         public class CallsRequestBuilderGetQueryParameters 
         {

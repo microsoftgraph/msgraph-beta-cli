@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.SiteSources.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.SiteSources.Item
+{
     /// <summary>
     /// Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.custodian entity.
     /// </summary>
-    public class SiteSourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class SiteSourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property siteSources for compliance

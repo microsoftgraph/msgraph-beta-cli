@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item {
+namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item
+{
     /// <summary>
     /// Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
     /// </summary>
-    public class ActivityHistoryItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityHistoryItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity.
@@ -86,13 +87,13 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item {
             return command;
         }
         /// <summary>
-        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s historyItems.
+        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s activityHistoryItems.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.";
+            command.Description = "Optional. NavigationProperty/Containment; navigation property to the activity's activityHistoryItems.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -246,7 +247,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s historyItems.
+        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s activityHistoryItems.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -286,7 +287,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s historyItems.
+        /// Optional. NavigationProperty/Containment; navigation property to the activity&apos;s activityHistoryItems.
         /// </summary>
         public class ActivityHistoryItemItemRequestBuilderGetQueryParameters 
         {

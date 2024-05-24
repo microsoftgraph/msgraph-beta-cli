@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MessageEvent : Entity, IParsable 
+    public class MessageEvent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dateTime property</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"eventType", n => { EventType = n.GetEnumValue<MessageEventType>(); } },
+                { "dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "eventType", n => { EventType = n.GetEnumValue<MessageEventType>(); } },
             };
         }
         /// <summary>

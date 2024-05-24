@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConversationMemberRoleUpdatedEventMessageDetail : EventMessageDetail, IParsable 
+    public class ConversationMemberRoleUpdatedEventMessageDetail : EventMessageDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Roles for the coversation member user.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"conversationMemberRoles", n => { ConversationMemberRoles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"conversationMemberUser", n => { ConversationMemberUser = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
-                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "conversationMemberRoles", n => { ConversationMemberRoles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "conversationMemberUser", n => { ConversationMemberUser = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
+                { "initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

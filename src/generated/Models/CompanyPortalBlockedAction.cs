@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Blocked actions on the company portal as per platform and device ownership types
     /// </summary>
-    public class CompanyPortalBlockedAction : IAdditionalDataHolder, IParsable 
+    public class CompanyPortalBlockedAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Action on a device that can be executed in the Company Portal</summary>
         public CompanyPortalAction? Action { get; set; }
@@ -51,10 +52,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<CompanyPortalAction>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
-                {"platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "action", n => { Action = n.GetEnumValue<CompanyPortalAction>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign a device management script to a group.
     /// </summary>
-    public class DeviceHealthScriptAssignment : Entity, IParsable 
+    public class DeviceHealthScriptAssignment : Entity, IParsable
     {
         /// <summary>Determine whether we want to run detection script only or run both detection script and remediation script</summary>
         public bool? RunRemediationScript { get; set; }
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"runRemediationScript", n => { RunRemediationScript = n.GetBoolValue(); } },
-                {"runSchedule", n => { RunSchedule = n.GetObjectValue<DeviceHealthScriptRunSchedule>(DeviceHealthScriptRunSchedule.CreateFromDiscriminatorValue); } },
-                {"target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "runRemediationScript", n => { RunRemediationScript = n.GetBoolValue(); } },
+                { "runSchedule", n => { RunSchedule = n.GetObjectValue<DeviceHealthScriptRunSchedule>(DeviceHealthScriptRunSchedule.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

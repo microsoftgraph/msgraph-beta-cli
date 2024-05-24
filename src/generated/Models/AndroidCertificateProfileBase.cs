@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Android certificate profile base.
     /// </summary>
-    public class AndroidCertificateProfileBase : DeviceConfiguration, IParsable 
+    public class AndroidCertificateProfileBase : DeviceConfiguration, IParsable
     {
         /// <summary>Certificate Validity Period Options.</summary>
         public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodScale { get; set; }
@@ -69,13 +70,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
-                {"certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                {"extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                {"rootCertificate", n => { RootCertificate = n.GetObjectValue<AndroidTrustedRootCertificate>(AndroidTrustedRootCertificate.CreateFromDiscriminatorValue); } },
-                {"subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                {"subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
+                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<AndroidTrustedRootCertificate>(AndroidTrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
+                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class AzureADDevice : UpdatableAsset, IParsable 
+    public class AzureADDevice : UpdatableAsset, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enrollments", n => { Enrollments = n.GetCollectionOfObjectValues<UpdatableAssetEnrollment>(UpdatableAssetEnrollment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"errors", n => { Errors = n.GetCollectionOfObjectValues<UpdatableAssetError>(UpdatableAssetError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "enrollments", n => { Enrollments = n.GetCollectionOfObjectValues<UpdatableAssetEnrollment>(UpdatableAssetEnrollment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<UpdatableAssetError>(UpdatableAssetError.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

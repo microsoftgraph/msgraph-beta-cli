@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport
+{
     /// <summary>
     /// Provides operations to call the getFrontlineReport method.
     /// </summary>
-    public class GetFrontlineReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetFrontlineReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the Windows 365 Frontline reports, such as real-time or historical data reports.

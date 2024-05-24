@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallActivityStatistics : ActivityStatistics, IParsable 
+    public class CallActivityStatistics : ActivityStatistics, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Time spent on calls outside of working hours, which is based on the user&apos;s Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"afterHours", n => { AfterHours = n.GetTimeSpanValue(); } },
+                { "afterHours", n => { AfterHours = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

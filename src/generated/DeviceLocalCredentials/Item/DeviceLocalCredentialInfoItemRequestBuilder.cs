@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceLocalCredentials.Item {
+namespace ApiSdk.DeviceLocalCredentials.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of deviceLocalCredentialInfo entities.
     /// </summary>
-    public class DeviceLocalCredentialInfoItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLocalCredentialInfoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from deviceLocalCredentials

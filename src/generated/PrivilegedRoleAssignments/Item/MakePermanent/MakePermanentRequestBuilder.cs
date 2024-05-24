@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent {
+namespace ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent
+{
     /// <summary>
     /// Provides operations to call the makePermanent method.
     /// </summary>
-    public class MakePermanentRequestBuilder : BaseCliRequestBuilder 
+    public class MakePermanentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action makePermanent

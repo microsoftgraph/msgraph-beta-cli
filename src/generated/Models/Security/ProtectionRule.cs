@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class ProtectionRule : ApiSdk.Models.Entity, IParsable 
+    public class ProtectionRule : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Name of the user or application that created the rule.</summary>
@@ -62,12 +63,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

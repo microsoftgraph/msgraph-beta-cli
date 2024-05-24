@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Instances.Item.SendReminder {
+namespace ApiSdk.AccessReviews.Item.Instances.Item.SendReminder
+{
     /// <summary>
     /// Provides operations to call the sendReminder method.
     /// </summary>
-    public class SendReminderRequestBuilder : BaseCliRequestBuilder 
+    public class SendReminderRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. 

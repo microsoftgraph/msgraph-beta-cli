@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the AndroidDeviceOwnerAOSPDeviceConfiguration resource.
     /// </summary>
-    public class AospDeviceOwnerDeviceConfiguration : DeviceConfiguration, IParsable 
+    public class AospDeviceOwnerDeviceConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Indicates whether or not the user is allowed to enable unknown sources setting. When set to true, user is not allowed to enable unknown sources settings.</summary>
         public bool? AppsBlockInstallFromUnknownSources { get; set; }
@@ -63,20 +64,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appsBlockInstallFromUnknownSources", n => { AppsBlockInstallFromUnknownSources = n.GetBoolValue(); } },
-                {"bluetoothBlockConfiguration", n => { BluetoothBlockConfiguration = n.GetBoolValue(); } },
-                {"bluetoothBlocked", n => { BluetoothBlocked = n.GetBoolValue(); } },
-                {"cameraBlocked", n => { CameraBlocked = n.GetBoolValue(); } },
-                {"factoryResetBlocked", n => { FactoryResetBlocked = n.GetBoolValue(); } },
-                {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
-                {"passwordMinutesOfInactivityBeforeScreenTimeout", n => { PasswordMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
-                {"passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordType>(); } },
-                {"passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
-                {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
-                {"securityAllowDebuggingFeatures", n => { SecurityAllowDebuggingFeatures = n.GetBoolValue(); } },
-                {"storageBlockExternalMedia", n => { StorageBlockExternalMedia = n.GetBoolValue(); } },
-                {"storageBlockUsbFileTransfer", n => { StorageBlockUsbFileTransfer = n.GetBoolValue(); } },
-                {"wifiBlockEditConfigurations", n => { WifiBlockEditConfigurations = n.GetBoolValue(); } },
+                { "appsBlockInstallFromUnknownSources", n => { AppsBlockInstallFromUnknownSources = n.GetBoolValue(); } },
+                { "bluetoothBlockConfiguration", n => { BluetoothBlockConfiguration = n.GetBoolValue(); } },
+                { "bluetoothBlocked", n => { BluetoothBlocked = n.GetBoolValue(); } },
+                { "cameraBlocked", n => { CameraBlocked = n.GetBoolValue(); } },
+                { "factoryResetBlocked", n => { FactoryResetBlocked = n.GetBoolValue(); } },
+                { "passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
+                { "passwordMinutesOfInactivityBeforeScreenTimeout", n => { PasswordMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
+                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordType>(); } },
+                { "passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
+                { "screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
+                { "securityAllowDebuggingFeatures", n => { SecurityAllowDebuggingFeatures = n.GetBoolValue(); } },
+                { "storageBlockExternalMedia", n => { StorageBlockExternalMedia = n.GetBoolValue(); } },
+                { "storageBlockUsbFileTransfer", n => { StorageBlockUsbFileTransfer = n.GetBoolValue(); } },
+                { "wifiBlockEditConfigurations", n => { WifiBlockEditConfigurations = n.GetBoolValue(); } },
             };
         }
         /// <summary>

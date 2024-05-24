@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Search.Qnas {
+namespace ApiSdk.Search.Qnas
+{
     /// <summary>
     /// Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
     /// </summary>
-    public class QnasRequestBuilder : BaseCliRequestBuilder 
+    public class QnasRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Search.Qnas {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to qnas for search
+        /// Create a new qna object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-searchentity-post-qnas?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to qnas for search";
+            command.Description = "Create a new qna object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-searchentity-post-qnas?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Search.Qnas {
             return command;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Get a list of the qna objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-searchentity-list-qnas?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.";
+            command.Description = "Get a list of the qna objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-searchentity-list-qnas?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Search.Qnas {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Search.Qnas {
         {
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Get a list of the qna objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Search.Qnas {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to qnas for search
+        /// Create a new qna object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Search.Qnas {
             return requestInfo;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
+        /// Get a list of the qna objects and their properties.
         /// </summary>
         public class QnasRequestBuilderGetQueryParameters 
         {

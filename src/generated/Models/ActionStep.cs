@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ActionStep : IAdditionalDataHolder, IParsable 
+    public class ActionStep : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A link to the documentation or Microsoft Entra admin center page that is associated with the action step.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionUrl", n => { ActionUrl = n.GetObjectValue<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"stepNumber", n => { StepNumber = n.GetLongValue(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
+                { "actionUrl", n => { ActionUrl = n.GetObjectValue<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "stepNumber", n => { StepNumber = n.GetLongValue(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
             };
         }
         /// <summary>

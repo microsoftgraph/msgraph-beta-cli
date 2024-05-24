@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class TeamTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.

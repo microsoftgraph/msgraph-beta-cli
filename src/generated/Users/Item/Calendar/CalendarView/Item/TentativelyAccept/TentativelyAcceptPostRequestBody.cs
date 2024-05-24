@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Calendar.CalendarView.Item.TentativelyAccept {
+namespace ApiSdk.Users.Item.Calendar.CalendarView.Item.TentativelyAccept
+{
     #pragma warning disable CS1591
-    public class TentativelyAcceptPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class TentativelyAcceptPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,9 +56,9 @@ namespace ApiSdk.Users.Item.Calendar.CalendarView.Item.TentativelyAccept {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"Comment", n => { Comment = n.GetStringValue(); } },
-                {"ProposedNewTime", n => { ProposedNewTime = n.GetObjectValue<TimeSlot>(TimeSlot.CreateFromDiscriminatorValue); } },
-                {"SendResponse", n => { SendResponse = n.GetBoolValue(); } },
+                { "Comment", n => { Comment = n.GetStringValue(); } },
+                { "ProposedNewTime", n => { ProposedNewTime = n.GetObjectValue<TimeSlot>(TimeSlot.CreateFromDiscriminatorValue); } },
+                { "SendResponse", n => { SendResponse = n.GetBoolValue(); } },
             };
         }
         /// <summary>

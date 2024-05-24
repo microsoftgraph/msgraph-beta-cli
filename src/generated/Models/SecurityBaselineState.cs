@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Security baseline state for a device.
     /// </summary>
-    public class SecurityBaselineState : Entity, IParsable 
+    public class SecurityBaselineState : Entity, IParsable
     {
         /// <summary>The display name of the security baseline</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,11 +63,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"securityBaselineTemplateId", n => { SecurityBaselineTemplateId = n.GetStringValue(); } },
-                {"settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<SecurityBaselineSettingState>(SecurityBaselineSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "securityBaselineTemplateId", n => { SecurityBaselineTemplateId = n.GetStringValue(); } },
+                { "settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<SecurityBaselineSettingState>(SecurityBaselineSettingState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

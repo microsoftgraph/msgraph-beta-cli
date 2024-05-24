@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows X Trusted Root Certificate configuration profile
     /// </summary>
-    public class Windows10XTrustedRootCertificate : DeviceManagementResourceAccessProfileBase, IParsable 
+    public class Windows10XTrustedRootCertificate : DeviceManagementResourceAccessProfileBase, IParsable
     {
         /// <summary>File name to display in UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certFileName", n => { CertFileName = n.GetStringValue(); } },
-                {"destinationStore", n => { DestinationStore = n.GetEnumValue<CertificateDestinationStore>(); } },
-                {"trustedRootCertificate", n => { TrustedRootCertificate = n.GetByteArrayValue(); } },
+                { "certFileName", n => { CertFileName = n.GetStringValue(); } },
+                { "destinationStore", n => { DestinationStore = n.GetEnumValue<CertificateDestinationStore>(); } },
+                { "trustedRootCertificate", n => { TrustedRootCertificate = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExactMatchUploadAgent : Entity, IParsable 
+    public class ExactMatchUploadAgent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The creationDateTime property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
             };
         }
         /// <summary>

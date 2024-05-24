@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class ReferenceValue : IAdditionalDataHolder, IParsable 
+    public class ReferenceValue : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -69,9 +70,9 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetObjectValue<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetObjectValue<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

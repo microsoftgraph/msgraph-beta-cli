@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate {
+namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate
+{
     /// <summary>
     /// Provides operations to call the reactivate method.
     /// </summary>
-    public class ReactivateRequestBuilder : BaseCliRequestBuilder 
+    public class ReactivateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reactivate an accidentally dismissed, completed, or postponed impactedResource object. This action updates the status of the resource to active. This method is relevant only if the status of the impactedResource object is dismissed, postponed, or completedByUser. 

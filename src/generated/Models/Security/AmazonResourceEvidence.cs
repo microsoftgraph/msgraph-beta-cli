@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AmazonResourceEvidence : AlertEvidence, IParsable 
+    public class AmazonResourceEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the Amazon account.</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"amazonAccountId", n => { AmazonAccountId = n.GetStringValue(); } },
-                {"amazonResourceId", n => { AmazonResourceId = n.GetStringValue(); } },
-                {"resourceName", n => { ResourceName = n.GetStringValue(); } },
-                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
+                { "amazonAccountId", n => { AmazonAccountId = n.GetStringValue(); } },
+                { "amazonResourceId", n => { AmazonResourceId = n.GetStringValue(); } },
+                { "resourceName", n => { ResourceName = n.GetStringValue(); } },
+                { "resourceType", n => { ResourceType = n.GetStringValue(); } },
             };
         }
         /// <summary>

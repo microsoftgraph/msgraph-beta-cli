@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GovernanceRoleSetting : Entity, IParsable 
+    public class GovernanceRoleSetting : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The rule settings that are evaluated when an administrator tries to add an eligible role assignment.</summary>
@@ -103,17 +104,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"adminEligibleSettings", n => { AdminEligibleSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"adminMemberSettings", n => { AdminMemberSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"lastUpdatedBy", n => { LastUpdatedBy = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue); } },
-                {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
-                {"userEligibleSettings", n => { UserEligibleSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userMemberSettings", n => { UserMemberSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "adminEligibleSettings", n => { AdminEligibleSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "adminMemberSettings", n => { AdminMemberSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "lastUpdatedBy", n => { LastUpdatedBy = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
+                { "userEligibleSettings", n => { UserEligibleSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userMemberSettings", n => { UserMemberSettings = n.GetCollectionOfObjectValues<GovernanceRuleSetting>(GovernanceRuleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

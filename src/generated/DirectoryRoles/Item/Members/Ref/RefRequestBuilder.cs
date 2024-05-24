@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
+namespace ApiSdk.DirectoryRoles.Item.Members.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of directoryRole entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property members for directoryRoles
+        /// Remove a member from a directoryRole. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-delete-member?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property members for directoryRoles";
+            command.Description = "Remove a member from a directoryRole. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-delete-member?view=graph-rest-beta";
             var directoryRoleIdOption = new Option<string>("--directory-role-id", description: "The unique identifier of directoryRole") {
             };
             directoryRoleIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of the users that are assigned to the directory role.  Only users can be assigned to a directory role. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-list-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.";
+            command.Description = "Retrieve a list of the users that are assigned to the directory role.  Only users can be assigned to a directory role. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-list-members?view=graph-rest-beta";
             var directoryRoleIdOption = new Option<string>("--directory-role-id", description: "The unique identifier of directoryRole") {
             };
             directoryRoleIdOption.IsRequired = true;
@@ -143,7 +146,9 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -155,13 +160,14 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to members for directoryRoles
+        /// Create a new directory role member. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-post-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to members for directoryRoles";
+            command.Description = "Create a new directory role member. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-post-members?view=graph-rest-beta";
             var directoryRoleIdOption = new Option<string>("--directory-role-id", description: "The unique identifier of directoryRole") {
             };
             directoryRoleIdOption.IsRequired = true;
@@ -210,7 +216,7 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property members for directoryRoles
+        /// Remove a member from a directoryRole. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +235,7 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of the users that are assigned to the directory role.  Only users can be assigned to a directory role. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +254,7 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to members for directoryRoles
+        /// Create a new directory role member. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -269,7 +275,7 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property members for directoryRoles
+        /// Remove a member from a directoryRole. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -285,7 +291,7 @@ namespace ApiSdk.DirectoryRoles.Item.Members.Ref {
 #endif
         }
         /// <summary>
-        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of the users that are assigned to the directory role.  Only users can be assigned to a directory role. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Goals {
+namespace ApiSdk.EmployeeExperience.Goals
+{
     /// <summary>
     /// Provides operations to manage the goals property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class GoalsRequestBuilder : BaseCliRequestBuilder 
+    public class GoalsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property goals for employeeExperience

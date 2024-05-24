@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TenantRelationshipAccessPolicyBase : PolicyBase, IParsable 
+    public class TenantRelationshipAccessPolicyBase : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The definition property</summary>
+        /// <summary>The raw JSON definition of the cross-tenant access policy. Deprecated. Do not use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Definition { get; set; }
@@ -47,7 +48,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"definition", n => { Definition = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "definition", n => { Definition = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -34,11 +34,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
+{
     /// <summary>
     /// Provides operations to manage the teamDefinition property of the microsoft.graph.teamTemplateDefinition entity.
     /// </summary>
-    public class TeamDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class TeamDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the allChannels property of the microsoft.graph.team entity.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.SubjectsWithObjectId {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.SubjectsWithObjectId
+{
     /// <summary>
     /// Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class SubjectsWithObjectIdRequestBuilder : BaseCliRequestBuilder 
+    public class SubjectsWithObjectIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property subjects for identityGovernance
@@ -108,13 +109,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.SubjectsWithObjectId {
             return command;
         }
         /// <summary>
-        /// Update the navigation property subjects in identityGovernance
+        /// Update an existing accessPackageSubject object to change the subject lifecycle.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackagesubject-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property subjects in identityGovernance";
+            command.Description = "Update an existing accessPackageSubject object to change the subject lifecycle.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackagesubject-update?view=graph-rest-beta";
             var objectIdOption = new Option<string>("--object-id", description: "Alternate key of accessPackageSubject") {
             };
             objectIdOption.IsRequired = true;
@@ -211,7 +213,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.SubjectsWithObjectId {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property subjects in identityGovernance
+        /// Update an existing accessPackageSubject object to change the subject lifecycle.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternalConnection : Entity, IParsable 
+    public class ExternalConnection : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration property</summary>
@@ -86,14 +87,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.TeamsUserConfiguration.Configuration>(ApiSdk.Models.TeamsUserConfiguration.Configuration.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"schema", n => { Schema = n.GetObjectValue<ApiSdk.Models.Schema>(ApiSdk.Models.Schema.CreateFromDiscriminatorValue); } },
-                {"state", n => { State = n.GetEnumValue<ConnectionState>(); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.TeamsUserConfiguration.Configuration>(ApiSdk.Models.TeamsUserConfiguration.Configuration.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schema", n => { Schema = n.GetObjectValue<ApiSdk.Models.Schema>(ApiSdk.Models.Schema.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetEnumValue<ConnectionState>(); } },
             };
         }
         /// <summary>

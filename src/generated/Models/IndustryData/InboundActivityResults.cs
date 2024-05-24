@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class InboundActivityResults : IndustryDataActivityStatistics, IParsable 
+    public class InboundActivityResults : IndustryDataActivityStatistics, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of errors encountered while processing the inbound flow.</summary>
@@ -86,14 +87,14 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errors", n => { Errors = n.GetIntValue(); } },
-                {"groups", n => { Groups = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                {"matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"memberships", n => { Memberships = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                {"organizations", n => { Organizations = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                {"people", n => { People = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                {"unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"warnings", n => { Warnings = n.GetIntValue(); } },
+                { "errors", n => { Errors = n.GetIntValue(); } },
+                { "groups", n => { Groups = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "memberships", n => { Memberships = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "organizations", n => { Organizations = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "people", n => { People = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "warnings", n => { Warnings = n.GetIntValue(); } },
             };
         }
         /// <summary>

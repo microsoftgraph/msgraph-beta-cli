@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan
+{
     /// <summary>
     /// Provides operations to call the getPlan method.
     /// </summary>
-    public class GetPlanRequestBuilder : BaseCliRequestBuilder 
+    public class GetPlanRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get information about the plannerPlan mapped to a given target. If a plannerPlan doesn&apos;t exist for the specified target at the time of the request, a new plan will be created for the businessScenario.

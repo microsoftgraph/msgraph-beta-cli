@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationAssignmentSettings : Entity, IParsable 
+    public class EducationAssignmentSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The defaultGradingScheme property</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultGradingScheme", n => { DefaultGradingScheme = n.GetObjectValue<EducationGradingScheme>(EducationGradingScheme.CreateFromDiscriminatorValue); } },
-                {"gradingCategories", n => { GradingCategories = n.GetCollectionOfObjectValues<EducationGradingCategory>(EducationGradingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"gradingSchemes", n => { GradingSchemes = n.GetCollectionOfObjectValues<EducationGradingScheme>(EducationGradingScheme.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"submissionAnimationDisabled", n => { SubmissionAnimationDisabled = n.GetBoolValue(); } },
+                { "defaultGradingScheme", n => { DefaultGradingScheme = n.GetObjectValue<EducationGradingScheme>(EducationGradingScheme.CreateFromDiscriminatorValue); } },
+                { "gradingCategories", n => { GradingCategories = n.GetCollectionOfObjectValues<EducationGradingCategory>(EducationGradingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "gradingSchemes", n => { GradingSchemes = n.GetCollectionOfObjectValues<EducationGradingScheme>(EducationGradingScheme.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "submissionAnimationDisabled", n => { SubmissionAnimationDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

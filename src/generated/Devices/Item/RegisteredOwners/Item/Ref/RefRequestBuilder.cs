@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Devices.Item.RegisteredOwners.Item.Ref {
+namespace ApiSdk.Devices.Item.RegisteredOwners.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of device entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property registeredOwners for devices
+        /// Remove a user as a registered owner of the device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-delete-registeredowners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property registeredOwners for devices";
+            command.Description = "Remove a user as a registered owner of the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete-registeredowners?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Item.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property registeredOwners for devices
+        /// Remove a user as a registered owner of the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

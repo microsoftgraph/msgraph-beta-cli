@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.PasswordlessMicrosoftAuthenticatorMethods.Item.Device {
+namespace ApiSdk.Users.Item.Authentication.PasswordlessMicrosoftAuthenticatorMethods.Item.Device
+{
     /// <summary>
     /// Provides operations to manage the device property of the microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod entity.
     /// </summary>
-    public class DeviceRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get device from users

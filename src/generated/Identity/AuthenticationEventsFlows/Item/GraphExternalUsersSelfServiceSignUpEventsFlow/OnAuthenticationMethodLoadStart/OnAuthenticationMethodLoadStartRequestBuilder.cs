@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart
+{
     /// <summary>
     /// Builds and executes requests for operations under \identity\authenticationEventsFlows\{authenticationEventsFlow-id}\graph.externalUsersSelfServiceSignUpEventsFlow\onAuthenticationMethodLoadStart
     /// </summary>
-    public class OnAuthenticationMethodLoadStartRequestBuilder : BaseCliRequestBuilder 
+    public class OnAuthenticationMethodLoadStartRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.

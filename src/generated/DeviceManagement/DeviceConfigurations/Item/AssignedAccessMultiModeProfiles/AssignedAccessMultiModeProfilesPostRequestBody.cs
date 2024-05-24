@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles
+{
     #pragma warning disable CS1591
-    public class AssignedAccessMultiModeProfilesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AssignedAccessMultiModeProfilesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiM
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignedAccessMultiModeProfiles", n => { AssignedAccessMultiModeProfiles = n.GetCollectionOfObjectValues<WindowsAssignedAccessProfile>(WindowsAssignedAccessProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedAccessMultiModeProfiles", n => { AssignedAccessMultiModeProfiles = n.GetCollectionOfObjectValues<WindowsAssignedAccessProfile>(WindowsAssignedAccessProfile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

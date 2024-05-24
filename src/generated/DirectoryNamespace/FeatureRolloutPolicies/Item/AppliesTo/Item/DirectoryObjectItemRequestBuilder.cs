@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item.AppliesTo.Item {
+namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item.AppliesTo.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \directory\featureRolloutPolicies\{featureRolloutPolicy-id}\appliesTo\{directoryObject-id}
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of directory entities.

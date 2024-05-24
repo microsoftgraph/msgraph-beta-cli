@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Deprovision {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Deprovision
+{
     #pragma warning disable CS1591
-    public class DeprovisionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DeprovisionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Deprovision {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deprovisionReason", n => { DeprovisionReason = n.GetStringValue(); } },
+                { "deprovisionReason", n => { DeprovisionReason = n.GetStringValue(); } },
             };
         }
         /// <summary>

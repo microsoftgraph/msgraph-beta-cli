@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class ContainerImageEvidence : AlertEvidence, IParsable 
+    public class ContainerImageEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The digest image entity, in case this is a tag image.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"digestImage", n => { DigestImage = n.GetObjectValue<ContainerImageEvidence>(ContainerImageEvidence.CreateFromDiscriminatorValue); } },
-                {"imageId", n => { ImageId = n.GetStringValue(); } },
-                {"registry", n => { Registry = n.GetObjectValue<ContainerRegistryEvidence>(ContainerRegistryEvidence.CreateFromDiscriminatorValue); } },
+                { "digestImage", n => { DigestImage = n.GetObjectValue<ContainerImageEvidence>(ContainerImageEvidence.CreateFromDiscriminatorValue); } },
+                { "imageId", n => { ImageId = n.GetStringValue(); } },
+                { "registry", n => { Registry = n.GetObjectValue<ContainerRegistryEvidence>(ContainerRegistryEvidence.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

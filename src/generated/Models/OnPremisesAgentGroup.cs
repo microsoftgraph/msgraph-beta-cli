@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesAgentGroup : Entity, IParsable 
+    public class OnPremisesAgentGroup : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
+                { "agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
             };
         }
         /// <summary>

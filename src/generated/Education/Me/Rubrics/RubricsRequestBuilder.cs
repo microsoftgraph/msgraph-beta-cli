@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.Rubrics {
+namespace ApiSdk.Education.Me.Rubrics
+{
     /// <summary>
     /// Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class RubricsRequestBuilder : BaseCliRequestBuilder 
+    public class RubricsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Education.Me.Rubrics {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to rubrics for education
+        /// Create a new educationRubric object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-post-rubrics?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to rubrics for education";
+            command.Description = "Create a new educationRubric object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-post-rubrics?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Education.Me.Rubrics {
             return command;
         }
         /// <summary>
-        /// When set, the grading rubric attached to the assignment.
+        /// Retrieve a list of educationRubric objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "When set, the grading rubric attached to the assignment.";
+            command.Description = "Retrieve a list of educationRubric objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Education.Me.Rubrics {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Education.Me.Rubrics {
         {
         }
         /// <summary>
-        /// When set, the grading rubric attached to the assignment.
+        /// Retrieve a list of educationRubric objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Education.Me.Rubrics {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to rubrics for education
+        /// Create a new educationRubric object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Education.Me.Rubrics {
             return requestInfo;
         }
         /// <summary>
-        /// When set, the grading rubric attached to the assignment.
+        /// Retrieve a list of educationRubric objects.
         /// </summary>
         public class RubricsRequestBuilderGetQueryParameters 
         {

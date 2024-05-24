@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementPolicyRule : Entity, IParsable 
+    public class UnifiedRoleManagementPolicyRule : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Not implemented. Defines details of scope that&apos;s targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"target", n => { Target = n.GetObjectValue<UnifiedRoleManagementPolicyRuleTarget>(UnifiedRoleManagementPolicyRuleTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<UnifiedRoleManagementPolicyRuleTarget>(UnifiedRoleManagementPolicyRuleTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

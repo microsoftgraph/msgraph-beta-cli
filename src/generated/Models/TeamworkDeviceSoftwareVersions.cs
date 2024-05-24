@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkDeviceSoftwareVersions : IAdditionalDataHolder, IParsable 
+    public class TeamworkDeviceSoftwareVersions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -84,12 +85,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"adminAgentSoftwareVersion", n => { AdminAgentSoftwareVersion = n.GetStringValue(); } },
-                {"firmwareSoftwareVersion", n => { FirmwareSoftwareVersion = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operatingSystemSoftwareVersion", n => { OperatingSystemSoftwareVersion = n.GetStringValue(); } },
-                {"partnerAgentSoftwareVersion", n => { PartnerAgentSoftwareVersion = n.GetStringValue(); } },
-                {"teamsClientSoftwareVersion", n => { TeamsClientSoftwareVersion = n.GetStringValue(); } },
+                { "adminAgentSoftwareVersion", n => { AdminAgentSoftwareVersion = n.GetStringValue(); } },
+                { "firmwareSoftwareVersion", n => { FirmwareSoftwareVersion = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "operatingSystemSoftwareVersion", n => { OperatingSystemSoftwareVersion = n.GetStringValue(); } },
+                { "partnerAgentSoftwareVersion", n => { PartnerAgentSoftwareVersion = n.GetStringValue(); } },
+                { "teamsClientSoftwareVersion", n => { TeamsClientSoftwareVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

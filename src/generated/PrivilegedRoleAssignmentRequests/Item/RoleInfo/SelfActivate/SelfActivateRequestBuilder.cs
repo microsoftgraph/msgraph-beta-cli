@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item.RoleInfo.SelfActivate {
+namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item.RoleInfo.SelfActivate
+{
     /// <summary>
     /// Provides operations to call the selfActivate method.
     /// </summary>
-    public class SelfActivateRequestBuilder : BaseCliRequestBuilder 
+    public class SelfActivateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action selfActivate

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintSettings : IAdditionalDataHolder, IParsable 
+    public class PrintSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"documentConversionEnabled", n => { DocumentConversionEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"printerDiscoverySettings", n => { PrinterDiscoverySettings = n.GetObjectValue<ApiSdk.Models.PrinterDiscoverySettings>(ApiSdk.Models.PrinterDiscoverySettings.CreateFromDiscriminatorValue); } },
+                { "documentConversionEnabled", n => { DocumentConversionEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "printerDiscoverySettings", n => { PrinterDiscoverySettings = n.GetObjectValue<ApiSdk.Models.PrinterDiscoverySettings>(ApiSdk.Models.PrinterDiscoverySettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

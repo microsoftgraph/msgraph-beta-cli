@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationships {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationships
+{
     /// <summary>
     /// Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
     /// </summary>
-    public class RelationshipsRequestBuilder : BaseCliRequestBuilder 
+    public class RelationshipsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
@@ -104,13 +105,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationsh
             return command;
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List of relationships for this mobile app.";
+            command.Description = "The set of direct relationships for this app.";
             var mobileAppIdOption = new Option<string>("--mobile-app-id", description: "The unique identifier of mobileApp") {
             };
             mobileAppIdOption.IsRequired = true;
@@ -192,7 +193,9 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationsh
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +221,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationsh
         {
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +261,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMacOSPkgApp.Relationsh
             return requestInfo;
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         public class RelationshipsRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternalProfile : DirectoryObject, IParsable 
+    public class ExternalProfile : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The office address of the external user profile.</summary>
@@ -110,17 +111,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"address", n => { Address = n.GetObjectValue<PhysicalOfficeAddress>(PhysicalOfficeAddress.CreateFromDiscriminatorValue); } },
-                {"companyName", n => { CompanyName = n.GetStringValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"department", n => { Department = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isDiscoverable", n => { IsDiscoverable = n.GetBoolValue(); } },
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"supervisorId", n => { SupervisorId = n.GetStringValue(); } },
+                { "address", n => { Address = n.GetObjectValue<PhysicalOfficeAddress>(PhysicalOfficeAddress.CreateFromDiscriminatorValue); } },
+                { "companyName", n => { CompanyName = n.GetStringValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "department", n => { Department = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isDiscoverable", n => { IsDiscoverable = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "supervisorId", n => { SupervisorId = n.GetStringValue(); } },
             };
         }
         /// <summary>

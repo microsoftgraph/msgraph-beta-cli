@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item
+{
     /// <summary>
     /// Provides operations to manage the bulkActions property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcBulkActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcBulkActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property bulkActions for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
             return command;
         }
         /// <summary>
-        /// Bulk actions applied to a Cloud PC.
+        /// Read the properties and relationships of a cloudPcBulkAction object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcbulkaction-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Bulk actions applied to a Cloud PC.";
+            command.Description = "Read the properties and relationships of a cloudPcBulkAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcbulkaction-get?view=graph-rest-beta";
             var cloudPcBulkActionIdOption = new Option<string>("--cloud-pc-bulk-action-id", description: "The unique identifier of cloudPcBulkAction") {
             };
             cloudPcBulkActionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Bulk actions applied to a Cloud PC.
+        /// Read the properties and relationships of a cloudPcBulkAction object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Bulk actions applied to a Cloud PC.
+        /// Read the properties and relationships of a cloudPcBulkAction object.
         /// </summary>
         public class CloudPcBulkActionItemRequestBuilderGetQueryParameters 
         {

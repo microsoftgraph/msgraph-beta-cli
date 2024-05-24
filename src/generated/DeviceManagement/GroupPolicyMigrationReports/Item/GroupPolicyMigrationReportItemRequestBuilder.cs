@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyMigrationReports property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyMigrationReportItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyMigrationReportItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groupPolicyMigrationReports for deviceManagement

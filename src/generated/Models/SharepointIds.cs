@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharepointIds : IAdditionalDataHolder, IParsable 
+    public class SharepointIds : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -100,14 +101,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"listId", n => { ListId = n.GetStringValue(); } },
-                {"listItemId", n => { ListItemId = n.GetStringValue(); } },
-                {"listItemUniqueId", n => { ListItemUniqueId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"siteId", n => { SiteId = n.GetStringValue(); } },
-                {"siteUrl", n => { SiteUrl = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"webId", n => { WebId = n.GetStringValue(); } },
+                { "listId", n => { ListId = n.GetStringValue(); } },
+                { "listItemId", n => { ListItemId = n.GetStringValue(); } },
+                { "listItemUniqueId", n => { ListItemUniqueId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "siteId", n => { SiteId = n.GetStringValue(); } },
+                { "siteUrl", n => { SiteUrl = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "webId", n => { WebId = n.GetStringValue(); } },
             };
         }
         /// <summary>

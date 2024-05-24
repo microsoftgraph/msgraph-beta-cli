@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows 10 Co-Management Authority Page Configuration
     /// </summary>
-    public class DeviceComanagementAuthorityConfiguration : DeviceEnrollmentConfiguration, IParsable 
+    public class DeviceComanagementAuthorityConfiguration : DeviceEnrollmentConfiguration, IParsable
     {
         /// <summary>CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configurationManagerAgentCommandLineArgument", n => { ConfigurationManagerAgentCommandLineArgument = n.GetStringValue(); } },
-                {"installConfigurationManagerAgent", n => { InstallConfigurationManagerAgent = n.GetBoolValue(); } },
-                {"managedDeviceAuthority", n => { ManagedDeviceAuthority = n.GetIntValue(); } },
+                { "configurationManagerAgentCommandLineArgument", n => { ConfigurationManagerAgentCommandLineArgument = n.GetStringValue(); } },
+                { "installConfigurationManagerAgent", n => { InstallConfigurationManagerAgent = n.GetBoolValue(); } },
+                { "managedDeviceAuthority", n => { ManagedDeviceAuthority = n.GetIntValue(); } },
             };
         }
         /// <summary>

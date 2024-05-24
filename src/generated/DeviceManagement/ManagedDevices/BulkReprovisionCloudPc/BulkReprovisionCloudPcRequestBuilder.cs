@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc {
+namespace ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc
+{
     /// <summary>
     /// Provides operations to call the bulkReprovisionCloudPc method.
     /// </summary>
-    public class BulkReprovisionCloudPcRequestBuilder : BaseCliRequestBuilder 
+    public class BulkReprovisionCloudPcRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Bulk reprovision a set of Cloud PC devices with Intune managed device IDs.

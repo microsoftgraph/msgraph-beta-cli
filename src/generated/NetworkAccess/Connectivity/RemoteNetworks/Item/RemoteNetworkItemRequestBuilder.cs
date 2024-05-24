@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
+{
     /// <summary>
     /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.connectivity entity.
     /// </summary>
-    public class RemoteNetworkItemRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteNetworkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.remoteNetwork entity.

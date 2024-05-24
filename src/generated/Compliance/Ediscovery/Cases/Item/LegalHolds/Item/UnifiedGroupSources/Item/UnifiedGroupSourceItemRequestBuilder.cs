@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.UnifiedGroupSources.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.Item.UnifiedGroupSources.Item
+{
     /// <summary>
     /// Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
     /// </summary>
-    public class UnifiedGroupSourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedGroupSourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property unifiedGroupSources for compliance

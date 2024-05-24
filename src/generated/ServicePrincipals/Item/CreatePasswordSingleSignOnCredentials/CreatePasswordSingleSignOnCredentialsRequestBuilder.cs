@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.CreatePasswordSingleSignOnCredentials {
+namespace ApiSdk.ServicePrincipals.Item.CreatePasswordSingleSignOnCredentials
+{
     /// <summary>
     /// Provides operations to call the createPasswordSingleSignOnCredentials method.
     /// </summary>
-    public class CreatePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder 
+    public class CreatePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Create single sign-on credentials using a password for a user or group.

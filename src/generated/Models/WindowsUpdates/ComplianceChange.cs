@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class ComplianceChange : ApiSdk.Models.Entity, IParsable 
+    public class ComplianceChange : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when a compliance change was created.</summary>
@@ -46,10 +47,10 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isRevoked", n => { IsRevoked = n.GetBoolValue(); } },
-                {"revokedDateTime", n => { RevokedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"updatePolicy", n => { UpdatePolicy = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isRevoked", n => { IsRevoked = n.GetBoolValue(); } },
+                { "revokedDateTime", n => { RevokedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "updatePolicy", n => { UpdatePolicy = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

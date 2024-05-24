@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base type for a setting instance
     /// </summary>
-    public class DeviceManagementSettingInstance : Entity, IParsable 
+    public class DeviceManagementSettingInstance : Entity, IParsable
     {
         /// <summary>The ID of the setting definition for this instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,8 +55,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"definitionId", n => { DefinitionId = n.GetStringValue(); } },
-                {"valueJson", n => { ValueJson = n.GetStringValue(); } },
+                { "definitionId", n => { DefinitionId = n.GetStringValue(); } },
+                { "valueJson", n => { ValueJson = n.GetStringValue(); } },
             };
         }
         /// <summary>

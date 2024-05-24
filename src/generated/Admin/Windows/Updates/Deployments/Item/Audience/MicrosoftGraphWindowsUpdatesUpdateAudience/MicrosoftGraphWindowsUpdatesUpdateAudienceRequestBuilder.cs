@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudience {
+namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudience
+{
     /// <summary>
     /// Provides operations to call the updateAudience method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the members and exclusions collections of a deploymentAudience. Adding an azureADDevice to the members or exclusions collections of a deployment audience automatically creates a Microsoft Entra device object, if it does not already exist. If the same updatableAsset gets included in the exclusions and members collections of a deploymentAudience, deployment will not apply to that asset. If all updatableAsset objects are the same type, you can also use the method updateAudienceById to update the deploymentAudience.

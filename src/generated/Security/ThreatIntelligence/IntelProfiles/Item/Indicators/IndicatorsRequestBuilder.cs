@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators {
+namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators
+{
     /// <summary>
     /// Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
     /// </summary>
-    public class IndicatorsRequestBuilder : BaseCliRequestBuilder 
+    public class IndicatorsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators {
             return command;
         }
         /// <summary>
-        /// Includes an assemblage of high-fidelity network indicators of compromise.
+        /// Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-intelligenceprofile-list-indicators?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Includes an assemblage of high-fidelity network indicators of compromise.";
+            command.Description = "Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-intelligenceprofile-list-indicators?view=graph-rest-beta";
             var intelligenceProfileIdOption = new Option<string>("--intelligence-profile-id", description: "The unique identifier of intelligenceProfile") {
             };
             intelligenceProfileIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators {
         {
         }
         /// <summary>
-        /// Includes an assemblage of high-fidelity network indicators of compromise.
+        /// Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item.Indicators {
             return requestInfo;
         }
         /// <summary>
-        /// Includes an assemblage of high-fidelity network indicators of compromise.
+        /// Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
         /// </summary>
         public class IndicatorsRequestBuilderGetQueryParameters 
         {

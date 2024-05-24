@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
+namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of policyRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property includedGroups for policies
+        /// Delete a group from the list of groups included in a mobile app management policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete-includedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property includedGroups for policies";
+            command.Description = "Delete a group from the list of groups included in a mobile app management policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete-includedgroups?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
             return command;
         }
         /// <summary>
-        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+        /// Get the list of groups that are included in a mobile app management policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected";
+            command.Description = "Get the list of groups that are included in a mobile app management policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -136,7 +139,9 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +153,14 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to includedGroups for policies
+        /// Add groups to be included in a mobile app management policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-post-includedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to includedGroups for policies";
+            command.Description = "Add groups to be included in a mobile app management policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-post-includedgroups?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -203,7 +209,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property includedGroups for policies
+        /// Delete a group from the list of groups included in a mobile app management policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +228,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+        /// Get the list of groups that are included in a mobile app management policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +247,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to includedGroups for policies
+        /// Add groups to be included in a mobile app management policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +268,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property includedGroups for policies
+        /// Delete a group from the list of groups included in a mobile app management policy.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -278,7 +284,7 @@ namespace ApiSdk.Policies.MobileAppManagementPolicies.Item.IncludedGroups.Ref {
 #endif
         }
         /// <summary>
-        /// Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+        /// Get the list of groups that are included in a mobile app management policy.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

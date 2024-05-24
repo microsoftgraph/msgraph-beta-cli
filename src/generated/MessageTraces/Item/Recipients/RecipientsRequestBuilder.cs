@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageTraces.Item.Recipients {
+namespace ApiSdk.MessageTraces.Item.Recipients
+{
     /// <summary>
     /// Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
     /// </summary>
-    public class RecipientsRequestBuilder : BaseCliRequestBuilder 
+    public class RecipientsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
@@ -194,7 +195,9 @@ namespace ApiSdk.MessageTraces.Item.Recipients {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

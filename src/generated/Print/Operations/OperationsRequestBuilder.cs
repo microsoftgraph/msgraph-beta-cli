@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Operations {
+namespace ApiSdk.Print.Operations
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.print entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    public class OperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the operations property of the microsoft.graph.print entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.Print.Operations {
             return command;
         }
         /// <summary>
-        /// Get operations from print
+        /// Retrieve the properties and relationships of a printOperation object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get operations from print";
+            command.Description = "Retrieve the properties and relationships of a printOperation object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.Print.Operations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.Print.Operations {
         {
         }
         /// <summary>
-        /// Get operations from print
+        /// Retrieve the properties and relationships of a printOperation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.Print.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from print
+        /// Retrieve the properties and relationships of a printOperation object.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

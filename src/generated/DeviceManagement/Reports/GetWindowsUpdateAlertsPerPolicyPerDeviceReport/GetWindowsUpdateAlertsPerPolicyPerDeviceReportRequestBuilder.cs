@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsUpdateAlertsPerPolicyPerDeviceReport method.
     /// </summary>
-    public class GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsUpdateAlertsPerPolicyPerDeviceReport

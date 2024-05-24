@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Approvals.Item {
+namespace ApiSdk.Users.Item.Approvals.Item
+{
     /// <summary>
     /// Provides operations to manage the approvals property of the microsoft.graph.user entity.
     /// </summary>
-    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property approvals for users

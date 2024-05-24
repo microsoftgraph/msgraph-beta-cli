@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Event representing an Apple Vpp Token Troubleshooting Event.
     /// </summary>
-    public class AppleVppTokenTroubleshootingEvent : DeviceManagementTroubleshootingEvent, IParsable 
+    public class AppleVppTokenTroubleshootingEvent : DeviceManagementTroubleshootingEvent, IParsable
     {
         /// <summary>Apple Volume Purchase Program Token Identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"tokenId", n => { TokenId = n.GetStringValue(); } },
+                { "tokenId", n => { TokenId = n.GetStringValue(); } },
             };
         }
         /// <summary>

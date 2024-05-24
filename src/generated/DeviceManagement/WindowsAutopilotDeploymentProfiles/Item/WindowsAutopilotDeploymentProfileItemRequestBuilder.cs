@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsAutopilotDeploymentProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsAutopilotDeploymentProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsAutopilotDeploymentProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.

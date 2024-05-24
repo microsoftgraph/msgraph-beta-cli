@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Manager.Ref {
+namespace ApiSdk.Users.Item.Manager.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of user entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property manager for users
+        /// Remove a user&apos;s manager.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-delete-manager?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property manager for users";
+            command.Description = "Remove a user's manager.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-delete-manager?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Users.Item.Manager.Ref {
             return command;
         }
         /// <summary>
-        /// The user or contact that is this user&apos;s manager. Read-only. Supports $expand.
+        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The user or contact that is this user's manager. Read-only. Supports $expand.";
+            command.Description = "Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -86,13 +89,14 @@ namespace ApiSdk.Users.Item.Manager.Ref {
             return command;
         }
         /// <summary>
-        /// Update the ref of navigation property manager in users
+        /// Assign a user&apos;s manager.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-post-manager?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the ref of navigation property manager in users";
+            command.Description = "Assign a user's manager.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-manager?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -141,7 +145,7 @@ namespace ApiSdk.Users.Item.Manager.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property manager for users
+        /// Remove a user&apos;s manager.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -160,7 +164,7 @@ namespace ApiSdk.Users.Item.Manager.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The user or contact that is this user&apos;s manager. Read-only. Supports $expand.
+        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -179,7 +183,7 @@ namespace ApiSdk.Users.Item.Manager.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Update the ref of navigation property manager in users
+        /// Assign a user&apos;s manager.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

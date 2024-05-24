@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagedTenantAlert : ApiSdk.Models.Entity, IParsable 
+    public class ManagedTenantAlert : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The alertData property</summary>
@@ -149,25 +150,25 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertData", n => { AlertData = n.GetObjectValue<ApiSdk.Models.ManagedTenants.AlertData>(ApiSdk.Models.ManagedTenants.AlertData.CreateFromDiscriminatorValue); } },
-                {"alertDataReferenceStrings", n => { AlertDataReferenceStrings = n.GetCollectionOfObjectValues<AlertDataReferenceString>(AlertDataReferenceString.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alertLogs", n => { AlertLogs = n.GetCollectionOfObjectValues<ManagedTenantAlertLog>(ManagedTenantAlertLog.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alertRule", n => { AlertRule = n.GetObjectValue<ManagedTenantAlertRule>(ManagedTenantAlertRule.CreateFromDiscriminatorValue); } },
-                {"alertRuleDisplayName", n => { AlertRuleDisplayName = n.GetStringValue(); } },
-                {"apiNotifications", n => { ApiNotifications = n.GetCollectionOfObjectValues<ManagedTenantApiNotification>(ManagedTenantApiNotification.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignedToUserId", n => { AssignedToUserId = n.GetStringValue(); } },
-                {"correlationCount", n => { CorrelationCount = n.GetIntValue(); } },
-                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                {"createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"emailNotifications", n => { EmailNotifications = n.GetCollectionOfObjectValues<ManagedTenantEmailNotification>(ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
-                {"lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"message", n => { Message = n.GetStringValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
-                {"status", n => { Status = n.GetEnumValue<AlertStatus>(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
+                { "alertData", n => { AlertData = n.GetObjectValue<ApiSdk.Models.ManagedTenants.AlertData>(ApiSdk.Models.ManagedTenants.AlertData.CreateFromDiscriminatorValue); } },
+                { "alertDataReferenceStrings", n => { AlertDataReferenceStrings = n.GetCollectionOfObjectValues<AlertDataReferenceString>(AlertDataReferenceString.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertLogs", n => { AlertLogs = n.GetCollectionOfObjectValues<ManagedTenantAlertLog>(ManagedTenantAlertLog.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRule", n => { AlertRule = n.GetObjectValue<ManagedTenantAlertRule>(ManagedTenantAlertRule.CreateFromDiscriminatorValue); } },
+                { "alertRuleDisplayName", n => { AlertRuleDisplayName = n.GetStringValue(); } },
+                { "apiNotifications", n => { ApiNotifications = n.GetCollectionOfObjectValues<ManagedTenantApiNotification>(ManagedTenantApiNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedToUserId", n => { AssignedToUserId = n.GetStringValue(); } },
+                { "correlationCount", n => { CorrelationCount = n.GetIntValue(); } },
+                { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "emailNotifications", n => { EmailNotifications = n.GetCollectionOfObjectValues<ManagedTenantEmailNotification>(ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
+                { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
+                { "status", n => { Status = n.GetEnumValue<AlertStatus>(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>

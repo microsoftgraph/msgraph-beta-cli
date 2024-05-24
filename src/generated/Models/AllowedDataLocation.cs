@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AllowedDataLocation : Entity, IParsable 
+    public class AllowedDataLocation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"domain", n => { Domain = n.GetStringValue(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "domain", n => { Domain = n.GetStringValue(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "location", n => { Location = n.GetStringValue(); } },
             };
         }
         /// <summary>

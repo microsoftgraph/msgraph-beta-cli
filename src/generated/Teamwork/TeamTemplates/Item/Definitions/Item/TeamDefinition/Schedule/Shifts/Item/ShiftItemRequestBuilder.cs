@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.Shifts.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.Shifts.Item
+{
     /// <summary>
     /// Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class ShiftItemRequestBuilder : BaseCliRequestBuilder 
+    public class ShiftItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property shifts for teamwork

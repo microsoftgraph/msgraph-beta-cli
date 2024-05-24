@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.VppTokens.GetLicensesForAppWithBundleId {
+namespace ApiSdk.DeviceAppManagement.VppTokens.GetLicensesForAppWithBundleId
+{
     #pragma warning disable CS1591
-    public class GetLicensesForAppWithBundleIdGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetLicensesForAppWithBundleIdGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.GetLicensesForAppWithBundleId {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<VppTokenLicenseSummary>(VppTokenLicenseSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<VppTokenLicenseSummary>(VppTokenLicenseSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

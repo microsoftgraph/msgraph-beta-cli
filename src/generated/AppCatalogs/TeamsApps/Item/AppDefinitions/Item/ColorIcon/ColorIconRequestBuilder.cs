@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon
+{
     /// <summary>
     /// Provides operations to manage the colorIcon property of the microsoft.graph.teamsAppDefinition entity.
     /// </summary>
-    public class ColorIconRequestBuilder : BaseCliRequestBuilder 
+    public class ColorIconRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property colorIcon for appCatalogs

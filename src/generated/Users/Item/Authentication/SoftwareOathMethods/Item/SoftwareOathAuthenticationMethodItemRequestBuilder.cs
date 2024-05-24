@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class SoftwareOathAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class SoftwareOathAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property softwareOathMethods for users
+        /// Delete a user&apos;s Software OATH token authentication method object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property softwareOathMethods for users";
+            command.Description = "Delete a user's Software OATH token authentication method object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -134,7 +136,7 @@ namespace ApiSdk.Users.Item.Authentication.SoftwareOathMethods.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property softwareOathMethods for users
+        /// Delete a user&apos;s Software OATH token authentication method object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

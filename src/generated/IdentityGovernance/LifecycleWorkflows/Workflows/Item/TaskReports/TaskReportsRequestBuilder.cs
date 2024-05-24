@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReports {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReports
+{
     /// <summary>
     /// Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
     /// </summary>
-    public class TaskReportsRequestBuilder : BaseCliRequestBuilder 
+    public class TaskReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReport
             return command;
         }
         /// <summary>
-        /// Represents the aggregation of task execution data for tasks within a workflow object.
+        /// Get a list of the taskReport objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the aggregation of task execution data for tasks within a workflow object.";
+            command.Description = "Get a list of the taskReport objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-beta";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
             };
             workflowIdOption.IsRequired = true;
@@ -144,7 +146,9 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReport
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -187,7 +191,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReport
         {
         }
         /// <summary>
-        /// Represents the aggregation of task execution data for tasks within a workflow object.
+        /// Get a list of the taskReport objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +210,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.TaskReport
             return requestInfo;
         }
         /// <summary>
-        /// Represents the aggregation of task execution data for tasks within a workflow object.
+        /// Get a list of the taskReport objects and their properties.
         /// </summary>
         public class TaskReportsRequestBuilderGetQueryParameters 
         {

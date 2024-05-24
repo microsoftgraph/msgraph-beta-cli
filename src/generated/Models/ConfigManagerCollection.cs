@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A ConfigManager defined collection of devices or users.
     /// </summary>
-    public class ConfigManagerCollection : Entity, IParsable 
+    public class ConfigManagerCollection : Entity, IParsable
     {
         /// <summary>The collection identifier in SCCM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,12 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"collectionIdentifier", n => { CollectionIdentifier = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"hierarchyIdentifier", n => { HierarchyIdentifier = n.GetStringValue(); } },
-                {"hierarchyName", n => { HierarchyName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "collectionIdentifier", n => { CollectionIdentifier = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "hierarchyIdentifier", n => { HierarchyIdentifier = n.GetStringValue(); } },
+                { "hierarchyName", n => { HierarchyName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

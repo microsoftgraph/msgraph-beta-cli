@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewHistoryInstance : Entity, IParsable 
+    public class AccessReviewHistoryInstance : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.</summary>
@@ -47,13 +48,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"downloadUri", n => { DownloadUri = n.GetStringValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fulfilledDateTime", n => { FulfilledDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewHistoryPeriodEndDateTime", n => { ReviewHistoryPeriodEndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewHistoryPeriodStartDateTime", n => { ReviewHistoryPeriodStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"runDateTime", n => { RunDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<AccessReviewHistoryStatus>(); } },
+                { "downloadUri", n => { DownloadUri = n.GetStringValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fulfilledDateTime", n => { FulfilledDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewHistoryPeriodEndDateTime", n => { ReviewHistoryPeriodEndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewHistoryPeriodStartDateTime", n => { ReviewHistoryPeriodStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "runDateTime", n => { RunDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<AccessReviewHistoryStatus>(); } },
             };
         }
         /// <summary>

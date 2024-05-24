@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Deny {
+namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Deny
+{
     #pragma warning disable CS1591
-    public class DenyPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DenyPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Deny {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"reviewerJustification", n => { ReviewerJustification = n.GetStringValue(); } },
+                { "reviewerJustification", n => { ReviewerJustification = n.GetStringValue(); } },
             };
         }
         /// <summary>

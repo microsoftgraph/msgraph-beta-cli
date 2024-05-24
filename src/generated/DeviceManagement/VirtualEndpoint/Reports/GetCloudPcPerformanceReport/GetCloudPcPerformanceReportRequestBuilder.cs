@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport
+{
     /// <summary>
     /// Provides operations to call the getCloudPcPerformanceReport method.
     /// </summary>
-    public class GetCloudPcPerformanceReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetCloudPcPerformanceReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getCloudPcPerformanceReport

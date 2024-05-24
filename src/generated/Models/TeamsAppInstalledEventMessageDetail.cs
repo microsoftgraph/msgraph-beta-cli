@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppInstalledEventMessageDetail : EventMessageDetail, IParsable 
+    public class TeamsAppInstalledEventMessageDetail : EventMessageDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Initiator of the event.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"teamsAppDisplayName", n => { TeamsAppDisplayName = n.GetStringValue(); } },
-                {"teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
+                { "initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "teamsAppDisplayName", n => { TeamsAppDisplayName = n.GetStringValue(); } },
+                { "teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
             };
         }
         /// <summary>

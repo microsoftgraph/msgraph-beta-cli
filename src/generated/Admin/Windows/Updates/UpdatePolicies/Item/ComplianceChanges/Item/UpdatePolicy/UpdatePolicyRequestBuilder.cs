@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Item.UpdatePolicy {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Item.UpdatePolicy
+{
     /// <summary>
     /// Provides operations to manage the updatePolicy property of the microsoft.graph.windowsUpdates.complianceChange entity.
     /// </summary>
-    public class UpdatePolicyRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatePolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The policy this compliance change is a member of.

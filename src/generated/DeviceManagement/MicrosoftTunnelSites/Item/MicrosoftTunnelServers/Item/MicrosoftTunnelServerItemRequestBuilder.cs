@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item
+{
     /// <summary>
     /// Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
     /// </summary>
-    public class MicrosoftTunnelServerItemRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftTunnelServerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the createServerLogCollectionRequest method.

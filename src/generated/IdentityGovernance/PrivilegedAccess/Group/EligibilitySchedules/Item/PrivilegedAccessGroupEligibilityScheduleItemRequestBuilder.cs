@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules.Item {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules.Item
+{
     /// <summary>
     /// Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property eligibilitySchedules for identityGovernance
@@ -58,13 +59,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules.
             return command;
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedule-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The eligibility schedules to activate a just-in-time access.";
+            command.Description = "Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedule-get?view=graph-rest-beta";
             var privilegedAccessGroupEligibilityScheduleIdOption = new Option<string>("--privileged-access-group-eligibility-schedule-id", description: "The unique identifier of privilegedAccessGroupEligibilitySchedule") {
             };
             privilegedAccessGroupEligibilityScheduleIdOption.IsRequired = true;
@@ -234,7 +236,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules.
             return requestInfo;
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -274,7 +276,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilitySchedules.
             return requestInfo;
         }
         /// <summary>
-        /// The eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
         /// </summary>
         public class PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetQueryParameters 
         {

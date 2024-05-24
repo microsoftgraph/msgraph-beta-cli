@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GovernanceRoleAssignmentRequest : Entity, IParsable 
+    public class GovernanceRoleAssignmentRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).</summary>
@@ -125,19 +126,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentState", n => { AssignmentState = n.GetStringValue(); } },
-                {"linkedEligibleRoleAssignmentId", n => { LinkedEligibleRoleAssignmentId = n.GetStringValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue); } },
-                {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetObjectValue<GovernanceRoleAssignmentRequestStatus>(GovernanceRoleAssignmentRequestStatus.CreateFromDiscriminatorValue); } },
-                {"subject", n => { Subject = n.GetObjectValue<GovernanceSubject>(GovernanceSubject.CreateFromDiscriminatorValue); } },
-                {"subjectId", n => { SubjectId = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "assignmentState", n => { AssignmentState = n.GetStringValue(); } },
+                { "linkedEligibleRoleAssignmentId", n => { LinkedEligibleRoleAssignmentId = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<GovernanceRoleAssignmentRequestStatus>(GovernanceRoleAssignmentRequestStatus.CreateFromDiscriminatorValue); } },
+                { "subject", n => { Subject = n.GetObjectValue<GovernanceSubject>(GovernanceSubject.CreateFromDiscriminatorValue); } },
+                { "subjectId", n => { SubjectId = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

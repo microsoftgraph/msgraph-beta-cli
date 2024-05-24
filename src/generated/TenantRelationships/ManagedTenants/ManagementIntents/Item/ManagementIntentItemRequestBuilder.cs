@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.Item
+{
     /// <summary>
     /// Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementIntentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementIntentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementIntents for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.Item {
             return command;
         }
         /// <summary>
-        /// The collection of baseline management intents across managed tenants.
+        /// Read the properties and relationships of a managementIntent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementintent-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of baseline management intents across managed tenants.";
+            command.Description = "Read the properties and relationships of a managementIntent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementintent-get?view=graph-rest-beta";
             var managementIntentIdOption = new Option<string>("--management-intent-id", description: "The unique identifier of managementIntent") {
             };
             managementIntentIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management intents across managed tenants.
+        /// Read the properties and relationships of a managementIntent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management intents across managed tenants.
+        /// Read the properties and relationships of a managementIntent object.
         /// </summary>
         public class ManagementIntentItemRequestBuilderGetQueryParameters 
         {

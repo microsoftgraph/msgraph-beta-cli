@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification {
+namespace ApiSdk.DataClassification
+{
     /// <summary>
     /// Provides operations to manage the dataClassificationService singleton.
     /// </summary>
-    public class DataClassificationRequestBuilder : BaseCliRequestBuilder 
+    public class DataClassificationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the classifyExactMatches method.

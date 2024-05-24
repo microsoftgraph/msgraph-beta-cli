@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.SharedEmailDomains.Item {
+namespace ApiSdk.DirectoryNamespace.SharedEmailDomains.Item
+{
     /// <summary>
     /// Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
     /// </summary>
-    public class SharedEmailDomainItemRequestBuilder : BaseCliRequestBuilder 
+    public class SharedEmailDomainItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sharedEmailDomains for directory

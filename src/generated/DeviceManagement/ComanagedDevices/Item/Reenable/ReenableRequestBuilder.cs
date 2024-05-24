@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.Reenable {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.Reenable
+{
     /// <summary>
     /// Provides operations to call the reenable method.
     /// </summary>
-    public class ReenableRequestBuilder : BaseCliRequestBuilder 
+    public class ReenableRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action reenable

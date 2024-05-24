@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcDeviceImage : Entity, IParsable 
+    public class CloudPcDeviceImage : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the associated device image. The device image display name and the version are used to uniquely identify the Cloud PC device image. Read-only.</summary>
@@ -60,7 +61,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only.</summary>
         public CloudPcDeviceImageStatus? Status { get; set; }
-        /// <summary>The statusDetails property</summary>
+        /// <summary>The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only. The statusDetails property is deprecated and will stop returning data on January 31, 2024. Going forward, use the errorCode property.</summary>
         public CloudPcDeviceImageStatusDetails? StatusDetails { get; set; }
         /// <summary>The image version. For example, 0.0.1 and 1.5.13. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,18 +89,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetEnumValue<CloudPcDeviceImageErrorCode>(); } },
-                {"expirationDate", n => { ExpirationDate = n.GetDateValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
-                {"osBuildNumber", n => { OsBuildNumber = n.GetStringValue(); } },
-                {"osStatus", n => { OsStatus = n.GetEnumValue<CloudPcDeviceImageOsStatus>(); } },
-                {"scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"sourceImageResourceId", n => { SourceImageResourceId = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<CloudPcDeviceImageStatus>(); } },
-                {"statusDetails", n => { StatusDetails = n.GetEnumValue<CloudPcDeviceImageStatusDetails>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<CloudPcDeviceImageErrorCode>(); } },
+                { "expirationDate", n => { ExpirationDate = n.GetDateValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                { "osBuildNumber", n => { OsBuildNumber = n.GetStringValue(); } },
+                { "osStatus", n => { OsStatus = n.GetEnumValue<CloudPcDeviceImageOsStatus>(); } },
+                { "scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "sourceImageResourceId", n => { SourceImageResourceId = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<CloudPcDeviceImageStatus>(); } },
+                { "statusDetails", n => { StatusDetails = n.GetEnumValue<CloudPcDeviceImageStatusDetails>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

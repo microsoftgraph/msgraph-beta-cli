@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags
+{
     /// <summary>
     /// Provides operations to call the applyTags method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Apply tags to documents that match the specified reviewSetQuery.

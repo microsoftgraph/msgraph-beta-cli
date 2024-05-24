@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.Policy {
+namespace ApiSdk.InformationProtection.Policy
+{
     /// <summary>
     /// Provides operations to manage the policy property of the microsoft.graph.informationProtection entity.
     /// </summary>
-    public class PolicyRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policy for informationProtection

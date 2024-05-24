@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class GitHubUserEvidence : AlertEvidence, IParsable 
+    public class GitHubUserEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The email property</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"login", n => { Login = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "login", n => { Login = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

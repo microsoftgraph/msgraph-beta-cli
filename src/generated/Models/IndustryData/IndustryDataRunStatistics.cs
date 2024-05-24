@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataRunStatistics : IAdditionalDataHolder, IParsable 
+    public class IndustryDataRunStatistics : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of statistics for each activity included in this run.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activityStatistics", n => { ActivityStatistics = n.GetCollectionOfObjectValues<IndustryDataActivityStatistics>(IndustryDataActivityStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"inboundTotals", n => { InboundTotals = n.GetObjectValue<AggregatedInboundStatistics>(AggregatedInboundStatistics.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"runId", n => { RunId = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<IndustryDataRunStatus>(); } },
+                { "activityStatistics", n => { ActivityStatistics = n.GetCollectionOfObjectValues<IndustryDataActivityStatistics>(IndustryDataActivityStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inboundTotals", n => { InboundTotals = n.GetObjectValue<AggregatedInboundStatistics>(AggregatedInboundStatistics.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "runId", n => { RunId = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<IndustryDataRunStatus>(); } },
             };
         }
         /// <summary>

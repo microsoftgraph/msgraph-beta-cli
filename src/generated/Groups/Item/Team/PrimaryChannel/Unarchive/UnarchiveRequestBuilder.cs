@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Unarchive {
+namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Unarchive
+{
     /// <summary>
     /// Provides operations to call the unarchive method.
     /// </summary>
-    public class UnarchiveRequestBuilder : BaseCliRequestBuilder 
+    public class UnarchiveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.

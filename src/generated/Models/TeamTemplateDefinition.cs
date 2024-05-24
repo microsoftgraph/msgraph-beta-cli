@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamTemplateDefinition : Entity, IParsable 
+    public class TeamTemplateDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.</summary>
@@ -111,18 +112,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"audience", n => { Audience = n.GetEnumValue<TeamTemplateAudience>(); } },
-                {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"iconUrl", n => { IconUrl = n.GetStringValue(); } },
-                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"parentTemplateId", n => { ParentTemplateId = n.GetStringValue(); } },
-                {"publisherName", n => { PublisherName = n.GetStringValue(); } },
-                {"shortDescription", n => { ShortDescription = n.GetStringValue(); } },
-                {"teamDefinition", n => { TeamDefinition = n.GetObjectValue<Team>(Team.CreateFromDiscriminatorValue); } },
+                { "audience", n => { Audience = n.GetEnumValue<TeamTemplateAudience>(); } },
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "iconUrl", n => { IconUrl = n.GetStringValue(); } },
+                { "languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "parentTemplateId", n => { ParentTemplateId = n.GetStringValue(); } },
+                { "publisherName", n => { PublisherName = n.GetStringValue(); } },
+                { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
+                { "teamDefinition", n => { TeamDefinition = n.GetObjectValue<Team>(Team.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

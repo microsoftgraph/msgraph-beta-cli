@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BusinessScenarioPlanner : Entity, IParsable 
+    public class BusinessScenarioPlanner : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration of Planner plans that will be created for the scenario.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"planConfiguration", n => { PlanConfiguration = n.GetObjectValue<PlannerPlanConfiguration>(PlannerPlanConfiguration.CreateFromDiscriminatorValue); } },
-                {"taskConfiguration", n => { TaskConfiguration = n.GetObjectValue<PlannerTaskConfiguration>(PlannerTaskConfiguration.CreateFromDiscriminatorValue); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<BusinessScenarioTask>(BusinessScenarioTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "planConfiguration", n => { PlanConfiguration = n.GetObjectValue<PlannerPlanConfiguration>(PlannerPlanConfiguration.CreateFromDiscriminatorValue); } },
+                { "taskConfiguration", n => { TaskConfiguration = n.GetObjectValue<PlannerTaskConfiguration>(PlannerTaskConfiguration.CreateFromDiscriminatorValue); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<BusinessScenarioTask>(BusinessScenarioTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

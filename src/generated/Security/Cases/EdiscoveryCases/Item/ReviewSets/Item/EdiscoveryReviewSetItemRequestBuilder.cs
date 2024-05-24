@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item
+{
     /// <summary>
     /// Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class EdiscoveryReviewSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryReviewSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reviewSets for security
@@ -93,13 +94,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Read the properties and relationships of an ediscoveryReviewSet object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of eDiscoveryReviewSet objects in the case.";
+            command.Description = "Read the properties and relationships of an ediscoveryReviewSet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-get?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -302,7 +304,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Read the properties and relationships of an ediscoveryReviewSet object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -342,7 +344,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of eDiscoveryReviewSet objects in the case.
+        /// Read the properties and relationships of an ediscoveryReviewSet object.
         /// </summary>
         public class EdiscoveryReviewSetItemRequestBuilderGetQueryParameters 
         {

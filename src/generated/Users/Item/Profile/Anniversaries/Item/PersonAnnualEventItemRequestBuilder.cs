@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Anniversaries.Item {
+namespace ApiSdk.Users.Item.Profile.Anniversaries.Item
+{
     /// <summary>
     /// Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
     /// </summary>
-    public class PersonAnnualEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class PersonAnnualEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property anniversaries for users

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.
     /// </summary>
-    public class ForwardingProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class ForwardingProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property forwardingProfiles for networkAccess

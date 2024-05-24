@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains the properties used to assign an App provisioning configuration to a group.
     /// </summary>
-    public class MobileAppProvisioningConfigGroupAssignment : Entity, IParsable 
+    public class MobileAppProvisioningConfigGroupAssignment : Entity, IParsable
     {
         /// <summary>The ID of the AAD group in which the app provisioning configuration is being targeted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
+                { "targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
             };
         }
         /// <summary>

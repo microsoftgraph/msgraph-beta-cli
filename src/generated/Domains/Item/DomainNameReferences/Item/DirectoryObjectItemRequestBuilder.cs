@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.DomainNameReferences.Item {
+namespace ApiSdk.Domains.Item.DomainNameReferences.Item
+{
     /// <summary>
     /// Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.

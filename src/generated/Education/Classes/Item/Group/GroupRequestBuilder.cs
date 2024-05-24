@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Group {
+namespace ApiSdk.Education.Classes.Item.Group
+{
     /// <summary>
     /// Provides operations to manage the group property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class GroupRequestBuilder : BaseCliRequestBuilder 
+    public class GroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get group from education
+        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get group from education";
+            command.Description = "Retrieve the Microsoft 365 group that corresponds to this educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -111,7 +113,7 @@ namespace ApiSdk.Education.Classes.Item.Group {
         {
         }
         /// <summary>
-        /// Get group from education
+        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +132,7 @@ namespace ApiSdk.Education.Classes.Item.Group {
             return requestInfo;
         }
         /// <summary>
-        /// Get group from education
+        /// Retrieve the Microsoft 365 group that corresponds to this educationClass.
         /// </summary>
         public class GroupRequestBuilderGetQueryParameters 
         {

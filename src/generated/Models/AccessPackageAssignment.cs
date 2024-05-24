@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignment : Entity, IParsable 
+    public class AccessPackageAssignment : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
@@ -135,21 +136,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
-                {"accessPackageAssignmentPolicy", n => { AccessPackageAssignmentPolicy = n.GetObjectValue<ApiSdk.Models.AccessPackageAssignmentPolicy>(ApiSdk.Models.AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
-                {"accessPackageAssignmentRequests", n => { AccessPackageAssignmentRequests = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"accessPackageAssignmentResourceRoles", n => { AccessPackageAssignmentResourceRoles = n.GetCollectionOfObjectValues<AccessPackageAssignmentResourceRole>(AccessPackageAssignmentResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
-                {"assignmentPolicyId", n => { AssignmentPolicyId = n.GetStringValue(); } },
-                {"assignmentState", n => { AssignmentState = n.GetStringValue(); } },
-                {"assignmentStatus", n => { AssignmentStatus = n.GetStringValue(); } },
-                {"catalogId", n => { CatalogId = n.GetStringValue(); } },
-                {"customExtensionCalloutInstances", n => { CustomExtensionCalloutInstances = n.GetCollectionOfObjectValues<CustomExtensionCalloutInstance>(CustomExtensionCalloutInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"expiredDateTime", n => { ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isExtended", n => { IsExtended = n.GetBoolValue(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                {"target", n => { Target = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
-                {"targetId", n => { TargetId = n.GetStringValue(); } },
+                { "accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                { "accessPackageAssignmentPolicy", n => { AccessPackageAssignmentPolicy = n.GetObjectValue<ApiSdk.Models.AccessPackageAssignmentPolicy>(ApiSdk.Models.AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
+                { "accessPackageAssignmentRequests", n => { AccessPackageAssignmentRequests = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignmentResourceRoles", n => { AccessPackageAssignmentResourceRoles = n.GetCollectionOfObjectValues<AccessPackageAssignmentResourceRole>(AccessPackageAssignmentResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
+                { "assignmentPolicyId", n => { AssignmentPolicyId = n.GetStringValue(); } },
+                { "assignmentState", n => { AssignmentState = n.GetStringValue(); } },
+                { "assignmentStatus", n => { AssignmentStatus = n.GetStringValue(); } },
+                { "catalogId", n => { CatalogId = n.GetStringValue(); } },
+                { "customExtensionCalloutInstances", n => { CustomExtensionCalloutInstances = n.GetCollectionOfObjectValues<CustomExtensionCalloutInstance>(CustomExtensionCalloutInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "expiredDateTime", n => { ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isExtended", n => { IsExtended = n.GetBoolValue(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
+                { "targetId", n => { TargetId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetMailboxUsageStorageWithPeriod {
+namespace ApiSdk.Reports.GetMailboxUsageStorageWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getMailboxUsageStorage method.
     /// </summary>
-    public class GetMailboxUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetMailboxUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getMailboxUsageStorage

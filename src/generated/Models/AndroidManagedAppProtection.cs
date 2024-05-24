@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device
     /// </summary>
-    public class AndroidManagedAppProtection : TargetedManagedAppProtection, IParsable 
+    public class AndroidManagedAppProtection : TargetedManagedAppProtection, IParsable
     {
         /// <summary>Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,7 +69,7 @@ namespace ApiSdk.Models {
         public int? BlockAfterCompanyPortalUpdateDeferralInDays { get; set; }
         /// <summary>Whether the app should connect to the configured VPN on launch.</summary>
         public bool? ConnectToVpnOnLaunch { get; set; }
-        /// <summary>Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
+        /// <summary>Friendly name of the preferred custom browser to open weblink on Android.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomBrowserDisplayName { get; set; }
@@ -76,7 +77,7 @@ namespace ApiSdk.Models {
 #else
         public string CustomBrowserDisplayName { get; set; }
 #endif
-        /// <summary>Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
+        /// <summary>Unique identifier of a custom browser to open weblink on Android.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomBrowserPackageId { get; set; }
@@ -233,51 +234,51 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedAndroidDeviceManufacturers", n => { AllowedAndroidDeviceManufacturers = n.GetStringValue(); } },
-                {"allowedAndroidDeviceModels", n => { AllowedAndroidDeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"appActionIfSamsungKnoxAttestationRequired", n => { AppActionIfSamsungKnoxAttestationRequired = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"approvedKeyboards", n => { ApprovedKeyboards = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"biometricAuthenticationBlocked", n => { BiometricAuthenticationBlocked = n.GetBoolValue(); } },
-                {"blockAfterCompanyPortalUpdateDeferralInDays", n => { BlockAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
-                {"connectToVpnOnLaunch", n => { ConnectToVpnOnLaunch = n.GetBoolValue(); } },
-                {"customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
-                {"customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
-                {"customDialerAppDisplayName", n => { CustomDialerAppDisplayName = n.GetStringValue(); } },
-                {"customDialerAppPackageId", n => { CustomDialerAppPackageId = n.GetStringValue(); } },
-                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"deviceLockRequired", n => { DeviceLockRequired = n.GetBoolValue(); } },
-                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
-                {"encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
-                {"exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"fingerprintAndBiometricEnabled", n => { FingerprintAndBiometricEnabled = n.GetBoolValue(); } },
-                {"keyboardsRestricted", n => { KeyboardsRestricted = n.GetBoolValue(); } },
-                {"messagingRedirectAppDisplayName", n => { MessagingRedirectAppDisplayName = n.GetStringValue(); } },
-                {"messagingRedirectAppPackageId", n => { MessagingRedirectAppPackageId = n.GetStringValue(); } },
-                {"minimumRequiredCompanyPortalVersion", n => { MinimumRequiredCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
-                {"minimumWarningCompanyPortalVersion", n => { MinimumWarningCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
-                {"minimumWipeCompanyPortalVersion", n => { MinimumWipeCompanyPortalVersion = n.GetStringValue(); } },
-                {"minimumWipePatchVersion", n => { MinimumWipePatchVersion = n.GetStringValue(); } },
-                {"requireClass3Biometrics", n => { RequireClass3Biometrics = n.GetBoolValue(); } },
-                {"requirePinAfterBiometricChange", n => { RequirePinAfterBiometricChange = n.GetBoolValue(); } },
-                {"requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>(); } },
-                {"requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
-                {"requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidManagedAppSafetyNetEvaluationType>(); } },
-                {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
-                {"warnAfterCompanyPortalUpdateDeferralInDays", n => { WarnAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
-                {"wipeAfterCompanyPortalUpdateDeferralInDays", n => { WipeAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "allowedAndroidDeviceManufacturers", n => { AllowedAndroidDeviceManufacturers = n.GetStringValue(); } },
+                { "allowedAndroidDeviceModels", n => { AllowedAndroidDeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "appActionIfSamsungKnoxAttestationRequired", n => { AppActionIfSamsungKnoxAttestationRequired = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "approvedKeyboards", n => { ApprovedKeyboards = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "biometricAuthenticationBlocked", n => { BiometricAuthenticationBlocked = n.GetBoolValue(); } },
+                { "blockAfterCompanyPortalUpdateDeferralInDays", n => { BlockAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "connectToVpnOnLaunch", n => { ConnectToVpnOnLaunch = n.GetBoolValue(); } },
+                { "customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
+                { "customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
+                { "customDialerAppDisplayName", n => { CustomDialerAppDisplayName = n.GetStringValue(); } },
+                { "customDialerAppPackageId", n => { CustomDialerAppPackageId = n.GetStringValue(); } },
+                { "deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                { "deviceLockRequired", n => { DeviceLockRequired = n.GetBoolValue(); } },
+                { "disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
+                { "encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
+                { "exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "fingerprintAndBiometricEnabled", n => { FingerprintAndBiometricEnabled = n.GetBoolValue(); } },
+                { "keyboardsRestricted", n => { KeyboardsRestricted = n.GetBoolValue(); } },
+                { "messagingRedirectAppDisplayName", n => { MessagingRedirectAppDisplayName = n.GetStringValue(); } },
+                { "messagingRedirectAppPackageId", n => { MessagingRedirectAppPackageId = n.GetStringValue(); } },
+                { "minimumRequiredCompanyPortalVersion", n => { MinimumRequiredCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
+                { "minimumWarningCompanyPortalVersion", n => { MinimumWarningCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
+                { "minimumWipeCompanyPortalVersion", n => { MinimumWipeCompanyPortalVersion = n.GetStringValue(); } },
+                { "minimumWipePatchVersion", n => { MinimumWipePatchVersion = n.GetStringValue(); } },
+                { "requireClass3Biometrics", n => { RequireClass3Biometrics = n.GetBoolValue(); } },
+                { "requirePinAfterBiometricChange", n => { RequirePinAfterBiometricChange = n.GetBoolValue(); } },
+                { "requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>(); } },
+                { "requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
+                { "requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidManagedAppSafetyNetEvaluationType>(); } },
+                { "screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
+                { "warnAfterCompanyPortalUpdateDeferralInDays", n => { WarnAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
+                { "wipeAfterCompanyPortalUpdateDeferralInDays", n => { WipeAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
             };
         }
         /// <summary>

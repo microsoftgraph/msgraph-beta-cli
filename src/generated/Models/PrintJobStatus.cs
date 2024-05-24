@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintJobStatus : IAdditionalDataHolder, IParsable 
+    public class PrintJobStatus : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acquiredByPrinter property</summary>
@@ -76,14 +77,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"acquiredByPrinter", n => { AcquiredByPrinter = n.GetBoolValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"details", n => { Details = n.GetCollectionOfEnumValues<PrintJobStateDetail>()?.ToList(); } },
-                {"isAcquiredByPrinter", n => { IsAcquiredByPrinter = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
-                {"processingStateDescription", n => { ProcessingStateDescription = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<PrintJobProcessingState>(); } },
+                { "acquiredByPrinter", n => { AcquiredByPrinter = n.GetBoolValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "details", n => { Details = n.GetCollectionOfEnumValues<PrintJobStateDetail>()?.ToList(); } },
+                { "isAcquiredByPrinter", n => { IsAcquiredByPrinter = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
+                { "processingStateDescription", n => { ProcessingStateDescription = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
         }
         /// <summary>

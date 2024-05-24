@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OutlookTaskGroup : Entity, IParsable 
+    public class OutlookTaskGroup : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The version of the task group.</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"changeKey", n => { ChangeKey = n.GetStringValue(); } },
-                {"groupKey", n => { GroupKey = n.GetGuidValue(); } },
-                {"isDefaultGroup", n => { IsDefaultGroup = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<OutlookTaskFolder>(OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "changeKey", n => { ChangeKey = n.GetStringValue(); } },
+                { "groupKey", n => { GroupKey = n.GetGuidValue(); } },
+                { "isDefaultGroup", n => { IsDefaultGroup = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<OutlookTaskFolder>(OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

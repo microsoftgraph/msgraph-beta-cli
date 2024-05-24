@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the health summary of the Windows management app.
     /// </summary>
-    public class WindowsManagementAppHealthSummary : Entity, IParsable 
+    public class WindowsManagementAppHealthSummary : Entity, IParsable
     {
         /// <summary>Healthy device count.</summary>
         public int? HealthyDeviceCount { get; set; }
@@ -34,9 +35,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"healthyDeviceCount", n => { HealthyDeviceCount = n.GetIntValue(); } },
-                {"unhealthyDeviceCount", n => { UnhealthyDeviceCount = n.GetIntValue(); } },
-                {"unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
+                { "healthyDeviceCount", n => { HealthyDeviceCount = n.GetIntValue(); } },
+                { "unhealthyDeviceCount", n => { UnhealthyDeviceCount = n.GetIntValue(); } },
+                { "unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

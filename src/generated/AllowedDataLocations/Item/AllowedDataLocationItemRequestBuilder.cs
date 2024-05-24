@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AllowedDataLocations.Item {
+namespace ApiSdk.AllowedDataLocations.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of allowedDataLocation entities.
     /// </summary>
-    public class AllowedDataLocationItemRequestBuilder : BaseCliRequestBuilder 
+    public class AllowedDataLocationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from allowedDataLocations

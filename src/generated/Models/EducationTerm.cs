@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationTerm : IAdditionalDataHolder, IParsable 
+    public class EducationTerm : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -65,11 +66,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endDate", n => { EndDate = n.GetDateValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startDate", n => { StartDate = n.GetDateValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endDate", n => { EndDate = n.GetDateValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startDate", n => { StartDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

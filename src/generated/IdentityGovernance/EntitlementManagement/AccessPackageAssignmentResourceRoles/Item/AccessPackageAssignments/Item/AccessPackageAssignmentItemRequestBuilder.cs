@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item.AccessPackageAssignments.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item.AccessPackageAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     /// </summary>
-    public class AccessPackageAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The access package assignments resulting in this role assignment. Read-only. Nullable.

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Shares.Item.Jobs.Item.CancelPrintJob {
+namespace ApiSdk.Print.Shares.Item.Jobs.Item.CancelPrintJob
+{
     /// <summary>
     /// Provides operations to call the cancelPrintJob method.
     /// </summary>
-    public class CancelPrintJobRequestBuilder : BaseCliRequestBuilder 
+    public class CancelPrintJobRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action cancelPrintJob

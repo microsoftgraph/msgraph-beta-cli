@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphAndroidForWorkApp {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphAndroidForWorkApp
+{
     /// <summary>
     /// Casts the previous resource to androidForWorkApp.
     /// </summary>
-    public class GraphAndroidForWorkAppRequestBuilder : BaseCliRequestBuilder 
+    public class GraphAndroidForWorkAppRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

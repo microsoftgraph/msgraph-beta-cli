@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class AzureDataLakeConnector : FileDataConnector, IParsable 
+    public class AzureDataLakeConnector : FileDataConnector, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

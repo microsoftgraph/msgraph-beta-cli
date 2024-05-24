@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OpenShift : ChangeTrackedEntity, IParsable 
+    public class OpenShift : ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Draft changes in the openShift are only visible to managers until they&apos;re shared.</summary>
@@ -76,12 +77,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"draftOpenShift", n => { DraftOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
-                {"isStagedForDeletion", n => { IsStagedForDeletion = n.GetBoolValue(); } },
-                {"schedulingGroupId", n => { SchedulingGroupId = n.GetStringValue(); } },
-                {"schedulingGroupInfo", n => { SchedulingGroupInfo = n.GetObjectValue<ApiSdk.Models.SchedulingGroupInfo>(ApiSdk.Models.SchedulingGroupInfo.CreateFromDiscriminatorValue); } },
-                {"sharedOpenShift", n => { SharedOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
-                {"teamInfo", n => { TeamInfo = n.GetObjectValue<ShiftsTeamInfo>(ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
+                { "draftOpenShift", n => { DraftOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
+                { "isStagedForDeletion", n => { IsStagedForDeletion = n.GetBoolValue(); } },
+                { "schedulingGroupId", n => { SchedulingGroupId = n.GetStringValue(); } },
+                { "schedulingGroupInfo", n => { SchedulingGroupInfo = n.GetObjectValue<ApiSdk.Models.SchedulingGroupInfo>(ApiSdk.Models.SchedulingGroupInfo.CreateFromDiscriminatorValue); } },
+                { "sharedOpenShift", n => { SharedOpenShift = n.GetObjectValue<OpenShiftItem>(OpenShiftItem.CreateFromDiscriminatorValue); } },
+                { "teamInfo", n => { TeamInfo = n.GetObjectValue<ShiftsTeamInfo>(ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

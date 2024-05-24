@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcLaunchInfo : IAdditionalDataHolder, IParsable 
+    public class CloudPcLaunchInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cloudPcId", n => { CloudPcId = n.GetStringValue(); } },
-                {"cloudPcLaunchUrl", n => { CloudPcLaunchUrl = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"windows365SwitchCompatible", n => { Windows365SwitchCompatible = n.GetBoolValue(); } },
-                {"windows365SwitchNotCompatibleReason", n => { Windows365SwitchNotCompatibleReason = n.GetStringValue(); } },
+                { "cloudPcId", n => { CloudPcId = n.GetStringValue(); } },
+                { "cloudPcLaunchUrl", n => { CloudPcLaunchUrl = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "windows365SwitchCompatible", n => { Windows365SwitchCompatible = n.GetBoolValue(); } },
+                { "windows365SwitchNotCompatibleReason", n => { Windows365SwitchNotCompatibleReason = n.GetStringValue(); } },
             };
         }
         /// <summary>

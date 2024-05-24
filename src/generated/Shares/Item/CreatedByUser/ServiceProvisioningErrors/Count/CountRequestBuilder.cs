@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Shares.Item.CreatedByUser.ServiceProvisioningErrors.Count {
+namespace ApiSdk.Shares.Item.CreatedByUser.ServiceProvisioningErrors.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -35,14 +36,20 @@ namespace ApiSdk.Shares.Item.CreatedByUser.ServiceProvisioningErrors.Count {
             };
             searchOption.IsRequired = false;
             command.AddOption(searchOption);
+            var filterOption = new Option<string>("--filter", description: "Filter items by property values") {
+            };
+            filterOption.IsRequired = false;
+            command.AddOption(filterOption);
             command.SetHandler(async (invocationContext) => {
                 var sharedDriveItemId = invocationContext.ParseResult.GetValueForOption(sharedDriveItemIdOption);
                 var search = invocationContext.ParseResult.GetValueForOption(searchOption);
+                var filter = invocationContext.ParseResult.GetValueForOption(filterOption);
                 IOutputFormatterFactory outputFormatterFactory = invocationContext.BindingContext.GetService(typeof(IOutputFormatterFactory)) as IOutputFormatterFactory ?? throw new ArgumentNullException("outputFormatterFactory");
                 var cancellationToken = invocationContext.GetCancellationToken();
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 var requestInfo = ToGetRequestInformation(q => {
                     if (!string.IsNullOrEmpty(search)) q.QueryParameters.Search = search;
+                    if (!string.IsNullOrEmpty(filter)) q.QueryParameters.Filter = filter;
                 });
                 if (sharedDriveItemId is not null) requestInfo.PathParameters.Add("sharedDriveItem%2Did", sharedDriveItemId);
                 var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -59,14 +66,14 @@ namespace ApiSdk.Shares.Item.CreatedByUser.ServiceProvisioningErrors.Count {
         /// Instantiates a new <see cref="CountRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public CountRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24search}", pathParameters)
+        public CountRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24filter,%24search}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="CountRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public CountRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24search}", rawUrl)
+        public CountRequestBuilder(string rawUrl) : base("{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24filter,%24search}", rawUrl)
         {
         }
         /// <summary>
@@ -93,6 +100,16 @@ namespace ApiSdk.Shares.Item.CreatedByUser.ServiceProvisioningErrors.Count {
         /// </summary>
         public class CountRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter items by property values</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24filter")]
+            public string? Filter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24filter")]
+            public string Filter { get; set; }
+#endif
             /// <summary>Search items by search phrases</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

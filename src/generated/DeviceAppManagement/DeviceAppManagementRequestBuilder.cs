@@ -41,11 +41,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement {
+namespace ApiSdk.DeviceAppManagement
+{
     /// <summary>
     /// Provides operations to manage the deviceAppManagement singleton.
     /// </summary>
-    public class DeviceAppManagementRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceAppManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

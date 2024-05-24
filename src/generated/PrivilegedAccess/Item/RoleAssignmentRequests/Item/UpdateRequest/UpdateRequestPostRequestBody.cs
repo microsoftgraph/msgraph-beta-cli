@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests.Item.UpdateRequest {
+namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests.Item.UpdateRequest
+{
     #pragma warning disable CS1591
-    public class UpdateRequestPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateRequestPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -69,10 +70,10 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests.Item.UpdateRequest
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentState", n => { AssignmentState = n.GetStringValue(); } },
-                {"decision", n => { Decision = n.GetStringValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
+                { "assignmentState", n => { AssignmentState = n.GetStringValue(); } },
+                { "decision", n => { Decision = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

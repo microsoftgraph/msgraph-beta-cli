@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CompanyInformation : IAdditionalDataHolder, IParsable 
+    public class CompanyInformation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -131,20 +132,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
-                {"currentFiscalYearStartDate", n => { CurrentFiscalYearStartDate = n.GetDateValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"faxNumber", n => { FaxNumber = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"industry", n => { Industry = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"picture", n => { Picture = n.GetByteArrayValue(); } },
-                {"taxRegistrationNumber", n => { TaxRegistrationNumber = n.GetStringValue(); } },
-                {"website", n => { Website = n.GetStringValue(); } },
+                { "address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
+                { "currentFiscalYearStartDate", n => { CurrentFiscalYearStartDate = n.GetDateValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "faxNumber", n => { FaxNumber = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "industry", n => { Industry = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "picture", n => { Picture = n.GetByteArrayValue(); } },
+                { "taxRegistrationNumber", n => { TaxRegistrationNumber = n.GetStringValue(); } },
+                { "website", n => { Website = n.GetStringValue(); } },
             };
         }
         /// <summary>

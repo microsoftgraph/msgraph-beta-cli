@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item.Ref {
+namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of policyRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property appliesTo for policies
+        /// Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property appliesTo for policies";
+            command.Description = "Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete-appliesto?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property appliesTo for policies
+        /// Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.IncompatibleGroups {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.IncompatibleGroups
+{
     /// <summary>
     /// Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
     /// </summary>
-    public class IncompatibleGroupsRequestBuilder : BaseCliRequestBuilder 
+    public class IncompatibleGroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.incompatibleGroups.item collection
@@ -141,7 +142,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

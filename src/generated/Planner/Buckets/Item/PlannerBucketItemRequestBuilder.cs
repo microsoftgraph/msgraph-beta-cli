@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Buckets.Item {
+namespace ApiSdk.Planner.Buckets.Item
+{
     /// <summary>
     /// Provides operations to manage the buckets property of the microsoft.graph.planner entity.
     /// </summary>
-    public class PlannerBucketItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerBucketItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property buckets for planner
+        /// Delete plannerBucket.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property buckets for planner";
+            command.Description = "Delete plannerBucket.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-beta";
             var plannerBucketIdOption = new Option<string>("--planner-bucket-id", description: "The unique identifier of plannerBucket") {
             };
             plannerBucketIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Planner.Buckets.Item {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve the properties and relationships of a plannerBucket object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified buckets";
+            command.Description = "Retrieve the properties and relationships of a plannerBucket object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-beta";
             var plannerBucketIdOption = new Option<string>("--planner-bucket-id", description: "The unique identifier of plannerBucket") {
             };
             plannerBucketIdOption.IsRequired = true;
@@ -109,13 +112,14 @@ namespace ApiSdk.Planner.Buckets.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property buckets in planner
+        /// Update the properties of plannerbucket object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property buckets in planner";
+            command.Description = "Update the properties of plannerbucket object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-beta";
             var plannerBucketIdOption = new Option<string>("--planner-bucket-id", description: "The unique identifier of plannerBucket") {
             };
             plannerBucketIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.Planner.Buckets.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property buckets for planner
+        /// Delete plannerBucket.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.Planner.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve the properties and relationships of a plannerBucket object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.Planner.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property buckets in planner
+        /// Update the properties of plannerbucket object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.Planner.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve the properties and relationships of a plannerBucket object.
         /// </summary>
         public class PlannerBucketItemRequestBuilderGetQueryParameters 
         {

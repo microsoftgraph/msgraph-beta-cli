@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.User {
+namespace ApiSdk.Education.Users.Item.User
+{
     /// <summary>
     /// Provides operations to manage the user property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class UserRequestBuilder : BaseCliRequestBuilder 
+    public class UserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get user from education

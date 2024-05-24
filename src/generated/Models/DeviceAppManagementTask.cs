@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A device app management task.
     /// </summary>
-    public class DeviceAppManagementTask : Entity, IParsable 
+    public class DeviceAppManagementTask : Entity, IParsable
     {
         /// <summary>The name or email of the admin this task is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,16 +86,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignedTo", n => { AssignedTo = n.GetStringValue(); } },
-                {"category", n => { Category = n.GetEnumValue<DeviceAppManagementTaskCategory>(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"creator", n => { Creator = n.GetStringValue(); } },
-                {"creatorNotes", n => { CreatorNotes = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
-                {"priority", n => { Priority = n.GetEnumValue<DeviceAppManagementTaskPriority>(); } },
-                {"status", n => { Status = n.GetEnumValue<DeviceAppManagementTaskStatus>(); } },
+                { "assignedTo", n => { AssignedTo = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetEnumValue<DeviceAppManagementTaskCategory>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "creator", n => { Creator = n.GetStringValue(); } },
+                { "creatorNotes", n => { CreatorNotes = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
+                { "priority", n => { Priority = n.GetEnumValue<DeviceAppManagementTaskPriority>(); } },
+                { "status", n => { Status = n.GetEnumValue<DeviceAppManagementTaskStatus>(); } },
             };
         }
         /// <summary>

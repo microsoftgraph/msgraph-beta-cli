@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics anomaly entity contains device details.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyDevice : Entity, IParsable 
+    public class UserExperienceAnalyticsAnomalyDevice : Entity, IParsable
     {
         /// <summary>The unique identifier of the anomaly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,17 +99,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"anomalyId", n => { AnomalyId = n.GetStringValue(); } },
-                {"anomalyOnDeviceFirstOccurrenceDateTime", n => { AnomalyOnDeviceFirstOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"anomalyOnDeviceLatestOccurrenceDateTime", n => { AnomalyOnDeviceLatestOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"correlationGroupId", n => { CorrelationGroupId = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceManufacturer", n => { DeviceManufacturer = n.GetStringValue(); } },
-                {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceStatus", n => { DeviceStatus = n.GetEnumValue<UserExperienceAnalyticsDeviceStatus>(); } },
-                {"osName", n => { OsName = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "anomalyId", n => { AnomalyId = n.GetStringValue(); } },
+                { "anomalyOnDeviceFirstOccurrenceDateTime", n => { AnomalyOnDeviceFirstOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "anomalyOnDeviceLatestOccurrenceDateTime", n => { AnomalyOnDeviceLatestOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "correlationGroupId", n => { CorrelationGroupId = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceManufacturer", n => { DeviceManufacturer = n.GetStringValue(); } },
+                { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceStatus", n => { DeviceStatus = n.GetEnumValue<UserExperienceAnalyticsDeviceStatus>(); } },
+                { "osName", n => { OsName = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

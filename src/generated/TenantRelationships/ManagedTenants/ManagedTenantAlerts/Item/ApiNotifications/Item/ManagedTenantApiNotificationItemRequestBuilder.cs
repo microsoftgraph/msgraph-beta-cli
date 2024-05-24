@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.ApiNotifications.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.ApiNotifications.Item
+{
     /// <summary>
     /// Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
     /// </summary>
-    public class ManagedTenantApiNotificationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedTenantApiNotificationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get apiNotifications from tenantRelationships

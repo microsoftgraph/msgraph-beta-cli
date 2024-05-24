@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item.RoleInfo {
+namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item.RoleInfo
+{
     /// <summary>
     /// Provides operations to manage the roleInfo property of the microsoft.graph.privilegedRoleAssignmentRequest entity.
     /// </summary>
-    public class RoleInfoRequestBuilder : BaseCliRequestBuilder 
+    public class RoleInfoRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OutlookItem : Entity, IParsable 
+    public class OutlookItem : Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The categories property</summary>
+        /// <summary>The categories associated with the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Categories { get; set; }
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> Categories { get; set; }
 #endif
-        /// <summary>The changeKey property</summary>
+        /// <summary>Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ChangeKey { get; set; }
@@ -61,10 +62,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"changeKey", n => { ChangeKey = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "changeKey", n => { ChangeKey = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

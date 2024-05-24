@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.TermStore.Groups.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.TermStore.Groups.Item
+{
     /// <summary>
     /// Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
     /// </summary>
-    public class GroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groups for groups

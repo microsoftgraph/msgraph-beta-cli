@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MfaFailure : Entity, IParsable 
+    public class MfaFailure : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The count property</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"count", n => { Count = n.GetLongValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"reasonCode", n => { ReasonCode = n.GetEnumValue<MfaFailureReasonCode>(); } },
+                { "count", n => { Count = n.GetLongValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "reasonCode", n => { ReasonCode = n.GetEnumValue<MfaFailureReasonCode>(); } },
             };
         }
         /// <summary>

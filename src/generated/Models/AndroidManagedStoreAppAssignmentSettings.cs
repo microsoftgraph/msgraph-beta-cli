@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign an Android Managed Store mobile app to a group.
     /// </summary>
-    public class AndroidManagedStoreAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class AndroidManagedStoreAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
         /// <summary>The track IDs to enable for this app assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"androidManagedStoreAppTrackIds", n => { AndroidManagedStoreAppTrackIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"autoUpdateMode", n => { AutoUpdateMode = n.GetEnumValue<AndroidManagedStoreAutoUpdateMode>(); } },
+                { "androidManagedStoreAppTrackIds", n => { AndroidManagedStoreAppTrackIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "autoUpdateMode", n => { AutoUpdateMode = n.GetEnumValue<AndroidManagedStoreAutoUpdateMode>(); } },
             };
         }
         /// <summary>

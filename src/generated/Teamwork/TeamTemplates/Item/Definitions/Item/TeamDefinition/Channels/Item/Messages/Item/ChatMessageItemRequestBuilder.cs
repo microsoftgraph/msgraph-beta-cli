@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Channels.Item.Messages.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Channels.Item.Messages.Item
+{
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.channel entity.
     /// </summary>
-    public class ChatMessageItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChatMessageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property messages for teamwork

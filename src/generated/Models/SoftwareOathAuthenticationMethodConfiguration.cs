@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SoftwareOathAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable 
+    public class SoftwareOathAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of groups that are enabled to use the authentication method. Expanded by default.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodTarget>(AuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodTarget>(AuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

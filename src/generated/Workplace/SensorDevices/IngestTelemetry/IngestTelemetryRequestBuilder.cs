@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Workplace.SensorDevices.IngestTelemetry {
+namespace ApiSdk.Workplace.SensorDevices.IngestTelemetry
+{
     /// <summary>
     /// Provides operations to call the ingestTelemetry method.
     /// </summary>
-    public class IngestTelemetryRequestBuilder : BaseCliRequestBuilder 
+    public class IngestTelemetryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Ingest sensor telemetry for a workplace sensor device.

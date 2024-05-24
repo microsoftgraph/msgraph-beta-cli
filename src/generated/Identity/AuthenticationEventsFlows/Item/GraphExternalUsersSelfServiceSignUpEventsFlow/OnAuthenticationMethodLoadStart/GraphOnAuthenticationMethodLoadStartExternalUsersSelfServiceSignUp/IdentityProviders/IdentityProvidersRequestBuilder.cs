@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.IdentityProviders {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.IdentityProviders
+{
     /// <summary>
     /// Provides operations to manage the identityProviders property of the microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp entity.
     /// </summary>
-    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.identity.authenticationEventsFlows.item.graphExternalUsersSelfServiceSignUpEventsFlow.onAuthenticationMethodLoadStart.graphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.identityProviders.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return command;
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get identityProviders from identity";
+            command.Description = "Get the identity providers that are defined for an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
         {
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return requestInfo;
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
         /// </summary>
         public class IdentityProvidersRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesAgent : Entity, IParsable 
+    public class OnPremisesAgent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The status property</summary>
         public AgentStatus? Status { get; set; }
-        /// <summary>The supportedPublishingTypes property</summary>
+        /// <summary>Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OnPremisesPublishingType?>? SupportedPublishingTypes { get; set; }
@@ -61,11 +62,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"externalIp", n => { ExternalIp = n.GetStringValue(); } },
-                {"machineName", n => { MachineName = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<AgentStatus>(); } },
-                {"supportedPublishingTypes", n => { SupportedPublishingTypes = n.GetCollectionOfEnumValues<OnPremisesPublishingType>()?.ToList(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "externalIp", n => { ExternalIp = n.GetStringValue(); } },
+                { "machineName", n => { MachineName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<AgentStatus>(); } },
+                { "supportedPublishingTypes", n => { SupportedPublishingTypes = n.GetCollectionOfEnumValues<OnPremisesPublishingType>()?.ToList(); } },
             };
         }
         /// <summary>

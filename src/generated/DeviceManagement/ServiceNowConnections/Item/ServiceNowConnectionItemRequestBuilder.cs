@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ServiceNowConnections.Item {
+namespace ApiSdk.DeviceManagement.ServiceNowConnections.Item
+{
     /// <summary>
     /// Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ServiceNowConnectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceNowConnectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property serviceNowConnections for deviceManagement

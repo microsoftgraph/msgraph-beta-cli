@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of teamTemplateDefinition entities.
     /// </summary>
-    public class TeamTemplateDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamTemplateDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from teamTemplateDefinition

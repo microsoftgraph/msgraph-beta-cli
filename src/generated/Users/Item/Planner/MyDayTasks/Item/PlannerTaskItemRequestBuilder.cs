@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.MyDayTasks.Item {
+namespace ApiSdk.Users.Item.Planner.MyDayTasks.Item
+{
     /// <summary>
     /// Provides operations to manage the myDayTasks property of the microsoft.graph.plannerUser entity.
     /// </summary>
-    public class PlannerTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.

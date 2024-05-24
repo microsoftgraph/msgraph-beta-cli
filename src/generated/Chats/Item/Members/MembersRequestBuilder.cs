@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Members {
+namespace ApiSdk.Chats.Item.Members
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.chat entity.
     /// </summary>
-    public class MembersRequestBuilder : BaseCliRequestBuilder 
+    public class MembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the add method.
@@ -71,13 +72,14 @@ namespace ApiSdk.Chats.Item.Members {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to members for chats
+        /// Add a conversationMember to a chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to members for chats";
+            command.Description = "Add a conversationMember to a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post-members?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -122,13 +124,13 @@ namespace ApiSdk.Chats.Item.Members {
             return command;
         }
         /// <summary>
-        /// A collection of all the members in the chat. Nullable.
+        /// Retrieve a conversationMember from a chat.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the members in the chat. Nullable.";
+            command.Description = "Retrieve a conversationMember from a chat.";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -210,7 +212,9 @@ namespace ApiSdk.Chats.Item.Members {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -236,7 +240,7 @@ namespace ApiSdk.Chats.Item.Members {
         {
         }
         /// <summary>
-        /// A collection of all the members in the chat. Nullable.
+        /// Retrieve a conversationMember from a chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,7 +259,7 @@ namespace ApiSdk.Chats.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to members for chats
+        /// Add a conversationMember to a chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -276,7 +280,7 @@ namespace ApiSdk.Chats.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the members in the chat. Nullable.
+        /// Retrieve a conversationMember from a chat.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

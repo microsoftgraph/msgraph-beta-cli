@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Teams.GetOpenShifts {
+namespace ApiSdk.Teams.GetOpenShifts
+{
     #pragma warning disable CS1591
-    public class GetOpenShiftsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetOpenShiftsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Teams.GetOpenShifts {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<OpenShift>(OpenShift.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<OpenShift>(OpenShift.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

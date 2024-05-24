@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.SensitiveTypes.Item {
+namespace ApiSdk.DataClassification.SensitiveTypes.Item
+{
     /// <summary>
     /// Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class SensitiveTypeItemRequestBuilder : BaseCliRequestBuilder 
+    public class SensitiveTypeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sensitiveTypes for dataClassification

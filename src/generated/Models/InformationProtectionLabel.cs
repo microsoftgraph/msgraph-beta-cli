@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InformationProtectionLabel : Entity, IParsable 
+    public class InformationProtectionLabel : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The color that the UI should display for the label, if configured.</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"color", n => { Color = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
-                {"sensitivity", n => { Sensitivity = n.GetIntValue(); } },
-                {"tooltip", n => { Tooltip = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
+                { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
+                { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
         }
         /// <summary>

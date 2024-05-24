@@ -29,11 +29,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports
+{
     /// <summary>
     /// Provides operations to manage the reports property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class ReportsRequestBuilder : BaseCliRequestBuilder 
+    public class ReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reports for deviceManagement

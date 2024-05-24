@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RegistryValueEvidence : AlertEvidence, IParsable 
+    public class RegistryValueEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A unique identifier assigned to a device by Microsoft Defender for Endpoint.</summary>
@@ -82,12 +83,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"mdeDeviceId", n => { MdeDeviceId = n.GetStringValue(); } },
-                {"registryHive", n => { RegistryHive = n.GetStringValue(); } },
-                {"registryKey", n => { RegistryKey = n.GetStringValue(); } },
-                {"registryValue", n => { RegistryValue = n.GetStringValue(); } },
-                {"registryValueName", n => { RegistryValueName = n.GetStringValue(); } },
-                {"registryValueType", n => { RegistryValueType = n.GetStringValue(); } },
+                { "mdeDeviceId", n => { MdeDeviceId = n.GetStringValue(); } },
+                { "registryHive", n => { RegistryHive = n.GetStringValue(); } },
+                { "registryKey", n => { RegistryKey = n.GetStringValue(); } },
+                { "registryValue", n => { RegistryValue = n.GetStringValue(); } },
+                { "registryValueName", n => { RegistryValueName = n.GetStringValue(); } },
+                { "registryValueType", n => { RegistryValueType = n.GetStringValue(); } },
             };
         }
         /// <summary>

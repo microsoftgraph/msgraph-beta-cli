@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ConditionalAccessPolicyCoverage : ApiSdk.Models.Entity, IParsable 
+    public class ConditionalAccessPolicyCoverage : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"conditionalAccessPolicyState", n => { ConditionalAccessPolicyState = n.GetStringValue(); } },
-                {"latestPolicyModifiedDateTime", n => { LatestPolicyModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requiresDeviceCompliance", n => { RequiresDeviceCompliance = n.GetBoolValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "conditionalAccessPolicyState", n => { ConditionalAccessPolicyState = n.GetStringValue(); } },
+                { "latestPolicyModifiedDateTime", n => { LatestPolicyModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requiresDeviceCompliance", n => { RequiresDeviceCompliance = n.GetBoolValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

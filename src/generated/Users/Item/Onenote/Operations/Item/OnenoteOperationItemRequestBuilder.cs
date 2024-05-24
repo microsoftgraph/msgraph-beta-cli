@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Onenote.Operations.Item {
+namespace ApiSdk.Users.Item.Onenote.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class OnenoteOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class OnenoteOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for users

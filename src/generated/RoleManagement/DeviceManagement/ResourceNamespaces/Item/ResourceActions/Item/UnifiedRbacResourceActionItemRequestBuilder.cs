@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.ResourceNamespaces.Item.ResourceActions.Item {
+namespace ApiSdk.RoleManagement.DeviceManagement.ResourceNamespaces.Item.ResourceActions.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
     /// </summary>
-    public class UnifiedRbacResourceActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRbacResourceActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationContext property of the microsoft.graph.unifiedRbacResourceAction entity.

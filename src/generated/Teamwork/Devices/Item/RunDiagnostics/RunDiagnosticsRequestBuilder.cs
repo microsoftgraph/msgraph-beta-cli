@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.RunDiagnostics {
+namespace ApiSdk.Teamwork.Devices.Item.RunDiagnostics
+{
     /// <summary>
     /// Provides operations to call the runDiagnostics method.
     /// </summary>
-    public class RunDiagnosticsRequestBuilder : BaseCliRequestBuilder 
+    public class RunDiagnosticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Run and generate diagnostic logs for the specified Microsoft Teams-enabled device. This API triggers a long-running operation used to generate logs for a device.

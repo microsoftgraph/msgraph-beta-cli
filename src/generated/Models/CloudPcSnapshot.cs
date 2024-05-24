@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcSnapshot : Entity, IParsable 
+    public class CloudPcSnapshot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the Cloud PC.</summary>
@@ -45,12 +46,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cloudPcId", n => { CloudPcId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastRestoredDateTime", n => { LastRestoredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"snapshotType", n => { SnapshotType = n.GetEnumValue<CloudPcSnapshotType>(); } },
-                {"status", n => { Status = n.GetEnumValue<CloudPcSnapshotStatus>(); } },
+                { "cloudPcId", n => { CloudPcId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastRestoredDateTime", n => { LastRestoredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "snapshotType", n => { SnapshotType = n.GetEnumValue<CloudPcSnapshotType>(); } },
+                { "status", n => { Status = n.GetEnumValue<CloudPcSnapshotStatus>(); } },
             };
         }
         /// <summary>

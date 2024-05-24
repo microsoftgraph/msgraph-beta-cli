@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A key-value pair with a string key and a Boolean value.
     /// </summary>
-    public class KeyBooleanValuePair : KeyTypedValuePair, IParsable 
+    public class KeyBooleanValuePair : KeyTypedValuePair, IParsable
     {
         /// <summary>The Boolean value of the key-value pair.</summary>
         public bool? Value { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>

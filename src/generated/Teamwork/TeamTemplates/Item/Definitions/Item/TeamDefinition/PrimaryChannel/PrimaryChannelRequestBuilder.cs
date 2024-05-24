@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel
+{
     /// <summary>
     /// Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.
     /// </summary>
-    public class PrimaryChannelRequestBuilder : BaseCliRequestBuilder 
+    public class PrimaryChannelRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the archive method.

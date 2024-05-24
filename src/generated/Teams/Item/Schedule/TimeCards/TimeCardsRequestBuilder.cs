@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeCards {
+namespace ApiSdk.Teams.Item.Schedule.TimeCards
+{
     /// <summary>
     /// Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeCardsRequestBuilder : BaseCliRequestBuilder 
+    public class TimeCardsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the clockIn method.
@@ -76,13 +77,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to timeCards for teams
+        /// Create a timeCard instance in a schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to timeCards for teams";
+            command.Description = "Create a timeCard instance in a schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-post?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -127,13 +129,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
             return command;
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Retrieve a list of timeCard entries in a schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The time cards in the schedule.";
+            command.Description = "Retrieve a list of timeCard entries in a schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-list?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -215,7 +218,9 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -241,7 +246,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
         {
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Retrieve a list of timeCard entries in a schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to timeCards for teams
+        /// Create a timeCard instance in a schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -281,7 +286,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards {
             return requestInfo;
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Retrieve a list of timeCard entries in a schedule.
         /// </summary>
         public class TimeCardsRequestBuilderGetQueryParameters 
         {

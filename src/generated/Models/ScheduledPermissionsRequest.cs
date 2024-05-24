@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ScheduledPermissionsRequest : Entity, IParsable 
+    public class ScheduledPermissionsRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -73,14 +74,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"action", n => { Action = n.GetEnumValue<UnifiedRoleScheduleRequestActions>(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"notes", n => { Notes = n.GetStringValue(); } },
-                {"requestedPermissions", n => { RequestedPermissions = n.GetObjectValue<PermissionsDefinition>(PermissionsDefinition.CreateFromDiscriminatorValue); } },
-                {"scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                {"statusDetail", n => { StatusDetail = n.GetEnumValue<StatusDetail>(); } },
-                {"ticketInfo", n => { TicketInfo = n.GetObjectValue<ApiSdk.Models.TicketInfo>(ApiSdk.Models.TicketInfo.CreateFromDiscriminatorValue); } },
+                { "action", n => { Action = n.GetEnumValue<UnifiedRoleScheduleRequestActions>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "notes", n => { Notes = n.GetStringValue(); } },
+                { "requestedPermissions", n => { RequestedPermissions = n.GetObjectValue<PermissionsDefinition>(PermissionsDefinition.CreateFromDiscriminatorValue); } },
+                { "scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "statusDetail", n => { StatusDetail = n.GetEnumValue<StatusDetail>(); } },
+                { "ticketInfo", n => { TicketInfo = n.GetObjectValue<ApiSdk.Models.TicketInfo>(ApiSdk.Models.TicketInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

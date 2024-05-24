@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewInstanceDecisionItemUserTarget : AccessReviewInstanceDecisionItemTarget, IParsable 
+    public class AccessReviewInstanceDecisionItemUserTarget : AccessReviewInstanceDecisionItemTarget, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of user.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

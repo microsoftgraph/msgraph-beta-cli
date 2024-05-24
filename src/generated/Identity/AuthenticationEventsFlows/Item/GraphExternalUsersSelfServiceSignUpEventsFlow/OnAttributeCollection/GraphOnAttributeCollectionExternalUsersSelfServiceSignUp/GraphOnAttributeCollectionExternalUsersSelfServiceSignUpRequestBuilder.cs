@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAttributeCollection.GraphOnAttributeCollectionExternalUsersSelfServiceSignUp {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAttributeCollection.GraphOnAttributeCollectionExternalUsersSelfServiceSignUp
+{
     /// <summary>
     /// Casts the previous resource to onAttributeCollectionExternalUsersSelfServiceSignUp.
     /// </summary>
-    public class GraphOnAttributeCollectionExternalUsersSelfServiceSignUpRequestBuilder : BaseCliRequestBuilder 
+    public class GraphOnAttributeCollectionExternalUsersSelfServiceSignUpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attributes property of the microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp entity.
@@ -75,7 +76,9 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
                     {"5XX", ODataError.CreateFromDiscriminatorValue},
                 };
                 var response = await reqAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken) ?? Stream.Null;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (outputFile == null) {
                     using var reader = new StreamReader(response);
                     var strContent = reader.ReadToEnd();

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.UserFlows {
+namespace ApiSdk.Identity.UserFlows
+{
     /// <summary>
     /// Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class UserFlowsRequestBuilder : BaseCliRequestBuilder 
+    public class UserFlowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
@@ -53,14 +54,15 @@ namespace ApiSdk.Identity.UserFlows {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to userFlows for identity
+        /// Create a new userFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-post-userflows?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to userFlows for identity";
+            command.Description = "Create a new userFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-post-userflows?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -99,14 +101,15 @@ namespace ApiSdk.Identity.UserFlows {
             return command;
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve a list of userflows.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get userFlows from identity";
+            command.Description = "Retrieve a list of userflows.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Identity.UserFlows {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Identity.UserFlows {
         {
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve a list of userflows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.Identity.UserFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to userFlows for identity
+        /// Create a new userFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +255,7 @@ namespace ApiSdk.Identity.UserFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve a list of userflows.
         /// </summary>
         public class UserFlowsRequestBuilderGetQueryParameters 
         {

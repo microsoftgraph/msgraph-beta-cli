@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionDeviceRegistrations.Item.Wipe {
+namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionDeviceRegistrations.Item.Wipe
+{
     /// <summary>
     /// Provides operations to call the wipe method.
     /// </summary>
-    public class WipeRequestBuilder : BaseCliRequestBuilder 
+    public class WipeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action wipe

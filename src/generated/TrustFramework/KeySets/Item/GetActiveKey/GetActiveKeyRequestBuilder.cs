@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.GetActiveKey {
+namespace ApiSdk.TrustFramework.KeySets.Item.GetActiveKey
+{
     /// <summary>
     /// Provides operations to call the getActiveKey method.
     /// </summary>
-    public class GetActiveKeyRequestBuilder : BaseCliRequestBuilder 
+    public class GetActiveKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.

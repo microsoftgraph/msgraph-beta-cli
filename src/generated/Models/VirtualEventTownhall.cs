@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventTownhall : VirtualEvent, IParsable 
+    public class VirtualEventTownhall : VirtualEvent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The audience to whom the town hall is visible. Possible values are: everyone, organization, unknownFutureValue.</summary>
@@ -54,10 +55,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
-                {"coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"invitedAttendees", n => { InvitedAttendees = n.GetCollectionOfObjectValues<Identity>(Identity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isInviteOnly", n => { IsInviteOnly = n.GetBoolValue(); } },
+                { "audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
+                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "invitedAttendees", n => { InvitedAttendees = n.GetCollectionOfObjectValues<Identity>(Identity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isInviteOnly", n => { IsInviteOnly = n.GetBoolValue(); } },
             };
         }
         /// <summary>

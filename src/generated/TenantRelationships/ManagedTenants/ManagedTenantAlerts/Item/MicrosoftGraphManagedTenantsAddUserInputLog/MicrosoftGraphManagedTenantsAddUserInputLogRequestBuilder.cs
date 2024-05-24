@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog
+{
     /// <summary>
     /// Provides operations to call the addUserInputLog method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action addUserInputLog

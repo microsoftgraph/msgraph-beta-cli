@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidForWorkSettings {
+namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
+{
     /// <summary>
     /// Provides operations to manage the androidForWorkSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AndroidForWorkSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class AndroidForWorkSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the completeSignup method.

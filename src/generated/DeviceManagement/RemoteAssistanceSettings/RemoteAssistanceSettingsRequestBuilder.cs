@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RemoteAssistanceSettings {
+namespace ApiSdk.DeviceManagement.RemoteAssistanceSettings
+{
     /// <summary>
     /// Provides operations to manage the remoteAssistanceSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class RemoteAssistanceSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteAssistanceSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property remoteAssistanceSettings for deviceManagement

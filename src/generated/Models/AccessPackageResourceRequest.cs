@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResourceRequest : Entity, IParsable 
+    public class AccessPackageResourceRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessPackageResource property</summary>
@@ -89,16 +90,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
-                {"catalogId", n => { CatalogId = n.GetStringValue(); } },
-                {"executeImmediately", n => { ExecuteImmediately = n.GetBoolValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"requestState", n => { RequestState = n.GetStringValue(); } },
-                {"requestStatus", n => { RequestStatus = n.GetStringValue(); } },
-                {"requestType", n => { RequestType = n.GetStringValue(); } },
-                {"requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
+                { "accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
+                { "catalogId", n => { CatalogId = n.GetStringValue(); } },
+                { "executeImmediately", n => { ExecuteImmediately = n.GetBoolValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "requestState", n => { RequestState = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetStringValue(); } },
+                { "requestType", n => { RequestType = n.GetStringValue(); } },
+                { "requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for enrollment restriction PolicySetItem.
     /// </summary>
-    public class EnrollmentRestrictionsConfigurationPolicySetItem : PolicySetItem, IParsable 
+    public class EnrollmentRestrictionsConfigurationPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.</summary>
         public int? Limit { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"limit", n => { Limit = n.GetIntValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
+                { "limit", n => { Limit = n.GetIntValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
             };
         }
         /// <summary>

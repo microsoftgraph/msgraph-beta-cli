@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerExternalBucketSource : PlannerBucketCreation, IParsable 
+    public class PlannerExternalBucketSource : PlannerBucketCreation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like &apos;com.constoso.customerSupport&apos;.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contextScenarioId", n => { ContextScenarioId = n.GetStringValue(); } },
-                {"externalContextId", n => { ExternalContextId = n.GetStringValue(); } },
-                {"externalObjectId", n => { ExternalObjectId = n.GetStringValue(); } },
+                { "contextScenarioId", n => { ContextScenarioId = n.GetStringValue(); } },
+                { "externalContextId", n => { ExternalContextId = n.GetStringValue(); } },
+                { "externalObjectId", n => { ExternalObjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>

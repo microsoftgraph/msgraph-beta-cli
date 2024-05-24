@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Shares.Item.Permission.RevokeGrants {
+namespace ApiSdk.Shares.Item.Permission.RevokeGrants
+{
     /// <summary>
     /// Provides operations to call the revokeGrants method.
     /// </summary>
-    public class RevokeGrantsRequestBuilder : BaseCliRequestBuilder 
+    public class RevokeGrantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Revoke access to a listItem or driveItem granted via a sharing link by removing the specified recipient from the link.

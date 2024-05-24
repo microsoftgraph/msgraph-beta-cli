@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
+namespace ApiSdk.Devices.Item.RegisteredOwners.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of device entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property registeredOwners for devices
+        /// Remove a user as a registered owner of the device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-delete-registeredowners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property registeredOwners for devices";
+            command.Description = "Remove a user as a registered owner of the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-delete-registeredowners?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
             return command;
         }
         /// <summary>
-        /// The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of users that are registered owners of the device. A registered owner is the user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-list-registeredowners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.";
+            command.Description = "Retrieve a list of users that are registered owners of the device. A registered owner is the user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list-registeredowners?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -143,7 +146,9 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -155,13 +160,14 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to registeredOwners for devices
+        /// Add a user as a registered owner of the device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-post-registeredowners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to registeredOwners for devices";
+            command.Description = "Add a user as a registered owner of the device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-post-registeredowners?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -210,7 +216,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property registeredOwners for devices
+        /// Remove a user as a registered owner of the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +235,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of users that are registered owners of the device. A registered owner is the user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +254,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to registeredOwners for devices
+        /// Add a user as a registered owner of the device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -269,7 +275,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property registeredOwners for devices
+        /// Remove a user as a registered owner of the device.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -285,7 +291,7 @@ namespace ApiSdk.Devices.Item.RegisteredOwners.Ref {
 #endif
         }
         /// <summary>
-        /// The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
+        /// Retrieve a list of users that are registered owners of the device. A registered owner is the user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A setting instance representing an integer value
     /// </summary>
-    public class DeviceManagementIntegerSettingInstance : DeviceManagementSettingInstance, IParsable 
+    public class DeviceManagementIntegerSettingInstance : DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The integer value</summary>
         public int? Value { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetIntValue(); } },
+                { "value", n => { Value = n.GetIntValue(); } },
             };
         }
         /// <summary>

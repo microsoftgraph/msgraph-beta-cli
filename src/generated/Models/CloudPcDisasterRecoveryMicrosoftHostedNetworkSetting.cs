@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting : CloudPcDisasterRecoveryNetworkSetting, IParsable 
+    public class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting : CloudPcDisasterRecoveryNetworkSetting, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The regionGroup property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
-                {"regionName", n => { RegionName = n.GetStringValue(); } },
+                { "regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
+                { "regionName", n => { RegionName = n.GetStringValue(); } },
             };
         }
         /// <summary>

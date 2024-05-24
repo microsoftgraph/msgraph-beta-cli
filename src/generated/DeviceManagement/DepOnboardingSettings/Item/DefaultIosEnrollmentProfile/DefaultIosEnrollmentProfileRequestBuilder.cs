@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultIosEnrollmentProfile {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultIosEnrollmentProfile
+{
     /// <summary>
     /// Provides operations to manage the defaultIosEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
     /// </summary>
-    public class DefaultIosEnrollmentProfileRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultIosEnrollmentProfileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Default iOS Enrollment Profile

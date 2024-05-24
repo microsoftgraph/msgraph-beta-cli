@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeviceStatuses.Item.Policy {
+namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeviceStatuses.Item.Policy
+{
     /// <summary>
     /// Provides operations to manage the policy property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus entity.
     /// </summary>
-    public class PolicyRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The navigation link to the WindowsDefenderApplicationControl supplemental policy.

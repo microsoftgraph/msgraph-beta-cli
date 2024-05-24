@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class CallRecord : ApiSdk.Models.Entity, IParsable 
+    public class CallRecord : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public List<Modality?> Modalities { get; set; }
 #endif
-        /// <summary>The organizer property</summary>
+        /// <summary>The organizing party&apos;s identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.IdentitySet? Organizer { get; set; }
@@ -45,7 +46,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public ApiSdk.Models.CallRecords.Organizer OrganizerV2 { get; set; }
 #endif
-        /// <summary>The participants property</summary>
+        /// <summary>List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ApiSdk.Models.IdentitySet>? Participants { get; set; }
@@ -93,18 +94,18 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
-                {"organizer", n => { Organizer = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
-                {"organizer_v2", n => { OrganizerV2 = n.GetObjectValue<ApiSdk.Models.CallRecords.Organizer>(ApiSdk.Models.CallRecords.Organizer.CreateFromDiscriminatorValue); } },
-                {"participants", n => { Participants = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"participants_v2", n => { ParticipantsV2 = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"type", n => { Type = n.GetEnumValue<CallType>(); } },
-                {"version", n => { Version = n.GetLongValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
+                { "organizer", n => { Organizer = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "organizer_v2", n => { OrganizerV2 = n.GetObjectValue<ApiSdk.Models.CallRecords.Organizer>(ApiSdk.Models.CallRecords.Organizer.CreateFromDiscriminatorValue); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "participants_v2", n => { ParticipantsV2 = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetEnumValue<CallType>(); } },
+                { "version", n => { Version = n.GetLongValue(); } },
             };
         }
         /// <summary>

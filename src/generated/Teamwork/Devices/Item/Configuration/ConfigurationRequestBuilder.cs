@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.Configuration {
+namespace ApiSdk.Teamwork.Devices.Item.Configuration
+{
     /// <summary>
     /// Provides operations to manage the configuration property of the microsoft.graph.teamworkDevice entity.
     /// </summary>
-    public class ConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class ConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property configuration for teamwork
@@ -56,13 +57,14 @@ namespace ApiSdk.Teamwork.Devices.Item.Configuration {
             return command;
         }
         /// <summary>
-        /// The configuration properties of the device.
+        /// Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The configuration properties of the device.";
+            command.Description = "Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceconfiguration-get?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Configuration {
             return requestInfo;
         }
         /// <summary>
-        /// The configuration properties of the device.
+        /// Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Configuration {
             return requestInfo;
         }
         /// <summary>
-        /// The configuration properties of the device.
+        /// Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
         /// </summary>
         public class ConfigurationRequestBuilderGetQueryParameters 
         {

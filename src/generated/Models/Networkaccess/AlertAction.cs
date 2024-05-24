@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class AlertAction : IAdditionalDataHolder, IParsable 
+    public class AlertAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionLink property</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionLink", n => { ActionLink = n.GetStringValue(); } },
-                {"actionText", n => { ActionText = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "actionLink", n => { ActionLink = n.GetStringValue(); } },
+                { "actionText", n => { ActionText = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

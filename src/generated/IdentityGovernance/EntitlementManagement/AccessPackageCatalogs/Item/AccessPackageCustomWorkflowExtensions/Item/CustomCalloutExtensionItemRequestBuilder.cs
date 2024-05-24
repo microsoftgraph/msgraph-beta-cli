@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.Item.AccessPackageCustomWorkflowExtensions.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.Item.AccessPackageCustomWorkflowExtensions.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageCustomWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
     /// </summary>
-    public class CustomCalloutExtensionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CustomCalloutExtensionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property accessPackageCustomWorkflowExtensions for identityGovernance
@@ -63,14 +64,15 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return command;
         }
         /// <summary>
-        /// The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+        /// Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.";
+            command.Description = "Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-get?view=graph-rest-beta";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;
@@ -122,14 +124,15 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return command;
         }
         /// <summary>
-        /// Update the navigation property accessPackageCustomWorkflowExtensions in identityGovernance
+        /// Update the properties of an accessPackageAssignmentWorkflowExtension object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete(" as of 2022-10/PrivatePreview:MicrosofEntitlementManagementCustomextensions")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property accessPackageCustomWorkflowExtensions in identityGovernance";
+            command.Description = "Update the properties of an accessPackageAssignmentWorkflowExtension object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-update?view=graph-rest-beta";
             var accessPackageCatalogIdOption = new Option<string>("--access-package-catalog-id", description: "The unique identifier of accessPackageCatalog") {
             };
             accessPackageCatalogIdOption.IsRequired = true;
@@ -214,7 +217,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return requestInfo;
         }
         /// <summary>
-        /// The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+        /// Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -234,7 +237,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property accessPackageCustomWorkflowExtensions in identityGovernance
+        /// Update the properties of an accessPackageAssignmentWorkflowExtension object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,7 +259,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.
             return requestInfo;
         }
         /// <summary>
-        /// The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+        /// Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
         /// </summary>
         public class CustomCalloutExtensionItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class MediaStream : IAdditionalDataHolder, IParsable 
+    public class MediaStream : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -110,37 +111,37 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"audioCodec", n => { AudioCodec = n.GetEnumValue<AudioCodec>(); } },
-                {"averageAudioDegradation", n => { AverageAudioDegradation = n.GetFloatValue(); } },
-                {"averageAudioNetworkJitter", n => { AverageAudioNetworkJitter = n.GetTimeSpanValue(); } },
-                {"averageBandwidthEstimate", n => { AverageBandwidthEstimate = n.GetLongValue(); } },
-                {"averageFreezeDuration", n => { AverageFreezeDuration = n.GetTimeSpanValue(); } },
-                {"averageJitter", n => { AverageJitter = n.GetTimeSpanValue(); } },
-                {"averagePacketLossRate", n => { AveragePacketLossRate = n.GetFloatValue(); } },
-                {"averageRatioOfConcealedSamples", n => { AverageRatioOfConcealedSamples = n.GetFloatValue(); } },
-                {"averageReceivedFrameRate", n => { AverageReceivedFrameRate = n.GetFloatValue(); } },
-                {"averageRoundTripTime", n => { AverageRoundTripTime = n.GetTimeSpanValue(); } },
-                {"averageVideoFrameLossPercentage", n => { AverageVideoFrameLossPercentage = n.GetFloatValue(); } },
-                {"averageVideoFrameRate", n => { AverageVideoFrameRate = n.GetFloatValue(); } },
-                {"averageVideoPacketLossRate", n => { AverageVideoPacketLossRate = n.GetFloatValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isAudioForwardErrorCorrectionUsed", n => { IsAudioForwardErrorCorrectionUsed = n.GetBoolValue(); } },
-                {"lowFrameRateRatio", n => { LowFrameRateRatio = n.GetFloatValue(); } },
-                {"lowVideoProcessingCapabilityRatio", n => { LowVideoProcessingCapabilityRatio = n.GetFloatValue(); } },
-                {"maxAudioNetworkJitter", n => { MaxAudioNetworkJitter = n.GetTimeSpanValue(); } },
-                {"maxJitter", n => { MaxJitter = n.GetTimeSpanValue(); } },
-                {"maxPacketLossRate", n => { MaxPacketLossRate = n.GetFloatValue(); } },
-                {"maxRatioOfConcealedSamples", n => { MaxRatioOfConcealedSamples = n.GetFloatValue(); } },
-                {"maxRoundTripTime", n => { MaxRoundTripTime = n.GetTimeSpanValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"packetUtilization", n => { PacketUtilization = n.GetLongValue(); } },
-                {"postForwardErrorCorrectionPacketLossRate", n => { PostForwardErrorCorrectionPacketLossRate = n.GetFloatValue(); } },
-                {"rmsFreezeDuration", n => { RmsFreezeDuration = n.GetTimeSpanValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"streamDirection", n => { StreamDirection = n.GetEnumValue<MediaStreamDirection>(); } },
-                {"streamId", n => { StreamId = n.GetStringValue(); } },
-                {"videoCodec", n => { VideoCodec = n.GetEnumValue<VideoCodec>(); } },
-                {"wasMediaBypassed", n => { WasMediaBypassed = n.GetBoolValue(); } },
+                { "audioCodec", n => { AudioCodec = n.GetEnumValue<AudioCodec>(); } },
+                { "averageAudioDegradation", n => { AverageAudioDegradation = n.GetFloatValue(); } },
+                { "averageAudioNetworkJitter", n => { AverageAudioNetworkJitter = n.GetTimeSpanValue(); } },
+                { "averageBandwidthEstimate", n => { AverageBandwidthEstimate = n.GetLongValue(); } },
+                { "averageFreezeDuration", n => { AverageFreezeDuration = n.GetTimeSpanValue(); } },
+                { "averageJitter", n => { AverageJitter = n.GetTimeSpanValue(); } },
+                { "averagePacketLossRate", n => { AveragePacketLossRate = n.GetFloatValue(); } },
+                { "averageRatioOfConcealedSamples", n => { AverageRatioOfConcealedSamples = n.GetFloatValue(); } },
+                { "averageReceivedFrameRate", n => { AverageReceivedFrameRate = n.GetFloatValue(); } },
+                { "averageRoundTripTime", n => { AverageRoundTripTime = n.GetTimeSpanValue(); } },
+                { "averageVideoFrameLossPercentage", n => { AverageVideoFrameLossPercentage = n.GetFloatValue(); } },
+                { "averageVideoFrameRate", n => { AverageVideoFrameRate = n.GetFloatValue(); } },
+                { "averageVideoPacketLossRate", n => { AverageVideoPacketLossRate = n.GetFloatValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isAudioForwardErrorCorrectionUsed", n => { IsAudioForwardErrorCorrectionUsed = n.GetBoolValue(); } },
+                { "lowFrameRateRatio", n => { LowFrameRateRatio = n.GetFloatValue(); } },
+                { "lowVideoProcessingCapabilityRatio", n => { LowVideoProcessingCapabilityRatio = n.GetFloatValue(); } },
+                { "maxAudioNetworkJitter", n => { MaxAudioNetworkJitter = n.GetTimeSpanValue(); } },
+                { "maxJitter", n => { MaxJitter = n.GetTimeSpanValue(); } },
+                { "maxPacketLossRate", n => { MaxPacketLossRate = n.GetFloatValue(); } },
+                { "maxRatioOfConcealedSamples", n => { MaxRatioOfConcealedSamples = n.GetFloatValue(); } },
+                { "maxRoundTripTime", n => { MaxRoundTripTime = n.GetTimeSpanValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "packetUtilization", n => { PacketUtilization = n.GetLongValue(); } },
+                { "postForwardErrorCorrectionPacketLossRate", n => { PostForwardErrorCorrectionPacketLossRate = n.GetFloatValue(); } },
+                { "rmsFreezeDuration", n => { RmsFreezeDuration = n.GetTimeSpanValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "streamDirection", n => { StreamDirection = n.GetEnumValue<MediaStreamDirection>(); } },
+                { "streamId", n => { StreamId = n.GetStringValue(); } },
+                { "videoCodec", n => { VideoCodec = n.GetEnumValue<VideoCodec>(); } },
+                { "wasMediaBypassed", n => { WasMediaBypassed = n.GetBoolValue(); } },
             };
         }
         /// <summary>

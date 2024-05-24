@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Shares.Item.AllowedGroups.Item.Ref {
+namespace ApiSdk.Print.Shares.Item.AllowedGroups.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of print entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property allowedGroups for print
+        /// Revoke the specified group&apos;s access to submit print jobs to the associated printerShare.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-delete-allowedgroup?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property allowedGroups for print";
+            command.Description = "Revoke the specified group's access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-delete-allowedgroup?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Item.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property allowedGroups for print
+        /// Revoke the specified group&apos;s access to submit print jobs to the associated printerShare.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

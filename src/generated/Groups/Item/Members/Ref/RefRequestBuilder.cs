@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Members.Ref {
+namespace ApiSdk.Groups.Item.Members.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of group entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property members for groups
+        /// Remove a member from a group via the members navigation property. You can&apos;t remove a member from groups with dynamic memberships.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-delete-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property members for groups";
+            command.Description = "Remove a member from a group via the members navigation property. You can't remove a member from groups with dynamic memberships.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-delete-members?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Groups.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Direct group members, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).
+        /// Get a list of the group&apos;s direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Direct group members, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).";
+            command.Description = "Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list-members?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -143,7 +146,9 @@ namespace ApiSdk.Groups.Item.Members.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -155,13 +160,14 @@ namespace ApiSdk.Groups.Item.Members.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to members for groups
+        /// Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to members for groups";
+            command.Description = "Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -210,7 +216,7 @@ namespace ApiSdk.Groups.Item.Members.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property members for groups
+        /// Remove a member from a group via the members navigation property. You can&apos;t remove a member from groups with dynamic memberships.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +235,7 @@ namespace ApiSdk.Groups.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Direct group members, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).
+        /// Get a list of the group&apos;s direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +254,7 @@ namespace ApiSdk.Groups.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to members for groups
+        /// Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -269,7 +275,7 @@ namespace ApiSdk.Groups.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property members for groups
+        /// Remove a member from a group via the members navigation property. You can&apos;t remove a member from groups with dynamic memberships.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -285,7 +291,7 @@ namespace ApiSdk.Groups.Item.Members.Ref {
 #endif
         }
         /// <summary>
-        /// Direct group members, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).
+        /// Get a list of the group&apos;s direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

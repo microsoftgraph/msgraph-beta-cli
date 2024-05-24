@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item
+{
     /// <summary>
     /// Provides operations to manage the inactiveUsersByApplication property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class DailyInactiveUsersByApplicationMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class DailyInactiveUsersByApplicationMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get inactiveUsersByApplication from reports

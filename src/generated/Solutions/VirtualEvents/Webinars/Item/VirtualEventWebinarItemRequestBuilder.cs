@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item
+{
     /// <summary>
     /// Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
     /// </summary>
-    public class VirtualEventWebinarItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventWebinarItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property webinars for solutions
@@ -63,13 +64,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             return command;
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Read the properties and relationships of a virtualEventWebinar object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get webinars from solutions";
+            command.Description = "Read the properties and relationships of a virtualEventWebinar object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -246,10 +248,16 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             command.Description = "Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.";
             var builder = new RegistrationsWithEmailRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCancelNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
             foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
             {
                 command.AddCommand(cmd);
             }
@@ -265,10 +273,16 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             command.Description = "Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.";
             var builder = new RegistrationsWithUserIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCancelNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
             foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
             {
                 command.AddCommand(cmd);
             }
@@ -354,7 +368,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Read the properties and relationships of a virtualEventWebinar object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -394,7 +408,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Read the properties and relationships of a virtualEventWebinar object.
         /// </summary>
         public class VirtualEventWebinarItemRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The depEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
     /// </summary>
-    public class DepEnrollmentProfile : EnrollmentProfile, IParsable 
+    public class DepEnrollmentProfile : EnrollmentProfile, IParsable
     {
         /// <summary>Indicates if Apple id setup pane is disabled</summary>
         public bool? AppleIdDisabled { get; set; }
@@ -101,30 +102,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appleIdDisabled", n => { AppleIdDisabled = n.GetBoolValue(); } },
-                {"applePayDisabled", n => { ApplePayDisabled = n.GetBoolValue(); } },
-                {"awaitDeviceConfiguredConfirmation", n => { AwaitDeviceConfiguredConfirmation = n.GetBoolValue(); } },
-                {"diagnosticsDisabled", n => { DiagnosticsDisabled = n.GetBoolValue(); } },
-                {"enableSharedIPad", n => { EnableSharedIPad = n.GetBoolValue(); } },
-                {"iTunesPairingMode", n => { ITunesPairingMode = n.GetEnumValue<ITunesPairingMode>(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
-                {"locationDisabled", n => { LocationDisabled = n.GetBoolValue(); } },
-                {"macOSFileVaultDisabled", n => { MacOSFileVaultDisabled = n.GetBoolValue(); } },
-                {"macOSRegistrationDisabled", n => { MacOSRegistrationDisabled = n.GetBoolValue(); } },
-                {"managementCertificates", n => { ManagementCertificates = n.GetCollectionOfObjectValues<ManagementCertificateWithThumbprint>(ManagementCertificateWithThumbprint.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
-                {"profileRemovalDisabled", n => { ProfileRemovalDisabled = n.GetBoolValue(); } },
-                {"restoreBlocked", n => { RestoreBlocked = n.GetBoolValue(); } },
-                {"restoreFromAndroidDisabled", n => { RestoreFromAndroidDisabled = n.GetBoolValue(); } },
-                {"sharedIPadMaximumUserCount", n => { SharedIPadMaximumUserCount = n.GetIntValue(); } },
-                {"siriDisabled", n => { SiriDisabled = n.GetBoolValue(); } },
-                {"supervisedModeEnabled", n => { SupervisedModeEnabled = n.GetBoolValue(); } },
-                {"supportDepartment", n => { SupportDepartment = n.GetStringValue(); } },
-                {"supportPhoneNumber", n => { SupportPhoneNumber = n.GetStringValue(); } },
-                {"termsAndConditionsDisabled", n => { TermsAndConditionsDisabled = n.GetBoolValue(); } },
-                {"touchIdDisabled", n => { TouchIdDisabled = n.GetBoolValue(); } },
-                {"zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
+                { "appleIdDisabled", n => { AppleIdDisabled = n.GetBoolValue(); } },
+                { "applePayDisabled", n => { ApplePayDisabled = n.GetBoolValue(); } },
+                { "awaitDeviceConfiguredConfirmation", n => { AwaitDeviceConfiguredConfirmation = n.GetBoolValue(); } },
+                { "diagnosticsDisabled", n => { DiagnosticsDisabled = n.GetBoolValue(); } },
+                { "enableSharedIPad", n => { EnableSharedIPad = n.GetBoolValue(); } },
+                { "iTunesPairingMode", n => { ITunesPairingMode = n.GetEnumValue<ITunesPairingMode>(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
+                { "locationDisabled", n => { LocationDisabled = n.GetBoolValue(); } },
+                { "macOSFileVaultDisabled", n => { MacOSFileVaultDisabled = n.GetBoolValue(); } },
+                { "macOSRegistrationDisabled", n => { MacOSRegistrationDisabled = n.GetBoolValue(); } },
+                { "managementCertificates", n => { ManagementCertificates = n.GetCollectionOfObjectValues<ManagementCertificateWithThumbprint>(ManagementCertificateWithThumbprint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
+                { "profileRemovalDisabled", n => { ProfileRemovalDisabled = n.GetBoolValue(); } },
+                { "restoreBlocked", n => { RestoreBlocked = n.GetBoolValue(); } },
+                { "restoreFromAndroidDisabled", n => { RestoreFromAndroidDisabled = n.GetBoolValue(); } },
+                { "sharedIPadMaximumUserCount", n => { SharedIPadMaximumUserCount = n.GetIntValue(); } },
+                { "siriDisabled", n => { SiriDisabled = n.GetBoolValue(); } },
+                { "supervisedModeEnabled", n => { SupervisedModeEnabled = n.GetBoolValue(); } },
+                { "supportDepartment", n => { SupportDepartment = n.GetStringValue(); } },
+                { "supportPhoneNumber", n => { SupportPhoneNumber = n.GetStringValue(); } },
+                { "termsAndConditionsDisabled", n => { TermsAndConditionsDisabled = n.GetBoolValue(); } },
+                { "touchIdDisabled", n => { TouchIdDisabled = n.GetBoolValue(); } },
+                { "zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

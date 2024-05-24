@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionLatencyWithCloudPcId {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionLatencyWithCloudPcId
+{
     /// <summary>
     /// Provides operations to call the getRealTimeRemoteConnectionLatency method.
     /// </summary>
-    public class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder : BaseCliRequestBuilder 
+    public class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the real-time connection latency information for a Cloud PC.

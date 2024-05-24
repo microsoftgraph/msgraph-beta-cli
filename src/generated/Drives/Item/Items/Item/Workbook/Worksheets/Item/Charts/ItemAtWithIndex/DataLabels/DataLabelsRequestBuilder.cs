@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.DataLabels {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.DataLabels
+{
     /// <summary>
     /// Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
     /// </summary>
-    public class DataLabelsRequestBuilder : BaseCliRequestBuilder 
+    public class DataLabelsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dataLabels for drives

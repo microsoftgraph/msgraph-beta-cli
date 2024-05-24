@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Reply {
+namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Reply
+{
     /// <summary>
     /// Provides operations to call the reply method.
     /// </summary>
-    public class ReplyRequestBuilder : BaseCliRequestBuilder 
+    public class ReplyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.

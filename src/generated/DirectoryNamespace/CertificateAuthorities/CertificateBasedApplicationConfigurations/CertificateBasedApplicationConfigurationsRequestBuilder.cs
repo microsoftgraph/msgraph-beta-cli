@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations {
+namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations
+{
     /// <summary>
     /// Provides operations to manage the certificateBasedApplicationConfigurations property of the microsoft.graph.certificateAuthorityPath entity.
     /// </summary>
-    public class CertificateBasedApplicationConfigurationsRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateBasedApplicationConfigurationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the certificateBasedApplicationConfigurations property of the microsoft.graph.certificateAuthorityPath entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Get a list of certificateBasedApplicationConfiguration objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.";
+            command.Description = "Get a list of certificateBasedApplicationConfiguration objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
         {
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Get a list of certificateBasedApplicationConfiguration objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Get a list of certificateBasedApplicationConfiguration objects.
         /// </summary>
         public class CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters 
         {

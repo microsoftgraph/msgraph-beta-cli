@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
+namespace ApiSdk.EmployeeExperience.Goals.ExportJobs
+{
     /// <summary>
     /// Provides operations to manage the exportJobs property of the microsoft.graph.goals entity.
     /// </summary>
-    public class ExportJobsRequestBuilder : BaseCliRequestBuilder 
+    public class ExportJobsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the exportJobs property of the microsoft.graph.goals entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to exportJobs for employeeExperience
+        /// Create a new goalsExportJob object in a Viva Goals organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/goals-post-exportjobs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to exportJobs for employeeExperience";
+            command.Description = "Create a new goalsExportJob object in a Viva Goals organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/goals-post-exportjobs?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
             return command;
         }
         /// <summary>
-        /// Represents a collection of goals export jobs for Viva Goals.
+        /// Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/goals-list-exportjobs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents a collection of goals export jobs for Viva Goals.";
+            command.Description = "Get a list of goalsExportJob objects and their properties in a Viva Goals organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/goals-list-exportjobs?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
         {
         }
         /// <summary>
-        /// Represents a collection of goals export jobs for Viva Goals.
+        /// Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to exportJobs for employeeExperience
+        /// Create a new goalsExportJob object in a Viva Goals organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of goals export jobs for Viva Goals.
+        /// Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
         /// </summary>
         public class ExportJobsRequestBuilderGetQueryParameters 
         {

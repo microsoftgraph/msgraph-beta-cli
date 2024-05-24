@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item.MicrosoftGraphManagedTenantsApply {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item.MicrosoftGraphManagedTenantsApply
+{
     /// <summary>
     /// Provides operations to call the apply method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsApplyRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsApplyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Applies a management action against a specific managed tenant. By performing this operation the appropriate configurations will be made and policies created. As example when applying the require multifactor authentication for admins management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that have been assigned an administrative directory role.

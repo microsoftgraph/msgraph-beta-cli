@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External {
+namespace ApiSdk.External
+{
     /// <summary>
     /// Provides operations to manage the external singleton.
     /// </summary>
-    public class ExternalRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.

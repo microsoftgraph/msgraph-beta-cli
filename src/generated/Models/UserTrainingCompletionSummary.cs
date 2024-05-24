@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserTrainingCompletionSummary : IAdditionalDataHolder, IParsable 
+    public class UserTrainingCompletionSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,12 +55,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"completedUsersCount", n => { CompletedUsersCount = n.GetIntValue(); } },
-                {"inProgressUsersCount", n => { InProgressUsersCount = n.GetIntValue(); } },
-                {"notCompletedUsersCount", n => { NotCompletedUsersCount = n.GetIntValue(); } },
-                {"notStartedUsersCount", n => { NotStartedUsersCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"previouslyAssignedUsersCount", n => { PreviouslyAssignedUsersCount = n.GetIntValue(); } },
+                { "completedUsersCount", n => { CompletedUsersCount = n.GetIntValue(); } },
+                { "inProgressUsersCount", n => { InProgressUsersCount = n.GetIntValue(); } },
+                { "notCompletedUsersCount", n => { NotCompletedUsersCount = n.GetIntValue(); } },
+                { "notStartedUsersCount", n => { NotStartedUsersCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "previouslyAssignedUsersCount", n => { PreviouslyAssignedUsersCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

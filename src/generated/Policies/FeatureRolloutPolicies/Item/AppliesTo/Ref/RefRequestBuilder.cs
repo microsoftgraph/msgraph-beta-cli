@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
+namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of policyRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property appliesTo for policies
+        /// Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property appliesTo for policies";
+            command.Description = "Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete-appliesto?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -62,13 +64,13 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
             return command;
         }
         /// <summary>
-        /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
+        /// Nullable. Specifies a list of directoryObject resources that feature is enabled for.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Nullable. Specifies a list of directoryObjects that feature is enabled for.";
+            command.Description = "Nullable. Specifies a list of directoryObject resources that feature is enabled for.";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -136,7 +138,9 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +152,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to appliesTo for policies
+        /// Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to appliesTo for policies";
+            command.Description = "Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -203,7 +208,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property appliesTo for policies
+        /// Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +227,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
+        /// Nullable. Specifies a list of directoryObject resources that feature is enabled for.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +246,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to appliesTo for policies
+        /// Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +267,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property appliesTo for policies
+        /// Remove an appliesTo on a featureRolloutPolicy object to remove the directoryObject from feature rollout.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -278,7 +283,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Ref {
 #endif
         }
         /// <summary>
-        /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
+        /// Nullable. Specifies a list of directoryObject resources that feature is enabled for.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

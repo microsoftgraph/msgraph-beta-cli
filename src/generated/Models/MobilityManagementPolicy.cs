@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MobilityManagementPolicy : Entity, IParsable 
+    public class MobilityManagementPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.</summary>
@@ -79,14 +80,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appliesTo", n => { AppliesTo = n.GetEnumValue<PolicyScope>(); } },
-                {"complianceUrl", n => { ComplianceUrl = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"discoveryUrl", n => { DiscoveryUrl = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"includedGroups", n => { IncludedGroups = n.GetCollectionOfObjectValues<Group>(Group.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isValid", n => { IsValid = n.GetBoolValue(); } },
-                {"termsOfUseUrl", n => { TermsOfUseUrl = n.GetStringValue(); } },
+                { "appliesTo", n => { AppliesTo = n.GetEnumValue<PolicyScope>(); } },
+                { "complianceUrl", n => { ComplianceUrl = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "discoveryUrl", n => { DiscoveryUrl = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "includedGroups", n => { IncludedGroups = n.GetCollectionOfObjectValues<Group>(Group.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isValid", n => { IsValid = n.GetBoolValue(); } },
+                { "termsOfUseUrl", n => { TermsOfUseUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

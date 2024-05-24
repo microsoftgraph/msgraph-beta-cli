@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSettingApplicability : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementConfigurationSettingApplicability : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -65,11 +66,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceMode", n => { DeviceMode = n.GetEnumValue<DeviceManagementConfigurationDeviceMode>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"platform", n => { Platform = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
-                {"technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceMode", n => { DeviceMode = n.GetEnumValue<DeviceManagementConfigurationDeviceMode>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "platform", n => { Platform = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
             };
         }
         /// <summary>

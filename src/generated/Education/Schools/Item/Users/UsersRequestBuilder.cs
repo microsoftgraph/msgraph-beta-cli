@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Schools.Item.Users {
+namespace ApiSdk.Education.Schools.Item.Users
+{
     /// <summary>
     /// Provides operations to manage the users property of the microsoft.graph.educationSchool entity.
     /// </summary>
-    public class UsersRequestBuilder : BaseCliRequestBuilder 
+    public class UsersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.education.schools.item.users.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.Education.Schools.Item.Users {
             return command;
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Users in the school. Nullable.";
+            command.Description = "Retrieve a list of users at a school.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-beta";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
             };
             educationSchoolIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.Education.Schools.Item.Users {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.Education.Schools.Item.Users {
         {
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.Education.Schools.Item.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
         /// </summary>
         public class UsersRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookFunctionResult : Entity, IParsable 
+    public class WorkbookFunctionResult : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The error property</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"error", n => { Error = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType {
+namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType
+{
     #pragma warning disable CS1591
-    public class QueryByPlatformTypePostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class QueryByPlatformTypePostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileBase>(DeviceManagementResourceAccessProfileBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileBase>(DeviceManagementResourceAccessProfileBase.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

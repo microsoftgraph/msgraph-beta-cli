@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.RevokeAppleVppLicenses {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.RevokeAppleVppLicenses
+{
     /// <summary>
     /// Provides operations to call the revokeAppleVppLicenses method.
     /// </summary>
-    public class RevokeAppleVppLicensesRequestBuilder : BaseCliRequestBuilder 
+    public class RevokeAppleVppLicensesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Revoke all Apple Vpp licenses for a device

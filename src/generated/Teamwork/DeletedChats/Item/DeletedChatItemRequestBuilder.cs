@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.DeletedChats.Item {
+namespace ApiSdk.Teamwork.DeletedChats.Item
+{
     /// <summary>
     /// Provides operations to manage the deletedChats property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class DeletedChatItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeletedChatItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deletedChats for teamwork
@@ -57,13 +58,14 @@ namespace ApiSdk.Teamwork.DeletedChats.Item {
             return command;
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deletedchat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of deleted chats.";
+            command.Description = "Read the properties and relationships of a deletedChat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deletedchat-get?view=graph-rest-beta";
             var deletedChatIdOption = new Option<string>("--deleted-chat-id", description: "The unique identifier of deletedChat") {
             };
             deletedChatIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Teamwork.DeletedChats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Teamwork.DeletedChats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
         /// </summary>
         public class DeletedChatItemRequestBuilderGetQueryParameters 
         {

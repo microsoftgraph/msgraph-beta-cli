@@ -13,12 +13,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.DeletedTeams.Item.Channels.Item.FilesFolder.ContentStream {
+namespace ApiSdk.Teamwork.DeletedTeams.Item.Channels.Item.FilesFolder.ContentStream
+{
     /// <summary>
     /// Provides operations to manage the media for the teamwork entity.
     /// </summary>
-    public class ContentStreamRequestBuilder : BaseCliRequestBuilder 
+    public class ContentStreamRequestBuilder : BaseCliRequestBuilder
     {
+        /// <summary>
+        /// The content stream, if the item represents a file.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "The content stream, if the item represents a file.";
+            var deletedTeamIdOption = new Option<string>("--deleted-team-id", description: "The unique identifier of deletedTeam") {
+            };
+            deletedTeamIdOption.IsRequired = true;
+            command.AddOption(deletedTeamIdOption);
+            var channelIdOption = new Option<string>("--channel-id", description: "The unique identifier of channel") {
+            };
+            channelIdOption.IsRequired = true;
+            command.AddOption(channelIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var deletedTeamId = invocationContext.ParseResult.GetValueForOption(deletedTeamIdOption);
+                var channelId = invocationContext.ParseResult.GetValueForOption(channelIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (deletedTeamId is not null) requestInfo.PathParameters.Add("deletedTeam%2Did", deletedTeamId);
+                if (channelId is not null) requestInfo.PathParameters.Add("channel%2Did", channelId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
         /// <summary>
         /// The content stream, if the item represents a file.
         /// </summary>
@@ -134,6 +176,25 @@ namespace ApiSdk.Teamwork.DeletedTeams.Item.Channels.Item.FilesFolder.ContentStr
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentStreamRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/filesFolder/contentStream", rawUrl)
         {
+        }
+        /// <summary>
+        /// The content stream, if the item represents a file.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// The content stream, if the item represents a file.

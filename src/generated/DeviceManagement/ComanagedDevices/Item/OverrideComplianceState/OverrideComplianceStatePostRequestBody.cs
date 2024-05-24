@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.OverrideComplianceState {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.OverrideComplianceState
+{
     #pragma warning disable CS1591
-    public class OverrideComplianceStatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class OverrideComplianceStatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.OverrideComplianceState 
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"complianceState", n => { ComplianceState = n.GetEnumValue<AdministratorConfiguredDeviceComplianceState>(); } },
-                {"remediationUrl", n => { RemediationUrl = n.GetStringValue(); } },
+                { "complianceState", n => { ComplianceState = n.GetEnumValue<AdministratorConfiguredDeviceComplianceState>(); } },
+                { "remediationUrl", n => { RemediationUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

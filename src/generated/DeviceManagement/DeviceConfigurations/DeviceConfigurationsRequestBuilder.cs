@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations
+{
     /// <summary>
     /// Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceConfigurationsRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -246,7 +247,9 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

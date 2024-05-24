@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize
+{
     #pragma warning disable CS1591
-    public class ResizePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ResizePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"targetServicePlanId", n => { TargetServicePlanId = n.GetStringValue(); } },
+                { "targetServicePlanId", n => { TargetServicePlanId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SitePage : BaseSitePage, IParsable 
+    public class SitePage : BaseSitePage, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.</summary>
@@ -73,14 +74,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"canvasLayout", n => { CanvasLayout = n.GetObjectValue<ApiSdk.Models.CanvasLayout>(ApiSdk.Models.CanvasLayout.CreateFromDiscriminatorValue); } },
-                {"promotionKind", n => { PromotionKind = n.GetEnumValue<PagePromotionType>(); } },
-                {"reactions", n => { Reactions = n.GetObjectValue<ReactionsFacet>(ReactionsFacet.CreateFromDiscriminatorValue); } },
-                {"showComments", n => { ShowComments = n.GetBoolValue(); } },
-                {"showRecommendedPages", n => { ShowRecommendedPages = n.GetBoolValue(); } },
-                {"thumbnailWebUrl", n => { ThumbnailWebUrl = n.GetStringValue(); } },
-                {"titleArea", n => { TitleArea = n.GetObjectValue<ApiSdk.Models.TitleArea>(ApiSdk.Models.TitleArea.CreateFromDiscriminatorValue); } },
-                {"webParts", n => { WebParts = n.GetCollectionOfObjectValues<WebPart>(WebPart.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "canvasLayout", n => { CanvasLayout = n.GetObjectValue<ApiSdk.Models.CanvasLayout>(ApiSdk.Models.CanvasLayout.CreateFromDiscriminatorValue); } },
+                { "promotionKind", n => { PromotionKind = n.GetEnumValue<PagePromotionType>(); } },
+                { "reactions", n => { Reactions = n.GetObjectValue<ReactionsFacet>(ReactionsFacet.CreateFromDiscriminatorValue); } },
+                { "showComments", n => { ShowComments = n.GetBoolValue(); } },
+                { "showRecommendedPages", n => { ShowRecommendedPages = n.GetBoolValue(); } },
+                { "thumbnailWebUrl", n => { ThumbnailWebUrl = n.GetStringValue(); } },
+                { "titleArea", n => { TitleArea = n.GetObjectValue<ApiSdk.Models.TitleArea>(ApiSdk.Models.TitleArea.CreateFromDiscriminatorValue); } },
+                { "webParts", n => { WebParts = n.GetCollectionOfObjectValues<WebPart>(WebPart.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

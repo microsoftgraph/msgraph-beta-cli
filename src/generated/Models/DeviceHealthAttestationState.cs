@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceHealthAttestationState : IAdditionalDataHolder, IParsable 
+    public class DeviceHealthAttestationState : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -294,45 +295,45 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"attestationIdentityKey", n => { AttestationIdentityKey = n.GetStringValue(); } },
-                {"bitLockerStatus", n => { BitLockerStatus = n.GetStringValue(); } },
-                {"bootAppSecurityVersion", n => { BootAppSecurityVersion = n.GetStringValue(); } },
-                {"bootDebugging", n => { BootDebugging = n.GetStringValue(); } },
-                {"bootManagerSecurityVersion", n => { BootManagerSecurityVersion = n.GetStringValue(); } },
-                {"bootManagerVersion", n => { BootManagerVersion = n.GetStringValue(); } },
-                {"bootRevisionListInfo", n => { BootRevisionListInfo = n.GetStringValue(); } },
-                {"codeIntegrity", n => { CodeIntegrity = n.GetStringValue(); } },
-                {"codeIntegrityCheckVersion", n => { CodeIntegrityCheckVersion = n.GetStringValue(); } },
-                {"codeIntegrityPolicy", n => { CodeIntegrityPolicy = n.GetStringValue(); } },
-                {"contentNamespaceUrl", n => { ContentNamespaceUrl = n.GetStringValue(); } },
-                {"contentVersion", n => { ContentVersion = n.GetStringValue(); } },
-                {"dataExcutionPolicy", n => { DataExcutionPolicy = n.GetStringValue(); } },
-                {"deviceHealthAttestationStatus", n => { DeviceHealthAttestationStatus = n.GetStringValue(); } },
-                {"earlyLaunchAntiMalwareDriverProtection", n => { EarlyLaunchAntiMalwareDriverProtection = n.GetStringValue(); } },
-                {"firmwareProtection", n => { FirmwareProtection = n.GetEnumValue<FirmwareProtectionType>(); } },
-                {"healthAttestationSupportedStatus", n => { HealthAttestationSupportedStatus = n.GetStringValue(); } },
-                {"healthStatusMismatchInfo", n => { HealthStatusMismatchInfo = n.GetStringValue(); } },
-                {"issuedDateTime", n => { IssuedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastUpdateDateTime", n => { LastUpdateDateTime = n.GetStringValue(); } },
-                {"memoryAccessProtection", n => { MemoryAccessProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                {"memoryIntegrityProtection", n => { MemoryIntegrityProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operatingSystemKernelDebugging", n => { OperatingSystemKernelDebugging = n.GetStringValue(); } },
-                {"operatingSystemRevListInfo", n => { OperatingSystemRevListInfo = n.GetStringValue(); } },
-                {"pcr0", n => { Pcr0 = n.GetStringValue(); } },
-                {"pcrHashAlgorithm", n => { PcrHashAlgorithm = n.GetStringValue(); } },
-                {"resetCount", n => { ResetCount = n.GetLongValue(); } },
-                {"restartCount", n => { RestartCount = n.GetLongValue(); } },
-                {"safeMode", n => { SafeMode = n.GetStringValue(); } },
-                {"secureBoot", n => { SecureBoot = n.GetStringValue(); } },
-                {"secureBootConfigurationPolicyFingerPrint", n => { SecureBootConfigurationPolicyFingerPrint = n.GetStringValue(); } },
-                {"securedCorePC", n => { SecuredCorePC = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                {"systemManagementMode", n => { SystemManagementMode = n.GetEnumValue<SystemManagementModeLevel>(); } },
-                {"testSigning", n => { TestSigning = n.GetStringValue(); } },
-                {"tpmVersion", n => { TpmVersion = n.GetStringValue(); } },
-                {"virtualSecureMode", n => { VirtualSecureMode = n.GetStringValue(); } },
-                {"virtualizationBasedSecurity", n => { VirtualizationBasedSecurity = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                {"windowsPE", n => { WindowsPE = n.GetStringValue(); } },
+                { "attestationIdentityKey", n => { AttestationIdentityKey = n.GetStringValue(); } },
+                { "bitLockerStatus", n => { BitLockerStatus = n.GetStringValue(); } },
+                { "bootAppSecurityVersion", n => { BootAppSecurityVersion = n.GetStringValue(); } },
+                { "bootDebugging", n => { BootDebugging = n.GetStringValue(); } },
+                { "bootManagerSecurityVersion", n => { BootManagerSecurityVersion = n.GetStringValue(); } },
+                { "bootManagerVersion", n => { BootManagerVersion = n.GetStringValue(); } },
+                { "bootRevisionListInfo", n => { BootRevisionListInfo = n.GetStringValue(); } },
+                { "codeIntegrity", n => { CodeIntegrity = n.GetStringValue(); } },
+                { "codeIntegrityCheckVersion", n => { CodeIntegrityCheckVersion = n.GetStringValue(); } },
+                { "codeIntegrityPolicy", n => { CodeIntegrityPolicy = n.GetStringValue(); } },
+                { "contentNamespaceUrl", n => { ContentNamespaceUrl = n.GetStringValue(); } },
+                { "contentVersion", n => { ContentVersion = n.GetStringValue(); } },
+                { "dataExcutionPolicy", n => { DataExcutionPolicy = n.GetStringValue(); } },
+                { "deviceHealthAttestationStatus", n => { DeviceHealthAttestationStatus = n.GetStringValue(); } },
+                { "earlyLaunchAntiMalwareDriverProtection", n => { EarlyLaunchAntiMalwareDriverProtection = n.GetStringValue(); } },
+                { "firmwareProtection", n => { FirmwareProtection = n.GetEnumValue<FirmwareProtectionType>(); } },
+                { "healthAttestationSupportedStatus", n => { HealthAttestationSupportedStatus = n.GetStringValue(); } },
+                { "healthStatusMismatchInfo", n => { HealthStatusMismatchInfo = n.GetStringValue(); } },
+                { "issuedDateTime", n => { IssuedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastUpdateDateTime", n => { LastUpdateDateTime = n.GetStringValue(); } },
+                { "memoryAccessProtection", n => { MemoryAccessProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "memoryIntegrityProtection", n => { MemoryIntegrityProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "operatingSystemKernelDebugging", n => { OperatingSystemKernelDebugging = n.GetStringValue(); } },
+                { "operatingSystemRevListInfo", n => { OperatingSystemRevListInfo = n.GetStringValue(); } },
+                { "pcr0", n => { Pcr0 = n.GetStringValue(); } },
+                { "pcrHashAlgorithm", n => { PcrHashAlgorithm = n.GetStringValue(); } },
+                { "resetCount", n => { ResetCount = n.GetLongValue(); } },
+                { "restartCount", n => { RestartCount = n.GetLongValue(); } },
+                { "safeMode", n => { SafeMode = n.GetStringValue(); } },
+                { "secureBoot", n => { SecureBoot = n.GetStringValue(); } },
+                { "secureBootConfigurationPolicyFingerPrint", n => { SecureBootConfigurationPolicyFingerPrint = n.GetStringValue(); } },
+                { "securedCorePC", n => { SecuredCorePC = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "systemManagementMode", n => { SystemManagementMode = n.GetEnumValue<SystemManagementModeLevel>(); } },
+                { "testSigning", n => { TestSigning = n.GetStringValue(); } },
+                { "tpmVersion", n => { TpmVersion = n.GetStringValue(); } },
+                { "virtualSecureMode", n => { VirtualSecureMode = n.GetStringValue(); } },
+                { "virtualizationBasedSecurity", n => { VirtualizationBasedSecurity = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "windowsPE", n => { WindowsPE = n.GetStringValue(); } },
             };
         }
         /// <summary>

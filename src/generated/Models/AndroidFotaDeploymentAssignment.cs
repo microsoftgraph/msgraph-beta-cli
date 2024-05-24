@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes deployment security group to assign a deployment to. The backend will expand the security Group ID to extract device serial numbers prior sending a create deployment request to Zebra.
     /// </summary>
-    public class AndroidFotaDeploymentAssignment : IAdditionalDataHolder, IParsable 
+    public class AndroidFotaDeploymentAssignment : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -77,11 +78,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentTarget", n => { AssignmentTarget = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"target", n => { Target = n.GetObjectValue<AndroidFotaDeploymentAssignmentTarget>(AndroidFotaDeploymentAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "assignmentTarget", n => { AssignmentTarget = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "target", n => { Target = n.GetObjectValue<AndroidFotaDeploymentAssignmentTarget>(AndroidFotaDeploymentAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

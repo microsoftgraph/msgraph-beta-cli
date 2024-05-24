@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementPolicyEnablementRule : UnifiedRoleManagementPolicyRule, IParsable 
+    public class UnifiedRoleManagementPolicyEnablementRule : UnifiedRoleManagementPolicyRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enabledRules", n => { EnabledRules = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enabledRules", n => { EnabledRules = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

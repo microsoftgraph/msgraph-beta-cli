@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents {
+namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents
+{
     /// <summary>
     /// Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class AuditEventsRequestBuilder : BaseCliRequestBuilder 
+    public class AuditEventsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents {
             return command;
         }
         /// <summary>
-        /// The collection of audit events across managed tenants.
+        /// Get a list of the auditEvent objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-auditevents?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of audit events across managed tenants.";
+            command.Description = "Get a list of the auditEvent objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-auditevents?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents {
         {
         }
         /// <summary>
-        /// The collection of audit events across managed tenants.
+        /// Get a list of the auditEvent objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.AuditEvents {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of audit events across managed tenants.
+        /// Get a list of the auditEvent objects and their properties.
         /// </summary>
         public class AuditEventsRequestBuilderGetQueryParameters 
         {

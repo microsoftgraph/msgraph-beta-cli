@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule
+{
     /// <summary>
     /// Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
     /// </summary>
-    public class ScheduledActionsForRuleRequestBuilder : BaseCliRequestBuilder 
+    public class ScheduledActionsForRuleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -106,13 +107,13 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
             return command;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.";
+            command.Description = "The list of scheduled action for this rule";
             var deviceCompliancePolicyIdOption = new Option<string>("--device-compliance-policy-id", description: "The unique identifier of deviceCompliancePolicy") {
             };
             deviceCompliancePolicyIdOption.IsRequired = true;
@@ -194,7 +195,9 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +223,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
         {
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +263,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActions
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// </summary>
         public class ScheduledActionsForRuleRequestBuilderGetQueryParameters 
         {

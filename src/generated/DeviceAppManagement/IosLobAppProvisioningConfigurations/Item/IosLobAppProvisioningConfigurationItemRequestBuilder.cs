@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item {
+namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the iosLobAppProvisioningConfigurations property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class IosLobAppProvisioningConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class IosLobAppProvisioningConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.

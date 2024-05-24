@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AdminReportSettings : Entity, IParsable 
+    public class AdminReportSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayConcealedNames", n => { DisplayConcealedNames = n.GetBoolValue(); } },
+                { "displayConcealedNames", n => { DisplayConcealedNames = n.GetBoolValue(); } },
             };
         }
         /// <summary>

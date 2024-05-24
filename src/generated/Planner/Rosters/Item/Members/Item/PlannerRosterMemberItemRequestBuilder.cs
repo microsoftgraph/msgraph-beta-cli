@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Rosters.Item.Members.Item {
+namespace ApiSdk.Planner.Rosters.Item.Members.Item
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
     /// </summary>
-    public class PlannerRosterMemberItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerRosterMemberItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property members for planner
+        /// Delete a plannerRosterMember object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerrostermember-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property members for planner";
+            command.Description = "Delete a plannerRosterMember object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerrostermember-delete?view=graph-rest-beta";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Planner.Rosters.Item.Members.Item {
             return command;
         }
         /// <summary>
-        /// Retrieves the members of the plannerRoster.
+        /// Read the properties and relationships of a plannerRosterMember object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerrostermember-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieves the members of the plannerRoster.";
+            command.Description = "Read the properties and relationships of a plannerRosterMember object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerrostermember-get?view=graph-rest-beta";
             var plannerRosterIdOption = new Option<string>("--planner-roster-id", description: "The unique identifier of plannerRoster") {
             };
             plannerRosterIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Planner.Rosters.Item.Members.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property members for planner
+        /// Delete a plannerRosterMember object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.Planner.Rosters.Item.Members.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves the members of the plannerRoster.
+        /// Read the properties and relationships of a plannerRosterMember object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.Planner.Rosters.Item.Members.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves the members of the plannerRoster.
+        /// Read the properties and relationships of a plannerRosterMember object.
         /// </summary>
         public class PlannerRosterMemberItemRequestBuilderGetQueryParameters 
         {

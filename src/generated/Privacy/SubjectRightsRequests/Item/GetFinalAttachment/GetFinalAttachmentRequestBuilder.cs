@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Privacy.SubjectRightsRequests.Item.GetFinalAttachment {
+namespace ApiSdk.Privacy.SubjectRightsRequests.Item.GetFinalAttachment
+{
     /// <summary>
     /// Provides operations to call the getFinalAttachment method.
     /// </summary>
-    public class GetFinalAttachmentRequestBuilder : BaseCliRequestBuilder 
+    public class GetFinalAttachmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the final attachment for a subject rights request. The attachment is a zip file that contains all the files that were included by the privacy administrator.

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
+{
     /// <summary>
     /// Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class ReviewSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class ReviewSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reviewSets for compliance
@@ -66,14 +67,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of reviewSet objects in the case. Read-only. Nullable.";
+            command.Description = "Retrieve the properties and relationships of a reviewSet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -278,7 +280,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -320,7 +322,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of reviewSet objects in the case. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a reviewSet object.
         /// </summary>
         public class ReviewSetItemRequestBuilderGetQueryParameters 
         {

@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime {
+namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime
+{
     #pragma warning disable CS1591
-    public class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetDirectRo
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DirectRoutingLogRow>(DirectRoutingLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DirectRoutingLogRow>(DirectRoutingLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

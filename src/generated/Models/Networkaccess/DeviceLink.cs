@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class DeviceLink : ApiSdk.Models.Entity, IParsable 
+    public class DeviceLink : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Determines the maximum allowed Mbps (megabits per second) bandwidth from a device link. The possible values are:250,500,750,1000.</summary>
@@ -73,14 +74,14 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bandwidthCapacityInMbps", n => { BandwidthCapacityInMbps = n.GetEnumValue<BandwidthCapacityInMbps>(); } },
-                {"bgpConfiguration", n => { BgpConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.BgpConfiguration>(ApiSdk.Models.Networkaccess.BgpConfiguration.CreateFromDiscriminatorValue); } },
-                {"deviceVendor", n => { DeviceVendor = n.GetEnumValue<DeviceVendor>(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"redundancyConfiguration", n => { RedundancyConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.RedundancyConfiguration>(ApiSdk.Models.Networkaccess.RedundancyConfiguration.CreateFromDiscriminatorValue); } },
-                {"tunnelConfiguration", n => { TunnelConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.TunnelConfiguration>(ApiSdk.Models.Networkaccess.TunnelConfiguration.CreateFromDiscriminatorValue); } },
+                { "bandwidthCapacityInMbps", n => { BandwidthCapacityInMbps = n.GetEnumValue<BandwidthCapacityInMbps>(); } },
+                { "bgpConfiguration", n => { BgpConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.BgpConfiguration>(ApiSdk.Models.Networkaccess.BgpConfiguration.CreateFromDiscriminatorValue); } },
+                { "deviceVendor", n => { DeviceVendor = n.GetEnumValue<DeviceVendor>(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "redundancyConfiguration", n => { RedundancyConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.RedundancyConfiguration>(ApiSdk.Models.Networkaccess.RedundancyConfiguration.CreateFromDiscriminatorValue); } },
+                { "tunnelConfiguration", n => { TunnelConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.TunnelConfiguration>(ApiSdk.Models.Networkaccess.TunnelConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

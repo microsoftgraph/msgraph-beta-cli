@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RotateBitLockerKeys {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RotateBitLockerKeys
+{
     /// <summary>
     /// Provides operations to call the rotateBitLockerKeys method.
     /// </summary>
-    public class RotateBitLockerKeysRequestBuilder : BaseCliRequestBuilder 
+    public class RotateBitLockerKeysRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Rotate BitLockerKeys

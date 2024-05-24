@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mentions.Item {
+namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mentions.Item
+{
     /// <summary>
     /// Provides operations to manage the mentions property of the microsoft.graph.message entity.
     /// </summary>
-    public class MentionItemRequestBuilder : BaseCliRequestBuilder 
+    public class MentionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property mentions for users

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.PolicyRules.Item {
+namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.PolicyRules.Item
+{
     /// <summary>
     /// Provides operations to manage the policyRules property of the microsoft.graph.networkaccess.policy entity.
     /// </summary>
-    public class PolicyRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policyRules for networkAccess
@@ -120,13 +121,14 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.PolicyRules.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property policyRules in networkAccess
+        /// Update an existing forwarding rule within a forwarding policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-policyrule-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property policyRules in networkAccess";
+            command.Description = "Update an existing forwarding rule within a forwarding policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-policyrule-update?view=graph-rest-beta";
             var forwardingPolicyIdOption = new Option<string>("--forwarding-policy-id", description: "The unique identifier of forwardingPolicy") {
             };
             forwardingPolicyIdOption.IsRequired = true;
@@ -229,7 +231,7 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.PolicyRules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property policyRules in networkAccess
+        /// Update an existing forwarding rule within a forwarding policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

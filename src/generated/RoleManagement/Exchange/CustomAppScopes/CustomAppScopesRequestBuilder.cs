@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
+namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes
+{
     /// <summary>
     /// Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.
     /// </summary>
-    public class CustomAppScopesRequestBuilder : BaseCliRequestBuilder 
+    public class CustomAppScopesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to customAppScopes for roleManagement
+        /// Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacapplication-post-customappscope?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to customAppScopes for roleManagement";
+            command.Description = "Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacapplication-post-customappscope?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
             return command;
         }
         /// <summary>
-        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
+        /// Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacapplication-list-customappscopes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Workload-specific scope object that represents the resources for which the principal has been granted access.";
+            command.Description = "Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacapplication-list-customappscopes?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
         {
         }
         /// <summary>
-        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
+        /// Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to customAppScopes for roleManagement
+        /// Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.RoleManagement.Exchange.CustomAppScopes {
             return requestInfo;
         }
         /// <summary>
-        /// Workload-specific scope object that represents the resources for which the principal has been granted access.
+        /// Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
         /// </summary>
         public class CustomAppScopesRequestBuilderGetQueryParameters 
         {

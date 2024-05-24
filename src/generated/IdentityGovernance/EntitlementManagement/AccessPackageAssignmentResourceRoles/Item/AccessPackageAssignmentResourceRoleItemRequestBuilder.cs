@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageAssignmentResourceRoleItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageAssignmentResourceRoleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
@@ -161,13 +162,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
+        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageassignmentresourcerole-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the resource-specific role which a subject has been assigned through an access package assignment.";
+            command.Description = "Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageassignmentresourcerole-get?view=graph-rest-beta";
             var accessPackageAssignmentResourceRoleIdOption = new Option<string>("--access-package-assignment-resource-role-id", description: "The unique identifier of accessPackageAssignmentResourceRole") {
             };
             accessPackageAssignmentResourceRoleIdOption.IsRequired = true;
@@ -297,7 +299,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
+        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -337,7 +339,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Represents the resource-specific role which a subject has been assigned through an access package assignment.
+        /// Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
         /// </summary>
         public class AccessPackageAssignmentResourceRoleItemRequestBuilderGetQueryParameters 
         {

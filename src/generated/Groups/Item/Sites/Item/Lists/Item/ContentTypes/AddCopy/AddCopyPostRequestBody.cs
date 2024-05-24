@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.AddCopy {
+namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.AddCopy
+{
     #pragma warning disable CS1591
-    public class AddCopyPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AddCopyPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.AddCopy {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentType", n => { ContentType = n.GetStringValue(); } },
+                { "contentType", n => { ContentType = n.GetStringValue(); } },
             };
         }
         /// <summary>

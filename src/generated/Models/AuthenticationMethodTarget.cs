@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationMethodTarget : Entity, IParsable 
+    public class AuthenticationMethodTarget : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Determines if the user is enforced to register the authentication method.</summary>
@@ -25,6 +26,7 @@ namespace ApiSdk.Models {
             return mappingValue switch
             {
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget" => new MicrosoftAuthenticatorAuthenticationMethodTarget(),
+                "#microsoft.graph.passkeyAuthenticationMethodTarget" => new PasskeyAuthenticationMethodTarget(),
                 "#microsoft.graph.smsAuthenticationMethodTarget" => new SmsAuthenticationMethodTarget(),
                 "#microsoft.graph.voiceAuthenticationMethodTarget" => new VoiceAuthenticationMethodTarget(),
                 _ => new AuthenticationMethodTarget(),
@@ -38,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isRegistrationRequired", n => { IsRegistrationRequired = n.GetBoolValue(); } },
-                {"targetType", n => { TargetType = n.GetEnumValue<AuthenticationMethodTargetType>(); } },
+                { "isRegistrationRequired", n => { IsRegistrationRequired = n.GetBoolValue(); } },
+                { "targetType", n => { TargetType = n.GetEnumValue<AuthenticationMethodTargetType>(); } },
             };
         }
         /// <summary>

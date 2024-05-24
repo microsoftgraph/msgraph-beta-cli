@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies {
+namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies
+{
     /// <summary>
     /// Provides operations to manage the policies property of the microsoft.graph.networkaccess.profile entity.
     /// </summary>
-    public class PoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class PoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the policies property of the microsoft.graph.networkaccess.profile entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies {
             return command;
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-list-policies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Traffic forwarding policies associated with this profile.";
+            command.Description = "Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-list-policies?view=graph-rest-beta";
             var forwardingProfileIdOption = new Option<string>("--forwarding-profile-id", description: "The unique identifier of forwardingProfile") {
             };
             forwardingProfileIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies {
         {
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies {
             return requestInfo;
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.
         /// </summary>
         public class PoliciesRequestBuilderGetQueryParameters 
         {

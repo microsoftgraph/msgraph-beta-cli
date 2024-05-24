@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Identity : IAdditionalDataHolder, IParsable 
+    public class Identity : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The display name of the identity. This property is read-only.</summary>
+        /// <summary>The display name of the identity. The display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user won&apos;t show up as having changed when using delta.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -21,7 +22,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The identifier of the identity. This property is read-only.</summary>
+        /// <summary>Unique identifier for the identity. When the unique identifier is unavailable, the displayName property is provided for the identity, but the id property isn&apos;t included in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -73,6 +74,8 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.security.submissionUserIdentity" => new SubmissionUserIdentity(),
                 "#microsoft.graph.servicePrincipalIdentity" => new ServicePrincipalIdentity(),
                 "#microsoft.graph.sharePointIdentity" => new SharePointIdentity(),
+                "#microsoft.graph.sourceProvisionedIdentity" => new SourceProvisionedIdentity(),
+                "#microsoft.graph.targetProvisionedIdentity" => new TargetProvisionedIdentity(),
                 "#microsoft.graph.teamworkApplicationIdentity" => new TeamworkApplicationIdentity(),
                 "#microsoft.graph.teamworkConversationIdentity" => new TeamworkConversationIdentity(),
                 "#microsoft.graph.teamworkTagIdentity" => new TeamworkTagIdentity(),
@@ -89,9 +92,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

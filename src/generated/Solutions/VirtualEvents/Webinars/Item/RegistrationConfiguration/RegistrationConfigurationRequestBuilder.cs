@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationConfiguration {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationConfiguration
+{
     /// <summary>
     /// Provides operations to manage the registrationConfiguration property of the microsoft.graph.virtualEventWebinar entity.
     /// </summary>
-    public class RegistrationConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class RegistrationConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get registrationConfiguration from solutions
+        /// Read the properties and relationships of a virtualEventWebinarRegistrationConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventwebinarregistrationconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get registrationConfiguration from solutions";
+            command.Description = "Read the properties and relationships of a virtualEventWebinarRegistrationConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventwebinarregistrationconfiguration-get?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationConfiguration
         {
         }
         /// <summary>
-        /// Get registrationConfiguration from solutions
+        /// Read the properties and relationships of a virtualEventWebinarRegistrationConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.RegistrationConfiguration
             return requestInfo;
         }
         /// <summary>
-        /// Get registrationConfiguration from solutions
+        /// Read the properties and relationships of a virtualEventWebinarRegistrationConfiguration object.
         /// </summary>
         public class RegistrationConfigurationRequestBuilderGetQueryParameters 
         {

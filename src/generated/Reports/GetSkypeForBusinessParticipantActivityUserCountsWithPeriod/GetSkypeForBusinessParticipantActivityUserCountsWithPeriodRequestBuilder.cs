@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getSkypeForBusinessParticipantActivityUserCounts method.
     /// </summary>
-    public class GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSkypeForBusinessParticipantActivityUserCounts

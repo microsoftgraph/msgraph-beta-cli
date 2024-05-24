@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OpenAwsSecurityGroupFinding : Finding, IParsable 
+    public class OpenAwsSecurityGroupFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A set of AWS EC2 compute instances related to this open security group.</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignedComputeInstancesDetails", n => { AssignedComputeInstancesDetails = n.GetCollectionOfObjectValues<AssignedComputeInstanceDetails>(AssignedComputeInstanceDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
-                {"securityGroup", n => { SecurityGroup = n.GetObjectValue<AwsAuthorizationSystemResource>(AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
-                {"totalStorageBucketCount", n => { TotalStorageBucketCount = n.GetIntValue(); } },
+                { "assignedComputeInstancesDetails", n => { AssignedComputeInstancesDetails = n.GetCollectionOfObjectValues<AssignedComputeInstanceDetails>(AssignedComputeInstanceDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
+                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<AwsAuthorizationSystemResource>(AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "totalStorageBucketCount", n => { TotalStorageBucketCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

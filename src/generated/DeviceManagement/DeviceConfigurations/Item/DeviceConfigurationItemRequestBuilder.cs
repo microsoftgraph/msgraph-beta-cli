@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignedAccessMultiModeProfiles method.

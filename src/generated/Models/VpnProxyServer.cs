@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN Proxy Server.
     /// </summary>
-    public class VpnProxyServer : IAdditionalDataHolder, IParsable 
+    public class VpnProxyServer : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,10 +70,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"address", n => { Address = n.GetStringValue(); } },
-                {"automaticConfigurationScriptUrl", n => { AutomaticConfigurationScriptUrl = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "automaticConfigurationScriptUrl", n => { AutomaticConfigurationScriptUrl = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
             };
         }
         /// <summary>

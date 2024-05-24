@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class ParticipantBase : ApiSdk.Models.Entity, IParsable 
+    public class ParticipantBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of administrativeUnitInfo of the call participant.</summary>
@@ -49,8 +50,8 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<AdministrativeUnitInfo>(AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.CommunicationsIdentitySet>(ApiSdk.Models.CommunicationsIdentitySet.CreateFromDiscriminatorValue); } },
+                { "administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<AdministrativeUnitInfo>(AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.CommunicationsIdentitySet>(ApiSdk.Models.CommunicationsIdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

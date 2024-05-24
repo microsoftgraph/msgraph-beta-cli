@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups
+{
     /// <summary>
     /// Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class TenantGroupsRequestBuilder : BaseCliRequestBuilder 
+    public class TenantGroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
@@ -99,13 +100,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups {
             return command;
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Get a list of the tenantGroup objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenantgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of a logical grouping of managed tenants used by the multi-tenant management platform.";
+            command.Description = "Get a list of the tenantGroup objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenantgroups?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -181,7 +183,9 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +228,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups {
         {
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Get a list of the tenantGroup objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +268,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Get a list of the tenantGroup objects and their properties.
         /// </summary>
         public class TenantGroupsRequestBuilderGetQueryParameters 
         {

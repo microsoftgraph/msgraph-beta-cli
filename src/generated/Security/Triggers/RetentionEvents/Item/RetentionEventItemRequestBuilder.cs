@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Triggers.RetentionEvents.Item {
+namespace ApiSdk.Security.Triggers.RetentionEvents.Item
+{
     /// <summary>
     /// Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
     /// </summary>
-    public class RetentionEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class RetentionEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property retentionEvents for security
+        /// Delete a retentionEvent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-retentionevent-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property retentionEvents for security";
+            command.Description = "Delete a retentionEvent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-retentionevent-delete?view=graph-rest-beta";
             var retentionEventIdOption = new Option<string>("--retention-event-id", description: "The unique identifier of retentionEvent") {
             };
             retentionEventIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Security.Triggers.RetentionEvents.Item {
             return command;
         }
         /// <summary>
-        /// Get retentionEvents from security
+        /// Read the properties and relationships of a retentionEvent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-retentionevent-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get retentionEvents from security";
+            command.Description = "Read the properties and relationships of a retentionEvent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-retentionevent-get?view=graph-rest-beta";
             var retentionEventIdOption = new Option<string>("--retention-event-id", description: "The unique identifier of retentionEvent") {
             };
             retentionEventIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Security.Triggers.RetentionEvents.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property retentionEvents for security
+        /// Delete a retentionEvent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.Security.Triggers.RetentionEvents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get retentionEvents from security
+        /// Read the properties and relationships of a retentionEvent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.Security.Triggers.RetentionEvents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get retentionEvents from security
+        /// Read the properties and relationships of a retentionEvent object.
         /// </summary>
         public class RetentionEventItemRequestBuilderGetQueryParameters 
         {

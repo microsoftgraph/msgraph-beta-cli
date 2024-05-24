@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConnectorGroup : Entity, IParsable 
+    public class ConnectorGroup : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applications property</summary>
@@ -57,12 +58,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applications", n => { Applications = n.GetCollectionOfObjectValues<Application>(Application.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"connectorGroupType", n => { ConnectorGroupType = n.GetEnumValue<ConnectorGroupType>(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"members", n => { Members = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"region", n => { Region = n.GetEnumValue<ConnectorGroupRegion>(); } },
+                { "applications", n => { Applications = n.GetCollectionOfObjectValues<Application>(Application.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectorGroupType", n => { ConnectorGroupType = n.GetEnumValue<ConnectorGroupType>(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetEnumValue<ConnectorGroupRegion>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementAlert : Entity, IParsable 
+    public class UnifiedRoleManagementAlert : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration of the alert in PIM for Microsoft Entra roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.</summary>
@@ -83,16 +84,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertConfiguration", n => { AlertConfiguration = n.GetObjectValue<UnifiedRoleManagementAlertConfiguration>(UnifiedRoleManagementAlertConfiguration.CreateFromDiscriminatorValue); } },
-                {"alertDefinition", n => { AlertDefinition = n.GetObjectValue<UnifiedRoleManagementAlertDefinition>(UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
-                {"alertDefinitionId", n => { AlertDefinitionId = n.GetStringValue(); } },
-                {"alertIncidents", n => { AlertIncidents = n.GetCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>(UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"incidentCount", n => { IncidentCount = n.GetIntValue(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastScannedDateTime", n => { LastScannedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"scopeId", n => { ScopeId = n.GetStringValue(); } },
-                {"scopeType", n => { ScopeType = n.GetStringValue(); } },
+                { "alertConfiguration", n => { AlertConfiguration = n.GetObjectValue<UnifiedRoleManagementAlertConfiguration>(UnifiedRoleManagementAlertConfiguration.CreateFromDiscriminatorValue); } },
+                { "alertDefinition", n => { AlertDefinition = n.GetObjectValue<UnifiedRoleManagementAlertDefinition>(UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
+                { "alertDefinitionId", n => { AlertDefinitionId = n.GetStringValue(); } },
+                { "alertIncidents", n => { AlertIncidents = n.GetCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>(UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "incidentCount", n => { IncidentCount = n.GetIntValue(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastScannedDateTime", n => { LastScannedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "scopeId", n => { ScopeId = n.GetStringValue(); } },
+                { "scopeType", n => { ScopeType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Tags.Item {
+namespace ApiSdk.Teams.Item.Tags.Item
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.team entity.
     /// </summary>
-    public class TeamworkTagItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamworkTagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property tags for teams
+        /// Delete a tag object permanently.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property tags for teams";
+            command.Description = "Delete a tag object permanently.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -63,13 +65,14 @@ namespace ApiSdk.Teams.Item.Tags.Item {
             return command;
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Read the properties and relationships of a tag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The tags associated with the team.";
+            command.Description = "Read the properties and relationships of a tag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-get?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -148,13 +151,14 @@ namespace ApiSdk.Teams.Item.Tags.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property tags in teams
+        /// Update the properties of a teamworkTag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property tags in teams";
+            command.Description = "Update the properties of a teamworkTag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -219,7 +223,7 @@ namespace ApiSdk.Teams.Item.Tags.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property tags for teams
+        /// Delete a tag object permanently.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.Teams.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Read the properties and relationships of a tag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,7 +261,7 @@ namespace ApiSdk.Teams.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tags in teams
+        /// Update the properties of a teamworkTag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -278,7 +282,7 @@ namespace ApiSdk.Teams.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Read the properties and relationships of a tag object.
         /// </summary>
         public class TeamworkTagItemRequestBuilderGetQueryParameters 
         {

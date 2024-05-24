@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Channels.Item.Tabs {
+namespace ApiSdk.Teams.Item.Channels.Item.Tabs
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.channel entity.
     /// </summary>
-    public class TabsRequestBuilder : BaseCliRequestBuilder 
+    public class TabsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -112,13 +113,14 @@ namespace ApiSdk.Teams.Item.Channels.Item.Tabs {
             return command;
         }
         /// <summary>
-        /// A collection of all the tabs in the channel. A navigation property.
+        /// Retrieve the list of tabs in the specified channel within a team. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the tabs in the channel. A navigation property.";
+            command.Description = "Retrieve the list of tabs in the specified channel within a team. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -206,7 +208,9 @@ namespace ApiSdk.Teams.Item.Channels.Item.Tabs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -232,7 +236,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Tabs {
         {
         }
         /// <summary>
-        /// A collection of all the tabs in the channel. A navigation property.
+        /// Retrieve the list of tabs in the specified channel within a team. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -272,7 +276,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the tabs in the channel. A navigation property.
+        /// Retrieve the list of tabs in the specified channel within a team. 
         /// </summary>
         public class TabsRequestBuilderGetQueryParameters 
         {

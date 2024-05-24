@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ControlScore : IAdditionalDataHolder, IParsable 
+    public class ControlScore : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The controlCategory property</summary>
+        /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ControlCategory { get; set; }
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public string ControlCategory { get; set; }
 #endif
-        /// <summary>The controlName property</summary>
+        /// <summary>Control unique name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ControlName { get; set; }
@@ -27,7 +28,7 @@ namespace ApiSdk.Models {
 #else
         public string ControlName { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>Description of the control.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The score property</summary>
+        /// <summary>Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).</summary>
         public double? Score { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="ControlScore"/> and sets the default values.
@@ -70,11 +71,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"controlCategory", n => { ControlCategory = n.GetStringValue(); } },
-                {"controlName", n => { ControlName = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"score", n => { Score = n.GetDoubleValue(); } },
+                { "controlCategory", n => { ControlCategory = n.GetStringValue(); } },
+                { "controlName", n => { ControlName = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "score", n => { Score = n.GetDoubleValue(); } },
             };
         }
         /// <summary>

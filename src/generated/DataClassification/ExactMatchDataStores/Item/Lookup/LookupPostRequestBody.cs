@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
+{
     #pragma warning disable CS1591
-    public class LookupPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class LookupPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"key", n => { Key = n.GetStringValue(); } },
-                {"resultColumnNames", n => { ResultColumnNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "key", n => { Key = n.GetStringValue(); } },
+                { "resultColumnNames", n => { ResultColumnNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

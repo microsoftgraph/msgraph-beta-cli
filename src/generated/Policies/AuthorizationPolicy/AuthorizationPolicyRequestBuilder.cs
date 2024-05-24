@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AuthorizationPolicy {
+namespace ApiSdk.Policies.AuthorizationPolicy
+{
     /// <summary>
     /// Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class AuthorizationPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorizationPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Policies.AuthorizationPolicy {
             return command;
         }
         /// <summary>
-        /// The policy that controls Microsoft Entra authorization settings.
+        /// Retrieve the properties of an authorizationPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The policy that controls Microsoft Entra authorization settings.";
+            command.Description = "Retrieve the properties of an authorizationPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Policies.AuthorizationPolicy {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Policies.AuthorizationPolicy {
         {
         }
         /// <summary>
-        /// The policy that controls Microsoft Entra authorization settings.
+        /// Retrieve the properties of an authorizationPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Policies.AuthorizationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// The policy that controls Microsoft Entra authorization settings.
+        /// Retrieve the properties of an authorizationPolicy object.
         /// </summary>
         public class AuthorizationPolicyRequestBuilderGetQueryParameters 
         {

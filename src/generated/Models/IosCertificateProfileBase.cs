@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// iOS certificate profile base.
     /// </summary>
-    public class IosCertificateProfileBase : IosCertificateProfile, IParsable 
+    public class IosCertificateProfileBase : IosCertificateProfile, IParsable
     {
         /// <summary>Certificate Validity Period Options.</summary>
         public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodScale { get; set; }
@@ -51,11 +52,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
-                {"certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                {"renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                {"subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                {"subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<AppleSubjectNameFormat>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
+                { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
+                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
+                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<AppleSubjectNameFormat>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsStatement : IAdditionalDataHolder, IParsable 
+    public class AwsStatement : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The AWS actions.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actions", n => { Actions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"condition", n => { Condition = n.GetObjectValue<AwsCondition>(AwsCondition.CreateFromDiscriminatorValue); } },
-                {"effect", n => { Effect = n.GetEnumValue<AwsStatementEffect>(); } },
-                {"notActions", n => { NotActions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"notResources", n => { NotResources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"resources", n => { Resources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"statementId", n => { StatementId = n.GetStringValue(); } },
+                { "actions", n => { Actions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "condition", n => { Condition = n.GetObjectValue<AwsCondition>(AwsCondition.CreateFromDiscriminatorValue); } },
+                { "effect", n => { Effect = n.GetEnumValue<AwsStatementEffect>(); } },
+                { "notActions", n => { NotActions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "notResources", n => { NotResources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "resources", n => { Resources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "statementId", n => { StatementId = n.GetStringValue(); } },
             };
         }
         /// <summary>

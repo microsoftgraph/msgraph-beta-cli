@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Show the home button; clicking the home button loads a specific URL.
     /// </summary>
-    public class EdgeHomeButtonOpensCustomURL : EdgeHomeButtonConfiguration, IParsable 
+    public class EdgeHomeButtonOpensCustomURL : EdgeHomeButtonConfiguration, IParsable
     {
         /// <summary>The specific URL to load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"homeButtonCustomURL", n => { HomeButtonCustomURL = n.GetStringValue(); } },
+                { "homeButtonCustomURL", n => { HomeButtonCustomURL = n.GetStringValue(); } },
             };
         }
         /// <summary>

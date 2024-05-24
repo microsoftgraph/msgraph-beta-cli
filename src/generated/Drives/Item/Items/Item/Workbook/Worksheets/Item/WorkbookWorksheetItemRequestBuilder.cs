@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item
+{
     /// <summary>
     /// Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
     /// </summary>
-    public class WorkbookWorksheetItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookWorksheetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cell method.

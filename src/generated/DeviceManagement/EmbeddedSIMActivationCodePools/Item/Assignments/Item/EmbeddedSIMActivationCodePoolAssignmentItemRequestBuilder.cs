@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
     /// </summary>
-    public class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

@@ -16,11 +16,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.Members.Item {
+namespace ApiSdk.AdministrativeUnits.Item.Members.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \administrativeUnits\{administrativeUnit-id}\members\{directoryObject-id}
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Casts the previous resource to application.

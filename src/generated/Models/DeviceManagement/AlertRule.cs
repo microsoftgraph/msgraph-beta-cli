@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.DeviceManagement {
+namespace ApiSdk.Models.DeviceManagement
+{
     #pragma warning disable CS1591
-    public class AlertRule : ApiSdk.Models.Entity, IParsable 
+    public class AlertRule : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, cloudPcInGracePeriodScenario, cloudPcFrontlineInsufficientLicensesScenario, cloudPcInaccessibleScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.</summary>
@@ -75,15 +76,15 @@ namespace ApiSdk.Models.DeviceManagement {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
-                {"conditions", n => { Conditions = n.GetCollectionOfObjectValues<RuleCondition>(RuleCondition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enabled", n => { Enabled = n.GetBoolValue(); } },
-                {"isSystemRule", n => { IsSystemRule = n.GetBoolValue(); } },
-                {"notificationChannels", n => { NotificationChannels = n.GetCollectionOfObjectValues<NotificationChannel>(NotificationChannel.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
-                {"threshold", n => { Threshold = n.GetObjectValue<RuleThreshold>(RuleThreshold.CreateFromDiscriminatorValue); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
+                { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<RuleCondition>(RuleCondition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "isSystemRule", n => { IsSystemRule = n.GetBoolValue(); } },
+                { "notificationChannels", n => { NotificationChannels = n.GetCollectionOfObjectValues<NotificationChannel>(NotificationChannel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
+                { "threshold", n => { Threshold = n.GetObjectValue<RuleThreshold>(RuleThreshold.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

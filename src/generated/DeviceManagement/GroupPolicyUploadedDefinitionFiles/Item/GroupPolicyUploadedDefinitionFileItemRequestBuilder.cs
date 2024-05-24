@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyUploadedDefinitionFileItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyUploadedDefinitionFileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addLanguageFiles method.

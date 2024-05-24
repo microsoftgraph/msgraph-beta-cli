@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.IdentityProviders.Item {
+namespace ApiSdk.Identity.IdentityProviders.Item
+{
     /// <summary>
     /// Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property identityProviders for identity
+        /// Delete an identity provider resource that is of the type specified by the id in the request. Among the types of providers derived from identityProviderBase, you can currently delete a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently delete a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityproviderbase-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property identityProviders for identity";
+            command.Description = "Delete an identity provider resource that is of the type specified by the id in the request. Among the types of providers derived from identityProviderBase, you can currently delete a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently delete a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityproviderbase-delete?view=graph-rest-beta";
             var identityProviderBaseIdOption = new Option<string>("--identity-provider-base-id", description: "The unique identifier of identityProviderBase") {
             };
             identityProviderBaseIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
             return command;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get the properties and relationships of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently get a socialIdentityProvider or a builtinIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently get a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityproviderbase-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents entry point for identity provider base.";
+            command.Description = "Get the properties and relationships of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently get a socialIdentityProvider or a builtinIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently get a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityproviderbase-get?view=graph-rest-beta";
             var identityProviderBaseIdOption = new Option<string>("--identity-provider-base-id", description: "The unique identifier of identityProviderBase") {
             };
             identityProviderBaseIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property identityProviders in identity
+        /// Update the properties of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently update a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently update a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityproviderbase-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property identityProviders in identity";
+            command.Description = "Update the properties of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently update a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently update a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityproviderbase-update?view=graph-rest-beta";
             var identityProviderBaseIdOption = new Option<string>("--identity-provider-base-id", description: "The unique identifier of identityProviderBase") {
             };
             identityProviderBaseIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property identityProviders for identity
+        /// Delete an identity provider resource that is of the type specified by the id in the request. Among the types of providers derived from identityProviderBase, you can currently delete a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently delete a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get the properties and relationships of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently get a socialIdentityProvider or a builtinIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently get a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property identityProviders in identity
+        /// Update the properties of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently update a socialIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently update a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Identity.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get the properties and relationships of the specified identity provider configured in the tenant. Among the types of providers derived from identityProviderBase, you can currently get a socialIdentityProvider or a builtinIdentityProvider resource in Microsoft Entra ID. In Azure AD B2C, this operation can currently get a socialIdentityProvider, openIdConnectIdentityProvider, or an appleManagedIdentityProvider resource.
         /// </summary>
         public class IdentityProviderBaseItemRequestBuilderGetQueryParameters 
         {

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners
+{
     /// <summary>
     /// Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
     /// </summary>
-    public class PartnersRequestBuilder : BaseCliRequestBuilder 
+    public class PartnersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to partners for policies
+        /// Create a new partner configuration in a cross-tenant access policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to partners for policies";
+            command.Description = "Create a new partner configuration in a cross-tenant access policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
             return command;
         }
         /// <summary>
-        /// Defines partner-specific configurations for external Microsoft Entra organizations.
+        /// Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-list-partners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Defines partner-specific configurations for external Microsoft Entra organizations.";
+            command.Description = "Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-list-partners?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
         {
         }
         /// <summary>
-        /// Defines partner-specific configurations for external Microsoft Entra organizations.
+        /// Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to partners for policies
+        /// Create a new partner configuration in a cross-tenant access policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Partners {
             return requestInfo;
         }
         /// <summary>
-        /// Defines partner-specific configurations for external Microsoft Entra organizations.
+        /// Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
         /// </summary>
         public class PartnersRequestBuilderGetQueryParameters 
         {

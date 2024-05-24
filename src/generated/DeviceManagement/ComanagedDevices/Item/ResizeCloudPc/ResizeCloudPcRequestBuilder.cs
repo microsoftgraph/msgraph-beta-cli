@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.ResizeCloudPc {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.ResizeCloudPc
+{
     /// <summary>
     /// Provides operations to call the resizeCloudPc method.
     /// </summary>
-    public class ResizeCloudPcRequestBuilder : BaseCliRequestBuilder 
+    public class ResizeCloudPcRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.

@@ -16,20 +16,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.DataConnectors.Item {
+namespace ApiSdk.External.IndustryData.DataConnectors.Item
+{
     /// <summary>
     /// Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class IndustryDataConnectorItemRequestBuilder : BaseCliRequestBuilder 
+    public class IndustryDataConnectorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property dataConnectors for external
+        /// Delete an industryDataConnector object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property dataConnectors for external";
+            command.Description = "Delete an industryDataConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-delete?view=graph-rest-beta";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -58,13 +60,14 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return command;
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Read the properties and relationships of an azureDataLakeConnector object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of connectors for importing data from source systems.";
+            command.Description = "Read the properties and relationships of an azureDataLakeConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-get?view=graph-rest-beta";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -127,13 +130,14 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property dataConnectors in external
+        /// Update the properties of an industryDataConnector object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property dataConnectors in external";
+            command.Description = "Update the properties of an industryDataConnector object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-update?view=graph-rest-beta";
             var industryDataConnectorIdOption = new Option<string>("--industry-data-connector-id", description: "The unique identifier of industryDataConnector") {
             };
             industryDataConnectorIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property dataConnectors for external
+        /// Delete an industryDataConnector object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Read the properties and relationships of an azureDataLakeConnector object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property dataConnectors in external
+        /// Update the properties of an industryDataConnector object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of connectors for importing data from source systems.
+        /// Read the properties and relationships of an azureDataLakeConnector object.
         /// </summary>
         public class IndustryDataConnectorItemRequestBuilderGetQueryParameters 
         {

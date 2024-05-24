@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UploadNewVersion {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UploadNewVersion
+{
     /// <summary>
     /// Provides operations to call the uploadNewVersion method.
     /// </summary>
-    public class UploadNewVersionRequestBuilder : BaseCliRequestBuilder 
+    public class UploadNewVersionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action uploadNewVersion

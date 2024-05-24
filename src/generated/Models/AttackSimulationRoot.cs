@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AttackSimulationRoot : Entity, IParsable 
+    public class AttackSimulationRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents an end user&apos;s notification for an attack simulation training.</summary>
@@ -99,15 +100,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endUserNotifications", n => { EndUserNotifications = n.GetCollectionOfObjectValues<EndUserNotification>(EndUserNotification.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"landingPages", n => { LandingPages = n.GetCollectionOfObjectValues<LandingPage>(LandingPage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"loginPages", n => { LoginPages = n.GetCollectionOfObjectValues<LoginPage>(LoginPage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<AttackSimulationOperation>(AttackSimulationOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"payloads", n => { Payloads = n.GetCollectionOfObjectValues<Payload>(Payload.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"simulationAutomations", n => { SimulationAutomations = n.GetCollectionOfObjectValues<SimulationAutomation>(SimulationAutomation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"simulations", n => { Simulations = n.GetCollectionOfObjectValues<Simulation>(Simulation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trainingCampaigns", n => { TrainingCampaigns = n.GetCollectionOfObjectValues<TrainingCampaign>(TrainingCampaign.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trainings", n => { Trainings = n.GetCollectionOfObjectValues<Training>(Training.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "endUserNotifications", n => { EndUserNotifications = n.GetCollectionOfObjectValues<EndUserNotification>(EndUserNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "landingPages", n => { LandingPages = n.GetCollectionOfObjectValues<LandingPage>(LandingPage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "loginPages", n => { LoginPages = n.GetCollectionOfObjectValues<LoginPage>(LoginPage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<AttackSimulationOperation>(AttackSimulationOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "payloads", n => { Payloads = n.GetCollectionOfObjectValues<Payload>(Payload.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "simulationAutomations", n => { SimulationAutomations = n.GetCollectionOfObjectValues<SimulationAutomation>(SimulationAutomation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "simulations", n => { Simulations = n.GetCollectionOfObjectValues<Simulation>(Simulation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trainingCampaigns", n => { TrainingCampaigns = n.GetCollectionOfObjectValues<TrainingCampaign>(TrainingCampaign.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trainings", n => { Trainings = n.GetCollectionOfObjectValues<Training>(Training.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

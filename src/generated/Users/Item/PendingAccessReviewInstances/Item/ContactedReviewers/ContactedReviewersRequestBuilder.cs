@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ContactedReviewers {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ContactedReviewers
+{
     /// <summary>
     /// Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
     /// </summary>
-    public class ContactedReviewersRequestBuilder : BaseCliRequestBuilder 
+    public class ContactedReviewersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
@@ -204,7 +205,9 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ContactedReviewers
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

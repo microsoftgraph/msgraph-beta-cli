@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Partners.Billing {
+namespace ApiSdk.Models.Partners.Billing
+{
     #pragma warning disable CS1591
-    public class BillingReconciliation : ApiSdk.Models.Entity, IParsable 
+    public class BillingReconciliation : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The billed property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.Partners.Billing {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"billed", n => { Billed = n.GetObjectValue<BilledReconciliation>(BilledReconciliation.CreateFromDiscriminatorValue); } },
+                { "billed", n => { Billed = n.GetObjectValue<BilledReconciliation>(BilledReconciliation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

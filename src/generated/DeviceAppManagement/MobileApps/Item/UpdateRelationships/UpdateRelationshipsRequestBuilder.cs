@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships
+{
     /// <summary>
     /// Provides operations to call the updateRelationships method.
     /// </summary>
-    public class UpdateRelationshipsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateRelationshipsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateRelationships

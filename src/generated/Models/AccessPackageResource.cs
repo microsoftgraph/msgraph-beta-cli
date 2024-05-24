@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResource : Entity, IParsable 
+    public class AccessPackageResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment&apos;s originId. Supports $expand.</summary>
@@ -119,19 +120,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageResourceEnvironment", n => { AccessPackageResourceEnvironment = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>(ApiSdk.Models.AccessPackageResourceEnvironment.CreateFromDiscriminatorValue); } },
-                {"accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"addedBy", n => { AddedBy = n.GetStringValue(); } },
-                {"addedOn", n => { AddedOn = n.GetDateTimeOffsetValue(); } },
-                {"attributes", n => { Attributes = n.GetCollectionOfObjectValues<AccessPackageResourceAttribute>(AccessPackageResourceAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isPendingOnboarding", n => { IsPendingOnboarding = n.GetBoolValue(); } },
-                {"originId", n => { OriginId = n.GetStringValue(); } },
-                {"originSystem", n => { OriginSystem = n.GetStringValue(); } },
-                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
-                {"url", n => { Url = n.GetStringValue(); } },
+                { "accessPackageResourceEnvironment", n => { AccessPackageResourceEnvironment = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>(ApiSdk.Models.AccessPackageResourceEnvironment.CreateFromDiscriminatorValue); } },
+                { "accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addedBy", n => { AddedBy = n.GetStringValue(); } },
+                { "addedOn", n => { AddedOn = n.GetDateTimeOffsetValue(); } },
+                { "attributes", n => { Attributes = n.GetCollectionOfObjectValues<AccessPackageResourceAttribute>(AccessPackageResourceAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isPendingOnboarding", n => { IsPendingOnboarding = n.GetBoolValue(); } },
+                { "originId", n => { OriginId = n.GetStringValue(); } },
+                { "originSystem", n => { OriginSystem = n.GetStringValue(); } },
+                { "resourceType", n => { ResourceType = n.GetStringValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>

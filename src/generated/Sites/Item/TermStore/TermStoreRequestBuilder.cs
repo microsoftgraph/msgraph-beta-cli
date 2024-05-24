@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.TermStore {
+namespace ApiSdk.Sites.Item.TermStore
+{
     /// <summary>
     /// Provides operations to manage the termStore property of the microsoft.graph.site entity.
     /// </summary>
-    public class TermStoreRequestBuilder : BaseCliRequestBuilder 
+    public class TermStoreRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property termStore for sites
@@ -58,13 +59,14 @@ namespace ApiSdk.Sites.Item.TermStore {
             return command;
         }
         /// <summary>
-        /// The termStore under this site.
+        /// Read the properties and relationships of a store object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The termStore under this site.";
+            command.Description = "Read the properties and relationships of a store object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -248,7 +250,7 @@ namespace ApiSdk.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The termStore under this site.
+        /// Read the properties and relationships of a store object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +290,7 @@ namespace ApiSdk.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The termStore under this site.
+        /// Read the properties and relationships of a store object.
         /// </summary>
         public class TermStoreRequestBuilderGetQueryParameters 
         {

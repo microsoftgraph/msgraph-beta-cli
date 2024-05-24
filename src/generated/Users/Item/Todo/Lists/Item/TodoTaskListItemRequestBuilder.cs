@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Todo.Lists.Item {
+namespace ApiSdk.Users.Item.Todo.Lists.Item
+{
     /// <summary>
     /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
     /// </summary>
-    public class TodoTaskListItemRequestBuilder : BaseCliRequestBuilder 
+    public class TodoTaskListItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property lists for users

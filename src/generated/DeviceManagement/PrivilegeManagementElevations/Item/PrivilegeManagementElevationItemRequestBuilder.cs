@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.PrivilegeManagementElevations.Item {
+namespace ApiSdk.DeviceManagement.PrivilegeManagementElevations.Item
+{
     /// <summary>
     /// Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class PrivilegeManagementElevationItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegeManagementElevationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property privilegeManagementElevations for deviceManagement

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps {
+namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps
+{
     #pragma warning disable CS1591
-    public class TargetAppsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class TargetAppsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApp
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Approval : Entity, IParsable 
+    public class Approval : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Used to represent the decision associated with a single step in the approval process configured in approvalStage.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"steps", n => { Steps = n.GetCollectionOfObjectValues<ApprovalStep>(ApprovalStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "steps", n => { Steps = n.GetCollectionOfObjectValues<ApprovalStep>(ApprovalStep.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Monthly.InactiveUsers.Item {
+namespace ApiSdk.Reports.UserInsights.Monthly.InactiveUsers.Item
+{
     /// <summary>
     /// Provides operations to manage the inactiveUsers property of the microsoft.graph.monthlyUserInsightMetricsRoot entity.
     /// </summary>
-    public class MonthlyInactiveUsersMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class MonthlyInactiveUsersMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get inactiveUsers from reports

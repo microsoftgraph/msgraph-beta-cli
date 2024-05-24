@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item.Parent {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item.Parent
+{
     /// <summary>
     /// Provides operations to manage the parent property of the microsoft.graph.ediscovery.tag entity.
     /// </summary>
-    public class ParentRequestBuilder : BaseCliRequestBuilder 
+    public class ParentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Returns the parent tag of the specified tag.

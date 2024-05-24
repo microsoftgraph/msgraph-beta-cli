@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementActionTenantDeploymentStatus : ApiSdk.Models.Entity, IParsable 
+    public class ManagementActionTenantDeploymentStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of deployment status for each instance of a management action. Optional.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"statuses", n => { Statuses = n.GetCollectionOfObjectValues<ManagementActionDeploymentStatus>(ManagementActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tenantGroupId", n => { TenantGroupId = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<ManagementActionDeploymentStatus>(ManagementActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantGroupId", n => { TenantGroupId = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

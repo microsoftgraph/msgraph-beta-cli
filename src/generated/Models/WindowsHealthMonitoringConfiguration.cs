@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows device health monitoring configuration
     /// </summary>
-    public class WindowsHealthMonitoringConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsHealthMonitoringConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
         public Enablement? AllowDeviceHealthMonitoring { get; set; }
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowDeviceHealthMonitoring", n => { AllowDeviceHealthMonitoring = n.GetEnumValue<Enablement>(); } },
-                {"configDeviceHealthMonitoringCustomScope", n => { ConfigDeviceHealthMonitoringCustomScope = n.GetStringValue(); } },
-                {"configDeviceHealthMonitoringScope", n => { ConfigDeviceHealthMonitoringScope = n.GetEnumValue<WindowsHealthMonitoringScope>(); } },
+                { "allowDeviceHealthMonitoring", n => { AllowDeviceHealthMonitoring = n.GetEnumValue<Enablement>(); } },
+                { "configDeviceHealthMonitoringCustomScope", n => { ConfigDeviceHealthMonitoringCustomScope = n.GetStringValue(); } },
+                { "configDeviceHealthMonitoringScope", n => { ConfigDeviceHealthMonitoringScope = n.GetEnumValue<WindowsHealthMonitoringScope>(); } },
             };
         }
         /// <summary>

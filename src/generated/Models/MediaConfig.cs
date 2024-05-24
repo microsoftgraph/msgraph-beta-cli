@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MediaConfig : IAdditionalDataHolder, IParsable 
+    public class MediaConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The removeFromDefaultAudioGroup property</summary>
+        /// <summary>Remove media from the default audio group.</summary>
         public bool? RemoveFromDefaultAudioGroup { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="MediaConfig"/> and sets the default values.
@@ -52,8 +53,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"removeFromDefaultAudioGroup", n => { RemoveFromDefaultAudioGroup = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "removeFromDefaultAudioGroup", n => { RemoveFromDefaultAudioGroup = n.GetBoolValue(); } },
             };
         }
         /// <summary>

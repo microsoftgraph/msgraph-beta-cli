@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.List.Items.Item.Versions.Item {
+namespace ApiSdk.Drives.Item.List.Items.Item.Versions.Item
+{
     /// <summary>
     /// Provides operations to manage the versions property of the microsoft.graph.listItem entity.
     /// </summary>
-    public class ListItemVersionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ListItemVersionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property versions for drives

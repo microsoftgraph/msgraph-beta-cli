@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Events.Item.Extensions.Item {
+namespace ApiSdk.Groups.Item.Events.Item.Extensions.Item
+{
     /// <summary>
     /// Provides operations to manage the extensions property of the microsoft.graph.event entity.
     /// </summary>
-    public class ExtensionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExtensionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property extensions for groups
@@ -68,13 +69,14 @@ namespace ApiSdk.Groups.Item.Events.Item.Extensions.Item {
             return command;
         }
         /// <summary>
-        /// The collection of open extensions defined for the event. Nullable.
+        /// Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of open extensions defined for the event. Nullable.";
+            command.Description = "Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -228,7 +230,7 @@ namespace ApiSdk.Groups.Item.Events.Item.Extensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the event. Nullable.
+        /// Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +270,7 @@ namespace ApiSdk.Groups.Item.Events.Item.Extensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the event. Nullable.
+        /// Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
         /// </summary>
         public class ExtensionItemRequestBuilderGetQueryParameters 
         {

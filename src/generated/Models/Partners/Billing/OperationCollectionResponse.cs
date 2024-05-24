@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Partners.Billing {
+namespace ApiSdk.Models.Partners.Billing
+{
     #pragma warning disable CS1591
-    public class OperationCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable 
+    public class OperationCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.Partners.Billing {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Operation>(Operation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<Operation>(Operation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

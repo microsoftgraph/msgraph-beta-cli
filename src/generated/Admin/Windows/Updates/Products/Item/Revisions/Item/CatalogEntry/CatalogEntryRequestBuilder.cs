@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.CatalogEntry {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.CatalogEntry
+{
     /// <summary>
     /// Provides operations to manage the catalogEntry property of the microsoft.graph.windowsUpdates.productRevision entity.
     /// </summary>
-    public class CatalogEntryRequestBuilder : BaseCliRequestBuilder 
+    public class CatalogEntryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property catalogEntry for admin

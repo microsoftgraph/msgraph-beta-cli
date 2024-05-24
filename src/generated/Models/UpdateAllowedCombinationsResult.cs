@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UpdateAllowedCombinationsResult : IAdditionalDataHolder, IParsable 
+    public class UpdateAllowedCombinationsResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -76,11 +77,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
-                {"conditionalAccessReferences", n => { ConditionalAccessReferences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"currentCombinations", n => { CurrentCombinations = n.GetCollectionOfEnumValues<AuthenticationMethodModes>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"previousCombinations", n => { PreviousCombinations = n.GetCollectionOfEnumValues<AuthenticationMethodModes>()?.ToList(); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
+                { "conditionalAccessReferences", n => { ConditionalAccessReferences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "currentCombinations", n => { CurrentCombinations = n.GetCollectionOfEnumValues<AuthenticationMethodModes>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "previousCombinations", n => { PreviousCombinations = n.GetCollectionOfEnumValues<AuthenticationMethodModes>()?.ToList(); } },
             };
         }
         /// <summary>

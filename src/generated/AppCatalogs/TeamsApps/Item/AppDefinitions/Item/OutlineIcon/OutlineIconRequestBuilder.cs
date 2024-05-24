@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
+{
     /// <summary>
     /// Provides operations to manage the outlineIcon property of the microsoft.graph.teamsAppDefinition entity.
     /// </summary>
-    public class OutlineIconRequestBuilder : BaseCliRequestBuilder 
+    public class OutlineIconRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property outlineIcon for appCatalogs

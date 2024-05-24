@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.AddLanguageFiles {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.AddLanguageFiles
+{
     /// <summary>
     /// Provides operations to call the addLanguageFiles method.
     /// </summary>
-    public class AddLanguageFilesRequestBuilder : BaseCliRequestBuilder 
+    public class AddLanguageFilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action addLanguageFiles

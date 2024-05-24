@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetCloudPcConnectivityHistory {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetCloudPcConnectivityHistory
+{
     #pragma warning disable CS1591
-    public class GetCloudPcConnectivityHistoryGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetCloudPcConnectivityHistoryGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.GetCloudPcConnec
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<CloudPcConnectivityEvent>(CloudPcConnectivityEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcConnectivityEvent>(CloudPcConnectivityEvent.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

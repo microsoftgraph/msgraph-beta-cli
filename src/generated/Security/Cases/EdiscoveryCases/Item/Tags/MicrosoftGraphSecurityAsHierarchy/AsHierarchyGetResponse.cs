@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurityAsHierarchy {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurityAsHierarchy
+{
     #pragma warning disable CS1591
-    public class AsHierarchyGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class AsHierarchyGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Tags.MicrosoftGraphSecurity
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<EdiscoveryReviewTag>(EdiscoveryReviewTag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<EdiscoveryReviewTag>(EdiscoveryReviewTag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials {
+namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
+{
     /// <summary>
     /// Provides operations to call the updatePasswordSingleSignOnCredentials method.
     /// </summary>
-    public class UpdatePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update single sign-on credentials using a password for a user or group.

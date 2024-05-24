@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomAppConfiguration resource.
     /// </summary>
-    public class MacOSCustomAppConfiguration : DeviceConfiguration, IParsable 
+    public class MacOSCustomAppConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Bundle id for targeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bundleId", n => { BundleId = n.GetStringValue(); } },
-                {"configurationXml", n => { ConfigurationXml = n.GetByteArrayValue(); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
+                { "bundleId", n => { BundleId = n.GetStringValue(); } },
+                { "configurationXml", n => { ConfigurationXml = n.GetByteArrayValue(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
             };
         }
         /// <summary>

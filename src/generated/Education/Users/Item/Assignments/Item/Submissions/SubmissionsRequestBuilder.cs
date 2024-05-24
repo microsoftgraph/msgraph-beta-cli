@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions {
+namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions
+{
     /// <summary>
     /// Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
     /// </summary>
-    public class SubmissionsRequestBuilder : BaseCliRequestBuilder 
+    public class SubmissionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
@@ -214,7 +215,9 @@ namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

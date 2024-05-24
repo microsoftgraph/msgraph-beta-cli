@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Android Device Owner Global Proxy Auto Config.
     /// </summary>
-    public class AndroidDeviceOwnerGlobalProxyAutoConfig : AndroidDeviceOwnerGlobalProxy, IParsable 
+    public class AndroidDeviceOwnerGlobalProxyAutoConfig : AndroidDeviceOwnerGlobalProxy, IParsable
     {
         /// <summary>The proxy auto-config URL</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"proxyAutoConfigURL", n => { ProxyAutoConfigURL = n.GetStringValue(); } },
+                { "proxyAutoConfigURL", n => { ProxyAutoConfigURL = n.GetStringValue(); } },
             };
         }
         /// <summary>

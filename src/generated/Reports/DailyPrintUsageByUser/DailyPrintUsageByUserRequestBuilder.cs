@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.DailyPrintUsageByUser {
+namespace ApiSdk.Reports.DailyPrintUsageByUser
+{
     /// <summary>
     /// Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class DailyPrintUsageByUserRequestBuilder : BaseCliRequestBuilder 
+    public class DailyPrintUsageByUserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
@@ -99,12 +100,13 @@ namespace ApiSdk.Reports.DailyPrintUsageByUser {
         }
         /// <summary>
         /// Retrieve a list of daily print usage summaries, grouped by user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-dailyprintusagebyuser?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve a list of daily print usage summaries, grouped by user.";
+            command.Description = "Retrieve a list of daily print usage summaries, grouped by user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-dailyprintusagebyuser?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Reports.DailyPrintUsageByUser {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

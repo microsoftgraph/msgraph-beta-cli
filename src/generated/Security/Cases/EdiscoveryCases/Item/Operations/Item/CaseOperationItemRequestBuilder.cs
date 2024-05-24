@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Operations.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class CaseOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CaseOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for security
@@ -62,13 +63,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of case caseOperation objects for this case.
+        /// Read the properties and relationships of a caseOperation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of case caseOperation objects for this case.";
+            command.Description = "Read the properties and relationships of a caseOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case caseOperation objects for this case.
+        /// Read the properties and relationships of a caseOperation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case caseOperation objects for this case.
+        /// Read the properties and relationships of a caseOperation object.
         /// </summary>
         public class CaseOperationItemRequestBuilderGetQueryParameters 
         {

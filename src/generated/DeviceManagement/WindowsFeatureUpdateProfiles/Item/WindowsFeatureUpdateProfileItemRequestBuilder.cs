@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsFeatureUpdateProfiles.Item {
+namespace ApiSdk.DeviceManagement.WindowsFeatureUpdateProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsFeatureUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsFeatureUpdateProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsFeatureUpdateProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.

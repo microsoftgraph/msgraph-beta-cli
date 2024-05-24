@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.Assignments.Item.Submissions.Item.Excuse {
+namespace ApiSdk.Education.Me.Assignments.Item.Submissions.Item.Excuse
+{
     /// <summary>
     /// Provides operations to call the excuse method.
     /// </summary>
-    public class ExcuseRequestBuilder : BaseCliRequestBuilder 
+    public class ExcuseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Excuse a submission. Excused submissions aren&apos;t included in average grade calculations. Grading rubrics and feedback are deleted. Only teachers can perform this action.  If the Prefer: include-unknown-enum-members request header is provided, the excused submission retains the excused status. Otherwise, the submission status changes to returned. For more information about how to use this header, see the Examples section.

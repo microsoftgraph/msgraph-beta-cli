@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.DeviceRegistrationPolicy {
+namespace ApiSdk.Policies.DeviceRegistrationPolicy
+{
     /// <summary>
     /// Provides operations to manage the deviceRegistrationPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class DeviceRegistrationPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceRegistrationPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get deviceRegistrationPolicy from policies
+        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get deviceRegistrationPolicy from policies";
+            command.Description = "Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -74,7 +76,7 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
         {
         }
         /// <summary>
-        /// Get deviceRegistrationPolicy from policies
+        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +95,7 @@ namespace ApiSdk.Policies.DeviceRegistrationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Get deviceRegistrationPolicy from policies
+        /// Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
         /// </summary>
         public class DeviceRegistrationPolicyRequestBuilderGetQueryParameters 
         {

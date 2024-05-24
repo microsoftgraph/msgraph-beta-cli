@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResourceRole : Entity, IParsable 
+    public class AccessPackageResourceRole : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessPackageResource property</summary>
@@ -67,11 +68,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"originId", n => { OriginId = n.GetStringValue(); } },
-                {"originSystem", n => { OriginSystem = n.GetStringValue(); } },
+                { "accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "originId", n => { OriginId = n.GetStringValue(); } },
+                { "originSystem", n => { OriginSystem = n.GetStringValue(); } },
             };
         }
         /// <summary>

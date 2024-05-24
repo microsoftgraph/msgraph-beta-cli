@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OfficeGraphInsights : Entity, IParsable 
+    public class OfficeGraphInsights : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Access this property from the derived type itemInsights.</summary>
@@ -56,9 +57,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"shared", n => { Shared = n.GetCollectionOfObjectValues<SharedInsight>(SharedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trending", n => { Trending = n.GetCollectionOfObjectValues<ApiSdk.Models.Trending>(ApiSdk.Models.Trending.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"used", n => { Used = n.GetCollectionOfObjectValues<UsedInsight>(UsedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "shared", n => { Shared = n.GetCollectionOfObjectValues<SharedInsight>(SharedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trending", n => { Trending = n.GetCollectionOfObjectValues<ApiSdk.Models.Trending>(ApiSdk.Models.Trending.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "used", n => { Used = n.GetCollectionOfObjectValues<UsedInsight>(UsedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

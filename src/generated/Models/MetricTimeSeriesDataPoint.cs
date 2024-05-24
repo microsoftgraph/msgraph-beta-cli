@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Metric Time series data point
     /// </summary>
-    public class MetricTimeSeriesDataPoint : IAdditionalDataHolder, IParsable 
+    public class MetricTimeSeriesDataPoint : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -49,9 +50,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetLongValue(); } },
+                { "dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetLongValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl {
+namespace ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl
+{
     /// <summary>
     /// Provides operations to call the requestSignupUrl method.
     /// </summary>
-    public class RequestSignupUrlRequestBuilder : BaseCliRequestBuilder 
+    public class RequestSignupUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action requestSignupUrl

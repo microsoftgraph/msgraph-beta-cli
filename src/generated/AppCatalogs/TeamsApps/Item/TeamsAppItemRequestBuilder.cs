@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item
+{
     /// <summary>
     /// Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
     /// </summary>
-    public class TeamsAppItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
@@ -49,13 +50,14 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property teamsApps for appCatalogs
+        /// Delete an app from an organization&apos;s app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property teamsApps for appCatalogs";
+            command.Description = "Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-beta";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -201,7 +203,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property teamsApps for appCatalogs
+        /// Delete an app from an organization&apos;s app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.UserRunStates.Item {
+namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item.UserRunStates.Item
+{
     /// <summary>
     /// Provides operations to manage the userRunStates property of the microsoft.graph.hardwareConfiguration entity.
     /// </summary>
-    public class HardwareConfigurationUserStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class HardwareConfigurationUserStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userRunStates for deviceManagement

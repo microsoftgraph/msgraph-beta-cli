@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class ThreatSubmission : ApiSdk.Models.Entity, IParsable 
+    public class ThreatSubmission : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the admin review property that constitutes of who reviewed the user submission, when and what was it identified as.</summary>
@@ -82,16 +83,16 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"adminReview", n => { AdminReview = n.GetObjectValue<SubmissionAdminReview>(SubmissionAdminReview.CreateFromDiscriminatorValue); } },
-                {"category", n => { Category = n.GetEnumValue<SubmissionCategory>(); } },
-                {"clientSource", n => { ClientSource = n.GetEnumValue<SubmissionClientSource>(); } },
-                {"contentType", n => { ContentType = n.GetEnumValue<SubmissionContentType>(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<SubmissionUserIdentity>(SubmissionUserIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"result", n => { Result = n.GetObjectValue<SubmissionResult>(SubmissionResult.CreateFromDiscriminatorValue); } },
-                {"source", n => { Source = n.GetEnumValue<SubmissionSource>(); } },
-                {"status", n => { Status = n.GetEnumValue<LongRunningOperationStatus>(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "adminReview", n => { AdminReview = n.GetObjectValue<SubmissionAdminReview>(SubmissionAdminReview.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetEnumValue<SubmissionCategory>(); } },
+                { "clientSource", n => { ClientSource = n.GetEnumValue<SubmissionClientSource>(); } },
+                { "contentType", n => { ContentType = n.GetEnumValue<SubmissionContentType>(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<SubmissionUserIdentity>(SubmissionUserIdentity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "result", n => { Result = n.GetObjectValue<SubmissionResult>(SubmissionResult.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<SubmissionSource>(); } },
+                { "status", n => { Status = n.GetEnumValue<LongRunningOperationStatus>(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

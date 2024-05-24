@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.CreateForward {
+namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.CreateForward
+{
     #pragma warning disable CS1591
-    public class CreateForwardPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class CreateForwardPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.CreateForward {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"Comment", n => { Comment = n.GetStringValue(); } },
-                {"Message", n => { Message = n.GetObjectValue<ApiSdk.Models.Message>(ApiSdk.Models.Message.CreateFromDiscriminatorValue); } },
-                {"ToRecipients", n => { ToRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "Comment", n => { Comment = n.GetStringValue(); } },
+                { "Message", n => { Message = n.GetObjectValue<ApiSdk.Models.Message>(ApiSdk.Models.Message.CreateFromDiscriminatorValue); } },
+                { "ToRecipients", n => { ToRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

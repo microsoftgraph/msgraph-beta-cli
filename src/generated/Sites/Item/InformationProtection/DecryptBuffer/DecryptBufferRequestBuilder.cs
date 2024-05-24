@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.InformationProtection.DecryptBuffer {
+namespace ApiSdk.Sites.Item.InformationProtection.DecryptBuffer
+{
     /// <summary>
     /// Provides operations to call the decryptBuffer method.
     /// </summary>
-    public class DecryptBufferRequestBuilder : BaseCliRequestBuilder 
+    public class DecryptBufferRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action decryptBuffer

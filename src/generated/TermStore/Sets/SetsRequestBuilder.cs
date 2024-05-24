@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TermStore.Sets {
+namespace ApiSdk.TermStore.Sets
+{
     /// <summary>
     /// Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
     /// </summary>
-    public class SetsRequestBuilder : BaseCliRequestBuilder 
+    public class SetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
@@ -103,13 +104,13 @@ namespace ApiSdk.TermStore.Sets {
             return command;
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Collection of all sets available in the term store.";
+            command.Description = "Read the properties and relationships of a set object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -185,7 +186,9 @@ namespace ApiSdk.TermStore.Sets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -211,7 +214,7 @@ namespace ApiSdk.TermStore.Sets {
         {
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,7 +254,7 @@ namespace ApiSdk.TermStore.Sets {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
         /// </summary>
         public class SetsRequestBuilderGetQueryParameters 
         {

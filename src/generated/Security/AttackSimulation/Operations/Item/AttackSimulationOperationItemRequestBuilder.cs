@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.Operations.Item {
+namespace ApiSdk.Security.AttackSimulation.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
     /// </summary>
-    public class AttackSimulationOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class AttackSimulationOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.AttackSimulation.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents an attack simulation training operation.";
+            command.Description = "Get an attack simulation operation to track a long-running operation request for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-beta";
             var attackSimulationOperationIdOption = new Option<string>("--attack-simulation-operation-id", description: "The unique identifier of attackSimulationOperation") {
             };
             attackSimulationOperationIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.AttackSimulation.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.AttackSimulation.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
         /// </summary>
         public class AttackSimulationOperationItemRequestBuilderGetQueryParameters 
         {

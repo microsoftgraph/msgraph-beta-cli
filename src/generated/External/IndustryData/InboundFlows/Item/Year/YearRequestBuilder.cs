@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.InboundFlows.Item.Year {
+namespace ApiSdk.External.IndustryData.InboundFlows.Item.Year
+{
     /// <summary>
     /// Provides operations to manage the year property of the microsoft.graph.industryData.inboundFlow entity.
     /// </summary>
-    public class YearRequestBuilder : BaseCliRequestBuilder 
+    public class YearRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The year that the data brought in via this flow applies to.

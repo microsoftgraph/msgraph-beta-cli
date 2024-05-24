@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationSynchronizationProfileStatus : Entity, IParsable 
+    public class EducationSynchronizationProfileStatus : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of errors during synchronization.</summary>
@@ -43,11 +44,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errorCount", n => { ErrorCount = n.GetLongValue(); } },
-                {"lastActivityDateTime", n => { LastActivityDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSynchronizationDateTime", n => { LastSynchronizationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<EducationSynchronizationStatus>(); } },
-                {"statusMessage", n => { StatusMessage = n.GetStringValue(); } },
+                { "errorCount", n => { ErrorCount = n.GetLongValue(); } },
+                { "lastActivityDateTime", n => { LastActivityDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSynchronizationDateTime", n => { LastSynchronizationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<EducationSynchronizationStatus>(); } },
+                { "statusMessage", n => { StatusMessage = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item.Tags.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item.Tags.Item
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryFile entity.
     /// </summary>
-    public class EdiscoveryReviewTagItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryReviewTagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Tags associated with the file.

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState
+{
     /// <summary>
     /// Provides operations to call the setScheduledRetireState method.
     /// </summary>
-    public class SetScheduledRetireStateRequestBuilder : BaseCliRequestBuilder 
+    public class SetScheduledRetireStateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action setScheduledRetireState

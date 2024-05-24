@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration {
+namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration
+{
     #pragma warning disable CS1591
-    public class AssignJustInTimeConfigurationPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AssignJustInTimeConfigurationPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"justInTimeAssignments", n => { JustInTimeAssignments = n.GetObjectValue<DeviceManagementConfigurationJustInTimeAssignmentPolicy>(DeviceManagementConfigurationJustInTimeAssignmentPolicy.CreateFromDiscriminatorValue); } },
+                { "justInTimeAssignments", n => { JustInTimeAssignments = n.GetObjectValue<DeviceManagementConfigurationJustInTimeAssignmentPolicy>(DeviceManagementConfigurationJustInTimeAssignmentPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

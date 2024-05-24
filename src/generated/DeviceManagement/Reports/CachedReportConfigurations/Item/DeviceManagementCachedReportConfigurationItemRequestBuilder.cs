@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.CachedReportConfigurations.Item {
+namespace ApiSdk.DeviceManagement.Reports.CachedReportConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
     /// </summary>
-    public class DeviceManagementCachedReportConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementCachedReportConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cachedReportConfigurations for deviceManagement

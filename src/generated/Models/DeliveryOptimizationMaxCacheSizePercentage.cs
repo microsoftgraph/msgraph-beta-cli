@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Delivery Optimization Max cache size percentage types.
     /// </summary>
-    public class DeliveryOptimizationMaxCacheSizePercentage : DeliveryOptimizationMaxCacheSize, IParsable 
+    public class DeliveryOptimizationMaxCacheSizePercentage : DeliveryOptimizationMaxCacheSize, IParsable
     {
         /// <summary>Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100</summary>
         public int? MaximumCacheSizePercentage { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumCacheSizePercentage", n => { MaximumCacheSizePercentage = n.GetIntValue(); } },
+                { "maximumCacheSizePercentage", n => { MaximumCacheSizePercentage = n.GetIntValue(); } },
             };
         }
         /// <summary>

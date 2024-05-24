@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Result of the ConfigurationManager action
     /// </summary>
-    public class ConfigurationManagerActionResult : DeviceActionResult, IParsable 
+    public class ConfigurationManagerActionResult : DeviceActionResult, IParsable
     {
         /// <summary>Delivery state of Configuration Manager device action</summary>
         public ConfigurationManagerActionDeliveryStatus? ActionDeliveryStatus { get; set; }
@@ -32,8 +33,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionDeliveryStatus", n => { ActionDeliveryStatus = n.GetEnumValue<ConfigurationManagerActionDeliveryStatus>(); } },
-                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
+                { "actionDeliveryStatus", n => { ActionDeliveryStatus = n.GetEnumValue<ConfigurationManagerActionDeliveryStatus>(); } },
+                { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
             };
         }
         /// <summary>

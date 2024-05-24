@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assignments.Item {
+namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     /// </summary>
-    public class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceAppManagement
@@ -62,13 +63,13 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
             return command;
         }
         /// <summary>
-        /// The associated group assignments for IosLobAppProvisioningConfiguration.
+        /// The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The associated group assignments for IosLobAppProvisioningConfiguration.";
+            command.Description = "The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.";
             var iosLobAppProvisioningConfigurationIdOption = new Option<string>("--ios-lob-app-provisioning-configuration-id", description: "The unique identifier of iosLobAppProvisioningConfiguration") {
             };
             iosLobAppProvisioningConfigurationIdOption.IsRequired = true;
@@ -210,7 +211,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
             return requestInfo;
         }
         /// <summary>
-        /// The associated group assignments for IosLobAppProvisioningConfiguration.
+        /// The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +251,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
             return requestInfo;
         }
         /// <summary>
-        /// The associated group assignments for IosLobAppProvisioningConfiguration.
+        /// The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
         /// </summary>
         public class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetQueryParameters 
         {

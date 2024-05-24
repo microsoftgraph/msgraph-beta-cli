@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Threads.Item.Posts {
+namespace ApiSdk.Groups.Item.Threads.Item.Posts
+{
     /// <summary>
     /// Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
     /// </summary>
-    public class PostsRequestBuilder : BaseCliRequestBuilder 
+    public class PostsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
@@ -59,13 +60,14 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
             return command;
         }
         /// <summary>
-        /// Get posts from groups
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get posts from groups";
+            command.Description = "Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -82,6 +84,10 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
             };
             skipOption.IsRequired = false;
             command.AddOption(skipOption);
+            var searchOption = new Option<string>("--search", description: "Search items by search phrases") {
+            };
+            searchOption.IsRequired = false;
+            command.AddOption(searchOption);
             var filterOption = new Option<string>("--filter", description: "Filter items by property values") {
             };
             filterOption.IsRequired = false;
@@ -116,6 +122,7 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
                 var conversationThreadId = invocationContext.ParseResult.GetValueForOption(conversationThreadIdOption);
                 var top = invocationContext.ParseResult.GetValueForOption(topOption);
                 var skip = invocationContext.ParseResult.GetValueForOption(skipOption);
+                var search = invocationContext.ParseResult.GetValueForOption(searchOption);
                 var filter = invocationContext.ParseResult.GetValueForOption(filterOption);
                 var count = invocationContext.ParseResult.GetValueForOption(countOption);
                 var orderby = invocationContext.ParseResult.GetValueForOption(orderbyOption);
@@ -132,6 +139,7 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
                 var requestInfo = ToGetRequestInformation(q => {
                     q.QueryParameters.Top = top;
                     q.QueryParameters.Skip = skip;
+                    if (!string.IsNullOrEmpty(search)) q.QueryParameters.Search = search;
                     if (!string.IsNullOrEmpty(filter)) q.QueryParameters.Filter = filter;
                     q.QueryParameters.Count = count;
                     q.QueryParameters.Orderby = orderby;
@@ -147,7 +155,9 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -162,18 +172,18 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
         /// Instantiates a new <see cref="PostsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public PostsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}", pathParameters)
+        public PostsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="PostsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public PostsRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}", rawUrl)
+        public PostsRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Get posts from groups
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +202,7 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
             return requestInfo;
         }
         /// <summary>
-        /// Get posts from groups
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
         /// </summary>
         public class PostsRequestBuilderGetQueryParameters 
         {
@@ -228,6 +238,16 @@ namespace ApiSdk.Groups.Item.Threads.Item.Posts {
 #else
             [QueryParameter("%24orderby")]
             public string[] Orderby { get; set; }
+#endif
+            /// <summary>Search items by search phrases</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24search")]
+            public string Search { get; set; }
 #endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

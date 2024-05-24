@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item {
+namespace ApiSdk.DeviceManagement.Templates.Item
+{
     /// <summary>
     /// Provides operations to manage the templates property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ImportResourceActions {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ImportResourceActions
+{
     #pragma warning disable CS1591
-    public class ImportResourceActionsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ImportResourceActionsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Impor
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"format", n => { Format = n.GetStringValue(); } },
-                {"overwriteResourceNamespace", n => { OverwriteResourceNamespace = n.GetBoolValue(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "format", n => { Format = n.GetStringValue(); } },
+                { "overwriteResourceNamespace", n => { OverwriteResourceNamespace = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

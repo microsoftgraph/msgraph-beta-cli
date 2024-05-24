@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Skills.Item {
+namespace ApiSdk.Users.Item.Profile.Skills.Item
+{
     /// <summary>
     /// Provides operations to manage the skills property of the microsoft.graph.profile entity.
     /// </summary>
-    public class SkillProficiencyItemRequestBuilder : BaseCliRequestBuilder 
+    public class SkillProficiencyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property skills for users

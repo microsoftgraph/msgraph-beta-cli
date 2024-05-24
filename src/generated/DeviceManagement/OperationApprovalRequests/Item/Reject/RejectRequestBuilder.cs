@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject
+{
     /// <summary>
     /// Provides operations to call the reject method.
     /// </summary>
-    public class RejectRequestBuilder : BaseCliRequestBuilder 
+    public class RejectRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Rejects the requested instance of an operationApprovalRequest.

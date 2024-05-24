@@ -14,17 +14,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus
+{
     /// <summary>
     /// Provides operations to call the getCloudPcReviewStatus method.
     /// </summary>
-    public class GetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder 
+    public class GetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the review status of a specific Cloud PC device.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-getcloudpcreviewstatus?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The getCloudPcReviewStatus API is deprecated and will stop returning data on Apr 30, 2024. Please use the new retrieveReviewStatus API as of 2024-01/getCloudPcReviewStatus")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
@@ -78,6 +80,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The getCloudPcReviewStatus API is deprecated and will stop returning data on Apr 30, 2024. Please use the new retrieveReviewStatus API as of 2024-01/getCloudPcReviewStatus")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

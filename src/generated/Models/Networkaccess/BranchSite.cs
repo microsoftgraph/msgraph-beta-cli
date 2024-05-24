@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class BranchSite : ApiSdk.Models.Entity, IParsable 
+    public class BranchSite : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.</summary>
@@ -21,7 +22,7 @@ namespace ApiSdk.Models.Networkaccess {
 #endif
         /// <summary>Determines the branch site status. The possible values are: pending, connected, inactive, error.</summary>
         public ApiSdk.Models.Networkaccess.ConnectivityState? ConnectivityState { get; set; }
-        /// <summary>The country property</summary>
+        /// <summary>The branch site is created in the specified country. DO NOT USE.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Country { get; set; }
@@ -83,16 +84,16 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bandwidthCapacity", n => { BandwidthCapacity = n.GetLongValue(); } },
-                {"connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<BranchConnectivityConfiguration>(BranchConnectivityConfiguration.CreateFromDiscriminatorValue); } },
-                {"connectivityState", n => { ConnectivityState = n.GetEnumValue<ConnectivityState>(); } },
-                {"country", n => { Country = n.GetStringValue(); } },
-                {"deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"region", n => { Region = n.GetEnumValue<Region>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "bandwidthCapacity", n => { BandwidthCapacity = n.GetLongValue(); } },
+                { "connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<BranchConnectivityConfiguration>(BranchConnectivityConfiguration.CreateFromDiscriminatorValue); } },
+                { "connectivityState", n => { ConnectivityState = n.GetEnumValue<ConnectivityState>(); } },
+                { "country", n => { Country = n.GetStringValue(); } },
+                { "deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetEnumValue<Region>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

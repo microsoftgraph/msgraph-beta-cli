@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class FeatureUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable 
+    public class FeatureUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The build number of the feature update. Read-only.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"buildNumber", n => { BuildNumber = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "buildNumber", n => { BuildNumber = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

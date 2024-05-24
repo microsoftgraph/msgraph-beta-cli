@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects {
+namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects
+{
     #pragma warning disable CS1591
-    public class GetMemberObjectsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetMemberObjectsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"securityEnabledOnly", n => { SecurityEnabledOnly = n.GetBoolValue(); } },
+                { "securityEnabledOnly", n => { SecurityEnabledOnly = n.GetBoolValue(); } },
             };
         }
         /// <summary>

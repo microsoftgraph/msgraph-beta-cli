@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class B2cAuthenticationMethodsPolicy : Entity, IParsable 
+    public class B2cAuthenticationMethodsPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The tenant admin can configure local accounts using email if the email and password authentication method is enabled.</summary>
@@ -33,9 +34,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isEmailPasswordAuthenticationEnabled", n => { IsEmailPasswordAuthenticationEnabled = n.GetBoolValue(); } },
-                {"isPhoneOneTimePasswordAuthenticationEnabled", n => { IsPhoneOneTimePasswordAuthenticationEnabled = n.GetBoolValue(); } },
-                {"isUserNameAuthenticationEnabled", n => { IsUserNameAuthenticationEnabled = n.GetBoolValue(); } },
+                { "isEmailPasswordAuthenticationEnabled", n => { IsEmailPasswordAuthenticationEnabled = n.GetBoolValue(); } },
+                { "isPhoneOneTimePasswordAuthenticationEnabled", n => { IsPhoneOneTimePasswordAuthenticationEnabled = n.GetBoolValue(); } },
+                { "isUserNameAuthenticationEnabled", n => { IsUserNameAuthenticationEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Windows Store apps.
     /// </summary>
-    public class WindowsStoreApp : MobileApp, IParsable 
+    public class WindowsStoreApp : MobileApp, IParsable
     {
         /// <summary>The Windows app store URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
+                { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

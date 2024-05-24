@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class ProductRevision : ApiSdk.Models.Entity, IParsable 
+    public class ProductRevision : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The catalogEntry property</summary>
@@ -77,13 +78,13 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"knowledgeBaseArticle", n => { KnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
-                {"osBuild", n => { OsBuild = n.GetObjectValue<BuildVersionDetails>(BuildVersionDetails.CreateFromDiscriminatorValue); } },
-                {"product", n => { Product = n.GetStringValue(); } },
-                {"releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "knowledgeBaseArticle", n => { KnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
+                { "osBuild", n => { OsBuild = n.GetObjectValue<BuildVersionDetails>(BuildVersionDetails.CreateFromDiscriminatorValue); } },
+                { "product", n => { Product = n.GetStringValue(); } },
+                { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

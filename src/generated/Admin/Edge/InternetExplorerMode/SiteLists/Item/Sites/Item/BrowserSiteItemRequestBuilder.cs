@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
+namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item
+{
     /// <summary>
     /// Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
     /// </summary>
-    public class BrowserSiteItemRequestBuilder : BaseCliRequestBuilder 
+    public class BrowserSiteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property sites for admin
+        /// Delete a browserSite from a browserSiteList.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property sites for admin";
+            command.Description = "Delete a browserSite from a browserSiteList.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-beta";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
             };
             browserSiteListIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
             return command;
         }
         /// <summary>
-        /// A collection of sites defined for the site list.
+        /// Get a browserSite that resides on a browserSiteList.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of sites defined for the site list.";
+            command.Description = "Get a browserSite that resides on a browserSiteList.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-beta";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
             };
             browserSiteListIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property sites in admin
+        /// Update the properties of a browserSite object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersite-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property sites in admin";
+            command.Description = "Update the properties of a browserSite object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersite-update?view=graph-rest-beta";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
             };
             browserSiteListIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property sites for admin
+        /// Delete a browserSite from a browserSiteList.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of sites defined for the site list.
+        /// Get a browserSite that resides on a browserSiteList.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property sites in admin
+        /// Update the properties of a browserSite object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of sites defined for the site list.
+        /// Get a browserSite that resides on a browserSiteList.
         /// </summary>
         public class BrowserSiteItemRequestBuilderGetQueryParameters 
         {

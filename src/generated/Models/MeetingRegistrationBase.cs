@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MeetingRegistrationBase : Entity, IParsable 
+    public class MeetingRegistrationBase : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies who can register for the meeting.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedRegistrant", n => { AllowedRegistrant = n.GetEnumValue<MeetingAudience>(); } },
-                {"registrants", n => { Registrants = n.GetCollectionOfObjectValues<MeetingRegistrantBase>(MeetingRegistrantBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowedRegistrant", n => { AllowedRegistrant = n.GetEnumValue<MeetingAudience>(); } },
+                { "registrants", n => { Registrants = n.GetCollectionOfObjectValues<MeetingRegistrantBase>(MeetingRegistrantBase.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

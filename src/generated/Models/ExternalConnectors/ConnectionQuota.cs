@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class ConnectionQuota : ApiSdk.Models.Entity, IParsable 
+    public class ConnectionQuota : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"itemsRemaining", n => { ItemsRemaining = n.GetLongValue(); } },
+                { "itemsRemaining", n => { ItemsRemaining = n.GetLongValue(); } },
             };
         }
         /// <summary>

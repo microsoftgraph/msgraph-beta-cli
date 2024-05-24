@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetTeamsUserActivityUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetTeamsUserActivityUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getTeamsUserActivityUserCounts method.
     /// </summary>
-    public class GetTeamsUserActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetTeamsUserActivityUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getTeamsUserActivityUserCounts

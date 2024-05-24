@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.AssignmentFilters.Enable {
+namespace ApiSdk.DeviceManagement.AssignmentFilters.Enable
+{
     #pragma warning disable CS1591
-    public class EnablePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EnablePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.Enable {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"enable", n => { Enable = n.GetBoolValue(); } },
+                { "enable", n => { Enable = n.GetBoolValue(); } },
             };
         }
         /// <summary>

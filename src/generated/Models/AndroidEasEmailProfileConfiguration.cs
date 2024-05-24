@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing configurations in this profile you can instruct the native email client on KNOX devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class AndroidEasEmailProfileConfiguration : DeviceConfiguration, IParsable 
+    public class AndroidEasEmailProfileConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Exchange ActiveSync account name, displayed to users as name of EAS (this) profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,23 +100,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountName", n => { AccountName = n.GetStringValue(); } },
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
-                {"customDomainName", n => { CustomDomainName = n.GetStringValue(); } },
-                {"durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                {"emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                {"emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<EmailSyncSchedule>(); } },
-                {"hostName", n => { HostName = n.GetStringValue(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidCertificateProfileBase>(AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"requireSmime", n => { RequireSmime = n.GetBoolValue(); } },
-                {"requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                {"smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<AndroidCertificateProfileBase>(AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
-                {"syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
-                {"syncNotes", n => { SyncNotes = n.GetBoolValue(); } },
-                {"syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
-                {"userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<DomainNameSource>(); } },
-                {"usernameSource", n => { UsernameSource = n.GetEnumValue<AndroidUsernameSource>(); } },
+                { "accountName", n => { AccountName = n.GetStringValue(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
+                { "customDomainName", n => { CustomDomainName = n.GetStringValue(); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<EmailSyncSchedule>(); } },
+                { "hostName", n => { HostName = n.GetStringValue(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidCertificateProfileBase>(AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "requireSmime", n => { RequireSmime = n.GetBoolValue(); } },
+                { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
+                { "smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<AndroidCertificateProfileBase>(AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
+                { "syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
+                { "syncNotes", n => { SyncNotes = n.GetBoolValue(); } },
+                { "syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
+                { "userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<DomainNameSource>(); } },
+                { "usernameSource", n => { UsernameSource = n.GetEnumValue<AndroidUsernameSource>(); } },
             };
         }
         /// <summary>

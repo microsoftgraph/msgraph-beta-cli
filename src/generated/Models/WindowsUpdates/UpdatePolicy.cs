@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class UpdatePolicy : ApiSdk.Models.Entity, IParsable 
+    public class UpdatePolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the audience to target.</summary>
@@ -61,11 +62,11 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"audience", n => { Audience = n.GetObjectValue<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue); } },
-                {"complianceChangeRules", n => { ComplianceChangeRules = n.GetCollectionOfObjectValues<ComplianceChangeRule>(ComplianceChangeRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"complianceChanges", n => { ComplianceChanges = n.GetCollectionOfObjectValues<ComplianceChange>(ComplianceChange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
+                { "audience", n => { Audience = n.GetObjectValue<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue); } },
+                { "complianceChangeRules", n => { ComplianceChangeRules = n.GetCollectionOfObjectValues<ComplianceChangeRule>(ComplianceChangeRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "complianceChanges", n => { ComplianceChanges = n.GetCollectionOfObjectValues<ComplianceChange>(ComplianceChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

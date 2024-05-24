@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PronounsSettings : Entity, IParsable 
+    public class PronounsSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>true to enable pronouns in the organization; otherwise, false. The default value is false, and pronouns are disabled.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isEnabledInOrganization", n => { IsEnabledInOrganization = n.GetBoolValue(); } },
+                { "isEnabledInOrganization", n => { IsEnabledInOrganization = n.GetBoolValue(); } },
             };
         }
         /// <summary>

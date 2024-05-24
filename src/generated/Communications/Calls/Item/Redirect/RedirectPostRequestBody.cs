@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.Calls.Item.Redirect {
+namespace ApiSdk.Communications.Calls.Item.Redirect
+{
     #pragma warning disable CS1591
-    public class RedirectPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RedirectPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,12 +62,12 @@ namespace ApiSdk.Communications.Calls.Item.Redirect {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"callbackUri", n => { CallbackUri = n.GetStringValue(); } },
-                {"maskCallee", n => { MaskCallee = n.GetBoolValue(); } },
-                {"maskCaller", n => { MaskCaller = n.GetBoolValue(); } },
-                {"targetDisposition", n => { TargetDisposition = n.GetEnumValue<CallDisposition>(); } },
-                {"targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"timeout", n => { Timeout = n.GetIntValue(); } },
+                { "callbackUri", n => { CallbackUri = n.GetStringValue(); } },
+                { "maskCallee", n => { MaskCallee = n.GetBoolValue(); } },
+                { "maskCaller", n => { MaskCaller = n.GetBoolValue(); } },
+                { "targetDisposition", n => { TargetDisposition = n.GetEnumValue<CallDisposition>(); } },
+                { "targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "timeout", n => { Timeout = n.GetIntValue(); } },
             };
         }
         /// <summary>

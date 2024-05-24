@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Printers.Item.ResetDefaults {
+namespace ApiSdk.Print.Printers.Item.ResetDefaults
+{
     /// <summary>
     /// Provides operations to call the resetDefaults method.
     /// </summary>
-    public class ResetDefaultsRequestBuilder : BaseCliRequestBuilder 
+    public class ResetDefaultsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action resetDefaults

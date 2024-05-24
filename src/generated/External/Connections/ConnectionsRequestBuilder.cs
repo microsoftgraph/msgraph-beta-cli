@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.Connections {
+namespace ApiSdk.External.Connections
+{
     /// <summary>
     /// Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
     /// </summary>
-    public class ConnectionsRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
@@ -59,13 +60,14 @@ namespace ApiSdk.External.Connections {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to connections for external
+        /// Create a new externalConnection.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to connections for external";
+            command.Description = "Create a new externalConnection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.External.Connections {
             return command;
         }
         /// <summary>
-        /// Get connections from external
+        /// Retrieve a list of externalConnections.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get connections from external";
+            command.Description = "Retrieve a list of externalConnections.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -186,7 +189,9 @@ namespace ApiSdk.External.Connections {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -212,7 +217,7 @@ namespace ApiSdk.External.Connections {
         {
         }
         /// <summary>
-        /// Get connections from external
+        /// Retrieve a list of externalConnections.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -231,7 +236,7 @@ namespace ApiSdk.External.Connections {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to connections for external
+        /// Create a new externalConnection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -252,7 +257,7 @@ namespace ApiSdk.External.Connections {
             return requestInfo;
         }
         /// <summary>
-        /// Get connections from external
+        /// Retrieve a list of externalConnections.
         /// </summary>
         public class ConnectionsRequestBuilderGetQueryParameters 
         {

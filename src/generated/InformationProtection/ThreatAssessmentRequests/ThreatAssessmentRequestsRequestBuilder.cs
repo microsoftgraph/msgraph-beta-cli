@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
+namespace ApiSdk.InformationProtection.ThreatAssessmentRequests
+{
     /// <summary>
     /// Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
     /// </summary>
-    public class ThreatAssessmentRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class ThreatAssessmentRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to threatAssessmentRequests for informationProtection
+        /// Create a new threat assessment request. A threat assessment request can be one of the following types:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to threatAssessmentRequests for informationProtection";
+            command.Description = "Create a new threat assessment request. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
             return command;
         }
         /// <summary>
-        /// Get threatAssessmentRequests from informationProtection
+        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get threatAssessmentRequests from informationProtection";
+            command.Description = "Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
         {
         }
         /// <summary>
-        /// Get threatAssessmentRequests from informationProtection
+        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to threatAssessmentRequests for informationProtection
+        /// Create a new threat assessment request. A threat assessment request can be one of the following types:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.InformationProtection.ThreatAssessmentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Get threatAssessmentRequests from informationProtection
+        /// Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
         /// </summary>
         public class ThreatAssessmentRequestsRequestBuilderGetQueryParameters 
         {

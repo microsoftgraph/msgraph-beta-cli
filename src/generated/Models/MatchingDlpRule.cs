@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MatchingDlpRule : IAdditionalDataHolder, IParsable 
+    public class MatchingDlpRule : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actions property</summary>
@@ -90,15 +91,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<DlpActionInfo>(DlpActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isMostRestrictive", n => { IsMostRestrictive = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"policyId", n => { PolicyId = n.GetStringValue(); } },
-                {"policyName", n => { PolicyName = n.GetStringValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"ruleId", n => { RuleId = n.GetStringValue(); } },
-                {"ruleMode", n => { RuleMode = n.GetEnumValue<RuleMode>(); } },
-                {"ruleName", n => { RuleName = n.GetStringValue(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<DlpActionInfo>(DlpActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isMostRestrictive", n => { IsMostRestrictive = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "policyName", n => { PolicyName = n.GetStringValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "ruleId", n => { RuleId = n.GetStringValue(); } },
+                { "ruleMode", n => { RuleMode = n.GetEnumValue<RuleMode>(); } },
+                { "ruleName", n => { RuleName = n.GetStringValue(); } },
             };
         }
         /// <summary>

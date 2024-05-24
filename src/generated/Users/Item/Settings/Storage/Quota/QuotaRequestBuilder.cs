@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.Storage.Quota {
+namespace ApiSdk.Users.Item.Settings.Storage.Quota
+{
     /// <summary>
     /// Provides operations to manage the quota property of the microsoft.graph.userStorage entity.
     /// </summary>
-    public class QuotaRequestBuilder : BaseCliRequestBuilder 
+    public class QuotaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property quota for users
@@ -57,13 +58,14 @@ namespace ApiSdk.Users.Item.Settings.Storage.Quota {
             return command;
         }
         /// <summary>
-        /// Get quota from users
+        /// Read the properties and relationships of a unifiedStorageQuota object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedstoragequota-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get quota from users";
+            command.Description = "Read the properties and relationships of a unifiedStorageQuota object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedstoragequota-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Users.Item.Settings.Storage.Quota {
             return requestInfo;
         }
         /// <summary>
-        /// Get quota from users
+        /// Read the properties and relationships of a unifiedStorageQuota object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Users.Item.Settings.Storage.Quota {
             return requestInfo;
         }
         /// <summary>
-        /// Get quota from users
+        /// Read the properties and relationships of a unifiedStorageQuota object.
         /// </summary>
         public class QuotaRequestBuilderGetQueryParameters 
         {

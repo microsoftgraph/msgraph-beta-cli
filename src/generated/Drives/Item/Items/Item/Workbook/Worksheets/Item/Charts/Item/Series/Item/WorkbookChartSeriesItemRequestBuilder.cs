@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Series.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Series.Item
+{
     /// <summary>
     /// Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
     /// </summary>
-    public class WorkbookChartSeriesItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookChartSeriesItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property series for drives

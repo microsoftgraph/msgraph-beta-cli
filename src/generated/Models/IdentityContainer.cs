@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class IdentityContainer : IAdditionalDataHolder, IParsable 
+    public class IdentityContainer : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,7 +28,7 @@ namespace ApiSdk.Models {
 #else
         public List<AuthenticationEventListener> AuthenticationEventListeners { get; set; }
 #endif
-        /// <summary>Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.</summary>
+        /// <summary>Represents the entry point for self-service sign-up and sign-in user flows in both Microsoft Entra workforce and external tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationEventsFlow>? AuthenticationEventsFlows { get; set; }
@@ -132,18 +133,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"apiConnectors", n => { ApiConnectors = n.GetCollectionOfObjectValues<IdentityApiConnector>(IdentityApiConnector.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationEventListeners", n => { AuthenticationEventListeners = n.GetCollectionOfObjectValues<AuthenticationEventListener>(AuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationEventsFlows", n => { AuthenticationEventsFlows = n.GetCollectionOfObjectValues<AuthenticationEventsFlow>(AuthenticationEventsFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"b2cUserFlows", n => { B2cUserFlows = n.GetCollectionOfObjectValues<B2cIdentityUserFlow>(B2cIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"b2xUserFlows", n => { B2xUserFlows = n.GetCollectionOfObjectValues<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessRoot>(ConditionalAccessRoot.CreateFromDiscriminatorValue); } },
-                {"continuousAccessEvaluationPolicy", n => { ContinuousAccessEvaluationPolicy = n.GetObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>(ApiSdk.Models.ContinuousAccessEvaluationPolicy.CreateFromDiscriminatorValue); } },
-                {"customAuthenticationExtensions", n => { CustomAuthenticationExtensions = n.GetCollectionOfObjectValues<CustomAuthenticationExtension>(CustomAuthenticationExtension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"userFlowAttributes", n => { UserFlowAttributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userFlows", n => { UserFlows = n.GetCollectionOfObjectValues<IdentityUserFlow>(IdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "apiConnectors", n => { ApiConnectors = n.GetCollectionOfObjectValues<IdentityApiConnector>(IdentityApiConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationEventListeners", n => { AuthenticationEventListeners = n.GetCollectionOfObjectValues<AuthenticationEventListener>(AuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationEventsFlows", n => { AuthenticationEventsFlows = n.GetCollectionOfObjectValues<AuthenticationEventsFlow>(AuthenticationEventsFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "b2cUserFlows", n => { B2cUserFlows = n.GetCollectionOfObjectValues<B2cIdentityUserFlow>(B2cIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "b2xUserFlows", n => { B2xUserFlows = n.GetCollectionOfObjectValues<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessRoot>(ConditionalAccessRoot.CreateFromDiscriminatorValue); } },
+                { "continuousAccessEvaluationPolicy", n => { ContinuousAccessEvaluationPolicy = n.GetObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>(ApiSdk.Models.ContinuousAccessEvaluationPolicy.CreateFromDiscriminatorValue); } },
+                { "customAuthenticationExtensions", n => { CustomAuthenticationExtensions = n.GetCollectionOfObjectValues<CustomAuthenticationExtension>(CustomAuthenticationExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "userFlowAttributes", n => { UserFlowAttributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userFlows", n => { UserFlows = n.GetCollectionOfObjectValues<IdentityUserFlow>(IdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

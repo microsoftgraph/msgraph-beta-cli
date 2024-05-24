@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity representing the configuration of a cached report.
     /// </summary>
-    public class DeviceManagementCachedReportConfiguration : Entity, IParsable 
+    public class DeviceManagementCachedReportConfiguration : Entity, IParsable
     {
         /// <summary>Time that the cached report expires.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
@@ -74,14 +75,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"filter", n => { Filter = n.GetStringValue(); } },
-                {"lastRefreshDateTime", n => { LastRefreshDateTime = n.GetDateTimeOffsetValue(); } },
-                {"metadata", n => { Metadata = n.GetStringValue(); } },
-                {"orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"reportName", n => { ReportName = n.GetStringValue(); } },
-                {"select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"status", n => { Status = n.GetEnumValue<DeviceManagementReportStatus>(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "filter", n => { Filter = n.GetStringValue(); } },
+                { "lastRefreshDateTime", n => { LastRefreshDateTime = n.GetDateTimeOffsetValue(); } },
+                { "metadata", n => { Metadata = n.GetStringValue(); } },
+                { "orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "reportName", n => { ReportName = n.GetStringValue(); } },
+                { "select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<DeviceManagementReportStatus>(); } },
             };
         }
         /// <summary>

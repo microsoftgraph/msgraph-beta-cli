@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TermsOfUseContainer : Entity, IParsable 
+    public class TermsOfUseContainer : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the current status of a user&apos;s response to a company&apos;s customizable terms of use agreement.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"agreementAcceptances", n => { AgreementAcceptances = n.GetCollectionOfObjectValues<AgreementAcceptance>(AgreementAcceptance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"agreements", n => { Agreements = n.GetCollectionOfObjectValues<Agreement>(Agreement.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agreementAcceptances", n => { AgreementAcceptances = n.GetCollectionOfObjectValues<AgreementAcceptance>(AgreementAcceptance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agreements", n => { Agreements = n.GetCollectionOfObjectValues<Agreement>(Agreement.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

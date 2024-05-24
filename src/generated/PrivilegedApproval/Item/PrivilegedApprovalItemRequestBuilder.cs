@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item {
+namespace ApiSdk.PrivilegedApproval.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedApproval entities.
     /// </summary>
-    public class PrivilegedApprovalItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedApprovalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from privilegedApproval

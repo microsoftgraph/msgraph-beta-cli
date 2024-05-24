@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class ResourceConnection : ApiSdk.Models.Entity, IParsable 
+    public class ResourceConnection : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.</summary>
@@ -34,7 +35,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"state", n => { State = n.GetEnumValue<ResourceConnectionState>(); } },
+                { "state", n => { State = n.GetEnumValue<ResourceConnectionState>(); } },
             };
         }
         /// <summary>

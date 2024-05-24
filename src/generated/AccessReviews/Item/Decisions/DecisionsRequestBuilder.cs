@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Decisions {
+namespace ApiSdk.AccessReviews.Item.Decisions
+{
     /// <summary>
     /// Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class DecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class DecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.AccessReviews.Item.Decisions {
             return command;
         }
         /// <summary>
-        /// The collection of decisions for this access review.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of decisions for this access review.";
+            command.Description = "In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-listdecisions?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.AccessReviews.Item.Decisions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.AccessReviews.Item.Decisions {
         {
         }
         /// <summary>
-        /// The collection of decisions for this access review.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.AccessReviews.Item.Decisions {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of decisions for this access review.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object. Note that a recurring access review will not have a decisions relationship.  Instead, the caller must navigate the instance relationship to find an accessReview object for a current or past instance of the access review.
         /// </summary>
         public class DecisionsRequestBuilderGetQueryParameters 
         {

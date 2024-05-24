@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.PercentRank_Exc {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.PercentRank_Exc
+{
     #pragma warning disable CS1591
-    public class PercentRank_ExcPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PercentRank_ExcPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.PercentRank_Exc {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"array", n => { Array = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"significance", n => { Significance = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"x", n => { X = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "array", n => { Array = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "significance", n => { Significance = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "x", n => { X = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

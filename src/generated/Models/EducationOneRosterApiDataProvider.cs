@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationOneRosterApiDataProvider : EducationSynchronizationDataProvider, IParsable 
+    public class EducationOneRosterApiDataProvider : EducationSynchronizationDataProvider, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The connectionSettings property</summary>
@@ -82,12 +83,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectionSettings", n => { ConnectionSettings = n.GetObjectValue<EducationSynchronizationConnectionSettings>(EducationSynchronizationConnectionSettings.CreateFromDiscriminatorValue); } },
-                {"connectionUrl", n => { ConnectionUrl = n.GetStringValue(); } },
-                {"customizations", n => { Customizations = n.GetObjectValue<EducationSynchronizationCustomizations>(EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
-                {"providerName", n => { ProviderName = n.GetStringValue(); } },
-                {"schoolsIds", n => { SchoolsIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"termIds", n => { TermIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<EducationSynchronizationConnectionSettings>(EducationSynchronizationConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectionUrl", n => { ConnectionUrl = n.GetStringValue(); } },
+                { "customizations", n => { Customizations = n.GetObjectValue<EducationSynchronizationCustomizations>(EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
+                { "providerName", n => { ProviderName = n.GetStringValue(); } },
+                { "schoolsIds", n => { SchoolsIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "termIds", n => { TermIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

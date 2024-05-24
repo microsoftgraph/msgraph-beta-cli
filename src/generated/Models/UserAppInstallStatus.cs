@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the installation status for a user. This will be deprecated starting May, 2023 (Intune Release 2305).
     /// </summary>
-    public class UserAppInstallStatus : Entity, IParsable 
+    public class UserAppInstallStatus : Entity, IParsable
     {
         /// <summary>The navigation link to the mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,13 +67,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"app", n => { App = n.GetObjectValue<MobileApp>(MobileApp.CreateFromDiscriminatorValue); } },
-                {"deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<MobileAppInstallStatus>(MobileAppInstallStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
-                {"installedDeviceCount", n => { InstalledDeviceCount = n.GetIntValue(); } },
-                {"notInstalledDeviceCount", n => { NotInstalledDeviceCount = n.GetIntValue(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "app", n => { App = n.GetObjectValue<MobileApp>(MobileApp.CreateFromDiscriminatorValue); } },
+                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<MobileAppInstallStatus>(MobileAppInstallStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
+                { "installedDeviceCount", n => { InstalledDeviceCount = n.GetIntValue(); } },
+                { "notInstalledDeviceCount", n => { NotInstalledDeviceCount = n.GetIntValue(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

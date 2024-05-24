@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics application performance entity contains app performance details by app version.
     /// </summary>
-    public class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion : Entity, IParsable 
+    public class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion : Entity, IParsable
     {
         /// <summary>The number of crashes for the application. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647</summary>
         public int? AppCrashCount { get; set; }
@@ -66,13 +67,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appCrashCount", n => { AppCrashCount = n.GetIntValue(); } },
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"appName", n => { AppName = n.GetStringValue(); } },
-                {"appPublisher", n => { AppPublisher = n.GetStringValue(); } },
-                {"appUsageDuration", n => { AppUsageDuration = n.GetIntValue(); } },
-                {"appVersion", n => { AppVersion = n.GetStringValue(); } },
-                {"meanTimeToFailureInMinutes", n => { MeanTimeToFailureInMinutes = n.GetIntValue(); } },
+                { "appCrashCount", n => { AppCrashCount = n.GetIntValue(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "appName", n => { AppName = n.GetStringValue(); } },
+                { "appPublisher", n => { AppPublisher = n.GetStringValue(); } },
+                { "appUsageDuration", n => { AppUsageDuration = n.GetIntValue(); } },
+                { "appVersion", n => { AppVersion = n.GetStringValue(); } },
+                { "meanTimeToFailureInMinutes", n => { MeanTimeToFailureInMinutes = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Define the rule when the admin wants the devices to be cleaned up.
     /// </summary>
-    public class ManagedDeviceCleanupRule : Entity, IParsable 
+    public class ManagedDeviceCleanupRule : Entity, IParsable
     {
         /// <summary>Indicates the description for the device clean up rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceCleanupRulePlatformType", n => { DeviceCleanupRulePlatformType = n.GetEnumValue<DeviceCleanupRulePlatformType>(); } },
-                {"deviceInactivityBeforeRetirementInDays", n => { DeviceInactivityBeforeRetirementInDays = n.GetIntValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceCleanupRulePlatformType", n => { DeviceCleanupRulePlatformType = n.GetEnumValue<DeviceCleanupRulePlatformType>(); } },
+                { "deviceInactivityBeforeRetirementInDays", n => { DeviceInactivityBeforeRetirementInDays = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

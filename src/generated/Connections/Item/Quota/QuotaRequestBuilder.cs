@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Connections.Item.Quota {
+namespace ApiSdk.Connections.Item.Quota
+{
     /// <summary>
     /// Provides operations to manage the quota property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class QuotaRequestBuilder : BaseCliRequestBuilder 
+    public class QuotaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property quota for connections

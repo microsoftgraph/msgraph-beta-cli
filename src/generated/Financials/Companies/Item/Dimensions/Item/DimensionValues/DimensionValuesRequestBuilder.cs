@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues {
+namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues
+{
     /// <summary>
     /// Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
     /// </summary>
-    public class DimensionValuesRequestBuilder : BaseCliRequestBuilder 
+    public class DimensionValuesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
@@ -58,11 +59,11 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues {
         {
             var command = new Command("list");
             command.Description = "Get dimensionValues from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var dimensionIdOption = new Option<string>("--dimension-id", description: "The unique identifier of dimension") {
+            var dimensionIdOption = new Option<Guid?>("--dimension-id", description: "The unique identifier of dimension") {
             };
             dimensionIdOption.IsRequired = true;
             command.AddOption(dimensionIdOption);
@@ -145,7 +146,9 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

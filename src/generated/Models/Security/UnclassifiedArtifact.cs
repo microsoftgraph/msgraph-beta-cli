@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class UnclassifiedArtifact : Artifact, IParsable 
+    public class UnclassifiedArtifact : Artifact, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The kind for this unclassifiedArtifact resource, describing what this value means.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"kind", n => { Kind = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

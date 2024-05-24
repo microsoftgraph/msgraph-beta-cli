@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionWipeActions.Item {
+namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionWipeActions.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsInformationProtectionWipeActions property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class WindowsInformationProtectionWipeActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsInformationProtectionWipeActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsInformationProtectionWipeActions for deviceAppManagement

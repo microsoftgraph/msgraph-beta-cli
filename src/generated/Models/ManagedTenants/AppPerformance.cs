@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class AppPerformance : ApiSdk.Models.Entity, IParsable 
+    public class AppPerformance : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appFriendlyName property</summary>
@@ -77,16 +78,16 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appFriendlyName", n => { AppFriendlyName = n.GetStringValue(); } },
-                {"appName", n => { AppName = n.GetStringValue(); } },
-                {"appPublisher", n => { AppPublisher = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"meanTimeToFailureInMinutes", n => { MeanTimeToFailureInMinutes = n.GetIntValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"totalActiveDeviceCount", n => { TotalActiveDeviceCount = n.GetIntValue(); } },
-                {"totalAppCrashCount", n => { TotalAppCrashCount = n.GetIntValue(); } },
-                {"totalAppFreezeCount", n => { TotalAppFreezeCount = n.GetIntValue(); } },
+                { "appFriendlyName", n => { AppFriendlyName = n.GetStringValue(); } },
+                { "appName", n => { AppName = n.GetStringValue(); } },
+                { "appPublisher", n => { AppPublisher = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "meanTimeToFailureInMinutes", n => { MeanTimeToFailureInMinutes = n.GetIntValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "totalActiveDeviceCount", n => { TotalActiveDeviceCount = n.GetIntValue(); } },
+                { "totalAppCrashCount", n => { TotalAppCrashCount = n.GetIntValue(); } },
+                { "totalAppFreezeCount", n => { TotalAppFreezeCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

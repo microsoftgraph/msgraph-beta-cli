@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConnectionOperation : Entity, IParsable 
+    public class ConnectionOperation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The error property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
+                { "error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
             };
         }
         /// <summary>

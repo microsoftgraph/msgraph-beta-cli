@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections.Item {
+namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections.Item
+{
     /// <summary>
     /// Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
     /// </summary>
-    public class ServicePrincipalRiskDetectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalRiskDetectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property servicePrincipalRiskDetections for identityProtection
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections.Item {
             return command;
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Read the properties and relationships of a servicePrincipalRiskDetection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents information about detected at-risk service principals in a Microsoft Entra tenant.";
+            command.Description = "Read the properties and relationships of a servicePrincipalRiskDetection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-beta";
             var servicePrincipalRiskDetectionIdOption = new Option<string>("--service-principal-risk-detection-id", description: "The unique identifier of servicePrincipalRiskDetection") {
             };
             servicePrincipalRiskDetectionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Read the properties and relationships of a servicePrincipalRiskDetection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.IdentityProtection.ServicePrincipalRiskDetections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+        /// Read the properties and relationships of a servicePrincipalRiskDetection object.
         /// </summary>
         public class ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MicrosoftAuthenticatorAuthenticationMethod : AuthenticationMethod, IParsable 
+    public class MicrosoftAuthenticatorAuthenticationMethod : AuthenticationMethod, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The app that the user has registered to use to approve push notifications. The possible values are: microsoftAuthenticator, outlookMobile, unknownFutureValue.</summary>
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"clientAppName", n => { ClientAppName = n.GetEnumValue<MicrosoftAuthenticatorAuthenticationMethodClientAppName>(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"device", n => { Device = n.GetObjectValue<ApiSdk.Models.Device>(ApiSdk.Models.Device.CreateFromDiscriminatorValue); } },
-                {"deviceTag", n => { DeviceTag = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"phoneAppVersion", n => { PhoneAppVersion = n.GetStringValue(); } },
+                { "clientAppName", n => { ClientAppName = n.GetEnumValue<MicrosoftAuthenticatorAuthenticationMethodClientAppName>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "device", n => { Device = n.GetObjectValue<ApiSdk.Models.Device>(ApiSdk.Models.Device.CreateFromDiscriminatorValue); } },
+                { "deviceTag", n => { DeviceTag = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "phoneAppVersion", n => { PhoneAppVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

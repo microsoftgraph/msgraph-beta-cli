@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetDailyAggregatedRemoteConnectionReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetDailyAggregatedRemoteConnectionReports
+{
     /// <summary>
     /// Provides operations to call the getDailyAggregatedRemoteConnectionReports method.
     /// </summary>
-    public class GetDailyAggregatedRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetDailyAggregatedRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.

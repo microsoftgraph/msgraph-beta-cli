@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds
+{
     /// <summary>
     /// Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class LegalHoldsRequestBuilder : BaseCliRequestBuilder 
+    public class LegalHoldsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
@@ -109,14 +110,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
             return command;
         }
         /// <summary>
-        /// Returns a list of case legalHold objects for this case.  Nullable.
+        /// Read the properties and relationships of a legalHold object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of case legalHold objects for this case.  Nullable.";
+            command.Description = "Read the properties and relationships of a legalHold object.";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -198,7 +199,9 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +227,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
         {
         }
         /// <summary>
-        /// Returns a list of case legalHold objects for this case.  Nullable.
+        /// Read the properties and relationships of a legalHold object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -266,7 +269,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case legalHold objects for this case.  Nullable.
+        /// Read the properties and relationships of a legalHold object.
         /// </summary>
         public class LegalHoldsRequestBuilderGetQueryParameters 
         {

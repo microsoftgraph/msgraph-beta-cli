@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ChannelModerationSettings : IAdditionalDataHolder, IParsable 
+    public class ChannelModerationSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,11 +53,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowNewMessageFromBots", n => { AllowNewMessageFromBots = n.GetBoolValue(); } },
-                {"allowNewMessageFromConnectors", n => { AllowNewMessageFromConnectors = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"replyRestriction", n => { ReplyRestriction = n.GetEnumValue<ReplyRestriction>(); } },
-                {"userNewMessageRestriction", n => { UserNewMessageRestriction = n.GetEnumValue<UserNewMessageRestriction>(); } },
+                { "allowNewMessageFromBots", n => { AllowNewMessageFromBots = n.GetBoolValue(); } },
+                { "allowNewMessageFromConnectors", n => { AllowNewMessageFromConnectors = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "replyRestriction", n => { ReplyRestriction = n.GetEnumValue<ReplyRestriction>(); } },
+                { "userNewMessageRestriction", n => { UserNewMessageRestriction = n.GetEnumValue<UserNewMessageRestriction>(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetDevicesStatusBySettingReport {
+namespace ApiSdk.DeviceManagement.Reports.GetDevicesStatusBySettingReport
+{
     /// <summary>
     /// Provides operations to call the getDevicesStatusBySettingReport method.
     /// </summary>
-    public class GetDevicesStatusBySettingReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetDevicesStatusBySettingReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getDevicesStatusBySettingReport

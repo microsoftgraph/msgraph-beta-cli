@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleInstances.Item {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleInstances.Item
+{
     /// <summary>
     /// Provides operations to manage the eligibilityScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property eligibilityScheduleInstances for identityGovernance
@@ -58,13 +59,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleIn
             return command;
         }
         /// <summary>
-        /// The instances of eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityscheduleinstance-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The instances of eligibility schedules to activate a just-in-time access.";
+            command.Description = "Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityscheduleinstance-get?view=graph-rest-beta";
             var privilegedAccessGroupEligibilityScheduleInstanceIdOption = new Option<string>("--privileged-access-group-eligibility-schedule-instance-id", description: "The unique identifier of privilegedAccessGroupEligibilityScheduleInstance") {
             };
             privilegedAccessGroupEligibilityScheduleInstanceIdOption.IsRequired = true;
@@ -234,7 +236,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleIn
             return requestInfo;
         }
         /// <summary>
-        /// The instances of eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -274,7 +276,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleIn
             return requestInfo;
         }
         /// <summary>
-        /// The instances of eligibility schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
         /// </summary>
         public class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters 
         {

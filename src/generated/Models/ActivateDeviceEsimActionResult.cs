@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Activate device eSIM action result
     /// </summary>
-    public class ActivateDeviceEsimActionResult : DeviceActionResult, IParsable 
+    public class ActivateDeviceEsimActionResult : DeviceActionResult, IParsable
     {
         /// <summary>Carrier Url to activate the device eSIM</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"carrierUrl", n => { CarrierUrl = n.GetStringValue(); } },
+                { "carrierUrl", n => { CarrierUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

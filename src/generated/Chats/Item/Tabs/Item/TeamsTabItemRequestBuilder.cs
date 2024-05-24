@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Tabs.Item {
+namespace ApiSdk.Chats.Item.Tabs.Item
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.chat entity.
     /// </summary>
-    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property tabs for chats
+        /// Remove (unpin) a tab from the specified chat. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property tabs for chats";
+            command.Description = "Remove (unpin) a tab from the specified chat. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -63,13 +65,14 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
             return command;
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the properties and relationships of the specified tab in a chat. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of all the tabs in the chat. Nullable.";
+            command.Description = "Retrieve the properties and relationships of the specified tab in a chat. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -121,13 +124,14 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property tabs in chats
+        /// Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property tabs in chats";
+            command.Description = "Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property tabs for chats
+        /// Remove (unpin) a tab from the specified chat. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the properties and relationships of the specified tab in a chat. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tabs in chats
+        /// Update the properties of the specified tab in a chat. This API can be used to configure the content of the tab.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.Chats.Item.Tabs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the properties and relationships of the specified tab in a chat. 
         /// </summary>
         public class TeamsTabItemRequestBuilderGetQueryParameters 
         {

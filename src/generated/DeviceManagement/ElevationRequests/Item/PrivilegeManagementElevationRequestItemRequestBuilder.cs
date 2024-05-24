@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ElevationRequests.Item {
+namespace ApiSdk.DeviceManagement.ElevationRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the elevationRequests property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class PrivilegeManagementElevationRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegeManagementElevationRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the approve method.

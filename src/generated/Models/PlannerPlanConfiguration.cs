@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerPlanConfiguration : Entity, IParsable 
+    public class PlannerPlanConfiguration : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List the buckets that should be created in the plan.</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"buckets", n => { Buckets = n.GetCollectionOfObjectValues<PlannerPlanConfigurationBucketDefinition>(PlannerPlanConfigurationBucketDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"defaultLanguage", n => { DefaultLanguage = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"localizations", n => { Localizations = n.GetCollectionOfObjectValues<PlannerPlanConfigurationLocalization>(PlannerPlanConfigurationLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "buckets", n => { Buckets = n.GetCollectionOfObjectValues<PlannerPlanConfigurationBucketDefinition>(PlannerPlanConfigurationBucketDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "defaultLanguage", n => { DefaultLanguage = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "localizations", n => { Localizations = n.GetCollectionOfObjectValues<PlannerPlanConfigurationLocalization>(PlannerPlanConfigurationLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

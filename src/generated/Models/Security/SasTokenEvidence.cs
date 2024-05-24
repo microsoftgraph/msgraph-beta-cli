@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class SasTokenEvidence : AlertEvidence, IParsable 
+    public class SasTokenEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allowedIpAddresses property</summary>
@@ -102,16 +103,16 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedIpAddresses", n => { AllowedIpAddresses = n.GetStringValue(); } },
-                {"allowedResourceTypes", n => { AllowedResourceTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"allowedServices", n => { AllowedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
-                {"permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"protocol", n => { Protocol = n.GetStringValue(); } },
-                {"signatureHash", n => { SignatureHash = n.GetStringValue(); } },
-                {"signedWith", n => { SignedWith = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"storageResource", n => { StorageResource = n.GetObjectValue<AzureResourceEvidence>(AzureResourceEvidence.CreateFromDiscriminatorValue); } },
+                { "allowedIpAddresses", n => { AllowedIpAddresses = n.GetStringValue(); } },
+                { "allowedResourceTypes", n => { AllowedResourceTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowedServices", n => { AllowedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "expiryDateTime", n => { ExpiryDateTime = n.GetDateTimeOffsetValue(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "protocol", n => { Protocol = n.GetStringValue(); } },
+                { "signatureHash", n => { SignatureHash = n.GetStringValue(); } },
+                { "signedWith", n => { SignedWith = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "storageResource", n => { StorageResource = n.GetObjectValue<AzureResourceEvidence>(AzureResourceEvidence.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

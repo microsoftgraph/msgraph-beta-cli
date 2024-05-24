@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.OnlineMeetings.Item.Registration.Registrants.Item {
+namespace ApiSdk.Communications.OnlineMeetings.Item.Registration.Registrants.Item
+{
     /// <summary>
     /// Provides operations to manage the registrants property of the microsoft.graph.meetingRegistrationBase entity.
     /// </summary>
-    public class MeetingRegistrantBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class MeetingRegistrantBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property registrants for communications

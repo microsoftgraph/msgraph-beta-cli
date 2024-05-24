@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration {
+namespace ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration
+{
     /// <summary>
     /// Provides operations to call the createEnrollmentNotificationConfiguration method.
     /// </summary>
-    public class CreateEnrollmentNotificationConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class CreateEnrollmentNotificationConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createEnrollmentNotificationConfiguration

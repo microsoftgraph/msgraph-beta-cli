@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcExternalPartnerSetting : Entity, IParsable 
+    public class CloudPcExternalPartnerSetting : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Enable or disable the connection to an external partner. If true, an external partner API will accept incoming calls from external partners. Required. Supports $filter (eq).</summary>
@@ -49,11 +50,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enableConnection", n => { EnableConnection = n.GetBoolValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"partnerId", n => { PartnerId = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<CloudPcExternalPartnerStatus>(); } },
-                {"statusDetails", n => { StatusDetails = n.GetStringValue(); } },
+                { "enableConnection", n => { EnableConnection = n.GetBoolValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "partnerId", n => { PartnerId = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<CloudPcExternalPartnerStatus>(); } },
+                { "statusDetails", n => { StatusDetails = n.GetStringValue(); } },
             };
         }
         /// <summary>

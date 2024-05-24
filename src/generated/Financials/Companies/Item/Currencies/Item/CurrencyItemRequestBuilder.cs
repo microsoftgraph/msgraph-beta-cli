@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Currencies.Item {
+namespace ApiSdk.Financials.Companies.Item.Currencies.Item
+{
     /// <summary>
     /// Provides operations to manage the currencies property of the microsoft.graph.company entity.
     /// </summary>
-    public class CurrencyItemRequestBuilder : BaseCliRequestBuilder 
+    public class CurrencyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property currencies for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.Currencies.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property currencies for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var currencyIdOption = new Option<string>("--currency-id", description: "The unique identifier of currency") {
+            var currencyIdOption = new Option<Guid?>("--currency-id", description: "The unique identifier of currency") {
             };
             currencyIdOption.IsRequired = true;
             command.AddOption(currencyIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.Currencies.Item {
         {
             var command = new Command("get");
             command.Description = "Get currencies from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var currencyIdOption = new Option<string>("--currency-id", description: "The unique identifier of currency") {
+            var currencyIdOption = new Option<Guid?>("--currency-id", description: "The unique identifier of currency") {
             };
             currencyIdOption.IsRequired = true;
             command.AddOption(currencyIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.Currencies.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property currencies in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var currencyIdOption = new Option<string>("--currency-id", description: "The unique identifier of currency") {
+            var currencyIdOption = new Option<Guid?>("--currency-id", description: "The unique identifier of currency") {
             };
             currencyIdOption.IsRequired = true;
             command.AddOption(currencyIdOption);

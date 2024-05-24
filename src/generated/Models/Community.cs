@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Community : Entity, IParsable 
+    public class Community : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the community. The maximum length is 1024 characters.</summary>
@@ -69,12 +70,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"group", n => { Group = n.GetObjectValue<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue); } },
-                {"groupId", n => { GroupId = n.GetStringValue(); } },
-                {"owners", n => { Owners = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"privacy", n => { Privacy = n.GetEnumValue<CommunityPrivacy>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "group", n => { Group = n.GetObjectValue<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue); } },
+                { "groupId", n => { GroupId = n.GetStringValue(); } },
+                { "owners", n => { Owners = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<CommunityPrivacy>(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.AttributeSets {
+namespace ApiSdk.DirectoryNamespace.AttributeSets
+{
     /// <summary>
     /// Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
     /// </summary>
-    public class AttributeSetsRequestBuilder : BaseCliRequestBuilder 
+    public class AttributeSetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to attributeSets for directory
+        /// Create a new attributeSet object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to attributeSets for directory";
+            command.Description = "Create a new attributeSet object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
             return command;
         }
         /// <summary>
-        /// Group of related custom security attribute definitions.
+        /// Get a list of the attributeSet objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Group of related custom security attribute definitions.";
+            command.Description = "Get a list of the attributeSet objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
         {
         }
         /// <summary>
-        /// Group of related custom security attribute definitions.
+        /// Get a list of the attributeSet objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to attributeSets for directory
+        /// Create a new attributeSet object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.DirectoryNamespace.AttributeSets {
             return requestInfo;
         }
         /// <summary>
-        /// Group of related custom security attribute definitions.
+        /// Get a list of the attributeSet objects and their properties.
         /// </summary>
         public class AttributeSetsRequestBuilderGetQueryParameters 
         {

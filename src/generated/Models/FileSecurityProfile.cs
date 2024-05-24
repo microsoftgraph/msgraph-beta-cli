@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FileSecurityProfile : Entity, IParsable 
+    public class FileSecurityProfile : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityGroupNames property</summary>
@@ -137,22 +138,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activityGroupNames", n => { ActivityGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
-                {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"fileType", n => { FileType = n.GetStringValue(); } },
-                {"firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"hashes", n => { Hashes = n.GetCollectionOfObjectValues<FileHash>(FileHash.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"malwareStates", n => { MalwareStates = n.GetCollectionOfObjectValues<MalwareState>(MalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"names", n => { Names = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"riskScore", n => { RiskScore = n.GetStringValue(); } },
-                {"size", n => { Size = n.GetLongValue(); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
-                {"vulnerabilityStates", n => { VulnerabilityStates = n.GetCollectionOfObjectValues<VulnerabilityState>(VulnerabilityState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activityGroupNames", n => { ActivityGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
+                { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
+                { "certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "fileType", n => { FileType = n.GetStringValue(); } },
+                { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "hashes", n => { Hashes = n.GetCollectionOfObjectValues<FileHash>(FileHash.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "malwareStates", n => { MalwareStates = n.GetCollectionOfObjectValues<MalwareState>(MalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "names", n => { Names = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "riskScore", n => { RiskScore = n.GetStringValue(); } },
+                { "size", n => { Size = n.GetLongValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vulnerabilityStates", n => { VulnerabilityStates = n.GetCollectionOfObjectValues<VulnerabilityState>(VulnerabilityState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

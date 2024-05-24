@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a process that can receive an Apple Event notification.
     /// </summary>
-    public class MacOSAppleEventReceiver : IAdditionalDataHolder, IParsable 
+    public class MacOSAppleEventReceiver : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -65,11 +66,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowed", n => { Allowed = n.GetBoolValue(); } },
-                {"codeRequirement", n => { CodeRequirement = n.GetStringValue(); } },
-                {"identifier", n => { Identifier = n.GetStringValue(); } },
-                {"identifierType", n => { IdentifierType = n.GetEnumValue<MacOSProcessIdentifierType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowed", n => { Allowed = n.GetBoolValue(); } },
+                { "codeRequirement", n => { CodeRequirement = n.GetStringValue(); } },
+                { "identifier", n => { Identifier = n.GetStringValue(); } },
+                { "identifierType", n => { IdentifierType = n.GetEnumValue<MacOSProcessIdentifierType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

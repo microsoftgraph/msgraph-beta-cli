@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class NotifyUserAction : DlpActionInfo, IParsable 
+    public class NotifyUserAction : DlpActionInfo, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionLastModifiedDateTime property</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionLastModifiedDateTime", n => { ActionLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"emailText", n => { EmailText = n.GetStringValue(); } },
-                {"policyTip", n => { PolicyTip = n.GetStringValue(); } },
-                {"recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "actionLastModifiedDateTime", n => { ActionLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "emailText", n => { EmailText = n.GetStringValue(); } },
+                { "policyTip", n => { PolicyTip = n.GetStringValue(); } },
+                { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

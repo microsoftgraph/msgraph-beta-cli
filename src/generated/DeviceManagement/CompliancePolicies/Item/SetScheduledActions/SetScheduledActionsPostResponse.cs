@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.SetScheduledActions {
+namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.SetScheduledActions
+{
     #pragma warning disable CS1591
-    public class SetScheduledActionsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class SetScheduledActionsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.SetScheduledActions {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementComplianceScheduledActionForRule>(DeviceManagementComplianceScheduledActionForRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementComplianceScheduledActionForRule>(DeviceManagementComplianceScheduledActionForRule.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

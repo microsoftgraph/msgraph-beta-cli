@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MobileAppIntentAndStates.Item {
+namespace ApiSdk.Users.Item.MobileAppIntentAndStates.Item
+{
     /// <summary>
     /// Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
     /// </summary>
-    public class MobileAppIntentAndStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppIntentAndStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property mobileAppIntentAndStates for users

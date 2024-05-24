@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BookingsAvailabilityWindow : BookingsAvailability, IParsable 
+    public class BookingsAvailabilityWindow : BookingsAvailability, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>End date of the availability window.</summary>
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDate", n => { EndDate = n.GetDateValue(); } },
-                {"startDate", n => { StartDate = n.GetDateValue(); } },
+                { "endDate", n => { EndDate = n.GetDateValue(); } },
+                { "startDate", n => { StartDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

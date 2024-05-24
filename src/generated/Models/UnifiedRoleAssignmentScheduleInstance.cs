@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleAssignmentScheduleInstance : UnifiedRoleScheduleInstanceBase, IParsable 
+    public class UnifiedRoleAssignmentScheduleInstance : UnifiedRoleScheduleInstanceBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it&apos;s null. Supports $expand and $select nested in $expand.</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activatedUsing", n => { ActivatedUsing = n.GetObjectValue<UnifiedRoleEligibilityScheduleInstance>(UnifiedRoleEligibilityScheduleInstance.CreateFromDiscriminatorValue); } },
-                {"assignmentType", n => { AssignmentType = n.GetStringValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"memberType", n => { MemberType = n.GetStringValue(); } },
-                {"roleAssignmentOriginId", n => { RoleAssignmentOriginId = n.GetStringValue(); } },
-                {"roleAssignmentScheduleId", n => { RoleAssignmentScheduleId = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "activatedUsing", n => { ActivatedUsing = n.GetObjectValue<UnifiedRoleEligibilityScheduleInstance>(UnifiedRoleEligibilityScheduleInstance.CreateFromDiscriminatorValue); } },
+                { "assignmentType", n => { AssignmentType = n.GetStringValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "memberType", n => { MemberType = n.GetStringValue(); } },
+                { "roleAssignmentOriginId", n => { RoleAssignmentOriginId = n.GetStringValue(); } },
+                { "roleAssignmentScheduleId", n => { RoleAssignmentScheduleId = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item
+{
     /// <summary>
     /// Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     /// </summary>
-    public class ManagementTemplateStepDeploymentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateStepDeploymentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deployments for tenantRelationships

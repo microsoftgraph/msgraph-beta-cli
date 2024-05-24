@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Requests.Item {
+namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Requests.Item
+{
     /// <summary>
     /// Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
     /// </summary>
-    public class DelegatedAdminRelationshipRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class DelegatedAdminRelationshipRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property requests for tenantRelationships
@@ -62,13 +63,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Requests.I
             return command;
         }
         /// <summary>
-        /// The requests associated with the delegated admin relationship.
+        /// Read the properties and relationships of a delegatedAdminRelationshipRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationshiprequest-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The requests associated with the delegated admin relationship.";
+            command.Description = "Read the properties and relationships of a delegatedAdminRelationshipRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationshiprequest-get?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Requests.I
             return requestInfo;
         }
         /// <summary>
-        /// The requests associated with the delegated admin relationship.
+        /// Read the properties and relationships of a delegatedAdminRelationshipRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Requests.I
             return requestInfo;
         }
         /// <summary>
-        /// The requests associated with the delegated admin relationship.
+        /// Read the properties and relationships of a delegatedAdminRelationshipRequest object.
         /// </summary>
         public class DelegatedAdminRelationshipRequestItemRequestBuilderGetQueryParameters 
         {

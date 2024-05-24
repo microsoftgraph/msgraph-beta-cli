@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Role Scope Tag
     /// </summary>
-    public class RoleScopeTag : Entity, IParsable 
+    public class RoleScopeTag : Entity, IParsable
     {
         /// <summary>The list of assignments for this Role Scope Tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,10 +55,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<RoleScopeTagAutoAssignment>(RoleScopeTagAutoAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<RoleScopeTagAutoAssignment>(RoleScopeTagAutoAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
             };
         }
         /// <summary>

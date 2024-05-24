@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item {
+namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the androidDeviceOwnerEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the createToken method.

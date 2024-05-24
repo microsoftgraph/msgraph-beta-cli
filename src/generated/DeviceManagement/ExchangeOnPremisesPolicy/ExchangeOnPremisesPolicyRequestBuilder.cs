@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ExchangeOnPremisesPolicy {
+namespace ApiSdk.DeviceManagement.ExchangeOnPremisesPolicy
+{
     /// <summary>
     /// Provides operations to manage the exchangeOnPremisesPolicy property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ExchangeOnPremisesPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class ExchangeOnPremisesPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagementExchangeOnPremisesPolicy entity.

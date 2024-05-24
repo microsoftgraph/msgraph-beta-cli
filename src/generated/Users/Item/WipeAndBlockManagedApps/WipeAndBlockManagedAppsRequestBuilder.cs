@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.WipeAndBlockManagedApps {
+namespace ApiSdk.Users.Item.WipeAndBlockManagedApps
+{
     /// <summary>
     /// Provides operations to call the wipeAndBlockManagedApps method.
     /// </summary>
-    public class WipeAndBlockManagedAppsRequestBuilder : BaseCliRequestBuilder 
+    public class WipeAndBlockManagedAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Blocks the managed app user from app check-in.

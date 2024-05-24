@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges
+{
     /// <summary>
     /// Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
     /// </summary>
-    public class ComplianceChangesRequestBuilder : BaseCliRequestBuilder 
+    public class ComplianceChangesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to complianceChanges for admin
+        /// Create a new contentApproval object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to complianceChanges for admin";
+            command.Description = "Create a new contentApproval object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -106,13 +108,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return command;
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Get a list of the complianceChange objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.";
+            command.Description = "Get a list of the complianceChange objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
         {
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Get a list of the complianceChange objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to complianceChanges for admin
+        /// Create a new contentApproval object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges {
             return requestInfo;
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Get a list of the complianceChange objects and their properties.
         /// </summary>
         public class ComplianceChangesRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class UserProcessingResultCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable 
+    public class UserProcessingResultCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<UserProcessingResult>(UserProcessingResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<UserProcessingResult>(UserProcessingResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

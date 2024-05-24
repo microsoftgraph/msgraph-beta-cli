@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.WebAccounts.Item {
+namespace ApiSdk.Users.Item.Profile.WebAccounts.Item
+{
     /// <summary>
     /// Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
     /// </summary>
-    public class WebAccountItemRequestBuilder : BaseCliRequestBuilder 
+    public class WebAccountItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property webAccounts for users

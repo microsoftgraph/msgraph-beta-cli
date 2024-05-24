@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema
+{
     /// <summary>
     /// Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
     /// </summary>
-    public class SchemaRequestBuilder : BaseCliRequestBuilder 
+    public class SchemaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property schema for servicePrincipals
@@ -127,13 +128,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return command;
         }
         /// <summary>
-        /// The synchronization schema configured for the job.
+        /// Retrieve the schema for a given synchronization job or template.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The synchronization schema configured for the job.";
+            command.Description = "Retrieve the schema for a given synchronization job or template.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -202,13 +204,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return command;
         }
         /// <summary>
-        /// Update the navigation property schema in servicePrincipals
+        /// Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property schema in servicePrincipals";
+            command.Description = "Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-update?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -292,7 +295,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return requestInfo;
         }
         /// <summary>
-        /// The synchronization schema configured for the job.
+        /// Retrieve the schema for a given synchronization job or template.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -311,7 +314,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property schema in servicePrincipals
+        /// Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -332,7 +335,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Schema {
             return requestInfo;
         }
         /// <summary>
-        /// The synchronization schema configured for the job.
+        /// Retrieve the schema for a given synchronization job or template.
         /// </summary>
         public class SchemaRequestBuilderGetQueryParameters 
         {

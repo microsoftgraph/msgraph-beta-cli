@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item
+{
     /// <summary>
     /// Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
     /// </summary>
-    public class ReviewSetQueryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ReviewSetQueryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property queries for compliance

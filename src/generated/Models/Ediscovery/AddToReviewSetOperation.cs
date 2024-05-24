@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class AddToReviewSetOperation : CaseOperation, IParsable 
+    public class AddToReviewSetOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The review set to which items matching the source collection query are added to.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"reviewSet", n => { ReviewSet = n.GetObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue); } },
-                {"sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
+                { "reviewSet", n => { ReviewSet = n.GetObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue); } },
+                { "sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

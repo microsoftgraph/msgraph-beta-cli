@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AddWatermarkAction : InformationProtectionAction, IParsable 
+    public class AddWatermarkAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Color of the font to use for the watermark.</summary>
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fontColor", n => { FontColor = n.GetStringValue(); } },
-                {"fontName", n => { FontName = n.GetStringValue(); } },
-                {"fontSize", n => { FontSize = n.GetIntValue(); } },
-                {"layout", n => { Layout = n.GetEnumValue<WatermarkLayout>(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
-                {"uiElementName", n => { UiElementName = n.GetStringValue(); } },
+                { "fontColor", n => { FontColor = n.GetStringValue(); } },
+                { "fontName", n => { FontName = n.GetStringValue(); } },
+                { "fontSize", n => { FontSize = n.GetIntValue(); } },
+                { "layout", n => { Layout = n.GetEnumValue<WatermarkLayout>(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "uiElementName", n => { UiElementName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History {
+namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History
+{
     /// <summary>
     /// Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
     /// </summary>
-    public class HistoryRequestBuilder : BaseCliRequestBuilder 
+    public class HistoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History {
             return command;
         }
         /// <summary>
-        /// Represents the risk history of Microsoft Entra service principals.
+        /// Get the risk history of a riskyServicePrincipal object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the risk history of Microsoft Entra service principals.";
+            command.Description = "Get the risk history of a riskyServicePrincipal object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-beta";
             var riskyServicePrincipalIdOption = new Option<string>("--risky-service-principal-id", description: "The unique identifier of riskyServicePrincipal") {
             };
             riskyServicePrincipalIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History {
         {
         }
         /// <summary>
-        /// Represents the risk history of Microsoft Entra service principals.
+        /// Get the risk history of a riskyServicePrincipal object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.IdentityProtection.RiskyServicePrincipals.Item.History {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the risk history of Microsoft Entra service principals.
+        /// Get the risk history of a riskyServicePrincipal object.
         /// </summary>
         public class HistoryRequestBuilderGetQueryParameters 
         {

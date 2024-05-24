@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows {
+namespace ApiSdk.Admin.Windows
+{
     /// <summary>
     /// Provides operations to manage the windows property of the microsoft.graph.admin entity.
     /// </summary>
-    public class WindowsRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windows for admin

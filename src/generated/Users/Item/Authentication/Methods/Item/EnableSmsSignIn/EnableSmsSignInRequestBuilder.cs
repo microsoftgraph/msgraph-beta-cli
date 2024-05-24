@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.Methods.Item.EnableSmsSignIn {
+namespace ApiSdk.Users.Item.Authentication.Methods.Item.EnableSmsSignIn
+{
     /// <summary>
     /// Provides operations to call the enableSmsSignIn method.
     /// </summary>
-    public class EnableSmsSignInRequestBuilder : BaseCliRequestBuilder 
+    public class EnableSmsSignInRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enableSmsSignIn

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class IpSecurityProfile : Entity, IParsable 
+    public class IpSecurityProfile : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityGroupNames property</summary>
@@ -107,19 +108,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activityGroupNames", n => { ActivityGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"address", n => { Address = n.GetStringValue(); } },
-                {"azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
-                {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"countHits", n => { CountHits = n.GetIntValue(); } },
-                {"countHosts", n => { CountHosts = n.GetIntValue(); } },
-                {"firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"ipCategories", n => { IpCategories = n.GetCollectionOfObjectValues<IpCategory>(IpCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"ipReferenceData", n => { IpReferenceData = n.GetCollectionOfObjectValues<ApiSdk.Models.IpReferenceData>(ApiSdk.Models.IpReferenceData.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"riskScore", n => { RiskScore = n.GetStringValue(); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "activityGroupNames", n => { ActivityGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
+                { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
+                { "countHits", n => { CountHits = n.GetIntValue(); } },
+                { "countHosts", n => { CountHosts = n.GetIntValue(); } },
+                { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "ipCategories", n => { IpCategories = n.GetCollectionOfObjectValues<IpCategory>(IpCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ipReferenceData", n => { IpReferenceData = n.GetCollectionOfObjectValues<ApiSdk.Models.IpReferenceData>(ApiSdk.Models.IpReferenceData.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "riskScore", n => { RiskScore = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

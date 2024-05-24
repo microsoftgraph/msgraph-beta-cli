@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport.AttendanceRecords {
+namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport.AttendanceRecords
+{
     /// <summary>
     /// Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
     /// </summary>
-    public class AttendanceRecordsRequestBuilder : BaseCliRequestBuilder 
+    public class AttendanceRecordsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -192,7 +193,9 @@ namespace ApiSdk.App.OnlineMeetings.Item.MeetingAttendanceReport.AttendanceRecor
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

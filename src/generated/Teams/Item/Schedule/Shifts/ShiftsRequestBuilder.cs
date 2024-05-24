@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.Shifts {
+namespace ApiSdk.Teams.Item.Schedule.Shifts
+{
     /// <summary>
     /// Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class ShiftsRequestBuilder : BaseCliRequestBuilder 
+    public class ShiftsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Teams.Item.Schedule.Shifts {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to shifts for teams
+        /// Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to shifts for teams";
+            command.Description = "Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -105,12 +107,13 @@ namespace ApiSdk.Teams.Item.Schedule.Shifts {
         }
         /// <summary>
         /// The shifts in the schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The shifts in the schedule.";
+            command.Description = "The shifts in the schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -185,7 +188,9 @@ namespace ApiSdk.Teams.Item.Schedule.Shifts {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -230,7 +235,7 @@ namespace ApiSdk.Teams.Item.Schedule.Shifts {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to shifts for teams
+        /// Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

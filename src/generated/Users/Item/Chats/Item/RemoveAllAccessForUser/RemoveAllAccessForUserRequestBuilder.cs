@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Chats.Item.RemoveAllAccessForUser {
+namespace ApiSdk.Users.Item.Chats.Item.RemoveAllAccessForUser
+{
     /// <summary>
     /// Provides operations to call the removeAllAccessForUser method.
     /// </summary>
-    public class RemoveAllAccessForUserRequestBuilder : BaseCliRequestBuilder 
+    public class RemoveAllAccessForUserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Remove access to a chat for a user.

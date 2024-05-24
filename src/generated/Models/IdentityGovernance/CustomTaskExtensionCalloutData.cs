@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class CustomTaskExtensionCalloutData : ApiSdk.Models.CustomExtensionData, IParsable 
+    public class CustomTaskExtensionCalloutData : ApiSdk.Models.CustomExtensionData, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The subject property</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"subject", n => { Subject = n.GetObjectValue<ApiSdk.Models.User>(ApiSdk.Models.User.CreateFromDiscriminatorValue); } },
-                {"task", n => { Task = n.GetObjectValue<TaskObject>(TaskObject.CreateFromDiscriminatorValue); } },
-                {"taskProcessingresult", n => { TaskProcessingresult = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.TaskProcessingResult>(ApiSdk.Models.IdentityGovernance.TaskProcessingResult.CreateFromDiscriminatorValue); } },
-                {"workflow", n => { Workflow = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.Workflow>(ApiSdk.Models.IdentityGovernance.Workflow.CreateFromDiscriminatorValue); } },
+                { "subject", n => { Subject = n.GetObjectValue<ApiSdk.Models.User>(ApiSdk.Models.User.CreateFromDiscriminatorValue); } },
+                { "task", n => { Task = n.GetObjectValue<TaskObject>(TaskObject.CreateFromDiscriminatorValue); } },
+                { "taskProcessingresult", n => { TaskProcessingresult = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.TaskProcessingResult>(ApiSdk.Models.IdentityGovernance.TaskProcessingResult.CreateFromDiscriminatorValue); } },
+                { "workflow", n => { Workflow = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.Workflow>(ApiSdk.Models.IdentityGovernance.Workflow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Teamwork {
+namespace ApiSdk.Users.Item.Teamwork
+{
     /// <summary>
     /// Provides operations to manage the teamwork property of the microsoft.graph.user entity.
     /// </summary>
-    public class TeamworkRequestBuilder : BaseCliRequestBuilder 
+    public class TeamworkRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
@@ -86,13 +87,14 @@ namespace ApiSdk.Users.Item.Teamwork {
             return command;
         }
         /// <summary>
-        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
+        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A container for Microsoft Teams features available for the user. Read-only. Nullable.";
+            command.Description = "Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -266,7 +268,7 @@ namespace ApiSdk.Users.Item.Teamwork {
             return requestInfo;
         }
         /// <summary>
-        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
+        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -306,7 +308,7 @@ namespace ApiSdk.Users.Item.Teamwork {
             return requestInfo;
         }
         /// <summary>
-        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
+        /// Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
         /// </summary>
         public class TeamworkRequestBuilderGetQueryParameters 
         {

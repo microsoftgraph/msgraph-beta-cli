@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DataClassification.SensitivityLabels.Item.Sublabels.Evaluate {
+namespace ApiSdk.DataClassification.SensitivityLabels.Item.Sublabels.Evaluate
+{
     #pragma warning disable CS1591
-    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.DataClassification.SensitivityLabels.Item.Sublabels.Evaluate {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"currentLabel", n => { CurrentLabel = n.GetObjectValue<ApiSdk.Models.CurrentLabel>(ApiSdk.Models.CurrentLabel.CreateFromDiscriminatorValue); } },
-                {"discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<DiscoveredSensitiveType>(DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "currentLabel", n => { CurrentLabel = n.GetObjectValue<ApiSdk.Models.CurrentLabel>(ApiSdk.Models.CurrentLabel.CreateFromDiscriminatorValue); } },
+                { "discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<DiscoveredSensitiveType>(DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

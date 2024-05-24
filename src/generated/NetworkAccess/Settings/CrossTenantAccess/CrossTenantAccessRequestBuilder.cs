@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
+namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess
+{
     /// <summary>
     /// Provides operations to manage the crossTenantAccess property of the microsoft.graph.networkaccess.settings entity.
     /// </summary>
-    public class CrossTenantAccessRequestBuilder : BaseCliRequestBuilder 
+    public class CrossTenantAccessRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property crossTenantAccess for networkAccess
@@ -50,13 +51,14 @@ namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
             return command;
         }
         /// <summary>
-        /// Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
+        /// Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.";
+            command.Description = "Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
             return command;
         }
         /// <summary>
-        /// Update the navigation property crossTenantAccess in networkAccess
+        /// Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property crossTenantAccess in networkAccess";
+            command.Description = "Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
+        /// Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property crossTenantAccess in networkAccess
+        /// Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.NetworkAccess.Settings.CrossTenantAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
+        /// Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
         /// </summary>
         public class CrossTenantAccessRequestBuilderGetQueryParameters 
         {

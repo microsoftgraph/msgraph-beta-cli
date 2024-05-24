@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets
+{
     /// <summary>
     /// Provides operations to call the unenrollAssets method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action unenrollAssets

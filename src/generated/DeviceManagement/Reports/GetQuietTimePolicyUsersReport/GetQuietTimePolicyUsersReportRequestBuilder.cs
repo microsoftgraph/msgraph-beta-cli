@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetQuietTimePolicyUsersReport {
+namespace ApiSdk.DeviceManagement.Reports.GetQuietTimePolicyUsersReport
+{
     /// <summary>
     /// Provides operations to call the getQuietTimePolicyUsersReport method.
     /// </summary>
-    public class GetQuietTimePolicyUsersReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetQuietTimePolicyUsersReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getQuietTimePolicyUsersReport

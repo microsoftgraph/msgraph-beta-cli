@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Projects.Item {
+namespace ApiSdk.Users.Item.Profile.Projects.Item
+{
     /// <summary>
     /// Provides operations to manage the projects property of the microsoft.graph.profile entity.
     /// </summary>
-    public class ProjectParticipationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProjectParticipationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property projects for users

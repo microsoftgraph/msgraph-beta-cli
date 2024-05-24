@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that encapsulates all information required for a user&apos;s PFX certificates.
     /// </summary>
-    public class UserPFXCertificate : Entity, IParsable 
+    public class UserPFXCertificate : Entity, IParsable
     {
         /// <summary>Date/time when this PFX certificate was imported.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -88,18 +89,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"encryptedPfxBlob", n => { EncryptedPfxBlob = n.GetByteArrayValue(); } },
-                {"encryptedPfxPassword", n => { EncryptedPfxPassword = n.GetStringValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<UserPfxIntendedPurpose>(); } },
-                {"keyName", n => { KeyName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"paddingScheme", n => { PaddingScheme = n.GetEnumValue<UserPfxPaddingScheme>(); } },
-                {"providerName", n => { ProviderName = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"thumbprint", n => { Thumbprint = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "encryptedPfxBlob", n => { EncryptedPfxBlob = n.GetByteArrayValue(); } },
+                { "encryptedPfxPassword", n => { EncryptedPfxPassword = n.GetStringValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<UserPfxIntendedPurpose>(); } },
+                { "keyName", n => { KeyName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "paddingScheme", n => { PaddingScheme = n.GetEnumValue<UserPfxPaddingScheme>(); } },
+                { "providerName", n => { ProviderName = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "thumbprint", n => { Thumbprint = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

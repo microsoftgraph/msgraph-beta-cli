@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Subtotal {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Subtotal
+{
     #pragma warning disable CS1591
-    public class SubtotalPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SubtotalPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Subtotal {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"functionNum", n => { FunctionNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "functionNum", n => { FunctionNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

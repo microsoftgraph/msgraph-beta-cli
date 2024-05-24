@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A setting instance representing a boolean value
     /// </summary>
-    public class DeviceManagementBooleanSettingInstance : DeviceManagementSettingInstance, IParsable 
+    public class DeviceManagementBooleanSettingInstance : DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The boolean value</summary>
         public bool? Value { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>

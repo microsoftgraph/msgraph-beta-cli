@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MembershipOutlierInsight : GovernanceInsight, IParsable 
+    public class MembershipOutlierInsight : GovernanceInsight, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Navigation link to the container directory object. For example, to a group.</summary>
@@ -78,13 +79,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"container", n => { Container = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
-                {"containerId", n => { ContainerId = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<User>(User.CreateFromDiscriminatorValue); } },
-                {"member", n => { Member = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
-                {"memberId", n => { MemberId = n.GetStringValue(); } },
-                {"outlierContainerType", n => { OutlierContainerType = n.GetEnumValue<OutlierContainerType>(); } },
-                {"outlierMemberType", n => { OutlierMemberType = n.GetEnumValue<OutlierMemberType>(); } },
+                { "container", n => { Container = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "containerId", n => { ContainerId = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<User>(User.CreateFromDiscriminatorValue); } },
+                { "member", n => { Member = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "memberId", n => { MemberId = n.GetStringValue(); } },
+                { "outlierContainerType", n => { OutlierContainerType = n.GetEnumValue<OutlierContainerType>(); } },
+                { "outlierMemberType", n => { OutlierMemberType = n.GetEnumValue<OutlierMemberType>(); } },
             };
         }
         /// <summary>

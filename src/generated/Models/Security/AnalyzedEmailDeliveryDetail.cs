@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AnalyzedEmailDeliveryDetail : IAdditionalDataHolder, IParsable 
+    public class AnalyzedEmailDeliveryDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The delivery action of the email. The possible values are: unknown, deliveredToJunk, delivered, blocked, replaced, unknownFutureValue.</summary>
@@ -48,9 +49,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<DeliveryAction>(); } },
-                {"location", n => { Location = n.GetEnumValue<DeliveryLocation>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<DeliveryAction>(); } },
+                { "location", n => { Location = n.GetEnumValue<DeliveryLocation>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

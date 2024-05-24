@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ApplePushNotificationCertificate.DownloadApplePushNotificationCertificateSigningRequest {
+namespace ApiSdk.DeviceManagement.ApplePushNotificationCertificate.DownloadApplePushNotificationCertificateSigningRequest
+{
     /// <summary>
     /// Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
     /// </summary>
-    public class DownloadApplePushNotificationCertificateSigningRequestRequestBuilder : BaseCliRequestBuilder 
+    public class DownloadApplePushNotificationCertificateSigningRequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Download Apple push notification certificate signing request

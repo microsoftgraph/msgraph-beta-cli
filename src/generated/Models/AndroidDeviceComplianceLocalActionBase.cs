@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Local Action Configuration
     /// </summary>
-    public class AndroidDeviceComplianceLocalActionBase : Entity, IParsable 
+    public class AndroidDeviceComplianceLocalActionBase : Entity, IParsable
     {
         /// <summary>Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647</summary>
         public int? GracePeriodInMinutes { get; set; }
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"gracePeriodInMinutes", n => { GracePeriodInMinutes = n.GetIntValue(); } },
+                { "gracePeriodInMinutes", n => { GracePeriodInMinutes = n.GetIntValue(); } },
             };
         }
         /// <summary>

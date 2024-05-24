@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
+namespace ApiSdk.Policies.FederatedTokenValidationPolicy
+{
     /// <summary>
     /// Provides operations to manage the federatedTokenValidationPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class FederatedTokenValidationPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class FederatedTokenValidationPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property federatedTokenValidationPolicy for policies
@@ -50,13 +51,14 @@ namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
             return command;
         }
         /// <summary>
-        /// Represents a policy to control enabling or disabling validation of federation authentication tokens.
+        /// Get a list of the federatedTokenValidationPolicy objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/policyroot-list-federatedtokenvalidationpolicy?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a policy to control enabling or disabling validation of federation authentication tokens.";
+            command.Description = "Get a list of the federatedTokenValidationPolicy objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/policyroot-list-federatedtokenvalidationpolicy?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
             return command;
         }
         /// <summary>
-        /// Update the navigation property federatedTokenValidationPolicy in policies
+        /// Update the properties of a federatedTokenValidationPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property federatedTokenValidationPolicy in policies";
+            command.Description = "Update the properties of a federatedTokenValidationPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a policy to control enabling or disabling validation of federation authentication tokens.
+        /// Get a list of the federatedTokenValidationPolicy objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property federatedTokenValidationPolicy in policies
+        /// Update the properties of a federatedTokenValidationPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Policies.FederatedTokenValidationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a policy to control enabling or disabling validation of federation authentication tokens.
+        /// Get a list of the federatedTokenValidationPolicy objects and their properties.
         /// </summary>
         public class FederatedTokenValidationPolicyRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows X VPN configuration profile
     /// </summary>
-    public class Windows10XVpnConfiguration : DeviceManagementResourceAccessProfileBase, IParsable 
+    public class Windows10XVpnConfiguration : DeviceManagementResourceAccessProfileBase, IParsable
     {
         /// <summary>ID to the Authentication Certificate</summary>
         public Guid? AuthenticationCertificateId { get; set; }
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationCertificateId", n => { AuthenticationCertificateId = n.GetGuidValue(); } },
-                {"customXml", n => { CustomXml = n.GetByteArrayValue(); } },
-                {"customXmlFileName", n => { CustomXmlFileName = n.GetStringValue(); } },
+                { "authenticationCertificateId", n => { AuthenticationCertificateId = n.GetGuidValue(); } },
+                { "customXml", n => { CustomXml = n.GetByteArrayValue(); } },
+                { "customXmlFileName", n => { CustomXmlFileName = n.GetStringValue(); } },
             };
         }
         /// <summary>

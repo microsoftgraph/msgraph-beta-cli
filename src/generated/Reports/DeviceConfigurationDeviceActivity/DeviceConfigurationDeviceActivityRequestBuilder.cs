@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.DeviceConfigurationDeviceActivity {
+namespace ApiSdk.Reports.DeviceConfigurationDeviceActivity
+{
     /// <summary>
     /// Provides operations to call the deviceConfigurationDeviceActivity method.
     /// </summary>
-    public class DeviceConfigurationDeviceActivityRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationDeviceActivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Metadata for the device configuration device activity report

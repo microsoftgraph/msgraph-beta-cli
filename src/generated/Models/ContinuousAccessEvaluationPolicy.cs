@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ContinuousAccessEvaluationPolicy : Entity, IParsable 
+    public class ContinuousAccessEvaluationPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Continuous access evaluation automatically blocks access to resources and applications in near real time when a user&apos;s access is removed or a client IP address changes. Read-only.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"groups", n => { Groups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"migrate", n => { Migrate = n.GetBoolValue(); } },
-                {"users", n => { Users = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "migrate", n => { Migrate = n.GetBoolValue(); } },
+                { "users", n => { Users = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

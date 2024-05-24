@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.DeviceStates.Item {
+namespace ApiSdk.DeviceManagement.Intents.Item.DeviceStates.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceStates property of the microsoft.graph.deviceManagementIntent entity.
     /// </summary>
-    public class DeviceManagementIntentDeviceStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementIntentDeviceStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceStates for deviceManagement

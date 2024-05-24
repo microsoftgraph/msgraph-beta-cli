@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// BitLocker Fixed Drive Policies.
     /// </summary>
-    public class BitLockerFixedDrivePolicy : IAdditionalDataHolder, IParsable 
+    public class BitLockerFixedDrivePolicy : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -57,10 +58,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<BitLockerEncryptionMethod>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"recoveryOptions", n => { RecoveryOptions = n.GetObjectValue<BitLockerRecoveryOptions>(BitLockerRecoveryOptions.CreateFromDiscriminatorValue); } },
-                {"requireEncryptionForWriteAccess", n => { RequireEncryptionForWriteAccess = n.GetBoolValue(); } },
+                { "encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<BitLockerEncryptionMethod>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "recoveryOptions", n => { RecoveryOptions = n.GetObjectValue<BitLockerRecoveryOptions>(BitLockerRecoveryOptions.CreateFromDiscriminatorValue); } },
+                { "requireEncryptionForWriteAccess", n => { RequireEncryptionForWriteAccess = n.GetBoolValue(); } },
             };
         }
         /// <summary>

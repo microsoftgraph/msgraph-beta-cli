@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.Presences.Item.SetPresence {
+namespace ApiSdk.Communications.Presences.Item.SetPresence
+{
     #pragma warning disable CS1591
-    public class SetPresencePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetPresencePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activity property</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Communications.Presences.Item.SetPresence {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activity", n => { Activity = n.GetStringValue(); } },
-                {"availability", n => { Availability = n.GetStringValue(); } },
-                {"expirationDuration", n => { ExpirationDuration = n.GetTimeSpanValue(); } },
-                {"sessionId", n => { SessionId = n.GetStringValue(); } },
+                { "activity", n => { Activity = n.GetStringValue(); } },
+                { "availability", n => { Availability = n.GetStringValue(); } },
+                { "expirationDuration", n => { ExpirationDuration = n.GetTimeSpanValue(); } },
+                { "sessionId", n => { SessionId = n.GetStringValue(); } },
             };
         }
         /// <summary>

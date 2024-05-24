@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class BlockFileResponseAction : ResponseAction, IParsable 
+    public class BlockFileResponseAction : ResponseAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Device groups to which the actions set in the custom detection rule are applied. More information</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceGroupNames", n => { DeviceGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"identifier", n => { Identifier = n.GetEnumValue<FileEntityIdentifier>(); } },
+                { "deviceGroupNames", n => { DeviceGroupNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "identifier", n => { Identifier = n.GetEnumValue<FileEntityIdentifier>(); } },
             };
         }
         /// <summary>

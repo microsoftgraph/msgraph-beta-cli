@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Policy status detail item contained by an autopilot event.
     /// </summary>
-    public class DeviceManagementAutopilotPolicyStatusDetail : Entity, IParsable 
+    public class DeviceManagementAutopilotPolicyStatusDetail : Entity, IParsable
     {
         /// <summary>The complianceStatus property</summary>
         public DeviceManagementAutopilotPolicyComplianceStatus? ComplianceStatus { get; set; }
@@ -46,12 +47,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"complianceStatus", n => { ComplianceStatus = n.GetEnumValue<DeviceManagementAutopilotPolicyComplianceStatus>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
-                {"lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"policyType", n => { PolicyType = n.GetEnumValue<DeviceManagementAutopilotPolicyType>(); } },
-                {"trackedOnEnrollmentStatus", n => { TrackedOnEnrollmentStatus = n.GetBoolValue(); } },
+                { "complianceStatus", n => { ComplianceStatus = n.GetEnumValue<DeviceManagementAutopilotPolicyComplianceStatus>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
+                { "lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<DeviceManagementAutopilotPolicyType>(); } },
+                { "trackedOnEnrollmentStatus", n => { TrackedOnEnrollmentStatus = n.GetBoolValue(); } },
             };
         }
         /// <summary>

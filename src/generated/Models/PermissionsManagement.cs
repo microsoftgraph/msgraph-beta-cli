@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionsManagement : Entity, IParsable 
+    public class PermissionsManagement : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a change event of the scheduledPermissionsRequest entity.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"permissionsRequestChanges", n => { PermissionsRequestChanges = n.GetCollectionOfObjectValues<PermissionsRequestChange>(PermissionsRequestChange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"scheduledPermissionsApprovals", n => { ScheduledPermissionsApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"scheduledPermissionsRequests", n => { ScheduledPermissionsRequests = n.GetCollectionOfObjectValues<ScheduledPermissionsRequest>(ScheduledPermissionsRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "permissionsRequestChanges", n => { PermissionsRequestChanges = n.GetCollectionOfObjectValues<PermissionsRequestChange>(PermissionsRequestChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scheduledPermissionsApprovals", n => { ScheduledPermissionsApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scheduledPermissionsRequests", n => { ScheduledPermissionsRequests = n.GetCollectionOfObjectValues<ScheduledPermissionsRequest>(ScheduledPermissionsRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

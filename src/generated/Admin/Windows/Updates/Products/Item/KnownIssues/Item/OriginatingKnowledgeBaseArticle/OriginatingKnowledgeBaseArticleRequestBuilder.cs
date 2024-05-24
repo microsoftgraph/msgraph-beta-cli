@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.OriginatingKnowledgeBaseArticle {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.OriginatingKnowledgeBaseArticle
+{
     /// <summary>
     /// Provides operations to manage the originatingKnowledgeBaseArticle property of the microsoft.graph.windowsUpdates.knownIssue entity.
     /// </summary>
-    public class OriginatingKnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder 
+    public class OriginatingKnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property originatingKnowledgeBaseArticle for admin

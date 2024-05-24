@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Item {
+namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \identity\b2cUserFlows\{b2cIdentityUserFlow-id}\identityProviders\{identityProvider-id}
     /// </summary>
-    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of identityContainer entities.

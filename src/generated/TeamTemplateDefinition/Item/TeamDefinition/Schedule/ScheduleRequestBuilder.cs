@@ -27,11 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule
+{
     /// <summary>
     /// Provides operations to manage the schedule property of the microsoft.graph.team entity.
     /// </summary>
-    public class ScheduleRequestBuilder : BaseCliRequestBuilder 
+    public class ScheduleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dayNotes property of the microsoft.graph.schedule entity.

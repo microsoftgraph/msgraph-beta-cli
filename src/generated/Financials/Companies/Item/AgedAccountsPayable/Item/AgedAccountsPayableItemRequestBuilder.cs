@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.AgedAccountsPayable.Item {
+namespace ApiSdk.Financials.Companies.Item.AgedAccountsPayable.Item
+{
     /// <summary>
     /// Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
     /// </summary>
-    public class AgedAccountsPayableItemRequestBuilder : BaseCliRequestBuilder 
+    public class AgedAccountsPayableItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get agedAccountsPayable from financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.AgedAccountsPayable.Item {
         {
             var command = new Command("get");
             command.Description = "Get agedAccountsPayable from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var agedAccountsPayableIdOption = new Option<string>("--aged-accounts-payable-id", description: "The unique identifier of agedAccountsPayable") {
+            var agedAccountsPayableIdOption = new Option<Guid?>("--aged-accounts-payable-id", description: "The unique identifier of agedAccountsPayable") {
             };
             agedAccountsPayableIdOption.IsRequired = true;
             command.AddOption(agedAccountsPayableIdOption);

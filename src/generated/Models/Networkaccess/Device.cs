@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Device : IAdditionalDataHolder, IParsable 
+    public class Device : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -74,13 +75,13 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
-                {"lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
-                {"trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
+                { "lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
             };
         }
         /// <summary>

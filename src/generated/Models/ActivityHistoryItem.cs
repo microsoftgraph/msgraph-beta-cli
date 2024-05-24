@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ActivityHistoryItem : Entity, IParsable 
+    public class ActivityHistoryItem : Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The activeDurationSeconds property</summary>
+        /// <summary>Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.</summary>
         public int? ActiveDurationSeconds { get; set; }
         /// <summary>The activity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -19,19 +20,19 @@ namespace ApiSdk.Models {
 #else
         public UserActivity Activity { get; set; }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Set by the server. DateTime in UTC when the object was created on the server.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The expirationDateTime property</summary>
+        /// <summary>Optional. UTC DateTime when the activityHistoryItem will undergo hard-delete. Can be set by the client.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
-        /// <summary>The lastActiveDateTime property</summary>
+        /// <summary>Optional. UTC DateTime when the activityHistoryItem (activity session) was last understood as active or finished - if null, activityHistoryItem status should be Ongoing.</summary>
         public DateTimeOffset? LastActiveDateTime { get; set; }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>Set by the server. DateTime in UTC when the object was modified on the server.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The startedDateTime property</summary>
+        /// <summary>Required. UTC DateTime when the activityHistoryItem (activity session) was started. Required for timeline history.</summary>
         public DateTimeOffset? StartedDateTime { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.</summary>
         public ApiSdk.Models.Status? Status { get; set; }
-        /// <summary>The userTimezone property</summary>
+        /// <summary>Optional. The timezone in which the user&apos;s device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserTimezone { get; set; }
@@ -57,15 +58,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeDurationSeconds", n => { ActiveDurationSeconds = n.GetIntValue(); } },
-                {"activity", n => { Activity = n.GetObjectValue<UserActivity>(UserActivity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastActiveDateTime", n => { LastActiveDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"startedDateTime", n => { StartedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<Status>(); } },
-                {"userTimezone", n => { UserTimezone = n.GetStringValue(); } },
+                { "activeDurationSeconds", n => { ActiveDurationSeconds = n.GetIntValue(); } },
+                { "activity", n => { Activity = n.GetObjectValue<UserActivity>(UserActivity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastActiveDateTime", n => { LastActiveDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "startedDateTime", n => { StartedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<Status>(); } },
+                { "userTimezone", n => { UserTimezone = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets {
+namespace ApiSdk.TrustFramework.KeySets
+{
     /// <summary>
     /// Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
     /// </summary>
-    public class KeySetsRequestBuilder : BaseCliRequestBuilder 
+    public class KeySetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
@@ -35,6 +36,7 @@ namespace ApiSdk.TrustFramework.KeySets {
             commands.Add(builder.BuildGenerateKeyNavCommand());
             commands.Add(builder.BuildGetActiveKeyNavCommand());
             executables.Add(builder.BuildGetCommand());
+            commands.Add(builder.BuildKeys_v2NavCommand());
             executables.Add(builder.BuildPatchCommand());
             commands.Add(builder.BuildUploadCertificateNavCommand());
             commands.Add(builder.BuildUploadPkcs12NavCommand());
@@ -59,13 +61,14 @@ namespace ApiSdk.TrustFramework.KeySets {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to keySets for trustFramework
+        /// Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframework-post-keysets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to keySets for trustFramework";
+            command.Description = "Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframework-post-keysets?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -104,13 +107,14 @@ namespace ApiSdk.TrustFramework.KeySets {
             return command;
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve a list of trustFrameworkKeySets.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframework-list-keysets?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get keySets from trustFramework";
+            command.Description = "Retrieve a list of trustFrameworkKeySets.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframework-list-keysets?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -186,7 +190,9 @@ namespace ApiSdk.TrustFramework.KeySets {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -212,7 +218,7 @@ namespace ApiSdk.TrustFramework.KeySets {
         {
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve a list of trustFrameworkKeySets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -231,7 +237,7 @@ namespace ApiSdk.TrustFramework.KeySets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to keySets for trustFramework
+        /// Create a new trustFrameworkKeySet. The ID of the trustFrameworkKeySet is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -252,7 +258,7 @@ namespace ApiSdk.TrustFramework.KeySets {
             return requestInfo;
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve a list of trustFrameworkKeySets.
         /// </summary>
         public class KeySetsRequestBuilderGetQueryParameters 
         {

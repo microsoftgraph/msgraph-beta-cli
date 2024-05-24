@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ShareForSchoolDataSyncService {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ShareForSchoolDataSyncService
+{
     /// <summary>
     /// Provides operations to call the shareForSchoolDataSyncService method.
     /// </summary>
-    public class ShareForSchoolDataSyncServiceRequestBuilder : BaseCliRequestBuilder 
+    public class ShareForSchoolDataSyncServiceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action shareForSchoolDataSyncService

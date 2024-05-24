@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365GroupsActivityFileCounts : Entity, IParsable 
+    public class Office365GroupsActivityFileCounts : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of files that were viewed, edited, shared, or synced in the group&apos;s SharePoint document library.</summary>
@@ -44,11 +45,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"active", n => { Active = n.GetLongValue(); } },
-                {"reportDate", n => { ReportDate = n.GetDateValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"total", n => { Total = n.GetLongValue(); } },
+                { "active", n => { Active = n.GetLongValue(); } },
+                { "reportDate", n => { ReportDate = n.GetDateValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "total", n => { Total = n.GetLongValue(); } },
             };
         }
         /// <summary>

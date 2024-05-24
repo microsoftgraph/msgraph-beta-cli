@@ -14,21 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders.Item {
+namespace ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders.Item
+{
     /// <summary>
     /// Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
     /// </summary>
-    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProviderItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get identityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get identityProviders from identity";
+            command.Description = "The identity providers included in the user flow.";
             var b2xIdentityUserFlowIdOption = new Option<string>("--b2x-identity-user-flow-id", description: "The unique identifier of b2xIdentityUserFlow") {
             };
             b2xIdentityUserFlowIdOption.IsRequired = true;
@@ -94,7 +95,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders.Item {
         {
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +115,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         public class IdentityProviderItemRequestBuilderGetQueryParameters 
         {

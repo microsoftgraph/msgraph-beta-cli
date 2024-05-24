@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CommunicationsUserIdentity : Identity, IParsable 
+    public class CommunicationsUserIdentity : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user&apos;s tenant ID.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

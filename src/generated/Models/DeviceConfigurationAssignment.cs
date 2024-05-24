@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The device configuration assignment entity assigns an AAD group to a specific device configuration.
     /// </summary>
-    public class DeviceConfigurationAssignment : Entity, IParsable 
+    public class DeviceConfigurationAssignment : Entity, IParsable
     {
         /// <summary>The admin intent to apply or remove the profile. Possible values are: apply, remove.</summary>
         public DeviceConfigAssignmentIntent? Intent { get; set; }
@@ -48,10 +49,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"intent", n => { Intent = n.GetEnumValue<DeviceConfigAssignmentIntent>(); } },
-                {"source", n => { Source = n.GetEnumValue<DeviceAndAppManagementAssignmentSource>(); } },
-                {"sourceId", n => { SourceId = n.GetStringValue(); } },
-                {"target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "intent", n => { Intent = n.GetEnumValue<DeviceConfigAssignmentIntent>(); } },
+                { "source", n => { Source = n.GetEnumValue<DeviceAndAppManagementAssignmentSource>(); } },
+                { "sourceId", n => { SourceId = n.GetStringValue(); } },
+                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

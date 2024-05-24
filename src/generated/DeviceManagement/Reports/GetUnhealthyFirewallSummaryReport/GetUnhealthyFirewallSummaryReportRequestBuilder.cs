@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetUnhealthyFirewallSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetUnhealthyFirewallSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getUnhealthyFirewallSummaryReport method.
     /// </summary>
-    public class GetUnhealthyFirewallSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetUnhealthyFirewallSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getUnhealthyFirewallSummaryReport

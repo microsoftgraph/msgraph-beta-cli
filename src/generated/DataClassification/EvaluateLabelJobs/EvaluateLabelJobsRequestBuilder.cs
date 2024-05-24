@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.EvaluateLabelJobs {
+namespace ApiSdk.DataClassification.EvaluateLabelJobs
+{
     /// <summary>
     /// Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class EvaluateLabelJobsRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateLabelJobsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
@@ -180,7 +181,9 @@ namespace ApiSdk.DataClassification.EvaluateLabelJobs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

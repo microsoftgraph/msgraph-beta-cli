@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Sites.Item.InformationProtection.SignDigest {
+namespace ApiSdk.Sites.Item.InformationProtection.SignDigest
+{
     #pragma warning disable CS1591
-    public class SignDigestPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SignDigestPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.SignDigest {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"digest", n => { Digest = n.GetByteArrayValue(); } },
+                { "digest", n => { Digest = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

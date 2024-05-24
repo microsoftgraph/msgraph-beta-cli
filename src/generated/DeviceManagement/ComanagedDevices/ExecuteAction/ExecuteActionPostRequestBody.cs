@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.ExecuteAction {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.ExecuteAction
+{
     #pragma warning disable CS1591
-    public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExecuteActionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionName property</summary>
@@ -101,17 +102,17 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.ExecuteAction {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionName", n => { ActionName = n.GetEnumValue<ManagedDeviceRemoteAction>(); } },
-                {"carrierUrl", n => { CarrierUrl = n.GetStringValue(); } },
-                {"deprovisionReason", n => { DeprovisionReason = n.GetStringValue(); } },
-                {"deviceIds", n => { DeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
-                {"keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
-                {"notificationBody", n => { NotificationBody = n.GetStringValue(); } },
-                {"notificationTitle", n => { NotificationTitle = n.GetStringValue(); } },
-                {"organizationalUnitPath", n => { OrganizationalUnitPath = n.GetStringValue(); } },
-                {"persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<ManagedDeviceRemoteAction>(); } },
+                { "carrierUrl", n => { CarrierUrl = n.GetStringValue(); } },
+                { "deprovisionReason", n => { DeprovisionReason = n.GetStringValue(); } },
+                { "deviceIds", n => { DeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
+                { "keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
+                { "notificationBody", n => { NotificationBody = n.GetStringValue(); } },
+                { "notificationTitle", n => { NotificationTitle = n.GetStringValue(); } },
+                { "organizationalUnitPath", n => { OrganizationalUnitPath = n.GetStringValue(); } },
+                { "persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on a Windows device
     /// </summary>
-    public class WindowsManagedAppProtection : ManagedAppPolicy, IParsable 
+    public class WindowsManagedAppProtection : ManagedAppPolicy, IParsable
     {
         /// <summary>Data can be transferred from/to these classes of apps</summary>
         public WindowsManagedAppDataTransferLevel? AllowedInboundDataTransferSources { get; set; }
@@ -169,31 +170,31 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedInboundDataTransferSources", n => { AllowedInboundDataTransferSources = n.GetEnumValue<WindowsManagedAppDataTransferLevel>(); } },
-                {"allowedOutboundClipboardSharingLevel", n => { AllowedOutboundClipboardSharingLevel = n.GetEnumValue<WindowsManagedAppClipboardSharingLevel>(); } },
-                {"allowedOutboundDataTransferDestinations", n => { AllowedOutboundDataTransferDestinations = n.GetEnumValue<WindowsManagedAppDataTransferLevel>(); } },
-                {"appActionIfUnableToAuthenticateUser", n => { AppActionIfUnableToAuthenticateUser = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
-                {"maximumAllowedDeviceThreatLevel", n => { MaximumAllowedDeviceThreatLevel = n.GetEnumValue<ManagedAppDeviceThreatLevel>(); } },
-                {"maximumRequiredOsVersion", n => { MaximumRequiredOsVersion = n.GetStringValue(); } },
-                {"maximumWarningOsVersion", n => { MaximumWarningOsVersion = n.GetStringValue(); } },
-                {"maximumWipeOsVersion", n => { MaximumWipeOsVersion = n.GetStringValue(); } },
-                {"minimumRequiredAppVersion", n => { MinimumRequiredAppVersion = n.GetStringValue(); } },
-                {"minimumRequiredOsVersion", n => { MinimumRequiredOsVersion = n.GetStringValue(); } },
-                {"minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
-                {"minimumWarningAppVersion", n => { MinimumWarningAppVersion = n.GetStringValue(); } },
-                {"minimumWarningOsVersion", n => { MinimumWarningOsVersion = n.GetStringValue(); } },
-                {"minimumWipeAppVersion", n => { MinimumWipeAppVersion = n.GetStringValue(); } },
-                {"minimumWipeOsVersion", n => { MinimumWipeOsVersion = n.GetStringValue(); } },
-                {"minimumWipeSdkVersion", n => { MinimumWipeSdkVersion = n.GetStringValue(); } },
-                {"mobileThreatDefenseRemediationAction", n => { MobileThreatDefenseRemediationAction = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                {"periodOfflineBeforeAccessCheck", n => { PeriodOfflineBeforeAccessCheck = n.GetTimeSpanValue(); } },
-                {"periodOfflineBeforeWipeIsEnforced", n => { PeriodOfflineBeforeWipeIsEnforced = n.GetTimeSpanValue(); } },
-                {"printBlocked", n => { PrintBlocked = n.GetBoolValue(); } },
+                { "allowedInboundDataTransferSources", n => { AllowedInboundDataTransferSources = n.GetEnumValue<WindowsManagedAppDataTransferLevel>(); } },
+                { "allowedOutboundClipboardSharingLevel", n => { AllowedOutboundClipboardSharingLevel = n.GetEnumValue<WindowsManagedAppClipboardSharingLevel>(); } },
+                { "allowedOutboundDataTransferDestinations", n => { AllowedOutboundDataTransferDestinations = n.GetEnumValue<WindowsManagedAppDataTransferLevel>(); } },
+                { "appActionIfUnableToAuthenticateUser", n => { AppActionIfUnableToAuthenticateUser = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                { "isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
+                { "maximumAllowedDeviceThreatLevel", n => { MaximumAllowedDeviceThreatLevel = n.GetEnumValue<ManagedAppDeviceThreatLevel>(); } },
+                { "maximumRequiredOsVersion", n => { MaximumRequiredOsVersion = n.GetStringValue(); } },
+                { "maximumWarningOsVersion", n => { MaximumWarningOsVersion = n.GetStringValue(); } },
+                { "maximumWipeOsVersion", n => { MaximumWipeOsVersion = n.GetStringValue(); } },
+                { "minimumRequiredAppVersion", n => { MinimumRequiredAppVersion = n.GetStringValue(); } },
+                { "minimumRequiredOsVersion", n => { MinimumRequiredOsVersion = n.GetStringValue(); } },
+                { "minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
+                { "minimumWarningAppVersion", n => { MinimumWarningAppVersion = n.GetStringValue(); } },
+                { "minimumWarningOsVersion", n => { MinimumWarningOsVersion = n.GetStringValue(); } },
+                { "minimumWipeAppVersion", n => { MinimumWipeAppVersion = n.GetStringValue(); } },
+                { "minimumWipeOsVersion", n => { MinimumWipeOsVersion = n.GetStringValue(); } },
+                { "minimumWipeSdkVersion", n => { MinimumWipeSdkVersion = n.GetStringValue(); } },
+                { "mobileThreatDefenseRemediationAction", n => { MobileThreatDefenseRemediationAction = n.GetEnumValue<ManagedAppRemediationAction>(); } },
+                { "periodOfflineBeforeAccessCheck", n => { PeriodOfflineBeforeAccessCheck = n.GetTimeSpanValue(); } },
+                { "periodOfflineBeforeWipeIsEnforced", n => { PeriodOfflineBeforeWipeIsEnforced = n.GetTimeSpanValue(); } },
+                { "printBlocked", n => { PrintBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

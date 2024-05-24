@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item.RoleAssignmentRequests.Count {
+namespace ApiSdk.GovernanceResources.Item.RoleAssignmentRequests.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource

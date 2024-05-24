@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
+namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item
+{
     /// <summary>
     /// Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeCardItemRequestBuilder : BaseCliRequestBuilder 
+    public class TimeCardItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the clockOut method.
@@ -59,13 +60,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property timeCards for teams
+        /// Delete a timeCard instance in a schedule.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property timeCards for teams";
+            command.Description = "Delete a timeCard instance in a schedule.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-delete?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -117,13 +119,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return command;
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Get the properties and relationships of a timeCard object by ID.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The time cards in the schedule.";
+            command.Description = "Get the properties and relationships of a timeCard object by ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-get?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -175,13 +178,14 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property timeCards in teams
+        /// Replace an existing timeCard with updated values.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/timecard-replace?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property timeCards in teams";
+            command.Description = "Replace an existing timeCard with updated values.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/timecard-replace?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -263,7 +267,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property timeCards for teams
+        /// Delete a timeCard instance in a schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -282,7 +286,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Get the properties and relationships of a timeCard object by ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -301,7 +305,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property timeCards in teams
+        /// Replace an existing timeCard with updated values.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -322,7 +326,7 @@ namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The time cards in the schedule.
+        /// Get the properties and relationships of a timeCard object by ID.
         /// </summary>
         public class TimeCardItemRequestBuilderGetQueryParameters 
         {

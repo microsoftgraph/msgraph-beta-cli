@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.AreGlobalScriptsAvailable {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.AreGlobalScriptsAvailable
+{
     /// <summary>
     /// Provides operations to call the areGlobalScriptsAvailable method.
     /// </summary>
-    public class AreGlobalScriptsAvailableRequestBuilder : BaseCliRequestBuilder 
+    public class AreGlobalScriptsAvailableRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function areGlobalScriptsAvailable

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SecureScore : Entity, IParsable 
+    public class SecureScore : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Active user count of the given tenant.</summary>
@@ -77,16 +78,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeUserCount", n => { ActiveUserCount = n.GetIntValue(); } },
-                {"averageComparativeScores", n => { AverageComparativeScores = n.GetCollectionOfObjectValues<AverageComparativeScore>(AverageComparativeScore.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"controlScores", n => { ControlScores = n.GetCollectionOfObjectValues<ControlScore>(ControlScore.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"currentScore", n => { CurrentScore = n.GetDoubleValue(); } },
-                {"enabledServices", n => { EnabledServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"licensedUserCount", n => { LicensedUserCount = n.GetIntValue(); } },
-                {"maxScore", n => { MaxScore = n.GetDoubleValue(); } },
-                {"vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "activeUserCount", n => { ActiveUserCount = n.GetIntValue(); } },
+                { "averageComparativeScores", n => { AverageComparativeScores = n.GetCollectionOfObjectValues<AverageComparativeScore>(AverageComparativeScore.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
+                { "controlScores", n => { ControlScores = n.GetCollectionOfObjectValues<ControlScore>(ControlScore.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "currentScore", n => { CurrentScore = n.GetDoubleValue(); } },
+                { "enabledServices", n => { EnabledServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "licensedUserCount", n => { LicensedUserCount = n.GetIntValue(); } },
+                { "maxScore", n => { MaxScore = n.GetDoubleValue(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDataSyncService {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDataSyncService
+{
     /// <summary>
     /// Provides operations to call the unshareForSchoolDataSyncService method.
     /// </summary>
-    public class UnshareForSchoolDataSyncServiceRequestBuilder : BaseCliRequestBuilder 
+    public class UnshareForSchoolDataSyncServiceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action unshareForSchoolDataSyncService

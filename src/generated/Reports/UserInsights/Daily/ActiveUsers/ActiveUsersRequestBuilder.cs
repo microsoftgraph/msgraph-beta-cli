@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers {
+namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers
+{
     /// <summary>
     /// Provides operations to manage the activeUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class ActiveUsersRequestBuilder : BaseCliRequestBuilder 
+    public class ActiveUsersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activeUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers {
             return command;
         }
         /// <summary>
-        /// Insights for active users on apps registered in the tenant for a specified period.
+        /// Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-activeusers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Insights for active users on apps registered in the tenant for a specified period.";
+            command.Description = "Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-activeusers?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -133,7 +135,9 @@ namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -159,7 +163,7 @@ namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers {
         {
         }
         /// <summary>
-        /// Insights for active users on apps registered in the tenant for a specified period.
+        /// Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -178,7 +182,7 @@ namespace ApiSdk.Reports.UserInsights.Daily.ActiveUsers {
             return requestInfo;
         }
         /// <summary>
-        /// Insights for active users on apps registered in the tenant for a specified period.
+        /// Get a list of daily active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
         /// </summary>
         public class ActiveUsersRequestBuilderGetQueryParameters 
         {

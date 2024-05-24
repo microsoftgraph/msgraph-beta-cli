@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// License summary of a given app in a token.
     /// </summary>
-    public class VppTokenLicenseSummary : IAdditionalDataHolder, IParsable 
+    public class VppTokenLicenseSummary : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -73,12 +74,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appleId", n => { AppleId = n.GetStringValue(); } },
-                {"availableLicenseCount", n => { AvailableLicenseCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"organizationName", n => { OrganizationName = n.GetStringValue(); } },
-                {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
-                {"vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
+                { "appleId", n => { AppleId = n.GetStringValue(); } },
+                { "availableLicenseCount", n => { AvailableLicenseCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "organizationName", n => { OrganizationName = n.GetStringValue(); } },
+                { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
+                { "vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
             };
         }
         /// <summary>

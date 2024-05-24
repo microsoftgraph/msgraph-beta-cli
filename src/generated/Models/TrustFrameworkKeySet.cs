@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TrustFrameworkKeySet : Entity, IParsable 
+    public class TrustFrameworkKeySet : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of the keys.</summary>
@@ -16,6 +17,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<TrustFrameworkKey> Keys { get; set; }
+#endif
+        /// <summary>A collection of the keys.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TrustFrameworkKey_v2>? KeysV2 { get; set; }
+#nullable restore
+#else
+        public List<TrustFrameworkKey_v2> KeysV2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -35,7 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"keys", n => { Keys = n.GetCollectionOfObjectValues<TrustFrameworkKey>(TrustFrameworkKey.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keys", n => { Keys = n.GetCollectionOfObjectValues<TrustFrameworkKey>(TrustFrameworkKey.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keys_v2", n => { KeysV2 = n.GetCollectionOfObjectValues<TrustFrameworkKey_v2>(TrustFrameworkKey_v2.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,6 +57,7 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<TrustFrameworkKey>("keys", Keys);
+            writer.WriteCollectionOfObjectValues<TrustFrameworkKey_v2>("keys_v2", KeysV2);
         }
     }
 }

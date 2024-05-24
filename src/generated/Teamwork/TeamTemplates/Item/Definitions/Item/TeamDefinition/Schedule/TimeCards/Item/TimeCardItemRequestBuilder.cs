@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeCards.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeCards.Item
+{
     /// <summary>
     /// Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeCardItemRequestBuilder : BaseCliRequestBuilder 
+    public class TimeCardItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the clockOut method.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TypedEmailAddress : EmailAddress, IParsable 
+    public class TypedEmailAddress : EmailAddress, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>To specify a custom type of email address, set type to other, and assign otherLabel to a custom string. For example, you may use a specific email address for your volunteer activities. Set type to other, and set otherLabel to a custom string such as Volunteer work.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"otherLabel", n => { OtherLabel = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<EmailType>(); } },
+                { "otherLabel", n => { OtherLabel = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<EmailType>(); } },
             };
         }
         /// <summary>

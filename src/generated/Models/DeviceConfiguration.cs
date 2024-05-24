@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device Configuration.
     /// </summary>
-    public class DeviceConfiguration : Entity, IParsable 
+    public class DeviceConfiguration : Entity, IParsable
     {
         /// <summary>The list of assignments for the device configuration profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -281,23 +282,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceConfigurationAssignment>(DeviceConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceManagementApplicabilityRuleDeviceMode", n => { DeviceManagementApplicabilityRuleDeviceMode = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleDeviceMode>(ApiSdk.Models.DeviceManagementApplicabilityRuleDeviceMode.CreateFromDiscriminatorValue); } },
-                {"deviceManagementApplicabilityRuleOsEdition", n => { DeviceManagementApplicabilityRuleOsEdition = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition>(ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition.CreateFromDiscriminatorValue); } },
-                {"deviceManagementApplicabilityRuleOsVersion", n => { DeviceManagementApplicabilityRuleOsVersion = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion>(ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion.CreateFromDiscriminatorValue); } },
-                {"deviceSettingStateSummaries", n => { DeviceSettingStateSummaries = n.GetCollectionOfObjectValues<SettingStateDeviceSummary>(SettingStateDeviceSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deviceStatusOverview", n => { DeviceStatusOverview = n.GetObjectValue<DeviceConfigurationDeviceOverview>(DeviceConfigurationDeviceOverview.CreateFromDiscriminatorValue); } },
-                {"deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<DeviceConfigurationDeviceStatus>(DeviceConfigurationDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<DeviceConfigurationGroupAssignment>(DeviceConfigurationGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportsScopeTags", n => { SupportsScopeTags = n.GetBoolValue(); } },
-                {"userStatusOverview", n => { UserStatusOverview = n.GetObjectValue<DeviceConfigurationUserOverview>(DeviceConfigurationUserOverview.CreateFromDiscriminatorValue); } },
-                {"userStatuses", n => { UserStatuses = n.GetCollectionOfObjectValues<DeviceConfigurationUserStatus>(DeviceConfigurationUserStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceConfigurationAssignment>(DeviceConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceManagementApplicabilityRuleDeviceMode", n => { DeviceManagementApplicabilityRuleDeviceMode = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleDeviceMode>(ApiSdk.Models.DeviceManagementApplicabilityRuleDeviceMode.CreateFromDiscriminatorValue); } },
+                { "deviceManagementApplicabilityRuleOsEdition", n => { DeviceManagementApplicabilityRuleOsEdition = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition>(ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition.CreateFromDiscriminatorValue); } },
+                { "deviceManagementApplicabilityRuleOsVersion", n => { DeviceManagementApplicabilityRuleOsVersion = n.GetObjectValue<ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion>(ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion.CreateFromDiscriminatorValue); } },
+                { "deviceSettingStateSummaries", n => { DeviceSettingStateSummaries = n.GetCollectionOfObjectValues<SettingStateDeviceSummary>(SettingStateDeviceSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStatusOverview", n => { DeviceStatusOverview = n.GetObjectValue<DeviceConfigurationDeviceOverview>(DeviceConfigurationDeviceOverview.CreateFromDiscriminatorValue); } },
+                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<DeviceConfigurationDeviceStatus>(DeviceConfigurationDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<DeviceConfigurationGroupAssignment>(DeviceConfigurationGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportsScopeTags", n => { SupportsScopeTags = n.GetBoolValue(); } },
+                { "userStatusOverview", n => { UserStatusOverview = n.GetObjectValue<DeviceConfigurationUserOverview>(DeviceConfigurationUserOverview.CreateFromDiscriminatorValue); } },
+                { "userStatuses", n => { UserStatuses = n.GetCollectionOfObjectValues<DeviceConfigurationUserStatus>(DeviceConfigurationUserStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

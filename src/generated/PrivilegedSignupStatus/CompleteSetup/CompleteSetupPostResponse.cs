@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup {
+namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
+{
     #pragma warning disable CS1591
-    public class CompleteSetupPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class CompleteSetupPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<RoleSuccessStatistics>(RoleSuccessStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<RoleSuccessStatistics>(RoleSuccessStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.Provisioning {
+namespace ApiSdk.AuditLogs.Provisioning
+{
     /// <summary>
     /// Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
     /// </summary>
-    public class ProvisioningRequestBuilder : BaseCliRequestBuilder 
+    public class ProvisioningRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.AuditLogs.Provisioning {
             return command;
         }
         /// <summary>
-        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
+        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents an action performed by the Microsoft Entra provisioning service and its associated properties.";
+            command.Description = "Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.AuditLogs.Provisioning {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.AuditLogs.Provisioning {
         {
         }
         /// <summary>
-        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
+        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.AuditLogs.Provisioning {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
+        /// Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
         /// </summary>
         public class ProvisioningRequestBuilderGetQueryParameters 
         {

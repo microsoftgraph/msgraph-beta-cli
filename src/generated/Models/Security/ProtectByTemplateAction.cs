@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class ProtectByTemplateAction : InformationProtectionAction, IParsable 
+    public class ProtectByTemplateAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for a protection template in Microsoft Purview Information Protection to apply to the content.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

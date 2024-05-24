@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess {
+namespace ApiSdk.NetworkAccess
+{
     /// <summary>
     /// Provides operations to manage the networkAccessRoot singleton.
     /// </summary>
-    public class NetworkAccessRequestBuilder : BaseCliRequestBuilder 
+    public class NetworkAccessRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.
@@ -349,7 +350,7 @@ namespace ApiSdk.NetworkAccess {
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRbCommand());
-            nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimeRbCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRbCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRbCommand());
             execCommands.Add(builder.BuildPatchCommand());
             foreach (var cmd in execCommands)

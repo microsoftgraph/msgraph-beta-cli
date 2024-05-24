@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class HostSecurityProfile : Entity, IParsable 
+    public class HostSecurityProfile : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The azureSubscriptionId property</summary>
@@ -141,24 +142,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
-                {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fqdn", n => { Fqdn = n.GetStringValue(); } },
-                {"isAzureAdJoined", n => { IsAzureAdJoined = n.GetBoolValue(); } },
-                {"isAzureAdRegistered", n => { IsAzureAdRegistered = n.GetBoolValue(); } },
-                {"isHybridAzureDomainJoined", n => { IsHybridAzureDomainJoined = n.GetBoolValue(); } },
-                {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"logonUsers", n => { LogonUsers = n.GetCollectionOfObjectValues<LogonUser>(LogonUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"netBiosName", n => { NetBiosName = n.GetStringValue(); } },
-                {"networkInterfaces", n => { NetworkInterfaces = n.GetCollectionOfObjectValues<NetworkInterface>(NetworkInterface.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"os", n => { Os = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"parentHost", n => { ParentHost = n.GetStringValue(); } },
-                {"relatedHostIds", n => { RelatedHostIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"riskScore", n => { RiskScore = n.GetStringValue(); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
+                { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
+                { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fqdn", n => { Fqdn = n.GetStringValue(); } },
+                { "isAzureAdJoined", n => { IsAzureAdJoined = n.GetBoolValue(); } },
+                { "isAzureAdRegistered", n => { IsAzureAdRegistered = n.GetBoolValue(); } },
+                { "isHybridAzureDomainJoined", n => { IsHybridAzureDomainJoined = n.GetBoolValue(); } },
+                { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "logonUsers", n => { LogonUsers = n.GetCollectionOfObjectValues<LogonUser>(LogonUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "netBiosName", n => { NetBiosName = n.GetStringValue(); } },
+                { "networkInterfaces", n => { NetworkInterfaces = n.GetCollectionOfObjectValues<NetworkInterface>(NetworkInterface.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "os", n => { Os = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "parentHost", n => { ParentHost = n.GetStringValue(); } },
+                { "relatedHostIds", n => { RelatedHostIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "riskScore", n => { RiskScore = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

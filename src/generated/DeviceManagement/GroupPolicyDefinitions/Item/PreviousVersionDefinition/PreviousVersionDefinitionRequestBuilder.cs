@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.PreviousVersionDefinition {
+namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.PreviousVersionDefinition
+{
     /// <summary>
     /// Provides operations to manage the previousVersionDefinition property of the microsoft.graph.groupPolicyDefinition entity.
     /// </summary>
-    public class PreviousVersionDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class PreviousVersionDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the category property of the microsoft.graph.groupPolicyDefinition entity.

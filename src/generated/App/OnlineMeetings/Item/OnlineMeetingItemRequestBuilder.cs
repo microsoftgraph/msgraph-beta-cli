@@ -26,11 +26,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.OnlineMeetings.Item {
+namespace ApiSdk.App.OnlineMeetings.Item
+{
     /// <summary>
     /// Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
     /// </summary>
-    public class OnlineMeetingItemRequestBuilder : BaseCliRequestBuilder 
+    public class OnlineMeetingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the commsApplication entity.
@@ -42,6 +43,7 @@ namespace ApiSdk.App.OnlineMeetings.Item {
             command.Description = "Provides operations to manage the media for the commsApplication entity.";
             var builder = new AlternativeRecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -87,6 +89,7 @@ namespace ApiSdk.App.OnlineMeetings.Item {
             command.Description = "Provides operations to manage the media for the commsApplication entity.";
             var builder = new AttendeeReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -105,6 +108,7 @@ namespace ApiSdk.App.OnlineMeetings.Item {
             command.Description = "Provides operations to manage the media for the commsApplication entity.";
             var builder = new BroadcastRecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -303,6 +307,7 @@ namespace ApiSdk.App.OnlineMeetings.Item {
             command.Description = "Provides operations to manage the media for the commsApplication entity.";
             var builder = new RecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

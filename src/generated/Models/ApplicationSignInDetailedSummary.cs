@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ApplicationSignInDetailedSummary : Entity, IParsable 
+    public class ApplicationSignInDetailedSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"aggregatedEventDateTime", n => { AggregatedEventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"signInCount", n => { SignInCount = n.GetLongValue(); } },
-                {"status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
+                { "aggregatedEventDateTime", n => { AggregatedEventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "signInCount", n => { SignInCount = n.GetLongValue(); } },
+                { "status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class EdiscoverySearchExportOperation : CaseOperation, IParsable 
+    public class EdiscoverySearchExportOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The additionalOptions property</summary>
+        /// <summary>The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.AdditionalOptions? AdditionalOptions { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>The name of export provided by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -19,7 +20,7 @@ namespace ApiSdk.Models.Security {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The description of the export by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -27,9 +28,9 @@ namespace ApiSdk.Models.Security {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The exportCriteria property</summary>
+        /// <summary>Items to be included in the export. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.ExportCriteria? ExportCriteria { get; set; }
-        /// <summary>The exportFileMetadata property</summary>
+        /// <summary>Contains the properties for an export file metadata, including downloadUrl, fileName, and size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ApiSdk.Models.Security.ExportFileMetadata>? ExportFileMetadata { get; set; }
@@ -37,13 +38,13 @@ namespace ApiSdk.Models.Security {
 #else
         public List<ApiSdk.Models.Security.ExportFileMetadata> ExportFileMetadata { get; set; }
 #endif
-        /// <summary>The exportFormat property</summary>
+        /// <summary>Format of the emails of the export. The possible values are: pst, msg, eml, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.ExportFormat? ExportFormat { get; set; }
-        /// <summary>The exportLocation property</summary>
+        /// <summary>Location scope for partially indexed items. You can choose to include partially indexed items only in responsive locations with search hits or in all targeted locations. The possible values are: responsiveLocations, nonresponsiveLocations, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.ExportLocation? ExportLocation { get; set; }
-        /// <summary>The exportSingleItems property</summary>
+        /// <summary>Indicates whether to export single items.</summary>
         public bool? ExportSingleItems { get; set; }
-        /// <summary>The search property</summary>
+        /// <summary>The eDiscovery searches under each case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EdiscoverySearch? Search { get; set; }
@@ -69,15 +70,15 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
-                {"exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
-                {"exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
-                {"exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
-                {"search", n => { Search = n.GetObjectValue<EdiscoverySearch>(EdiscoverySearch.CreateFromDiscriminatorValue); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
+                { "exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
+                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
+                { "exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
+                { "search", n => { Search = n.GetObjectValue<EdiscoverySearch>(EdiscoverySearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

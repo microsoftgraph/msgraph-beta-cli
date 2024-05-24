@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Versions.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Versions.Item
+{
     /// <summary>
     /// Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
     /// </summary>
-    public class DriveItemVersionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DriveItemVersionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the drive entity.
@@ -32,6 +33,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Versions.Item {
             command.Description = "Provides operations to manage the media for the drive entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

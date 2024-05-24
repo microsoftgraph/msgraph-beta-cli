@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.FindTenantInformationByTenantIdWithTenantId {
+namespace ApiSdk.TenantRelationships.FindTenantInformationByTenantIdWithTenantId
+{
     /// <summary>
     /// Provides operations to call the findTenantInformationByTenantId method.
     /// </summary>
-    public class FindTenantInformationByTenantIdWithTenantIdRequestBuilder : BaseCliRequestBuilder 
+    public class FindTenantInformationByTenantIdWithTenantIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Given a tenant ID, search for a tenant and read its tenantInformation. You can use this API to validate tenant information and use their tenantId to configure cross-tenant cross-tenant access settings between you and the tenant.

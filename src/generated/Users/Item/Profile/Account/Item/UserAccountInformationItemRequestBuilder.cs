@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Account.Item {
+namespace ApiSdk.Users.Item.Profile.Account.Item
+{
     /// <summary>
     /// Provides operations to manage the account property of the microsoft.graph.profile entity.
     /// </summary>
-    public class UserAccountInformationItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserAccountInformationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property account for users

@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceCompliancePolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceCompliancePolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.

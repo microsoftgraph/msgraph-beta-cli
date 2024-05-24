@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.RetrieveLatestUpgradeDefaultBaselinePolicy {
+namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.RetrieveLatestUpgradeDefaultBaselinePolicy
+{
     /// <summary>
     /// Provides operations to call the retrieveLatestUpgradeDefaultBaselinePolicy method.
     /// </summary>
-    public class RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function retrieveLatestUpgradeDefaultBaselinePolicy

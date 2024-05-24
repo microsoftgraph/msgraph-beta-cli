@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.LegalHolds.Item
+{
     /// <summary>
     /// Provides operations to manage the legalHolds property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class EdiscoveryHoldPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryHoldPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property legalHolds for security

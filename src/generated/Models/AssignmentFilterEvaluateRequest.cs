@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Request for assignment filter evaluation for devices.
     /// </summary>
-    public class AssignmentFilterEvaluateRequest : IAdditionalDataHolder, IParsable 
+    public class AssignmentFilterEvaluateRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -75,13 +76,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
-                {"rule", n => { Rule = n.GetStringValue(); } },
-                {"search", n => { Search = n.GetStringValue(); } },
-                {"skip", n => { Skip = n.GetIntValue(); } },
-                {"top", n => { Top = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "rule", n => { Rule = n.GetStringValue(); } },
+                { "search", n => { Search = n.GetStringValue(); } },
+                { "skip", n => { Skip = n.GetIntValue(); } },
+                { "top", n => { Top = n.GetIntValue(); } },
             };
         }
         /// <summary>

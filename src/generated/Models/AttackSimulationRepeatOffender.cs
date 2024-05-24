@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AttackSimulationRepeatOffender : IAdditionalDataHolder, IParsable 
+    public class AttackSimulationRepeatOffender : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"attackSimulationUser", n => { AttackSimulationUser = n.GetObjectValue<ApiSdk.Models.AttackSimulationUser>(ApiSdk.Models.AttackSimulationUser.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"repeatOffenceCount", n => { RepeatOffenceCount = n.GetIntValue(); } },
+                { "attackSimulationUser", n => { AttackSimulationUser = n.GetObjectValue<ApiSdk.Models.AttackSimulationUser>(ApiSdk.Models.AttackSimulationUser.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "repeatOffenceCount", n => { RepeatOffenceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

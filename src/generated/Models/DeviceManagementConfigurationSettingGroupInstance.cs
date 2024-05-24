@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Setting instance within policy
     /// </summary>
-    public class DeviceManagementConfigurationSettingGroupInstance : DeviceManagementConfigurationSettingInstance, IParsable 
+    public class DeviceManagementConfigurationSettingGroupInstance : DeviceManagementConfigurationSettingInstance, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="DeviceManagementConfigurationSettingGroupInstance"/> and sets the default values.

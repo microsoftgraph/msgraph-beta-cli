@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSharePointActivityUserDetailWithDate {
+namespace ApiSdk.Reports.GetSharePointActivityUserDetailWithDate
+{
     /// <summary>
     /// Provides operations to call the getSharePointActivityUserDetail method.
     /// </summary>
-    public class GetSharePointActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharePointActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSharePointActivityUserDetail
@@ -27,7 +28,7 @@ namespace ApiSdk.Reports.GetSharePointActivityUserDetailWithDate {
         {
             var command = new Command("get");
             command.Description = "Invoke function getSharePointActivityUserDetail";
-            var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
+            var dateOption = new Option<Date?>("--date", description: "Usage: date={date}") {
             };
             dateOption.IsRequired = true;
             command.AddOption(dateOption);

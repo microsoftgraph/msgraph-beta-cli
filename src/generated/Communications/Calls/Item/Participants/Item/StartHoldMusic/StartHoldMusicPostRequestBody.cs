@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.Calls.Item.Participants.Item.StartHoldMusic {
+namespace ApiSdk.Communications.Calls.Item.Participants.Item.StartHoldMusic
+{
     #pragma warning disable CS1591
-    public class StartHoldMusicPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class StartHoldMusicPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Communications.Calls.Item.Participants.Item.StartHoldMusic {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"clientContext", n => { ClientContext = n.GetStringValue(); } },
-                {"customPrompt", n => { CustomPrompt = n.GetObjectValue<Prompt>(Prompt.CreateFromDiscriminatorValue); } },
+                { "clientContext", n => { ClientContext = n.GetStringValue(); } },
+                { "customPrompt", n => { CustomPrompt = n.GetObjectValue<Prompt>(Prompt.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

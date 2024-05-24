@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property accessPackageAssignmentApprovals for identityGovernance
@@ -57,13 +58,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return command;
         }
         /// <summary>
-        /// Get accessPackageAssignmentApprovals from identityGovernance
+        /// Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/approval-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get accessPackageAssignmentApprovals from identityGovernance";
+            command.Description = "Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/approval-get?view=graph-rest-beta";
             var approvalIdOption = new Option<string>("--approval-id", description: "The unique identifier of approval") {
             };
             approvalIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Get accessPackageAssignmentApprovals from identityGovernance
+        /// Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
             return requestInfo;
         }
         /// <summary>
-        /// Get accessPackageAssignmentApprovals from identityGovernance
+        /// Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
         /// </summary>
         public class ApprovalItemRequestBuilderGetQueryParameters 
         {

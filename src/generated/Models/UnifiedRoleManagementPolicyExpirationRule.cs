@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementPolicyExpirationRule : UnifiedRoleManagementPolicyRule, IParsable 
+    public class UnifiedRoleManagementPolicyExpirationRule : UnifiedRoleManagementPolicyRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether expiration is required or if it&apos;s a permanently active assignment or eligibility.</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isExpirationRequired", n => { IsExpirationRequired = n.GetBoolValue(); } },
-                {"maximumDuration", n => { MaximumDuration = n.GetTimeSpanValue(); } },
+                { "isExpirationRequired", n => { IsExpirationRequired = n.GetBoolValue(); } },
+                { "maximumDuration", n => { MaximumDuration = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

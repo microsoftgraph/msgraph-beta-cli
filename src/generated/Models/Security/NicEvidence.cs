@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class NicEvidence : AlertEvidence, IParsable 
+    public class NicEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ipAddress property</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"ipAddress", n => { IpAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
-                {"macAddress", n => { MacAddress = n.GetStringValue(); } },
-                {"vlans", n => { Vlans = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "ipAddress", n => { IpAddress = n.GetObjectValue<IpEvidence>(IpEvidence.CreateFromDiscriminatorValue); } },
+                { "macAddress", n => { MacAddress = n.GetStringValue(); } },
+                { "vlans", n => { Vlans = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

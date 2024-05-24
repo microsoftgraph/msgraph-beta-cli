@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.UpdateSettings {
+namespace ApiSdk.DeviceManagement.Intents.Item.UpdateSettings
+{
     /// <summary>
     /// Provides operations to call the updateSettings method.
     /// </summary>
-    public class UpdateSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateSettings

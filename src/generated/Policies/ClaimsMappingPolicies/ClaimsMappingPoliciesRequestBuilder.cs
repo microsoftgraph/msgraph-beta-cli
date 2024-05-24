@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ClaimsMappingPolicies {
+namespace ApiSdk.Policies.ClaimsMappingPolicies
+{
     /// <summary>
     /// Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class ClaimsMappingPoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class ClaimsMappingPoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to claimsMappingPolicies for policies
+        /// Create a new claimsMappingPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to claimsMappingPolicies for policies";
+            command.Description = "Create a new claimsMappingPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
             return command;
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Get a list of claimsMappingPolicy objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.";
+            command.Description = "Get a list of claimsMappingPolicy objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
         {
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Get a list of claimsMappingPolicy objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to claimsMappingPolicies for policies
+        /// Create a new claimsMappingPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Get a list of claimsMappingPolicy objects.
         /// </summary>
         public class ClaimsMappingPoliciesRequestBuilderGetQueryParameters 
         {

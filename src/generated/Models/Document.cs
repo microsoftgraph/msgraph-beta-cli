@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Document : Entity, IParsable 
+    public class Document : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The comments property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"comments", n => { Comments = n.GetCollectionOfObjectValues<DocumentComment>(DocumentComment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "comments", n => { Comments = n.GetCollectionOfObjectValues<DocumentComment>(DocumentComment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

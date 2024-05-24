@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches
+{
     /// <summary>
     /// Provides operations to manage the branches property of the microsoft.graph.networkaccess.connectivity entity.
     /// </summary>
-    public class BranchesRequestBuilder : BaseCliRequestBuilder 
+    public class BranchesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the branches property of the microsoft.graph.networkaccess.connectivity entity.
@@ -57,14 +58,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to branches for networkAccess
+        /// Create a new branch.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-branches?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to branches for networkAccess";
+            command.Description = "Create a new branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-branches?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -103,14 +105,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
             return command;
         }
         /// <summary>
-        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+        /// Retrieve a list of branches within a tenant connected to the Global Secure Access services.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-connectivity-list-branches?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.";
+            command.Description = "Retrieve a list of branches within a tenant connected to the Global Secure Access services.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-connectivity-list-branches?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -186,7 +189,9 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -212,7 +217,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
         {
         }
         /// <summary>
-        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+        /// Retrieve a list of branches within a tenant connected to the Global Secure Access services.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +237,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to branches for networkAccess
+        /// Create a new branch.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -254,7 +259,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches {
             return requestInfo;
         }
         /// <summary>
-        /// Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+        /// Retrieve a list of branches within a tenant connected to the Global Secure Access services.
         /// </summary>
         public class BranchesRequestBuilderGetQueryParameters 
         {

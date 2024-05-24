@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.ResetDecisions {
+namespace ApiSdk.AccessReviews.Item.ResetDecisions
+{
     /// <summary>
     /// Provides operations to call the resetDecisions method.
     /// </summary>
-    public class ResetDecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class ResetDecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, reset the decisions of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review.  Previous decisions are no longer recorded, but reviewers can continue to update decisions.

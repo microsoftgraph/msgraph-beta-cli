@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionsCreepIndexDistribution : Entity, IParsable 
+    public class PermissionsCreepIndexDistribution : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorizationSystem property</summary>
@@ -61,11 +62,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"highRiskProfile", n => { HighRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
-                {"lowRiskProfile", n => { LowRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
-                {"mediumRiskProfile", n => { MediumRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
+                { "authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "highRiskProfile", n => { HighRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
+                { "lowRiskProfile", n => { LowRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
+                { "mediumRiskProfile", n => { MediumRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceScope.AccessPackageResource.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceEnvironment {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceScope.AccessPackageResource.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceEnvironment
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceEnvironment property of the microsoft.graph.accessPackageResource entity.
     /// </summary>
-    public class AccessPackageResourceEnvironmentRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceEnvironmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment&apos;s originId. Supports $expand.

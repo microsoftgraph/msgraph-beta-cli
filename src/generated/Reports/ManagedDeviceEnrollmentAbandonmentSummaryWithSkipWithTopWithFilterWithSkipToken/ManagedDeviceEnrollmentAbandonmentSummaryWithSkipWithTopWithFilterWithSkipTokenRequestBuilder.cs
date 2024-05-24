@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipToken {
+namespace ApiSdk.Reports.ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipToken
+{
     /// <summary>
     /// Provides operations to call the managedDeviceEnrollmentAbandonmentSummary method.
     /// </summary>
-    public class ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Metadata for Enrollment abandonment summary report

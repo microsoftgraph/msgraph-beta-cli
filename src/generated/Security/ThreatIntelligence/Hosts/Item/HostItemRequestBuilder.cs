@@ -27,11 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item
+{
     /// <summary>
     /// Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostItemRequestBuilder : BaseCliRequestBuilder 
+    public class HostItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the childHostPairs property of the microsoft.graph.security.host entity.
@@ -147,13 +148,14 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item {
             return command;
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-host-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-host-get?view=graph-rest-beta";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -527,7 +529,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -567,7 +569,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
         /// </summary>
         public class HostItemRequestBuilderGetQueryParameters 
         {

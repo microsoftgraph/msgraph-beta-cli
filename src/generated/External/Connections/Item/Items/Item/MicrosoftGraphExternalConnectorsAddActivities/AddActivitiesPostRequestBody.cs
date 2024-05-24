@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities {
+namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities
+{
     #pragma warning disable CS1591
-    public class AddActivitiesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AddActivitiesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activities property</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item.MicrosoftGraphExternalConn
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activities", n => { Activities = n.GetCollectionOfObjectValues<ExternalActivity>(ExternalActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activities", n => { Activities = n.GetCollectionOfObjectValues<ExternalActivity>(ExternalActivity.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

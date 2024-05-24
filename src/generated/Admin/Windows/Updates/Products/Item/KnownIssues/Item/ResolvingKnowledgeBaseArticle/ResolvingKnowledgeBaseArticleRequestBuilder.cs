@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle
+{
     /// <summary>
     /// Provides operations to manage the resolvingKnowledgeBaseArticle property of the microsoft.graph.windowsUpdates.knownIssue entity.
     /// </summary>
-    public class ResolvingKnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder 
+    public class ResolvingKnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resolvingKnowledgeBaseArticle for admin

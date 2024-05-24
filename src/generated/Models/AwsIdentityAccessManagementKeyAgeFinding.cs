@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsIdentityAccessManagementKeyAgeFinding : Finding, IParsable 
+    public class AwsIdentityAccessManagementKeyAgeFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessKey property</summary>
@@ -61,11 +62,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessKey", n => { AccessKey = n.GetObjectValue<AwsAccessKey>(AwsAccessKey.CreateFromDiscriminatorValue); } },
-                {"actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
-                {"awsAccessKeyDetails", n => { AwsAccessKeyDetails = n.GetObjectValue<ApiSdk.Models.AwsAccessKeyDetails>(ApiSdk.Models.AwsAccessKeyDetails.CreateFromDiscriminatorValue); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetEnumValue<IamStatus>(); } },
+                { "accessKey", n => { AccessKey = n.GetObjectValue<AwsAccessKey>(AwsAccessKey.CreateFromDiscriminatorValue); } },
+                { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
+                { "awsAccessKeyDetails", n => { AwsAccessKeyDetails = n.GetObjectValue<ApiSdk.Models.AwsAccessKeyDetails>(ApiSdk.Models.AwsAccessKeyDetails.CreateFromDiscriminatorValue); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<IamStatus>(); } },
             };
         }
         /// <summary>

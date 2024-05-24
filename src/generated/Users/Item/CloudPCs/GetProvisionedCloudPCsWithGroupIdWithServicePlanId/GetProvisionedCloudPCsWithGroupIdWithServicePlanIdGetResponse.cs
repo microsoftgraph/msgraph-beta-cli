@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.GetProvisionedCloudPCsWithGroupIdWithServicePlanId {
+namespace ApiSdk.Users.Item.CloudPCs.GetProvisionedCloudPCsWithGroupIdWithServicePlanId
+{
     #pragma warning disable CS1591
-    public class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.CloudPCs.GetProvisionedCloudPCsWithGroupIdWithServic
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPC>(ApiSdk.Models.CloudPC.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPC>(ApiSdk.Models.CloudPC.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

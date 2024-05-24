@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains the pair of OperationApprovalPolicyType and OperationApprovalPolicyPlatform determining the set of applicable OperationApprovalPolicies for a user. The OperationApprovalPolicySet complex type is used to indicate to the UX which policies are enabled for the current logged in user in order to correctly show the expected experience.
     /// </summary>
-    public class OperationApprovalPolicySet : IAdditionalDataHolder, IParsable 
+    public class OperationApprovalPolicySet : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,7 +23,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>The set of available platforms for the OperationApprovalPolicy. Allows configuration of a policy to specific platform(s) for approval. If no specific platform is required or applicable, the platform is `notApplicable`.</summary>
         public OperationApprovalPolicyPlatform? PolicyPlatform { get; set; }
-        /// <summary>The set of available policy types that can be configured for approval. There is no default value for this enum, indicating that the policy type must always be chosen.</summary>
+        /// <summary>The set of available policy types that can be configured for approval. The policy type must always be defined in an OperationApprovalRequest.</summary>
         public OperationApprovalPolicyType? PolicyType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="OperationApprovalPolicySet"/> and sets the default values.
@@ -49,9 +50,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"policyPlatform", n => { PolicyPlatform = n.GetEnumValue<OperationApprovalPolicyPlatform>(); } },
-                {"policyType", n => { PolicyType = n.GetEnumValue<OperationApprovalPolicyType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "policyPlatform", n => { PolicyPlatform = n.GetEnumValue<OperationApprovalPolicyPlatform>(); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<OperationApprovalPolicyType>(); } },
             };
         }
         /// <summary>

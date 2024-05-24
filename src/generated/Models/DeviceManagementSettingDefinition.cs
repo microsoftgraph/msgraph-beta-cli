@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity representing the defintion for a given setting
     /// </summary>
-    public class DeviceManagementSettingDefinition : Entity, IParsable 
+    public class DeviceManagementSettingDefinition : Entity, IParsable
     {
         /// <summary>Collection of constraints for the setting value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,17 +112,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"constraints", n => { Constraints = n.GetCollectionOfObjectValues<DeviceManagementConstraint>(DeviceManagementConstraint.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dependencies", n => { Dependencies = n.GetCollectionOfObjectValues<DeviceManagementSettingDependency>(DeviceManagementSettingDependency.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"documentationUrl", n => { DocumentationUrl = n.GetStringValue(); } },
-                {"headerSubtitle", n => { HeaderSubtitle = n.GetStringValue(); } },
-                {"headerTitle", n => { HeaderTitle = n.GetStringValue(); } },
-                {"isTopLevel", n => { IsTopLevel = n.GetBoolValue(); } },
-                {"keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"placeholderText", n => { PlaceholderText = n.GetStringValue(); } },
-                {"valueType", n => { ValueType = n.GetEnumValue<DeviceManangementIntentValueType>(); } },
+                { "constraints", n => { Constraints = n.GetCollectionOfObjectValues<DeviceManagementConstraint>(DeviceManagementConstraint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependencies", n => { Dependencies = n.GetCollectionOfObjectValues<DeviceManagementSettingDependency>(DeviceManagementSettingDependency.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "documentationUrl", n => { DocumentationUrl = n.GetStringValue(); } },
+                { "headerSubtitle", n => { HeaderSubtitle = n.GetStringValue(); } },
+                { "headerTitle", n => { HeaderTitle = n.GetStringValue(); } },
+                { "isTopLevel", n => { IsTopLevel = n.GetBoolValue(); } },
+                { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "placeholderText", n => { PlaceholderText = n.GetStringValue(); } },
+                { "valueType", n => { ValueType = n.GetEnumValue<DeviceManangementIntentValueType>(); } },
             };
         }
         /// <summary>

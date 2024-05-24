@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedSignupStatus.SignUp {
+namespace ApiSdk.PrivilegedSignupStatus.SignUp
+{
     /// <summary>
     /// Provides operations to call the signUp method.
     /// </summary>
-    public class SignUpRequestBuilder : BaseCliRequestBuilder 
+    public class SignUpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action signUp

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.GroupLifecyclePolicies {
+namespace ApiSdk.Groups.Item.GroupLifecyclePolicies
+{
     /// <summary>
     /// Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
     /// </summary>
-    public class GroupLifecyclePoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class GroupLifecyclePoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
@@ -108,13 +109,14 @@ namespace ApiSdk.Groups.Item.GroupLifecyclePolicies {
             return command;
         }
         /// <summary>
-        /// The collection of lifecycle policies for this group. Read-only. Nullable.
+        /// Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-grouplifecyclepolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of lifecycle policies for this group. Read-only. Nullable.";
+            command.Description = "Retrieves a list of groupLifecyclePolicy objects to which a group belongs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list-grouplifecyclepolicies?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -196,7 +198,9 @@ namespace ApiSdk.Groups.Item.GroupLifecyclePolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -239,7 +243,7 @@ namespace ApiSdk.Groups.Item.GroupLifecyclePolicies {
         {
         }
         /// <summary>
-        /// The collection of lifecycle policies for this group. Read-only. Nullable.
+        /// Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -279,7 +283,7 @@ namespace ApiSdk.Groups.Item.GroupLifecyclePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of lifecycle policies for this group. Read-only. Nullable.
+        /// Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
         /// </summary>
         public class GroupLifecyclePoliciesRequestBuilderGetQueryParameters 
         {

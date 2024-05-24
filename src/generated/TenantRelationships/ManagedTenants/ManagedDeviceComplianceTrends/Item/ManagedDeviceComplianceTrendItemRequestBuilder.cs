@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrends.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrends.Item
+{
     /// <summary>
     /// Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagedDeviceComplianceTrendItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceComplianceTrendItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedDeviceComplianceTrends for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrend
             return command;
         }
         /// <summary>
-        /// Trend insights for device compliance across managed tenants.
+        /// Read the properties and relationships of a managedDeviceComplianceTrend object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliancetrend-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Trend insights for device compliance across managed tenants.";
+            command.Description = "Read the properties and relationships of a managedDeviceComplianceTrend object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliancetrend-get?view=graph-rest-beta";
             var managedDeviceComplianceTrendIdOption = new Option<string>("--managed-device-compliance-trend-id", description: "The unique identifier of managedDeviceComplianceTrend") {
             };
             managedDeviceComplianceTrendIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrend
             return requestInfo;
         }
         /// <summary>
-        /// Trend insights for device compliance across managed tenants.
+        /// Read the properties and relationships of a managedDeviceComplianceTrend object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrend
             return requestInfo;
         }
         /// <summary>
-        /// Trend insights for device compliance across managed tenants.
+        /// Read the properties and relationships of a managedDeviceComplianceTrend object.
         /// </summary>
         public class ManagedDeviceComplianceTrendItemRequestBuilderGetQueryParameters 
         {

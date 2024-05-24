@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AccessPackageResourceRoleScopes {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AccessPackageResourceRoleScopes
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.accessPackage entity.
     /// </summary>
-    public class AccessPackageResourceRoleScopesRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceRoleScopesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.accessPackage entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Ac
             return command;
         }
         /// <summary>
-        /// Create new navigation property to accessPackageResourceRoleScopes for identityGovernance
+        /// Create a new accessPackageResourceRoleScope for adding a resource role to an access package. The access package resource, for a group, an app, or a SharePoint Online site, must already exist in the access package catalog, and the originId for the resource role retrieved from the list of the resource roles. Once you add the resource role scope to the access package, the user will receive this resource role through any current and future access package assignments.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to accessPackageResourceRoleScopes for identityGovernance";
+            command.Description = "Create a new accessPackageResourceRoleScope for adding a resource role to an access package. The access package resource, for a group, an app, or a SharePoint Online site, must already exist in the access package catalog, and the originId for the resource role retrieved from the list of the resource roles. Once you add the resource role scope to the access package, the user will receive this resource role through any current and future access package assignments.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta";
             var accessPackageIdOption = new Option<string>("--access-package-id", description: "The unique identifier of accessPackage") {
             };
             accessPackageIdOption.IsRequired = true;
@@ -195,7 +197,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Ac
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -240,7 +244,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Ac
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to accessPackageResourceRoleScopes for identityGovernance
+        /// Create a new accessPackageResourceRoleScope for adding a resource role to an access package. The access package resource, for a group, an app, or a SharePoint Online site, must already exist in the access package catalog, and the originId for the resource role retrieved from the list of the resource roles. Once you add the resource role scope to the access package, the user will receive this resource role through any current and future access package assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

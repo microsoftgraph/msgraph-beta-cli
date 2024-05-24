@@ -13,20 +13,74 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.HostedContents.Item.Value {
+namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.HostedContents.Item.Value
+{
     /// <summary>
     /// Provides operations to manage the media for the group entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    public class ContentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get media content for the navigation property hostedContents from groups
+        /// The unique identifier for an entity. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "The unique identifier for an entity. Read-only.";
+            var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
+            };
+            groupIdOption.IsRequired = true;
+            command.AddOption(groupIdOption);
+            var chatMessageIdOption = new Option<string>("--chat-message-id", description: "The unique identifier of chatMessage") {
+            };
+            chatMessageIdOption.IsRequired = true;
+            command.AddOption(chatMessageIdOption);
+            var chatMessageId1Option = new Option<string>("--chat-message-id1", description: "The unique identifier of chatMessage") {
+            };
+            chatMessageId1Option.IsRequired = true;
+            command.AddOption(chatMessageId1Option);
+            var chatMessageHostedContentIdOption = new Option<string>("--chat-message-hosted-content-id", description: "The unique identifier of chatMessageHostedContent") {
+            };
+            chatMessageHostedContentIdOption.IsRequired = true;
+            command.AddOption(chatMessageHostedContentIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var groupId = invocationContext.ParseResult.GetValueForOption(groupIdOption);
+                var chatMessageId = invocationContext.ParseResult.GetValueForOption(chatMessageIdOption);
+                var chatMessageId1 = invocationContext.ParseResult.GetValueForOption(chatMessageId1Option);
+                var chatMessageHostedContentId = invocationContext.ParseResult.GetValueForOption(chatMessageHostedContentIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (groupId is not null) requestInfo.PathParameters.Add("group%2Did", groupId);
+                if (chatMessageId is not null) requestInfo.PathParameters.Add("chatMessage%2Did", chatMessageId);
+                if (chatMessageId1 is not null) requestInfo.PathParameters.Add("chatMessage%2Did1", chatMessageId1);
+                if (chatMessageHostedContentId is not null) requestInfo.PathParameters.Add("chatMessageHostedContent%2Did", chatMessageHostedContentId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
+        /// <summary>
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get media content for the navigation property hostedContents from groups";
+            command.Description = "The unique identifier for an entity. Read-only.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -78,13 +132,13 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.Host
             return command;
         }
         /// <summary>
-        /// Update media content for the navigation property hostedContents in groups
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update media content for the navigation property hostedContents in groups";
+            command.Description = "The unique identifier for an entity. Read-only.";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -160,7 +214,26 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.Host
         {
         }
         /// <summary>
-        /// Get media content for the navigation property hostedContents from groups
+        /// The unique identifier for an entity. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -179,7 +252,7 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.Host
             return requestInfo;
         }
         /// <summary>
-        /// Update media content for the navigation property hostedContents in groups
+        /// The unique identifier for an entity. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class RelatedDestination : RelatedResource, IParsable 
+    public class RelatedDestination : RelatedResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fqdn property</summary>
@@ -54,10 +55,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fqdn", n => { Fqdn = n.GetStringValue(); } },
-                {"ip", n => { Ip = n.GetStringValue(); } },
-                {"networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
+                { "fqdn", n => { Fqdn = n.GetStringValue(); } },
+                { "ip", n => { Ip = n.GetStringValue(); } },
+                { "networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
             };
         }
         /// <summary>

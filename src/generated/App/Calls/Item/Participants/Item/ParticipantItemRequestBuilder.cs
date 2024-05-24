@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item.Participants.Item {
+namespace ApiSdk.App.Calls.Item.Participants.Item
+{
     /// <summary>
     /// Provides operations to manage the participants property of the microsoft.graph.call entity.
     /// </summary>
-    public class ParticipantItemRequestBuilder : BaseCliRequestBuilder 
+    public class ParticipantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property participants for app

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
+namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants
+{
     /// <summary>
     /// Provides operations to manage the tenants property of the microsoft.graph.multiTenantOrganization entity.
     /// </summary>
-    public class TenantsRequestBuilder : BaseCliRequestBuilder 
+    public class TenantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tenants property of the microsoft.graph.multiTenantOrganization entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to tenants for tenantRelationships
+        /// Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-post-tenants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to tenants for tenantRelationships";
+            command.Description = "Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-post-tenants?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
             return command;
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// List the tenants and their properties in the multi-tenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-list-tenants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Defines tenants added to a multitenant organization.";
+            command.Description = "List the tenants and their properties in the multi-tenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-list-tenants?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
         {
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// List the tenants and their properties in the multi-tenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tenants for tenantRelationships
+        /// Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants {
             return requestInfo;
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// List the tenants and their properties in the multi-tenant organization.
         /// </summary>
         public class TenantsRequestBuilderGetQueryParameters 
         {

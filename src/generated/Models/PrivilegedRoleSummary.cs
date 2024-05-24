@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrivilegedRoleSummary : Entity, IParsable 
+    public class PrivilegedRoleSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The elevatedCount property</summary>
@@ -37,11 +38,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"elevatedCount", n => { ElevatedCount = n.GetIntValue(); } },
-                {"managedCount", n => { ManagedCount = n.GetIntValue(); } },
-                {"mfaEnabled", n => { MfaEnabled = n.GetBoolValue(); } },
-                {"status", n => { Status = n.GetEnumValue<RoleSummaryStatus>(); } },
-                {"usersCount", n => { UsersCount = n.GetIntValue(); } },
+                { "elevatedCount", n => { ElevatedCount = n.GetIntValue(); } },
+                { "managedCount", n => { ManagedCount = n.GetIntValue(); } },
+                { "mfaEnabled", n => { MfaEnabled = n.GetBoolValue(); } },
+                { "status", n => { Status = n.GetEnumValue<RoleSummaryStatus>(); } },
+                { "usersCount", n => { UsersCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item {
+namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item
+{
     /// <summary>
     /// Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
     /// </summary>
-    public class CompanyInformationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CompanyInformationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get companyInformation from financials
@@ -29,11 +30,11 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item {
         {
             var command = new Command("get");
             command.Description = "Get companyInformation from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var companyInformationIdOption = new Option<string>("--company-information-id", description: "The unique identifier of companyInformation") {
+            var companyInformationIdOption = new Option<Guid?>("--company-information-id", description: "The unique identifier of companyInformation") {
             };
             companyInformationIdOption.IsRequired = true;
             command.AddOption(companyInformationIdOption);
@@ -87,11 +88,11 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property companyInformation in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var companyInformationIdOption = new Option<string>("--company-information-id", description: "The unique identifier of companyInformation") {
+            var companyInformationIdOption = new Option<Guid?>("--company-information-id", description: "The unique identifier of companyInformation") {
             };
             companyInformationIdOption.IsRequired = true;
             command.AddOption(companyInformationIdOption);
@@ -146,6 +147,7 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item {
             command.Description = "Provides operations to manage the media for the financials entity.";
             var builder = new PictureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

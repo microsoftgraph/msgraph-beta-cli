@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTaskDetails : PlannerDelta, IParsable 
+    public class PlannerTaskDetails : PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Detailed information about the approval that is attached to the task.</summary>
@@ -85,14 +86,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"approvalAttachment", n => { ApprovalAttachment = n.GetObjectValue<PlannerBaseApprovalAttachment>(PlannerBaseApprovalAttachment.CreateFromDiscriminatorValue); } },
-                {"checklist", n => { Checklist = n.GetObjectValue<PlannerChecklistItems>(PlannerChecklistItems.CreateFromDiscriminatorValue); } },
-                {"completionRequirements", n => { CompletionRequirements = n.GetObjectValue<PlannerTaskCompletionRequirementDetails>(PlannerTaskCompletionRequirementDetails.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"forms", n => { Forms = n.GetObjectValue<PlannerFormsDictionary>(PlannerFormsDictionary.CreateFromDiscriminatorValue); } },
-                {"notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"previewType", n => { PreviewType = n.GetEnumValue<PlannerPreviewType>(); } },
-                {"references", n => { References = n.GetObjectValue<PlannerExternalReferences>(PlannerExternalReferences.CreateFromDiscriminatorValue); } },
+                { "approvalAttachment", n => { ApprovalAttachment = n.GetObjectValue<PlannerBaseApprovalAttachment>(PlannerBaseApprovalAttachment.CreateFromDiscriminatorValue); } },
+                { "checklist", n => { Checklist = n.GetObjectValue<PlannerChecklistItems>(PlannerChecklistItems.CreateFromDiscriminatorValue); } },
+                { "completionRequirements", n => { CompletionRequirements = n.GetObjectValue<PlannerTaskCompletionRequirementDetails>(PlannerTaskCompletionRequirementDetails.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "forms", n => { Forms = n.GetObjectValue<PlannerFormsDictionary>(PlannerFormsDictionary.CreateFromDiscriminatorValue); } },
+                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "previewType", n => { PreviewType = n.GetEnumValue<PlannerPreviewType>(); } },
+                { "references", n => { References = n.GetObjectValue<PlannerExternalReferences>(PlannerExternalReferences.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

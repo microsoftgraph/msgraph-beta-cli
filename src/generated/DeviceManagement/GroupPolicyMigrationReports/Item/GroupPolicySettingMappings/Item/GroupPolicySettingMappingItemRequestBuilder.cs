@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.GroupPolicySettingMappings.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.GroupPolicySettingMappings.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
     /// </summary>
-    public class GroupPolicySettingMappingItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicySettingMappingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groupPolicySettingMappings for deviceManagement

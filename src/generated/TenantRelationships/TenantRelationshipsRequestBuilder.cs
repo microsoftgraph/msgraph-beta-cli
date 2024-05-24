@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships {
+namespace ApiSdk.TenantRelationships
+{
     /// <summary>
     /// Provides operations to manage the tenantRelationship singleton.
     /// </summary>
-    public class TenantRelationshipsRequestBuilder : BaseCliRequestBuilder 
+    public class TenantRelationshipsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.

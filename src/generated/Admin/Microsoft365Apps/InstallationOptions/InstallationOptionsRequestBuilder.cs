@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
+namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions
+{
     /// <summary>
     /// Provides operations to manage the installationOptions property of the microsoft.graph.adminMicrosoft365Apps entity.
     /// </summary>
-    public class InstallationOptionsRequestBuilder : BaseCliRequestBuilder 
+    public class InstallationOptionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property installationOptions for admin
@@ -50,13 +51,14 @@ namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
             return command;
         }
         /// <summary>
-        /// A container for tenant-level settings for Microsoft 365 applications.
+        /// Read the properties and relationships of an m365AppsInstallationOptions object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/m365appsinstallationoptions-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A container for tenant-level settings for Microsoft 365 applications.";
+            command.Description = "Read the properties and relationships of an m365AppsInstallationOptions object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/m365appsinstallationoptions-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
             return command;
         }
         /// <summary>
-        /// Update the navigation property installationOptions in admin
+        /// Update the properties of an m365AppsInstallationOptions object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/m365appsinstallationoptions-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property installationOptions in admin";
+            command.Description = "Update the properties of an m365AppsInstallationOptions object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/m365appsinstallationoptions-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
             return requestInfo;
         }
         /// <summary>
-        /// A container for tenant-level settings for Microsoft 365 applications.
+        /// Read the properties and relationships of an m365AppsInstallationOptions object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property installationOptions in admin
+        /// Update the properties of an m365AppsInstallationOptions object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Admin.Microsoft365Apps.InstallationOptions {
             return requestInfo;
         }
         /// <summary>
-        /// A container for tenant-level settings for Microsoft 365 applications.
+        /// Read the properties and relationships of an m365AppsInstallationOptions object.
         /// </summary>
         public class InstallationOptionsRequestBuilderGetQueryParameters 
         {

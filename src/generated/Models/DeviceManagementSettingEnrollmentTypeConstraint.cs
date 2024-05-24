@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint that enforces the enrollment types applied to a setting
     /// </summary>
-    public class DeviceManagementSettingEnrollmentTypeConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingEnrollmentTypeConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>List of enrollment types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enrollmentTypes", n => { EnrollmentTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enrollmentTypes", n => { EnrollmentTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

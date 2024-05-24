@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataRoot : ApiSdk.Models.Entity, IParsable 
+    public class IndustryDataRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Set of connectors for importing data from source systems.</summary>
@@ -99,15 +100,15 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dataConnectors", n => { DataConnectors = n.GetCollectionOfObjectValues<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"inboundFlows", n => { InboundFlows = n.GetCollectionOfObjectValues<InboundFlow>(InboundFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>(ApiSdk.Models.LongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"outboundProvisioningFlowSets", n => { OutboundProvisioningFlowSets = n.GetCollectionOfObjectValues<OutboundProvisioningFlowSet>(OutboundProvisioningFlowSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"referenceDefinitions", n => { ReferenceDefinitions = n.GetCollectionOfObjectValues<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"roleGroups", n => { RoleGroups = n.GetCollectionOfObjectValues<RoleGroup>(RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"runs", n => { Runs = n.GetCollectionOfObjectValues<IndustryDataRun>(IndustryDataRun.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sourceSystems", n => { SourceSystems = n.GetCollectionOfObjectValues<SourceSystemDefinition>(SourceSystemDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"years", n => { Years = n.GetCollectionOfObjectValues<YearTimePeriodDefinition>(YearTimePeriodDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dataConnectors", n => { DataConnectors = n.GetCollectionOfObjectValues<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inboundFlows", n => { InboundFlows = n.GetCollectionOfObjectValues<InboundFlow>(InboundFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>(ApiSdk.Models.LongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "outboundProvisioningFlowSets", n => { OutboundProvisioningFlowSets = n.GetCollectionOfObjectValues<OutboundProvisioningFlowSet>(OutboundProvisioningFlowSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "referenceDefinitions", n => { ReferenceDefinitions = n.GetCollectionOfObjectValues<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleGroups", n => { RoleGroups = n.GetCollectionOfObjectValues<RoleGroup>(RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "runs", n => { Runs = n.GetCollectionOfObjectValues<IndustryDataRun>(IndustryDataRun.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sourceSystems", n => { SourceSystems = n.GetCollectionOfObjectValues<SourceSystemDefinition>(SourceSystemDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "years", n => { Years = n.GetCollectionOfObjectValues<YearTimePeriodDefinition>(YearTimePeriodDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BusinessScenarioTask : PlannerTask, IParsable 
+    public class BusinessScenarioTask : PlannerTask, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Scenario-specific properties of the task. externalObjectId and externalBucketId properties must be specified when creating a task.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"businessScenarioProperties", n => { BusinessScenarioProperties = n.GetObjectValue<ApiSdk.Models.BusinessScenarioProperties>(ApiSdk.Models.BusinessScenarioProperties.CreateFromDiscriminatorValue); } },
-                {"target", n => { Target = n.GetObjectValue<BusinessScenarioTaskTargetBase>(BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
+                { "businessScenarioProperties", n => { BusinessScenarioProperties = n.GetObjectValue<ApiSdk.Models.BusinessScenarioProperties>(ApiSdk.Models.BusinessScenarioProperties.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<BusinessScenarioTaskTargetBase>(BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

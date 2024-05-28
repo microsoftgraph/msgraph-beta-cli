@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CommsOperation : Entity, IParsable 
+    public class CommsOperation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Unique Client Context string. Max limit is 256 chars.</summary>
@@ -62,9 +63,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"clientContext", n => { ClientContext = n.GetStringValue(); } },
-                {"resultInfo", n => { ResultInfo = n.GetObjectValue<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
+                { "clientContext", n => { ClientContext = n.GetStringValue(); } },
+                { "resultInfo", n => { ResultInfo = n.GetObjectValue<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
             };
         }
         /// <summary>

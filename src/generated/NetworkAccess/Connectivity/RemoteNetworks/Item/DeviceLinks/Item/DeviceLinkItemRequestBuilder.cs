@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.remoteNetwork entity.
     /// </summary>
-    public class DeviceLinkItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLinkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property deviceLinks for networkAccess
+        /// Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-devicelink-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property deviceLinks for networkAccess";
+            command.Description = "Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-devicelink-delete?view=graph-rest-beta";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item
             return command;
         }
         /// <summary>
-        /// Each unique CPE device associated with a remote network is specified. Supports $expand.
+        /// Retrieves a specific device link associated with a remote network.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Each unique CPE device associated with a remote network is specified. Supports $expand.";
+            command.Description = "Retrieves a specific device link associated with a remote network.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-beta";
             var remoteNetworkIdOption = new Option<string>("--remote-network-id", description: "The unique identifier of remoteNetwork") {
             };
             remoteNetworkIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item
         {
         }
         /// <summary>
-        /// Delete navigation property deviceLinks for networkAccess
+        /// Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Each unique CPE device associated with a remote network is specified. Supports $expand.
+        /// Retrieves a specific device link associated with a remote network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Each unique CPE device associated with a remote network is specified. Supports $expand.
+        /// Retrieves a specific device link associated with a remote network.
         /// </summary>
         public class DeviceLinkItemRequestBuilderGetQueryParameters 
         {

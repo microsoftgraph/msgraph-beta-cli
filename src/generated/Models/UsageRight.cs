@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UsageRight : Entity, IParsable 
+    public class UsageRight : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Product id corresponding to the usage right.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"catalogId", n => { CatalogId = n.GetStringValue(); } },
-                {"serviceIdentifier", n => { ServiceIdentifier = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<UsageRightState>(); } },
+                { "catalogId", n => { CatalogId = n.GetStringValue(); } },
+                { "serviceIdentifier", n => { ServiceIdentifier = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<UsageRightState>(); } },
             };
         }
         /// <summary>

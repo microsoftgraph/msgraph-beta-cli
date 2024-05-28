@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.ManagedDeviceMobileAppConfigurationStates.Item {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.ManagedDeviceMobileAppConfigurationStates.Item
+{
     /// <summary>
     /// Provides operations to manage the managedDeviceMobileAppConfigurationStates property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedDeviceMobileAppConfigurationStates for deviceManagement

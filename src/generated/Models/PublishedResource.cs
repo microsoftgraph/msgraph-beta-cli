@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PublishedResource : Entity, IParsable 
+    public class PublishedResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
-                {"resourceName", n => { ResourceName = n.GetStringValue(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
+                { "resourceName", n => { ResourceName = n.GetStringValue(); } },
             };
         }
         /// <summary>

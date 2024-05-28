@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Assignments.Item.GradingScheme {
+namespace ApiSdk.Education.Classes.Item.Assignments.Item.GradingScheme
+{
     /// <summary>
     /// Provides operations to manage the gradingScheme property of the microsoft.graph.educationAssignment entity.
     /// </summary>
-    public class GradingSchemeRequestBuilder : BaseCliRequestBuilder 
+    public class GradingSchemeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get gradingScheme from education

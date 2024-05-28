@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CommunicationsApplicationInstanceIdentity : Identity, IParsable 
+    public class CommunicationsApplicationInstanceIdentity : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>True if the participant shouldn&apos;t be shown in other participants&apos; rosters.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"hidden", n => { Hidden = n.GetBoolValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "hidden", n => { Hidden = n.GetBoolValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

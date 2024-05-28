@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceEnvironments.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceEnvironments.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageResourceEnvironmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceEnvironmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageResourceEnvironment entity.
@@ -83,13 +84,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceE
             return command;
         }
         /// <summary>
-        /// A reference to the geolocation environment in which a resource is located.
+        /// Read the properties and relationships of an accessPackageResourceEnvironment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackageresourceenvironment-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A reference to the geolocation environment in which a resource is located.";
+            command.Description = "Read the properties and relationships of an accessPackageResourceEnvironment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackageresourceenvironment-get?view=graph-rest-beta";
             var accessPackageResourceEnvironmentIdOption = new Option<string>("--access-package-resource-environment-id", description: "The unique identifier of accessPackageResourceEnvironment") {
             };
             accessPackageResourceEnvironmentIdOption.IsRequired = true;
@@ -219,7 +221,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceE
             return requestInfo;
         }
         /// <summary>
-        /// A reference to the geolocation environment in which a resource is located.
+        /// Read the properties and relationships of an accessPackageResourceEnvironment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -259,7 +261,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceE
             return requestInfo;
         }
         /// <summary>
-        /// A reference to the geolocation environment in which a resource is located.
+        /// Read the properties and relationships of an accessPackageResourceEnvironment object.
         /// </summary>
         public class AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParameters 
         {

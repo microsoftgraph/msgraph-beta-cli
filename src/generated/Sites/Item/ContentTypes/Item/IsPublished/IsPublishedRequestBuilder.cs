@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.ContentTypes.Item.IsPublished {
+namespace ApiSdk.Sites.Item.ContentTypes.Item.IsPublished
+{
     /// <summary>
     /// Provides operations to call the isPublished method.
     /// </summary>
-    public class IsPublishedRequestBuilder : BaseCliRequestBuilder 
+    public class IsPublishedRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function isPublished

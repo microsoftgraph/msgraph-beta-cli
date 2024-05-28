@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Chats.Item.MarkChatUnreadForUser {
+namespace ApiSdk.Users.Item.Chats.Item.MarkChatUnreadForUser
+{
     #pragma warning disable CS1591
-    public class MarkChatUnreadForUserPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MarkChatUnreadForUserPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,9 +56,9 @@ namespace ApiSdk.Users.Item.Chats.Item.MarkChatUnreadForUser {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"lastMessageReadDateTime", n => { LastMessageReadDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
+                { "lastMessageReadDateTime", n => { LastMessageReadDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "user", n => { User = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

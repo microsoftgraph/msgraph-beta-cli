@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base for Android For Work EAS Email profiles
     /// </summary>
-    public class AndroidForWorkEasEmailProfileBase : DeviceConfiguration, IParsable 
+    public class AndroidForWorkEasEmailProfileBase : DeviceConfiguration, IParsable
     {
         /// <summary>Exchange Active Sync authentication method.</summary>
         public EasAuthenticationMethod? AuthenticationMethod { get; set; }
@@ -67,13 +68,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
-                {"durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                {"emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                {"hostName", n => { HostName = n.GetStringValue(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidForWorkCertificateProfileBase>(AndroidForWorkCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                {"usernameSource", n => { UsernameSource = n.GetEnumValue<AndroidUsernameSource>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "hostName", n => { HostName = n.GetStringValue(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidForWorkCertificateProfileBase>(AndroidForWorkCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
+                { "usernameSource", n => { UsernameSource = n.GetEnumValue<AndroidUsernameSource>(); } },
             };
         }
         /// <summary>

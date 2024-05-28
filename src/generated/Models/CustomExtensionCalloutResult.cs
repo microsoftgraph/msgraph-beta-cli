@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomExtensionCalloutResult : AuthenticationEventHandlerResult, IParsable 
+    public class CustomExtensionCalloutResult : AuthenticationEventHandlerResult, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.</summary>
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"calloutDateTime", n => { CalloutDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customExtensionId", n => { CustomExtensionId = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
-                {"httpStatus", n => { HttpStatus = n.GetIntValue(); } },
-                {"numberOfAttempts", n => { NumberOfAttempts = n.GetIntValue(); } },
+                { "calloutDateTime", n => { CalloutDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customExtensionId", n => { CustomExtensionId = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
+                { "httpStatus", n => { HttpStatus = n.GetIntValue(); } },
+                { "numberOfAttempts", n => { NumberOfAttempts = n.GetIntValue(); } },
             };
         }
         /// <summary>

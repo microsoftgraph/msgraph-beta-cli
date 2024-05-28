@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes {
+namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes
+{
     /// <summary>
     /// Provides operations to call the getMetricsForMfaSignInFailure method.
     /// </summary>
-    public class GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder 
+    public class GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of times users fail to complete interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period. Sign-in failures happen, for example, when users abandon or cancel MFA requests, or refresh MFA sessions without doing interactive MFA.
@@ -28,11 +29,11 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInFailureWithInclus
         {
             var command = new Command("get");
             command.Description = "Get the number of times users fail to complete interactive MFA sign-ins using the Microsoft Entra MFA cloud service during a specified time period. Sign-in failures happen, for example, when users abandon or cancel MFA requests, or refresh MFA sessions without doing interactive MFA.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceactivity-getmetricsformfasigninfailure?view=graph-rest-beta";
-            var inclusiveIntervalStartDateTimeOption = new Option<string>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
+            var inclusiveIntervalStartDateTimeOption = new Option<DateTimeOffset?>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
             };
             inclusiveIntervalStartDateTimeOption.IsRequired = true;
             command.AddOption(inclusiveIntervalStartDateTimeOption);
-            var exclusiveIntervalEndDateTimeOption = new Option<string>("--exclusive-interval-end-date-time", description: "Usage: exclusiveIntervalEndDateTime={exclusiveIntervalEndDateTime}") {
+            var exclusiveIntervalEndDateTimeOption = new Option<DateTimeOffset?>("--exclusive-interval-end-date-time", description: "Usage: exclusiveIntervalEndDateTime={exclusiveIntervalEndDateTime}") {
             };
             exclusiveIntervalEndDateTimeOption.IsRequired = true;
             command.AddOption(exclusiveIntervalEndDateTimeOption);
@@ -100,7 +101,9 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInFailureWithInclus
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

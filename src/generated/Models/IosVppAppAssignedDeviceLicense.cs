@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
     /// </summary>
-    public class IosVppAppAssignedDeviceLicense : IosVppAppAssignedLicense, IParsable 
+    public class IosVppAppAssignedDeviceLicense : IosVppAppAssignedLicense, IParsable
     {
         /// <summary>The device name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

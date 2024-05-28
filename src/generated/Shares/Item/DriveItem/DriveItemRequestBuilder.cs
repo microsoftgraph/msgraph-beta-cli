@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Shares.Item.DriveItem {
+namespace ApiSdk.Shares.Item.DriveItem
+{
     /// <summary>
     /// Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
     /// </summary>
-    public class DriveItemRequestBuilder : BaseCliRequestBuilder 
+    public class DriveItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the sharedDriveItem entity.
@@ -32,6 +33,7 @@ namespace ApiSdk.Shares.Item.DriveItem {
             command.Description = "Provides operations to manage the media for the sharedDriveItem entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -50,6 +52,7 @@ namespace ApiSdk.Shares.Item.DriveItem {
             command.Description = "Provides operations to manage the media for the sharedDriveItem entity.";
             var builder = new ContentStreamRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -59,13 +62,14 @@ namespace ApiSdk.Shares.Item.DriveItem {
             return command;
         }
         /// <summary>
-        /// Used to access the underlying driveItem
+        /// Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/shares-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Used to access the underlying driveItem";
+            command.Description = "Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/shares-get?view=graph-rest-beta";
             var sharedDriveItemIdOption = new Option<string>("--shared-drive-item-id", description: "The unique identifier of sharedDriveItem") {
             };
             sharedDriveItemIdOption.IsRequired = true;
@@ -125,7 +129,7 @@ namespace ApiSdk.Shares.Item.DriveItem {
         {
         }
         /// <summary>
-        /// Used to access the underlying driveItem
+        /// Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +148,7 @@ namespace ApiSdk.Shares.Item.DriveItem {
             return requestInfo;
         }
         /// <summary>
-        /// Used to access the underlying driveItem
+        /// Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
         /// </summary>
         public class DriveItemRequestBuilderGetQueryParameters 
         {

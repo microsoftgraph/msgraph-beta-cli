@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResourceEnvironment property of the microsoft.graph.accessPackageResource entity.

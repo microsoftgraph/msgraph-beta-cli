@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.TenantAttachRBAC.GetState {
+namespace ApiSdk.DeviceManagement.TenantAttachRBAC.GetState
+{
     /// <summary>
     /// Provides operations to call the getState method.
     /// </summary>
-    public class GetStateRequestBuilder : BaseCliRequestBuilder 
+    public class GetStateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getState

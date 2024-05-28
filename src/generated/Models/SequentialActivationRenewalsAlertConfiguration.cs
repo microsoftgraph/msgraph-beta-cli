@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SequentialActivationRenewalsAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable 
+    public class SequentialActivationRenewalsAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"sequentialActivationCounterThreshold", n => { SequentialActivationCounterThreshold = n.GetIntValue(); } },
-                {"timeIntervalBetweenActivations", n => { TimeIntervalBetweenActivations = n.GetTimeSpanValue(); } },
+                { "sequentialActivationCounterThreshold", n => { SequentialActivationCounterThreshold = n.GetIntValue(); } },
+                { "timeIntervalBetweenActivations", n => { TimeIntervalBetweenActivations = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

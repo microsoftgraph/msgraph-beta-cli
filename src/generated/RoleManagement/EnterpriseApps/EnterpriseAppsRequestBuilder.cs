@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps {
+namespace ApiSdk.RoleManagement.EnterpriseApps
+{
     /// <summary>
     /// Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class EnterpriseAppsRequestBuilder : BaseCliRequestBuilder 
+    public class EnterpriseAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.
@@ -194,7 +195,9 @@ namespace ApiSdk.RoleManagement.EnterpriseApps {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

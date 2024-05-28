@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetMobileApplicationManagementAppConfigurationReport {
+namespace ApiSdk.DeviceManagement.Reports.GetMobileApplicationManagementAppConfigurationReport
+{
     /// <summary>
     /// Provides operations to call the getMobileApplicationManagementAppConfigurationReport method.
     /// </summary>
-    public class GetMobileApplicationManagementAppConfigurationReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetMobileApplicationManagementAppConfigurationReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getMobileApplicationManagementAppConfigurationReport

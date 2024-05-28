@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces
+{
     /// <summary>
     /// Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class ResourceNamespacesRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceNamespacesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
@@ -101,13 +102,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
             return command;
         }
         /// <summary>
-        /// Get resourceNamespaces from roleManagement
+        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-resourcenamespaces?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get resourceNamespaces from roleManagement";
+            command.Description = "Get a list of the unifiedRbacResourceNamespace objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-resourcenamespaces?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +185,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +213,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
         {
         }
         /// <summary>
-        /// Get resourceNamespaces from roleManagement
+        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -249,7 +253,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces {
             return requestInfo;
         }
         /// <summary>
-        /// Get resourceNamespaces from roleManagement
+        /// Get a list of the unifiedRbacResourceNamespace objects and their properties.
         /// </summary>
         public class ResourceNamespacesRequestBuilderGetQueryParameters 
         {

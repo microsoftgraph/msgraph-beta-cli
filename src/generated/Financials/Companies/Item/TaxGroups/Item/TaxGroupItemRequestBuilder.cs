@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.TaxGroups.Item {
+namespace ApiSdk.Financials.Companies.Item.TaxGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
     /// </summary>
-    public class TaxGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class TaxGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property taxGroups for financials
@@ -28,7 +29,7 @@ namespace ApiSdk.Financials.Companies.Item.TaxGroups.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property taxGroups for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -69,7 +70,7 @@ namespace ApiSdk.Financials.Companies.Item.TaxGroups.Item {
         {
             var command = new Command("get");
             command.Description = "Get taxGroups from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -127,7 +128,7 @@ namespace ApiSdk.Financials.Companies.Item.TaxGroups.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property taxGroups in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class ReferenceDefinition : ApiSdk.Models.Entity, IParsable 
+    public class ReferenceDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The code value for the definition that must be unique within the referenceType.</summary>
@@ -59,13 +60,13 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isDisabled", n => { IsDisabled = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"referenceType", n => { ReferenceType = n.GetStringValue(); } },
-                {"sortIndex", n => { SortIndex = n.GetIntValue(); } },
-                {"source", n => { Source = n.GetStringValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isDisabled", n => { IsDisabled = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "referenceType", n => { ReferenceType = n.GetStringValue(); } },
+                { "sortIndex", n => { SortIndex = n.GetIntValue(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
             };
         }
         /// <summary>

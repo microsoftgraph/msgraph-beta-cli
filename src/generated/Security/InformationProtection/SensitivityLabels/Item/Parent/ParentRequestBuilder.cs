@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.InformationProtection.SensitivityLabels.Item.Parent {
+namespace ApiSdk.Security.InformationProtection.SensitivityLabels.Item.Parent
+{
     /// <summary>
     /// Provides operations to manage the parent property of the microsoft.graph.security.sensitivityLabel entity.
     /// </summary>
-    public class ParentRequestBuilder : BaseCliRequestBuilder 
+    public class ParentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property parent for security

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsApprovals.Item {
+namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsApprovals.Item
+{
     /// <summary>
     /// Provides operations to manage the scheduledPermissionsApprovals property of the microsoft.graph.permissionsManagement entity.
     /// </summary>
-    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property scheduledPermissionsApprovals for identityGovernance

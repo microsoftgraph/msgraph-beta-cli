@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
+namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class ProgressTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class ProgressTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property progressTaskBoardFormat for planner
@@ -56,13 +57,14 @@ namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
+        /// Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.";
+            command.Description = "Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Update the navigation property progressTaskBoardFormat in planner
+        /// Update the properties of plannerProgressTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property progressTaskBoardFormat in planner";
+            command.Description = "Update the properties of plannerProgressTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -199,7 +202,7 @@ namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
+        /// Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -218,7 +221,7 @@ namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property progressTaskBoardFormat in planner
+        /// Update the properties of plannerProgressTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -239,7 +242,7 @@ namespace ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
+        /// Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
         /// </summary>
         public class ProgressTaskBoardFormatRequestBuilderGetQueryParameters 
         {

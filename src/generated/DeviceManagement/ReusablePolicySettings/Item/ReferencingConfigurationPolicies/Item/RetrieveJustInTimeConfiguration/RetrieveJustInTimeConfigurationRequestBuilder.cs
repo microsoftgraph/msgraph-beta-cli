@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveJustInTimeConfiguration {
+namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveJustInTimeConfiguration
+{
     /// <summary>
     /// Provides operations to call the retrieveJustInTimeConfiguration method.
     /// </summary>
-    public class RetrieveJustInTimeConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveJustInTimeConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action retrieveJustInTimeConfiguration

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Operations.Item {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.roleManagementAlert entity.
     /// </summary>
-    public class LongRunningOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class LongRunningOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for identityGovernance

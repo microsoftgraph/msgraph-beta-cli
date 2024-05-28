@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The AAD Group we are deploying firmware updates to
     /// </summary>
-    public class AndroidFotaDeploymentAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable 
+    public class AndroidFotaDeploymentAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable
     {
         /// <summary>AAD Group Id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"groupId", n => { GroupId = n.GetStringValue(); } },
+                { "groupId", n => { GroupId = n.GetStringValue(); } },
             };
         }
         /// <summary>

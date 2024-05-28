@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate {
+namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate
+{
     /// <summary>
     /// Provides operations to call the selfActivate method.
     /// </summary>
-    public class SelfActivateRequestBuilder : BaseCliRequestBuilder 
+    public class SelfActivateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action selfActivate

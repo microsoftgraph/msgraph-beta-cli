@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class RoleGroup : ApiSdk.Models.Entity, IParsable 
+    public class RoleGroup : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the role group.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"roles", n => { Roles = n.GetCollectionOfObjectValues<RoleReferenceValue>(RoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<RoleReferenceValue>(RoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

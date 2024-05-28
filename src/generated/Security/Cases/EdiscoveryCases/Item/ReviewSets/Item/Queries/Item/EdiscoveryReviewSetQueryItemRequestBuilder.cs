@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item
+{
     /// <summary>
     /// Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
     /// </summary>
-    public class EdiscoveryReviewSetQueryItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryReviewSetQueryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property queries for security

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BusinessScenario : Entity, IParsable 
+    public class BusinessScenario : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity of the user who created the scenario.</summary>
@@ -79,14 +80,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"ownerAppIds", n => { OwnerAppIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"planner", n => { Planner = n.GetObjectValue<BusinessScenarioPlanner>(BusinessScenarioPlanner.CreateFromDiscriminatorValue); } },
-                {"uniqueName", n => { UniqueName = n.GetStringValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "ownerAppIds", n => { OwnerAppIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "planner", n => { Planner = n.GetObjectValue<BusinessScenarioPlanner>(BusinessScenarioPlanner.CreateFromDiscriminatorValue); } },
+                { "uniqueName", n => { UniqueName = n.GetStringValue(); } },
             };
         }
         /// <summary>

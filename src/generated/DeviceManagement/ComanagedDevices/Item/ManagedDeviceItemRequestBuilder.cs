@@ -72,11 +72,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item
+{
     /// <summary>
     /// Provides operations to manage the comanagedDevices property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ManagedDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the activateDeviceEsim method.

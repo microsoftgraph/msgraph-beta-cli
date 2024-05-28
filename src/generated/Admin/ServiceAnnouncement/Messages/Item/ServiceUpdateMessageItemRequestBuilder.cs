@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
+namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item
+{
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
     /// </summary>
-    public class ServiceUpdateMessageItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceUpdateMessageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the admin entity.
@@ -32,6 +33,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
             command.Description = "Provides operations to manage the media for the admin entity.";
             var builder = new AttachmentsArchiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -103,13 +105,14 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
             return command;
         }
         /// <summary>
-        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.";
+            command.Description = "Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-beta";
             var serviceUpdateMessageIdOption = new Option<string>("--service-update-message-id", description: "The unique identifier of serviceUpdateMessage") {
             };
             serviceUpdateMessageIdOption.IsRequired = true;
@@ -239,7 +242,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -279,7 +282,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
         /// </summary>
         public class ServiceUpdateMessageItemRequestBuilderGetQueryParameters 
         {

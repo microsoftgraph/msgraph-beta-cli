@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcAuditActor : IAdditionalDataHolder, IParsable 
+    public class CloudPcAuditActor : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -126,18 +127,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applicationDisplayName", n => { ApplicationDisplayName = n.GetStringValue(); } },
-                {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"remoteTenantId", n => { RemoteTenantId = n.GetStringValue(); } },
-                {"remoteUserId", n => { RemoteUserId = n.GetStringValue(); } },
-                {"servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<CloudPcAuditActorType>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPermissions", n => { UserPermissions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userRoleScopeTags", n => { UserRoleScopeTags = n.GetCollectionOfObjectValues<CloudPcUserRoleScopeTagInfo>(CloudPcUserRoleScopeTagInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationDisplayName", n => { ApplicationDisplayName = n.GetStringValue(); } },
+                { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "remoteTenantId", n => { RemoteTenantId = n.GetStringValue(); } },
+                { "remoteUserId", n => { RemoteUserId = n.GetStringValue(); } },
+                { "servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<CloudPcAuditActorType>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPermissions", n => { UserPermissions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userRoleScopeTags", n => { UserRoleScopeTags = n.GetCollectionOfObjectValues<CloudPcUserRoleScopeTagInfo>(CloudPcUserRoleScopeTagInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

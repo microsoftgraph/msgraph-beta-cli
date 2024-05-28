@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.Relationships.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.Relationships.Item
+{
     /// <summary>
     /// Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
     /// </summary>
-    public class MobileAppRelationshipItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppRelationshipItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property relationships for deviceAppManagement
@@ -62,13 +63,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.Relationship
             return command;
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "List of relationships for this mobile app.";
+            command.Description = "The set of direct relationships for this app.";
             var mobileAppIdOption = new Option<string>("--mobile-app-id", description: "The unique identifier of mobileApp") {
             };
             mobileAppIdOption.IsRequired = true;
@@ -210,7 +211,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.Relationship
             return requestInfo;
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +251,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.Relationship
             return requestInfo;
         }
         /// <summary>
-        /// List of relationships for this mobile app.
+        /// The set of direct relationships for this app.
         /// </summary>
         public class MobileAppRelationshipItemRequestBuilderGetQueryParameters 
         {

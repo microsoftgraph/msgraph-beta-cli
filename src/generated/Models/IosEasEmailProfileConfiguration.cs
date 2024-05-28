@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing configurations in this profile you can instruct the native email client on iOS devices to communicate with an Exchange server and get email, contacts, calendar, reminders, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class IosEasEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable 
+    public class IosEasEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable
     {
         /// <summary>Account name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,33 +132,33 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountName", n => { AccountName = n.GetStringValue(); } },
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
-                {"blockMovingMessagesToOtherEmailAccounts", n => { BlockMovingMessagesToOtherEmailAccounts = n.GetBoolValue(); } },
-                {"blockSendingEmailFromThirdPartyApps", n => { BlockSendingEmailFromThirdPartyApps = n.GetBoolValue(); } },
-                {"blockSyncingRecentlyUsedEmailAddresses", n => { BlockSyncingRecentlyUsedEmailAddresses = n.GetBoolValue(); } },
-                {"derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
-                {"durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                {"easServices", n => { EasServices = n.GetEnumValue<EasServices>(); } },
-                {"easServicesUserOverrideEnabled", n => { EasServicesUserOverrideEnabled = n.GetBoolValue(); } },
-                {"emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                {"encryptionCertificateType", n => { EncryptionCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
-                {"hostName", n => { HostName = n.GetStringValue(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"perAppVPNProfileId", n => { PerAppVPNProfileId = n.GetStringValue(); } },
-                {"requireSmime", n => { RequireSmime = n.GetBoolValue(); } },
-                {"requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                {"signingCertificateType", n => { SigningCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
-                {"smimeEnablePerMessageSwitch", n => { SmimeEnablePerMessageSwitch = n.GetBoolValue(); } },
-                {"smimeEncryptByDefaultEnabled", n => { SmimeEncryptByDefaultEnabled = n.GetBoolValue(); } },
-                {"smimeEncryptByDefaultUserOverrideEnabled", n => { SmimeEncryptByDefaultUserOverrideEnabled = n.GetBoolValue(); } },
-                {"smimeEncryptionCertificate", n => { SmimeEncryptionCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
-                {"smimeEncryptionCertificateUserOverrideEnabled", n => { SmimeEncryptionCertificateUserOverrideEnabled = n.GetBoolValue(); } },
-                {"smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
-                {"smimeSigningCertificateUserOverrideEnabled", n => { SmimeSigningCertificateUserOverrideEnabled = n.GetBoolValue(); } },
-                {"smimeSigningEnabled", n => { SmimeSigningEnabled = n.GetBoolValue(); } },
-                {"smimeSigningUserOverrideEnabled", n => { SmimeSigningUserOverrideEnabled = n.GetBoolValue(); } },
-                {"useOAuth", n => { UseOAuth = n.GetBoolValue(); } },
+                { "accountName", n => { AccountName = n.GetStringValue(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
+                { "blockMovingMessagesToOtherEmailAccounts", n => { BlockMovingMessagesToOtherEmailAccounts = n.GetBoolValue(); } },
+                { "blockSendingEmailFromThirdPartyApps", n => { BlockSendingEmailFromThirdPartyApps = n.GetBoolValue(); } },
+                { "blockSyncingRecentlyUsedEmailAddresses", n => { BlockSyncingRecentlyUsedEmailAddresses = n.GetBoolValue(); } },
+                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
+                { "easServices", n => { EasServices = n.GetEnumValue<EasServices>(); } },
+                { "easServicesUserOverrideEnabled", n => { EasServicesUserOverrideEnabled = n.GetBoolValue(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "encryptionCertificateType", n => { EncryptionCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
+                { "hostName", n => { HostName = n.GetStringValue(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "perAppVPNProfileId", n => { PerAppVPNProfileId = n.GetStringValue(); } },
+                { "requireSmime", n => { RequireSmime = n.GetBoolValue(); } },
+                { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
+                { "signingCertificateType", n => { SigningCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
+                { "smimeEnablePerMessageSwitch", n => { SmimeEnablePerMessageSwitch = n.GetBoolValue(); } },
+                { "smimeEncryptByDefaultEnabled", n => { SmimeEncryptByDefaultEnabled = n.GetBoolValue(); } },
+                { "smimeEncryptByDefaultUserOverrideEnabled", n => { SmimeEncryptByDefaultUserOverrideEnabled = n.GetBoolValue(); } },
+                { "smimeEncryptionCertificate", n => { SmimeEncryptionCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
+                { "smimeEncryptionCertificateUserOverrideEnabled", n => { SmimeEncryptionCertificateUserOverrideEnabled = n.GetBoolValue(); } },
+                { "smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
+                { "smimeSigningCertificateUserOverrideEnabled", n => { SmimeSigningCertificateUserOverrideEnabled = n.GetBoolValue(); } },
+                { "smimeSigningEnabled", n => { SmimeSigningEnabled = n.GetBoolValue(); } },
+                { "smimeSigningUserOverrideEnabled", n => { SmimeSigningUserOverrideEnabled = n.GetBoolValue(); } },
+                { "useOAuth", n => { UseOAuth = n.GetBoolValue(); } },
             };
         }
         /// <summary>

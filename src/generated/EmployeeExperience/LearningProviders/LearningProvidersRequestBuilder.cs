@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.LearningProviders {
+namespace ApiSdk.EmployeeExperience.LearningProviders
+{
     /// <summary>
     /// Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class LearningProvidersRequestBuilder : BaseCliRequestBuilder 
+    public class LearningProvidersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
@@ -58,13 +59,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to learningProviders for employeeExperience
+        /// Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to learningProviders for employeeExperience";
+            command.Description = "Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -103,13 +105,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
             return command;
         }
         /// <summary>
-        /// A collection of learning providers.
+        /// Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of learning providers.";
+            command.Description = "Get a list of the learningProvider resources registered in Viva Learning for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -185,7 +188,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -211,7 +216,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
         {
         }
         /// <summary>
-        /// A collection of learning providers.
+        /// Get a list of the learningProvider resources registered in Viva Learning for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -230,7 +235,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to learningProviders for employeeExperience
+        /// Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -251,7 +256,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of learning providers.
+        /// Get a list of the learningProvider resources registered in Viva Learning for a tenant.
         /// </summary>
         public class LearningProvidersRequestBuilderGetQueryParameters 
         {

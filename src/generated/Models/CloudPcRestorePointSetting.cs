@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcRestorePointSetting : IAdditionalDataHolder, IParsable 
+    public class CloudPcRestorePointSetting : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The frequencyInHours property</summary>
+        /// <summary>The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are 4, 6, 12, 16, and 24. The default frequency is 12 hours. The frequencyInHours property is deprecated and will stop returning data on January 31, 2024. Going forward, use the frequencyType property.</summary>
         public int? FrequencyInHours { get; set; }
         /// <summary>The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are: default, fourHours, sixHours, twelveHours, sixteenHours, twentyFourHours, unknownFutureValue. The default value is default that indicates that the time interval for automatic capturing of restore point snapshots is set to 12 hours.</summary>
         public CloudPcRestorePointFrequencyType? FrequencyType { get; set; }
@@ -50,10 +51,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"frequencyInHours", n => { FrequencyInHours = n.GetIntValue(); } },
-                {"frequencyType", n => { FrequencyType = n.GetEnumValue<CloudPcRestorePointFrequencyType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"userRestoreEnabled", n => { UserRestoreEnabled = n.GetBoolValue(); } },
+                { "frequencyInHours", n => { FrequencyInHours = n.GetIntValue(); } },
+                { "frequencyType", n => { FrequencyType = n.GetEnumValue<CloudPcRestorePointFrequencyType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "userRestoreEnabled", n => { UserRestoreEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

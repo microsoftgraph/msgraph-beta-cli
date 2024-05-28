@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrinterLocation : IAdditionalDataHolder, IParsable 
+    public class PrinterLocation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -166,26 +167,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"altitudeInMeters", n => { AltitudeInMeters = n.GetIntValue(); } },
-                {"building", n => { Building = n.GetStringValue(); } },
-                {"city", n => { City = n.GetStringValue(); } },
-                {"countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
-                {"floor", n => { Floor = n.GetStringValue(); } },
-                {"floorDescription", n => { FloorDescription = n.GetStringValue(); } },
-                {"floorNumber", n => { FloorNumber = n.GetIntValue(); } },
-                {"latitude", n => { Latitude = n.GetDoubleValue(); } },
-                {"longitude", n => { Longitude = n.GetDoubleValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"organization", n => { Organization = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"postalCode", n => { PostalCode = n.GetStringValue(); } },
-                {"roomDescription", n => { RoomDescription = n.GetStringValue(); } },
-                {"roomName", n => { RoomName = n.GetStringValue(); } },
-                {"roomNumber", n => { RoomNumber = n.GetIntValue(); } },
-                {"site", n => { Site = n.GetStringValue(); } },
-                {"stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
-                {"streetAddress", n => { StreetAddress = n.GetStringValue(); } },
-                {"subdivision", n => { Subdivision = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"subunit", n => { Subunit = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "altitudeInMeters", n => { AltitudeInMeters = n.GetIntValue(); } },
+                { "building", n => { Building = n.GetStringValue(); } },
+                { "city", n => { City = n.GetStringValue(); } },
+                { "countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
+                { "floor", n => { Floor = n.GetStringValue(); } },
+                { "floorDescription", n => { FloorDescription = n.GetStringValue(); } },
+                { "floorNumber", n => { FloorNumber = n.GetIntValue(); } },
+                { "latitude", n => { Latitude = n.GetDoubleValue(); } },
+                { "longitude", n => { Longitude = n.GetDoubleValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "organization", n => { Organization = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "postalCode", n => { PostalCode = n.GetStringValue(); } },
+                { "roomDescription", n => { RoomDescription = n.GetStringValue(); } },
+                { "roomName", n => { RoomName = n.GetStringValue(); } },
+                { "roomNumber", n => { RoomNumber = n.GetIntValue(); } },
+                { "site", n => { Site = n.GetStringValue(); } },
+                { "stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
+                { "streetAddress", n => { StreetAddress = n.GetStringValue(); } },
+                { "subdivision", n => { Subdivision = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "subunit", n => { Subunit = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

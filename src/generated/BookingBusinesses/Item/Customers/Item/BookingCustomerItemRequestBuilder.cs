@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.BookingBusinesses.Item.Customers.Item {
+namespace ApiSdk.BookingBusinesses.Item.Customers.Item
+{
     /// <summary>
     /// Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
     /// </summary>
-    public class BookingCustomerItemRequestBuilder : BaseCliRequestBuilder 
+    public class BookingCustomerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property customers for bookingBusinesses

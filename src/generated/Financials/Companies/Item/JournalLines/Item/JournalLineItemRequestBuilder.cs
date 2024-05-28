@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.JournalLines.Item {
+namespace ApiSdk.Financials.Companies.Item.JournalLines.Item
+{
     /// <summary>
     /// Provides operations to manage the journalLines property of the microsoft.graph.company entity.
     /// </summary>
-    public class JournalLineItemRequestBuilder : BaseCliRequestBuilder 
+    public class JournalLineItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.journalLine entity.
@@ -46,11 +47,11 @@ namespace ApiSdk.Financials.Companies.Item.JournalLines.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property journalLines for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalLineIdOption = new Option<string>("--journal-line-id", description: "The unique identifier of journalLine") {
+            var journalLineIdOption = new Option<Guid?>("--journal-line-id", description: "The unique identifier of journalLine") {
             };
             journalLineIdOption.IsRequired = true;
             command.AddOption(journalLineIdOption);
@@ -87,11 +88,11 @@ namespace ApiSdk.Financials.Companies.Item.JournalLines.Item {
         {
             var command = new Command("get");
             command.Description = "Get journalLines from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalLineIdOption = new Option<string>("--journal-line-id", description: "The unique identifier of journalLine") {
+            var journalLineIdOption = new Option<Guid?>("--journal-line-id", description: "The unique identifier of journalLine") {
             };
             journalLineIdOption.IsRequired = true;
             command.AddOption(journalLineIdOption);
@@ -145,11 +146,11 @@ namespace ApiSdk.Financials.Companies.Item.JournalLines.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property journalLines in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalLineIdOption = new Option<string>("--journal-line-id", description: "The unique identifier of journalLine") {
+            var journalLineIdOption = new Option<Guid?>("--journal-line-id", description: "The unique identifier of journalLine") {
             };
             journalLineIdOption.IsRequired = true;
             command.AddOption(journalLineIdOption);

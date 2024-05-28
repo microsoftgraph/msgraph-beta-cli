@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppDashboardCardDefinition : Entity, IParsable 
+    public class TeamsAppDashboardCardDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration for the source of the card content. Required.</summary>
@@ -69,12 +70,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentSource", n => { ContentSource = n.GetObjectValue<TeamsAppDashboardCardContentSource>(TeamsAppDashboardCardContentSource.CreateFromDiscriminatorValue); } },
-                {"defaultSize", n => { DefaultSize = n.GetEnumValue<TeamsAppDashboardCardSize>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"icon", n => { Icon = n.GetObjectValue<TeamsAppDashboardCardIcon>(TeamsAppDashboardCardIcon.CreateFromDiscriminatorValue); } },
-                {"pickerGroupId", n => { PickerGroupId = n.GetStringValue(); } },
+                { "contentSource", n => { ContentSource = n.GetObjectValue<TeamsAppDashboardCardContentSource>(TeamsAppDashboardCardContentSource.CreateFromDiscriminatorValue); } },
+                { "defaultSize", n => { DefaultSize = n.GetEnumValue<TeamsAppDashboardCardSize>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "icon", n => { Icon = n.GetObjectValue<TeamsAppDashboardCardIcon>(TeamsAppDashboardCardIcon.CreateFromDiscriminatorValue); } },
+                { "pickerGroupId", n => { PickerGroupId = n.GetStringValue(); } },
             };
         }
         /// <summary>

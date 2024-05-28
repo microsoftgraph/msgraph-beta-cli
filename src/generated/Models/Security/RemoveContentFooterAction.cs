@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RemoveContentFooterAction : InformationProtectionAction, IParsable 
+    public class RemoveContentFooterAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the UI element of the footer to be removed.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"uiElementNames", n => { UiElementNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "uiElementNames", n => { UiElementNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -159,11 +159,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports {
+namespace ApiSdk.Reports
+{
     /// <summary>
     /// Provides operations to manage the reportRoot singleton.
     /// </summary>
-    public class ReportsRequestBuilder : BaseCliRequestBuilder 
+    public class ReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.

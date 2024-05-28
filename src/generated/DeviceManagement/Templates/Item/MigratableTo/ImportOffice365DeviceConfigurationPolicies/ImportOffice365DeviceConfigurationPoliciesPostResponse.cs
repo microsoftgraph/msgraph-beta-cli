@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365DeviceConfigurationPolicies {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365DeviceConfigurationPolicies
+{
     #pragma warning disable CS1591
-    public class ImportOffice365DeviceConfigurationPoliciesPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class ImportOffice365DeviceConfigurationPoliciesPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365Dev
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementIntent>(DeviceManagementIntent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementIntent>(DeviceManagementIntent.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

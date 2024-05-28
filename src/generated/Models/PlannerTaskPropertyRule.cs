@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTaskPropertyRule : PlannerPropertyRule, IParsable 
+    public class PlannerTaskPropertyRule : PlannerPropertyRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Rules and restrictions for applied categories. This value doesn&apos;t currently support overrides. Accepted values for the default rule and individual overrides are allow, block.</summary>
@@ -170,23 +171,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appliedCategories", n => { AppliedCategories = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"approvalAttachment", n => { ApprovalAttachment = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"assignments", n => { Assignments = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"checkLists", n => { CheckLists = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"completionRequirements", n => { CompletionRequirements = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"delete", n => { Delete = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"dueDate", n => { DueDate = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"forms", n => { Forms = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"move", n => { Move = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"notes", n => { Notes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"order", n => { Order = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"percentComplete", n => { PercentComplete = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"previewType", n => { PreviewType = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"priority", n => { Priority = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"references", n => { References = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
-                {"startDate", n => { StartDate = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"title", n => { Title = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "appliedCategories", n => { AppliedCategories = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "approvalAttachment", n => { ApprovalAttachment = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "assignments", n => { Assignments = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "checkLists", n => { CheckLists = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "completionRequirements", n => { CompletionRequirements = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "delete", n => { Delete = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "dueDate", n => { DueDate = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "forms", n => { Forms = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "move", n => { Move = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "notes", n => { Notes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "order", n => { Order = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "percentComplete", n => { PercentComplete = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "previewType", n => { PreviewType = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "priority", n => { Priority = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "references", n => { References = n.GetObjectValue<PlannerFieldRules>(PlannerFieldRules.CreateFromDiscriminatorValue); } },
+                { "startDate", n => { StartDate = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "title", n => { Title = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

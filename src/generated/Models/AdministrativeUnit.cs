@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AdministrativeUnit : DirectoryObject, IParsable 
+    public class AdministrativeUnit : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description property</summary>
@@ -108,16 +109,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isMemberManagementRestricted", n => { IsMemberManagementRestricted = n.GetBoolValue(); } },
-                {"members", n => { Members = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"membershipRule", n => { MembershipRule = n.GetStringValue(); } },
-                {"membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
-                {"membershipType", n => { MembershipType = n.GetStringValue(); } },
-                {"scopedRoleMembers", n => { ScopedRoleMembers = n.GetCollectionOfObjectValues<ScopedRoleMembership>(ScopedRoleMembership.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"visibility", n => { Visibility = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isMemberManagementRestricted", n => { IsMemberManagementRestricted = n.GetBoolValue(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "membershipRule", n => { MembershipRule = n.GetStringValue(); } },
+                { "membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
+                { "membershipType", n => { MembershipType = n.GetStringValue(); } },
+                { "scopedRoleMembers", n => { ScopedRoleMembers = n.GetCollectionOfObjectValues<ScopedRoleMembership>(ScopedRoleMembership.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "visibility", n => { Visibility = n.GetStringValue(); } },
             };
         }
         /// <summary>

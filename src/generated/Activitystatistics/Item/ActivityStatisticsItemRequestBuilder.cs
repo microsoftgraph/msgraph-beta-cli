@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Activitystatistics.Item {
+namespace ApiSdk.Activitystatistics.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of activityStatistics entities.
     /// </summary>
-    public class ActivityStatisticsItemRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityStatisticsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from activitystatistics

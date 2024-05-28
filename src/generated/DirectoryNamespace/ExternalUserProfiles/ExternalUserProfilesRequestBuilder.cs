@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
+namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles
+{
     /// <summary>
     /// Provides operations to manage the externalUserProfiles property of the microsoft.graph.directory entity.
     /// </summary>
-    public class ExternalUserProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalUserProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the externalUserProfiles property of the microsoft.graph.directory entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
             return command;
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of all externalUserProfiles
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-externaluserprofiles?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Collection of external user profiles that represent collaborators in the directory.";
+            command.Description = "Retrieve the properties of all externalUserProfiles\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-externaluserprofiles?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
         {
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of all externalUserProfiles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.DirectoryNamespace.ExternalUserProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of external user profiles that represent collaborators in the directory.
+        /// Retrieve the properties of all externalUserProfiles
         /// </summary>
         public class ExternalUserProfilesRequestBuilderGetQueryParameters 
         {

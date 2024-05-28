@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcBulkActionSummary : IAdditionalDataHolder, IParsable 
+    public class CloudPcBulkActionSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,12 +55,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"failedCount", n => { FailedCount = n.GetIntValue(); } },
-                {"inProgressCount", n => { InProgressCount = n.GetIntValue(); } },
-                {"notSupportedCount", n => { NotSupportedCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"pendingCount", n => { PendingCount = n.GetIntValue(); } },
-                {"successfulCount", n => { SuccessfulCount = n.GetIntValue(); } },
+                { "failedCount", n => { FailedCount = n.GetIntValue(); } },
+                { "inProgressCount", n => { InProgressCount = n.GetIntValue(); } },
+                { "notSupportedCount", n => { NotSupportedCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "pendingCount", n => { PendingCount = n.GetIntValue(); } },
+                { "successfulCount", n => { SuccessfulCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

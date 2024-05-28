@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserRequestsMetric : Entity, IParsable 
+    public class UserRequestsMetric : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -64,12 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"country", n => { Country = n.GetStringValue(); } },
-                {"factDate", n => { FactDate = n.GetDateValue(); } },
-                {"identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"requestCount", n => { RequestCount = n.GetLongValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "country", n => { Country = n.GetStringValue(); } },
+                { "factDate", n => { FactDate = n.GetDateValue(); } },
+                { "identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "requestCount", n => { RequestCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

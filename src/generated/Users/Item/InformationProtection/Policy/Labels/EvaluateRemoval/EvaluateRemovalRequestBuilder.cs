@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateRemoval {
+namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateRemoval
+{
     /// <summary>
     /// Provides operations to call the evaluateRemoval method.
     /// </summary>
-    public class EvaluateRemovalRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateRemovalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Indicate to the consuming application what actions it should take to remove the label information. Given contentInfo as an input, which includes existing content metadata key/value pairs, the API returns an informationProtectionAction that contains some combination of one of more of the following: 
@@ -72,7 +73,9 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateRemoval 
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRequests {
+namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRequests
+{
     /// <summary>
     /// Provides operations to manage the scheduledPermissionsRequests property of the microsoft.graph.permissionsManagement entity.
     /// </summary>
-    public class ScheduledPermissionsRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class ScheduledPermissionsRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the filterByCurrentUser method.
@@ -121,7 +122,9 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -133,13 +136,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
             return command;
         }
         /// <summary>
-        /// Create new navigation property to scheduledPermissionsRequests for identityGovernance
+        /// Create a new scheduledPermissionsRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property to scheduledPermissionsRequests for identityGovernance";
+            command.Description = "Create a new scheduledPermissionsRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -211,7 +215,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRe
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to scheduledPermissionsRequests for identityGovernance
+        /// Create a new scheduledPermissionsRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

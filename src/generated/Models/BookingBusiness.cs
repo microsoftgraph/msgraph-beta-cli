@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a Microsoft Bookings Business.
     /// </summary>
-    public class BookingBusiness : BookingNamedEntity, IParsable 
+    public class BookingBusiness : BookingNamedEntity, IParsable
     {
         /// <summary>The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -177,26 +178,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"address", n => { Address = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
-                {"appointments", n => { Appointments = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"bookingPageSettings", n => { BookingPageSettings = n.GetObjectValue<ApiSdk.Models.BookingPageSettings>(ApiSdk.Models.BookingPageSettings.CreateFromDiscriminatorValue); } },
-                {"businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"businessType", n => { BusinessType = n.GetStringValue(); } },
-                {"calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customQuestions", n => { CustomQuestions = n.GetCollectionOfObjectValues<BookingCustomQuestion>(BookingCustomQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomer>(BookingCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"defaultCurrencyIso", n => { DefaultCurrencyIso = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"isPublished", n => { IsPublished = n.GetBoolValue(); } },
-                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"phone", n => { Phone = n.GetStringValue(); } },
-                {"publicUrl", n => { PublicUrl = n.GetStringValue(); } },
-                {"schedulingPolicy", n => { SchedulingPolicy = n.GetObjectValue<BookingSchedulingPolicy>(BookingSchedulingPolicy.CreateFromDiscriminatorValue); } },
-                {"services", n => { Services = n.GetCollectionOfObjectValues<BookingService>(BookingService.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"staffMembers", n => { StaffMembers = n.GetCollectionOfObjectValues<BookingStaffMember>(BookingStaffMember.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"webSiteUrl", n => { WebSiteUrl = n.GetStringValue(); } },
+                { "address", n => { Address = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "appointments", n => { Appointments = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "bookingPageSettings", n => { BookingPageSettings = n.GetObjectValue<ApiSdk.Models.BookingPageSettings>(ApiSdk.Models.BookingPageSettings.CreateFromDiscriminatorValue); } },
+                { "businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "businessType", n => { BusinessType = n.GetStringValue(); } },
+                { "calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customQuestions", n => { CustomQuestions = n.GetCollectionOfObjectValues<BookingCustomQuestion>(BookingCustomQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomer>(BookingCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultCurrencyIso", n => { DefaultCurrencyIso = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
+                { "languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "phone", n => { Phone = n.GetStringValue(); } },
+                { "publicUrl", n => { PublicUrl = n.GetStringValue(); } },
+                { "schedulingPolicy", n => { SchedulingPolicy = n.GetObjectValue<BookingSchedulingPolicy>(BookingSchedulingPolicy.CreateFromDiscriminatorValue); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<BookingService>(BookingService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "staffMembers", n => { StaffMembers = n.GetCollectionOfObjectValues<BookingStaffMember>(BookingStaffMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "webSiteUrl", n => { WebSiteUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

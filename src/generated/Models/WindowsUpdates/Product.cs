@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class Product : ApiSdk.Models.Entity, IParsable 
+    public class Product : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents an edition of a particular Windows product.</summary>
@@ -75,12 +76,12 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"editions", n => { Editions = n.GetCollectionOfObjectValues<Edition>(Edition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"friendlyNames", n => { FriendlyNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"groupName", n => { GroupName = n.GetStringValue(); } },
-                {"knownIssues", n => { KnownIssues = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"revisions", n => { Revisions = n.GetCollectionOfObjectValues<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "editions", n => { Editions = n.GetCollectionOfObjectValues<Edition>(Edition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "friendlyNames", n => { FriendlyNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "groupName", n => { GroupName = n.GetStringValue(); } },
+                { "knownIssues", n => { KnownIssues = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "revisions", n => { Revisions = n.GetCollectionOfObjectValues<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

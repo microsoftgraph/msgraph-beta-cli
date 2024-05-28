@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LookupResultRow : Entity, IParsable 
+    public class LookupResultRow : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The row property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"row", n => { Row = n.GetStringValue(); } },
+                { "row", n => { Row = n.GetStringValue(); } },
             };
         }
         /// <summary>

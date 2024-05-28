@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class CloudPcOverview : ApiSdk.Models.Entity, IParsable 
+    public class CloudPcOverview : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The total number of cloud PC devices that have the Frontline SKU. Optional. Read-only.</summary>
+        public int? FrontlineLicensesCount { get; set; }
         /// <summary>Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.</summary>
         public DateTimeOffset? LastRefreshedDateTime { get; set; }
         /// <summary>The number of cloud PC connections that have a status of failed. Optional. Read-only.</summary>
@@ -79,26 +82,27 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"numberOfCloudPcConnectionStatusFailed", n => { NumberOfCloudPcConnectionStatusFailed = n.GetIntValue(); } },
-                {"numberOfCloudPcConnectionStatusPassed", n => { NumberOfCloudPcConnectionStatusPassed = n.GetIntValue(); } },
-                {"numberOfCloudPcConnectionStatusPending", n => { NumberOfCloudPcConnectionStatusPending = n.GetIntValue(); } },
-                {"numberOfCloudPcConnectionStatusRunning", n => { NumberOfCloudPcConnectionStatusRunning = n.GetIntValue(); } },
-                {"numberOfCloudPcConnectionStatusUnkownFutureValue", n => { NumberOfCloudPcConnectionStatusUnkownFutureValue = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusDeprovisioning", n => { NumberOfCloudPcStatusDeprovisioning = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusFailed", n => { NumberOfCloudPcStatusFailed = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusInGracePeriod", n => { NumberOfCloudPcStatusInGracePeriod = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusNotProvisioned", n => { NumberOfCloudPcStatusNotProvisioned = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusProvisioned", n => { NumberOfCloudPcStatusProvisioned = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusProvisioning", n => { NumberOfCloudPcStatusProvisioning = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusUnknown", n => { NumberOfCloudPcStatusUnknown = n.GetIntValue(); } },
-                {"numberOfCloudPcStatusUpgrading", n => { NumberOfCloudPcStatusUpgrading = n.GetIntValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"totalBusinessLicenses", n => { TotalBusinessLicenses = n.GetIntValue(); } },
-                {"totalCloudPcConnectionStatus", n => { TotalCloudPcConnectionStatus = n.GetIntValue(); } },
-                {"totalCloudPcStatus", n => { TotalCloudPcStatus = n.GetIntValue(); } },
-                {"totalEnterpriseLicenses", n => { TotalEnterpriseLicenses = n.GetIntValue(); } },
+                { "frontlineLicensesCount", n => { FrontlineLicensesCount = n.GetIntValue(); } },
+                { "lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "numberOfCloudPcConnectionStatusFailed", n => { NumberOfCloudPcConnectionStatusFailed = n.GetIntValue(); } },
+                { "numberOfCloudPcConnectionStatusPassed", n => { NumberOfCloudPcConnectionStatusPassed = n.GetIntValue(); } },
+                { "numberOfCloudPcConnectionStatusPending", n => { NumberOfCloudPcConnectionStatusPending = n.GetIntValue(); } },
+                { "numberOfCloudPcConnectionStatusRunning", n => { NumberOfCloudPcConnectionStatusRunning = n.GetIntValue(); } },
+                { "numberOfCloudPcConnectionStatusUnkownFutureValue", n => { NumberOfCloudPcConnectionStatusUnkownFutureValue = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusDeprovisioning", n => { NumberOfCloudPcStatusDeprovisioning = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusFailed", n => { NumberOfCloudPcStatusFailed = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusInGracePeriod", n => { NumberOfCloudPcStatusInGracePeriod = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusNotProvisioned", n => { NumberOfCloudPcStatusNotProvisioned = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusProvisioned", n => { NumberOfCloudPcStatusProvisioned = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusProvisioning", n => { NumberOfCloudPcStatusProvisioning = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusUnknown", n => { NumberOfCloudPcStatusUnknown = n.GetIntValue(); } },
+                { "numberOfCloudPcStatusUpgrading", n => { NumberOfCloudPcStatusUpgrading = n.GetIntValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "totalBusinessLicenses", n => { TotalBusinessLicenses = n.GetIntValue(); } },
+                { "totalCloudPcConnectionStatus", n => { TotalCloudPcConnectionStatus = n.GetIntValue(); } },
+                { "totalCloudPcStatus", n => { TotalCloudPcStatus = n.GetIntValue(); } },
+                { "totalEnterpriseLicenses", n => { TotalEnterpriseLicenses = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -109,6 +113,7 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteIntValue("frontlineLicensesCount", FrontlineLicensesCount);
             writer.WriteDateTimeOffsetValue("lastRefreshedDateTime", LastRefreshedDateTime);
             writer.WriteIntValue("numberOfCloudPcConnectionStatusFailed", NumberOfCloudPcConnectionStatusFailed);
             writer.WriteIntValue("numberOfCloudPcConnectionStatusPassed", NumberOfCloudPcConnectionStatusPassed);

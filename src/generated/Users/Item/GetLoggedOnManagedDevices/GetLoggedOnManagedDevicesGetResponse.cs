@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.GetLoggedOnManagedDevices {
+namespace ApiSdk.Users.Item.GetLoggedOnManagedDevices
+{
     #pragma warning disable CS1591
-    public class GetLoggedOnManagedDevicesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetLoggedOnManagedDevicesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.GetLoggedOnManagedDevices {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

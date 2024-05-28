@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcExportJob : Entity, IParsable 
+    public class CloudPcExportJob : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the export job expires.</summary>
@@ -67,14 +68,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"exportJobStatus", n => { ExportJobStatus = n.GetEnumValue<CloudPcExportJobStatus>(); } },
-                {"exportUrl", n => { ExportUrl = n.GetStringValue(); } },
-                {"filter", n => { Filter = n.GetStringValue(); } },
-                {"format", n => { Format = n.GetStringValue(); } },
-                {"reportName", n => { ReportName = n.GetEnumValue<CloudPcReportName>(); } },
-                {"requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
-                {"select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "exportJobStatus", n => { ExportJobStatus = n.GetEnumValue<CloudPcExportJobStatus>(); } },
+                { "exportUrl", n => { ExportUrl = n.GetStringValue(); } },
+                { "filter", n => { Filter = n.GetStringValue(); } },
+                { "format", n => { Format = n.GetStringValue(); } },
+                { "reportName", n => { ReportName = n.GetEnumValue<CloudPcReportName>(); } },
+                { "requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
+                { "select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

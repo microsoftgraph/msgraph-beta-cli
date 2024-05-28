@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item.Ref {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of identityGovernance entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property internalSponsors for identityGovernance
+        /// Remove a user or a group from the connected organization&apos;s internal sponsors. The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/connectedorganization-delete-internalsponsors?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property internalSponsors for identityGovernance";
+            command.Description = "Remove a user or a group from the connected organization's internal sponsors. The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/connectedorganization-delete-internalsponsors?view=graph-rest-beta";
             var connectedOrganizationIdOption = new Option<string>("--connected-organization-id", description: "The unique identifier of connectedOrganization") {
             };
             connectedOrganizationIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
         {
         }
         /// <summary>
-        /// Delete ref of navigation property internalSponsors for identityGovernance
+        /// Remove a user or a group from the connected organization&apos;s internal sponsors. The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BufferEncryptionResult : IAdditionalDataHolder, IParsable 
+    public class BufferEncryptionResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"encryptedBuffer", n => { EncryptedBuffer = n.GetByteArrayValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"publishingLicense", n => { PublishingLicense = n.GetByteArrayValue(); } },
+                { "encryptedBuffer", n => { EncryptedBuffer = n.GetByteArrayValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "publishingLicense", n => { PublishingLicense = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.InvalidateAllRefreshTokens {
+namespace ApiSdk.Users.Item.InvalidateAllRefreshTokens
+{
     #pragma warning disable CS1591
-    public class InvalidateAllRefreshTokensPostResponse : IAdditionalDataHolder, IParsable 
+    public class InvalidateAllRefreshTokensPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.Users.Item.InvalidateAllRefreshTokens {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>

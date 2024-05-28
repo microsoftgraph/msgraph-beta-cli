@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow
+{
     /// <summary>
     /// Casts the previous resource to externalUsersSelfServiceSignUpEventsFlow.
     /// </summary>
-    public class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder : BaseCliRequestBuilder 
+    public class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The conditions property

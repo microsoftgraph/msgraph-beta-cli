@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents a Chromebook tenant settings
     /// </summary>
-    public class ChromeOSOnboardingSettings : Entity, IParsable 
+    public class ChromeOSOnboardingSettings : Entity, IParsable
     {
         /// <summary>The ChromebookTenant&apos;s LastDirectorySyncDateTime</summary>
         public DateTimeOffset? LastDirectorySyncDateTime { get; set; }
@@ -42,10 +43,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastDirectorySyncDateTime", n => { LastDirectorySyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<OnboardingStatus>(); } },
-                {"ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
+                { "lastDirectorySyncDateTime", n => { LastDirectorySyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<OnboardingStatus>(); } },
+                { "ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

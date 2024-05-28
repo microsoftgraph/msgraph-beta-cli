@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TextClassificationRequest : Entity, IParsable 
+    public class TextClassificationRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contentMetaData property</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentMetaData", n => { ContentMetaData = n.GetObjectValue<ClassificationRequestContentMetaData>(ClassificationRequestContentMetaData.CreateFromDiscriminatorValue); } },
-                {"fileExtension", n => { FileExtension = n.GetStringValue(); } },
-                {"matchTolerancesToInclude", n => { MatchTolerancesToInclude = n.GetEnumValue<MlClassificationMatchTolerance>(); } },
-                {"scopesToRun", n => { ScopesToRun = n.GetEnumValue<SensitiveTypeScope>(); } },
-                {"sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
+                { "contentMetaData", n => { ContentMetaData = n.GetObjectValue<ClassificationRequestContentMetaData>(ClassificationRequestContentMetaData.CreateFromDiscriminatorValue); } },
+                { "fileExtension", n => { FileExtension = n.GetStringValue(); } },
+                { "matchTolerancesToInclude", n => { MatchTolerancesToInclude = n.GetEnumValue<MlClassificationMatchTolerance>(); } },
+                { "scopesToRun", n => { ScopesToRun = n.GetEnumValue<SensitiveTypeScope>(); } },
+                { "sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
             };
         }
         /// <summary>

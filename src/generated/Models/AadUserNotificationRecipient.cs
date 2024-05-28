@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AadUserNotificationRecipient : TeamworkNotificationRecipient, IParsable 
+    public class AadUserNotificationRecipient : TeamworkNotificationRecipient, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Microsoft Entra user identifier. Use the List users method to get this ID.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

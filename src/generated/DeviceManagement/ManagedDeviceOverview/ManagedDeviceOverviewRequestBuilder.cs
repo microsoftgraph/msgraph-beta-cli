@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDeviceOverview {
+namespace ApiSdk.DeviceManagement.ManagedDeviceOverview
+{
     /// <summary>
     /// Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ManagedDeviceOverviewRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceOverviewRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Device overview

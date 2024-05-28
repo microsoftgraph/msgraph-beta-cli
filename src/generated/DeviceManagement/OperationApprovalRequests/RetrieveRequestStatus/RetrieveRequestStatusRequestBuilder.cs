@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus
+{
     /// <summary>
     /// Provides operations to call the retrieveRequestStatus method.
     /// </summary>
-    public class RetrieveRequestStatusRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveRequestStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action retrieveRequestStatus

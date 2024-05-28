@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A key-value pair with a string key and a real (floating-point) value.
     /// </summary>
-    public class KeyRealValuePair : KeyTypedValuePair, IParsable 
+    public class KeyRealValuePair : KeyTypedValuePair, IParsable
     {
         /// <summary>The real (floating-point) value of the key-value pair.</summary>
         public double? Value { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetDoubleValue(); } },
+                { "value", n => { Value = n.GetDoubleValue(); } },
             };
         }
         /// <summary>

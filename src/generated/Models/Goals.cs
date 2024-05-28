@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Goals : Entity, IParsable 
+    public class Goals : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a collection of goals export jobs for Viva Goals.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exportJobs", n => { ExportJobs = n.GetCollectionOfObjectValues<GoalsExportJob>(GoalsExportJob.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exportJobs", n => { ExportJobs = n.GetCollectionOfObjectValues<GoalsExportJob>(GoalsExportJob.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

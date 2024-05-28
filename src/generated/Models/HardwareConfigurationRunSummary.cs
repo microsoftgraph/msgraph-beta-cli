@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the run summary of a hardware configuration script.
     /// </summary>
-    public class HardwareConfigurationRunSummary : Entity, IParsable 
+    public class HardwareConfigurationRunSummary : Entity, IParsable
     {
         /// <summary>Number of devices for which hardware configuration state is error</summary>
         public int? ErrorDeviceCount { get; set; }
@@ -54,19 +55,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
-                {"errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
-                {"failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
-                {"failedUserCount", n => { FailedUserCount = n.GetIntValue(); } },
-                {"lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
-                {"notApplicableDeviceCount", n => { NotApplicableDeviceCount = n.GetIntValue(); } },
-                {"notApplicableUserCount", n => { NotApplicableUserCount = n.GetIntValue(); } },
-                {"pendingDeviceCount", n => { PendingDeviceCount = n.GetIntValue(); } },
-                {"pendingUserCount", n => { PendingUserCount = n.GetIntValue(); } },
-                {"successfulDeviceCount", n => { SuccessfulDeviceCount = n.GetIntValue(); } },
-                {"successfulUserCount", n => { SuccessfulUserCount = n.GetIntValue(); } },
-                {"unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
-                {"unknownUserCount", n => { UnknownUserCount = n.GetIntValue(); } },
+                { "errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
+                { "errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
+                { "failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
+                { "failedUserCount", n => { FailedUserCount = n.GetIntValue(); } },
+                { "lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
+                { "notApplicableDeviceCount", n => { NotApplicableDeviceCount = n.GetIntValue(); } },
+                { "notApplicableUserCount", n => { NotApplicableUserCount = n.GetIntValue(); } },
+                { "pendingDeviceCount", n => { PendingDeviceCount = n.GetIntValue(); } },
+                { "pendingUserCount", n => { PendingUserCount = n.GetIntValue(); } },
+                { "successfulDeviceCount", n => { SuccessfulDeviceCount = n.GetIntValue(); } },
+                { "successfulUserCount", n => { SuccessfulUserCount = n.GetIntValue(); } },
+                { "unknownDeviceCount", n => { UnknownDeviceCount = n.GetIntValue(); } },
+                { "unknownUserCount", n => { UnknownUserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

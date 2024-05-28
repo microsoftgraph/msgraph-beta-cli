@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomerPayment : IAdditionalDataHolder, IParsable 
+    public class CustomerPayment : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -131,23 +132,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"amount", n => { Amount = n.GetDecimalValue(); } },
-                {"appliesToInvoiceId", n => { AppliesToInvoiceId = n.GetGuidValue(); } },
-                {"appliesToInvoiceNumber", n => { AppliesToInvoiceNumber = n.GetStringValue(); } },
-                {"comment", n => { Comment = n.GetStringValue(); } },
-                {"contactId", n => { ContactId = n.GetStringValue(); } },
-                {"customer", n => { Customer = n.GetObjectValue<ApiSdk.Models.Customer>(ApiSdk.Models.Customer.CreateFromDiscriminatorValue); } },
-                {"customerId", n => { CustomerId = n.GetGuidValue(); } },
-                {"customerNumber", n => { CustomerNumber = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
-                {"externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"journalDisplayName", n => { JournalDisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lineNumber", n => { LineNumber = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"postingDate", n => { PostingDate = n.GetDateValue(); } },
+                { "amount", n => { Amount = n.GetDecimalValue(); } },
+                { "appliesToInvoiceId", n => { AppliesToInvoiceId = n.GetGuidValue(); } },
+                { "appliesToInvoiceNumber", n => { AppliesToInvoiceNumber = n.GetStringValue(); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "contactId", n => { ContactId = n.GetStringValue(); } },
+                { "customer", n => { Customer = n.GetObjectValue<ApiSdk.Models.Customer>(ApiSdk.Models.Customer.CreateFromDiscriminatorValue); } },
+                { "customerId", n => { CustomerId = n.GetGuidValue(); } },
+                { "customerNumber", n => { CustomerNumber = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
+                { "externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "journalDisplayName", n => { JournalDisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lineNumber", n => { LineNumber = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "postingDate", n => { PostingDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

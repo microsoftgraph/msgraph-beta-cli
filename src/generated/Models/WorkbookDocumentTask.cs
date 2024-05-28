@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookDocumentTask : Entity, IParsable 
+    public class WorkbookDocumentTask : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of user identities the task is assigned to.</summary>
@@ -91,17 +92,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignees", n => { Assignees = n.GetCollectionOfObjectValues<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"changes", n => { Changes = n.GetCollectionOfObjectValues<WorkbookDocumentTaskChange>(WorkbookDocumentTaskChange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"comment", n => { Comment = n.GetObjectValue<WorkbookComment>(WorkbookComment.CreateFromDiscriminatorValue); } },
-                {"completedBy", n => { CompletedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
-                {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"percentComplete", n => { PercentComplete = n.GetIntValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"startAndDueDateTime", n => { StartAndDueDateTime = n.GetObjectValue<WorkbookDocumentTaskSchedule>(WorkbookDocumentTaskSchedule.CreateFromDiscriminatorValue); } },
-                {"title", n => { Title = n.GetStringValue(); } },
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "changes", n => { Changes = n.GetCollectionOfObjectValues<WorkbookDocumentTaskChange>(WorkbookDocumentTaskChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "comment", n => { Comment = n.GetObjectValue<WorkbookComment>(WorkbookComment.CreateFromDiscriminatorValue); } },
+                { "completedBy", n => { CompletedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "percentComplete", n => { PercentComplete = n.GetIntValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "startAndDueDateTime", n => { StartAndDueDateTime = n.GetObjectValue<WorkbookDocumentTaskSchedule>(WorkbookDocumentTaskSchedule.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>

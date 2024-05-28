@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationIdentitySynchronization.ResetToDefaultSettings {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationIdentitySynchronization.ResetToDefaultSettings
+{
     /// <summary>
     /// Provides operations to call the resetToDefaultSettings method.
     /// </summary>
-    public class ResetToDefaultSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ResetToDefaultSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reset the cross-tenant access policy template with user synchronization settings for a multitenant organization to the default values. In its reset state, the template has no impact on user synchronization settings, other than that unconfigured user synchronization settings are created if needed, for every multitenant organization tenant.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Connector : Entity, IParsable 
+    public class Connector : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The external IP address as detected by the connector server. Read-only.</summary>
@@ -61,11 +62,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"externalIp", n => { ExternalIp = n.GetStringValue(); } },
-                {"machineName", n => { MachineName = n.GetStringValue(); } },
-                {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"status", n => { Status = n.GetEnumValue<ConnectorStatus>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "externalIp", n => { ExternalIp = n.GetStringValue(); } },
+                { "machineName", n => { MachineName = n.GetStringValue(); } },
+                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ConnectorStatus>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

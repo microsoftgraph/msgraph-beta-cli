@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.Start {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.Start
+{
     #pragma warning disable CS1591
-    public class StartPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class StartPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Start {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<EducationFileSynchronizationVerificationMessage>(EducationFileSynchronizationVerificationMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<EducationFileSynchronizationVerificationMessage>(EducationFileSynchronizationVerificationMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

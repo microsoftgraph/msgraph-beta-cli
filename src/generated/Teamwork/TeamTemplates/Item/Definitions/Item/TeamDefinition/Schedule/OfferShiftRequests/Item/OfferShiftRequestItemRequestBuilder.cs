@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.OfferShiftRequests.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.OfferShiftRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class OfferShiftRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class OfferShiftRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property offerShiftRequests for teamwork

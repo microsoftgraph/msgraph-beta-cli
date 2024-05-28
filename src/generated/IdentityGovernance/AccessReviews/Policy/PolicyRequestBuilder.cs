@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Policy
+{
     /// <summary>
     /// Provides operations to manage the policy property of the microsoft.graph.accessReviewSet entity.
     /// </summary>
-    public class PolicyRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policy for identityGovernance
@@ -50,13 +51,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
             return command;
         }
         /// <summary>
-        /// Resource that enables administrators to manage directory-level access review policies in their tenant.
+        /// Read the properties and relationships of an accessReviewPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Resource that enables administrators to manage directory-level access review policies in their tenant.";
+            command.Description = "Read the properties and relationships of an accessReviewPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewpolicy-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
             return command;
         }
         /// <summary>
-        /// Update the navigation property policy in identityGovernance
+        /// Update the properties of an accessReviewPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property policy in identityGovernance";
+            command.Description = "Update the properties of an accessReviewPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewpolicy-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
             return requestInfo;
         }
         /// <summary>
-        /// Resource that enables administrators to manage directory-level access review policies in their tenant.
+        /// Read the properties and relationships of an accessReviewPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property policy in identityGovernance
+        /// Update the properties of an accessReviewPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Policy {
             return requestInfo;
         }
         /// <summary>
-        /// Resource that enables administrators to manage directory-level access review policies in their tenant.
+        /// Read the properties and relationships of an accessReviewPolicy object.
         /// </summary>
         public class PolicyRequestBuilderGetQueryParameters 
         {

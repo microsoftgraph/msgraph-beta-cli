@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.AssignResourceAccountToDevice {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.AssignResourceAccountToDevice
+{
     /// <summary>
     /// Provides operations to call the assignResourceAccountToDevice method.
     /// </summary>
-    public class AssignResourceAccountToDeviceRequestBuilder : BaseCliRequestBuilder 
+    public class AssignResourceAccountToDeviceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Assigns resource account to Autopilot devices.

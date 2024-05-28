@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item
+{
     /// <summary>
     /// Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
     /// </summary>
-    public class ApplicationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get applications from onPremisesPublishingProfiles
@@ -95,6 +96,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applicat
             command.Description = "Provides operations to manage the media for the onPremisesPublishingProfile entity.";
             var builder = new LogoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

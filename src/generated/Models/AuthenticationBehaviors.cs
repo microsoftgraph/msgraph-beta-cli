@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationBehaviors : IAdditionalDataHolder, IParsable 
+    public class AuthenticationBehaviors : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"blockAzureADGraphAccess", n => { BlockAzureADGraphAccess = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"removeUnverifiedEmailClaim", n => { RemoveUnverifiedEmailClaim = n.GetBoolValue(); } },
-                {"requireClientServicePrincipal", n => { RequireClientServicePrincipal = n.GetBoolValue(); } },
+                { "blockAzureADGraphAccess", n => { BlockAzureADGraphAccess = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "removeUnverifiedEmailClaim", n => { RemoveUnverifiedEmailClaim = n.GetBoolValue(); } },
+                { "requireClientServicePrincipal", n => { RequireClientServicePrincipal = n.GetBoolValue(); } },
             };
         }
         /// <summary>

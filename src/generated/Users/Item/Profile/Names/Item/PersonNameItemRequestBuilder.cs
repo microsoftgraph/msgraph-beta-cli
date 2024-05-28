@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Names.Item {
+namespace ApiSdk.Users.Item.Profile.Names.Item
+{
     /// <summary>
     /// Provides operations to manage the names property of the microsoft.graph.profile entity.
     /// </summary>
-    public class PersonNameItemRequestBuilder : BaseCliRequestBuilder 
+    public class PersonNameItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property names for users

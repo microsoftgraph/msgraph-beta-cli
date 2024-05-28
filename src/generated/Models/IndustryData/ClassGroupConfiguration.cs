@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class ClassGroupConfiguration : IAdditionalDataHolder, IParsable 
+    public class ClassGroupConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The different attributes to sync for the class groups. The possible values are: courseTitle, courseCode, courseSubject, courseGradeLevel, courseExternalId, academicSessionTitle, academicSessionExternalId, classCode, unknownFutureValue.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<AdditionalClassGroupAttributes>()?.ToList(); } },
-                {"additionalOptions", n => { AdditionalOptions = n.GetObjectValue<AdditionalClassGroupOptions>(AdditionalClassGroupOptions.CreateFromDiscriminatorValue); } },
-                {"enrollmentMappings", n => { EnrollmentMappings = n.GetObjectValue<ApiSdk.Models.IndustryData.EnrollmentMappings>(ApiSdk.Models.IndustryData.EnrollmentMappings.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<AdditionalClassGroupAttributes>()?.ToList(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetObjectValue<AdditionalClassGroupOptions>(AdditionalClassGroupOptions.CreateFromDiscriminatorValue); } },
+                { "enrollmentMappings", n => { EnrollmentMappings = n.GetObjectValue<ApiSdk.Models.IndustryData.EnrollmentMappings>(ApiSdk.Models.IndustryData.EnrollmentMappings.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

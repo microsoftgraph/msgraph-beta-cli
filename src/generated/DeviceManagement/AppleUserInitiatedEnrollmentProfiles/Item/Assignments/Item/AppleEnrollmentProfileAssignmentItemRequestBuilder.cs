@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AppleUserInitiatedEnrollmentProfiles.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.AppleUserInitiatedEnrollmentProfiles.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.appleUserInitiatedEnrollmentProfile entity.
     /// </summary>
-    public class AppleEnrollmentProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppleEnrollmentProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

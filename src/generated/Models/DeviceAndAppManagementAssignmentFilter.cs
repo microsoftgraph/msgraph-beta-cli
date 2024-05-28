@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for Assignment Filter.
     /// </summary>
-    public class DeviceAndAppManagementAssignmentFilter : Entity, IParsable 
+    public class DeviceAndAppManagementAssignmentFilter : Entity, IParsable
     {
         /// <summary>Supported filter management types whether its devices or apps.</summary>
         public ApiSdk.Models.AssignmentFilterManagementType? AssignmentFilterManagementType { get; set; }
@@ -81,15 +82,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentFilterManagementType", n => { AssignmentFilterManagementType = n.GetEnumValue<AssignmentFilterManagementType>(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"payloads", n => { Payloads = n.GetCollectionOfObjectValues<PayloadByFilter>(PayloadByFilter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
-                {"roleScopeTags", n => { RoleScopeTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"rule", n => { Rule = n.GetStringValue(); } },
+                { "assignmentFilterManagementType", n => { AssignmentFilterManagementType = n.GetEnumValue<AssignmentFilterManagementType>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "payloads", n => { Payloads = n.GetCollectionOfObjectValues<PayloadByFilter>(PayloadByFilter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "roleScopeTags", n => { RoleScopeTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "rule", n => { Rule = n.GetStringValue(); } },
             };
         }
         /// <summary>

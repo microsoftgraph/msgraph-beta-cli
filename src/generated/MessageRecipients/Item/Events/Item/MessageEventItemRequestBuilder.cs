@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageRecipients.Item.Events.Item {
+namespace ApiSdk.MessageRecipients.Item.Events.Item
+{
     /// <summary>
     /// Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
     /// </summary>
-    public class MessageEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property events for messageRecipients

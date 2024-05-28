@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Settings {
+namespace ApiSdk.NetworkAccess.Settings
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the conditionalAccess property of the microsoft.graph.networkaccess.settings entity.

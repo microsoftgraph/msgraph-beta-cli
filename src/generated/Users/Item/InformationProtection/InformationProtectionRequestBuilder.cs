@@ -24,11 +24,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection {
+namespace ApiSdk.Users.Item.InformationProtection
+{
     /// <summary>
     /// Provides operations to manage the informationProtection property of the microsoft.graph.user entity.
     /// </summary>
-    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder 
+    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.

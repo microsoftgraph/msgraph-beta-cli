@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class NetworkAccessRoot : ApiSdk.Models.Entity, IParsable 
+    public class NetworkAccessRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The alerts property</summary>
@@ -107,16 +108,16 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alerts", n => { Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"connectivity", n => { Connectivity = n.GetObjectValue<ApiSdk.Models.Networkaccess.Connectivity>(ApiSdk.Models.Networkaccess.Connectivity.CreateFromDiscriminatorValue); } },
-                {"filteringPolicies", n => { FilteringPolicies = n.GetCollectionOfObjectValues<FilteringPolicy>(FilteringPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"filteringProfiles", n => { FilteringProfiles = n.GetCollectionOfObjectValues<FilteringProfile>(FilteringProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"forwardingPolicies", n => { ForwardingPolicies = n.GetCollectionOfObjectValues<ForwardingPolicy>(ForwardingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"logs", n => { Logs = n.GetObjectValue<ApiSdk.Models.Networkaccess.Logs>(ApiSdk.Models.Networkaccess.Logs.CreateFromDiscriminatorValue); } },
-                {"reports", n => { Reports = n.GetObjectValue<ApiSdk.Models.Networkaccess.Reports>(ApiSdk.Models.Networkaccess.Reports.CreateFromDiscriminatorValue); } },
-                {"settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Networkaccess.Settings>(ApiSdk.Models.Networkaccess.Settings.CreateFromDiscriminatorValue); } },
-                {"tenantStatus", n => { TenantStatus = n.GetObjectValue<ApiSdk.Models.Networkaccess.TenantStatus>(ApiSdk.Models.Networkaccess.TenantStatus.CreateFromDiscriminatorValue); } },
+                { "alerts", n => { Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectivity", n => { Connectivity = n.GetObjectValue<ApiSdk.Models.Networkaccess.Connectivity>(ApiSdk.Models.Networkaccess.Connectivity.CreateFromDiscriminatorValue); } },
+                { "filteringPolicies", n => { FilteringPolicies = n.GetCollectionOfObjectValues<FilteringPolicy>(FilteringPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "filteringProfiles", n => { FilteringProfiles = n.GetCollectionOfObjectValues<FilteringProfile>(FilteringProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "forwardingPolicies", n => { ForwardingPolicies = n.GetCollectionOfObjectValues<ForwardingPolicy>(ForwardingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "logs", n => { Logs = n.GetObjectValue<ApiSdk.Models.Networkaccess.Logs>(ApiSdk.Models.Networkaccess.Logs.CreateFromDiscriminatorValue); } },
+                { "reports", n => { Reports = n.GetObjectValue<ApiSdk.Models.Networkaccess.Reports>(ApiSdk.Models.Networkaccess.Reports.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Networkaccess.Settings>(ApiSdk.Models.Networkaccess.Settings.CreateFromDiscriminatorValue); } },
+                { "tenantStatus", n => { TenantStatus = n.GetObjectValue<ApiSdk.Models.Networkaccess.TenantStatus>(ApiSdk.Models.Networkaccess.TenantStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

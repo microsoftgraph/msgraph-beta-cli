@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Connectors {
+namespace ApiSdk.Print.Connectors
+{
     /// <summary>
     /// Provides operations to manage the connectors property of the microsoft.graph.print entity.
     /// </summary>
-    public class ConnectorsRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectorsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Print.Connectors {
             return command;
         }
         /// <summary>
-        /// The list of available print connectors.
+        /// Retrieve a list of print connectors.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/print-list-connectors?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The list of available print connectors.";
+            command.Description = "Retrieve a list of print connectors.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/print-list-connectors?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Print.Connectors {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Print.Connectors {
         {
         }
         /// <summary>
-        /// The list of available print connectors.
+        /// Retrieve a list of print connectors.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Print.Connectors {
             return requestInfo;
         }
         /// <summary>
-        /// The list of available print connectors.
+        /// Retrieve a list of print connectors.
         /// </summary>
         public class ConnectorsRequestBuilderGetQueryParameters 
         {

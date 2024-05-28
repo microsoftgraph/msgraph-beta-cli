@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.Item.Item.ItemCategory {
+namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.Item.Item.ItemCategory
+{
     /// <summary>
     /// Provides operations to manage the itemCategory property of the microsoft.graph.item entity.
     /// </summary>
-    public class ItemCategoryRequestBuilder : BaseCliRequestBuilder 
+    public class ItemCategoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property itemCategory for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.Item
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property itemCategory for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);
@@ -75,11 +76,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.Item
         {
             var command = new Command("get");
             command.Description = "Get itemCategory from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);
@@ -139,11 +140,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.Item
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property itemCategory in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);

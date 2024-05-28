@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Android Managed Store Apps.
     /// </summary>
-    public class AndroidManagedStoreApp : MobileApp, IParsable 
+    public class AndroidManagedStoreApp : MobileApp, IParsable
     {
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,15 +83,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appIdentifier", n => { AppIdentifier = n.GetStringValue(); } },
-                {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
-                {"appTracks", n => { AppTracks = n.GetCollectionOfObjectValues<AndroidManagedStoreAppTrack>(AndroidManagedStoreAppTrack.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isPrivate", n => { IsPrivate = n.GetBoolValue(); } },
-                {"isSystemApp", n => { IsSystemApp = n.GetBoolValue(); } },
-                {"packageId", n => { PackageId = n.GetStringValue(); } },
-                {"supportsOemConfig", n => { SupportsOemConfig = n.GetBoolValue(); } },
-                {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
-                {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
+                { "appIdentifier", n => { AppIdentifier = n.GetStringValue(); } },
+                { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
+                { "appTracks", n => { AppTracks = n.GetCollectionOfObjectValues<AndroidManagedStoreAppTrack>(AndroidManagedStoreAppTrack.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isPrivate", n => { IsPrivate = n.GetBoolValue(); } },
+                { "isSystemApp", n => { IsSystemApp = n.GetBoolValue(); } },
+                { "packageId", n => { PackageId = n.GetStringValue(); } },
+                { "supportsOemConfig", n => { SupportsOemConfig = n.GetBoolValue(); } },
+                { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
+                { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

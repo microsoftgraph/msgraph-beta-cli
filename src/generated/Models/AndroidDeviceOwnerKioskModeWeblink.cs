@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A weblink on the Android Device Owner Managed Home Screen
     /// </summary>
-    public class AndroidDeviceOwnerKioskModeWeblink : AndroidDeviceOwnerKioskModeFolderItem, IParsable 
+    public class AndroidDeviceOwnerKioskModeWeblink : AndroidDeviceOwnerKioskModeFolderItem, IParsable
     {
         /// <summary>Display name for weblink</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"label", n => { Label = n.GetStringValue(); } },
-                {"link", n => { Link = n.GetStringValue(); } },
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "link", n => { Link = n.GetStringValue(); } },
             };
         }
         /// <summary>

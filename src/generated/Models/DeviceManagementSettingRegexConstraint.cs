@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint enforcing the setting matches against a given RegEx pattern
     /// </summary>
-    public class DeviceManagementSettingRegexConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingRegexConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>The RegEx pattern to match against</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"regex", n => { Regex = n.GetStringValue(); } },
+                { "regex", n => { Regex = n.GetStringValue(); } },
             };
         }
         /// <summary>

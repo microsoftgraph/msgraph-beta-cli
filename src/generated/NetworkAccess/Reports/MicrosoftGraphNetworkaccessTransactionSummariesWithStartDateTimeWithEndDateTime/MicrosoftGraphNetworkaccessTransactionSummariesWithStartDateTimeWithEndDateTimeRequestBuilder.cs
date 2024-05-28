@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime
+{
     /// <summary>
     /// Provides operations to call the transactionSummaries method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
@@ -28,11 +29,11 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSum
         {
             var command = new Command("get");
             command.Description = "Get the total number of transactions and the number of blocked transactions, grouped by traffic type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-reports-transactionsummaries?view=graph-rest-beta";
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);
@@ -94,7 +95,9 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSum
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

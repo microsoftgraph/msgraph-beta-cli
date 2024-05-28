@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Android Work Profile device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class AndroidWorkProfileVpnConfiguration : DeviceConfiguration, IParsable 
+    public class AndroidWorkProfileVpnConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Whether or not to enable always-on VPN connection.</summary>
         public bool? AlwaysOn { get; set; }
@@ -147,23 +148,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alwaysOn", n => { AlwaysOn = n.GetBoolValue(); } },
-                {"alwaysOnLockdown", n => { AlwaysOnLockdown = n.GetBoolValue(); } },
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
-                {"connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                {"connectionType", n => { ConnectionType = n.GetEnumValue<AndroidWorkProfileVpnConnectionType>(); } },
-                {"customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"fingerprint", n => { Fingerprint = n.GetStringValue(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidWorkProfileCertificateProfileBase>(AndroidWorkProfileCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
-                {"proxyExclusionList", n => { ProxyExclusionList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
-                {"realm", n => { Realm = n.GetStringValue(); } },
-                {"role", n => { Role = n.GetStringValue(); } },
-                {"servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"targetedPackageIds", n => { TargetedPackageIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "alwaysOn", n => { AlwaysOn = n.GetBoolValue(); } },
+                { "alwaysOnLockdown", n => { AlwaysOnLockdown = n.GetBoolValue(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<AndroidWorkProfileVpnConnectionType>(); } },
+                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidWorkProfileCertificateProfileBase>(AndroidWorkProfileCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
+                { "proxyExclusionList", n => { ProxyExclusionList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "realm", n => { Realm = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "targetedPackageIds", n => { TargetedPackageIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.DriverInventories.Item {
+namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.DriverInventories.Item
+{
     /// <summary>
     /// Provides operations to manage the driverInventories property of the microsoft.graph.windowsDriverUpdateProfile entity.
     /// </summary>
-    public class WindowsDriverUpdateInventoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDriverUpdateInventoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property driverInventories for deviceManagement

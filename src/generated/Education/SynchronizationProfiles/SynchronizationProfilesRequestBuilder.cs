@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles {
+namespace ApiSdk.Education.SynchronizationProfiles
+{
     /// <summary>
     /// Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class SynchronizationProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class SynchronizationProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.Education.SynchronizationProfiles {
             return command;
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve the collection of school data synchronization profiles in the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofile-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get synchronizationProfiles from education";
+            command.Description = "Retrieve the collection of school data synchronization profiles in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofile-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -188,7 +190,9 @@ namespace ApiSdk.Education.SynchronizationProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -214,7 +218,7 @@ namespace ApiSdk.Education.SynchronizationProfiles {
         {
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve the collection of school data synchronization profiles in the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -254,7 +258,7 @@ namespace ApiSdk.Education.SynchronizationProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Get synchronizationProfiles from education
+        /// Retrieve the collection of school data synchronization profiles in the tenant.
         /// </summary>
         public class SynchronizationProfilesRequestBuilderGetQueryParameters 
         {

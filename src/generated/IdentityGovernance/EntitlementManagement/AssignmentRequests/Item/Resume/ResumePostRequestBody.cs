@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Resume {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Resume
+{
     #pragma warning disable CS1591
-    public class ResumePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ResumePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Ite
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"data", n => { Data = n.GetObjectValue<CustomExtensionData>(CustomExtensionData.CreateFromDiscriminatorValue); } },
-                {"source", n => { Source = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<CustomExtensionData>(CustomExtensionData.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

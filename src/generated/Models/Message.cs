@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Message : OutlookItem, IParsable 
+    public class Message : OutlookItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fileAttachment and itemAttachment attachments for the message.</summary>
@@ -254,40 +255,40 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"bccRecipients", n => { BccRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"bodyPreview", n => { BodyPreview = n.GetStringValue(); } },
-                {"ccRecipients", n => { CcRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"conversationId", n => { ConversationId = n.GetStringValue(); } },
-                {"conversationIndex", n => { ConversationIndex = n.GetByteArrayValue(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"flag", n => { Flag = n.GetObjectValue<FollowupFlag>(FollowupFlag.CreateFromDiscriminatorValue); } },
-                {"from", n => { From = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
-                {"hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
-                {"importance", n => { Importance = n.GetEnumValue<Importance>(); } },
-                {"inferenceClassification", n => { InferenceClassification = n.GetEnumValue<InferenceClassificationType>(); } },
-                {"internetMessageHeaders", n => { InternetMessageHeaders = n.GetCollectionOfObjectValues<InternetMessageHeader>(InternetMessageHeader.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
-                {"isDeliveryReceiptRequested", n => { IsDeliveryReceiptRequested = n.GetBoolValue(); } },
-                {"isDraft", n => { IsDraft = n.GetBoolValue(); } },
-                {"isRead", n => { IsRead = n.GetBoolValue(); } },
-                {"isReadReceiptRequested", n => { IsReadReceiptRequested = n.GetBoolValue(); } },
-                {"mentions", n => { Mentions = n.GetCollectionOfObjectValues<Mention>(Mention.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"mentionsPreview", n => { MentionsPreview = n.GetObjectValue<ApiSdk.Models.MentionsPreview>(ApiSdk.Models.MentionsPreview.CreateFromDiscriminatorValue); } },
-                {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"parentFolderId", n => { ParentFolderId = n.GetStringValue(); } },
-                {"receivedDateTime", n => { ReceivedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"replyTo", n => { ReplyTo = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sender", n => { Sender = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
-                {"sentDateTime", n => { SentDateTime = n.GetDateTimeOffsetValue(); } },
-                {"singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"toRecipients", n => { ToRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"uniqueBody", n => { UniqueBody = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"unsubscribeData", n => { UnsubscribeData = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"unsubscribeEnabled", n => { UnsubscribeEnabled = n.GetBoolValue(); } },
-                {"webLink", n => { WebLink = n.GetStringValue(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "bccRecipients", n => { BccRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "bodyPreview", n => { BodyPreview = n.GetStringValue(); } },
+                { "ccRecipients", n => { CcRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conversationId", n => { ConversationId = n.GetStringValue(); } },
+                { "conversationIndex", n => { ConversationIndex = n.GetByteArrayValue(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "flag", n => { Flag = n.GetObjectValue<FollowupFlag>(FollowupFlag.CreateFromDiscriminatorValue); } },
+                { "from", n => { From = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
+                { "hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
+                { "importance", n => { Importance = n.GetEnumValue<Importance>(); } },
+                { "inferenceClassification", n => { InferenceClassification = n.GetEnumValue<InferenceClassificationType>(); } },
+                { "internetMessageHeaders", n => { InternetMessageHeaders = n.GetCollectionOfObjectValues<InternetMessageHeader>(InternetMessageHeader.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
+                { "isDeliveryReceiptRequested", n => { IsDeliveryReceiptRequested = n.GetBoolValue(); } },
+                { "isDraft", n => { IsDraft = n.GetBoolValue(); } },
+                { "isRead", n => { IsRead = n.GetBoolValue(); } },
+                { "isReadReceiptRequested", n => { IsReadReceiptRequested = n.GetBoolValue(); } },
+                { "mentions", n => { Mentions = n.GetCollectionOfObjectValues<Mention>(Mention.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mentionsPreview", n => { MentionsPreview = n.GetObjectValue<ApiSdk.Models.MentionsPreview>(ApiSdk.Models.MentionsPreview.CreateFromDiscriminatorValue); } },
+                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "parentFolderId", n => { ParentFolderId = n.GetStringValue(); } },
+                { "receivedDateTime", n => { ReceivedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "replyTo", n => { ReplyTo = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sender", n => { Sender = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
+                { "sentDateTime", n => { SentDateTime = n.GetDateTimeOffsetValue(); } },
+                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "toRecipients", n => { ToRecipients = n.GetCollectionOfObjectValues<Recipient>(Recipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "uniqueBody", n => { UniqueBody = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "unsubscribeData", n => { UnsubscribeData = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "unsubscribeEnabled", n => { UnsubscribeEnabled = n.GetBoolValue(); } },
+                { "webLink", n => { WebLink = n.GetStringValue(); } },
             };
         }
         /// <summary>

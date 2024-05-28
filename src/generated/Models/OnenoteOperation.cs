@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnenoteOperation : Operation, IParsable 
+    public class OnenoteOperation : Operation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The error returned by the operation.</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"error", n => { Error = n.GetObjectValue<OnenoteOperationError>(OnenoteOperationError.CreateFromDiscriminatorValue); } },
-                {"percentComplete", n => { PercentComplete = n.GetStringValue(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"resourceLocation", n => { ResourceLocation = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetObjectValue<OnenoteOperationError>(OnenoteOperationError.CreateFromDiscriminatorValue); } },
+                { "percentComplete", n => { PercentComplete = n.GetStringValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "resourceLocation", n => { ResourceLocation = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet
+{
     /// <summary>
     /// Provides operations to manage the reviewSet property of the microsoft.graph.ediscovery.caseExportOperation entity.
     /// </summary>
-    public class ReviewSetRequestBuilder : BaseCliRequestBuilder 
+    public class ReviewSetRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The review set the content is being exported from.

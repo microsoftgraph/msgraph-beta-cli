@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags
+{
     #pragma warning disable CS1591
-    public class ApplyTagsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ApplyTagsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.M
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"tagsToAdd", n => { TagsToAdd = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tagsToRemove", n => { TagsToRemove = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tagsToAdd", n => { TagsToAdd = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tagsToRemove", n => { TagsToRemove = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

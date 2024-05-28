@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Shares.Item {
+namespace ApiSdk.Print.Shares.Item
+{
     /// <summary>
     /// Provides operations to manage the shares property of the microsoft.graph.print entity.
     /// </summary>
-    public class PrinterShareItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrinterShareItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.
@@ -79,13 +80,14 @@ namespace ApiSdk.Print.Shares.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property shares for print
+        /// Delete a printer share (unshare the associated printer). This action can&apos;t be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer needs to discover and reinstall it.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property shares for print";
+            command.Description = "Delete a printer share (unshare the associated printer). This action can't be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer needs to discover and reinstall it.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-delete?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -114,13 +116,14 @@ namespace ApiSdk.Print.Shares.Item {
             return command;
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The list of printer shares registered in the tenant.";
+            command.Description = "Retrieve the properties and relationships of a printer share.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-get?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -193,13 +196,14 @@ namespace ApiSdk.Print.Shares.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property shares in print
+        /// Update the properties of a printer share. This method can be used to swap printers. For example, if a physical printer device breaks, an administrator can register a new printer device and update this printerShare to point to the new printer without requiring users to take any action.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property shares in print";
+            command.Description = "Update the properties of a printer share. This method can be used to swap printers. For example, if a physical printer device breaks, an administrator can register a new printer device and update this printerShare to point to the new printer without requiring users to take any action.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-update?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -275,7 +279,7 @@ namespace ApiSdk.Print.Shares.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property shares for print
+        /// Delete a printer share (unshare the associated printer). This action can&apos;t be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer needs to discover and reinstall it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -294,7 +298,7 @@ namespace ApiSdk.Print.Shares.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -313,7 +317,7 @@ namespace ApiSdk.Print.Shares.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property shares in print
+        /// Update the properties of a printer share. This method can be used to swap printers. For example, if a physical printer device breaks, an administrator can register a new printer device and update this printerShare to point to the new printer without requiring users to take any action.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -334,7 +338,7 @@ namespace ApiSdk.Print.Shares.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
         /// </summary>
         public class PrinterShareItemRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint enforcing the permitted value range for an integer setting
     /// </summary>
-    public class DeviceManagementSettingIntegerConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingIntegerConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>The maximum permitted value</summary>
         public int? MaximumValue { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumValue", n => { MaximumValue = n.GetIntValue(); } },
-                {"minimumValue", n => { MinimumValue = n.GetIntValue(); } },
+                { "maximumValue", n => { MaximumValue = n.GetIntValue(); } },
+                { "minimumValue", n => { MinimumValue = n.GetIntValue(); } },
             };
         }
         /// <summary>

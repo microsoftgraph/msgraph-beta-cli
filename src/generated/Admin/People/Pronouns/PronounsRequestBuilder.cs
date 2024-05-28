@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.People.Pronouns {
+namespace ApiSdk.Admin.People.Pronouns
+{
     /// <summary>
     /// Provides operations to manage the pronouns property of the microsoft.graph.peopleAdminSettings entity.
     /// </summary>
-    public class PronounsRequestBuilder : BaseCliRequestBuilder 
+    public class PronounsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property pronouns for admin
@@ -50,13 +51,14 @@ namespace ApiSdk.Admin.People.Pronouns {
             return command;
         }
         /// <summary>
-        /// Represents administrator settings that manage the support of pronouns in an organization.
+        /// Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-list-pronouns?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents administrator settings that manage the support of pronouns in an organization.";
+            command.Description = "Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/peopleadminsettings-list-pronouns?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Admin.People.Pronouns {
             return command;
         }
         /// <summary>
-        /// Update the navigation property pronouns in admin
+        /// Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/pronounssettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property pronouns in admin";
+            command.Description = "Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/pronounssettings-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Admin.People.Pronouns {
             return requestInfo;
         }
         /// <summary>
-        /// Represents administrator settings that manage the support of pronouns in an organization.
+        /// Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Admin.People.Pronouns {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property pronouns in admin
+        /// Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Admin.People.Pronouns {
             return requestInfo;
         }
         /// <summary>
-        /// Represents administrator settings that manage the support of pronouns in an organization.
+        /// Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
         /// </summary>
         public class PronounsRequestBuilderGetQueryParameters 
         {

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyDefinitionFiles.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyDefinitionFiles.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyDefinitionFiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyDefinitionFileItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyDefinitionFileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.

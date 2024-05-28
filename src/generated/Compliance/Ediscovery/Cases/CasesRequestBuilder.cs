@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases {
+namespace ApiSdk.Compliance.Ediscovery.Cases
+{
     /// <summary>
     /// Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.
     /// </summary>
-    public class CasesRequestBuilder : BaseCliRequestBuilder 
+    public class CasesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.
@@ -64,14 +65,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to cases for compliance
+        /// Create a new case object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to cases for compliance";
+            command.Description = "Create a new case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -110,14 +112,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
             return command;
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve a list of case objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get cases from compliance";
+            command.Description = "Retrieve a list of case objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -193,7 +196,9 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -219,7 +224,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
         {
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve a list of case objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to cases for compliance
+        /// Create a new case object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -261,7 +266,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases {
             return requestInfo;
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve a list of case objects.
         /// </summary>
         public class CasesRequestBuilderGetQueryParameters 
         {

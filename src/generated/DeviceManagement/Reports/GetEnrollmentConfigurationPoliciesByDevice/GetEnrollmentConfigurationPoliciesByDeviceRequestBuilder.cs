@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetEnrollmentConfigurationPoliciesByDevice {
+namespace ApiSdk.DeviceManagement.Reports.GetEnrollmentConfigurationPoliciesByDevice
+{
     /// <summary>
     /// Provides operations to call the getEnrollmentConfigurationPoliciesByDevice method.
     /// </summary>
-    public class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder : BaseCliRequestBuilder 
+    public class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getEnrollmentConfigurationPoliciesByDevice

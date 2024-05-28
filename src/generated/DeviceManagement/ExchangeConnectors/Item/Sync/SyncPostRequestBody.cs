@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ExchangeConnectors.Item.Sync {
+namespace ApiSdk.DeviceManagement.ExchangeConnectors.Item.Sync
+{
     #pragma warning disable CS1591
-    public class SyncPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SyncPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,7 +40,7 @@ namespace ApiSdk.DeviceManagement.ExchangeConnectors.Item.Sync {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"syncType", n => { SyncType = n.GetEnumValue<DeviceManagementExchangeConnectorSyncType>(); } },
+                { "syncType", n => { SyncType = n.GetEnumValue<DeviceManagementExchangeConnectorSyncType>(); } },
             };
         }
         /// <summary>

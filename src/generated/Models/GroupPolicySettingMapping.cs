@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Group Policy setting to MDM/Intune mapping.
     /// </summary>
-    public class GroupPolicySettingMapping : Entity, IParsable 
+    public class GroupPolicySettingMapping : Entity, IParsable
     {
         /// <summary>Admx Group Policy Id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -158,26 +159,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"admxSettingDefinitionId", n => { AdmxSettingDefinitionId = n.GetStringValue(); } },
-                {"childIdList", n => { ChildIdList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"intuneSettingDefinitionId", n => { IntuneSettingDefinitionId = n.GetStringValue(); } },
-                {"intuneSettingUriList", n => { IntuneSettingUriList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isMdmSupported", n => { IsMdmSupported = n.GetBoolValue(); } },
-                {"mdmCspName", n => { MdmCspName = n.GetStringValue(); } },
-                {"mdmMinimumOSVersion", n => { MdmMinimumOSVersion = n.GetIntValue(); } },
-                {"mdmSettingUri", n => { MdmSettingUri = n.GetStringValue(); } },
-                {"mdmSupportedState", n => { MdmSupportedState = n.GetEnumValue<MdmSupportedState>(); } },
-                {"parentId", n => { ParentId = n.GetStringValue(); } },
-                {"settingCategory", n => { SettingCategory = n.GetStringValue(); } },
-                {"settingDisplayName", n => { SettingDisplayName = n.GetStringValue(); } },
-                {"settingDisplayValue", n => { SettingDisplayValue = n.GetStringValue(); } },
-                {"settingDisplayValueType", n => { SettingDisplayValueType = n.GetStringValue(); } },
-                {"settingName", n => { SettingName = n.GetStringValue(); } },
-                {"settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
-                {"settingType", n => { SettingType = n.GetEnumValue<GroupPolicySettingType>(); } },
-                {"settingValue", n => { SettingValue = n.GetStringValue(); } },
-                {"settingValueDisplayUnits", n => { SettingValueDisplayUnits = n.GetStringValue(); } },
-                {"settingValueType", n => { SettingValueType = n.GetStringValue(); } },
+                { "admxSettingDefinitionId", n => { AdmxSettingDefinitionId = n.GetStringValue(); } },
+                { "childIdList", n => { ChildIdList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "intuneSettingDefinitionId", n => { IntuneSettingDefinitionId = n.GetStringValue(); } },
+                { "intuneSettingUriList", n => { IntuneSettingUriList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isMdmSupported", n => { IsMdmSupported = n.GetBoolValue(); } },
+                { "mdmCspName", n => { MdmCspName = n.GetStringValue(); } },
+                { "mdmMinimumOSVersion", n => { MdmMinimumOSVersion = n.GetIntValue(); } },
+                { "mdmSettingUri", n => { MdmSettingUri = n.GetStringValue(); } },
+                { "mdmSupportedState", n => { MdmSupportedState = n.GetEnumValue<MdmSupportedState>(); } },
+                { "parentId", n => { ParentId = n.GetStringValue(); } },
+                { "settingCategory", n => { SettingCategory = n.GetStringValue(); } },
+                { "settingDisplayName", n => { SettingDisplayName = n.GetStringValue(); } },
+                { "settingDisplayValue", n => { SettingDisplayValue = n.GetStringValue(); } },
+                { "settingDisplayValueType", n => { SettingDisplayValueType = n.GetStringValue(); } },
+                { "settingName", n => { SettingName = n.GetStringValue(); } },
+                { "settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
+                { "settingType", n => { SettingType = n.GetEnumValue<GroupPolicySettingType>(); } },
+                { "settingValue", n => { SettingValue = n.GetStringValue(); } },
+                { "settingValueDisplayUnits", n => { SettingValueDisplayUnits = n.GetStringValue(); } },
+                { "settingValueType", n => { SettingValueType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// mobileAppCatalogPackage is an abstract type that application catalog package entities derive from. A mobileAppCatalogPackage entity contains information about an application catalog package that can be deployed to Intune-managed devices.
     /// </summary>
-    public class MobileAppCatalogPackage : Entity, IParsable 
+    public class MobileAppCatalogPackage : Entity, IParsable
     {
         /// <summary>The name of the product (example: &quot;Fabrikam for Business&quot;). Returned by default. Read-only. Supports: $filter, $search, $select. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,10 +66,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"productDisplayName", n => { ProductDisplayName = n.GetStringValue(); } },
-                {"productId", n => { ProductId = n.GetStringValue(); } },
-                {"publisherDisplayName", n => { PublisherDisplayName = n.GetStringValue(); } },
-                {"versionDisplayName", n => { VersionDisplayName = n.GetStringValue(); } },
+                { "productDisplayName", n => { ProductDisplayName = n.GetStringValue(); } },
+                { "productId", n => { ProductId = n.GetStringValue(); } },
+                { "publisherDisplayName", n => { PublisherDisplayName = n.GetStringValue(); } },
+                { "versionDisplayName", n => { VersionDisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience
+{
     /// <summary>
     /// Provides operations to manage the audience property of the microsoft.graph.windowsUpdates.updatePolicy entity.
     /// </summary>
-    public class AudienceRequestBuilder : BaseCliRequestBuilder 
+    public class AudienceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the applicableContent property of the microsoft.graph.windowsUpdates.deploymentAudience entity.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for macOS web apps.
     /// </summary>
-    public class MacOSWebClip : MobileApp, IParsable 
+    public class MacOSWebClip : MobileApp, IParsable
     {
         /// <summary>The web app URL starting with http:// or https://, such as https://learn.microsoft.com/mem/.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appUrl", n => { AppUrl = n.GetStringValue(); } },
-                {"fullScreenEnabled", n => { FullScreenEnabled = n.GetBoolValue(); } },
-                {"preComposedIconEnabled", n => { PreComposedIconEnabled = n.GetBoolValue(); } },
+                { "appUrl", n => { AppUrl = n.GetStringValue(); } },
+                { "fullScreenEnabled", n => { FullScreenEnabled = n.GetBoolValue(); } },
+                { "preComposedIconEnabled", n => { PreComposedIconEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

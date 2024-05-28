@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MultiTenantOrganization : Entity, IParsable 
+    public class MultiTenantOrganization : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date when multitenant organization was created. Read-only.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"joinRequest", n => { JoinRequest = n.GetObjectValue<MultiTenantOrganizationJoinRequestRecord>(MultiTenantOrganizationJoinRequestRecord.CreateFromDiscriminatorValue); } },
-                {"state", n => { State = n.GetEnumValue<MultiTenantOrganizationState>(); } },
-                {"tenants", n => { Tenants = n.GetCollectionOfObjectValues<MultiTenantOrganizationMember>(MultiTenantOrganizationMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "joinRequest", n => { JoinRequest = n.GetObjectValue<MultiTenantOrganizationJoinRequestRecord>(MultiTenantOrganizationJoinRequestRecord.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetEnumValue<MultiTenantOrganizationState>(); } },
+                { "tenants", n => { Tenants = n.GetCollectionOfObjectValues<MultiTenantOrganizationMember>(MultiTenantOrganizationMember.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

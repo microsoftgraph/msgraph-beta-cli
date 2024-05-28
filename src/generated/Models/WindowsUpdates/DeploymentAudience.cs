@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DeploymentAudience : ApiSdk.Models.Entity, IParsable 
+    public class DeploymentAudience : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Content eligible to deploy to devices in the audience. Not nullable. Read-only.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableContent", n => { ApplicableContent = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ApplicableContent>(ApiSdk.Models.WindowsUpdates.ApplicableContent.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"exclusions", n => { Exclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"members", n => { Members = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicableContent", n => { ApplicableContent = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ApplicableContent>(ApiSdk.Models.WindowsUpdates.ApplicableContent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exclusions", n => { Exclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

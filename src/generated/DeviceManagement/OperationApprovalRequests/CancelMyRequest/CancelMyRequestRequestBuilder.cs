@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest
+{
     /// <summary>
     /// Provides operations to call the cancelMyRequest method.
     /// </summary>
-    public class CancelMyRequestRequestBuilder : BaseCliRequestBuilder 
+    public class CancelMyRequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action cancelMyRequest

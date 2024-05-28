@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.HostComponents.Item {
+namespace ApiSdk.Security.ThreatIntelligence.HostComponents.Item
+{
     /// <summary>
     /// Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostComponentItemRequestBuilder : BaseCliRequestBuilder 
+    public class HostComponentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property hostComponents for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.ThreatIntelligence.HostComponents.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostComponent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostcomponent-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a hostComponent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostcomponent-get?view=graph-rest-beta";
             var hostComponentIdOption = new Option<string>("--host-component-id", description: "The unique identifier of hostComponent") {
             };
             hostComponentIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostComponents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostComponent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostComponents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostComponent object.
         /// </summary>
         public class HostComponentItemRequestBuilderGetQueryParameters 
         {

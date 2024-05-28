@@ -13,17 +13,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus
+{
     /// <summary>
     /// Provides operations to call the setCloudPcReviewStatus method.
     /// </summary>
-    public class SetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder 
+    public class SetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Set the review status of a specific Cloud PC device. Use this API to set the review status of a Cloud PC to in review if you consider a Cloud PC as suspicious. After the review is completed, use this API again to set the Cloud PC back to a normal state.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/manageddevice-setcloudpcreviewstatus?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The setCloudPcReviewStatus API is deprecated and will stop returning data on Apr 30, 2024. Please use the new setReviewStatus API as of 2024-01/setCloudPcReviewStatus")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
@@ -81,6 +83,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus {
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The setCloudPcReviewStatus API is deprecated and will stop returning data on Apr 30, 2024. Please use the new setReviewStatus API as of 2024-01/setCloudPcReviewStatus")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(SetCloudPcReviewStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

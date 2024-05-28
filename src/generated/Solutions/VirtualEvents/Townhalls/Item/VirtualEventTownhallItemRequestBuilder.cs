@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item
+{
     /// <summary>
     /// Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
     /// </summary>
-    public class VirtualEventTownhallItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventTownhallItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property townhalls for solutions
@@ -59,13 +60,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
             return command;
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventtownhall-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get townhalls from solutions";
+            command.Description = "Read the properties and relationships of a virtualEventTownhall object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventtownhall-get?view=graph-rest-beta";
             var virtualEventTownhallIdOption = new Option<string>("--virtual-event-townhall-id", description: "The unique identifier of virtualEventTownhall") {
             };
             virtualEventTownhallIdOption.IsRequired = true;
@@ -111,13 +113,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property townhalls in solutions
+        /// Update the properties of a vvirtualEventTownhall object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventtownhall-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property townhalls in solutions";
+            command.Description = "Update the properties of a vvirtualEventTownhall object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventtownhall-update?view=graph-rest-beta";
             var virtualEventTownhallIdOption = new Option<string>("--virtual-event-townhall-id", description: "The unique identifier of virtualEventTownhall") {
             };
             virtualEventTownhallIdOption.IsRequired = true;
@@ -268,7 +271,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -287,7 +290,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property townhalls in solutions
+        /// Update the properties of a vvirtualEventTownhall object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -308,7 +311,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
         /// </summary>
         public class VirtualEventTownhallItemRequestBuilderGetQueryParameters 
         {

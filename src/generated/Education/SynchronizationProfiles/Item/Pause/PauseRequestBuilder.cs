@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.Pause {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.Pause
+{
     /// <summary>
     /// Provides operations to call the pause method.
     /// </summary>
-    public class PauseRequestBuilder : BaseCliRequestBuilder 
+    public class PauseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Pause the sync of a specific school data synchronization profile in the tenant.

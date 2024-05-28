@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRequests {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRequests
+{
     /// <summary>
     /// Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class EligibilityScheduleRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class EligibilityScheduleRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
@@ -59,13 +60,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return command;
         }
         /// <summary>
-        /// Create new navigation property to eligibilityScheduleRequests for identityGovernance
+        /// Create a new privilegedAccessGroupEligibilityScheduleRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-eligibilityschedulerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to eligibilityScheduleRequests for identityGovernance";
+            command.Description = "Create a new privilegedAccessGroupEligibilityScheduleRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-eligibilityschedulerequests?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -121,13 +123,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return command;
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+        /// Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedulerequests?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The schedule requests for operations to create, update, delete, extend, and renew an eligibility.";
+            command.Description = "Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedulerequests?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -203,7 +206,9 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -229,7 +234,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
         {
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+        /// Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to eligibilityScheduleRequests for identityGovernance
+        /// Create a new privilegedAccessGroupEligibilityScheduleRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -269,7 +274,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.EligibilityScheduleRe
             return requestInfo;
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+        /// Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
         /// </summary>
         public class EligibilityScheduleRequestsRequestBuilderGetQueryParameters 
         {

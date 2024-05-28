@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnTokenIssuanceStartListener : AuthenticationEventListener, IParsable 
+    public class OnTokenIssuanceStartListener : AuthenticationEventListener, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The handler to invoke when conditions are met for this onTokenIssuanceStartListener.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"handler", n => { Handler = n.GetObjectValue<OnTokenIssuanceStartHandler>(OnTokenIssuanceStartHandler.CreateFromDiscriminatorValue); } },
+                { "handler", n => { Handler = n.GetObjectValue<OnTokenIssuanceStartHandler>(OnTokenIssuanceStartHandler.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

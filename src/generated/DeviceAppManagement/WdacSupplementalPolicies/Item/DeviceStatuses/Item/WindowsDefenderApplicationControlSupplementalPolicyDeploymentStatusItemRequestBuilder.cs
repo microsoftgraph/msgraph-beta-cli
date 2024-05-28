@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeviceStatuses.Item {
+namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeviceStatuses.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     /// </summary>
-    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceStatuses for deviceAppManagement

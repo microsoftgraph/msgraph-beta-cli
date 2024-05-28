@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcForensicStorageAccount : Entity, IParsable 
+    public class CloudPcForensicStorageAccount : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ID of the storage account.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"storageAccountId", n => { StorageAccountId = n.GetStringValue(); } },
-                {"storageAccountName", n => { StorageAccountName = n.GetStringValue(); } },
+                { "storageAccountId", n => { StorageAccountId = n.GetStringValue(); } },
+                { "storageAccountName", n => { StorageAccountName = n.GetStringValue(); } },
             };
         }
         /// <summary>

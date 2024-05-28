@@ -13,20 +13,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpdatesUnenrollAssets {
+namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpdatesUnenrollAssets
+{
     /// <summary>
     /// Provides operations to call the unenrollAssets method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke action unenrollAssets
+        /// Unenroll updatableAsset resources from update management by the deployment service. You can also use the method unenrollAssetsById to unenroll assets.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action unenrollAssets";
+            command.Description = "Unenroll updatableAsset resources from update management by the deployment service. You can also use the method unenrollAssetsById to unenroll assets.";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -69,7 +70,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpda
         {
         }
         /// <summary>
-        /// Invoke action unenrollAssets
+        /// Unenroll updatableAsset resources from update management by the deployment service. You can also use the method unenrollAssetsById to unenroll assets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

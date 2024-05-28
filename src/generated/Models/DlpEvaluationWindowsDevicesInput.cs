@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DlpEvaluationWindowsDevicesInput : DlpEvaluationInput, IParsable 
+    public class DlpEvaluationWindowsDevicesInput : DlpEvaluationInput, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contentProperties property</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentProperties", n => { ContentProperties = n.GetObjectValue<ApiSdk.Models.ContentProperties>(ApiSdk.Models.ContentProperties.CreateFromDiscriminatorValue); } },
-                {"sharedBy", n => { SharedBy = n.GetStringValue(); } },
+                { "contentProperties", n => { ContentProperties = n.GetObjectValue<ApiSdk.Models.ContentProperties>(ApiSdk.Models.ContentProperties.CreateFromDiscriminatorValue); } },
+                { "sharedBy", n => { SharedBy = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.GetCustomizedSettings {
+namespace ApiSdk.DeviceManagement.Intents.Item.GetCustomizedSettings
+{
     #pragma warning disable CS1591
-    public class GetCustomizedSettingsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetCustomizedSettingsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item.GetCustomizedSettings {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementIntentCustomizedSetting>(DeviceManagementIntentCustomizedSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementIntentCustomizedSetting>(DeviceManagementIntentCustomizedSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

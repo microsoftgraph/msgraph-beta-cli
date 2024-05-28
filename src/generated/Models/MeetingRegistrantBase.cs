@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MeetingRegistrantBase : Entity, IParsable 
+    public class MeetingRegistrantBase : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A unique web URL for the registrant to join the meeting. Read-only.</summary>
@@ -41,7 +42,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
+                { "joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

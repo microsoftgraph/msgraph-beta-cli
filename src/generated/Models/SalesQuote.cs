@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SalesQuote : IAdditionalDataHolder, IParsable 
+    public class SalesQuote : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acceptedDate property</summary>
@@ -245,44 +246,44 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"acceptedDate", n => { AcceptedDate = n.GetDateValue(); } },
-                {"billToCustomerId", n => { BillToCustomerId = n.GetGuidValue(); } },
-                {"billToCustomerNumber", n => { BillToCustomerNumber = n.GetStringValue(); } },
-                {"billToName", n => { BillToName = n.GetStringValue(); } },
-                {"billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
-                {"currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
-                {"currencyId", n => { CurrencyId = n.GetGuidValue(); } },
-                {"customer", n => { Customer = n.GetObjectValue<ApiSdk.Models.Customer>(ApiSdk.Models.Customer.CreateFromDiscriminatorValue); } },
-                {"customerId", n => { CustomerId = n.GetGuidValue(); } },
-                {"customerName", n => { CustomerName = n.GetStringValue(); } },
-                {"customerNumber", n => { CustomerNumber = n.GetStringValue(); } },
-                {"discountAmount", n => { DiscountAmount = n.GetDecimalValue(); } },
-                {"documentDate", n => { DocumentDate = n.GetDateValue(); } },
-                {"dueDate", n => { DueDate = n.GetDateValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"paymentTerm", n => { PaymentTerm = n.GetObjectValue<ApiSdk.Models.PaymentTerm>(ApiSdk.Models.PaymentTerm.CreateFromDiscriminatorValue); } },
-                {"paymentTermsId", n => { PaymentTermsId = n.GetGuidValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"salesQuoteLines", n => { SalesQuoteLines = n.GetCollectionOfObjectValues<SalesQuoteLine>(SalesQuoteLine.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"salesperson", n => { Salesperson = n.GetStringValue(); } },
-                {"sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"sentDate", n => { SentDate = n.GetDateTimeOffsetValue(); } },
-                {"shipToContact", n => { ShipToContact = n.GetStringValue(); } },
-                {"shipToName", n => { ShipToName = n.GetStringValue(); } },
-                {"shipmentMethod", n => { ShipmentMethod = n.GetObjectValue<ApiSdk.Models.ShipmentMethod>(ApiSdk.Models.ShipmentMethod.CreateFromDiscriminatorValue); } },
-                {"shipmentMethodId", n => { ShipmentMethodId = n.GetGuidValue(); } },
-                {"shippingPostalAddress", n => { ShippingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"totalAmountExcludingTax", n => { TotalAmountExcludingTax = n.GetDecimalValue(); } },
-                {"totalAmountIncludingTax", n => { TotalAmountIncludingTax = n.GetDecimalValue(); } },
-                {"totalTaxAmount", n => { TotalTaxAmount = n.GetDecimalValue(); } },
-                {"validUntilDate", n => { ValidUntilDate = n.GetDateValue(); } },
+                { "acceptedDate", n => { AcceptedDate = n.GetDateValue(); } },
+                { "billToCustomerId", n => { BillToCustomerId = n.GetGuidValue(); } },
+                { "billToCustomerNumber", n => { BillToCustomerNumber = n.GetStringValue(); } },
+                { "billToName", n => { BillToName = n.GetStringValue(); } },
+                { "billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
+                { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
+                { "currencyId", n => { CurrencyId = n.GetGuidValue(); } },
+                { "customer", n => { Customer = n.GetObjectValue<ApiSdk.Models.Customer>(ApiSdk.Models.Customer.CreateFromDiscriminatorValue); } },
+                { "customerId", n => { CustomerId = n.GetGuidValue(); } },
+                { "customerName", n => { CustomerName = n.GetStringValue(); } },
+                { "customerNumber", n => { CustomerNumber = n.GetStringValue(); } },
+                { "discountAmount", n => { DiscountAmount = n.GetDecimalValue(); } },
+                { "documentDate", n => { DocumentDate = n.GetDateValue(); } },
+                { "dueDate", n => { DueDate = n.GetDateValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "paymentTerm", n => { PaymentTerm = n.GetObjectValue<ApiSdk.Models.PaymentTerm>(ApiSdk.Models.PaymentTerm.CreateFromDiscriminatorValue); } },
+                { "paymentTermsId", n => { PaymentTermsId = n.GetGuidValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "salesQuoteLines", n => { SalesQuoteLines = n.GetCollectionOfObjectValues<SalesQuoteLine>(SalesQuoteLine.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "salesperson", n => { Salesperson = n.GetStringValue(); } },
+                { "sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "sentDate", n => { SentDate = n.GetDateTimeOffsetValue(); } },
+                { "shipToContact", n => { ShipToContact = n.GetStringValue(); } },
+                { "shipToName", n => { ShipToName = n.GetStringValue(); } },
+                { "shipmentMethod", n => { ShipmentMethod = n.GetObjectValue<ApiSdk.Models.ShipmentMethod>(ApiSdk.Models.ShipmentMethod.CreateFromDiscriminatorValue); } },
+                { "shipmentMethodId", n => { ShipmentMethodId = n.GetGuidValue(); } },
+                { "shippingPostalAddress", n => { ShippingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "totalAmountExcludingTax", n => { TotalAmountExcludingTax = n.GetDecimalValue(); } },
+                { "totalAmountIncludingTax", n => { TotalAmountIncludingTax = n.GetDecimalValue(); } },
+                { "totalTaxAmount", n => { TotalTaxAmount = n.GetDecimalValue(); } },
+                { "validUntilDate", n => { ValidUntilDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item {
+namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item
+{
     /// <summary>
     /// Provides operations to manage the outboundProvisioningFlowSets property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class OutboundProvisioningFlowSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutboundProvisioningFlowSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property outboundProvisioningFlowSets for external

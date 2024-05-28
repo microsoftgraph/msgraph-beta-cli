@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for iOS web apps.
     /// </summary>
-    public class IosiPadOSWebClip : MobileApp, IParsable 
+    public class IosiPadOSWebClip : MobileApp, IParsable
     {
         /// <summary>Indicates iOS/iPadOS web clip app URL. Example: &apos;https://www.contoso.com&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,12 +60,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appUrl", n => { AppUrl = n.GetStringValue(); } },
-                {"fullScreenEnabled", n => { FullScreenEnabled = n.GetBoolValue(); } },
-                {"ignoreManifestScope", n => { IgnoreManifestScope = n.GetBoolValue(); } },
-                {"preComposedIconEnabled", n => { PreComposedIconEnabled = n.GetBoolValue(); } },
-                {"targetApplicationBundleIdentifier", n => { TargetApplicationBundleIdentifier = n.GetStringValue(); } },
-                {"useManagedBrowser", n => { UseManagedBrowser = n.GetBoolValue(); } },
+                { "appUrl", n => { AppUrl = n.GetStringValue(); } },
+                { "fullScreenEnabled", n => { FullScreenEnabled = n.GetBoolValue(); } },
+                { "ignoreManifestScope", n => { IgnoreManifestScope = n.GetBoolValue(); } },
+                { "preComposedIconEnabled", n => { PreComposedIconEnabled = n.GetBoolValue(); } },
+                { "targetApplicationBundleIdentifier", n => { TargetApplicationBundleIdentifier = n.GetStringValue(); } },
+                { "useManagedBrowser", n => { UseManagedBrowser = n.GetBoolValue(); } },
             };
         }
         /// <summary>

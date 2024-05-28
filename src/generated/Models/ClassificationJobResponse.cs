@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ClassificationJobResponse : JobResponseBase, IParsable 
+    public class ClassificationJobResponse : JobResponseBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The result property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"result", n => { Result = n.GetObjectValue<DetectedSensitiveContentWrapper>(DetectedSensitiveContentWrapper.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<DetectedSensitiveContentWrapper>(DetectedSensitiveContentWrapper.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

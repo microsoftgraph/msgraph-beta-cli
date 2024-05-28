@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The operationApprovalRequestEntityStatus complex type is used to provide the basic infortmation relating to the status of a request without revealing too much information to the calling user as it may be an object out of scope.
     /// </summary>
-    public class OperationApprovalRequestEntityStatus : IAdditionalDataHolder, IParsable 
+    public class OperationApprovalRequestEntityStatus : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -59,11 +60,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"entityLocked", n => { EntityLocked = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"requestExpirationDateTime", n => { RequestExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestId", n => { RequestId = n.GetStringValue(); } },
-                {"requestStatus", n => { RequestStatus = n.GetEnumValue<OperationApprovalRequestStatus>(); } },
+                { "entityLocked", n => { EntityLocked = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "requestExpirationDateTime", n => { RequestExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestId", n => { RequestId = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetEnumValue<OperationApprovalRequestStatus>(); } },
             };
         }
         /// <summary>

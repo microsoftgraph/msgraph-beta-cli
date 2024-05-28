@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class OcrSettings : IAdditionalDataHolder, IParsable 
+    public class OcrSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"maxImageSize", n => { MaxImageSize = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"timeout", n => { Timeout = n.GetTimeSpanValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "maxImageSize", n => { MaxImageSize = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "timeout", n => { Timeout = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

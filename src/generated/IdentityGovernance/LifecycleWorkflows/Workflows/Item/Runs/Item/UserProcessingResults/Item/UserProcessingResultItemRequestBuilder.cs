@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item.UserProcessingResults.Item {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Runs.Item.UserProcessingResults.Item
+{
     /// <summary>
     /// Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
     /// </summary>
-    public class UserProcessingResultItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserProcessingResultItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The associated individual user execution.

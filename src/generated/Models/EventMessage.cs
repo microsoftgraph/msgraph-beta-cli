@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EventMessage : Message, IParsable 
+    public class EventMessage : Message, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The end time of the requested meeting.</summary>
@@ -90,16 +91,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"event", n => { Event = n.GetObjectValue<ApiSdk.Models.Event>(ApiSdk.Models.Event.CreateFromDiscriminatorValue); } },
-                {"isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
-                {"isDelegated", n => { IsDelegated = n.GetBoolValue(); } },
-                {"isOutOfDate", n => { IsOutOfDate = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
-                {"meetingMessageType", n => { MeetingMessageType = n.GetEnumValue<MeetingMessageType>(); } },
-                {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
-                {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"type", n => { Type = n.GetEnumValue<EventType>(); } },
+                { "endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "event", n => { Event = n.GetObjectValue<ApiSdk.Models.Event>(ApiSdk.Models.Event.CreateFromDiscriminatorValue); } },
+                { "isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
+                { "isDelegated", n => { IsDelegated = n.GetBoolValue(); } },
+                { "isOutOfDate", n => { IsOutOfDate = n.GetBoolValue(); } },
+                { "location", n => { Location = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
+                { "meetingMessageType", n => { MeetingMessageType = n.GetEnumValue<MeetingMessageType>(); } },
+                { "recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
+                { "startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<EventType>(); } },
             };
         }
         /// <summary>

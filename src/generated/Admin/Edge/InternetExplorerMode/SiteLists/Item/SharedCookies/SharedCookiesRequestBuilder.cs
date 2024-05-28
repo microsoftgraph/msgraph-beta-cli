@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
+namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies
+{
     /// <summary>
     /// Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
     /// </summary>
-    public class SharedCookiesRequestBuilder : BaseCliRequestBuilder 
+    public class SharedCookiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to sharedCookies for admin
+        /// Create a new browserSharedCookie object in a browserSiteList.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to sharedCookies for admin";
+            command.Description = "Create a new browserSharedCookie object in a browserSiteList.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-beta";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
             };
             browserSiteListIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
             return command;
         }
         /// <summary>
-        /// A collection of shared cookies defined for the site list.
+        /// Get a list of the browserSharedCookie objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of shared cookies defined for the site list.";
+            command.Description = "Get a list of the browserSharedCookie objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-beta";
             var browserSiteListIdOption = new Option<string>("--browser-site-list-id", description: "The unique identifier of browserSiteList") {
             };
             browserSiteListIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
         {
         }
         /// <summary>
-        /// A collection of shared cookies defined for the site list.
+        /// Get a list of the browserSharedCookie objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to sharedCookies for admin
+        /// Create a new browserSharedCookie object in a browserSiteList.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of shared cookies defined for the site list.
+        /// Get a list of the browserSharedCookie objects and their properties.
         /// </summary>
         public class SharedCookiesRequestBuilderGetQueryParameters 
         {

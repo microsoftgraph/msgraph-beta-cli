@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RiskDetection : Entity, IParsable 
+    public class RiskDetection : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.</summary>
@@ -81,7 +82,7 @@ namespace ApiSdk.Models {
         public ApiSdk.Models.RiskLevel? RiskLevel { get; set; }
         /// <summary>The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.</summary>
         public ApiSdk.Models.RiskState? RiskState { get; set; }
-        /// <summary>The riskType property</summary>
+        /// <summary>List of risk event types.Note: This property is deprecated. Use riskEventType instead.</summary>
         public ApiSdk.Models.RiskEventType? RiskType { get; set; }
         /// <summary>Source of the risk detection. For example, activeDirectory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,27 +136,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activity", n => { Activity = n.GetEnumValue<ActivityType>(); } },
-                {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
-                {"additionalInfo", n => { AdditionalInfo = n.GetStringValue(); } },
-                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                {"detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"detectionTimingType", n => { DetectionTimingType = n.GetEnumValue<RiskDetectionTimingType>(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
-                {"mitreTechniqueId", n => { MitreTechniqueId = n.GetStringValue(); } },
-                {"requestId", n => { RequestId = n.GetStringValue(); } },
-                {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventType", n => { RiskEventType = n.GetStringValue(); } },
-                {"riskLevel", n => { RiskLevel = n.GetEnumValue<RiskLevel>(); } },
-                {"riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
-                {"riskType", n => { RiskType = n.GetEnumValue<RiskEventType>(); } },
-                {"source", n => { Source = n.GetStringValue(); } },
-                {"tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<TokenIssuerType>(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "activity", n => { Activity = n.GetEnumValue<ActivityType>(); } },
+                { "activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
+                { "additionalInfo", n => { AdditionalInfo = n.GetStringValue(); } },
+                { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                { "detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "detectionTimingType", n => { DetectionTimingType = n.GetEnumValue<RiskDetectionTimingType>(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
+                { "mitreTechniqueId", n => { MitreTechniqueId = n.GetStringValue(); } },
+                { "requestId", n => { RequestId = n.GetStringValue(); } },
+                { "riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
+                { "riskEventType", n => { RiskEventType = n.GetStringValue(); } },
+                { "riskLevel", n => { RiskLevel = n.GetEnumValue<RiskLevel>(); } },
+                { "riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
+                { "riskType", n => { RiskType = n.GetEnumValue<RiskEventType>(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
+                { "tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<TokenIssuerType>(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

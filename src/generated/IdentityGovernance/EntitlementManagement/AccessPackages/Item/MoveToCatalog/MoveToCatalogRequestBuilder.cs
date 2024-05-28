@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.MoveToCatalog {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.MoveToCatalog
+{
     /// <summary>
     /// Provides operations to call the moveToCatalog method.
     /// </summary>
-    public class MoveToCatalogRequestBuilder : BaseCliRequestBuilder 
+    public class MoveToCatalogRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In Microsoft Entra entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.

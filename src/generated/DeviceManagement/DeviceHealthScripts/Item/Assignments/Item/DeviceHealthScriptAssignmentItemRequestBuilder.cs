@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
     /// </summary>
-    public class DeviceHealthScriptAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceHealthScriptAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

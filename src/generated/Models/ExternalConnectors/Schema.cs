@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class Schema : ApiSdk.Models.Entity, IParsable 
+    public class Schema : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Must be set to microsoft.graph.externalItem. Required.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"baseType", n => { BaseType = n.GetStringValue(); } },
-                {"properties", n => { Properties = n.GetCollectionOfObjectValues<Property>(Property.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "baseType", n => { BaseType = n.GetStringValue(); } },
+                { "properties", n => { Properties = n.GetCollectionOfObjectValues<Property>(Property.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections
+{
     /// <summary>
     /// Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class OnPremisesConnectionsRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesConnectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to onPremisesConnections for deviceManagement
+        /// Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-post-onpremisesconnections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to onPremisesConnections for deviceManagement";
+            command.Description = "Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-post-onpremisesconnections?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
             return command;
         }
         /// <summary>
-        /// A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+        /// Get a list of the cloudPcOnPremisesConnection objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-onpremisesconnections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.";
+            command.Description = "Get a list of the cloudPcOnPremisesConnection objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-onpremisesconnections?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
         {
         }
         /// <summary>
-        /// A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+        /// Get a list of the cloudPcOnPremisesConnection objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to onPremisesConnections for deviceManagement
+        /// Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections {
             return requestInfo;
         }
         /// <summary>
-        /// A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+        /// Get a list of the cloudPcOnPremisesConnection objects and their properties.
         /// </summary>
         public class OnPremisesConnectionsRequestBuilderGetQueryParameters 
         {

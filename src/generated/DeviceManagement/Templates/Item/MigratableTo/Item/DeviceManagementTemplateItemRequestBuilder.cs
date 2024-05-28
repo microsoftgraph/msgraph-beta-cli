@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item
+{
     /// <summary>
     /// Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
     /// </summary>
-    public class DeviceManagementTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.

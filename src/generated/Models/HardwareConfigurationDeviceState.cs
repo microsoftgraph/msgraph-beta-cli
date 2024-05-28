@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for device run state of the hardware configuration
     /// </summary>
-    public class HardwareConfigurationDeviceState : Entity, IParsable 
+    public class HardwareConfigurationDeviceState : Entity, IParsable
     {
         /// <summary>A list of identifier strings of different assignment filters applied</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,16 +91,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentFilterIds", n => { AssignmentFilterIds = n.GetStringValue(); } },
-                {"configurationError", n => { ConfigurationError = n.GetStringValue(); } },
-                {"configurationOutput", n => { ConfigurationOutput = n.GetStringValue(); } },
-                {"configurationState", n => { ConfigurationState = n.GetEnumValue<RunState>(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"internalVersion", n => { InternalVersion = n.GetIntValue(); } },
-                {"lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"upn", n => { Upn = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetStringValue(); } },
+                { "configurationError", n => { ConfigurationError = n.GetStringValue(); } },
+                { "configurationOutput", n => { ConfigurationOutput = n.GetStringValue(); } },
+                { "configurationState", n => { ConfigurationState = n.GetEnumValue<RunState>(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "internalVersion", n => { InternalVersion = n.GetIntValue(); } },
+                { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "upn", n => { Upn = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// AOSP Device Owner PKCS certificate profile
     /// </summary>
-    public class AospDeviceOwnerPkcsCertificateProfile : AospDeviceOwnerCertificateProfileBase, IParsable 
+    public class AospDeviceOwnerPkcsCertificateProfile : AospDeviceOwnerCertificateProfileBase, IParsable
     {
         /// <summary>CertificateStore types</summary>
         public ApiSdk.Models.CertificateStore? CertificateStore { get; set; }
@@ -95,15 +96,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
-                {"certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
-                {"certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
-                {"certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
-                {"certificationAuthorityType", n => { CertificationAuthorityType = n.GetEnumValue<DeviceManagementCertificationAuthority>(); } },
-                {"customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
-                {"subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
+                { "certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
+                { "certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
+                { "certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
+                { "certificationAuthorityType", n => { CertificationAuthorityType = n.GetEnumValue<DeviceManagementCertificationAuthority>(); } },
+                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
+                { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
             };
         }
         /// <summary>

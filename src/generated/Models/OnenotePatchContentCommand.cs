@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnenotePatchContentCommand : IAdditionalDataHolder, IParsable 
+    public class OnenotePatchContentCommand : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -64,11 +65,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<OnenotePatchActionType>(); } },
-                {"content", n => { Content = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"position", n => { Position = n.GetEnumValue<OnenotePatchInsertPosition>(); } },
-                {"target", n => { Target = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<OnenotePatchActionType>(); } },
+                { "content", n => { Content = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "position", n => { Position = n.GetEnumValue<OnenotePatchInsertPosition>(); } },
+                { "target", n => { Target = n.GetStringValue(); } },
             };
         }
         /// <summary>

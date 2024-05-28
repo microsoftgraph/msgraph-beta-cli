@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.PermissionsCreepIndexDistributions.Item {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.PermissionsCreepIndexDistributions.Item
+{
     /// <summary>
     /// Provides operations to manage the permissionsCreepIndexDistributions property of the microsoft.graph.permissionsAnalytics entity.
     /// </summary>
-    public class PermissionsCreepIndexDistributionItemRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsCreepIndexDistributionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authorizationSystem property of the microsoft.graph.permissionsCreepIndexDistribution entity.

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.SecurityBaselineStates.Item
+{
     /// <summary>
     /// Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class SecurityBaselineStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class SecurityBaselineStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property securityBaselineStates for users

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PayloadResponse.Item {
+namespace ApiSdk.PayloadResponse.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of payloadResponse entities.
     /// </summary>
-    public class PayloadResponseItemRequestBuilder : BaseCliRequestBuilder 
+    public class PayloadResponseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from payloadResponse

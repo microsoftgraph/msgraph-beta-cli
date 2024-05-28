@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageSubject : Entity, IParsable 
+    public class AccessPackageSubject : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Not Supported.</summary>
@@ -59,7 +60,7 @@ namespace ApiSdk.Models {
 #else
         public string ObjectId { get; set; }
 #endif
-        /// <summary>The onPremisesSecurityIdentifier property</summary>
+        /// <summary>A string representation of the principal&apos;s security identifier, if known, or null if the subject doesn&apos;t have a security identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnPremisesSecurityIdentifier { get; set; }
@@ -103,17 +104,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"altSecId", n => { AltSecId = n.GetStringValue(); } },
-                {"cleanupScheduledDateTime", n => { CleanupScheduledDateTime = n.GetDateTimeOffsetValue(); } },
-                {"connectedOrganization", n => { ConnectedOrganization = n.GetObjectValue<ApiSdk.Models.ConnectedOrganization>(ApiSdk.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
-                {"connectedOrganizationId", n => { ConnectedOrganizationId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"objectId", n => { ObjectId = n.GetStringValue(); } },
-                {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
-                {"principalName", n => { PrincipalName = n.GetStringValue(); } },
-                {"subjectLifecycle", n => { SubjectLifecycle = n.GetEnumValue<AccessPackageSubjectLifecycle>(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "altSecId", n => { AltSecId = n.GetStringValue(); } },
+                { "cleanupScheduledDateTime", n => { CleanupScheduledDateTime = n.GetDateTimeOffsetValue(); } },
+                { "connectedOrganization", n => { ConnectedOrganization = n.GetObjectValue<ApiSdk.Models.ConnectedOrganization>(ApiSdk.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
+                { "connectedOrganizationId", n => { ConnectedOrganizationId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "objectId", n => { ObjectId = n.GetStringValue(); } },
+                { "onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
+                { "principalName", n => { PrincipalName = n.GetStringValue(); } },
+                { "subjectLifecycle", n => { SubjectLifecycle = n.GetEnumValue<AccessPackageSubjectLifecycle>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

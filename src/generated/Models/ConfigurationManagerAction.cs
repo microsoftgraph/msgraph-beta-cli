@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Parameter for action triggerConfigurationManagerAction
     /// </summary>
-    public class ConfigurationManagerAction : IAdditionalDataHolder, IParsable 
+    public class ConfigurationManagerAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Action type on Configuration Manager client</summary>
         public ConfigurationManagerActionType? Action { get; set; }
@@ -47,8 +48,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<ConfigurationManagerActionType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<ConfigurationManagerActionType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

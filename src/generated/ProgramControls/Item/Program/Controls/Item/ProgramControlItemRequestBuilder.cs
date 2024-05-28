@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ProgramControls.Item.Program.Controls.Item {
+namespace ApiSdk.ProgramControls.Item.Program.Controls.Item
+{
     /// <summary>
     /// Provides operations to manage the controls property of the microsoft.graph.program entity.
     /// </summary>
-    public class ProgramControlItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProgramControlItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property controls for programControls

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Protection {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Protection
+{
     /// <summary>
     /// Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
-    public class ProtectionRequestBuilder : BaseCliRequestBuilder 
+    public class ProtectionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property protection for drives

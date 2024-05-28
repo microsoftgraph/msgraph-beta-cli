@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookChartTitle : Entity, IParsable 
+    public class WorkbookChartTitle : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the formatting of a chart title, which includes fill and font formatting. Read-only.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"format", n => { Format = n.GetObjectValue<WorkbookChartTitleFormat>(WorkbookChartTitleFormat.CreateFromDiscriminatorValue); } },
-                {"overlay", n => { Overlay = n.GetBoolValue(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
-                {"visible", n => { Visible = n.GetBoolValue(); } },
+                { "format", n => { Format = n.GetObjectValue<WorkbookChartTitleFormat>(WorkbookChartTitleFormat.CreateFromDiscriminatorValue); } },
+                { "overlay", n => { Overlay = n.GetBoolValue(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "visible", n => { Visible = n.GetBoolValue(); } },
             };
         }
         /// <summary>

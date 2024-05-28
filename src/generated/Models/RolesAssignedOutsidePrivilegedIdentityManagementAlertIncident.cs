@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident : UnifiedRoleManagementAlertIncident, IParsable 
+    public class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident : UnifiedRoleManagementAlertIncident, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Display name of the subject that the incident applies to.</summary>
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public string AssigneeUserPrincipalName { get; set; }
 #endif
-        /// <summary>The assignmentCreatedDateTime property</summary>
+        /// <summary>Date and time of assignment creation.</summary>
         public DateTimeOffset? AssignmentCreatedDateTime { get; set; }
         /// <summary>The identifier for the directory role definition that&apos;s in scope of this incident.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,13 +85,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assigneeDisplayName", n => { AssigneeDisplayName = n.GetStringValue(); } },
-                {"assigneeId", n => { AssigneeId = n.GetStringValue(); } },
-                {"assigneeUserPrincipalName", n => { AssigneeUserPrincipalName = n.GetStringValue(); } },
-                {"assignmentCreatedDateTime", n => { AssignmentCreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
-                {"roleDisplayName", n => { RoleDisplayName = n.GetStringValue(); } },
-                {"roleTemplateId", n => { RoleTemplateId = n.GetStringValue(); } },
+                { "assigneeDisplayName", n => { AssigneeDisplayName = n.GetStringValue(); } },
+                { "assigneeId", n => { AssigneeId = n.GetStringValue(); } },
+                { "assigneeUserPrincipalName", n => { AssigneeUserPrincipalName = n.GetStringValue(); } },
+                { "assignmentCreatedDateTime", n => { AssignmentCreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
+                { "roleDisplayName", n => { RoleDisplayName = n.GetStringValue(); } },
+                { "roleTemplateId", n => { RoleTemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

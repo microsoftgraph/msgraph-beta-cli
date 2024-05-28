@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationGradingScheme : Entity, IParsable 
+    public class EducationGradingScheme : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the grading scheme.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"grades", n => { Grades = n.GetCollectionOfObjectValues<EducationGradingSchemeGrade>(EducationGradingSchemeGrade.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hidePointsDuringGrading", n => { HidePointsDuringGrading = n.GetBoolValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "grades", n => { Grades = n.GetCollectionOfObjectValues<EducationGradingSchemeGrade>(EducationGradingSchemeGrade.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hidePointsDuringGrading", n => { HidePointsDuringGrading = n.GetBoolValue(); } },
             };
         }
         /// <summary>

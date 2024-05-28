@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class TenantGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class TenantGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenantGroups for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
             return command;
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Read the properties and relationships of a tenantGroup object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenantgroup-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of a logical grouping of managed tenants used by the multi-tenant management platform.";
+            command.Description = "Read the properties and relationships of a tenantGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenantgroup-get?view=graph-rest-beta";
             var tenantGroupIdOption = new Option<string>("--tenant-group-id", description: "The unique identifier of tenantGroup") {
             };
             tenantGroupIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Read the properties and relationships of a tenantGroup object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+        /// Read the properties and relationships of a tenantGroup object.
         /// </summary>
         public class TenantGroupItemRequestBuilderGetQueryParameters 
         {

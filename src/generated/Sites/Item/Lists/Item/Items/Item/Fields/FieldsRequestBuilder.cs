@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.Fields {
+namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.Fields
+{
     /// <summary>
     /// Provides operations to manage the fields property of the microsoft.graph.listItem entity.
     /// </summary>
-    public class FieldsRequestBuilder : BaseCliRequestBuilder 
+    public class FieldsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property fields for sites

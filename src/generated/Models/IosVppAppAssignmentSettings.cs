@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign an iOS VPP mobile app to a group.
     /// </summary>
-    public class IosVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class IosVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
         /// <summary>Whether or not the app can be removed by the user.</summary>
         public bool? IsRemovable { get; set; }
@@ -53,12 +54,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isRemovable", n => { IsRemovable = n.GetBoolValue(); } },
-                {"preventAutoAppUpdate", n => { PreventAutoAppUpdate = n.GetBoolValue(); } },
-                {"preventManagedAppBackup", n => { PreventManagedAppBackup = n.GetBoolValue(); } },
-                {"uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
-                {"useDeviceLicensing", n => { UseDeviceLicensing = n.GetBoolValue(); } },
-                {"vpnConfigurationId", n => { VpnConfigurationId = n.GetStringValue(); } },
+                { "isRemovable", n => { IsRemovable = n.GetBoolValue(); } },
+                { "preventAutoAppUpdate", n => { PreventAutoAppUpdate = n.GetBoolValue(); } },
+                { "preventManagedAppBackup", n => { PreventManagedAppBackup = n.GetBoolValue(); } },
+                { "uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
+                { "useDeviceLicensing", n => { UseDeviceLicensing = n.GetBoolValue(); } },
+                { "vpnConfigurationId", n => { VpnConfigurationId = n.GetStringValue(); } },
             };
         }
         /// <summary>

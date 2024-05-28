@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Request used to download app diagnostic files.
     /// </summary>
-    public class PowerliftDownloadRequest : IAdditionalDataHolder, IParsable 
+    public class PowerliftDownloadRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"files", n => { Files = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"powerliftId", n => { PowerliftId = n.GetGuidValue(); } },
+                { "files", n => { Files = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "powerliftId", n => { PowerliftId = n.GetGuidValue(); } },
             };
         }
         /// <summary>

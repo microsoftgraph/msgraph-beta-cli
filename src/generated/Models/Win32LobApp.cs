@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Win32 apps.
     /// </summary>
-    public class Win32LobApp : MobileLobApp, IParsable 
+    public class Win32LobApp : MobileLobApp, IParsable
     {
         /// <summary>When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.</summary>
         public bool? AllowAvailableUninstall { get; set; }
@@ -148,24 +149,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowAvailableUninstall", n => { AllowAvailableUninstall = n.GetBoolValue(); } },
-                {"applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
-                {"detectionRules", n => { DetectionRules = n.GetCollectionOfObjectValues<Win32LobAppDetection>(Win32LobAppDetection.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
-                {"installCommandLine", n => { InstallCommandLine = n.GetStringValue(); } },
-                {"installExperience", n => { InstallExperience = n.GetObjectValue<Win32LobAppInstallExperience>(Win32LobAppInstallExperience.CreateFromDiscriminatorValue); } },
-                {"minimumCpuSpeedInMHz", n => { MinimumCpuSpeedInMHz = n.GetIntValue(); } },
-                {"minimumFreeDiskSpaceInMB", n => { MinimumFreeDiskSpaceInMB = n.GetIntValue(); } },
-                {"minimumMemoryInMB", n => { MinimumMemoryInMB = n.GetIntValue(); } },
-                {"minimumNumberOfProcessors", n => { MinimumNumberOfProcessors = n.GetIntValue(); } },
-                {"minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
-                {"minimumSupportedWindowsRelease", n => { MinimumSupportedWindowsRelease = n.GetStringValue(); } },
-                {"msiInformation", n => { MsiInformation = n.GetObjectValue<Win32LobAppMsiInformation>(Win32LobAppMsiInformation.CreateFromDiscriminatorValue); } },
-                {"requirementRules", n => { RequirementRules = n.GetCollectionOfObjectValues<Win32LobAppRequirement>(Win32LobAppRequirement.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"returnCodes", n => { ReturnCodes = n.GetCollectionOfObjectValues<Win32LobAppReturnCode>(Win32LobAppReturnCode.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"rules", n => { Rules = n.GetCollectionOfObjectValues<Win32LobAppRule>(Win32LobAppRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"setupFilePath", n => { SetupFilePath = n.GetStringValue(); } },
-                {"uninstallCommandLine", n => { UninstallCommandLine = n.GetStringValue(); } },
+                { "allowAvailableUninstall", n => { AllowAvailableUninstall = n.GetBoolValue(); } },
+                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "detectionRules", n => { DetectionRules = n.GetCollectionOfObjectValues<Win32LobAppDetection>(Win32LobAppDetection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
+                { "installCommandLine", n => { InstallCommandLine = n.GetStringValue(); } },
+                { "installExperience", n => { InstallExperience = n.GetObjectValue<Win32LobAppInstallExperience>(Win32LobAppInstallExperience.CreateFromDiscriminatorValue); } },
+                { "minimumCpuSpeedInMHz", n => { MinimumCpuSpeedInMHz = n.GetIntValue(); } },
+                { "minimumFreeDiskSpaceInMB", n => { MinimumFreeDiskSpaceInMB = n.GetIntValue(); } },
+                { "minimumMemoryInMB", n => { MinimumMemoryInMB = n.GetIntValue(); } },
+                { "minimumNumberOfProcessors", n => { MinimumNumberOfProcessors = n.GetIntValue(); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "minimumSupportedWindowsRelease", n => { MinimumSupportedWindowsRelease = n.GetStringValue(); } },
+                { "msiInformation", n => { MsiInformation = n.GetObjectValue<Win32LobAppMsiInformation>(Win32LobAppMsiInformation.CreateFromDiscriminatorValue); } },
+                { "requirementRules", n => { RequirementRules = n.GetCollectionOfObjectValues<Win32LobAppRequirement>(Win32LobAppRequirement.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "returnCodes", n => { ReturnCodes = n.GetCollectionOfObjectValues<Win32LobAppReturnCode>(Win32LobAppReturnCode.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<Win32LobAppRule>(Win32LobAppRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "setupFilePath", n => { SetupFilePath = n.GetStringValue(); } },
+                { "uninstallCommandLine", n => { UninstallCommandLine = n.GetStringValue(); } },
             };
         }
         /// <summary>

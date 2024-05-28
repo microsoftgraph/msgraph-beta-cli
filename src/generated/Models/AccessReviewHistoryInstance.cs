@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewHistoryInstance : Entity, IParsable 
+    public class AccessReviewHistoryInstance : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.</summary>
@@ -21,13 +22,13 @@ namespace ApiSdk.Models {
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>Timestamp when all of the available data for this instance was collected. This will be set after this instance&apos;s status is set to done. Required.</summary>
         public DateTimeOffset? FulfilledDateTime { get; set; }
-        /// <summary>Timestamp, reviews ending on or before this date are in the fetched history data.</summary>
+        /// <summary>The date and time for which reviews ended before this date are included in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodEndDateTime { get; set; }
-        /// <summary>Timestamp, reviews starting on or after this date are in the fetched history data.</summary>
+        /// <summary>The date and time for which reviews started on or after this date are included in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodStartDateTime { get; set; }
-        /// <summary>Timestamp when the instance&apos;s history data is scheduled to be generated.</summary>
+        /// <summary>The date and time when the instance&apos;s history data is scheduled to be generated.</summary>
         public DateTimeOffset? RunDateTime { get; set; }
-        /// <summary>Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance&apos;s data by calling generateDownloadUri method.</summary>
+        /// <summary>Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status is marked as done, you can generate a link retrieve the instance&apos;s data by calling generateDownloadUri method.</summary>
         public AccessReviewHistoryStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,13 +48,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"downloadUri", n => { DownloadUri = n.GetStringValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fulfilledDateTime", n => { FulfilledDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewHistoryPeriodEndDateTime", n => { ReviewHistoryPeriodEndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewHistoryPeriodStartDateTime", n => { ReviewHistoryPeriodStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"runDateTime", n => { RunDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<AccessReviewHistoryStatus>(); } },
+                { "downloadUri", n => { DownloadUri = n.GetStringValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fulfilledDateTime", n => { FulfilledDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewHistoryPeriodEndDateTime", n => { ReviewHistoryPeriodEndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewHistoryPeriodStartDateTime", n => { ReviewHistoryPeriodStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "runDateTime", n => { RunDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<AccessReviewHistoryStatus>(); } },
             };
         }
         /// <summary>

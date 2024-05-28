@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class M365AppsInstallationOptions : Entity, IParsable 
+    public class M365AppsInstallationOptions : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appsForMac property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appsForMac", n => { AppsForMac = n.GetObjectValue<AppsInstallationOptionsForMac>(AppsInstallationOptionsForMac.CreateFromDiscriminatorValue); } },
-                {"appsForWindows", n => { AppsForWindows = n.GetObjectValue<AppsInstallationOptionsForWindows>(AppsInstallationOptionsForWindows.CreateFromDiscriminatorValue); } },
-                {"updateChannel", n => { UpdateChannel = n.GetEnumValue<AppsUpdateChannelType>(); } },
+                { "appsForMac", n => { AppsForMac = n.GetObjectValue<AppsInstallationOptionsForMac>(AppsInstallationOptionsForMac.CreateFromDiscriminatorValue); } },
+                { "appsForWindows", n => { AppsForWindows = n.GetObjectValue<AppsInstallationOptionsForWindows>(AppsInstallationOptionsForWindows.CreateFromDiscriminatorValue); } },
+                { "updateChannel", n => { UpdateChannel = n.GetEnumValue<AppsUpdateChannelType>(); } },
             };
         }
         /// <summary>

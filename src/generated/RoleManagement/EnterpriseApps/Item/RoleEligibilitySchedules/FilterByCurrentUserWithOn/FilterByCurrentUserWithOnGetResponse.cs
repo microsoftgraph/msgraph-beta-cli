@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilitySchedules.FilterByCurrentUserWithOn {
+namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilitySchedules.FilterByCurrentUserWithOn
+{
     #pragma warning disable CS1591
-    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.RoleEligibilitySchedules.Fil
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

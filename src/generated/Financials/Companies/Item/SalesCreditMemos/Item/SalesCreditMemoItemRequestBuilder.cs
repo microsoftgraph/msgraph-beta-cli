@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item {
+namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item
+{
     /// <summary>
     /// Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.
     /// </summary>
-    public class SalesCreditMemoItemRequestBuilder : BaseCliRequestBuilder 
+    public class SalesCreditMemoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the currency property of the microsoft.graph.salesCreditMemo entity.
@@ -80,11 +81,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item {
         {
             var command = new Command("get");
             command.Description = "Get salesCreditMemos from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);
@@ -138,11 +139,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property salesCreditMemos in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);

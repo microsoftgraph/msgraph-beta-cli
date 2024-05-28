@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Event : OutlookItem, IParsable 
+    public class Event : OutlookItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.</summary>
@@ -87,6 +88,14 @@ namespace ApiSdk.Models {
         public bool? HasAttachments { get; set; }
         /// <summary>When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false.</summary>
         public bool? HideAttendees { get; set; }
+        /// <summary>A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ICalUId { get; set; }
+#nullable restore
+#else
+        public string ICalUId { get; set; }
+#endif
         /// <summary>The importance of the event. Possible values are: low, normal, high.</summary>
         public ApiSdk.Models.Importance? Importance { get; set; }
         /// <summary>The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn&apos;t include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.</summary>
@@ -292,51 +301,52 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowNewTimeProposals", n => { AllowNewTimeProposals = n.GetBoolValue(); } },
-                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"attendees", n => { Attendees = n.GetCollectionOfObjectValues<Attendee>(Attendee.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"bodyPreview", n => { BodyPreview = n.GetStringValue(); } },
-                {"calendar", n => { Calendar = n.GetObjectValue<ApiSdk.Models.Calendar>(ApiSdk.Models.Calendar.CreateFromDiscriminatorValue); } },
-                {"cancelledOccurrences", n => { CancelledOccurrences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"exceptionOccurrences", n => { ExceptionOccurrences = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
-                {"hideAttendees", n => { HideAttendees = n.GetBoolValue(); } },
-                {"importance", n => { Importance = n.GetEnumValue<Importance>(); } },
-                {"instances", n => { Instances = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
-                {"isCancelled", n => { IsCancelled = n.GetBoolValue(); } },
-                {"isDraft", n => { IsDraft = n.GetBoolValue(); } },
-                {"isOnlineMeeting", n => { IsOnlineMeeting = n.GetBoolValue(); } },
-                {"isOrganizer", n => { IsOrganizer = n.GetBoolValue(); } },
-                {"isReminderOn", n => { IsReminderOn = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
-                {"locations", n => { Locations = n.GetCollectionOfObjectValues<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"occurrenceId", n => { OccurrenceId = n.GetStringValue(); } },
-                {"onlineMeeting", n => { OnlineMeeting = n.GetObjectValue<OnlineMeetingInfo>(OnlineMeetingInfo.CreateFromDiscriminatorValue); } },
-                {"onlineMeetingProvider", n => { OnlineMeetingProvider = n.GetEnumValue<OnlineMeetingProviderType>(); } },
-                {"onlineMeetingUrl", n => { OnlineMeetingUrl = n.GetStringValue(); } },
-                {"organizer", n => { Organizer = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
-                {"originalEndTimeZone", n => { OriginalEndTimeZone = n.GetStringValue(); } },
-                {"originalStart", n => { OriginalStart = n.GetDateTimeOffsetValue(); } },
-                {"originalStartTimeZone", n => { OriginalStartTimeZone = n.GetStringValue(); } },
-                {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
-                {"reminderMinutesBeforeStart", n => { ReminderMinutesBeforeStart = n.GetIntValue(); } },
-                {"responseRequested", n => { ResponseRequested = n.GetBoolValue(); } },
-                {"responseStatus", n => { ResponseStatus = n.GetObjectValue<ApiSdk.Models.ResponseStatus>(ApiSdk.Models.ResponseStatus.CreateFromDiscriminatorValue); } },
-                {"sensitivity", n => { Sensitivity = n.GetEnumValue<Sensitivity>(); } },
-                {"seriesMasterId", n => { SeriesMasterId = n.GetStringValue(); } },
-                {"showAs", n => { ShowAs = n.GetEnumValue<FreeBusyStatus>(); } },
-                {"singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"start", n => { Start = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"transactionId", n => { TransactionId = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<EventType>(); } },
-                {"uid", n => { Uid = n.GetStringValue(); } },
-                {"webLink", n => { WebLink = n.GetStringValue(); } },
+                { "allowNewTimeProposals", n => { AllowNewTimeProposals = n.GetBoolValue(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<Attendee>(Attendee.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "bodyPreview", n => { BodyPreview = n.GetStringValue(); } },
+                { "calendar", n => { Calendar = n.GetObjectValue<ApiSdk.Models.Calendar>(ApiSdk.Models.Calendar.CreateFromDiscriminatorValue); } },
+                { "cancelledOccurrences", n => { CancelledOccurrences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "exceptionOccurrences", n => { ExceptionOccurrences = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
+                { "hideAttendees", n => { HideAttendees = n.GetBoolValue(); } },
+                { "iCalUId", n => { ICalUId = n.GetStringValue(); } },
+                { "importance", n => { Importance = n.GetEnumValue<Importance>(); } },
+                { "instances", n => { Instances = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
+                { "isCancelled", n => { IsCancelled = n.GetBoolValue(); } },
+                { "isDraft", n => { IsDraft = n.GetBoolValue(); } },
+                { "isOnlineMeeting", n => { IsOnlineMeeting = n.GetBoolValue(); } },
+                { "isOrganizer", n => { IsOrganizer = n.GetBoolValue(); } },
+                { "isReminderOn", n => { IsReminderOn = n.GetBoolValue(); } },
+                { "location", n => { Location = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
+                { "locations", n => { Locations = n.GetCollectionOfObjectValues<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "occurrenceId", n => { OccurrenceId = n.GetStringValue(); } },
+                { "onlineMeeting", n => { OnlineMeeting = n.GetObjectValue<OnlineMeetingInfo>(OnlineMeetingInfo.CreateFromDiscriminatorValue); } },
+                { "onlineMeetingProvider", n => { OnlineMeetingProvider = n.GetEnumValue<OnlineMeetingProviderType>(); } },
+                { "onlineMeetingUrl", n => { OnlineMeetingUrl = n.GetStringValue(); } },
+                { "organizer", n => { Organizer = n.GetObjectValue<Recipient>(Recipient.CreateFromDiscriminatorValue); } },
+                { "originalEndTimeZone", n => { OriginalEndTimeZone = n.GetStringValue(); } },
+                { "originalStart", n => { OriginalStart = n.GetDateTimeOffsetValue(); } },
+                { "originalStartTimeZone", n => { OriginalStartTimeZone = n.GetStringValue(); } },
+                { "recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
+                { "reminderMinutesBeforeStart", n => { ReminderMinutesBeforeStart = n.GetIntValue(); } },
+                { "responseRequested", n => { ResponseRequested = n.GetBoolValue(); } },
+                { "responseStatus", n => { ResponseStatus = n.GetObjectValue<ApiSdk.Models.ResponseStatus>(ApiSdk.Models.ResponseStatus.CreateFromDiscriminatorValue); } },
+                { "sensitivity", n => { Sensitivity = n.GetEnumValue<Sensitivity>(); } },
+                { "seriesMasterId", n => { SeriesMasterId = n.GetStringValue(); } },
+                { "showAs", n => { ShowAs = n.GetEnumValue<FreeBusyStatus>(); } },
+                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "start", n => { Start = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "transactionId", n => { TransactionId = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<EventType>(); } },
+                { "uid", n => { Uid = n.GetStringValue(); } },
+                { "webLink", n => { WebLink = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -359,6 +369,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteBoolValue("hasAttachments", HasAttachments);
             writer.WriteBoolValue("hideAttendees", HideAttendees);
+            writer.WriteStringValue("iCalUId", ICalUId);
             writer.WriteEnumValue<Importance>("importance", Importance);
             writer.WriteCollectionOfObjectValues<Event>("instances", Instances);
             writer.WriteBoolValue("isAllDay", IsAllDay);

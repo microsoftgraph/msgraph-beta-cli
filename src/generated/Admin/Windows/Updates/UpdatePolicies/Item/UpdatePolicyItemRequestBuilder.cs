@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the updatePolicies property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class UpdatePolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatePolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the audience property of the microsoft.graph.windowsUpdates.updatePolicy entity.
@@ -79,13 +80,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property updatePolicies for admin
+        /// Delete an updatePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property updatePolicies for admin";
+            command.Description = "Delete an updatePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-delete?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -114,13 +116,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return command;
         }
         /// <summary>
-        /// A collection of policies for approving the deployment of different content to an audience over time.
+        /// Read the properties and relationships of an updatePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of policies for approving the deployment of different content to an audience over time.";
+            command.Description = "Read the properties and relationships of an updatePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-get?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -166,13 +169,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property updatePolicies in admin
+        /// Update the properties of an updatePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property updatePolicies in admin";
+            command.Description = "Update the properties of an updatePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-update?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -231,7 +235,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property updatePolicies for admin
+        /// Delete an updatePolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of policies for approving the deployment of different content to an audience over time.
+        /// Read the properties and relationships of an updatePolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -269,7 +273,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property updatePolicies in admin
+        /// Update the properties of an updatePolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -290,7 +294,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of policies for approving the deployment of different content to an audience over time.
+        /// Read the properties and relationships of an updatePolicy object.
         /// </summary>
         public class UpdatePolicyItemRequestBuilderGetQueryParameters 
         {

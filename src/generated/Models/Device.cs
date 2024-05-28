@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Device : DirectoryObject, IParsable 
+    public class Device : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.</summary>
+        /// <summary>true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers with at least the Cloud Device Administrator role can set this property.</summary>
         public bool? AccountEnabled { get; set; }
         /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -320,50 +321,50 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
-                {"alternativeSecurityIds", n => { AlternativeSecurityIds = n.GetCollectionOfObjectValues<AlternativeSecurityId>(AlternativeSecurityId.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"approximateLastSignInDateTime", n => { ApproximateLastSignInDateTime = n.GetDateTimeOffsetValue(); } },
-                {"commands", n => { Commands = n.GetCollectionOfObjectValues<CommandEscaped>(CommandEscaped.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"complianceExpirationDateTime", n => { ComplianceExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceCategory", n => { DeviceCategory = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceMetadata", n => { DeviceMetadata = n.GetStringValue(); } },
-                {"deviceOwnership", n => { DeviceOwnership = n.GetStringValue(); } },
-                {"deviceVersion", n => { DeviceVersion = n.GetIntValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"domainName", n => { DomainName = n.GetStringValue(); } },
-                {"enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
-                {"enrollmentType", n => { EnrollmentType = n.GetStringValue(); } },
-                {"extensionAttributes", n => { ExtensionAttributes = n.GetObjectValue<OnPremisesExtensionAttributes>(OnPremisesExtensionAttributes.CreateFromDiscriminatorValue); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hostnames", n => { Hostnames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
-                {"isManaged", n => { IsManaged = n.GetBoolValue(); } },
-                {"isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
-                {"isRooted", n => { IsRooted = n.GetBoolValue(); } },
-                {"kind", n => { Kind = n.GetStringValue(); } },
-                {"managementType", n => { ManagementType = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
-                {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
-                {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
-                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
-                {"operatingSystemVersion", n => { OperatingSystemVersion = n.GetStringValue(); } },
-                {"physicalIds", n => { PhysicalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"platform", n => { Platform = n.GetStringValue(); } },
-                {"profileType", n => { ProfileType = n.GetStringValue(); } },
-                {"registeredOwners", n => { RegisteredOwners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registeredUsers", n => { RegisteredUsers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trustType", n => { TrustType = n.GetStringValue(); } },
-                {"usageRights", n => { UsageRights = n.GetCollectionOfObjectValues<UsageRight>(UsageRight.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
+                { "alternativeSecurityIds", n => { AlternativeSecurityIds = n.GetCollectionOfObjectValues<AlternativeSecurityId>(AlternativeSecurityId.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "approximateLastSignInDateTime", n => { ApproximateLastSignInDateTime = n.GetDateTimeOffsetValue(); } },
+                { "commands", n => { Commands = n.GetCollectionOfObjectValues<CommandEscaped>(CommandEscaped.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "complianceExpirationDateTime", n => { ComplianceExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deviceCategory", n => { DeviceCategory = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceMetadata", n => { DeviceMetadata = n.GetStringValue(); } },
+                { "deviceOwnership", n => { DeviceOwnership = n.GetStringValue(); } },
+                { "deviceVersion", n => { DeviceVersion = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "domainName", n => { DomainName = n.GetStringValue(); } },
+                { "enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
+                { "enrollmentType", n => { EnrollmentType = n.GetStringValue(); } },
+                { "extensionAttributes", n => { ExtensionAttributes = n.GetObjectValue<OnPremisesExtensionAttributes>(OnPremisesExtensionAttributes.CreateFromDiscriminatorValue); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hostnames", n => { Hostnames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
+                { "isManaged", n => { IsManaged = n.GetBoolValue(); } },
+                { "isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
+                { "isRooted", n => { IsRooted = n.GetBoolValue(); } },
+                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "managementType", n => { ManagementType = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
+                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
+                { "onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                { "operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                { "operatingSystemVersion", n => { OperatingSystemVersion = n.GetStringValue(); } },
+                { "physicalIds", n => { PhysicalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "platform", n => { Platform = n.GetStringValue(); } },
+                { "profileType", n => { ProfileType = n.GetStringValue(); } },
+                { "registeredOwners", n => { RegisteredOwners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registeredUsers", n => { RegisteredUsers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trustType", n => { TrustType = n.GetStringValue(); } },
+                { "usageRights", n => { UsageRights = n.GetCollectionOfObjectValues<UsageRight>(UsageRight.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

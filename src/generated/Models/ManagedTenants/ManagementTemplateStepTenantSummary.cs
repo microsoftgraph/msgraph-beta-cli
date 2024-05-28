@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementTemplateStepTenantSummary : ApiSdk.Models.Entity, IParsable 
+    public class ManagementTemplateStepTenantSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The assignedTenantsCount property</summary>
@@ -105,21 +106,21 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignedTenantsCount", n => { AssignedTenantsCount = n.GetIntValue(); } },
-                {"compliantTenantsCount", n => { CompliantTenantsCount = n.GetIntValue(); } },
-                {"createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dismissedTenantsCount", n => { DismissedTenantsCount = n.GetIntValue(); } },
-                {"ineligibleTenantsCount", n => { IneligibleTenantsCount = n.GetIntValue(); } },
-                {"lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
-                {"lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managementTemplateCollectionDisplayName", n => { ManagementTemplateCollectionDisplayName = n.GetStringValue(); } },
-                {"managementTemplateCollectionId", n => { ManagementTemplateCollectionId = n.GetStringValue(); } },
-                {"managementTemplateDisplayName", n => { ManagementTemplateDisplayName = n.GetStringValue(); } },
-                {"managementTemplateId", n => { ManagementTemplateId = n.GetStringValue(); } },
-                {"managementTemplateStepDisplayName", n => { ManagementTemplateStepDisplayName = n.GetStringValue(); } },
-                {"managementTemplateStepId", n => { ManagementTemplateStepId = n.GetStringValue(); } },
-                {"notCompliantTenantsCount", n => { NotCompliantTenantsCount = n.GetIntValue(); } },
+                { "assignedTenantsCount", n => { AssignedTenantsCount = n.GetIntValue(); } },
+                { "compliantTenantsCount", n => { CompliantTenantsCount = n.GetIntValue(); } },
+                { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dismissedTenantsCount", n => { DismissedTenantsCount = n.GetIntValue(); } },
+                { "ineligibleTenantsCount", n => { IneligibleTenantsCount = n.GetIntValue(); } },
+                { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
+                { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managementTemplateCollectionDisplayName", n => { ManagementTemplateCollectionDisplayName = n.GetStringValue(); } },
+                { "managementTemplateCollectionId", n => { ManagementTemplateCollectionId = n.GetStringValue(); } },
+                { "managementTemplateDisplayName", n => { ManagementTemplateDisplayName = n.GetStringValue(); } },
+                { "managementTemplateId", n => { ManagementTemplateId = n.GetStringValue(); } },
+                { "managementTemplateStepDisplayName", n => { ManagementTemplateStepDisplayName = n.GetStringValue(); } },
+                { "managementTemplateStepId", n => { ManagementTemplateStepId = n.GetStringValue(); } },
+                { "notCompliantTenantsCount", n => { NotCompliantTenantsCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

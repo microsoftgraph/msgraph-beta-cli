@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedSignupStatus.CanSignUp {
+namespace ApiSdk.PrivilegedSignupStatus.CanSignUp
+{
     /// <summary>
     /// Provides operations to call the canSignUp method.
     /// </summary>
-    public class CanSignUpRequestBuilder : BaseCliRequestBuilder 
+    public class CanSignUpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function canSignUp

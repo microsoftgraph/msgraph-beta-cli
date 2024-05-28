@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceRoleAssignmentRequests.Item {
+namespace ApiSdk.GovernanceRoleAssignmentRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of governanceRoleAssignmentRequest entities.
     /// </summary>
-    public class GovernanceRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

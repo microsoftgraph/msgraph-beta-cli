@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.Item.ClockOut {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.Item.ClockOut
+{
     #pragma warning disable CS1591
-    public class ClockOutPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ClockOutPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.I
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
-                {"notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
+                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

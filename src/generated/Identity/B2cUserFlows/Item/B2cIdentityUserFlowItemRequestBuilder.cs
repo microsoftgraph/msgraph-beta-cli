@@ -18,20 +18,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item {
+namespace ApiSdk.Identity.B2cUserFlows.Item
+{
     /// <summary>
     /// Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class B2cIdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class B2cIdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property b2cUserFlows for identity
+        /// Delete a b2cIdentityUserFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property b2cUserFlows for identity";
+            command.Description = "Delete a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -60,13 +62,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Represents entry point for B2C identity userflows.
+        /// Retrieve the properties and relationships of a b2cUserFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents entry point for B2C identity userflows.";
+            command.Description = "Retrieve the properties and relationships of a b2cUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -166,13 +169,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property b2cUserFlows in identity
+        /// Update the properties of a b2cIdentityUserFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property b2cUserFlows in identity";
+            command.Description = "Update the properties of a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-update?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -286,7 +290,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property b2cUserFlows for identity
+        /// Delete a b2cIdentityUserFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -305,7 +309,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for B2C identity userflows.
+        /// Retrieve the properties and relationships of a b2cUserFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -324,7 +328,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property b2cUserFlows in identity
+        /// Update the properties of a b2cIdentityUserFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -345,7 +349,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for B2C identity userflows.
+        /// Retrieve the properties and relationships of a b2cUserFlow object.
         /// </summary>
         public class B2cIdentityUserFlowItemRequestBuilderGetQueryParameters 
         {

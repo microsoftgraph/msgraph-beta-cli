@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Owners.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Owners.Item
+{
     /// <summary>
     /// Provides operations to manage the owners property of the microsoft.graph.team entity.
     /// </summary>
-    public class UserItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The list of this team&apos;s owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user-delegated permissions, no owner can be specified (the current user is the owner). The owner must be specified as an object ID (GUID), not a UPN.

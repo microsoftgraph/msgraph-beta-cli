@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Reports.Partners.Billing.Reconciliation.Billed.MicrosoftGraphPartnersBillingExport {
+namespace ApiSdk.Reports.Partners.Billing.Reconciliation.Billed.MicrosoftGraphPartnersBillingExport
+{
     #pragma warning disable CS1591
-    public class ExportPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExportPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.Reports.Partners.Billing.Reconciliation.Billed.MicrosoftGraphPa
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"attributeSet", n => { AttributeSet = n.GetEnumValue<AttributeSet>(); } },
-                {"invoiceId", n => { InvoiceId = n.GetStringValue(); } },
+                { "attributeSet", n => { AttributeSet = n.GetEnumValue<AttributeSet>(); } },
+                { "invoiceId", n => { InvoiceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

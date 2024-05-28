@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyOperations.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyOperations.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
     /// </summary>
-    public class GroupPolicyOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groupPolicyOperations for deviceManagement

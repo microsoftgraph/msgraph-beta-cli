@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Shares.Item.Permission.Grant {
+namespace ApiSdk.Shares.Item.Permission.Grant
+{
     #pragma warning disable CS1591
-    public class GrantPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GrantPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Shares.Item.Permission.Grant {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Permission>(ApiSdk.Models.Permission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Permission>(ApiSdk.Models.Permission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

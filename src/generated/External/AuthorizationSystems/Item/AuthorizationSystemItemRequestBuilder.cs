@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.AuthorizationSystems.Item {
+namespace ApiSdk.External.AuthorizationSystems.Item
+{
     /// <summary>
     /// Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.
     /// </summary>
-    public class AuthorizationSystemItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorizationSystemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dataCollectionInfo property of the microsoft.graph.authorizationSystem entity.

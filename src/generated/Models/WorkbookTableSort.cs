@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookTableSort : Entity, IParsable 
+    public class WorkbookTableSort : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fields property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fields", n => { Fields = n.GetCollectionOfObjectValues<WorkbookSortField>(WorkbookSortField.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"matchCase", n => { MatchCase = n.GetBoolValue(); } },
-                {"method", n => { Method = n.GetStringValue(); } },
+                { "fields", n => { Fields = n.GetCollectionOfObjectValues<WorkbookSortField>(WorkbookSortField.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "matchCase", n => { MatchCase = n.GetBoolValue(); } },
+                { "method", n => { Method = n.GetStringValue(); } },
             };
         }
         /// <summary>

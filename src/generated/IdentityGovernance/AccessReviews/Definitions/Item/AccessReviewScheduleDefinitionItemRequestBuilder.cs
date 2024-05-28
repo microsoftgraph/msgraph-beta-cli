@@ -16,20 +16,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item
+{
     /// <summary>
     /// Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
     /// </summary>
-    public class AccessReviewScheduleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewScheduleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property definitions for identityGovernance
+        /// Delete an accessReviewScheduleDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property definitions for identityGovernance";
+            command.Description = "Delete an accessReviewScheduleDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-beta";
             var accessReviewScheduleDefinitionIdOption = new Option<string>("--access-review-schedule-definition-id", description: "The unique identifier of accessReviewScheduleDefinition") {
             };
             accessReviewScheduleDefinitionIdOption.IsRequired = true;
@@ -58,13 +60,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
             return command;
         }
         /// <summary>
-        /// Represents the template and scheduling for an access review.
+        /// Retrieve an accessReviewScheduleDefinition object by ID. This returns all properties of the scheduled access review series except for the associated accessReviewInstances. Each accessReviewScheduleDefinition has at least one instance. An instance represents a review for a specific resource (such as a particular group&apos;s members), during one occurrence (for example, March 2021) of a recurring review. To retrieve the instances of the access review series, use the list accessReviewInstance API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the template and scheduling for an access review.";
+            command.Description = "Retrieve an accessReviewScheduleDefinition object by ID. This returns all properties of the scheduled access review series except for the associated accessReviewInstances. Each accessReviewScheduleDefinition has at least one instance. An instance represents a review for a specific resource (such as a particular group's members), during one occurrence (for example, March 2021) of a recurring review. To retrieve the instances of the access review series, use the list accessReviewInstance API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-beta";
             var accessReviewScheduleDefinitionIdOption = new Option<string>("--access-review-schedule-definition-id", description: "The unique identifier of accessReviewScheduleDefinition") {
             };
             accessReviewScheduleDefinitionIdOption.IsRequired = true;
@@ -138,13 +141,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property definitions in identityGovernance
+        /// Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the navigation property definitions in identityGovernance";
+            command.Description = "Update an existing accessReviewScheduleDefinition object to change one or more of its properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-beta";
             var accessReviewScheduleDefinitionIdOption = new Option<string>("--access-review-schedule-definition-id", description: "The unique identifier of accessReviewScheduleDefinition") {
             };
             accessReviewScheduleDefinitionIdOption.IsRequired = true;
@@ -220,7 +224,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property definitions for identityGovernance
+        /// Delete an accessReviewScheduleDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +243,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the template and scheduling for an access review.
+        /// Retrieve an accessReviewScheduleDefinition object by ID. This returns all properties of the scheduled access review series except for the associated accessReviewInstances. Each accessReviewScheduleDefinition has at least one instance. An instance represents a review for a specific resource (such as a particular group&apos;s members), during one occurrence (for example, March 2021) of a recurring review. To retrieve the instances of the access review series, use the list accessReviewInstance API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property definitions in identityGovernance
+        /// Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -279,7 +283,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the template and scheduling for an access review.
+        /// Retrieve an accessReviewScheduleDefinition object by ID. This returns all properties of the scheduled access review series except for the associated accessReviewInstances. Each accessReviewScheduleDefinition has at least one instance. An instance represents a review for a specific resource (such as a particular group&apos;s members), during one occurrence (for example, March 2021) of a recurring review. To retrieve the instances of the access review series, use the list accessReviewInstance API.
         /// </summary>
         public class AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters 
         {

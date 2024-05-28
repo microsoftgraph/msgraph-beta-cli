@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TrustFrameworkKey : IAdditionalDataHolder, IParsable 
+    public class TrustFrameworkKey : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>RSA Key - private exponent. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - private exponent. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? D { get; set; }
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public string D { get; set; }
 #endif
-        /// <summary>RSA Key - first exponent. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - first exponent. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Dp { get; set; }
@@ -27,7 +28,7 @@ namespace ApiSdk.Models {
 #else
         public string Dp { get; set; }
 #endif
-        /// <summary>RSA Key - second exponent. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - second exponent. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Dq { get; set; }
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
 #else
         public string Dq { get; set; }
 #endif
-        /// <summary>RSA Key - public exponent</summary>
+        /// <summary>RSA Key - public exponent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? E { get; set; }
@@ -43,9 +44,9 @@ namespace ApiSdk.Models {
 #else
         public string E { get; set; }
 #endif
-        /// <summary>This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)</summary>
+        /// <summary>This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.</summary>
         public long? Exp { get; set; }
-        /// <summary>Symmetric Key for oct key type. Field can&apos;t be read back.</summary>
+        /// <summary>Symmetric Key for oct key type. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? K { get; set; }
@@ -61,7 +62,7 @@ namespace ApiSdk.Models {
 #else
         public string Kid { get; set; }
 #endif
-        /// <summary>The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.</summary>
+        /// <summary>The kty (key type) parameter identifies the cryptographic algorithm family used with the key. The valid values are rsa, oct.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Kty { get; set; }
@@ -69,7 +70,7 @@ namespace ApiSdk.Models {
 #else
         public string Kty { get; set; }
 #endif
-        /// <summary>RSA Key - modulus</summary>
+        /// <summary>RSA Key - modulus.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? N { get; set; }
@@ -77,7 +78,7 @@ namespace ApiSdk.Models {
 #else
         public string N { get; set; }
 #endif
-        /// <summary>This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)</summary>
+        /// <summary>This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.</summary>
         public long? Nbf { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +88,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>RSA Key - first prime. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - first prime. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? P { get; set; }
@@ -95,7 +96,7 @@ namespace ApiSdk.Models {
 #else
         public string P { get; set; }
 #endif
-        /// <summary>RSA Key - second prime. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - second prime. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Q { get; set; }
@@ -103,7 +104,7 @@ namespace ApiSdk.Models {
 #else
         public string Q { get; set; }
 #endif
-        /// <summary>RSA Key - Coefficient. Field can&apos;t be read back.</summary>
+        /// <summary>RSA Key - Coefficient. The field isn&apos;t readable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Qi { get; set; }
@@ -111,7 +112,9 @@ namespace ApiSdk.Models {
 #else
         public string Qi { get; set; }
 #endif
-        /// <summary>The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)</summary>
+        /// <summary>Status of the key. The possible values are: enabled, disabled, unknownFutureValue.</summary>
+        public TrustFrameworkKeyStatus? Status { get; set; }
+        /// <summary>The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Use { get; set; }
@@ -119,7 +122,7 @@ namespace ApiSdk.Models {
 #else
         public string Use { get; set; }
 #endif
-        /// <summary>The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.</summary>
+        /// <summary>The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates. For more information, see RFC 5280.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? X5c { get; set; }
@@ -127,7 +130,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> X5c { get; set; }
 #endif
-        /// <summary>The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate RFC 5280.</summary>
+        /// <summary>The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate. For more information, see RFC 5280.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? X5t { get; set; }
@@ -160,23 +163,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"d", n => { D = n.GetStringValue(); } },
-                {"dp", n => { Dp = n.GetStringValue(); } },
-                {"dq", n => { Dq = n.GetStringValue(); } },
-                {"e", n => { E = n.GetStringValue(); } },
-                {"exp", n => { Exp = n.GetLongValue(); } },
-                {"k", n => { K = n.GetStringValue(); } },
-                {"kid", n => { Kid = n.GetStringValue(); } },
-                {"kty", n => { Kty = n.GetStringValue(); } },
-                {"n", n => { N = n.GetStringValue(); } },
-                {"nbf", n => { Nbf = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"p", n => { P = n.GetStringValue(); } },
-                {"q", n => { Q = n.GetStringValue(); } },
-                {"qi", n => { Qi = n.GetStringValue(); } },
-                {"use", n => { Use = n.GetStringValue(); } },
-                {"x5c", n => { X5c = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"x5t", n => { X5t = n.GetStringValue(); } },
+                { "d", n => { D = n.GetStringValue(); } },
+                { "dp", n => { Dp = n.GetStringValue(); } },
+                { "dq", n => { Dq = n.GetStringValue(); } },
+                { "e", n => { E = n.GetStringValue(); } },
+                { "exp", n => { Exp = n.GetLongValue(); } },
+                { "k", n => { K = n.GetStringValue(); } },
+                { "kid", n => { Kid = n.GetStringValue(); } },
+                { "kty", n => { Kty = n.GetStringValue(); } },
+                { "n", n => { N = n.GetStringValue(); } },
+                { "nbf", n => { Nbf = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "p", n => { P = n.GetStringValue(); } },
+                { "q", n => { Q = n.GetStringValue(); } },
+                { "qi", n => { Qi = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<TrustFrameworkKeyStatus>(); } },
+                { "use", n => { Use = n.GetStringValue(); } },
+                { "x5c", n => { X5c = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "x5t", n => { X5t = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -200,6 +204,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("p", P);
             writer.WriteStringValue("q", Q);
             writer.WriteStringValue("qi", Qi);
+            writer.WriteEnumValue<TrustFrameworkKeyStatus>("status", Status);
             writer.WriteStringValue("use", Use);
             writer.WriteCollectionOfPrimitiveValues<string>("x5c", X5c);
             writer.WriteStringValue("x5t", X5t);

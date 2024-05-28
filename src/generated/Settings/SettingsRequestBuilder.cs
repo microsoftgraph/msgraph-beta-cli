@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Settings {
+namespace ApiSdk.Settings
+{
     /// <summary>
     /// Provides operations to manage the collection of directorySetting entities.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of directorySetting entities.
@@ -119,6 +120,10 @@ namespace ApiSdk.Settings {
             };
             searchOption.IsRequired = false;
             command.AddOption(searchOption);
+            var filterOption = new Option<string>("--filter", description: "Filter items by property values") {
+            };
+            filterOption.IsRequired = false;
+            command.AddOption(filterOption);
             var countOption = new Option<bool?>("--count", description: "Include count of items") {
             };
             countOption.IsRequired = false;
@@ -148,6 +153,7 @@ namespace ApiSdk.Settings {
                 var top = invocationContext.ParseResult.GetValueForOption(topOption);
                 var skip = invocationContext.ParseResult.GetValueForOption(skipOption);
                 var search = invocationContext.ParseResult.GetValueForOption(searchOption);
+                var filter = invocationContext.ParseResult.GetValueForOption(filterOption);
                 var count = invocationContext.ParseResult.GetValueForOption(countOption);
                 var orderby = invocationContext.ParseResult.GetValueForOption(orderbyOption);
                 var select = invocationContext.ParseResult.GetValueForOption(selectOption);
@@ -164,6 +170,7 @@ namespace ApiSdk.Settings {
                     q.QueryParameters.Top = top;
                     q.QueryParameters.Skip = skip;
                     if (!string.IsNullOrEmpty(search)) q.QueryParameters.Search = search;
+                    if (!string.IsNullOrEmpty(filter)) q.QueryParameters.Filter = filter;
                     q.QueryParameters.Count = count;
                     q.QueryParameters.Orderby = orderby;
                     q.QueryParameters.Select = select;
@@ -176,7 +183,9 @@ namespace ApiSdk.Settings {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -191,14 +200,14 @@ namespace ApiSdk.Settings {
         /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/settings{?%24count,%24expand,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
+        public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/settings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/settings{?%24count,%24expand,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
+        public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/settings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
@@ -258,6 +267,16 @@ namespace ApiSdk.Settings {
 #else
             [QueryParameter("%24expand")]
             public string[] Expand { get; set; }
+#endif
+            /// <summary>Filter items by property values</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24filter")]
+            public string? Filter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24filter")]
+            public string Filter { get; set; }
 #endif
             /// <summary>Order items by property values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

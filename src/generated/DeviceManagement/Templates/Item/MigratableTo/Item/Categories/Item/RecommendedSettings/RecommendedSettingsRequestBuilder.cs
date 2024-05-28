@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item.RecommendedSettings {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item.RecommendedSettings
+{
     /// <summary>
     /// Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
     /// </summary>
-    public class RecommendedSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class RecommendedSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
@@ -216,7 +217,9 @@ namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.It
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

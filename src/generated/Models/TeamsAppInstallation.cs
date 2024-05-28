@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamsAppInstallation : Entity, IParsable 
+    public class TeamsAppInstallation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The set of resource-specific permissions consented to while installing or upgrading the teamsApp.</summary>
@@ -16,6 +17,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public TeamsAppPermissionSet ConsentedPermissionSet { get; set; }
+#endif
+        /// <summary>The scopeInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TeamsAppInstallationScopeInfo? ScopeInfo { get; set; }
+#nullable restore
+#else
+        public TeamsAppInstallationScopeInfo ScopeInfo { get; set; }
 #endif
         /// <summary>The app that is installed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,9 +65,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"consentedPermissionSet", n => { ConsentedPermissionSet = n.GetObjectValue<TeamsAppPermissionSet>(TeamsAppPermissionSet.CreateFromDiscriminatorValue); } },
-                {"teamsApp", n => { TeamsApp = n.GetObjectValue<ApiSdk.Models.TeamsApp>(ApiSdk.Models.TeamsApp.CreateFromDiscriminatorValue); } },
-                {"teamsAppDefinition", n => { TeamsAppDefinition = n.GetObjectValue<ApiSdk.Models.TeamsAppDefinition>(ApiSdk.Models.TeamsAppDefinition.CreateFromDiscriminatorValue); } },
+                { "consentedPermissionSet", n => { ConsentedPermissionSet = n.GetObjectValue<TeamsAppPermissionSet>(TeamsAppPermissionSet.CreateFromDiscriminatorValue); } },
+                { "scopeInfo", n => { ScopeInfo = n.GetObjectValue<TeamsAppInstallationScopeInfo>(TeamsAppInstallationScopeInfo.CreateFromDiscriminatorValue); } },
+                { "teamsApp", n => { TeamsApp = n.GetObjectValue<ApiSdk.Models.TeamsApp>(ApiSdk.Models.TeamsApp.CreateFromDiscriminatorValue); } },
+                { "teamsAppDefinition", n => { TeamsAppDefinition = n.GetObjectValue<ApiSdk.Models.TeamsAppDefinition>(ApiSdk.Models.TeamsAppDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -70,6 +80,7 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", ConsentedPermissionSet);
+            writer.WriteObjectValue<TeamsAppInstallationScopeInfo>("scopeInfo", ScopeInfo);
             writer.WriteObjectValue<ApiSdk.Models.TeamsApp>("teamsApp", TeamsApp);
             writer.WriteObjectValue<ApiSdk.Models.TeamsAppDefinition>("teamsAppDefinition", TeamsAppDefinition);
         }

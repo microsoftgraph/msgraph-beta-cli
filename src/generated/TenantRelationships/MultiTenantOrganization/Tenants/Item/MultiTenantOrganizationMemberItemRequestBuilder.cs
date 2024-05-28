@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item {
+namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item
+{
     /// <summary>
     /// Provides operations to manage the tenants property of the microsoft.graph.multiTenantOrganization entity.
     /// </summary>
-    public class MultiTenantOrganizationMemberItemRequestBuilder : BaseCliRequestBuilder 
+    public class MultiTenantOrganizationMemberItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property tenants for tenantRelationships
+        /// Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-delete-tenants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property tenants for tenantRelationships";
+            command.Description = "Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-delete-tenants?view=graph-rest-beta";
             var multiTenantOrganizationMemberIdOption = new Option<string>("--multi-tenant-organization-member-id", description: "The unique identifier of multiTenantOrganizationMember") {
             };
             multiTenantOrganizationMemberIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item {
             return command;
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// Get a tenant and its properties in the multi-tenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganizationmember-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines tenants added to a multitenant organization.";
+            command.Description = "Get a tenant and its properties in the multi-tenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganizationmember-get?view=graph-rest-beta";
             var multiTenantOrganizationMemberIdOption = new Option<string>("--multi-tenant-organization-member-id", description: "The unique identifier of multiTenantOrganizationMember") {
             };
             multiTenantOrganizationMemberIdOption.IsRequired = true;
@@ -173,7 +176,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property tenants for tenantRelationships
+        /// Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +195,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// Get a tenant and its properties in the multi-tenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization.Tenants.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Defines tenants added to a multitenant organization.
+        /// Get a tenant and its properties in the multi-tenant organization.
         /// </summary>
         public class MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters 
         {

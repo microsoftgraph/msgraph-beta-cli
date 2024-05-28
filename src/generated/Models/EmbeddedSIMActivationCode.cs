@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The embedded SIM activation code as provided by the mobile operator.
     /// </summary>
-    public class EmbeddedSIMActivationCode : IAdditionalDataHolder, IParsable 
+    public class EmbeddedSIMActivationCode : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,10 +70,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"integratedCircuitCardIdentifier", n => { IntegratedCircuitCardIdentifier = n.GetStringValue(); } },
-                {"matchingIdentifier", n => { MatchingIdentifier = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"smdpPlusServerAddress", n => { SmdpPlusServerAddress = n.GetStringValue(); } },
+                { "integratedCircuitCardIdentifier", n => { IntegratedCircuitCardIdentifier = n.GetStringValue(); } },
+                { "matchingIdentifier", n => { MatchingIdentifier = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "smdpPlusServerAddress", n => { SmdpPlusServerAddress = n.GetStringValue(); } },
             };
         }
         /// <summary>

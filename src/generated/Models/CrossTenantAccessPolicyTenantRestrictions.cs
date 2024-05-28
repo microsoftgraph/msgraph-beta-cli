@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CrossTenantAccessPolicyTenantRestrictions : CrossTenantAccessPolicyB2BSetting, IParsable 
+    public class CrossTenantAccessPolicyTenantRestrictions : CrossTenantAccessPolicyB2BSetting, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. Not implemented.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"devices", n => { Devices = n.GetObjectValue<DevicesFilter>(DevicesFilter.CreateFromDiscriminatorValue); } },
+                { "devices", n => { Devices = n.GetObjectValue<DevicesFilter>(DevicesFilter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

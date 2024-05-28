@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class Acl : IAdditionalDataHolder, IParsable 
+    public class Acl : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessType property</summary>
@@ -58,11 +59,11 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
-                {"identitySource", n => { IdentitySource = n.GetEnumValue<IdentitySourceType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<AclType>(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
+                { "identitySource", n => { IdentitySource = n.GetEnumValue<IdentitySourceType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<AclType>(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

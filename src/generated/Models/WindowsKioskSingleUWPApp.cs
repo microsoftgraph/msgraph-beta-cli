@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The class used to identify the UWP app info for the kiosk configuration
     /// </summary>
-    public class WindowsKioskSingleUWPApp : WindowsKioskAppConfiguration, IParsable 
+    public class WindowsKioskSingleUWPApp : WindowsKioskAppConfiguration, IParsable
     {
         /// <summary>The uwpApp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"uwpApp", n => { UwpApp = n.GetObjectValue<WindowsKioskUWPApp>(WindowsKioskUWPApp.CreateFromDiscriminatorValue); } },
+                { "uwpApp", n => { UwpApp = n.GetObjectValue<WindowsKioskUWPApp>(WindowsKioskUWPApp.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

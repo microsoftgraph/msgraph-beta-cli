@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property windowsHelloForBusinessMethods for users
+        /// Deletes a windowsHelloForBusinessAuthenticationMethod object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property windowsHelloForBusinessMethods for users";
+            command.Description = "Deletes a windowsHelloForBusinessAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -80,13 +82,14 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item {
             return command;
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the Windows Hello for Business authentication method registered to a user for authentication.";
+            command.Description = "Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -152,7 +155,7 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property windowsHelloForBusinessMethods for users
+        /// Deletes a windowsHelloForBusinessAuthenticationMethod object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +174,7 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -190,7 +193,7 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
         /// </summary>
         public class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters 
         {

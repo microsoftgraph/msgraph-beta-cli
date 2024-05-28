@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleDefinitions.Item {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the roleDefinitions property of the microsoft.graph.governanceResource entity.
     /// </summary>
-    public class GovernanceRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleDefinitions for privilegedAccess

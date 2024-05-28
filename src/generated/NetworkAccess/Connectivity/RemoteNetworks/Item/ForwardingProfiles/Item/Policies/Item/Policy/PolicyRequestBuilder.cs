@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfiles.Item.Policies.Item.Policy {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfiles.Item.Policies.Item.Policy
+{
     /// <summary>
     /// Provides operations to manage the policy property of the microsoft.graph.networkaccess.policyLink entity.
     /// </summary>
-    public class PolicyRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Policy.

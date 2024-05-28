@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class ExternalActivity : ApiSdk.Models.Entity, IParsable 
+    public class ExternalActivity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents an identity used to identify who is responsible for the activity.</summary>
@@ -44,9 +45,9 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"performedBy", n => { PerformedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"type", n => { Type = n.GetEnumValue<ExternalActivityType>(); } },
+                { "performedBy", n => { PerformedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetEnumValue<ExternalActivityType>(); } },
             };
         }
         /// <summary>

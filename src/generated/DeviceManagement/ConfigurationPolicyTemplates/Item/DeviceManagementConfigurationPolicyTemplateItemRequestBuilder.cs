@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigurationPolicyTemplates.Item {
+namespace ApiSdk.DeviceManagement.ConfigurationPolicyTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the configurationPolicyTemplates property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property configurationPolicyTemplates for deviceManagement

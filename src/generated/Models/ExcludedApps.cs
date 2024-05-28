@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for Excluded Office365 Apps.
     /// </summary>
-    public class ExcludedApps : IAdditionalDataHolder, IParsable 
+    public class ExcludedApps : IAdditionalDataHolder, IParsable
     {
         /// <summary>The value for if MS Office Access should be excluded or not.</summary>
         public bool? Access { get; set; }
@@ -75,22 +76,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"access", n => { Access = n.GetBoolValue(); } },
-                {"bing", n => { Bing = n.GetBoolValue(); } },
-                {"excel", n => { Excel = n.GetBoolValue(); } },
-                {"groove", n => { Groove = n.GetBoolValue(); } },
-                {"infoPath", n => { InfoPath = n.GetBoolValue(); } },
-                {"lync", n => { Lync = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"oneDrive", n => { OneDrive = n.GetBoolValue(); } },
-                {"oneNote", n => { OneNote = n.GetBoolValue(); } },
-                {"outlook", n => { Outlook = n.GetBoolValue(); } },
-                {"powerPoint", n => { PowerPoint = n.GetBoolValue(); } },
-                {"publisher", n => { Publisher = n.GetBoolValue(); } },
-                {"sharePointDesigner", n => { SharePointDesigner = n.GetBoolValue(); } },
-                {"teams", n => { Teams = n.GetBoolValue(); } },
-                {"visio", n => { Visio = n.GetBoolValue(); } },
-                {"word", n => { Word = n.GetBoolValue(); } },
+                { "access", n => { Access = n.GetBoolValue(); } },
+                { "bing", n => { Bing = n.GetBoolValue(); } },
+                { "excel", n => { Excel = n.GetBoolValue(); } },
+                { "groove", n => { Groove = n.GetBoolValue(); } },
+                { "infoPath", n => { InfoPath = n.GetBoolValue(); } },
+                { "lync", n => { Lync = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "oneDrive", n => { OneDrive = n.GetBoolValue(); } },
+                { "oneNote", n => { OneNote = n.GetBoolValue(); } },
+                { "outlook", n => { Outlook = n.GetBoolValue(); } },
+                { "powerPoint", n => { PowerPoint = n.GetBoolValue(); } },
+                { "publisher", n => { Publisher = n.GetBoolValue(); } },
+                { "sharePointDesigner", n => { SharePointDesigner = n.GetBoolValue(); } },
+                { "teams", n => { Teams = n.GetBoolValue(); } },
+                { "visio", n => { Visio = n.GetBoolValue(); } },
+                { "word", n => { Word = n.GetBoolValue(); } },
             };
         }
         /// <summary>

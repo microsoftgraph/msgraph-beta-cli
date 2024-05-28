@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PhoneAuthenticationMethod : AuthenticationMethod, IParsable 
+    public class PhoneAuthenticationMethod : AuthenticationMethod, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The phone number to text or call for authentication. Phone numbers use the format &apos;+&lt;country code&gt; &lt;number&gt;x&lt;extension&gt;&apos;, with extension optional. For example, +1 5555551234 or +1 5555551234x123 are valid. Numbers are rejected when creating/updating if they don&apos;t match the required format.</summary>
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"phoneType", n => { PhoneType = n.GetEnumValue<AuthenticationPhoneType>(); } },
-                {"smsSignInState", n => { SmsSignInState = n.GetEnumValue<AuthenticationMethodSignInState>(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "phoneType", n => { PhoneType = n.GetEnumValue<AuthenticationPhoneType>(); } },
+                { "smsSignInState", n => { SmsSignInState = n.GetEnumValue<AuthenticationMethodSignInState>(); } },
             };
         }
         /// <summary>

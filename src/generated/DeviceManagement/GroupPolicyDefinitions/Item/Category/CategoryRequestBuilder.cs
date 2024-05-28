@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.Category {
+namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.Category
+{
     /// <summary>
     /// Provides operations to manage the category property of the microsoft.graph.groupPolicyDefinition entity.
     /// </summary>
-    public class CategoryRequestBuilder : BaseCliRequestBuilder 
+    public class CategoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The group policy category associated with the definition.

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords.Item {
+namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords.Item
+{
     /// <summary>
     /// Provides operations to manage the whoisRecords property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class WhoisRecordItemRequestBuilder : BaseCliRequestBuilder 
+    public class WhoisRecordItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property whoisRecords for security
@@ -58,13 +59,14 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords.Item {
             return command;
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A list of whoisRecord objects.";
+            command.Description = "Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-beta";
             var whoisRecordIdOption = new Option<string>("--whois-record-id", description: "The unique identifier of whoisRecord") {
             };
             whoisRecordIdOption.IsRequired = true;
@@ -237,7 +239,7 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,7 +279,7 @@ namespace ApiSdk.Security.ThreatIntelligence.WhoisRecords.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of whoisRecord objects.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
         /// </summary>
         public class WhoisRecordItemRequestBuilderGetQueryParameters 
         {

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod {
+namespace ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.
     /// </summary>
-    public class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getMailboxUsageQuotaStatusMailboxCounts

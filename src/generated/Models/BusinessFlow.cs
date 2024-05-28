@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BusinessFlow : Entity, IParsable 
+    public class BusinessFlow : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The customData property</summary>
@@ -99,15 +100,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customData", n => { CustomData = n.GetStringValue(); } },
-                {"deDuplicationId", n => { DeDuplicationId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"policy", n => { Policy = n.GetObjectValue<GovernancePolicy>(GovernancePolicy.CreateFromDiscriminatorValue); } },
-                {"policyTemplateId", n => { PolicyTemplateId = n.GetStringValue(); } },
-                {"recordVersion", n => { RecordVersion = n.GetStringValue(); } },
-                {"schemaId", n => { SchemaId = n.GetStringValue(); } },
-                {"settings", n => { Settings = n.GetObjectValue<BusinessFlowSettings>(BusinessFlowSettings.CreateFromDiscriminatorValue); } },
+                { "customData", n => { CustomData = n.GetStringValue(); } },
+                { "deDuplicationId", n => { DeDuplicationId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "policy", n => { Policy = n.GetObjectValue<GovernancePolicy>(GovernancePolicy.CreateFromDiscriminatorValue); } },
+                { "policyTemplateId", n => { PolicyTemplateId = n.GetStringValue(); } },
+                { "recordVersion", n => { RecordVersion = n.GetStringValue(); } },
+                { "schemaId", n => { SchemaId = n.GetStringValue(); } },
+                { "settings", n => { Settings = n.GetObjectValue<BusinessFlowSettings>(BusinessFlowSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

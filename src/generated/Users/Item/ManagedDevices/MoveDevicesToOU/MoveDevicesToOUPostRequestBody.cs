@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.MoveDevicesToOU {
+namespace ApiSdk.Users.Item.ManagedDevices.MoveDevicesToOU
+{
     #pragma warning disable CS1591
-    public class MoveDevicesToOUPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MoveDevicesToOUPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.Users.Item.ManagedDevices.MoveDevicesToOU {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceIds", n => { DeviceIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.ToList(); } },
-                {"organizationalUnitPath", n => { OrganizationalUnitPath = n.GetStringValue(); } },
+                { "deviceIds", n => { DeviceIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.ToList(); } },
+                { "organizationalUnitPath", n => { OrganizationalUnitPath = n.GetStringValue(); } },
             };
         }
         /// <summary>

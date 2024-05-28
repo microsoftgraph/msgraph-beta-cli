@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item {
+namespace ApiSdk.PrivilegedAccess.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedAccess entities.
     /// </summary>
-    public class PrivilegedAccessItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedAccessItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from privilegedAccess

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Accounts.Item {
+namespace ApiSdk.Financials.Companies.Item.Accounts.Item
+{
     /// <summary>
     /// Provides operations to manage the accounts property of the microsoft.graph.company entity.
     /// </summary>
-    public class AccountItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccountItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get accounts from financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.Accounts.Item {
         {
             var command = new Command("get");
             command.Description = "Get accounts from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var accountIdOption = new Option<string>("--account-id", description: "The unique identifier of account") {
+            var accountIdOption = new Option<Guid?>("--account-id", description: "The unique identifier of account") {
             };
             accountIdOption.IsRequired = true;
             command.AddOption(accountIdOption);

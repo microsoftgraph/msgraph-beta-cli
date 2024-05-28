@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyCategories property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.

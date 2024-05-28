@@ -3,8 +3,8 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Users.Item.OnlineMeetings.Count;
 using ApiSdk.Users.Item.OnlineMeetings.CreateOrGet;
-using ApiSdk.Users.Item.OnlineMeetings.GetAllRecordings;
-using ApiSdk.Users.Item.OnlineMeetings.GetAllTranscripts;
+using ApiSdk.Users.Item.OnlineMeetings.GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime;
+using ApiSdk.Users.Item.OnlineMeetings.GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime;
 using ApiSdk.Users.Item.OnlineMeetings.Item;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.OnlineMeetings {
+namespace ApiSdk.Users.Item.OnlineMeetings
+{
     /// <summary>
     /// Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
     /// </summary>
-    public class OnlineMeetingsRequestBuilder : BaseCliRequestBuilder 
+    public class OnlineMeetingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
@@ -140,11 +141,11 @@ namespace ApiSdk.Users.Item.OnlineMeetings {
         /// Provides operations to call the getAllRecordings method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildGetAllRecordingsNavCommand()
+        public Command BuildGetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand()
         {
-            var command = new Command("get-all-recordings");
+            var command = new Command("get-all-recordingsmeeting-organizer-user-id-meeting-organizer-user-id-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the getAllRecordings method.";
-            var builder = new GetAllRecordingsRequestBuilder(PathParameters);
+            var builder = new GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -157,11 +158,11 @@ namespace ApiSdk.Users.Item.OnlineMeetings {
         /// Provides operations to call the getAllTranscripts method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildGetAllTranscriptsNavCommand()
+        public Command BuildGetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand()
         {
-            var command = new Command("get-all-transcripts");
+            var command = new Command("get-all-transcriptsmeeting-organizer-user-id-meeting-organizer-user-id-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the getAllTranscripts method.";
-            var builder = new GetAllTranscriptsRequestBuilder(PathParameters);
+            var builder = new GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -259,7 +260,9 @@ namespace ApiSdk.Users.Item.OnlineMeetings {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analyte connectivity issue entity.
     /// </summary>
-    public class CloudPCConnectivityIssue : Entity, IParsable 
+    public class CloudPCConnectivityIssue : Entity, IParsable
     {
         /// <summary>The Intune DeviceId of the device the connection is associated with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"errorDateTime", n => { ErrorDateTime = n.GetDateTimeOffsetValue(); } },
-                {"errorDescription", n => { ErrorDescription = n.GetStringValue(); } },
-                {"recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "errorDateTime", n => { ErrorDateTime = n.GetDateTimeOffsetValue(); } },
+                { "errorDescription", n => { ErrorDescription = n.GetStringValue(); } },
+                { "recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

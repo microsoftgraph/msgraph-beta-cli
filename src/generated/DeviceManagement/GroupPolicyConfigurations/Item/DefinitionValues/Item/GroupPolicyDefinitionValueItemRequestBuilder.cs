@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item
+{
     /// <summary>
     /// Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
     /// </summary>
-    public class GroupPolicyDefinitionValueItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyDefinitionValueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definition property of the microsoft.graph.groupPolicyDefinitionValue entity.

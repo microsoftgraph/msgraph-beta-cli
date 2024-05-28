@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Services {
+namespace ApiSdk.Print.Services
+{
     /// <summary>
     /// Provides operations to manage the services property of the microsoft.graph.print entity.
     /// </summary>
-    public class ServicesRequestBuilder : BaseCliRequestBuilder 
+    public class ServicesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the services property of the microsoft.graph.print entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Print.Services {
             return command;
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve a list of printService objects that represent the services available to your tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/print-list-services?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The list of available Universal Print service endpoints.";
+            command.Description = "Retrieve a list of printService objects that represent the services available to your tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/print-list-services?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Print.Services {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Print.Services {
         {
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve a list of printService objects that represent the services available to your tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Print.Services {
             return requestInfo;
         }
         /// <summary>
-        /// The list of available Universal Print service endpoints.
+        /// Retrieve a list of printService objects that represent the services available to your tenant.
         /// </summary>
         public class ServicesRequestBuilderGetQueryParameters 
         {

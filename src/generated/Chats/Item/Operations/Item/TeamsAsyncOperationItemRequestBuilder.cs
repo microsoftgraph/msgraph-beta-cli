@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Operations.Item {
+namespace ApiSdk.Chats.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.chat entity.
     /// </summary>
-    public class TeamsAsyncOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAsyncOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for chats
@@ -62,13 +63,14 @@ namespace ApiSdk.Chats.Item.Operations.Item {
             return command;
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// Get the specified Teams async operation that ran or is running on a specific resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsasyncoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of all the Teams async operations that ran or are running on the chat. Nullable.";
+            command.Description = "Get the specified Teams async operation that ran or is running on a specific resource.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsasyncoperation-get?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Chats.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// Get the specified Teams async operation that ran or is running on a specific resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Chats.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+        /// Get the specified Teams async operation that ran or is running on a specific resource.
         /// </summary>
         public class TeamsAsyncOperationItemRequestBuilderGetQueryParameters 
         {

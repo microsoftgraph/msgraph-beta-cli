@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a user-facing message with locale information as well as a default message to be used if the user&apos;s locale doesn&apos;t match with any of the localized messages
     /// </summary>
-    public class AndroidDeviceOwnerUserFacingMessage : IAdditionalDataHolder, IParsable 
+    public class AndroidDeviceOwnerUserFacingMessage : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -61,9 +62,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"defaultMessage", n => { DefaultMessage = n.GetStringValue(); } },
-                {"localizedMessages", n => { LocalizedMessages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "defaultMessage", n => { DefaultMessage = n.GetStringValue(); } },
+                { "localizedMessages", n => { LocalizedMessages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

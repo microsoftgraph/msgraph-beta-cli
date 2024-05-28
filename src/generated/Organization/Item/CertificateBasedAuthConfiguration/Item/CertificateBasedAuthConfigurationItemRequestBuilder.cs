@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item {
+namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item
+{
     /// <summary>
     /// Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
     /// </summary>
-    public class CertificateBasedAuthConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateBasedAuthConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property certificateBasedAuthConfiguration for organization
+        /// Delete a certificateBasedAuthConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property certificateBasedAuthConfiguration for organization";
+            command.Description = "Delete a certificateBasedAuthConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-delete?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item {
             return command;
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Get the properties of a certificateBasedAuthConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.";
+            command.Description = "Get the properties of a certificateBasedAuthConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-get?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -134,7 +137,7 @@ namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property certificateBasedAuthConfiguration for organization
+        /// Delete a certificateBasedAuthConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +156,7 @@ namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Get the properties of a certificateBasedAuthConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -172,7 +175,7 @@ namespace ApiSdk.Organization.Item.CertificateBasedAuthConfiguration.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Get the properties of a certificateBasedAuthConfiguration object.
         /// </summary>
         public class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters 
         {

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemWithName.SetData {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemWithName.SetData
+{
     #pragma warning disable CS1591
-    public class SetDataPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetDataPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemWith
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"seriesBy", n => { SeriesBy = n.GetStringValue(); } },
-                {"sourceData", n => { SourceData = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "seriesBy", n => { SeriesBy = n.GetStringValue(); } },
+                { "sourceData", n => { SourceData = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

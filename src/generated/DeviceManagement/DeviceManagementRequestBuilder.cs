@@ -200,11 +200,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement {
+namespace ApiSdk.DeviceManagement
+{
     /// <summary>
     /// Provides operations to manage the deviceManagement singleton.
     /// </summary>
-    public class DeviceManagementRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the advancedThreatProtectionOnboardingStateSummary property of the microsoft.graph.deviceManagement entity.
@@ -2782,8 +2783,6 @@ namespace ApiSdk.DeviceManagement {
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
-            nonExecCommands.Add(builder.BuildGetApprovableOperationsNavCommand());
-            nonExecCommands.Add(builder.BuildGetOperationsRequiringApprovalNavCommand());
             execCommands.Add(builder.BuildListCommand());
             nonExecCommands.Add(builder.BuildRetrieveApprovableOperationsNavCommand());
             nonExecCommands.Add(builder.BuildRetrieveOperationsRequiringApprovalNavCommand());

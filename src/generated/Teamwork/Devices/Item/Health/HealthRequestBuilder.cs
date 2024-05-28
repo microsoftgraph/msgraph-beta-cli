@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.Health {
+namespace ApiSdk.Teamwork.Devices.Item.Health
+{
     /// <summary>
     /// Provides operations to manage the health property of the microsoft.graph.teamworkDevice entity.
     /// </summary>
-    public class HealthRequestBuilder : BaseCliRequestBuilder 
+    public class HealthRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property health for teamwork
@@ -56,13 +57,14 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
             return command;
         }
         /// <summary>
-        /// The health properties of the device.
+        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The health properties of the device.";
+            command.Description = "Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevicehealth-get?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
             return requestInfo;
         }
         /// <summary>
-        /// The health properties of the device.
+        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Health {
             return requestInfo;
         }
         /// <summary>
-        /// The health properties of the device.
+        /// Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
         /// </summary>
         public class HealthRequestBuilderGetQueryParameters 
         {

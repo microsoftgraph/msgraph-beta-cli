@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class IdentityContainer : ApiSdk.Models.Entity, IParsable 
+    public class IdentityContainer : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents potential issues within a customer&apos;s Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.</summary>
@@ -16,6 +17,14 @@ namespace ApiSdk.Models.Security {
 #nullable restore
 #else
         public List<HealthIssue> HealthIssues { get; set; }
+#endif
+        /// <summary>The sensors property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Sensor>? Sensors { get; set; }
+#nullable restore
+#else
+        public List<Sensor> Sensors { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -35,7 +44,8 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"healthIssues", n => { HealthIssues = n.GetCollectionOfObjectValues<HealthIssue>(HealthIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "healthIssues", n => { HealthIssues = n.GetCollectionOfObjectValues<HealthIssue>(HealthIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sensors", n => { Sensors = n.GetCollectionOfObjectValues<Sensor>(Sensor.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,6 +57,7 @@ namespace ApiSdk.Models.Security {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<HealthIssue>("healthIssues", HealthIssues);
+            writer.WriteCollectionOfObjectValues<Sensor>("sensors", Sensors);
         }
     }
 }

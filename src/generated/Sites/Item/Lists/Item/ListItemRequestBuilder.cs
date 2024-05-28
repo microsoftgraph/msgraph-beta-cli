@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Lists.Item {
+namespace ApiSdk.Sites.Item.Lists.Item
+{
     /// <summary>
     /// Provides operations to manage the lists property of the microsoft.graph.site entity.
     /// </summary>
-    public class ListItemRequestBuilder : BaseCliRequestBuilder 
+    public class ListItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.list entity.
@@ -187,13 +188,14 @@ namespace ApiSdk.Sites.Item.Lists.Item {
             return command;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the list of richLongRunningOperations associated with a list.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of lists under this site.";
+            command.Description = "Get the list of richLongRunningOperations associated with a list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -441,7 +443,7 @@ namespace ApiSdk.Sites.Item.Lists.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the list of richLongRunningOperations associated with a list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -481,7 +483,7 @@ namespace ApiSdk.Sites.Item.Lists.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the list of richLongRunningOperations associated with a list.
         /// </summary>
         public class ListItemRequestBuilderGetQueryParameters 
         {

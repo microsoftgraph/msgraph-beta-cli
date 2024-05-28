@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationAttributeCollectionInputConfiguration : IAdditionalDataHolder, IParsable 
+    public class AuthenticationAttributeCollectionInputConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,17 +95,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"attribute", n => { Attribute = n.GetStringValue(); } },
-                {"defaultValue", n => { DefaultValue = n.GetStringValue(); } },
-                {"editable", n => { Editable = n.GetBoolValue(); } },
-                {"hidden", n => { Hidden = n.GetBoolValue(); } },
-                {"inputType", n => { InputType = n.GetEnumValue<AuthenticationAttributeCollectionInputType>(); } },
-                {"label", n => { Label = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"options", n => { Options = n.GetCollectionOfObjectValues<AuthenticationAttributeCollectionOptionConfiguration>(AuthenticationAttributeCollectionOptionConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"required", n => { Required = n.GetBoolValue(); } },
-                {"validationRegEx", n => { ValidationRegEx = n.GetStringValue(); } },
-                {"writeToDirectory", n => { WriteToDirectory = n.GetBoolValue(); } },
+                { "attribute", n => { Attribute = n.GetStringValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetStringValue(); } },
+                { "editable", n => { Editable = n.GetBoolValue(); } },
+                { "hidden", n => { Hidden = n.GetBoolValue(); } },
+                { "inputType", n => { InputType = n.GetEnumValue<AuthenticationAttributeCollectionInputType>(); } },
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<AuthenticationAttributeCollectionOptionConfiguration>(AuthenticationAttributeCollectionOptionConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
+                { "validationRegEx", n => { ValidationRegEx = n.GetStringValue(); } },
+                { "writeToDirectory", n => { WriteToDirectory = n.GetBoolValue(); } },
             };
         }
         /// <summary>

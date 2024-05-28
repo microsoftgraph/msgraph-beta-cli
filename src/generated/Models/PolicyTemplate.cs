@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PolicyTemplate : Entity, IParsable 
+    public class PolicyTemplate : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"multiTenantOrganizationIdentitySynchronization", n => { MultiTenantOrganizationIdentitySynchronization = n.GetObjectValue<MultiTenantOrganizationIdentitySyncPolicyTemplate>(MultiTenantOrganizationIdentitySyncPolicyTemplate.CreateFromDiscriminatorValue); } },
-                {"multiTenantOrganizationPartnerConfiguration", n => { MultiTenantOrganizationPartnerConfiguration = n.GetObjectValue<MultiTenantOrganizationPartnerConfigurationTemplate>(MultiTenantOrganizationPartnerConfigurationTemplate.CreateFromDiscriminatorValue); } },
+                { "multiTenantOrganizationIdentitySynchronization", n => { MultiTenantOrganizationIdentitySynchronization = n.GetObjectValue<MultiTenantOrganizationIdentitySyncPolicyTemplate>(MultiTenantOrganizationIdentitySyncPolicyTemplate.CreateFromDiscriminatorValue); } },
+                { "multiTenantOrganizationPartnerConfiguration", n => { MultiTenantOrganizationPartnerConfiguration = n.GetObjectValue<MultiTenantOrganizationPartnerConfigurationTemplate>(MultiTenantOrganizationPartnerConfigurationTemplate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item {
+namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the forwardingPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class ForwardingPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ForwardingPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property forwardingPolicies for networkAccess
@@ -58,13 +59,14 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item {
             return command;
         }
         /// <summary>
-        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
+        /// Retrieve information about a specific forwarding policy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.";
+            command.Description = "Retrieve information about a specific forwarding policy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-get?view=graph-rest-beta";
             var forwardingPolicyIdOption = new Option<string>("--forwarding-policy-id", description: "The unique identifier of forwardingPolicy") {
             };
             forwardingPolicyIdOption.IsRequired = true;
@@ -238,7 +240,7 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
+        /// Retrieve information about a specific forwarding policy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -278,7 +280,7 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It&apos;s then added to a forwarding profile.
+        /// Retrieve information about a specific forwarding policy.
         /// </summary>
         public class ForwardingPolicyItemRequestBuilderGetQueryParameters 
         {

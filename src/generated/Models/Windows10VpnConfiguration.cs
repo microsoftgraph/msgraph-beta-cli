@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Windows 10 device (desktop or mobile) to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class Windows10VpnConfiguration : WindowsVpnConfiguration, IParsable 
+    public class Windows10VpnConfiguration : WindowsVpnConfiguration, IParsable
     {
         /// <summary>Associated Apps. This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -169,31 +170,31 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"associatedApps", n => { AssociatedApps = n.GetCollectionOfObjectValues<Windows10AssociatedApps>(Windows10AssociatedApps.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<Windows10VpnAuthenticationMethod>(); } },
-                {"connectionType", n => { ConnectionType = n.GetEnumValue<Windows10VpnConnectionType>(); } },
-                {"cryptographySuite", n => { CryptographySuite = n.GetObjectValue<ApiSdk.Models.CryptographySuite>(ApiSdk.Models.CryptographySuite.CreateFromDiscriminatorValue); } },
-                {"dnsRules", n => { DnsRules = n.GetCollectionOfObjectValues<VpnDnsRule>(VpnDnsRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dnsSuffixes", n => { DnsSuffixes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"eapXml", n => { EapXml = n.GetByteArrayValue(); } },
-                {"enableAlwaysOn", n => { EnableAlwaysOn = n.GetBoolValue(); } },
-                {"enableConditionalAccess", n => { EnableConditionalAccess = n.GetBoolValue(); } },
-                {"enableDeviceTunnel", n => { EnableDeviceTunnel = n.GetBoolValue(); } },
-                {"enableDnsRegistration", n => { EnableDnsRegistration = n.GetBoolValue(); } },
-                {"enableSingleSignOnWithAlternateCertificate", n => { EnableSingleSignOnWithAlternateCertificate = n.GetBoolValue(); } },
-                {"enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
-                {"identityCertificate", n => { IdentityCertificate = n.GetObjectValue<WindowsCertificateProfileBase>(WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
-                {"onlyAssociatedAppsCanUseConnection", n => { OnlyAssociatedAppsCanUseConnection = n.GetBoolValue(); } },
-                {"profileTarget", n => { ProfileTarget = n.GetEnumValue<Windows10VpnProfileTarget>(); } },
-                {"proxyServer", n => { ProxyServer = n.GetObjectValue<Windows10VpnProxyServer>(Windows10VpnProxyServer.CreateFromDiscriminatorValue); } },
-                {"rememberUserCredentials", n => { RememberUserCredentials = n.GetBoolValue(); } },
-                {"routes", n => { Routes = n.GetCollectionOfObjectValues<VpnRoute>(VpnRoute.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"singleSignOnEku", n => { SingleSignOnEku = n.GetObjectValue<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue); } },
-                {"singleSignOnIssuerHash", n => { SingleSignOnIssuerHash = n.GetStringValue(); } },
-                {"trafficRules", n => { TrafficRules = n.GetCollectionOfObjectValues<VpnTrafficRule>(VpnTrafficRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trustedNetworkDomains", n => { TrustedNetworkDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"windowsInformationProtectionDomain", n => { WindowsInformationProtectionDomain = n.GetStringValue(); } },
+                { "associatedApps", n => { AssociatedApps = n.GetCollectionOfObjectValues<Windows10AssociatedApps>(Windows10AssociatedApps.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<Windows10VpnAuthenticationMethod>(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<Windows10VpnConnectionType>(); } },
+                { "cryptographySuite", n => { CryptographySuite = n.GetObjectValue<ApiSdk.Models.CryptographySuite>(ApiSdk.Models.CryptographySuite.CreateFromDiscriminatorValue); } },
+                { "dnsRules", n => { DnsRules = n.GetCollectionOfObjectValues<VpnDnsRule>(VpnDnsRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dnsSuffixes", n => { DnsSuffixes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "eapXml", n => { EapXml = n.GetByteArrayValue(); } },
+                { "enableAlwaysOn", n => { EnableAlwaysOn = n.GetBoolValue(); } },
+                { "enableConditionalAccess", n => { EnableConditionalAccess = n.GetBoolValue(); } },
+                { "enableDeviceTunnel", n => { EnableDeviceTunnel = n.GetBoolValue(); } },
+                { "enableDnsRegistration", n => { EnableDnsRegistration = n.GetBoolValue(); } },
+                { "enableSingleSignOnWithAlternateCertificate", n => { EnableSingleSignOnWithAlternateCertificate = n.GetBoolValue(); } },
+                { "enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<WindowsCertificateProfileBase>(WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
+                { "onlyAssociatedAppsCanUseConnection", n => { OnlyAssociatedAppsCanUseConnection = n.GetBoolValue(); } },
+                { "profileTarget", n => { ProfileTarget = n.GetEnumValue<Windows10VpnProfileTarget>(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<Windows10VpnProxyServer>(Windows10VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "rememberUserCredentials", n => { RememberUserCredentials = n.GetBoolValue(); } },
+                { "routes", n => { Routes = n.GetCollectionOfObjectValues<VpnRoute>(VpnRoute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "singleSignOnEku", n => { SingleSignOnEku = n.GetObjectValue<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue); } },
+                { "singleSignOnIssuerHash", n => { SingleSignOnIssuerHash = n.GetStringValue(); } },
+                { "trafficRules", n => { TrafficRules = n.GetCollectionOfObjectValues<VpnTrafficRule>(VpnTrafficRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trustedNetworkDomains", n => { TrustedNetworkDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "windowsInformationProtectionDomain", n => { WindowsInformationProtectionDomain = n.GetStringValue(); } },
             };
         }
         /// <summary>

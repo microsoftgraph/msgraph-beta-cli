@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Activities.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Activities.Item
+{
     /// <summary>
     /// Provides operations to manage the activities property of the microsoft.graph.driveItem entity.
     /// </summary>
-    public class ItemActivityOLDItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemActivityOLDItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The list of recent activities that took place on this item.

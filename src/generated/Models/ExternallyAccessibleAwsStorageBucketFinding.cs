@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternallyAccessibleAwsStorageBucketFinding : Finding, IParsable 
+    public class ExternallyAccessibleAwsStorageBucketFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessibility property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessibility", n => { Accessibility = n.GetEnumValue<AwsAccessType>(); } },
-                {"accountsWithAccess", n => { AccountsWithAccess = n.GetObjectValue<ApiSdk.Models.AccountsWithAccess>(ApiSdk.Models.AccountsWithAccess.CreateFromDiscriminatorValue); } },
-                {"storageBucket", n => { StorageBucket = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessibility", n => { Accessibility = n.GetEnumValue<AwsAccessType>(); } },
+                { "accountsWithAccess", n => { AccountsWithAccess = n.GetObjectValue<ApiSdk.Models.AccountsWithAccess>(ApiSdk.Models.AccountsWithAccess.CreateFromDiscriminatorValue); } },
+                { "storageBucket", n => { StorageBucket = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

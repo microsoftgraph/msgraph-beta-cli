@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetOneDriveActivityUserDetailWithDate {
+namespace ApiSdk.Reports.GetOneDriveActivityUserDetailWithDate
+{
     /// <summary>
     /// Provides operations to call the getOneDriveActivityUserDetail method.
     /// </summary>
-    public class GetOneDriveActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    public class GetOneDriveActivityUserDetailWithDateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getOneDriveActivityUserDetail
@@ -27,7 +28,7 @@ namespace ApiSdk.Reports.GetOneDriveActivityUserDetailWithDate {
         {
             var command = new Command("get");
             command.Description = "Invoke function getOneDriveActivityUserDetail";
-            var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
+            var dateOption = new Option<Date?>("--date", description: "Usage: date={date}") {
             };
             dateOption.IsRequired = true;
             command.AddOption(dateOption);

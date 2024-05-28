@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents user state for an intent
     /// </summary>
-    public class DeviceManagementIntentUserState : Entity, IParsable 
+    public class DeviceManagementIntentUserState : Entity, IParsable
     {
         /// <summary>Count of Devices that belongs to a user for an intent</summary>
         public int? DeviceCount { get; set; }
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceCount", n => { DeviceCount = n.GetIntValue(); } },
-                {"lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
+                { "lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

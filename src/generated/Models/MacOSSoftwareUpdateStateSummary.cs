@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// MacOS software update state summary for a device and user
     /// </summary>
-    public class MacOSSoftwareUpdateStateSummary : Entity, IParsable 
+    public class MacOSSoftwareUpdateStateSummary : Entity, IParsable
     {
         /// <summary>Human readable name of the software update</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,12 +59,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"productKey", n => { ProductKey = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<MacOSSoftwareUpdateState>(); } },
-                {"updateCategory", n => { UpdateCategory = n.GetEnumValue<MacOSSoftwareUpdateCategory>(); } },
-                {"updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "productKey", n => { ProductKey = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<MacOSSoftwareUpdateState>(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<MacOSSoftwareUpdateCategory>(); } },
+                { "updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

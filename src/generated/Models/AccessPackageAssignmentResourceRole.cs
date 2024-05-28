@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentResourceRole : Entity, IParsable 
+    public class AccessPackageAssignmentResourceRole : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The access package assignments resulting in this role assignment. Read-only. Nullable.</summary>
@@ -83,13 +84,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"accessPackageResourceRole", n => { AccessPackageResourceRole = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue); } },
-                {"accessPackageResourceScope", n => { AccessPackageResourceScope = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue); } },
-                {"accessPackageSubject", n => { AccessPackageSubject = n.GetObjectValue<ApiSdk.Models.AccessPackageSubject>(ApiSdk.Models.AccessPackageSubject.CreateFromDiscriminatorValue); } },
-                {"originId", n => { OriginId = n.GetStringValue(); } },
-                {"originSystem", n => { OriginSystem = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
+                { "accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceRole", n => { AccessPackageResourceRole = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue); } },
+                { "accessPackageResourceScope", n => { AccessPackageResourceScope = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue); } },
+                { "accessPackageSubject", n => { AccessPackageSubject = n.GetObjectValue<ApiSdk.Models.AccessPackageSubject>(ApiSdk.Models.AccessPackageSubject.CreateFromDiscriminatorValue); } },
+                { "originId", n => { OriginId = n.GetStringValue(); } },
+                { "originSystem", n => { OriginSystem = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.TaskFolders {
+namespace ApiSdk.Users.Item.Outlook.TaskFolders
+{
     /// <summary>
     /// Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
     /// </summary>
-    public class TaskFoldersRequestBuilder : BaseCliRequestBuilder 
+    public class TaskFoldersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
@@ -107,14 +108,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
             return command;
         }
         /// <summary>
-        /// Get taskFolders from users
+        /// The user&apos;s Outlook task folders. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get taskFolders from users";
+            command.Description = "The user's Outlook task folders. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -127,6 +128,10 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
             };
             skipOption.IsRequired = false;
             command.AddOption(skipOption);
+            var searchOption = new Option<string>("--search", description: "Search items by search phrases") {
+            };
+            searchOption.IsRequired = false;
+            command.AddOption(searchOption);
             var filterOption = new Option<string>("--filter", description: "Filter items by property values") {
             };
             filterOption.IsRequired = false;
@@ -155,6 +160,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
                 var userId = invocationContext.ParseResult.GetValueForOption(userIdOption);
                 var top = invocationContext.ParseResult.GetValueForOption(topOption);
                 var skip = invocationContext.ParseResult.GetValueForOption(skipOption);
+                var search = invocationContext.ParseResult.GetValueForOption(searchOption);
                 var filter = invocationContext.ParseResult.GetValueForOption(filterOption);
                 var count = invocationContext.ParseResult.GetValueForOption(countOption);
                 var orderby = invocationContext.ParseResult.GetValueForOption(orderbyOption);
@@ -170,6 +176,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
                 var requestInfo = ToGetRequestInformation(q => {
                     q.QueryParameters.Top = top;
                     q.QueryParameters.Skip = skip;
+                    if (!string.IsNullOrEmpty(search)) q.QueryParameters.Search = search;
                     if (!string.IsNullOrEmpty(filter)) q.QueryParameters.Filter = filter;
                     q.QueryParameters.Count = count;
                     q.QueryParameters.Orderby = orderby;
@@ -183,7 +190,9 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -198,18 +207,18 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
         /// Instantiates a new <see cref="TaskFoldersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
-        public TaskFoldersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/outlook/taskFolders{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}", pathParameters)
+        public TaskFoldersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/outlook/taskFolders{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
         /// Instantiates a new <see cref="TaskFoldersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public TaskFoldersRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/outlook/taskFolders{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}", rawUrl)
+        public TaskFoldersRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/outlook/taskFolders{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
         {
         }
         /// <summary>
-        /// Get taskFolders from users
+        /// The user&apos;s Outlook task folders. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -251,7 +260,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
             return requestInfo;
         }
         /// <summary>
-        /// Get taskFolders from users
+        /// The user&apos;s Outlook task folders. Read-only. Nullable.
         /// </summary>
         public class TaskFoldersRequestBuilderGetQueryParameters 
         {
@@ -277,6 +286,16 @@ namespace ApiSdk.Users.Item.Outlook.TaskFolders {
 #else
             [QueryParameter("%24orderby")]
             public string[] Orderby { get; set; }
+#endif
+            /// <summary>Search items by search phrases</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24search")]
+            public string Search { get; set; }
 #endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

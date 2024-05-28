@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws
+{
     /// <summary>
     /// Provides operations to manage the aws property of the microsoft.graph.permissionsAnalyticsAggregation entity.
     /// </summary>
-    public class AwsRequestBuilder : BaseCliRequestBuilder 
+    public class AwsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property aws for identityGovernance

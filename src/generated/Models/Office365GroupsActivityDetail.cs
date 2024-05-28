@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365GroupsActivityDetail : Entity, IParsable 
+    public class Office365GroupsActivityDetail : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The storage used of the group mailbox.</summary>
@@ -100,27 +101,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exchangeMailboxStorageUsedInBytes", n => { ExchangeMailboxStorageUsedInBytes = n.GetLongValue(); } },
-                {"exchangeMailboxTotalItemCount", n => { ExchangeMailboxTotalItemCount = n.GetLongValue(); } },
-                {"exchangeReceivedEmailCount", n => { ExchangeReceivedEmailCount = n.GetLongValue(); } },
-                {"externalMemberCount", n => { ExternalMemberCount = n.GetLongValue(); } },
-                {"groupDisplayName", n => { GroupDisplayName = n.GetStringValue(); } },
-                {"groupId", n => { GroupId = n.GetStringValue(); } },
-                {"groupType", n => { GroupType = n.GetStringValue(); } },
-                {"isDeleted", n => { IsDeleted = n.GetBoolValue(); } },
-                {"lastActivityDate", n => { LastActivityDate = n.GetDateValue(); } },
-                {"memberCount", n => { MemberCount = n.GetLongValue(); } },
-                {"ownerPrincipalName", n => { OwnerPrincipalName = n.GetStringValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"sharePointActiveFileCount", n => { SharePointActiveFileCount = n.GetLongValue(); } },
-                {"sharePointSiteStorageUsedInBytes", n => { SharePointSiteStorageUsedInBytes = n.GetLongValue(); } },
-                {"sharePointTotalFileCount", n => { SharePointTotalFileCount = n.GetLongValue(); } },
-                {"teamsChannelMessagesCount", n => { TeamsChannelMessagesCount = n.GetLongValue(); } },
-                {"teamsMeetingsOrganizedCount", n => { TeamsMeetingsOrganizedCount = n.GetLongValue(); } },
-                {"yammerLikedMessageCount", n => { YammerLikedMessageCount = n.GetLongValue(); } },
-                {"yammerPostedMessageCount", n => { YammerPostedMessageCount = n.GetLongValue(); } },
-                {"yammerReadMessageCount", n => { YammerReadMessageCount = n.GetLongValue(); } },
+                { "exchangeMailboxStorageUsedInBytes", n => { ExchangeMailboxStorageUsedInBytes = n.GetLongValue(); } },
+                { "exchangeMailboxTotalItemCount", n => { ExchangeMailboxTotalItemCount = n.GetLongValue(); } },
+                { "exchangeReceivedEmailCount", n => { ExchangeReceivedEmailCount = n.GetLongValue(); } },
+                { "externalMemberCount", n => { ExternalMemberCount = n.GetLongValue(); } },
+                { "groupDisplayName", n => { GroupDisplayName = n.GetStringValue(); } },
+                { "groupId", n => { GroupId = n.GetStringValue(); } },
+                { "groupType", n => { GroupType = n.GetStringValue(); } },
+                { "isDeleted", n => { IsDeleted = n.GetBoolValue(); } },
+                { "lastActivityDate", n => { LastActivityDate = n.GetDateValue(); } },
+                { "memberCount", n => { MemberCount = n.GetLongValue(); } },
+                { "ownerPrincipalName", n => { OwnerPrincipalName = n.GetStringValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "sharePointActiveFileCount", n => { SharePointActiveFileCount = n.GetLongValue(); } },
+                { "sharePointSiteStorageUsedInBytes", n => { SharePointSiteStorageUsedInBytes = n.GetLongValue(); } },
+                { "sharePointTotalFileCount", n => { SharePointTotalFileCount = n.GetLongValue(); } },
+                { "teamsChannelMessagesCount", n => { TeamsChannelMessagesCount = n.GetLongValue(); } },
+                { "teamsMeetingsOrganizedCount", n => { TeamsMeetingsOrganizedCount = n.GetLongValue(); } },
+                { "yammerLikedMessageCount", n => { YammerLikedMessageCount = n.GetLongValue(); } },
+                { "yammerPostedMessageCount", n => { YammerPostedMessageCount = n.GetLongValue(); } },
+                { "yammerReadMessageCount", n => { YammerReadMessageCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

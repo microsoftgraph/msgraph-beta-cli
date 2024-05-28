@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item {
+namespace ApiSdk.Solutions.BusinessScenarios.Item
+{
     /// <summary>
     /// Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
     /// </summary>
-    public class BusinessScenarioItemRequestBuilder : BaseCliRequestBuilder 
+    public class BusinessScenarioItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property businessScenarios for solutions
+        /// Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property businessScenarios for solutions";
+            command.Description = "Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-beta";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
             return command;
         }
         /// <summary>
-        /// Get businessScenarios from solutions
+        /// Read the properties and relationships of a businessScenario object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get businessScenarios from solutions";
+            command.Description = "Read the properties and relationships of a businessScenario object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-beta";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -109,13 +112,14 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property businessScenarios in solutions
+        /// Update the properties of a businessScenario object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property businessScenarios in solutions";
+            command.Description = "Update the properties of a businessScenario object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-beta";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -202,7 +206,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property businessScenarios for solutions
+        /// Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -221,7 +225,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get businessScenarios from solutions
+        /// Read the properties and relationships of a businessScenario object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,7 +244,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property businessScenarios in solutions
+        /// Update the properties of a businessScenario object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get businessScenarios from solutions
+        /// Read the properties and relationships of a businessScenario object.
         /// </summary>
         public class BusinessScenarioItemRequestBuilderGetQueryParameters 
         {

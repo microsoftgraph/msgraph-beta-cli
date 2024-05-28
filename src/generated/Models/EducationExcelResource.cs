@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationExcelResource : EducationResource, IParsable 
+    public class EducationExcelResource : EducationResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Pointer to the Excel file object.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileUrl", n => { FileUrl = n.GetStringValue(); } },
+                { "fileUrl", n => { FileUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

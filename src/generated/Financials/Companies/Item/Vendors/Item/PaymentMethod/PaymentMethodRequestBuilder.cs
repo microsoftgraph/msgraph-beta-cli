@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Vendors.Item.PaymentMethod {
+namespace ApiSdk.Financials.Companies.Item.Vendors.Item.PaymentMethod
+{
     /// <summary>
     /// Provides operations to manage the paymentMethod property of the microsoft.graph.vendor entity.
     /// </summary>
-    public class PaymentMethodRequestBuilder : BaseCliRequestBuilder 
+    public class PaymentMethodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property paymentMethod for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.Vendors.Item.PaymentMethod {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property paymentMethod for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var vendorIdOption = new Option<string>("--vendor-id", description: "The unique identifier of vendor") {
+            var vendorIdOption = new Option<Guid?>("--vendor-id", description: "The unique identifier of vendor") {
             };
             vendorIdOption.IsRequired = true;
             command.AddOption(vendorIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.Vendors.Item.PaymentMethod {
         {
             var command = new Command("get");
             command.Description = "Get paymentMethod from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var vendorIdOption = new Option<string>("--vendor-id", description: "The unique identifier of vendor") {
+            var vendorIdOption = new Option<Guid?>("--vendor-id", description: "The unique identifier of vendor") {
             };
             vendorIdOption.IsRequired = true;
             command.AddOption(vendorIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.Vendors.Item.PaymentMethod {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property paymentMethod in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var vendorIdOption = new Option<string>("--vendor-id", description: "The unique identifier of vendor") {
+            var vendorIdOption = new Option<Guid?>("--vendor-id", description: "The unique identifier of vendor") {
             };
             vendorIdOption.IsRequired = true;
             command.AddOption(vendorIdOption);

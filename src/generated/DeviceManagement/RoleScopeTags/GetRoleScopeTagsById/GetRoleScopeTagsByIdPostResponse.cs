@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById {
+namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
+{
     #pragma warning disable CS1591
-    public class GetRoleScopeTagsByIdPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetRoleScopeTagsByIdPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<RoleScopeTag>(RoleScopeTag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<RoleScopeTag>(RoleScopeTag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

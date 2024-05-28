@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WindowsKioskProfile : IAdditionalDataHolder, IParsable 
+    public class WindowsKioskProfile : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -76,11 +77,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appConfiguration", n => { AppConfiguration = n.GetObjectValue<WindowsKioskAppConfiguration>(WindowsKioskAppConfiguration.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"profileId", n => { ProfileId = n.GetStringValue(); } },
-                {"profileName", n => { ProfileName = n.GetStringValue(); } },
-                {"userAccountsConfiguration", n => { UserAccountsConfiguration = n.GetCollectionOfObjectValues<WindowsKioskUser>(WindowsKioskUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appConfiguration", n => { AppConfiguration = n.GetObjectValue<WindowsKioskAppConfiguration>(WindowsKioskAppConfiguration.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "profileId", n => { ProfileId = n.GetStringValue(); } },
+                { "profileName", n => { ProfileName = n.GetStringValue(); } },
+                { "userAccountsConfiguration", n => { UserAccountsConfiguration = n.GetCollectionOfObjectValues<WindowsKioskUser>(WindowsKioskUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

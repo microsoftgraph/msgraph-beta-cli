@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Categories.Item.SettingDefinitions.Item {
+namespace ApiSdk.DeviceManagement.Categories.Item.SettingDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
     /// </summary>
-    public class DeviceManagementSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settingDefinitions for deviceManagement

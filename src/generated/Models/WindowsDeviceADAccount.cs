@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WindowsDeviceADAccount : WindowsDeviceAccount, IParsable 
+    public class WindowsDeviceADAccount : WindowsDeviceAccount, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The domainName property</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"domainName", n => { DomainName = n.GetStringValue(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
+                { "domainName", n => { DomainName = n.GetStringValue(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
             };
         }
         /// <summary>

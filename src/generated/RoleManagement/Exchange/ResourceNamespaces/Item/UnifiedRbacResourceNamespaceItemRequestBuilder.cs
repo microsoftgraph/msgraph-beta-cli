@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.Exchange.ResourceNamespaces.Item {
+namespace ApiSdk.RoleManagement.Exchange.ResourceNamespaces.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceNamespaces property of the microsoft.graph.unifiedRbacApplication entity.
     /// </summary>
-    public class UnifiedRbacResourceNamespaceItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRbacResourceNamespaceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resourceNamespaces for roleManagement

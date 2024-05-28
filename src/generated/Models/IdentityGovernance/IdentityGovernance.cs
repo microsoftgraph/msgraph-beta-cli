@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class IdentityGovernance : IAdditionalDataHolder, IParsable 
+    public class IdentityGovernance : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessReviews property</summary>
@@ -116,16 +117,16 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessReviews", n => { AccessReviews = n.GetObjectValue<ApiSdk.Models.AccessReviewSet>(ApiSdk.Models.AccessReviewSet.CreateFromDiscriminatorValue); } },
-                {"appConsent", n => { AppConsent = n.GetObjectValue<ApiSdk.Models.AppConsentApprovalRoute>(ApiSdk.Models.AppConsentApprovalRoute.CreateFromDiscriminatorValue); } },
-                {"entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<ApiSdk.Models.EntitlementManagement>(ApiSdk.Models.EntitlementManagement.CreateFromDiscriminatorValue); } },
-                {"lifecycleWorkflows", n => { LifecycleWorkflows = n.GetObjectValue<LifecycleWorkflowsContainer>(LifecycleWorkflowsContainer.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"permissionsAnalytics", n => { PermissionsAnalytics = n.GetObjectValue<ApiSdk.Models.PermissionsAnalyticsAggregation>(ApiSdk.Models.PermissionsAnalyticsAggregation.CreateFromDiscriminatorValue); } },
-                {"permissionsManagement", n => { PermissionsManagement = n.GetObjectValue<ApiSdk.Models.PermissionsManagement>(ApiSdk.Models.PermissionsManagement.CreateFromDiscriminatorValue); } },
-                {"privilegedAccess", n => { PrivilegedAccess = n.GetObjectValue<ApiSdk.Models.PrivilegedAccessRoot>(ApiSdk.Models.PrivilegedAccessRoot.CreateFromDiscriminatorValue); } },
-                {"roleManagementAlerts", n => { RoleManagementAlerts = n.GetObjectValue<ApiSdk.Models.RoleManagementAlert>(ApiSdk.Models.RoleManagementAlert.CreateFromDiscriminatorValue); } },
-                {"termsOfUse", n => { TermsOfUse = n.GetObjectValue<ApiSdk.Models.TermsOfUseContainer>(ApiSdk.Models.TermsOfUseContainer.CreateFromDiscriminatorValue); } },
+                { "accessReviews", n => { AccessReviews = n.GetObjectValue<ApiSdk.Models.AccessReviewSet>(ApiSdk.Models.AccessReviewSet.CreateFromDiscriminatorValue); } },
+                { "appConsent", n => { AppConsent = n.GetObjectValue<ApiSdk.Models.AppConsentApprovalRoute>(ApiSdk.Models.AppConsentApprovalRoute.CreateFromDiscriminatorValue); } },
+                { "entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<ApiSdk.Models.EntitlementManagement>(ApiSdk.Models.EntitlementManagement.CreateFromDiscriminatorValue); } },
+                { "lifecycleWorkflows", n => { LifecycleWorkflows = n.GetObjectValue<LifecycleWorkflowsContainer>(LifecycleWorkflowsContainer.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "permissionsAnalytics", n => { PermissionsAnalytics = n.GetObjectValue<ApiSdk.Models.PermissionsAnalyticsAggregation>(ApiSdk.Models.PermissionsAnalyticsAggregation.CreateFromDiscriminatorValue); } },
+                { "permissionsManagement", n => { PermissionsManagement = n.GetObjectValue<ApiSdk.Models.PermissionsManagement>(ApiSdk.Models.PermissionsManagement.CreateFromDiscriminatorValue); } },
+                { "privilegedAccess", n => { PrivilegedAccess = n.GetObjectValue<ApiSdk.Models.PrivilegedAccessRoot>(ApiSdk.Models.PrivilegedAccessRoot.CreateFromDiscriminatorValue); } },
+                { "roleManagementAlerts", n => { RoleManagementAlerts = n.GetObjectValue<ApiSdk.Models.RoleManagementAlert>(ApiSdk.Models.RoleManagementAlert.CreateFromDiscriminatorValue); } },
+                { "termsOfUse", n => { TermsOfUse = n.GetObjectValue<ApiSdk.Models.TermsOfUseContainer>(ApiSdk.Models.TermsOfUseContainer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

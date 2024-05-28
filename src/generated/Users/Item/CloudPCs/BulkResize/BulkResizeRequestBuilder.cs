@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.BulkResize {
+namespace ApiSdk.Users.Item.CloudPCs.BulkResize
+{
     /// <summary>
     /// Provides operations to call the bulkResize method.
     /// </summary>
-    public class BulkResizeRequestBuilder : BaseCliRequestBuilder 
+    public class BulkResizeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Perform a bulk resize action to resize a group of cloudPCs that have successfully passed validation. If any devices can&apos;t be resized, those devices indicate &apos;resize failed&apos;. The remaining devices are provisioned for the resize process.
@@ -72,7 +73,9 @@ namespace ApiSdk.Users.Item.CloudPCs.BulkResize {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

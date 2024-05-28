@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharingLink : IAdditionalDataHolder, IParsable 
+    public class SharingLink : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"application", n => { Application = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"configuratorUrl", n => { ConfiguratorUrl = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"preventsDownload", n => { PreventsDownload = n.GetBoolValue(); } },
-                {"scope", n => { Scope = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"webHtml", n => { WebHtml = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "application", n => { Application = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                { "configuratorUrl", n => { ConfiguratorUrl = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "preventsDownload", n => { PreventsDownload = n.GetBoolValue(); } },
+                { "scope", n => { Scope = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "webHtml", n => { WebHtml = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

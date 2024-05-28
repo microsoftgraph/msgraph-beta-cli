@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Properties of the  Integer script parameter.
     /// </summary>
-    public class DeviceHealthScriptIntegerParameter : DeviceHealthScriptParameter, IParsable 
+    public class DeviceHealthScriptIntegerParameter : DeviceHealthScriptParameter, IParsable
     {
         /// <summary>The default value of Integer param. Valid values -2147483648 to 2147483647</summary>
         public int? DefaultValue { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetIntValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetIntValue(); } },
             };
         }
         /// <summary>

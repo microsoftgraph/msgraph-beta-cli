@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ApplicationTemplate : Entity, IParsable 
+    public class ApplicationTemplate : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.</summary>
@@ -107,16 +108,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"homePageUrl", n => { HomePageUrl = n.GetStringValue(); } },
-                {"informationalUrls", n => { InformationalUrls = n.GetObjectValue<ApiSdk.Models.InformationalUrls>(ApiSdk.Models.InformationalUrls.CreateFromDiscriminatorValue); } },
-                {"logoUrl", n => { LogoUrl = n.GetStringValue(); } },
-                {"publisher", n => { Publisher = n.GetStringValue(); } },
-                {"supportedClaimConfiguration", n => { SupportedClaimConfiguration = n.GetObjectValue<ApiSdk.Models.SupportedClaimConfiguration>(ApiSdk.Models.SupportedClaimConfiguration.CreateFromDiscriminatorValue); } },
-                {"supportedProvisioningTypes", n => { SupportedProvisioningTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportedSingleSignOnModes", n => { SupportedSingleSignOnModes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "homePageUrl", n => { HomePageUrl = n.GetStringValue(); } },
+                { "informationalUrls", n => { InformationalUrls = n.GetObjectValue<ApiSdk.Models.InformationalUrls>(ApiSdk.Models.InformationalUrls.CreateFromDiscriminatorValue); } },
+                { "logoUrl", n => { LogoUrl = n.GetStringValue(); } },
+                { "publisher", n => { Publisher = n.GetStringValue(); } },
+                { "supportedClaimConfiguration", n => { SupportedClaimConfiguration = n.GetObjectValue<ApiSdk.Models.SupportedClaimConfiguration>(ApiSdk.Models.SupportedClaimConfiguration.CreateFromDiscriminatorValue); } },
+                { "supportedProvisioningTypes", n => { SupportedProvisioningTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportedSingleSignOnModes", n => { SupportedSingleSignOnModes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

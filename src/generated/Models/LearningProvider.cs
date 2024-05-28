@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LearningProvider : Entity, IParsable 
+    public class LearningProvider : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name that appears in Viva Learning. Required.</summary>
@@ -93,15 +94,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isCourseActivitySyncEnabled", n => { IsCourseActivitySyncEnabled = n.GetBoolValue(); } },
-                {"learningContents", n => { LearningContents = n.GetCollectionOfObjectValues<LearningContent>(LearningContent.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"learningCourseActivities", n => { LearningCourseActivities = n.GetCollectionOfObjectValues<LearningCourseActivity>(LearningCourseActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"loginWebUrl", n => { LoginWebUrl = n.GetStringValue(); } },
-                {"longLogoWebUrlForDarkTheme", n => { LongLogoWebUrlForDarkTheme = n.GetStringValue(); } },
-                {"longLogoWebUrlForLightTheme", n => { LongLogoWebUrlForLightTheme = n.GetStringValue(); } },
-                {"squareLogoWebUrlForDarkTheme", n => { SquareLogoWebUrlForDarkTheme = n.GetStringValue(); } },
-                {"squareLogoWebUrlForLightTheme", n => { SquareLogoWebUrlForLightTheme = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isCourseActivitySyncEnabled", n => { IsCourseActivitySyncEnabled = n.GetBoolValue(); } },
+                { "learningContents", n => { LearningContents = n.GetCollectionOfObjectValues<LearningContent>(LearningContent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "learningCourseActivities", n => { LearningCourseActivities = n.GetCollectionOfObjectValues<LearningCourseActivity>(LearningCourseActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "loginWebUrl", n => { LoginWebUrl = n.GetStringValue(); } },
+                { "longLogoWebUrlForDarkTheme", n => { LongLogoWebUrlForDarkTheme = n.GetStringValue(); } },
+                { "longLogoWebUrlForLightTheme", n => { LongLogoWebUrlForLightTheme = n.GetStringValue(); } },
+                { "squareLogoWebUrlForDarkTheme", n => { SquareLogoWebUrlForDarkTheme = n.GetStringValue(); } },
+                { "squareLogoWebUrlForLightTheme", n => { SquareLogoWebUrlForLightTheme = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an ADMX multiTextBox element and an ADMX multiText element.
     /// </summary>
-    public class GroupPolicyPresentationMultiTextBox : GroupPolicyUploadedPresentation, IParsable 
+    public class GroupPolicyPresentationMultiTextBox : GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>An unsigned integer that specifies the maximum number of text characters. Default value is 1023.</summary>
         public long? MaxLength { get; set; }
@@ -41,9 +42,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maxLength", n => { MaxLength = n.GetLongValue(); } },
-                {"maxStrings", n => { MaxStrings = n.GetLongValue(); } },
-                {"required", n => { Required = n.GetBoolValue(); } },
+                { "maxLength", n => { MaxLength = n.GetLongValue(); } },
+                { "maxStrings", n => { MaxStrings = n.GetLongValue(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
             };
         }
         /// <summary>

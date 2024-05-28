@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LearningContent : Entity, IParsable 
+    public class LearningContent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Keywords, topics, and other tags associated with the learning content. Optional.</summary>
@@ -131,25 +132,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalTags", n => { AdditionalTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"contentWebUrl", n => { ContentWebUrl = n.GetStringValue(); } },
-                {"contributors", n => { Contributors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"duration", n => { Duration = n.GetTimeSpanValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"format", n => { Format = n.GetStringValue(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
-                {"isPremium", n => { IsPremium = n.GetBoolValue(); } },
-                {"isSearchable", n => { IsSearchable = n.GetBoolValue(); } },
-                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"level", n => { Level = n.GetEnumValue<Level>(); } },
-                {"numberOfPages", n => { NumberOfPages = n.GetIntValue(); } },
-                {"skillTags", n => { SkillTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"sourceName", n => { SourceName = n.GetStringValue(); } },
-                {"thumbnailWebUrl", n => { ThumbnailWebUrl = n.GetStringValue(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
+                { "additionalTags", n => { AdditionalTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "contentWebUrl", n => { ContentWebUrl = n.GetStringValue(); } },
+                { "contributors", n => { Contributors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "format", n => { Format = n.GetStringValue(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "isPremium", n => { IsPremium = n.GetBoolValue(); } },
+                { "isSearchable", n => { IsSearchable = n.GetBoolValue(); } },
+                { "languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "level", n => { Level = n.GetEnumValue<Level>(); } },
+                { "numberOfPages", n => { NumberOfPages = n.GetIntValue(); } },
+                { "skillTags", n => { SkillTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "sourceName", n => { SourceName = n.GetStringValue(); } },
+                { "thumbnailWebUrl", n => { ThumbnailWebUrl = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>

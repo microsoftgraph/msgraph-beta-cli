@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A complex type to store the windows update rollout settings including offer start date time, offer end date time, and days between each set of offers.
     /// </summary>
-    public class WindowsUpdateRolloutSettings : IAdditionalDataHolder, IParsable 
+    public class WindowsUpdateRolloutSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -51,10 +52,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"offerEndDateTimeInUTC", n => { OfferEndDateTimeInUTC = n.GetDateTimeOffsetValue(); } },
-                {"offerIntervalInDays", n => { OfferIntervalInDays = n.GetIntValue(); } },
-                {"offerStartDateTimeInUTC", n => { OfferStartDateTimeInUTC = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "offerEndDateTimeInUTC", n => { OfferEndDateTimeInUTC = n.GetDateTimeOffsetValue(); } },
+                { "offerIntervalInDays", n => { OfferIntervalInDays = n.GetIntValue(); } },
+                { "offerStartDateTimeInUTC", n => { OfferStartDateTimeInUTC = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

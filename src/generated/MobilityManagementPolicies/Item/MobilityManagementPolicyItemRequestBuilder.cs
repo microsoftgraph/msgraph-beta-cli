@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MobilityManagementPolicies.Item {
+namespace ApiSdk.MobilityManagementPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of mobilityManagementPolicy entities.
     /// </summary>
-    public class MobilityManagementPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobilityManagementPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from mobilityManagementPolicies

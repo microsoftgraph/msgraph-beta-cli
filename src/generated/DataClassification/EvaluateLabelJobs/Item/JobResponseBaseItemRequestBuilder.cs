@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.EvaluateLabelJobs.Item {
+namespace ApiSdk.DataClassification.EvaluateLabelJobs.Item
+{
     /// <summary>
     /// Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class JobResponseBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class JobResponseBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property evaluateLabelJobs for dataClassification

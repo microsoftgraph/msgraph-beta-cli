@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
     /// </summary>
-    public class AndroidManagedStoreAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable 
+    public class AndroidManagedStoreAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable
     {
         /// <summary>Whether or not this AppConfig is an OEMConfig policy. This property is read-only.</summary>
         public bool? AppSupportsOemConfig { get; private set; }
@@ -65,12 +66,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appSupportsOemConfig", n => { AppSupportsOemConfig = n.GetBoolValue(); } },
-                {"connectedAppsEnabled", n => { ConnectedAppsEnabled = n.GetBoolValue(); } },
-                {"packageId", n => { PackageId = n.GetStringValue(); } },
-                {"payloadJson", n => { PayloadJson = n.GetStringValue(); } },
-                {"permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<AndroidPermissionAction>(AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"profileApplicability", n => { ProfileApplicability = n.GetEnumValue<AndroidProfileApplicability>(); } },
+                { "appSupportsOemConfig", n => { AppSupportsOemConfig = n.GetBoolValue(); } },
+                { "connectedAppsEnabled", n => { ConnectedAppsEnabled = n.GetBoolValue(); } },
+                { "packageId", n => { PackageId = n.GetStringValue(); } },
+                { "payloadJson", n => { PayloadJson = n.GetStringValue(); } },
+                { "permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<AndroidPermissionAction>(AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "profileApplicability", n => { ProfileApplicability = n.GetEnumValue<AndroidProfileApplicability>(); } },
             };
         }
         /// <summary>

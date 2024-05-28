@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.Settings {
+namespace ApiSdk.Organization.Item.Settings
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.organization entity.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the contactInsights property of the microsoft.graph.organizationSettings entity.

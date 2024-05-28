@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentPolicy : Entity, IParsable 
+    public class AccessPackageAssignmentPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The access package with this policy. Read-only. Nullable. Supports $expand.</summary>
@@ -149,25 +150,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
-                {"accessPackageCatalog", n => { AccessPackageCatalog = n.GetObjectValue<ApiSdk.Models.AccessPackageCatalog>(ApiSdk.Models.AccessPackageCatalog.CreateFromDiscriminatorValue); } },
-                {"accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
-                {"accessReviewSettings", n => { AccessReviewSettings = n.GetObjectValue<AssignmentReviewSettings>(AssignmentReviewSettings.CreateFromDiscriminatorValue); } },
-                {"canExtend", n => { CanExtend = n.GetBoolValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customExtensionHandlers", n => { CustomExtensionHandlers = n.GetCollectionOfObjectValues<CustomExtensionHandler>(CustomExtensionHandler.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customExtensionStageSettings", n => { CustomExtensionStageSettings = n.GetCollectionOfObjectValues<CustomExtensionStageSetting>(CustomExtensionStageSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"durationInDays", n => { DurationInDays = n.GetIntValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"modifiedBy", n => { ModifiedBy = n.GetStringValue(); } },
-                {"modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"requestApprovalSettings", n => { RequestApprovalSettings = n.GetObjectValue<ApprovalSettings>(ApprovalSettings.CreateFromDiscriminatorValue); } },
-                {"requestorSettings", n => { RequestorSettings = n.GetObjectValue<ApiSdk.Models.RequestorSettings>(ApiSdk.Models.RequestorSettings.CreateFromDiscriminatorValue); } },
-                {"verifiableCredentialSettings", n => { VerifiableCredentialSettings = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialSettings>(ApiSdk.Models.VerifiableCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                { "accessPackageCatalog", n => { AccessPackageCatalog = n.GetObjectValue<ApiSdk.Models.AccessPackageCatalog>(ApiSdk.Models.AccessPackageCatalog.CreateFromDiscriminatorValue); } },
+                { "accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
+                { "accessReviewSettings", n => { AccessReviewSettings = n.GetObjectValue<AssignmentReviewSettings>(AssignmentReviewSettings.CreateFromDiscriminatorValue); } },
+                { "canExtend", n => { CanExtend = n.GetBoolValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customExtensionHandlers", n => { CustomExtensionHandlers = n.GetCollectionOfObjectValues<CustomExtensionHandler>(CustomExtensionHandler.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customExtensionStageSettings", n => { CustomExtensionStageSettings = n.GetCollectionOfObjectValues<CustomExtensionStageSetting>(CustomExtensionStageSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "durationInDays", n => { DurationInDays = n.GetIntValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "modifiedBy", n => { ModifiedBy = n.GetStringValue(); } },
+                { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "requestApprovalSettings", n => { RequestApprovalSettings = n.GetObjectValue<ApprovalSettings>(ApprovalSettings.CreateFromDiscriminatorValue); } },
+                { "requestorSettings", n => { RequestorSettings = n.GetObjectValue<ApiSdk.Models.RequestorSettings>(ApiSdk.Models.RequestorSettings.CreateFromDiscriminatorValue); } },
+                { "verifiableCredentialSettings", n => { VerifiableCredentialSettings = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialSettings>(ApiSdk.Models.VerifiableCredentialSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

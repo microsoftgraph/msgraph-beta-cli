@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents a defined collection of device settings
     /// </summary>
-    public class DeviceManagementTemplate : Entity, IParsable 
+    public class DeviceManagementTemplate : Entity, IParsable
     {
         /// <summary>Collection of setting categories within the template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,18 +94,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categories", n => { Categories = n.GetCollectionOfObjectValues<DeviceManagementTemplateSettingCategory>(DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"intentCount", n => { IntentCount = n.GetIntValue(); } },
-                {"isDeprecated", n => { IsDeprecated = n.GetBoolValue(); } },
-                {"migratableTo", n => { MigratableTo = n.GetCollectionOfObjectValues<DeviceManagementTemplate>(DeviceManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
-                {"publishedDateTime", n => { PublishedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"templateSubtype", n => { TemplateSubtype = n.GetEnumValue<DeviceManagementTemplateSubtype>(); } },
-                {"templateType", n => { TemplateType = n.GetEnumValue<DeviceManagementTemplateType>(); } },
-                {"versionInfo", n => { VersionInfo = n.GetStringValue(); } },
+                { "categories", n => { Categories = n.GetCollectionOfObjectValues<DeviceManagementTemplateSettingCategory>(DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "intentCount", n => { IntentCount = n.GetIntValue(); } },
+                { "isDeprecated", n => { IsDeprecated = n.GetBoolValue(); } },
+                { "migratableTo", n => { MigratableTo = n.GetCollectionOfObjectValues<DeviceManagementTemplate>(DeviceManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
+                { "publishedDateTime", n => { PublishedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "templateSubtype", n => { TemplateSubtype = n.GetEnumValue<DeviceManagementTemplateSubtype>(); } },
+                { "templateType", n => { TemplateType = n.GetEnumValue<DeviceManagementTemplateType>(); } },
+                { "versionInfo", n => { VersionInfo = n.GetStringValue(); } },
             };
         }
         /// <summary>

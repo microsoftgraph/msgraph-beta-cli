@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item {
+namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
     /// </summary>
-    public class DeviceEnrollmentConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceEnrollmentConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.

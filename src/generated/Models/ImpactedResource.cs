@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ImpactedResource : Entity, IParsable 
+    public class ImpactedResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the impactedResource object was initially associated with the recommendation.</summary>
@@ -115,20 +116,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"addedDateTime", n => { AddedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"apiUrl", n => { ApiUrl = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetStringValue(); } },
-                {"owner", n => { Owner = n.GetStringValue(); } },
-                {"portalUrl", n => { PortalUrl = n.GetStringValue(); } },
-                {"postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
-                {"rank", n => { Rank = n.GetIntValue(); } },
-                {"recommendationId", n => { RecommendationId = n.GetStringValue(); } },
-                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<RecommendationStatus>(); } },
-                {"subjectId", n => { SubjectId = n.GetStringValue(); } },
+                { "addedDateTime", n => { AddedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "apiUrl", n => { ApiUrl = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
+                { "portalUrl", n => { PortalUrl = n.GetStringValue(); } },
+                { "postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
+                { "rank", n => { Rank = n.GetIntValue(); } },
+                { "recommendationId", n => { RecommendationId = n.GetStringValue(); } },
+                { "resourceType", n => { ResourceType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<RecommendationStatus>(); } },
+                { "subjectId", n => { SubjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>

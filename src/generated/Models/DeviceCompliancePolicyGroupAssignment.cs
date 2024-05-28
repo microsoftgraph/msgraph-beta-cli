@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device compliance policy group assignment.
     /// </summary>
-    public class DeviceCompliancePolicyGroupAssignment : Entity, IParsable 
+    public class DeviceCompliancePolicyGroupAssignment : Entity, IParsable
     {
         /// <summary>The navigation link to the  device compliance polic targeted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceCompliancePolicy", n => { DeviceCompliancePolicy = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicy>(ApiSdk.Models.DeviceCompliancePolicy.CreateFromDiscriminatorValue); } },
-                {"excludeGroup", n => { ExcludeGroup = n.GetBoolValue(); } },
-                {"targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
+                { "deviceCompliancePolicy", n => { DeviceCompliancePolicy = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicy>(ApiSdk.Models.DeviceCompliancePolicy.CreateFromDiscriminatorValue); } },
+                { "excludeGroup", n => { ExcludeGroup = n.GetBoolValue(); } },
+                { "targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
             };
         }
         /// <summary>

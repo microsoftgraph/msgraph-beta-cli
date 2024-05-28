@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.ExportMobileConfig {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.ExportMobileConfig
+{
     /// <summary>
     /// Provides operations to call the exportMobileConfig method.
     /// </summary>
-    public class ExportMobileConfigRequestBuilder : BaseCliRequestBuilder 
+    public class ExportMobileConfigRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Exports the mobile configuration

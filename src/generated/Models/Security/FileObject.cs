@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class FileObject : ApiSdk.Models.Entity, IParsable 
+    public class FileObject : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content property</summary>
@@ -104,18 +105,18 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetByteArrayValue(); } },
-                {"dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
-                {"extension", n => { Extension = n.GetStringValue(); } },
-                {"extractedTextContent", n => { ExtractedTextContent = n.GetByteArrayValue(); } },
-                {"mediaType", n => { MediaType = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"otherProperties", n => { OtherProperties = n.GetObjectValue<StringValueDictionary>(StringValueDictionary.CreateFromDiscriminatorValue); } },
-                {"processingStatus", n => { ProcessingStatus = n.GetEnumValue<FileProcessingStatus>(); } },
-                {"senderOrAuthors", n => { SenderOrAuthors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"size", n => { Size = n.GetLongValue(); } },
-                {"sourceType", n => { SourceType = n.GetEnumValue<SourceType>(); } },
-                {"subjectTitle", n => { SubjectTitle = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetByteArrayValue(); } },
+                { "dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
+                { "extension", n => { Extension = n.GetStringValue(); } },
+                { "extractedTextContent", n => { ExtractedTextContent = n.GetByteArrayValue(); } },
+                { "mediaType", n => { MediaType = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "otherProperties", n => { OtherProperties = n.GetObjectValue<StringValueDictionary>(StringValueDictionary.CreateFromDiscriminatorValue); } },
+                { "processingStatus", n => { ProcessingStatus = n.GetEnumValue<FileProcessingStatus>(); } },
+                { "senderOrAuthors", n => { SenderOrAuthors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "size", n => { Size = n.GetLongValue(); } },
+                { "sourceType", n => { SourceType = n.GetEnumValue<SourceType>(); } },
+                { "subjectTitle", n => { SubjectTitle = n.GetStringValue(); } },
             };
         }
         /// <summary>

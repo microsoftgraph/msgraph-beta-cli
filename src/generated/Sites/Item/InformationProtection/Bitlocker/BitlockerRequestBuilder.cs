@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker {
+namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker
+{
     /// <summary>
     /// Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
     /// </summary>
-    public class BitlockerRequestBuilder : BaseCliRequestBuilder 
+    public class BitlockerRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get bitlocker from sites

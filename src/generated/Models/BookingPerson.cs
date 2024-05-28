@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a booking customer or staff member.
     /// </summary>
-    public class BookingPerson : BookingNamedEntity, IParsable 
+    public class BookingPerson : BookingNamedEntity, IParsable
     {
         /// <summary>The email address of the person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,7 +50,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
             };
         }
         /// <summary>

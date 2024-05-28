@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcFrontLineServicePlan : Entity, IParsable 
+    public class CloudPcFrontLineServicePlan : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allotmentLicensesCount property</summary>
@@ -41,10 +42,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allotmentLicensesCount", n => { AllotmentLicensesCount = n.GetIntValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"totalCount", n => { TotalCount = n.GetIntValue(); } },
-                {"usedCount", n => { UsedCount = n.GetIntValue(); } },
+                { "allotmentLicensesCount", n => { AllotmentLicensesCount = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "totalCount", n => { TotalCount = n.GetIntValue(); } },
+                { "usedCount", n => { UsedCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

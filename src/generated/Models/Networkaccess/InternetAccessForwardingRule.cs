@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class InternetAccessForwardingRule : ForwardingRule, IParsable 
+    public class InternetAccessForwardingRule : ForwardingRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

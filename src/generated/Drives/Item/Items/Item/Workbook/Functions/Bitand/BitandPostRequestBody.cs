@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Bitand {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Bitand
+{
     #pragma warning disable CS1591
-    public class BitandPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class BitandPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Bitand {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"number1", n => { Number1 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"number2", n => { Number2 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "number1", n => { Number1 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "number2", n => { Number2 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

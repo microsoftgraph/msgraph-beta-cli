@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Unarchive {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Unarchive
+{
     /// <summary>
     /// Provides operations to call the unarchive method.
     /// </summary>
-    public class UnarchiveRequestBuilder : BaseCliRequestBuilder 
+    public class UnarchiveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restore an archived team and restores users&apos; ability to send messages and edit the team, abiding by tenant and team settings. Teams are archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which might occur subsequent to a response from this API.

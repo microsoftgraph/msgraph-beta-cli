@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The entity represents an unsigned integer value of a decimal text box presentation on a policy definition.
     /// </summary>
-    public class GroupPolicyPresentationValueDecimal : GroupPolicyPresentationValue, IParsable 
+    public class GroupPolicyPresentationValueDecimal : GroupPolicyPresentationValue, IParsable
     {
         /// <summary>An unsigned integer value for the associated presentation.</summary>
         public long? Value { get; set; }
@@ -30,7 +31,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetLongValue(); } },
+                { "value", n => { Value = n.GetLongValue(); } },
             };
         }
         /// <summary>

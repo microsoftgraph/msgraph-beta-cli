@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SkillProficiency : ItemFacet, IParsable 
+    public class SkillProficiency : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains categories a user has associated with the skill (for example, personal, professional, hobby).</summary>
@@ -76,12 +77,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"collaborationTags", n => { CollaborationTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"proficiency", n => { Proficiency = n.GetEnumValue<SkillProficiencyLevel>(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "collaborationTags", n => { CollaborationTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "proficiency", n => { Proficiency = n.GetEnumValue<SkillProficiencyLevel>(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

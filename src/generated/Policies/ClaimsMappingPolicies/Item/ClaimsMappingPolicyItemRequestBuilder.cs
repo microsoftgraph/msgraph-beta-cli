@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
+namespace ApiSdk.Policies.ClaimsMappingPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class ClaimsMappingPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ClaimsMappingPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.stsPolicy entity.
@@ -48,13 +49,14 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property claimsMappingPolicies for policies
+        /// Delete a claimsMappingPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/claimsmappingpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property claimsMappingPolicies for policies";
+            command.Description = "Delete a claimsMappingPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/claimsmappingpolicy-delete?view=graph-rest-beta";
             var claimsMappingPolicyIdOption = new Option<string>("--claims-mapping-policy-id", description: "The unique identifier of claimsMappingPolicy") {
             };
             claimsMappingPolicyIdOption.IsRequired = true;
@@ -83,13 +85,14 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Retrieve the properties and relationships of a claimsMappingPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/claimsmappingpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.";
+            command.Description = "Retrieve the properties and relationships of a claimsMappingPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/claimsmappingpolicy-get?view=graph-rest-beta";
             var claimsMappingPolicyIdOption = new Option<string>("--claims-mapping-policy-id", description: "The unique identifier of claimsMappingPolicy") {
             };
             claimsMappingPolicyIdOption.IsRequired = true;
@@ -135,13 +138,14 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property claimsMappingPolicies in policies
+        /// Update the properties of a claimsMappingPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/claimsmappingpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property claimsMappingPolicies in policies";
+            command.Description = "Update the properties of a claimsMappingPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/claimsmappingpolicy-update?view=graph-rest-beta";
             var claimsMappingPolicyIdOption = new Option<string>("--claims-mapping-policy-id", description: "The unique identifier of claimsMappingPolicy") {
             };
             claimsMappingPolicyIdOption.IsRequired = true;
@@ -200,7 +204,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property claimsMappingPolicies for policies
+        /// Delete a claimsMappingPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -219,7 +223,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Retrieve the properties and relationships of a claimsMappingPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property claimsMappingPolicies in policies
+        /// Update the properties of a claimsMappingPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +263,7 @@ namespace ApiSdk.Policies.ClaimsMappingPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+        /// Retrieve the properties and relationships of a claimsMappingPolicy object.
         /// </summary>
         public class ClaimsMappingPolicyItemRequestBuilderGetQueryParameters 
         {

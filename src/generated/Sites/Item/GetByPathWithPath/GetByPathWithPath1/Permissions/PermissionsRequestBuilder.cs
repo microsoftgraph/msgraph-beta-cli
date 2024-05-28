@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Permissions {
+namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Permissions
+{
     /// <summary>
     /// Provides operations to manage the permissions property of the microsoft.graph.site entity.
     /// </summary>
-    public class PermissionsRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The permissions associated with the site. Nullable.
@@ -121,7 +122,9 @@ namespace ApiSdk.Sites.Item.GetByPathWithPath.GetByPathWithPath1.Permissions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item {
+namespace ApiSdk.Education.Classes.Item.AssignmentSettings.GradingSchemes.Item
+{
     /// <summary>
     /// Provides operations to manage the gradingSchemes property of the microsoft.graph.educationAssignmentSettings entity.
     /// </summary>
-    public class EducationGradingSchemeItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationGradingSchemeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property gradingSchemes for education

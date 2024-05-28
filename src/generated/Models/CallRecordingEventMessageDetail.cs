@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallRecordingEventMessageDetail : EventMessageDetail, IParsable 
+    public class CallRecordingEventMessageDetail : EventMessageDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Unique identifier of the call.</summary>
@@ -78,13 +79,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callId", n => { CallId = n.GetStringValue(); } },
-                {"callRecordingDisplayName", n => { CallRecordingDisplayName = n.GetStringValue(); } },
-                {"callRecordingDuration", n => { CallRecordingDuration = n.GetTimeSpanValue(); } },
-                {"callRecordingStatus", n => { CallRecordingStatus = n.GetEnumValue<CallRecordingStatus>(); } },
-                {"callRecordingUrl", n => { CallRecordingUrl = n.GetStringValue(); } },
-                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "callId", n => { CallId = n.GetStringValue(); } },
+                { "callRecordingDisplayName", n => { CallRecordingDisplayName = n.GetStringValue(); } },
+                { "callRecordingDuration", n => { CallRecordingDuration = n.GetTimeSpanValue(); } },
+                { "callRecordingStatus", n => { CallRecordingStatus = n.GetEnumValue<CallRecordingStatus>(); } },
+                { "callRecordingUrl", n => { CallRecordingUrl = n.GetStringValue(); } },
+                { "initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

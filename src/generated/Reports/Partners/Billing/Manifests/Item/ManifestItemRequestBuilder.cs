@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.Partners.Billing.Manifests.Item {
+namespace ApiSdk.Reports.Partners.Billing.Manifests.Item
+{
     /// <summary>
     /// Provides operations to manage the manifests property of the microsoft.graph.partners.billing.billing entity.
     /// </summary>
-    public class ManifestItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManifestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property manifests for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests.Item {
             return command;
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-manifest-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents metadata for the exported data.";
+            command.Description = "Read the properties and relationships of a manifest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-manifest-get?view=graph-rest-beta";
             var manifestIdOption = new Option<string>("--manifest-id", description: "The unique identifier of manifest") {
             };
             manifestIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
         /// </summary>
         public class ManifestItemRequestBuilderGetQueryParameters 
         {

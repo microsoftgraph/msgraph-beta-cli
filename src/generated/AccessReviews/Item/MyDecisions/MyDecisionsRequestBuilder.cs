@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.MyDecisions {
+namespace ApiSdk.AccessReviews.Item.MyDecisions
+{
     /// <summary>
     /// Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class MyDecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class MyDecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.AccessReviews.Item.MyDecisions {
             return command;
         }
         /// <summary>
-        /// The collection of decisions for the caller, if the caller is a reviewer.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-listmydecisions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of decisions for the caller, if the caller is a reviewer.";
+            command.Description = "In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-listmydecisions?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.AccessReviews.Item.MyDecisions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.AccessReviews.Item.MyDecisions {
         {
         }
         /// <summary>
-        /// The collection of decisions for the caller, if the caller is a reviewer.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.AccessReviews.Item.MyDecisions {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of decisions for the caller, if the caller is a reviewer.
+        /// In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
         /// </summary>
         public class MyDecisionsRequestBuilderGetQueryParameters 
         {

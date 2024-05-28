@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConditionalAccessWhatIfPolicy : ConditionalAccessPolicy, IParsable 
+    public class ConditionalAccessWhatIfPolicy : ConditionalAccessPolicy, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The policyApplies property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"policyApplies", n => { PolicyApplies = n.GetBoolValue(); } },
-                {"reasons", n => { Reasons = n.GetCollectionOfEnumValues<ConditionalAccessWhatIfReasons>()?.ToList(); } },
+                { "policyApplies", n => { PolicyApplies = n.GetBoolValue(); } },
+                { "reasons", n => { Reasons = n.GetCollectionOfEnumValues<ConditionalAccessWhatIfReasons>()?.ToList(); } },
             };
         }
         /// <summary>

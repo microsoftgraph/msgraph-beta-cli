@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Revoke {
+namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Revoke
+{
     /// <summary>
     /// Provides operations to call the revoke method.
     /// </summary>
-    public class RevokeRequestBuilder : BaseCliRequestBuilder 
+    public class RevokeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action revoke

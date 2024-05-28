@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings.MicrosoftGraphEdiscoveryResetToDefault {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings.MicrosoftGraphEdiscoveryResetToDefault
+{
     /// <summary>
     /// Provides operations to call the resetToDefault method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reset a caseSettings object to the default values.

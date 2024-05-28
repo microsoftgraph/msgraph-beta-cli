@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// UnsupportedDeviceConfiguration is used when an entity cannot be mapped to another model-compliant subtype of deviceConfiguration.
     /// </summary>
-    public class UnsupportedDeviceConfiguration : DeviceConfiguration, IParsable 
+    public class UnsupportedDeviceConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"details", n => { Details = n.GetCollectionOfObjectValues<UnsupportedDeviceConfigurationDetail>(UnsupportedDeviceConfigurationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"originalEntityTypeName", n => { OriginalEntityTypeName = n.GetStringValue(); } },
+                { "details", n => { Details = n.GetCollectionOfObjectValues<UnsupportedDeviceConfigurationDetail>(UnsupportedDeviceConfigurationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "originalEntityTypeName", n => { OriginalEntityTypeName = n.GetStringValue(); } },
             };
         }
         /// <summary>

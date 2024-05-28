@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps {
+namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps
+{
     /// <summary>
     /// Provides operations to call the getManagedDevicesWithFailedOrPendingApps method.
     /// </summary>
-    public class GetManagedDevicesWithFailedOrPendingAppsRequestBuilder : BaseCliRequestBuilder 
+    public class GetManagedDevicesWithFailedOrPendingAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieves the list of devices with failed or pending apps
@@ -87,7 +88,9 @@ namespace ApiSdk.Users.Item.GetManagedDevicesWithFailedOrPendingApps {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

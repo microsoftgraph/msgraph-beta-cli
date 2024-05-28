@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CompliancePolicies.Item {
+namespace ApiSdk.DeviceManagement.CompliancePolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the compliancePolicies property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementCompliancePolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementCompliancePolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceManagementCompliancePolicy entity.

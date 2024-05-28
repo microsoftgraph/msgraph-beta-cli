@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Identities.HealthIssues.Item {
+namespace ApiSdk.Security.Identities.HealthIssues.Item
+{
     /// <summary>
     /// Provides operations to manage the healthIssues property of the microsoft.graph.security.identityContainer entity.
     /// </summary>
-    public class HealthIssueItemRequestBuilder : BaseCliRequestBuilder 
+    public class HealthIssueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property healthIssues for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Identities.HealthIssues.Item {
             return command;
         }
         /// <summary>
-        /// Represents potential issues within a customer&apos;s Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
+        /// Read the properties and relationships of a healthIssue object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-healthissue-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.";
+            command.Description = "Read the properties and relationships of a healthIssue object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-healthissue-get?view=graph-rest-beta";
             var healthIssueIdOption = new Option<string>("--health-issue-id", description: "The unique identifier of healthIssue") {
             };
             healthIssueIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Security.Identities.HealthIssues.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property healthIssues in security
+        /// Update the properties of a healthIssue object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-healthissue-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property healthIssues in security";
+            command.Description = "Update the properties of a healthIssue object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-healthissue-update?view=graph-rest-beta";
             var healthIssueIdOption = new Option<string>("--health-issue-id", description: "The unique identifier of healthIssue") {
             };
             healthIssueIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Security.Identities.HealthIssues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents potential issues within a customer&apos;s Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
+        /// Read the properties and relationships of a healthIssue object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Security.Identities.HealthIssues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property healthIssues in security
+        /// Update the properties of a healthIssue object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Security.Identities.HealthIssues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents potential issues within a customer&apos;s Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
+        /// Read the properties and relationships of a healthIssue object.
         /// </summary>
         public class HealthIssueItemRequestBuilderGetQueryParameters 
         {

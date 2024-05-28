@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthorizationSystemTypeService : Entity, IParsable 
+    public class AuthorizationSystemTypeService : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for the service in an authorization system that is onboarded to Permissions Management.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<AuthorizationSystemTypeAction>(AuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AuthorizationSystemTypeAction>(AuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

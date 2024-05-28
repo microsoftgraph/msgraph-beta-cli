@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The security baseline compliance state summary for the security baseline of the account.
     /// </summary>
-    public class SecurityBaselineStateSummary : Entity, IParsable 
+    public class SecurityBaselineStateSummary : Entity, IParsable
     {
         /// <summary>Number of conflict devices</summary>
         public int? ConflictCount { get; set; }
@@ -45,12 +46,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"conflictCount", n => { ConflictCount = n.GetIntValue(); } },
-                {"errorCount", n => { ErrorCount = n.GetIntValue(); } },
-                {"notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
-                {"notSecureCount", n => { NotSecureCount = n.GetIntValue(); } },
-                {"secureCount", n => { SecureCount = n.GetIntValue(); } },
-                {"unknownCount", n => { UnknownCount = n.GetIntValue(); } },
+                { "conflictCount", n => { ConflictCount = n.GetIntValue(); } },
+                { "errorCount", n => { ErrorCount = n.GetIntValue(); } },
+                { "notApplicableCount", n => { NotApplicableCount = n.GetIntValue(); } },
+                { "notSecureCount", n => { NotSecureCount = n.GetIntValue(); } },
+                { "secureCount", n => { SecureCount = n.GetIntValue(); } },
+                { "unknownCount", n => { UnknownCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

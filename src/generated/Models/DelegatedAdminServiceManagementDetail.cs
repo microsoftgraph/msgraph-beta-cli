@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DelegatedAdminServiceManagementDetail : Entity, IParsable 
+    public class DelegatedAdminServiceManagementDetail : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The URL of the management portal for the managed service. Read-only.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"serviceManagementUrl", n => { ServiceManagementUrl = n.GetStringValue(); } },
-                {"serviceName", n => { ServiceName = n.GetStringValue(); } },
+                { "serviceManagementUrl", n => { ServiceManagementUrl = n.GetStringValue(); } },
+                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
             };
         }
         /// <summary>

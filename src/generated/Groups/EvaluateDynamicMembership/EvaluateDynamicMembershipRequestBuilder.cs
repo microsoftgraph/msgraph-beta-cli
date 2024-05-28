@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.EvaluateDynamicMembership {
+namespace ApiSdk.Groups.EvaluateDynamicMembership
+{
     /// <summary>
     /// Provides operations to call the evaluateDynamicMembership method.
     /// </summary>
-    public class EvaluateDynamicMembershipRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateDynamicMembershipRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action evaluateDynamicMembership

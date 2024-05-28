@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Presences.Item {
+namespace ApiSdk.Communications.Presences.Item
+{
     /// <summary>
     /// Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class PresenceItemRequestBuilder : BaseCliRequestBuilder 
+    public class PresenceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the clearPresence method.
@@ -95,13 +96,14 @@ namespace ApiSdk.Communications.Presences.Item {
             return command;
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get presences from communications";
+            command.Description = "Get a user's presence information.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-beta";
             var presenceIdOption = new Option<string>("--presence-id", description: "The unique identifier of presence") {
             };
             presenceIdOption.IsRequired = true;
@@ -282,7 +284,7 @@ namespace ApiSdk.Communications.Presences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -322,7 +324,7 @@ namespace ApiSdk.Communications.Presences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
         /// </summary>
         public class PresenceItemRequestBuilderGetQueryParameters 
         {

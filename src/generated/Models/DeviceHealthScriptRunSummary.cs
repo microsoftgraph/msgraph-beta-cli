@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the run summary of a device management script.
     /// </summary>
-    public class DeviceHealthScriptRunSummary : Entity, IParsable 
+    public class DeviceHealthScriptRunSummary : Entity, IParsable
     {
         /// <summary>Number of devices on which the detection script execution encountered an error and did not complete</summary>
         public int? DetectionScriptErrorDeviceCount { get; set; }
@@ -50,17 +51,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"detectionScriptErrorDeviceCount", n => { DetectionScriptErrorDeviceCount = n.GetIntValue(); } },
-                {"detectionScriptNotApplicableDeviceCount", n => { DetectionScriptNotApplicableDeviceCount = n.GetIntValue(); } },
-                {"detectionScriptPendingDeviceCount", n => { DetectionScriptPendingDeviceCount = n.GetIntValue(); } },
-                {"issueDetectedDeviceCount", n => { IssueDetectedDeviceCount = n.GetIntValue(); } },
-                {"issueRemediatedCumulativeDeviceCount", n => { IssueRemediatedCumulativeDeviceCount = n.GetIntValue(); } },
-                {"issueRemediatedDeviceCount", n => { IssueRemediatedDeviceCount = n.GetIntValue(); } },
-                {"issueReoccurredDeviceCount", n => { IssueReoccurredDeviceCount = n.GetIntValue(); } },
-                {"lastScriptRunDateTime", n => { LastScriptRunDateTime = n.GetDateTimeOffsetValue(); } },
-                {"noIssueDetectedDeviceCount", n => { NoIssueDetectedDeviceCount = n.GetIntValue(); } },
-                {"remediationScriptErrorDeviceCount", n => { RemediationScriptErrorDeviceCount = n.GetIntValue(); } },
-                {"remediationSkippedDeviceCount", n => { RemediationSkippedDeviceCount = n.GetIntValue(); } },
+                { "detectionScriptErrorDeviceCount", n => { DetectionScriptErrorDeviceCount = n.GetIntValue(); } },
+                { "detectionScriptNotApplicableDeviceCount", n => { DetectionScriptNotApplicableDeviceCount = n.GetIntValue(); } },
+                { "detectionScriptPendingDeviceCount", n => { DetectionScriptPendingDeviceCount = n.GetIntValue(); } },
+                { "issueDetectedDeviceCount", n => { IssueDetectedDeviceCount = n.GetIntValue(); } },
+                { "issueRemediatedCumulativeDeviceCount", n => { IssueRemediatedCumulativeDeviceCount = n.GetIntValue(); } },
+                { "issueRemediatedDeviceCount", n => { IssueRemediatedDeviceCount = n.GetIntValue(); } },
+                { "issueReoccurredDeviceCount", n => { IssueReoccurredDeviceCount = n.GetIntValue(); } },
+                { "lastScriptRunDateTime", n => { LastScriptRunDateTime = n.GetDateTimeOffsetValue(); } },
+                { "noIssueDetectedDeviceCount", n => { NoIssueDetectedDeviceCount = n.GetIntValue(); } },
+                { "remediationScriptErrorDeviceCount", n => { RemediationScriptErrorDeviceCount = n.GetIntValue(); } },
+                { "remediationSkippedDeviceCount", n => { RemediationSkippedDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

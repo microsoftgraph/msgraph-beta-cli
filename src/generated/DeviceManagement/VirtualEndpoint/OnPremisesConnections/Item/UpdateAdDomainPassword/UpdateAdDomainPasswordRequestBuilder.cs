@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword
+{
     /// <summary>
     /// Provides operations to call the updateAdDomainPassword method.
     /// </summary>
-    public class UpdateAdDomainPasswordRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateAdDomainPasswordRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the Active Directory domain password for a cloudPcOnPremisesConnection object. This API is supported when the type of the cloudPcOnPremisesConnection object is hybridAzureADJoin.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DriverUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable 
+    public class DriverUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the content.</summary>
@@ -84,13 +85,13 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"driverClass", n => { DriverClass = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"provider", n => { Provider = n.GetStringValue(); } },
-                {"setupInformationFile", n => { SetupInformationFile = n.GetStringValue(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
-                {"versionDateTime", n => { VersionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "driverClass", n => { DriverClass = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetStringValue(); } },
+                { "setupInformationFile", n => { SetupInformationFile = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
+                { "versionDateTime", n => { VersionDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

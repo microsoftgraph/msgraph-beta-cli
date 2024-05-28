@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Devices.Item.UsageRights {
+namespace ApiSdk.Devices.Item.UsageRights
+{
     /// <summary>
     /// Provides operations to manage the usageRights property of the microsoft.graph.device entity.
     /// </summary>
-    public class UsageRightsRequestBuilder : BaseCliRequestBuilder 
+    public class UsageRightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the usageRights property of the microsoft.graph.device entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Devices.Item.UsageRights {
             return command;
         }
         /// <summary>
-        /// Represents the usage rights a device has been granted.
+        /// Retrieve a list of usageRight objects for a given device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/device-list-usagerights?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the usage rights a device has been granted.";
+            command.Description = "Retrieve a list of usageRight objects for a given device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/device-list-usagerights?view=graph-rest-beta";
             var deviceIdOption = new Option<string>("--device-id", description: "The unique identifier of device") {
             };
             deviceIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Devices.Item.UsageRights {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Devices.Item.UsageRights {
         {
         }
         /// <summary>
-        /// Represents the usage rights a device has been granted.
+        /// Retrieve a list of usageRight objects for a given device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Devices.Item.UsageRights {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the usage rights a device has been granted.
+        /// Retrieve a list of usageRight objects for a given device.
         /// </summary>
         public class UsageRightsRequestBuilderGetQueryParameters 
         {

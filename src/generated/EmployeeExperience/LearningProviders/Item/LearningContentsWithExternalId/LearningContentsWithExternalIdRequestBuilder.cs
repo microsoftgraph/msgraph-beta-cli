@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithExternalId {
+namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithExternalId
+{
     /// <summary>
     /// Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
     /// </summary>
-    public class LearningContentsWithExternalIdRequestBuilder : BaseCliRequestBuilder 
+    public class LearningContentsWithExternalIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property learningContents for employeeExperience
+        /// Delete the specified learningContent resource that represents the metadata of the specified provider&apos;s ingested content.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property learningContents for employeeExperience";
+            command.Description = "Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return command;
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Learning catalog items for the provider.";
+            command.Description = "Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return command;
         }
         /// <summary>
-        /// Update the navigation property learningContents in employeeExperience
+        /// Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn&apos;t yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcontent-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property learningContents in employeeExperience";
+            command.Description = "Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn't yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcontent-update?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
         {
         }
         /// <summary>
-        /// Delete navigation property learningContents for employeeExperience
+        /// Delete the specified learningContent resource that represents the metadata of the specified provider&apos;s ingested content.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return requestInfo;
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property learningContents in employeeExperience
+        /// Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn&apos;t yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContentsWithE
             return requestInfo;
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get the specified learningContent resource which represents the metadata of the specified provider&apos;s ingested content.
         /// </summary>
         public class LearningContentsWithExternalIdRequestBuilderGetQueryParameters 
         {

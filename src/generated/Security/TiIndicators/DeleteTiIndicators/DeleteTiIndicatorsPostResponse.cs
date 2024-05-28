@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators {
+namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators
+{
     #pragma warning disable CS1591
-    public class DeleteTiIndicatorsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class DeleteTiIndicatorsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ResultInfo>(ResultInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ResultInfo>(ResultInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

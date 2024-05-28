@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatSubmission.EmailThreatSubmissionPolicies.Item {
+namespace ApiSdk.Security.ThreatSubmission.EmailThreatSubmissionPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class EmailThreatSubmissionPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmailThreatSubmissionPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property emailThreatSubmissionPolicies for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreatSubmissionPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Get emailThreatSubmissionPolicies from security
+        /// Read the properties and relationships of an emailThreatSubmissionPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-emailthreatsubmissionpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get emailThreatSubmissionPolicies from security";
+            command.Description = "Read the properties and relationships of an emailThreatSubmissionPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-emailthreatsubmissionpolicy-get?view=graph-rest-beta";
             var emailThreatSubmissionPolicyIdOption = new Option<string>("--email-threat-submission-policy-id", description: "The unique identifier of emailThreatSubmissionPolicy") {
             };
             emailThreatSubmissionPolicyIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreatSubmissionPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get emailThreatSubmissionPolicies from security
+        /// Read the properties and relationships of an emailThreatSubmissionPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.ThreatSubmission.EmailThreatSubmissionPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get emailThreatSubmissionPolicies from security
+        /// Read the properties and relationships of an emailThreatSubmissionPolicy object.
         /// </summary>
         public class EmailThreatSubmissionPolicyItemRequestBuilderGetQueryParameters 
         {

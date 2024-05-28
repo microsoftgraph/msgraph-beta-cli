@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item {
+namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceAppManagementTasks property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class DeviceAppManagementTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceAppManagementTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceAppManagementTasks for deviceAppManagement

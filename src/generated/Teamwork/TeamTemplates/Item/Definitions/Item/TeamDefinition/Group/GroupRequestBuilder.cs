@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Group {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Group
+{
     /// <summary>
     /// Provides operations to manage the group property of the microsoft.graph.team entity.
     /// </summary>
-    public class GroupRequestBuilder : BaseCliRequestBuilder 
+    public class GroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get group from teamwork

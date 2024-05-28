@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Plans.Item.Tasks.Delta {
+namespace ApiSdk.Planner.Plans.Item.Tasks.Delta
+{
     /// <summary>
     /// Provides operations to call the delta method.
     /// </summary>
-    public class DeltaRequestBuilder : BaseCliRequestBuilder 
+    public class DeltaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get newly created, updated, or deleted tasks in either a Planner plan or assigned to the signed-in user without having to perform a full read of the entire resource collection. For details, see Use delta query to track changes in Microsoft Graph data.
@@ -109,7 +110,9 @@ namespace ApiSdk.Planner.Plans.Item.Tasks.Delta {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

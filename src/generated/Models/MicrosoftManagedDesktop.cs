@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MicrosoftManagedDesktop : IAdditionalDataHolder, IParsable 
+    public class MicrosoftManagedDesktop : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
 #else
         public string Profile { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Indicates whether the provisioning policy enables Microsoft Managed Desktop and, if enabled, specifies the type of plan managing the device. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue. The type property is deprecated and will stop returning data on January 31, 2024. Going forward, use the managedType property.</summary>
         public MicrosoftManagedDesktopType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="MicrosoftManagedDesktop"/> and sets the default values.
@@ -56,10 +57,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"managedType", n => { ManagedType = n.GetEnumValue<MicrosoftManagedDesktopType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"profile", n => { Profile = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<MicrosoftManagedDesktopType>(); } },
+                { "managedType", n => { ManagedType = n.GetEnumValue<MicrosoftManagedDesktopType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "profile", n => { Profile = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<MicrosoftManagedDesktopType>(); } },
             };
         }
         /// <summary>

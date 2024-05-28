@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceRoleSettings.Item {
+namespace ApiSdk.GovernanceRoleSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of governanceRoleSetting entities.
     /// </summary>
-    public class GovernanceRoleSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from governanceRoleSettings

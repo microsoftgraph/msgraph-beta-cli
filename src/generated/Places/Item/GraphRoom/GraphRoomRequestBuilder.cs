@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Places.Item.GraphRoom {
+namespace ApiSdk.Places.Item.GraphRoom
+{
     /// <summary>
     /// Casts the previous resource to room.
     /// </summary>
-    public class GraphRoomRequestBuilder : BaseCliRequestBuilder 
+    public class GraphRoomRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get the item of type microsoft.graph.place as microsoft.graph.room
+        /// Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/place-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get the item of type microsoft.graph.place as microsoft.graph.room";
+            command.Description = "Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/place-list?view=graph-rest-beta";
             var placeIdOption = new Option<string>("--place-id", description: "The unique identifier of place") {
             };
             placeIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Places.Item.GraphRoom {
         {
         }
         /// <summary>
-        /// Get the item of type microsoft.graph.place as microsoft.graph.room
+        /// Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Places.Item.GraphRoom {
             return requestInfo;
         }
         /// <summary>
-        /// Get the item of type microsoft.graph.place as microsoft.graph.room
+        /// Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.
         /// </summary>
         public class GraphRoomRequestBuilderGetQueryParameters 
         {

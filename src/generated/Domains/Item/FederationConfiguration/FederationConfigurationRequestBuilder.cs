@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.FederationConfiguration {
+namespace ApiSdk.Domains.Item.FederationConfiguration
+{
     /// <summary>
     /// Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
     /// </summary>
-    public class FederationConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class FederationConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to federationConfiguration for domains
+        /// Create a new internalDomainFederation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to federationConfiguration for domains";
+            command.Description = "Create a new internalDomainFederation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
             return command;
         }
         /// <summary>
-        /// Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.
+        /// Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/domain-list-federationconfiguration?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.";
+            command.Description = "Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/domain-list-federationconfiguration?view=graph-rest-beta";
             var domainIdOption = new Option<string>("--domain-id", description: "The unique identifier of domain") {
             };
             domainIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
         {
         }
         /// <summary>
-        /// Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.
+        /// Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to federationConfiguration for domains
+        /// Create a new internalDomainFederation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.Domains.Item.FederationConfiguration {
             return requestInfo;
         }
         /// <summary>
-        /// Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.
+        /// Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection.
         /// </summary>
         public class FederationConfigurationRequestBuilderGetQueryParameters 
         {

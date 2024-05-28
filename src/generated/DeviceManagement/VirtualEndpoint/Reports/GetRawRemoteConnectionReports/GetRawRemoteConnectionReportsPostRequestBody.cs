@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports
+{
     #pragma warning disable CS1591
-    public class GetRawRemoteConnectionReportsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetRawRemoteConnectionReportsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -80,13 +81,13 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnection
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"filter", n => { Filter = n.GetStringValue(); } },
-                {"groupBy", n => { GroupBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"search", n => { Search = n.GetStringValue(); } },
-                {"select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"skip", n => { Skip = n.GetIntValue(); } },
-                {"top", n => { Top = n.GetIntValue(); } },
+                { "filter", n => { Filter = n.GetStringValue(); } },
+                { "groupBy", n => { GroupBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "search", n => { Search = n.GetStringValue(); } },
+                { "select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "skip", n => { Skip = n.GetIntValue(); } },
+                { "top", n => { Top = n.GetIntValue(); } },
             };
         }
         /// <summary>

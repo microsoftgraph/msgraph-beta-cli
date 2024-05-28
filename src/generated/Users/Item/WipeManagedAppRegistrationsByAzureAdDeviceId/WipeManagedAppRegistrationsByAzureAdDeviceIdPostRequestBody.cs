@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByAzureAdDeviceId {
+namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByAzureAdDeviceId
+{
     #pragma warning disable CS1591
-    public class WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByAzureAdDeviceId {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
+                { "azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

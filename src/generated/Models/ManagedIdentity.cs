@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ManagedIdentity : IAdditionalDataHolder, IParsable 
+    public class ManagedIdentity : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"associatedResourceId", n => { AssociatedResourceId = n.GetStringValue(); } },
-                {"federatedTokenId", n => { FederatedTokenId = n.GetStringValue(); } },
-                {"federatedTokenIssuer", n => { FederatedTokenIssuer = n.GetStringValue(); } },
-                {"msiType", n => { MsiType = n.GetEnumValue<MsiType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "associatedResourceId", n => { AssociatedResourceId = n.GetStringValue(); } },
+                { "federatedTokenId", n => { FederatedTokenId = n.GetStringValue(); } },
+                { "federatedTokenIssuer", n => { FederatedTokenIssuer = n.GetStringValue(); } },
+                { "msiType", n => { MsiType = n.GetEnumValue<MsiType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

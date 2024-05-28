@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes a dependency type between two mobile apps.
     /// </summary>
-    public class MobileAppDependency : MobileAppRelationship, IParsable 
+    public class MobileAppDependency : MobileAppRelationship, IParsable
     {
         /// <summary>Indicates the dependency type associated with a relationship between two mobile apps.</summary>
         public MobileAppDependencyType? DependencyType { get; set; }
@@ -41,9 +42,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dependencyType", n => { DependencyType = n.GetEnumValue<MobileAppDependencyType>(); } },
-                {"dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
-                {"dependsOnAppCount", n => { DependsOnAppCount = n.GetIntValue(); } },
+                { "dependencyType", n => { DependencyType = n.GetEnumValue<MobileAppDependencyType>(); } },
+                { "dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
+                { "dependsOnAppCount", n => { DependsOnAppCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

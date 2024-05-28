@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UnsupportedGroupPolicyExtensions.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UnsupportedGroupPolicyExtensions.Item
+{
     /// <summary>
     /// Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
     /// </summary>
-    public class UnsupportedGroupPolicyExtensionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnsupportedGroupPolicyExtensionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property unsupportedGroupPolicyExtensions for deviceManagement

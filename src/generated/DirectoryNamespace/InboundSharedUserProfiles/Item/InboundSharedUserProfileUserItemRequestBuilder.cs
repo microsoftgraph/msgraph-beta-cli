@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item {
+namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
     /// </summary>
-    public class InboundSharedUserProfileUserItemRequestBuilder : BaseCliRequestBuilder 
+    public class InboundSharedUserProfileUserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property inboundSharedUserProfiles for directory
@@ -75,13 +76,14 @@ namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
+        /// Read the properties of an inboundSharedUserProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/inboundshareduserprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.";
+            command.Description = "Read the properties of an inboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/inboundshareduserprofile-get?view=graph-rest-beta";
             var inboundSharedUserProfileUserIdOption = new Option<string>("--inbound-shared-user-profile-user-id", description: "The unique identifier of inboundSharedUserProfile") {
             };
             inboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -228,7 +230,7 @@ namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
+        /// Read the properties of an inboundSharedUserProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +270,7 @@ namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
+        /// Read the properties of an inboundSharedUserProfile.
         /// </summary>
         public class InboundSharedUserProfileUserItemRequestBuilderGetQueryParameters 
         {

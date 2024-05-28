@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Alerts_v2.Item {
+namespace ApiSdk.Security.Alerts_v2.Item
+{
     /// <summary>
     /// Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
     /// </summary>
-    public class AlertItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The comments property
@@ -80,13 +81,14 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return command;
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get the properties and relationships of an alert object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of alerts in Microsoft 365 Defender.";
+            command.Description = "Get the properties and relationships of an alert object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-beta";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -132,13 +134,14 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property alerts_v2 in security
+        /// Update the properties of an alert object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-alert-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property alerts_v2 in security";
+            command.Description = "Update the properties of an alert object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-alert-update?view=graph-rest-beta";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -216,7 +219,7 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get the properties and relationships of an alert object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -235,7 +238,7 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property alerts_v2 in security
+        /// Update the properties of an alert object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,7 +259,7 @@ namespace ApiSdk.Security.Alerts_v2.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get the properties and relationships of an alert object.
         /// </summary>
         public class AlertItemRequestBuilderGetQueryParameters 
         {

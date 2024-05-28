@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsRole : AwsIdentity, IParsable 
+    public class AwsRole : AwsIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The roleType property</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"roleType", n => { RoleType = n.GetEnumValue<AwsRoleType>(); } },
-                {"trustEntityType", n => { TrustEntityType = n.GetEnumValue<AwsRoleTrustEntityType>(); } },
+                { "roleType", n => { RoleType = n.GetEnumValue<AwsRoleType>(); } },
+                { "trustEntityType", n => { TrustEntityType = n.GetEnumValue<AwsRoleTrustEntityType>(); } },
             };
         }
         /// <summary>

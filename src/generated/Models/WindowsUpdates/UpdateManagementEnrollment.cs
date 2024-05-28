@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class UpdateManagementEnrollment : UpdatableAssetEnrollment, IParsable 
+    public class UpdateManagementEnrollment : UpdatableAssetEnrollment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The updateCategory property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
             };
         }
         /// <summary>

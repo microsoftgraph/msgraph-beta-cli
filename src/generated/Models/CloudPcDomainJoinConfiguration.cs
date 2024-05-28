@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcDomainJoinConfiguration : IAdditionalDataHolder, IParsable 
+    public class CloudPcDomainJoinConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,7 +40,7 @@ namespace ApiSdk.Models {
 #else
         public string RegionName { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave regionName as empty. If you choose the azureADJoin type, provide a value for either onPremisesConnectionId or regionName. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue. The type property is deprecated and will stop returning data on January 31, 2024. Going forward, use the domainJoinType property.</summary>
         public CloudPcDomainJoinType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="CloudPcDomainJoinConfiguration"/> and sets the default values.
@@ -66,12 +67,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"domainJoinType", n => { DomainJoinType = n.GetEnumValue<CloudPcDomainJoinType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"onPremisesConnectionId", n => { OnPremisesConnectionId = n.GetStringValue(); } },
-                {"regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
-                {"regionName", n => { RegionName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<CloudPcDomainJoinType>(); } },
+                { "domainJoinType", n => { DomainJoinType = n.GetEnumValue<CloudPcDomainJoinType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "onPremisesConnectionId", n => { OnPremisesConnectionId = n.GetStringValue(); } },
+                { "regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
+                { "regionName", n => { RegionName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<CloudPcDomainJoinType>(); } },
             };
         }
         /// <summary>

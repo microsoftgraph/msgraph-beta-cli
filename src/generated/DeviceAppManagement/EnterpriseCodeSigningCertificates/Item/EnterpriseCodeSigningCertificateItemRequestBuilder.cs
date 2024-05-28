@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.EnterpriseCodeSigningCertificates.Item {
+namespace ApiSdk.DeviceAppManagement.EnterpriseCodeSigningCertificates.Item
+{
     /// <summary>
     /// Provides operations to manage the enterpriseCodeSigningCertificates property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class EnterpriseCodeSigningCertificateItemRequestBuilder : BaseCliRequestBuilder 
+    public class EnterpriseCodeSigningCertificateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property enterpriseCodeSigningCertificates for deviceAppManagement

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.CustodianSources {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.CustodianSources
+{
     /// <summary>
     /// Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
     /// </summary>
-    public class CustodianSourcesRequestBuilder : BaseCliRequestBuilder 
+    public class CustodianSourcesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -145,7 +146,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.CustodianSour
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InformationProtectionPolicy : Entity, IParsable 
+    public class InformationProtectionPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The labels property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"labels", n => { Labels = n.GetCollectionOfObjectValues<InformationProtectionLabel>(InformationProtectionLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<InformationProtectionLabel>(InformationProtectionLabel.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

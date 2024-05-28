@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Postpone {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Postpone
+{
     /// <summary>
     /// Provides operations to call the postpone method.
     /// </summary>
-    public class PostponeRequestBuilder : BaseCliRequestBuilder 
+    public class PostponeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Postpone action on a recommendation object to a specified future date and time by marking its status as postponed. On the date and time provided, Microsoft Entra ID will automatically update the status of the recommendation object to active again.

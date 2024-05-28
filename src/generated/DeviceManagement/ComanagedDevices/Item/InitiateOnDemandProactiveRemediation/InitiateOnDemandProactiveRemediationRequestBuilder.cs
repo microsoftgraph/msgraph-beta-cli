@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.InitiateOnDemandProactiveRemediation {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.InitiateOnDemandProactiveRemediation
+{
     /// <summary>
     /// Provides operations to call the initiateOnDemandProactiveRemediation method.
     /// </summary>
-    public class InitiateOnDemandProactiveRemediationRequestBuilder : BaseCliRequestBuilder 
+    public class InitiateOnDemandProactiveRemediationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Perform On Demand Proactive Remediation

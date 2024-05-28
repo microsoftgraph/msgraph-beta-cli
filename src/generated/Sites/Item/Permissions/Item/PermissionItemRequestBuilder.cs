@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Permissions.Item {
+namespace ApiSdk.Sites.Item.Permissions.Item
+{
     /// <summary>
     /// Provides operations to manage the permissions property of the microsoft.graph.site entity.
     /// </summary>
-    public class PermissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property permissions for sites
@@ -64,13 +65,14 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return command;
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The permissions associated with the site. Nullable.";
+            command.Description = "Retrieve the properties and relationships of a permission object on a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -139,13 +141,14 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property permissions in sites
+        /// Update the permission object on a site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property permissions in sites";
+            command.Description = "Update the permission object on a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -246,7 +249,7 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +268,7 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property permissions in sites
+        /// Update the permission object on a site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -286,7 +289,7 @@ namespace ApiSdk.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
         public class PermissionItemRequestBuilderGetQueryParameters 
         {

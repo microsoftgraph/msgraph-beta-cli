@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.VirtualEvents.Webinars.Item {
+namespace ApiSdk.Users.Item.VirtualEvents.Webinars.Item
+{
     /// <summary>
     /// Provides operations to manage the webinars property of the microsoft.graph.userVirtualEventsRoot entity.
     /// </summary>
-    public class VirtualEventWebinarItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventWebinarItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get webinars from users

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsUpdateAlertSummaryReport method.
     /// </summary>
-    public class GetWindowsUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsUpdateAlertSummaryReport

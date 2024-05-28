@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageTraces.Item {
+namespace ApiSdk.MessageTraces.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of messageTrace entities.
     /// </summary>
-    public class MessageTraceItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageTraceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from messageTraces

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class IpEvidence : AlertEvidence, IParsable 
+    public class IpEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The two-letter country code according to ISO 3166 format, for example: US, UK, or CA.).</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"location", n => { Location = n.GetObjectValue<GeoLocation>(GeoLocation.CreateFromDiscriminatorValue); } },
-                {"stream", n => { Stream = n.GetObjectValue<StreamObject>(StreamObject.CreateFromDiscriminatorValue); } },
+                { "countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "location", n => { Location = n.GetObjectValue<GeoLocation>(GeoLocation.CreateFromDiscriminatorValue); } },
+                { "stream", n => { Stream = n.GetObjectValue<StreamObject>(StreamObject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

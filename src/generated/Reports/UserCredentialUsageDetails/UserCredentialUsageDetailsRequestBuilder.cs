@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserCredentialUsageDetails {
+namespace ApiSdk.Reports.UserCredentialUsageDetails
+{
     /// <summary>
     /// Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class UserCredentialUsageDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class UserCredentialUsageDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
             return command;
         }
         /// <summary>
-        /// Represents the self-service password reset (SSPR) usage for a given tenant.
+        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the self-service password reset (SSPR) usage for a given tenant.";
+            command.Description = "Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
         {
         }
         /// <summary>
-        /// Represents the self-service password reset (SSPR) usage for a given tenant.
+        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Reports.UserCredentialUsageDetails {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the self-service password reset (SSPR) usage for a given tenant.
+        /// Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
         /// </summary>
         public class UserCredentialUsageDetailsRequestBuilderGetQueryParameters 
         {

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item
+{
     /// <summary>
     /// Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementActions for tenantRelationships
@@ -57,13 +58,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item {
             return command;
         }
         /// <summary>
-        /// The collection of baseline management actions across managed tenants.
+        /// Read the properties and relationships of a managementAction object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementaction-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of baseline management actions across managed tenants.";
+            command.Description = "Read the properties and relationships of a managementAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementaction-get?view=graph-rest-beta";
             var managementActionIdOption = new Option<string>("--management-action-id", description: "The unique identifier of managementAction") {
             };
             managementActionIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management actions across managed tenants.
+        /// Read the properties and relationships of a managementAction object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management actions across managed tenants.
+        /// Read the properties and relationships of a managementAction object.
         /// </summary>
         public class ManagementActionItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class UnifiedGroupSource : DataSource, IParsable 
+    public class UnifiedGroupSource : DataSource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The group property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"group", n => { Group = n.GetObjectValue<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue); } },
-                {"includedSources", n => { IncludedSources = n.GetEnumValue<SourceType>(); } },
+                { "group", n => { Group = n.GetObjectValue<ApiSdk.Models.Group>(ApiSdk.Models.Group.CreateFromDiscriminatorValue); } },
+                { "includedSources", n => { IncludedSources = n.GetEnumValue<SourceType>(); } },
             };
         }
         /// <summary>

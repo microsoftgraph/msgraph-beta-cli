@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphWinGetApp {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphWinGetApp
+{
     /// <summary>
     /// Casts the previous resource to winGetApp.
     /// </summary>
-    public class GraphWinGetAppRequestBuilder : BaseCliRequestBuilder 
+    public class GraphWinGetAppRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

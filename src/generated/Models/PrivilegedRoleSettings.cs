@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrivilegedRoleSettings : Entity, IParsable 
+    public class PrivilegedRoleSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The approvalOnElevation property</summary>
@@ -53,16 +54,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"approvalOnElevation", n => { ApprovalOnElevation = n.GetBoolValue(); } },
-                {"approverIds", n => { ApproverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"elevationDuration", n => { ElevationDuration = n.GetTimeSpanValue(); } },
-                {"isMfaOnElevationConfigurable", n => { IsMfaOnElevationConfigurable = n.GetBoolValue(); } },
-                {"lastGlobalAdmin", n => { LastGlobalAdmin = n.GetBoolValue(); } },
-                {"maxElavationDuration", n => { MaxElavationDuration = n.GetTimeSpanValue(); } },
-                {"mfaOnElevation", n => { MfaOnElevation = n.GetBoolValue(); } },
-                {"minElevationDuration", n => { MinElevationDuration = n.GetTimeSpanValue(); } },
-                {"notificationToUserOnElevation", n => { NotificationToUserOnElevation = n.GetBoolValue(); } },
-                {"ticketingInfoOnElevation", n => { TicketingInfoOnElevation = n.GetBoolValue(); } },
+                { "approvalOnElevation", n => { ApprovalOnElevation = n.GetBoolValue(); } },
+                { "approverIds", n => { ApproverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "elevationDuration", n => { ElevationDuration = n.GetTimeSpanValue(); } },
+                { "isMfaOnElevationConfigurable", n => { IsMfaOnElevationConfigurable = n.GetBoolValue(); } },
+                { "lastGlobalAdmin", n => { LastGlobalAdmin = n.GetBoolValue(); } },
+                { "maxElavationDuration", n => { MaxElavationDuration = n.GetTimeSpanValue(); } },
+                { "mfaOnElevation", n => { MfaOnElevation = n.GetBoolValue(); } },
+                { "minElevationDuration", n => { MinElevationDuration = n.GetTimeSpanValue(); } },
+                { "notificationToUserOnElevation", n => { NotificationToUserOnElevation = n.GetBoolValue(); } },
+                { "ticketingInfoOnElevation", n => { TicketingInfoOnElevation = n.GetBoolValue(); } },
             };
         }
         /// <summary>

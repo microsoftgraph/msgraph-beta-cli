@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Endpoint : DirectoryObject, IParsable 
+    public class Endpoint : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Describes the capability that is associated with this resource. (for example, Messages, Conversations, etc.) Not nullable. Read-only.</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"capability", n => { Capability = n.GetStringValue(); } },
-                {"providerId", n => { ProviderId = n.GetStringValue(); } },
-                {"providerName", n => { ProviderName = n.GetStringValue(); } },
-                {"providerResourceId", n => { ProviderResourceId = n.GetStringValue(); } },
-                {"uri", n => { Uri = n.GetStringValue(); } },
+                { "capability", n => { Capability = n.GetStringValue(); } },
+                { "providerId", n => { ProviderId = n.GetStringValue(); } },
+                { "providerName", n => { ProviderName = n.GetStringValue(); } },
+                { "providerResourceId", n => { ProviderResourceId = n.GetStringValue(); } },
+                { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
         /// <summary>

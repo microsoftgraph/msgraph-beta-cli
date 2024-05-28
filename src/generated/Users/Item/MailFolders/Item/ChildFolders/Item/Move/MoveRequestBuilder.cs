@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Move {
+namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Move
+{
     /// <summary>
     /// Provides operations to call the move method.
     /// </summary>
-    public class MoveRequestBuilder : BaseCliRequestBuilder 
+    public class MoveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Move a mail folder and its contents to another mail folder.

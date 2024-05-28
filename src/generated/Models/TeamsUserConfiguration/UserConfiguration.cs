@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.TeamsUserConfiguration {
+namespace ApiSdk.Models.TeamsUserConfiguration
+{
     #pragma warning disable CS1591
-    public class UserConfiguration : ApiSdk.Models.Entity, IParsable 
+    public class UserConfiguration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The binaryData property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.TeamsUserConfiguration {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"binaryData", n => { BinaryData = n.GetByteArrayValue(); } },
+                { "binaryData", n => { BinaryData = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.SensitivityLabels.Item.Sublabels.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.SensitivityLabels.Item.Sublabels.Item
+{
     /// <summary>
     /// Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
     /// </summary>
-    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder 
+    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sublabels for groups

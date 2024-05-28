@@ -34,11 +34,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item {
+namespace ApiSdk.Communications.Calls.Item
+{
     /// <summary>
     /// Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class CallItemRequestBuilder : BaseCliRequestBuilder 
+    public class CallItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addLargeGalleryView method.
@@ -163,13 +164,14 @@ namespace ApiSdk.Communications.Calls.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property calls for communications";
+            command.Description = "Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -198,13 +200,14 @@ namespace ApiSdk.Communications.Calls.Item {
             return command;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get calls from communications";
+            command.Description = "Retrieve the properties and relationships of a call object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-get?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -575,7 +578,7 @@ namespace ApiSdk.Communications.Calls.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -594,7 +597,7 @@ namespace ApiSdk.Communications.Calls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -634,7 +637,7 @@ namespace ApiSdk.Communications.Calls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         public class CallItemRequestBuilderGetQueryParameters 
         {

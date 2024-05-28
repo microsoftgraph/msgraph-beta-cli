@@ -13,18 +13,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig
+{
     /// <summary>
     /// Provides operations to call the applyConfig method.
     /// </summary>
-    public class ApplyConfigRequestBuilder : BaseCliRequestBuilder 
+    public class ApplyConfigRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
         public Command BuildPostCommand()
         {
             var command = new Command("post");
@@ -76,7 +76,6 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("The onPremisesConnectionId property is deprecated and will stop returning on July 30, 2023. as of 2023-03/onPremisesConnectionId")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(ApplyConfigPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

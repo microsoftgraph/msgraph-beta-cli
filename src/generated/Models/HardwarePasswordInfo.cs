@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices.
     /// </summary>
-    public class HardwarePasswordInfo : Entity, IParsable 
+    public class HardwarePasswordInfo : Entity, IParsable
     {
         /// <summary>Current device password</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"currentPassword", n => { CurrentPassword = n.GetStringValue(); } },
-                {"previousPasswords", n => { PreviousPasswords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                { "currentPassword", n => { CurrentPassword = n.GetStringValue(); } },
+                { "previousPasswords", n => { PreviousPasswords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Bundle : IAdditionalDataHolder, IParsable 
+    public class Bundle : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"album", n => { Album = n.GetObjectValue<ApiSdk.Models.Album>(ApiSdk.Models.Album.CreateFromDiscriminatorValue); } },
-                {"childCount", n => { ChildCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "album", n => { Album = n.GetObjectValue<ApiSdk.Models.Album>(ApiSdk.Models.Album.CreateFromDiscriminatorValue); } },
+                { "childCount", n => { ChildCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

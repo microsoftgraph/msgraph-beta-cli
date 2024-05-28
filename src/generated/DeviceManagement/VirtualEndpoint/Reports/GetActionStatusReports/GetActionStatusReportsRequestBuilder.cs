@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetActionStatusReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetActionStatusReports
+{
     /// <summary>
     /// Provides operations to call the getActionStatusReports method.
     /// </summary>
-    public class GetActionStatusReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetActionStatusReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the remote action status reports, including data such as the Cloud PC ID, Cloud PC device display name, initiating user&apos;s principal name, device owner&apos;s user principal name, action taken, and action state.

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item {
+namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item
+{
     /// <summary>
     /// Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
     /// </summary>
-    public class ServiceAnnouncementAttachmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceAnnouncementAttachmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the admin entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item {
             command.Description = "Provides operations to manage the media for the admin entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -81,13 +83,14 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item {
             return command;
         }
         /// <summary>
-        /// A collection of serviceAnnouncementAttachments.
+        /// Read the properties and relationships of a serviceAnnouncementAttachment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of serviceAnnouncementAttachments.";
+            command.Description = "Read the properties and relationships of a serviceAnnouncementAttachment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-beta";
             var serviceUpdateMessageIdOption = new Option<string>("--service-update-message-id", description: "The unique identifier of serviceUpdateMessage") {
             };
             serviceUpdateMessageIdOption.IsRequired = true;
@@ -229,7 +232,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of serviceAnnouncementAttachments.
+        /// Read the properties and relationships of a serviceAnnouncementAttachment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -269,7 +272,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of serviceAnnouncementAttachments.
+        /// Read the properties and relationships of a serviceAnnouncementAttachment object.
         /// </summary>
         public class ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsSource : AuthorizationSystemIdentitySource, IParsable 
+    public class AwsSource : AuthorizationSystemIdentitySource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>AWS account ID.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountId", n => { AccountId = n.GetStringValue(); } },
+                { "accountId", n => { AccountId = n.GetStringValue(); } },
             };
         }
         /// <summary>

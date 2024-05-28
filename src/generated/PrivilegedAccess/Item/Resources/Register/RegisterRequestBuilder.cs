@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Register {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Register
+{
     /// <summary>
     /// Provides operations to call the register method.
     /// </summary>
-    public class RegisterRequestBuilder : BaseCliRequestBuilder 
+    public class RegisterRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action register

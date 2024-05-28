@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
+namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants
+{
     /// <summary>
     /// Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
     /// </summary>
-    public class TenantsRequestBuilder : BaseCliRequestBuilder 
+    public class TenantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
             return command;
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// List the tenant references of an outboundSharedUserProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outboundshareduserprofile-list-tenants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.";
+            command.Description = "List the tenant references of an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outboundshareduserprofile-list-tenants?view=graph-rest-beta";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
         {
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// List the tenant references of an outboundSharedUserProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// List the tenant references of an outboundSharedUserProfile.
         /// </summary>
         public class TenantsRequestBuilderGetQueryParameters 
         {

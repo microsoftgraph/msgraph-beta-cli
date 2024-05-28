@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.OnlineMeetings.Item.Registration {
+namespace ApiSdk.App.OnlineMeetings.Item.Registration
+{
     /// <summary>
     /// Provides operations to manage the registration property of the microsoft.graph.onlineMeeting entity.
     /// </summary>
-    public class RegistrationRequestBuilder : BaseCliRequestBuilder 
+    public class RegistrationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.

@@ -2,7 +2,6 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Reports.UserInsights.Daily.ActiveUsers;
-using ApiSdk.Reports.UserInsights.Daily.ActiveUsersBreakdown;
 using ApiSdk.Reports.UserInsights.Daily.Authentications;
 using ApiSdk.Reports.UserInsights.Daily.InactiveUsers;
 using ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication;
@@ -23,38 +22,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily {
+namespace ApiSdk.Reports.UserInsights.Daily
+{
     /// <summary>
     /// Provides operations to manage the daily property of the microsoft.graph.userInsightsRoot entity.
     /// </summary>
-    public class DailyRequestBuilder : BaseCliRequestBuilder 
+    public class DailyRequestBuilder : BaseCliRequestBuilder
     {
-        /// <summary>
-        /// Provides operations to manage the activeUsersBreakdown property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
-        /// </summary>
-        /// <returns>A <see cref="Command"/></returns>
-        public Command BuildActiveUsersBreakdownNavCommand()
-        {
-            var command = new Command("active-users-breakdown");
-            command.Description = "Provides operations to manage the activeUsersBreakdown property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new ActiveUsersBreakdownRequestBuilder(PathParameters);
-            var execCommands = new List<Command>();
-            var nonExecCommands = new List<Command>();
-            nonExecCommands.Add(builder.BuildCountNavCommand());
-            execCommands.Add(builder.BuildListCommand());
-            var cmds = builder.BuildCommand();
-            execCommands.AddRange(cmds.Item1);
-            nonExecCommands.AddRange(cmds.Item2);
-            foreach (var cmd in execCommands)
-            {
-                command.AddCommand(cmd);
-            }
-            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
-            {
-                command.AddCommand(cmd);
-            }
-            return command;
-        }
         /// <summary>
         /// Provides operations to manage the activeUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
         /// </summary>

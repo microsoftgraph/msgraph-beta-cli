@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.PermissionsCreepIndexDistributions {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.PermissionsCreepIndexDistributions
+{
     /// <summary>
     /// Provides operations to manage the permissionsCreepIndexDistributions property of the microsoft.graph.permissionsAnalytics entity.
     /// </summary>
-    public class PermissionsCreepIndexDistributionsRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsCreepIndexDistributionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the permissionsCreepIndexDistributions property of the microsoft.graph.permissionsAnalytics entity.
@@ -182,7 +183,9 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.PermissionsCreepInd
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

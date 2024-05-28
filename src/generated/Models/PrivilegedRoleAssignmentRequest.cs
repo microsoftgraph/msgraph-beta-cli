@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrivilegedRoleAssignmentRequest : Entity, IParsable 
+    public class PrivilegedRoleAssignmentRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The assignmentState property</summary>
@@ -117,18 +118,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentState", n => { AssignmentState = n.GetStringValue(); } },
-                {"duration", n => { Duration = n.GetStringValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleId", n => { RoleId = n.GetStringValue(); } },
-                {"roleInfo", n => { RoleInfo = n.GetObjectValue<PrivilegedRole>(PrivilegedRole.CreateFromDiscriminatorValue); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"ticketNumber", n => { TicketNumber = n.GetStringValue(); } },
-                {"ticketSystem", n => { TicketSystem = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "assignmentState", n => { AssignmentState = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleId", n => { RoleId = n.GetStringValue(); } },
+                { "roleInfo", n => { RoleInfo = n.GetObjectValue<PrivilegedRole>(PrivilegedRole.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "ticketNumber", n => { TicketNumber = n.GetStringValue(); } },
+                { "ticketSystem", n => { TicketSystem = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

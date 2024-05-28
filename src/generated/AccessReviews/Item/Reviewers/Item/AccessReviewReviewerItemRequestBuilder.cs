@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Reviewers.Item {
+namespace ApiSdk.AccessReviews.Item.Reviewers.Item
+{
     /// <summary>
     /// Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class AccessReviewReviewerItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewReviewerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property reviewers for accessReviews
+        /// In the Microsoft Entra access reviews feature, update an existing accessReview object to remove a user as a reviewer.  This operation is only permitted for an access review that isn&apos;t yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn&apos;t permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accessreview-removereviewer?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property reviewers for accessReviews";
+            command.Description = "In the Microsoft Entra access reviews feature, update an existing accessReview object to remove a user as a reviewer.  This operation is only permitted for an access review that isn't yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn't permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accessreview-removereviewer?view=graph-rest-beta";
             var accessReviewIdOption = new Option<string>("--access-review-id", description: "The unique identifier of accessReview") {
             };
             accessReviewIdOption.IsRequired = true;
@@ -191,7 +193,7 @@ namespace ApiSdk.AccessReviews.Item.Reviewers.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property reviewers for accessReviews
+        /// In the Microsoft Entra access reviews feature, update an existing accessReview object to remove a user as a reviewer.  This operation is only permitted for an access review that isn&apos;t yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn&apos;t permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

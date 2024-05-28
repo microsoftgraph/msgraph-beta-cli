@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Events.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Events.Item
+{
     /// <summary>
     /// Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.
     /// </summary>
-    public class VirtualEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

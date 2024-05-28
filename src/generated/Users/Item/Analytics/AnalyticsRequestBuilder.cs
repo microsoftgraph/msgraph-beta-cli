@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Analytics {
+namespace ApiSdk.Users.Item.Analytics
+{
     /// <summary>
     /// Provides operations to manage the analytics property of the microsoft.graph.user entity.
     /// </summary>
-    public class AnalyticsRequestBuilder : BaseCliRequestBuilder 
+    public class AnalyticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.

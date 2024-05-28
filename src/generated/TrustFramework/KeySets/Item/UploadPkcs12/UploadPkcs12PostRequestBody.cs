@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12 {
+namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12
+{
     #pragma warning disable CS1591
-    public class UploadPkcs12PostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UploadPkcs12PostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12 {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"key", n => { Key = n.GetStringValue(); } },
-                {"password", n => { Password = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetStringValue(); } },
+                { "password", n => { Password = n.GetStringValue(); } },
             };
         }
         /// <summary>

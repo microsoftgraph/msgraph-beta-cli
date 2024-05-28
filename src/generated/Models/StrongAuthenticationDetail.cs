@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class StrongAuthenticationDetail : Entity, IParsable 
+    public class StrongAuthenticationDetail : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The encryptedPinHashHistory property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"encryptedPinHashHistory", n => { EncryptedPinHashHistory = n.GetByteArrayValue(); } },
-                {"proofupTime", n => { ProofupTime = n.GetLongValue(); } },
+                { "encryptedPinHashHistory", n => { EncryptedPinHashHistory = n.GetByteArrayValue(); } },
+                { "proofupTime", n => { ProofupTime = n.GetLongValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AlertTemplate : IAdditionalDataHolder, IParsable 
+    public class AlertTemplate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"category", n => { Category = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"impactedAssets", n => { ImpactedAssets = n.GetCollectionOfObjectValues<ImpactedAsset>(ImpactedAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"mitreTechniques", n => { MitreTechniques = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"recommendedActions", n => { RecommendedActions = n.GetStringValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "impactedAssets", n => { ImpactedAssets = n.GetCollectionOfObjectValues<ImpactedAsset>(ImpactedAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mitreTechniques", n => { MitreTechniques = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "recommendedActions", n => { RecommendedActions = n.GetStringValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>

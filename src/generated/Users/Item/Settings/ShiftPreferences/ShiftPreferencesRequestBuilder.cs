@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
+namespace ApiSdk.Users.Item.Settings.ShiftPreferences
+{
     /// <summary>
     /// Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class ShiftPreferencesRequestBuilder : BaseCliRequestBuilder 
+    public class ShiftPreferencesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property shiftPreferences for users
@@ -56,13 +57,14 @@ namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
             return command;
         }
         /// <summary>
-        /// The shift preferences for the user.
+        /// Retrieve the properties and relationships of a shiftPreferences object by ID.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The shift preferences for the user.";
+            command.Description = "Retrieve the properties and relationships of a shiftPreferences object by ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
             return command;
         }
         /// <summary>
-        /// Update the navigation property shiftPreferences in users
+        /// Update the properties and relationships of a shiftPreferences object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property shiftPreferences in users";
+            command.Description = "Update the properties and relationships of a shiftPreferences object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
             return requestInfo;
         }
         /// <summary>
-        /// The shift preferences for the user.
+        /// Retrieve the properties and relationships of a shiftPreferences object by ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property shiftPreferences in users
+        /// Update the properties and relationships of a shiftPreferences object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Users.Item.Settings.ShiftPreferences {
             return requestInfo;
         }
         /// <summary>
-        /// The shift preferences for the user.
+        /// Retrieve the properties and relationships of a shiftPreferences object by ID.
         /// </summary>
         public class ShiftPreferencesRequestBuilderGetQueryParameters 
         {

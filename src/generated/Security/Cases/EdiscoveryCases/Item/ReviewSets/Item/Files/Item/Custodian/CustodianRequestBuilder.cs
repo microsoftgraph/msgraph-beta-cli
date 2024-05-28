@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item.Custodian {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item.Custodian
+{
     /// <summary>
     /// Provides operations to manage the custodian property of the microsoft.graph.security.ediscoveryFile entity.
     /// </summary>
-    public class CustodianRequestBuilder : BaseCliRequestBuilder 
+    public class CustodianRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Custodians associated with the file.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Teamwork : Entity, IParsable 
+    public class Teamwork : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of deleted chats.</summary>
@@ -85,14 +86,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deletedChats", n => { DeletedChats = n.GetCollectionOfObjectValues<DeletedChat>(DeletedChat.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deletedTeams", n => { DeletedTeams = n.GetCollectionOfObjectValues<DeletedTeam>(DeletedTeam.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"devices", n => { Devices = n.GetCollectionOfObjectValues<TeamworkDevice>(TeamworkDevice.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isTeamsEnabled", n => { IsTeamsEnabled = n.GetBoolValue(); } },
-                {"region", n => { Region = n.GetStringValue(); } },
-                {"teamTemplates", n => { TeamTemplates = n.GetCollectionOfObjectValues<TeamTemplate>(TeamTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"teamsAppSettings", n => { TeamsAppSettings = n.GetObjectValue<ApiSdk.Models.TeamsAppSettings>(ApiSdk.Models.TeamsAppSettings.CreateFromDiscriminatorValue); } },
-                {"workforceIntegrations", n => { WorkforceIntegrations = n.GetCollectionOfObjectValues<WorkforceIntegration>(WorkforceIntegration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedChats", n => { DeletedChats = n.GetCollectionOfObjectValues<DeletedChat>(DeletedChat.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedTeams", n => { DeletedTeams = n.GetCollectionOfObjectValues<DeletedTeam>(DeletedTeam.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "devices", n => { Devices = n.GetCollectionOfObjectValues<TeamworkDevice>(TeamworkDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isTeamsEnabled", n => { IsTeamsEnabled = n.GetBoolValue(); } },
+                { "region", n => { Region = n.GetStringValue(); } },
+                { "teamTemplates", n => { TeamTemplates = n.GetCollectionOfObjectValues<TeamTemplate>(TeamTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "teamsAppSettings", n => { TeamsAppSettings = n.GetObjectValue<ApiSdk.Models.TeamsAppSettings>(ApiSdk.Models.TeamsAppSettings.CreateFromDiscriminatorValue); } },
+                { "workforceIntegrations", n => { WorkforceIntegrations = n.GetCollectionOfObjectValues<WorkforceIntegration>(WorkforceIntegration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

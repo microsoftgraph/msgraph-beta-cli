@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the package information for a Windows line of business app. Used as property within windowsPhone81AppXBundle object, which is also being deprecated. This complex type will be deprecated in February 2023.
     /// </summary>
-    public class WindowsPackageInformation : IAdditionalDataHolder, IParsable 
+    public class WindowsPackageInformation : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -95,14 +96,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applicableArchitecture", n => { ApplicableArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"identityName", n => { IdentityName = n.GetStringValue(); } },
-                {"identityPublisher", n => { IdentityPublisher = n.GetStringValue(); } },
-                {"identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
-                {"identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                {"minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "applicableArchitecture", n => { ApplicableArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "identityName", n => { IdentityName = n.GetStringValue(); } },
+                { "identityPublisher", n => { IdentityPublisher = n.GetStringValue(); } },
+                { "identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
+                { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

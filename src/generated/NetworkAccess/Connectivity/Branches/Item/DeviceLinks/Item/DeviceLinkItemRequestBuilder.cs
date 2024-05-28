@@ -14,21 +14,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.Item {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.
     /// </summary>
-    public class DeviceLinkItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLinkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property deviceLinks for networkAccess
+        /// Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property deviceLinks for networkAccess";
+            command.Description = "Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -122,14 +124,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property deviceLinks in networkAccess
+        /// Update the device link associated with a specific branch or remote network.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-devicelink-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property deviceLinks in networkAccess";
+            command.Description = "Update the device link associated with a specific branch or remote network.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-devicelink-update?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -194,7 +197,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property deviceLinks for networkAccess
+        /// Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -234,7 +237,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceLinks in networkAccess
+        /// Update the device link associated with a specific branch or remote network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

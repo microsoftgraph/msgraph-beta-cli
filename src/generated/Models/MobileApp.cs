@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications.
     /// </summary>
-    public class MobileApp : Entity, IParsable 
+    public class MobileApp : Entity, IParsable
     {
         /// <summary>The list of group assignments for this mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,9 +27,9 @@ namespace ApiSdk.Models {
 #else
         public List<MobileAppCategory> Categories { get; set; }
 #endif
-        /// <summary>The date and time the app was created.</summary>
+        /// <summary>The date and time the app was created. This property is read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
-        /// <summary>The total number of dependencies the child app has.</summary>
+        /// <summary>The total number of dependencies the child app has. This property is read-only.</summary>
         public int? DependentAppCount { get; private set; }
         /// <summary>The description of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +63,7 @@ namespace ApiSdk.Models {
 #else
         public string InformationUrl { get; set; }
 #endif
-        /// <summary>The value indicating whether the app is assigned to at least one group.</summary>
+        /// <summary>The value indicating whether the app is assigned to at least one group. This property is read-only.</summary>
         public bool? IsAssigned { get; private set; }
         /// <summary>The value indicating whether the app is marked as featured by the admin.</summary>
         public bool? IsFeatured { get; set; }
@@ -74,7 +75,7 @@ namespace ApiSdk.Models {
 #else
         public MimeContent LargeIcon { get; set; }
 #endif
-        /// <summary>The date and time the app was last modified.</summary>
+        /// <summary>The date and time the app was last modified. This property is read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
         /// <summary>Notes for the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +111,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates the publishing state of an app.</summary>
         public MobileAppPublishingState? PublishingState { get; set; }
-        /// <summary>List of relationships for this mobile app.</summary>
+        /// <summary>The set of direct relationships for this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MobileAppRelationship>? Relationships { get; set; }
@@ -130,7 +131,7 @@ namespace ApiSdk.Models {
         public int? SupersededAppCount { get; private set; }
         /// <summary>The total number of apps this app directly or indirectly supersedes. This property is read-only.</summary>
         public int? SupersedingAppCount { get; private set; }
-        /// <summary>The upload state.</summary>
+        /// <summary>The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.</summary>
         public int? UploadState { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -194,28 +195,28 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<MobileAppAssignment>(MobileAppAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"categories", n => { Categories = n.GetCollectionOfObjectValues<MobileAppCategory>(MobileAppCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"developer", n => { Developer = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"informationUrl", n => { InformationUrl = n.GetStringValue(); } },
-                {"isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
-                {"isFeatured", n => { IsFeatured = n.GetBoolValue(); } },
-                {"largeIcon", n => { LargeIcon = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"notes", n => { Notes = n.GetStringValue(); } },
-                {"owner", n => { Owner = n.GetStringValue(); } },
-                {"privacyInformationUrl", n => { PrivacyInformationUrl = n.GetStringValue(); } },
-                {"publisher", n => { Publisher = n.GetStringValue(); } },
-                {"publishingState", n => { PublishingState = n.GetEnumValue<MobileAppPublishingState>(); } },
-                {"relationships", n => { Relationships = n.GetCollectionOfObjectValues<MobileAppRelationship>(MobileAppRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supersededAppCount", n => { SupersededAppCount = n.GetIntValue(); } },
-                {"supersedingAppCount", n => { SupersedingAppCount = n.GetIntValue(); } },
-                {"uploadState", n => { UploadState = n.GetIntValue(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<MobileAppAssignment>(MobileAppAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categories", n => { Categories = n.GetCollectionOfObjectValues<MobileAppCategory>(MobileAppCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "developer", n => { Developer = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "informationUrl", n => { InformationUrl = n.GetStringValue(); } },
+                { "isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
+                { "isFeatured", n => { IsFeatured = n.GetBoolValue(); } },
+                { "largeIcon", n => { LargeIcon = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "notes", n => { Notes = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
+                { "privacyInformationUrl", n => { PrivacyInformationUrl = n.GetStringValue(); } },
+                { "publisher", n => { Publisher = n.GetStringValue(); } },
+                { "publishingState", n => { PublishingState = n.GetEnumValue<MobileAppPublishingState>(); } },
+                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<MobileAppRelationship>(MobileAppRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supersededAppCount", n => { SupersededAppCount = n.GetIntValue(); } },
+                { "supersedingAppCount", n => { SupersedingAppCount = n.GetIntValue(); } },
+                { "uploadState", n => { UploadState = n.GetIntValue(); } },
             };
         }
         /// <summary>

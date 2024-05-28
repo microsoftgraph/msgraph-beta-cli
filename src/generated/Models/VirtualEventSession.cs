@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventSession : OnlineMeetingBase, IParsable 
+    public class VirtualEventSession : OnlineMeetingBase, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The endDateTime property</summary>
+        /// <summary>The virtual event session end time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? EndDateTime { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public List<VirtualEventRegistration> Registrations { get; set; }
 #endif
-        /// <summary>The startDateTime property</summary>
+        /// <summary>The virtual event session start time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime { get; set; }
@@ -66,10 +67,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"presenters", n => { Presenters = n.GetCollectionOfObjectValues<VirtualEventPresenter>(VirtualEventPresenter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "presenters", n => { Presenters = n.GetCollectionOfObjectValues<VirtualEventPresenter>(VirtualEventPresenter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

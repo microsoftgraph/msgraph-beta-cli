@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.Item.Participants_v2.Item {
+namespace ApiSdk.Communications.CallRecords.Item.Participants_v2.Item
+{
     /// <summary>
     /// Provides operations to manage the participants_v2 property of the microsoft.graph.callRecords.callRecord entity.
     /// </summary>
-    public class ParticipantItemRequestBuilder : BaseCliRequestBuilder 
+    public class ParticipantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property participants_v2 for communications

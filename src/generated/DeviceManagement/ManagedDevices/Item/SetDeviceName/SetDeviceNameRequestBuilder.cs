@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.SetDeviceName {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.SetDeviceName
+{
     /// <summary>
     /// Provides operations to call the setDeviceName method.
     /// </summary>
-    public class SetDeviceNameRequestBuilder : BaseCliRequestBuilder 
+    public class SetDeviceNameRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Set device name of the device.

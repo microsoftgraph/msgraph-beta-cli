@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleInstances.Item {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleInstances.Item
+{
     /// <summary>
     /// Provides operations to manage the assignmentScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activatedUsing property of the microsoft.graph.privilegedAccessGroupAssignmentScheduleInstance entity.
@@ -76,13 +77,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleIns
             return command;
         }
         /// <summary>
-        /// The instances of assignment schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentscheduleinstance-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The instances of assignment schedules to activate a just-in-time access.";
+            command.Description = "Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentscheduleinstance-get?view=graph-rest-beta";
             var privilegedAccessGroupAssignmentScheduleInstanceIdOption = new Option<string>("--privileged-access-group-assignment-schedule-instance-id", description: "The unique identifier of privilegedAccessGroupAssignmentScheduleInstance") {
             };
             privilegedAccessGroupAssignmentScheduleInstanceIdOption.IsRequired = true;
@@ -252,7 +254,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleIns
             return requestInfo;
         }
         /// <summary>
-        /// The instances of assignment schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -292,7 +294,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleIns
             return requestInfo;
         }
         /// <summary>
-        /// The instances of assignment schedules to activate a just-in-time access.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
         /// </summary>
         public class PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters 
         {

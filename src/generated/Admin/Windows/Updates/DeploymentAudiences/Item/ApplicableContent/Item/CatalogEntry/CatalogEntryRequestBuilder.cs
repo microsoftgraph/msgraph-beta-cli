@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.ApplicableContent.Item.CatalogEntry {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.ApplicableContent.Item.CatalogEntry
+{
     /// <summary>
     /// Provides operations to manage the catalogEntry property of the microsoft.graph.windowsUpdates.applicableContent entity.
     /// </summary>
-    public class CatalogEntryRequestBuilder : BaseCliRequestBuilder 
+    public class CatalogEntryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Catalog entry for the update or content.

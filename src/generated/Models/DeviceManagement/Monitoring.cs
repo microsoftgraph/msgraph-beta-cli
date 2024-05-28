@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.DeviceManagement {
+namespace ApiSdk.Models.DeviceManagement
+{
     #pragma warning disable CS1591
-    public class Monitoring : ApiSdk.Models.Entity, IParsable 
+    public class Monitoring : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of records of alert events.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models.DeviceManagement {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertRecords", n => { AlertRecords = n.GetCollectionOfObjectValues<AlertRecord>(AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alertRules", n => { AlertRules = n.GetCollectionOfObjectValues<AlertRule>(AlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRecords", n => { AlertRecords = n.GetCollectionOfObjectValues<AlertRecord>(AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRules", n => { AlertRules = n.GetCollectionOfObjectValues<AlertRule>(AlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

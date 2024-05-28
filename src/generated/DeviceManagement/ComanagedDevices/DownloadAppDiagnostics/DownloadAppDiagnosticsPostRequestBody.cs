@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics
+{
     #pragma warning disable CS1591
-    public class DownloadAppDiagnosticsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DownloadAppDiagnosticsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"request", n => { Request = n.GetObjectValue<PowerliftDownloadRequest>(PowerliftDownloadRequest.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<PowerliftDownloadRequest>(PowerliftDownloadRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

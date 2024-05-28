@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey {
+namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey
+{
     /// <summary>
     /// Provides operations to call the generateKey method.
     /// </summary>
-    public class GenerateKeyRequestBuilder : BaseCliRequestBuilder 
+    public class GenerateKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn&apos;t have to provide a secret.

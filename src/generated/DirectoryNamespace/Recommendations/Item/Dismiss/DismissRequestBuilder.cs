@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss
+{
     /// <summary>
     /// Provides operations to call the dismiss method.
     /// </summary>
-    public class DismissRequestBuilder : BaseCliRequestBuilder 
+    public class DismissRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its status to dismissed .

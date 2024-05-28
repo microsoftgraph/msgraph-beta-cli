@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserAnalytics : Entity, IParsable 
+    public class UserAnalytics : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activityStatistics", n => { ActivityStatistics = n.GetCollectionOfObjectValues<ApiSdk.Models.ActivityStatistics>(ApiSdk.Models.ActivityStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Settings>(ApiSdk.Models.Settings.CreateFromDiscriminatorValue); } },
+                { "activityStatistics", n => { ActivityStatistics = n.GetCollectionOfObjectValues<ApiSdk.Models.ActivityStatistics>(ApiSdk.Models.ActivityStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Settings>(ApiSdk.Models.Settings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

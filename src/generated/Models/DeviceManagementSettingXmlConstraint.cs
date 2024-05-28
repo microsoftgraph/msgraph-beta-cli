@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint enforcing the setting is well formed XML
     /// </summary>
-    public class DeviceManagementSettingXmlConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingXmlConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="DeviceManagementSettingXmlConstraint"/> and sets the default values.

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class SessionsRequestBuilder : BaseCliRequestBuilder 
+    public class SessionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
@@ -110,13 +111,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions {
             return command;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Sessions for the virtual event.";
+            command.Description = "The sessions for the virtual event.";
             var virtualEventTownhallIdOption = new Option<string>("--virtual-event-townhall-id", description: "The unique identifier of virtualEventTownhall") {
             };
             virtualEventTownhallIdOption.IsRequired = true;
@@ -198,7 +199,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +227,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions {
         {
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +267,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         public class SessionsRequestBuilderGetQueryParameters 
         {

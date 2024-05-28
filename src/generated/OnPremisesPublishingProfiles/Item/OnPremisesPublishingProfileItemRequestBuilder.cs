@@ -3,6 +3,7 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups;
 using ApiSdk.OnPremisesPublishingProfiles.Item.Agents;
+using ApiSdk.OnPremisesPublishingProfiles.Item.ApplicationSegments;
 using ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups;
 using ApiSdk.OnPremisesPublishingProfiles.Item.Connectors;
 using ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources;
@@ -19,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of onPremisesPublishingProfile entities.
     /// </summary>
-    public class OnPremisesPublishingProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesPublishingProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
@@ -65,6 +67,32 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item {
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the applicationSegments property of the microsoft.graph.onPremisesPublishingProfile entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildApplicationSegmentsNavCommand()
+        {
+            var command = new Command("application-segments");
+            command.Description = "Provides operations to manage the applicationSegments property of the microsoft.graph.onPremisesPublishingProfile entity.";
+            var builder = new ApplicationSegmentsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);

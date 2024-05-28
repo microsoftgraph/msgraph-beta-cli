@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceHealthScriptStates.WithIdWithPolicyIdWithDeviceId {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceHealthScriptStates.WithIdWithPolicyIdWithDeviceId
+{
     /// <summary>
     /// Provides operations to manage the deviceHealthScriptStates property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class WithIdWithPolicyIdWithDeviceIdRequestBuilder : BaseCliRequestBuilder 
+    public class WithIdWithPolicyIdWithDeviceIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceHealthScriptStates for users

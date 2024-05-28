@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics top impacting process entity.
     /// </summary>
-    public class UserExperienceAnalyticsImpactingProcess : Entity, IParsable 
+    public class UserExperienceAnalyticsImpactingProcess : Entity, IParsable
     {
         /// <summary>The category of impacting process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"category", n => { Category = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"impactValue", n => { ImpactValue = n.GetDoubleValue(); } },
-                {"processName", n => { ProcessName = n.GetStringValue(); } },
-                {"publisher", n => { Publisher = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "impactValue", n => { ImpactValue = n.GetDoubleValue(); } },
+                { "processName", n => { ProcessName = n.GetStringValue(); } },
+                { "publisher", n => { Publisher = n.GetStringValue(); } },
             };
         }
         /// <summary>

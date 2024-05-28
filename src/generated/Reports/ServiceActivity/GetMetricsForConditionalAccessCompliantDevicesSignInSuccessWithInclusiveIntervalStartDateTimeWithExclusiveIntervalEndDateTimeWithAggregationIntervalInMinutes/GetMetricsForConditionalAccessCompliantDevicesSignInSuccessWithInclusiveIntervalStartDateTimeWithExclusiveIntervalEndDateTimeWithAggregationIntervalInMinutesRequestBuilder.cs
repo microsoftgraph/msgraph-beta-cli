@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes {
+namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes
+{
     /// <summary>
     /// Provides operations to call the getMetricsForConditionalAccessCompliantDevicesSignInSuccess method.
     /// </summary>
-    public class GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder 
+    public class GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).
@@ -28,11 +29,11 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliant
         {
             var command = new Command("get");
             command.Description = "Get the number of user authentication requests, during a specified time period, that satisfy a Conditional Access policy that requires device compliance. Microsoft Intune manages compliant devices, including mobile iOS/Android devices, tablets, or cloud Microsoft Entra-joined computers (not hybrid).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceactivity-getmetricsforconditionalaccesscompliantdevicessigninsuccess?view=graph-rest-beta";
-            var inclusiveIntervalStartDateTimeOption = new Option<string>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
+            var inclusiveIntervalStartDateTimeOption = new Option<DateTimeOffset?>("--inclusive-interval-start-date-time", description: "Usage: inclusiveIntervalStartDateTime={inclusiveIntervalStartDateTime}") {
             };
             inclusiveIntervalStartDateTimeOption.IsRequired = true;
             command.AddOption(inclusiveIntervalStartDateTimeOption);
-            var exclusiveIntervalEndDateTimeOption = new Option<string>("--exclusive-interval-end-date-time", description: "Usage: exclusiveIntervalEndDateTime={exclusiveIntervalEndDateTime}") {
+            var exclusiveIntervalEndDateTimeOption = new Option<DateTimeOffset?>("--exclusive-interval-end-date-time", description: "Usage: exclusiveIntervalEndDateTime={exclusiveIntervalEndDateTime}") {
             };
             exclusiveIntervalEndDateTimeOption.IsRequired = true;
             command.AddOption(exclusiveIntervalEndDateTimeOption);
@@ -100,7 +101,9 @@ namespace ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliant
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -2,6 +2,7 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models.Security;
 using ApiSdk.Security.Identities.HealthIssues;
+using ApiSdk.Security.Identities.Sensors;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -15,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Identities {
+namespace ApiSdk.Security.Identities
+{
     /// <summary>
     /// Provides operations to manage the identities property of the microsoft.graph.security entity.
     /// </summary>
-    public class IdentitiesRequestBuilder : BaseCliRequestBuilder 
+    public class IdentitiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property identities for security
@@ -166,6 +168,36 @@ namespace ApiSdk.Security.Identities {
                 var formatter = outputFormatterFactory.GetFormatter(output);
                 await formatter.WriteOutputAsync(response, cancellationToken);
             });
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the sensors property of the microsoft.graph.security.identityContainer entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSensorsNavCommand()
+        {
+            var command = new Command("sensors");
+            command.Description = "Provides operations to manage the sensors property of the microsoft.graph.security.identityContainer entity.";
+            var builder = new SensorsRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphSecurityGetDeploymentAccessKeyNavCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphSecurityGetDeploymentPackageUriNavCommand());
+            nonExecCommands.Add(builder.BuildMicrosoftGraphSecurityRegenerateDeploymentAccessKeyNavCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
             return command;
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Websites.Item {
+namespace ApiSdk.Users.Item.Profile.Websites.Item
+{
     /// <summary>
     /// Provides operations to manage the websites property of the microsoft.graph.profile entity.
     /// </summary>
-    public class PersonWebsiteItemRequestBuilder : BaseCliRequestBuilder 
+    public class PersonWebsiteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property websites for users

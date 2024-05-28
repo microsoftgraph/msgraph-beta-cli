@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods {
+namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods
+{
     /// <summary>
     /// Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class WindowsHelloForBusinessMethodsRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsHelloForBusinessMethodsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
@@ -54,13 +55,14 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods {
             return command;
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the Windows Hello for Business authentication method registered to a user for authentication.";
+            command.Description = "Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-list?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -142,7 +144,9 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -168,7 +172,7 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods {
         {
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -187,7 +191,7 @@ namespace ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
+        /// Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
         /// </summary>
         public class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters 
         {

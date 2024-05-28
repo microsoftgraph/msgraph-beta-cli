@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosStoreApp.Assignments.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosStoreApp.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
     /// </summary>
-    public class MobileAppAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceAppManagement

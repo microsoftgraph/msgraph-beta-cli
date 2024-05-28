@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.List.ContentTypes.Item.CopyToDefaultContentLocation {
+namespace ApiSdk.Drives.Item.List.ContentTypes.Item.CopyToDefaultContentLocation
+{
     /// <summary>
     /// Provides operations to call the copyToDefaultContentLocation method.
     /// </summary>
-    public class CopyToDefaultContentLocationRequestBuilder : BaseCliRequestBuilder 
+    public class CopyToDefaultContentLocationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action copyToDefaultContentLocation

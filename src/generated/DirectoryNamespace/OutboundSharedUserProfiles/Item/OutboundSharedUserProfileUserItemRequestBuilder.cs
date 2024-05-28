@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
+namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
     /// </summary>
-    public class OutboundSharedUserProfileUserItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutboundSharedUserProfileUserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property outboundSharedUserProfiles for directory
@@ -57,13 +58,14 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Get outboundSharedUserProfiles from directory
+        /// Get the details of an outboundSharedUserProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get outboundSharedUserProfiles from directory";
+            command.Description = "Get the details of an outboundSharedUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-beta";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get outboundSharedUserProfiles from directory
+        /// Get the details of an outboundSharedUserProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get outboundSharedUserProfiles from directory
+        /// Get the details of an outboundSharedUserProfile.
         /// </summary>
         public class OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters 
         {

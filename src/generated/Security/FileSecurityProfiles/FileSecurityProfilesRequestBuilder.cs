@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.FileSecurityProfiles {
+namespace ApiSdk.Security.FileSecurityProfiles
+{
     /// <summary>
     /// Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
     /// </summary>
-    public class FileSecurityProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class FileSecurityProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
@@ -56,6 +57,7 @@ namespace ApiSdk.Security.FileSecurityProfiles {
         /// Create new navigation property to fileSecurityProfiles for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
@@ -101,6 +103,7 @@ namespace ApiSdk.Security.FileSecurityProfiles {
         /// Get fileSecurityProfiles from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
@@ -180,7 +183,9 @@ namespace ApiSdk.Security.FileSecurityProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -210,6 +215,7 @@ namespace ApiSdk.Security.FileSecurityProfiles {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FileSecurityProfilesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -230,6 +236,7 @@ namespace ApiSdk.Security.FileSecurityProfiles {
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(FileSecurityProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

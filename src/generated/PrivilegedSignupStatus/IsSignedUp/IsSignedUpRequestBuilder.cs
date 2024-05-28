@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedSignupStatus.IsSignedUp {
+namespace ApiSdk.PrivilegedSignupStatus.IsSignedUp
+{
     /// <summary>
     /// Provides operations to call the isSignedUp method.
     /// </summary>
-    public class IsSignedUpRequestBuilder : BaseCliRequestBuilder 
+    public class IsSignedUpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function isSignedUp

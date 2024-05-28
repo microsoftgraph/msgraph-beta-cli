@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class StatusDetails : StatusBase, IParsable 
+    public class StatusDetails : StatusBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Additional details if there is an error.</summary>
@@ -68,11 +69,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalDetails", n => { AdditionalDetails = n.GetStringValue(); } },
-                {"errorCategory", n => { ErrorCategory = n.GetEnumValue<ProvisioningStatusErrorCategory>(); } },
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
+                { "additionalDetails", n => { AdditionalDetails = n.GetStringValue(); } },
+                { "errorCategory", n => { ErrorCategory = n.GetEnumValue<ProvisioningStatusErrorCategory>(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
             };
         }
         /// <summary>

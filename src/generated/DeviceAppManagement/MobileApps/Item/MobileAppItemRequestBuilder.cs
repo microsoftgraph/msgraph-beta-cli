@@ -40,11 +40,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item
+{
     /// <summary>
     /// Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class MobileAppItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl {
+namespace ApiSdk.Users.Item.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl
+{
     #pragma warning disable CS1591
-    public class GetVirtualAppointmentJoinWebUrlGetResponse : IAdditionalDataHolder, IParsable 
+    public class GetVirtualAppointmentJoinWebUrlGetResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl 
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Onenote.Pages.Item.Content {
+namespace ApiSdk.Sites.Item.Onenote.Pages.Item.Content
+{
     /// <summary>
     /// Provides operations to manage the media for the site entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    public class ContentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The page&apos;s HTML content.

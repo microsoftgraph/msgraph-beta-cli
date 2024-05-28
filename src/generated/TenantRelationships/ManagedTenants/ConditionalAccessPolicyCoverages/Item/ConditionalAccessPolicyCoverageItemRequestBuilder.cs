@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCoverages.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCoverages.Item
+{
     /// <summary>
     /// Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ConditionalAccessPolicyCoverageItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionalAccessPolicyCoverageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property conditionalAccessPolicyCoverages for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
             return command;
         }
         /// <summary>
-        /// Aggregate view of conditional access policy coverage across managed tenants.
+        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Aggregate view of conditional access policy coverage across managed tenants.";
+            command.Description = "Read the properties and relationships of a conditionalAccessPolicyCoverage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-beta";
             var conditionalAccessPolicyCoverageIdOption = new Option<string>("--conditional-access-policy-coverage-id", description: "The unique identifier of conditionalAccessPolicyCoverage") {
             };
             conditionalAccessPolicyCoverageIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
             return requestInfo;
         }
         /// <summary>
-        /// Aggregate view of conditional access policy coverage across managed tenants.
+        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCover
             return requestInfo;
         }
         /// <summary>
-        /// Aggregate view of conditional access policy coverage across managed tenants.
+        /// Read the properties and relationships of a conditionalAccessPolicyCoverage object.
         /// </summary>
         public class ConditionalAccessPolicyCoverageItemRequestBuilderGetQueryParameters 
         {

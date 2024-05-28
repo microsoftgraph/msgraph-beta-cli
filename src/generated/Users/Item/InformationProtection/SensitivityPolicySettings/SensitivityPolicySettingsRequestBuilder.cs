@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.SensitivityPolicySettings {
+namespace ApiSdk.Users.Item.InformationProtection.SensitivityPolicySettings
+{
     /// <summary>
     /// Provides operations to manage the sensitivityPolicySettings property of the microsoft.graph.informationProtection entity.
     /// </summary>
-    public class SensitivityPolicySettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SensitivityPolicySettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sensitivityPolicySettings for users

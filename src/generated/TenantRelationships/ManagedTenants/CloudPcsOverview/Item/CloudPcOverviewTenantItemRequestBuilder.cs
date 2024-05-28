@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class CloudPcOverviewTenantItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcOverviewTenantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cloudPcsOverview for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.Item {
             return command;
         }
         /// <summary>
-        /// Overview of cloud PC information across managed tenants.
+        /// Read the properties and relationships of a cloudPcOverview object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-cloudpcoverview-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Overview of cloud PC information across managed tenants.";
+            command.Description = "Read the properties and relationships of a cloudPcOverview object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-cloudpcoverview-get?view=graph-rest-beta";
             var cloudPcOverviewTenantIdOption = new Option<string>("--cloud-pc-overview-tenant-id", description: "The unique identifier of cloudPcOverview") {
             };
             cloudPcOverviewTenantIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Overview of cloud PC information across managed tenants.
+        /// Read the properties and relationships of a cloudPcOverview object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Overview of cloud PC information across managed tenants.
+        /// Read the properties and relationships of a cloudPcOverview object.
         /// </summary>
         public class CloudPcOverviewTenantItemRequestBuilderGetQueryParameters 
         {

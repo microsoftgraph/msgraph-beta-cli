@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookComment : Entity, IParsable 
+    public class WorkbookComment : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content of the comment.</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetStringValue(); } },
-                {"contentType", n => { ContentType = n.GetStringValue(); } },
-                {"replies", n => { Replies = n.GetCollectionOfObjectValues<WorkbookCommentReply>(WorkbookCommentReply.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"task", n => { Task = n.GetObjectValue<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetStringValue(); } },
+                { "contentType", n => { ContentType = n.GetStringValue(); } },
+                { "replies", n => { Replies = n.GetCollectionOfObjectValues<WorkbookCommentReply>(WorkbookCommentReply.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "task", n => { Task = n.GetObjectValue<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

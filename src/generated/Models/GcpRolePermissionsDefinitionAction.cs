@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GcpRolePermissionsDefinitionAction : GcpPermissionsDefinitionAction, IParsable 
+    public class GcpRolePermissionsDefinitionAction : GcpPermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The roles property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"roles", n => { Roles = n.GetCollectionOfObjectValues<PermissionsDefinitionGcpRole>(PermissionsDefinitionGcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<PermissionsDefinitionGcpRole>(PermissionsDefinitionGcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

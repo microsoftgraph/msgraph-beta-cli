@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries
+{
     #pragma warning disable CS1591
-    public class GetHealthMetricTimeSeriesPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetHealthMetricTimeSeriesPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServe
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<MetricTimeSeriesDataPoint>(MetricTimeSeriesDataPoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<MetricTimeSeriesDataPoint>(MetricTimeSeriesDataPoint.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

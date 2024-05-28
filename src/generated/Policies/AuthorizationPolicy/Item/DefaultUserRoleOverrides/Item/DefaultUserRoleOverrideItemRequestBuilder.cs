@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AuthorizationPolicy.Item.DefaultUserRoleOverrides.Item {
+namespace ApiSdk.Policies.AuthorizationPolicy.Item.DefaultUserRoleOverrides.Item
+{
     /// <summary>
     /// Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
     /// </summary>
-    public class DefaultUserRoleOverrideItemRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultUserRoleOverrideItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property defaultUserRoleOverrides for policies

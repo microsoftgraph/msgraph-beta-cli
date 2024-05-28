@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewDecision : Entity, IParsable 
+    public class AccessReviewDecision : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The feature- generated recommendation shown to the reviewer, one of: Approve, Deny, NotAvailable.</summary>
@@ -87,15 +88,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessRecommendation", n => { AccessRecommendation = n.GetStringValue(); } },
-                {"accessReviewId", n => { AccessReviewId = n.GetStringValue(); } },
-                {"appliedBy", n => { AppliedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"appliedDateTime", n => { AppliedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"applyResult", n => { ApplyResult = n.GetStringValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"reviewResult", n => { ReviewResult = n.GetStringValue(); } },
-                {"reviewedBy", n => { ReviewedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"reviewedDateTime", n => { ReviewedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "accessRecommendation", n => { AccessRecommendation = n.GetStringValue(); } },
+                { "accessReviewId", n => { AccessReviewId = n.GetStringValue(); } },
+                { "appliedBy", n => { AppliedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "appliedDateTime", n => { AppliedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "applyResult", n => { ApplyResult = n.GetStringValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "reviewResult", n => { ReviewResult = n.GetStringValue(); } },
+                { "reviewedBy", n => { ReviewedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "reviewedDateTime", n => { ReviewedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

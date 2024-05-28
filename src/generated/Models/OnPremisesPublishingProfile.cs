@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesPublishingProfile : Entity, IParsable 
+    public class OnPremisesPublishingProfile : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of existing onPremisesAgentGroup objects. Read-only. Nullable.</summary>
@@ -24,6 +25,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<OnPremisesAgent> Agents { get; set; }
+#endif
+        /// <summary>The applicationSegments property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IpApplicationSegment>? ApplicationSegments { get; set; }
+#nullable restore
+#else
+        public List<IpApplicationSegment> ApplicationSegments { get; set; }
 #endif
         /// <summary>List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,14 +88,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"connectorGroups", n => { ConnectorGroups = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"connectors", n => { Connectors = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hybridAgentUpdaterConfiguration", n => { HybridAgentUpdaterConfiguration = n.GetObjectValue<ApiSdk.Models.HybridAgentUpdaterConfiguration>(ApiSdk.Models.HybridAgentUpdaterConfiguration.CreateFromDiscriminatorValue); } },
-                {"isDefaultAccessEnabled", n => { IsDefaultAccessEnabled = n.GetBoolValue(); } },
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                {"publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<IpApplicationSegment>(IpApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectorGroups", n => { ConnectorGroups = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectors", n => { Connectors = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hybridAgentUpdaterConfiguration", n => { HybridAgentUpdaterConfiguration = n.GetObjectValue<ApiSdk.Models.HybridAgentUpdaterConfiguration>(ApiSdk.Models.HybridAgentUpdaterConfiguration.CreateFromDiscriminatorValue); } },
+                { "isDefaultAccessEnabled", n => { IsDefaultAccessEnabled = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -99,6 +109,7 @@ namespace ApiSdk.Models {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<OnPremisesAgentGroup>("agentGroups", AgentGroups);
             writer.WriteCollectionOfObjectValues<OnPremisesAgent>("agents", Agents);
+            writer.WriteCollectionOfObjectValues<IpApplicationSegment>("applicationSegments", ApplicationSegments);
             writer.WriteCollectionOfObjectValues<ConnectorGroup>("connectorGroups", ConnectorGroups);
             writer.WriteCollectionOfObjectValues<Connector>("connectors", Connectors);
             writer.WriteObjectValue<ApiSdk.Models.HybridAgentUpdaterConfiguration>("hybridAgentUpdaterConfiguration", HybridAgentUpdaterConfiguration);

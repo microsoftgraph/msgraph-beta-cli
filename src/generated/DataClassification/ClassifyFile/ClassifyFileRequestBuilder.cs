@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ClassifyFile {
+namespace ApiSdk.DataClassification.ClassifyFile
+{
     /// <summary>
     /// Provides operations to call the classifyFile method.
     /// </summary>
-    public class ClassifyFileRequestBuilder : BaseCliRequestBuilder 
+    public class ClassifyFileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action classifyFile

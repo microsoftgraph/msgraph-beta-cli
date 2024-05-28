@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.EnrollNowAction {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.EnrollNowAction
+{
     /// <summary>
     /// Provides operations to call the enrollNowAction method.
     /// </summary>
-    public class EnrollNowActionRequestBuilder : BaseCliRequestBuilder 
+    public class EnrollNowActionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Trigger comanagement enrollment action on ConfigurationManager client

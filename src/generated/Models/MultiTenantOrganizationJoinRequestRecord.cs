@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MultiTenantOrganizationJoinRequestRecord : Entity, IParsable 
+    public class MultiTenantOrganizationJoinRequestRecord : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Tenant ID of the Microsoft Entra tenant that added a tenant to the multi-tenant organization. To reset a failed join request, set addedByTenantId to 00000000-0000-0000-0000-000000000000. Required.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"addedByTenantId", n => { AddedByTenantId = n.GetStringValue(); } },
-                {"memberState", n => { MemberState = n.GetEnumValue<MultiTenantOrganizationMemberState>(); } },
-                {"role", n => { Role = n.GetEnumValue<MultiTenantOrganizationMemberRole>(); } },
-                {"transitionDetails", n => { TransitionDetails = n.GetObjectValue<MultiTenantOrganizationJoinRequestTransitionDetails>(MultiTenantOrganizationJoinRequestTransitionDetails.CreateFromDiscriminatorValue); } },
+                { "addedByTenantId", n => { AddedByTenantId = n.GetStringValue(); } },
+                { "memberState", n => { MemberState = n.GetEnumValue<MultiTenantOrganizationMemberState>(); } },
+                { "role", n => { Role = n.GetEnumValue<MultiTenantOrganizationMemberRole>(); } },
+                { "transitionDetails", n => { TransitionDetails = n.GetObjectValue<MultiTenantOrganizationJoinRequestTransitionDetails>(MultiTenantOrganizationJoinRequestTransitionDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.Reorder {
+namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.Reorder
+{
     #pragma warning disable CS1591
-    public class ReorderPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ReorderPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.Reorder {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"priority", n => { Priority = n.GetIntValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Agreements.Item.FileNamespace.Localizations {
+namespace ApiSdk.Agreements.Item.FileNamespace.Localizations
+{
     /// <summary>
     /// Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
     /// </summary>
-    public class LocalizationsRequestBuilder : BaseCliRequestBuilder 
+    public class LocalizationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.Agreements.Item.FileNamespace.Localizations {
             return command;
         }
         /// <summary>
-        /// The localized version of the terms of use agreement files attached to the agreement.
+        /// Get a list of the default and localized agreement files.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The localized version of the terms of use agreement files attached to the agreement.";
+            command.Description = "Get a list of the default and localized agreement files.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-beta";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
             };
             agreementIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.Agreements.Item.FileNamespace.Localizations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.Agreements.Item.FileNamespace.Localizations {
         {
         }
         /// <summary>
-        /// The localized version of the terms of use agreement files attached to the agreement.
+        /// Get a list of the default and localized agreement files.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.Agreements.Item.FileNamespace.Localizations {
             return requestInfo;
         }
         /// <summary>
-        /// The localized version of the terms of use agreement files attached to the agreement.
+        /// Get a list of the default and localized agreement files.
         /// </summary>
         public class LocalizationsRequestBuilderGetQueryParameters 
         {

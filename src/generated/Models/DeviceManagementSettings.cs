@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementSettings : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -78,21 +79,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"androidDeviceAdministratorEnrollmentEnabled", n => { AndroidDeviceAdministratorEnrollmentEnabled = n.GetBoolValue(); } },
-                {"derivedCredentialProvider", n => { DerivedCredentialProvider = n.GetEnumValue<DerivedCredentialProviderType>(); } },
-                {"derivedCredentialUrl", n => { DerivedCredentialUrl = n.GetStringValue(); } },
-                {"deviceComplianceCheckinThresholdDays", n => { DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
-                {"deviceInactivityBeforeRetirementInDay", n => { DeviceInactivityBeforeRetirementInDay = n.GetIntValue(); } },
-                {"enableAutopilotDiagnostics", n => { EnableAutopilotDiagnostics = n.GetBoolValue(); } },
-                {"enableDeviceGroupMembershipReport", n => { EnableDeviceGroupMembershipReport = n.GetBoolValue(); } },
-                {"enableEnhancedTroubleshootingExperience", n => { EnableEnhancedTroubleshootingExperience = n.GetBoolValue(); } },
-                {"enableLogCollection", n => { EnableLogCollection = n.GetBoolValue(); } },
-                {"enhancedJailBreak", n => { EnhancedJailBreak = n.GetBoolValue(); } },
-                {"ignoreDevicesForUnsupportedSettingsEnabled", n => { IgnoreDevicesForUnsupportedSettingsEnabled = n.GetBoolValue(); } },
-                {"isScheduledActionEnabled", n => { IsScheduledActionEnabled = n.GetBoolValue(); } },
-                {"m365AppDiagnosticsEnabled", n => { M365AppDiagnosticsEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"secureByDefault", n => { SecureByDefault = n.GetBoolValue(); } },
+                { "androidDeviceAdministratorEnrollmentEnabled", n => { AndroidDeviceAdministratorEnrollmentEnabled = n.GetBoolValue(); } },
+                { "derivedCredentialProvider", n => { DerivedCredentialProvider = n.GetEnumValue<DerivedCredentialProviderType>(); } },
+                { "derivedCredentialUrl", n => { DerivedCredentialUrl = n.GetStringValue(); } },
+                { "deviceComplianceCheckinThresholdDays", n => { DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
+                { "deviceInactivityBeforeRetirementInDay", n => { DeviceInactivityBeforeRetirementInDay = n.GetIntValue(); } },
+                { "enableAutopilotDiagnostics", n => { EnableAutopilotDiagnostics = n.GetBoolValue(); } },
+                { "enableDeviceGroupMembershipReport", n => { EnableDeviceGroupMembershipReport = n.GetBoolValue(); } },
+                { "enableEnhancedTroubleshootingExperience", n => { EnableEnhancedTroubleshootingExperience = n.GetBoolValue(); } },
+                { "enableLogCollection", n => { EnableLogCollection = n.GetBoolValue(); } },
+                { "enhancedJailBreak", n => { EnhancedJailBreak = n.GetBoolValue(); } },
+                { "ignoreDevicesForUnsupportedSettingsEnabled", n => { IgnoreDevicesForUnsupportedSettingsEnabled = n.GetBoolValue(); } },
+                { "isScheduledActionEnabled", n => { IsScheduledActionEnabled = n.GetBoolValue(); } },
+                { "m365AppDiagnosticsEnabled", n => { M365AppDiagnosticsEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "secureByDefault", n => { SecureByDefault = n.GetBoolValue(); } },
             };
         }
         /// <summary>

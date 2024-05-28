@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Commit {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Commit
+{
     /// <summary>
     /// Provides operations to call the commit method.
     /// </summary>
-    public class CommitRequestBuilder : BaseCliRequestBuilder 
+    public class CommitRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action commit

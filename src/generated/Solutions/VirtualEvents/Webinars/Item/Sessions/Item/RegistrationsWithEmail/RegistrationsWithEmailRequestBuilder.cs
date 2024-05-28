@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.RegistrationsWithEmail {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions.Item.RegistrationsWithEmail
+{
     /// <summary>
     /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventSession entity.
     /// </summary>
-    public class RegistrationsWithEmailRequestBuilder : BaseCliRequestBuilder 
+    public class RegistrationsWithEmailRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get registrations from solutions

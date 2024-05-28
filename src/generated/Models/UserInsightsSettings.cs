@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserInsightsSettings : Entity, IParsable 
+    public class UserInsightsSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>true if user&apos;s itemInsights and meeting hours insights are enabled; false if user&apos;s itemInsights and meeting hours insights are disabled. Default is true. Optional.</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

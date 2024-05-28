@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Positions.Item {
+namespace ApiSdk.Users.Item.Profile.Positions.Item
+{
     /// <summary>
     /// Provides operations to manage the positions property of the microsoft.graph.profile entity.
     /// </summary>
-    public class WorkPositionItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkPositionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property positions for users

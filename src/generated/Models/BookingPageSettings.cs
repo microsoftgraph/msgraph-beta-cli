@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BookingPageSettings : IAdditionalDataHolder, IParsable 
+    public class BookingPageSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessControl property</summary>
@@ -96,18 +97,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessControl", n => { AccessControl = n.GetEnumValue<BookingPageAccessControl>(); } },
-                {"bookingPageColorCode", n => { BookingPageColorCode = n.GetStringValue(); } },
-                {"businessTimeZone", n => { BusinessTimeZone = n.GetStringValue(); } },
-                {"customerConsentMessage", n => { CustomerConsentMessage = n.GetStringValue(); } },
-                {"enforceOneTimePassword", n => { EnforceOneTimePassword = n.GetBoolValue(); } },
-                {"isBusinessLogoDisplayEnabled", n => { IsBusinessLogoDisplayEnabled = n.GetBoolValue(); } },
-                {"isCustomerConsentEnabled", n => { IsCustomerConsentEnabled = n.GetBoolValue(); } },
-                {"isSearchEngineIndexabilityDisabled", n => { IsSearchEngineIndexabilityDisabled = n.GetBoolValue(); } },
-                {"isTimeSlotTimeZoneSetToBusinessTimeZone", n => { IsTimeSlotTimeZoneSetToBusinessTimeZone = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"privacyPolicyWebUrl", n => { PrivacyPolicyWebUrl = n.GetStringValue(); } },
-                {"termsAndConditionsWebUrl", n => { TermsAndConditionsWebUrl = n.GetStringValue(); } },
+                { "accessControl", n => { AccessControl = n.GetEnumValue<BookingPageAccessControl>(); } },
+                { "bookingPageColorCode", n => { BookingPageColorCode = n.GetStringValue(); } },
+                { "businessTimeZone", n => { BusinessTimeZone = n.GetStringValue(); } },
+                { "customerConsentMessage", n => { CustomerConsentMessage = n.GetStringValue(); } },
+                { "enforceOneTimePassword", n => { EnforceOneTimePassword = n.GetBoolValue(); } },
+                { "isBusinessLogoDisplayEnabled", n => { IsBusinessLogoDisplayEnabled = n.GetBoolValue(); } },
+                { "isCustomerConsentEnabled", n => { IsCustomerConsentEnabled = n.GetBoolValue(); } },
+                { "isSearchEngineIndexabilityDisabled", n => { IsSearchEngineIndexabilityDisabled = n.GetBoolValue(); } },
+                { "isTimeSlotTimeZoneSetToBusinessTimeZone", n => { IsTimeSlotTimeZoneSetToBusinessTimeZone = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "privacyPolicyWebUrl", n => { PrivacyPolicyWebUrl = n.GetStringValue(); } },
+                { "termsAndConditionsWebUrl", n => { TermsAndConditionsWebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

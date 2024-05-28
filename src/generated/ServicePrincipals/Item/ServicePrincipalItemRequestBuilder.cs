@@ -8,6 +8,7 @@ using ApiSdk.ServicePrincipals.Item.AppRoleAssignments;
 using ApiSdk.ServicePrincipals.Item.CheckMemberGroups;
 using ApiSdk.ServicePrincipals.Item.CheckMemberObjects;
 using ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies;
+using ApiSdk.ServicePrincipals.Item.ClaimsPolicy;
 using ApiSdk.ServicePrincipals.Item.CreatePasswordSingleSignOnCredentials;
 using ApiSdk.ServicePrincipals.Item.CreatedObjects;
 using ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications;
@@ -44,11 +45,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item {
+namespace ApiSdk.ServicePrincipals.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of servicePrincipal entities.
     /// </summary>
-    public class ServicePrincipalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addTokenSigningCertificate method.
@@ -203,6 +205,25 @@ namespace ApiSdk.ServicePrincipals.Item {
                 command.AddCommand(cmd);
             }
             foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the claimsPolicy property of the microsoft.graph.servicePrincipal entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildClaimsPolicyNavCommand()
+        {
+            var command = new Command("claims-policy");
+            command.Description = "Provides operations to manage the claimsPolicy property of the microsoft.graph.servicePrincipal entity.";
+            var builder = new ClaimsPolicyRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
             }

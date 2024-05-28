@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Workplace {
+namespace ApiSdk.Workplace
+{
     /// <summary>
     /// Provides operations to manage the workplace singleton.
     /// </summary>
-    public class WorkplaceRequestBuilder : BaseCliRequestBuilder 
+    public class WorkplaceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get workplace

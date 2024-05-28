@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AutopilotEvents.Item.PolicyStatusDetails.Item {
+namespace ApiSdk.DeviceManagement.AutopilotEvents.Item.PolicyStatusDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
     /// </summary>
-    public class DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policyStatusDetails for deviceManagement

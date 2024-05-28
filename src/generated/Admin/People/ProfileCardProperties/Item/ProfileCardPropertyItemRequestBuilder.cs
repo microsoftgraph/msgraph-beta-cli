@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
+namespace ApiSdk.Admin.People.ProfileCardProperties.Item
+{
     /// <summary>
     /// Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
     /// </summary>
-    public class ProfileCardPropertyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProfileCardPropertyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property profileCardProperties for admin
+        /// Delete the profileCardProperty object specified by its directoryPropertyName from the organization&apos;s profile card, and remove any localized customizations for that property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property profileCardProperties for admin";
+            command.Description = "Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-beta";
             var profileCardPropertyIdOption = new Option<string>("--profile-card-property-id", description: "The unique identifier of profileCardProperty") {
             };
             profileCardPropertyIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
             return command;
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.";
+            command.Description = "Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-beta";
             var profileCardPropertyIdOption = new Option<string>("--profile-card-property-id", description: "The unique identifier of profileCardProperty") {
             };
             profileCardPropertyIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property profileCardProperties in admin
+        /// Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property profileCardProperties in admin";
+            command.Description = "Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/profilecardproperty-update?view=graph-rest-beta";
             var profileCardPropertyIdOption = new Option<string>("--profile-card-property-id", description: "The unique identifier of profileCardProperty") {
             };
             profileCardPropertyIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property profileCardProperties for admin
+        /// Delete the profileCardProperty object specified by its directoryPropertyName from the organization&apos;s profile card, and remove any localized customizations for that property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property profileCardProperties in admin
+        /// Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
         /// </summary>
         public class ProfileCardPropertyItemRequestBuilderGetQueryParameters 
         {

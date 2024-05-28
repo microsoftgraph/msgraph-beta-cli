@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class FileThreatSubmission : ThreatSubmission, IParsable 
+    public class FileThreatSubmission : ThreatSubmission, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>It specifies the file name to be submitted.</summary>
@@ -48,7 +49,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileName", n => { FileName = n.GetStringValue(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
             };
         }
         /// <summary>

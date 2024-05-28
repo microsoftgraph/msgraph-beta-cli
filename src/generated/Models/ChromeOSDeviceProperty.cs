@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a property of the ChromeOS device.
     /// </summary>
-    public class ChromeOSDeviceProperty : IAdditionalDataHolder, IParsable 
+    public class ChromeOSDeviceProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -71,11 +72,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"updatable", n => { Updatable = n.GetBoolValue(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
-                {"valueType", n => { ValueType = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "updatable", n => { Updatable = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
+                { "valueType", n => { ValueType = n.GetStringValue(); } },
             };
         }
         /// <summary>

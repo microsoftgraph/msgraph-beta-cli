@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize
+{
     /// <summary>
     /// Provides operations to call the resize method.
     /// </summary>
-    public class ResizeRequestBuilder : BaseCliRequestBuilder 
+    public class ResizeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action resize

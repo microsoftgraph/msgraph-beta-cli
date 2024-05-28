@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EncryptWithUserDefinedRights : EncryptContent, IParsable 
+    public class EncryptWithUserDefinedRights : EncryptContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allowAdHocPermissions property</summary>
@@ -46,9 +47,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowAdHocPermissions", n => { AllowAdHocPermissions = n.GetBoolValue(); } },
-                {"allowMailForwarding", n => { AllowMailForwarding = n.GetBoolValue(); } },
-                {"decryptionRightsManagementTemplateId", n => { DecryptionRightsManagementTemplateId = n.GetStringValue(); } },
+                { "allowAdHocPermissions", n => { AllowAdHocPermissions = n.GetBoolValue(); } },
+                { "allowMailForwarding", n => { AllowMailForwarding = n.GetBoolValue(); } },
+                { "decryptionRightsManagementTemplateId", n => { DecryptionRightsManagementTemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

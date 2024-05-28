@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisions.Item {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.Item.Decisions.Item
+{
     /// <summary>
     /// Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
     /// </summary>
-    public class AccessReviewInstanceDecisionItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewInstanceDecisionItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property decisions for users

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.RoleDefinition {
+namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.RoleDefinition
+{
     /// <summary>
     /// Provides operations to manage the roleDefinition property of the microsoft.graph.governanceRoleAssignment entity.
     /// </summary>
-    public class RoleDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class RoleDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleDefinition for governanceResources

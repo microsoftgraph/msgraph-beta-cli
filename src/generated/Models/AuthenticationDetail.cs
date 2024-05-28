@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationDetail : IAdditionalDataHolder, IParsable 
+    public class AuthenticationDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -80,13 +81,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetStringValue(); } },
-                {"authenticationMethodDetail", n => { AuthenticationMethodDetail = n.GetStringValue(); } },
-                {"authenticationStepDateTime", n => { AuthenticationStepDateTime = n.GetDateTimeOffsetValue(); } },
-                {"authenticationStepRequirement", n => { AuthenticationStepRequirement = n.GetStringValue(); } },
-                {"authenticationStepResultDetail", n => { AuthenticationStepResultDetail = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"succeeded", n => { Succeeded = n.GetBoolValue(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetStringValue(); } },
+                { "authenticationMethodDetail", n => { AuthenticationMethodDetail = n.GetStringValue(); } },
+                { "authenticationStepDateTime", n => { AuthenticationStepDateTime = n.GetDateTimeOffsetValue(); } },
+                { "authenticationStepRequirement", n => { AuthenticationStepRequirement = n.GetStringValue(); } },
+                { "authenticationStepResultDetail", n => { AuthenticationStepResultDetail = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "succeeded", n => { Succeeded = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReview : Entity, IParsable 
+    public class AccessReview : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The business flow template identifier. Required on create. This value is case sensitive.</summary>
@@ -127,20 +128,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"businessFlowTemplateId", n => { BusinessFlowTemplateId = n.GetStringValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"decisions", n => { Decisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"instances", n => { Instances = n.GetCollectionOfObjectValues<AccessReview>(AccessReview.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"myDecisions", n => { MyDecisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"reviewedEntity", n => { ReviewedEntity = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"reviewerType", n => { ReviewerType = n.GetStringValue(); } },
-                {"reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewer>(AccessReviewReviewer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"settings", n => { Settings = n.GetObjectValue<AccessReviewSettings>(AccessReviewSettings.CreateFromDiscriminatorValue); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
+                { "businessFlowTemplateId", n => { BusinessFlowTemplateId = n.GetStringValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "decisions", n => { Decisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "instances", n => { Instances = n.GetCollectionOfObjectValues<AccessReview>(AccessReview.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "myDecisions", n => { MyDecisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "reviewedEntity", n => { ReviewedEntity = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                { "reviewerType", n => { ReviewerType = n.GetStringValue(); } },
+                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewer>(AccessReviewReviewer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<AccessReviewSettings>(AccessReviewSettings.CreateFromDiscriminatorValue); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstances.Item {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstances.Item
+{
     /// <summary>
     /// Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity.
@@ -94,13 +95,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstan
             return command;
         }
         /// <summary>
-        /// Get roleEligibilityScheduleInstances from roleManagement
+        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get roleEligibilityScheduleInstances from roleManagement";
+            command.Description = "Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-get?view=graph-rest-beta";
             var unifiedRoleEligibilityScheduleInstanceIdOption = new Option<string>("--unified-role-eligibility-schedule-instance-id", description: "The unique identifier of unifiedRoleEligibilityScheduleInstance") {
             };
             unifiedRoleEligibilityScheduleInstanceIdOption.IsRequired = true;
@@ -264,7 +266,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstan
             return requestInfo;
         }
         /// <summary>
-        /// Get roleEligibilityScheduleInstances from roleManagement
+        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -304,7 +306,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.RoleEligibilityScheduleInstan
             return requestInfo;
         }
         /// <summary>
-        /// Get roleEligibilityScheduleInstances from roleManagement
+        /// Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.
         /// </summary>
         public class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters 
         {

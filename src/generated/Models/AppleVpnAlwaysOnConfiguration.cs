@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Always On VPN configuration for MacOS and iOS IKEv2
     /// </summary>
-    public class AppleVpnAlwaysOnConfiguration : IAdditionalDataHolder, IParsable 
+    public class AppleVpnAlwaysOnConfiguration : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -71,17 +72,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"airPrintExceptionAction", n => { AirPrintExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
-                {"allowAllCaptiveNetworkPlugins", n => { AllowAllCaptiveNetworkPlugins = n.GetBoolValue(); } },
-                {"allowCaptiveWebSheet", n => { AllowCaptiveWebSheet = n.GetBoolValue(); } },
-                {"allowedCaptiveNetworkPlugins", n => { AllowedCaptiveNetworkPlugins = n.GetObjectValue<SpecifiedCaptiveNetworkPlugins>(SpecifiedCaptiveNetworkPlugins.CreateFromDiscriminatorValue); } },
-                {"cellularExceptionAction", n => { CellularExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
-                {"natKeepAliveIntervalInSeconds", n => { NatKeepAliveIntervalInSeconds = n.GetIntValue(); } },
-                {"natKeepAliveOffloadEnable", n => { NatKeepAliveOffloadEnable = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"tunnelConfiguration", n => { TunnelConfiguration = n.GetEnumValue<VpnTunnelConfigurationType>(); } },
-                {"userToggleEnabled", n => { UserToggleEnabled = n.GetBoolValue(); } },
-                {"voicemailExceptionAction", n => { VoicemailExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
+                { "airPrintExceptionAction", n => { AirPrintExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
+                { "allowAllCaptiveNetworkPlugins", n => { AllowAllCaptiveNetworkPlugins = n.GetBoolValue(); } },
+                { "allowCaptiveWebSheet", n => { AllowCaptiveWebSheet = n.GetBoolValue(); } },
+                { "allowedCaptiveNetworkPlugins", n => { AllowedCaptiveNetworkPlugins = n.GetObjectValue<SpecifiedCaptiveNetworkPlugins>(SpecifiedCaptiveNetworkPlugins.CreateFromDiscriminatorValue); } },
+                { "cellularExceptionAction", n => { CellularExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
+                { "natKeepAliveIntervalInSeconds", n => { NatKeepAliveIntervalInSeconds = n.GetIntValue(); } },
+                { "natKeepAliveOffloadEnable", n => { NatKeepAliveOffloadEnable = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "tunnelConfiguration", n => { TunnelConfiguration = n.GetEnumValue<VpnTunnelConfigurationType>(); } },
+                { "userToggleEnabled", n => { UserToggleEnabled = n.GetBoolValue(); } },
+                { "voicemailExceptionAction", n => { VoicemailExceptionAction = n.GetEnumValue<VpnServiceExceptionAction>(); } },
             };
         }
         /// <summary>

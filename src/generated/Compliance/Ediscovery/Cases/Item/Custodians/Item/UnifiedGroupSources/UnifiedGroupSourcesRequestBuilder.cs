@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSources {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSources
+{
     /// <summary>
     /// Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.custodian entity.
     /// </summary>
-    public class UnifiedGroupSourcesRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedGroupSourcesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.custodian entity.
@@ -208,7 +209,9 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSo
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

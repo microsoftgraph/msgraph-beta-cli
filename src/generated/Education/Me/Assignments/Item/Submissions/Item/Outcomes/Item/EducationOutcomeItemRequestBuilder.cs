@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.Assignments.Item.Submissions.Item.Outcomes.Item {
+namespace ApiSdk.Education.Me.Assignments.Item.Submissions.Item.Outcomes.Item
+{
     /// <summary>
     /// Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
     /// </summary>
-    public class EducationOutcomeItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationOutcomeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property outcomes for education

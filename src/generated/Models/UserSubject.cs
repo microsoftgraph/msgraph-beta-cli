@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserSubject : ConditionalAccessWhatIfSubject, IParsable 
+    public class UserSubject : ConditionalAccessWhatIfSubject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The externalTenantId property</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"externalTenantId", n => { ExternalTenantId = n.GetStringValue(); } },
-                {"externalUserType", n => { ExternalUserType = n.GetEnumValue<ConditionalAccessGuestOrExternalUserTypes>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "externalTenantId", n => { ExternalTenantId = n.GetStringValue(); } },
+                { "externalUserType", n => { ExternalUserType = n.GetEnumValue<ConditionalAccessGuestOrExternalUserTypes>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

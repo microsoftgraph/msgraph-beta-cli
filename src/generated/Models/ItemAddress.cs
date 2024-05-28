@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ItemAddress : ItemFacet, IParsable 
+    public class ItemAddress : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The detail property</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"detail", n => { Detail = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"geoCoordinates", n => { GeoCoordinates = n.GetObjectValue<ApiSdk.Models.GeoCoordinates>(ApiSdk.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
+                { "detail", n => { Detail = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "geoCoordinates", n => { GeoCoordinates = n.GetObjectValue<ApiSdk.Models.GeoCoordinates>(ApiSdk.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

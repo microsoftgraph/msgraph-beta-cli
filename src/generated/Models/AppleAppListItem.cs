@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an app in the list of managed Apple applications
     /// </summary>
-    public class AppleAppListItem : AppListItem, IParsable 
+    public class AppleAppListItem : AppListItem, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="AppleAppListItem"/> and sets the default values.

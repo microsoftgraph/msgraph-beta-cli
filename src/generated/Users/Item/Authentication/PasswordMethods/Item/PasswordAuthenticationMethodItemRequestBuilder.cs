@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.PasswordMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.PasswordMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class PasswordAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class PasswordAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Represents the details of the password authentication method registered to a user for authentication.

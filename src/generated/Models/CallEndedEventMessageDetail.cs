@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallEndedEventMessageDetail : EventMessageDetail, IParsable 
+    public class CallEndedEventMessageDetail : EventMessageDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Duration of the call.</summary>
@@ -62,11 +63,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callDuration", n => { CallDuration = n.GetTimeSpanValue(); } },
-                {"callEventType", n => { CallEventType = n.GetEnumValue<TeamworkCallEventType>(); } },
-                {"callId", n => { CallId = n.GetStringValue(); } },
-                {"callParticipants", n => { CallParticipants = n.GetCollectionOfObjectValues<CallParticipantInfo>(CallParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "callDuration", n => { CallDuration = n.GetTimeSpanValue(); } },
+                { "callEventType", n => { CallEventType = n.GetEnumValue<TeamworkCallEventType>(); } },
+                { "callId", n => { CallId = n.GetStringValue(); } },
+                { "callParticipants", n => { CallParticipants = n.GetCollectionOfObjectValues<CallParticipantInfo>(CallParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

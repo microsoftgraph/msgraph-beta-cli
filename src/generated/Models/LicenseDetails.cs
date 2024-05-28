@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LicenseDetails : Entity, IParsable 
+    public class LicenseDetails : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Information about the service plans assigned with the license. Read-only. Not nullable.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"servicePlans", n => { ServicePlans = n.GetCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"skuId", n => { SkuId = n.GetGuidValue(); } },
-                {"skuPartNumber", n => { SkuPartNumber = n.GetStringValue(); } },
+                { "servicePlans", n => { ServicePlans = n.GetCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "skuId", n => { SkuId = n.GetGuidValue(); } },
+                { "skuPartNumber", n => { SkuPartNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>

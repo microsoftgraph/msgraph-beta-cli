@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DriveItemUploadableProperties : IAdditionalDataHolder, IParsable 
+    public class DriveItemUploadableProperties : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -86,13 +87,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"driveItemSource", n => { DriveItemSource = n.GetObjectValue<ApiSdk.Models.DriveItemSource>(ApiSdk.Models.DriveItemSource.CreateFromDiscriminatorValue); } },
-                {"fileSize", n => { FileSize = n.GetLongValue(); } },
-                {"fileSystemInfo", n => { FileSystemInfo = n.GetObjectValue<ApiSdk.Models.FileSystemInfo>(ApiSdk.Models.FileSystemInfo.CreateFromDiscriminatorValue); } },
-                {"mediaSource", n => { MediaSource = n.GetObjectValue<ApiSdk.Models.MediaSource>(ApiSdk.Models.MediaSource.CreateFromDiscriminatorValue); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "driveItemSource", n => { DriveItemSource = n.GetObjectValue<ApiSdk.Models.DriveItemSource>(ApiSdk.Models.DriveItemSource.CreateFromDiscriminatorValue); } },
+                { "fileSize", n => { FileSize = n.GetLongValue(); } },
+                { "fileSystemInfo", n => { FileSystemInfo = n.GetObjectValue<ApiSdk.Models.FileSystemInfo>(ApiSdk.Models.FileSystemInfo.CreateFromDiscriminatorValue); } },
+                { "mediaSource", n => { MediaSource = n.GetObjectValue<ApiSdk.Models.MediaSource>(ApiSdk.Models.MediaSource.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

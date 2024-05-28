@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Contacts.Item.Manager {
+namespace ApiSdk.Contacts.Item.Manager
+{
     /// <summary>
     /// Provides operations to manage the manager property of the microsoft.graph.orgContact entity.
     /// </summary>
-    public class ManagerRequestBuilder : BaseCliRequestBuilder 
+    public class ManagerRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// The user or contact that is this contact&apos;s manager. Read-only. Supports $expand and $filter (eq) by id.
+        /// Get the contact&apos;s manager
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.";
+            command.Description = "Get the contact's manager\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-beta";
             var orgContactIdOption = new Option<string>("--org-contact-id", description: "The unique identifier of orgContact") {
             };
             orgContactIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Contacts.Item.Manager {
         {
         }
         /// <summary>
-        /// The user or contact that is this contact&apos;s manager. Read-only. Supports $expand and $filter (eq) by id.
+        /// Get the contact&apos;s manager
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Contacts.Item.Manager {
             return requestInfo;
         }
         /// <summary>
-        /// The user or contact that is this contact&apos;s manager. Read-only. Supports $expand and $filter (eq) by id.
+        /// Get the contact&apos;s manager
         /// </summary>
         public class ManagerRequestBuilderGetQueryParameters 
         {

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetRemoteAssistanceSessionsReport {
+namespace ApiSdk.DeviceManagement.Reports.GetRemoteAssistanceSessionsReport
+{
     /// <summary>
     /// Provides operations to call the getRemoteAssistanceSessionsReport method.
     /// </summary>
-    public class GetRemoteAssistanceSessionsReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetRemoteAssistanceSessionsReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getRemoteAssistanceSessionsReport

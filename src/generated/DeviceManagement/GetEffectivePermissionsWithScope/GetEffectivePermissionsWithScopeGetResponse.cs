@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.GetEffectivePermissionsWithScope {
+namespace ApiSdk.DeviceManagement.GetEffectivePermissionsWithScope
+{
     #pragma warning disable CS1591
-    public class GetEffectivePermissionsWithScopeGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetEffectivePermissionsWithScopeGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.GetEffectivePermissionsWithScope {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<RolePermission>(RolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<RolePermission>(RolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeCards.ClockIn {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeCards.ClockIn
+{
     #pragma warning disable CS1591
-    public class ClockInPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ClockInPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,9 +56,9 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Sch
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
-                {"notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"onBehalfOfUserId", n => { OnBehalfOfUserId = n.GetStringValue(); } },
+                { "atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
+                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "onBehalfOfUserId", n => { OnBehalfOfUserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

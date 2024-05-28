@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
+{
     /// <summary>
     /// Casts the previous resource to onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.
     /// </summary>
-    public class GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilder : BaseCliRequestBuilder 
+    public class GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the items of type microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp in the microsoft.graph.onAuthenticationMethodLoadStartHandler collection
@@ -48,7 +49,9 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
                     {"5XX", ODataError.CreateFromDiscriminatorValue},
                 };
                 var response = await reqAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken) ?? Stream.Null;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (outputFile == null) {
                     using var reader = new StreamReader(response);
                     var strContent = reader.ReadToEnd();

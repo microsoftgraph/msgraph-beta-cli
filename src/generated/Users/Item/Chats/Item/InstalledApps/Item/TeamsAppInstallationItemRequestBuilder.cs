@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Chats.Item.InstalledApps.Item {
+namespace ApiSdk.Users.Item.Chats.Item.InstalledApps.Item
+{
     /// <summary>
     /// Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
     /// </summary>
-    public class TeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property installedApps for users

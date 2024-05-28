@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.Account {
+namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.Account
+{
     /// <summary>
     /// Provides operations to manage the account property of the microsoft.graph.generalLedgerEntry entity.
     /// </summary>
-    public class AccountRequestBuilder : BaseCliRequestBuilder 
+    public class AccountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get account from financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.Account {
         {
             var command = new Command("get");
             command.Description = "Get account from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var generalLedgerEntryIdOption = new Option<string>("--general-ledger-entry-id", description: "The unique identifier of generalLedgerEntry") {
+            var generalLedgerEntryIdOption = new Option<Guid?>("--general-ledger-entry-id", description: "The unique identifier of generalLedgerEntry") {
             };
             generalLedgerEntryIdOption.IsRequired = true;
             command.AddOption(generalLedgerEntryIdOption);

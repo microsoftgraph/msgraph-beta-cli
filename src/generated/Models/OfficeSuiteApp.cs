@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for the Office365 Suite App.
     /// </summary>
-    public class OfficeSuiteApp : MobileApp, IParsable 
+    public class OfficeSuiteApp : MobileApp, IParsable
     {
         /// <summary>The value to accept the EULA automatically on the enduser&apos;s device.</summary>
         public bool? AutoAcceptEula { get; set; }
@@ -97,19 +98,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"autoAcceptEula", n => { AutoAcceptEula = n.GetBoolValue(); } },
-                {"excludedApps", n => { ExcludedApps = n.GetObjectValue<ApiSdk.Models.ExcludedApps>(ApiSdk.Models.ExcludedApps.CreateFromDiscriminatorValue); } },
-                {"installProgressDisplayLevel", n => { InstallProgressDisplayLevel = n.GetEnumValue<OfficeSuiteInstallProgressDisplayLevel>(); } },
-                {"localesToInstall", n => { LocalesToInstall = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"officeConfigurationXml", n => { OfficeConfigurationXml = n.GetByteArrayValue(); } },
-                {"officePlatformArchitecture", n => { OfficePlatformArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
-                {"officeSuiteAppDefaultFileFormat", n => { OfficeSuiteAppDefaultFileFormat = n.GetEnumValue<OfficeSuiteDefaultFileFormatType>(); } },
-                {"productIds", n => { ProductIds = n.GetCollectionOfEnumValues<OfficeProductId>()?.ToList(); } },
-                {"shouldUninstallOlderVersionsOfOffice", n => { ShouldUninstallOlderVersionsOfOffice = n.GetBoolValue(); } },
-                {"targetVersion", n => { TargetVersion = n.GetStringValue(); } },
-                {"updateChannel", n => { UpdateChannel = n.GetEnumValue<OfficeUpdateChannel>(); } },
-                {"updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
-                {"useSharedComputerActivation", n => { UseSharedComputerActivation = n.GetBoolValue(); } },
+                { "autoAcceptEula", n => { AutoAcceptEula = n.GetBoolValue(); } },
+                { "excludedApps", n => { ExcludedApps = n.GetObjectValue<ApiSdk.Models.ExcludedApps>(ApiSdk.Models.ExcludedApps.CreateFromDiscriminatorValue); } },
+                { "installProgressDisplayLevel", n => { InstallProgressDisplayLevel = n.GetEnumValue<OfficeSuiteInstallProgressDisplayLevel>(); } },
+                { "localesToInstall", n => { LocalesToInstall = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "officeConfigurationXml", n => { OfficeConfigurationXml = n.GetByteArrayValue(); } },
+                { "officePlatformArchitecture", n => { OfficePlatformArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "officeSuiteAppDefaultFileFormat", n => { OfficeSuiteAppDefaultFileFormat = n.GetEnumValue<OfficeSuiteDefaultFileFormatType>(); } },
+                { "productIds", n => { ProductIds = n.GetCollectionOfEnumValues<OfficeProductId>()?.ToList(); } },
+                { "shouldUninstallOlderVersionsOfOffice", n => { ShouldUninstallOlderVersionsOfOffice = n.GetBoolValue(); } },
+                { "targetVersion", n => { TargetVersion = n.GetStringValue(); } },
+                { "updateChannel", n => { UpdateChannel = n.GetEnumValue<OfficeUpdateChannel>(); } },
+                { "updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
+                { "useSharedComputerActivation", n => { UseSharedComputerActivation = n.GetBoolValue(); } },
             };
         }
         /// <summary>

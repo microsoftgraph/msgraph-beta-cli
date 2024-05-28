@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Item {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Item
+{
     /// <summary>
     /// Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
     /// </summary>
-    public class ComplianceChangeItemRequestBuilder : BaseCliRequestBuilder 
+    public class ComplianceChangeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property complianceChanges for admin
+        /// Delete a complianceChange object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property complianceChanges for admin";
+            command.Description = "Delete a complianceChange object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-delete?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -63,13 +65,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
             return command;
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Read the properties and relationships of a complianceChange object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.";
+            command.Description = "Read the properties and relationships of a complianceChange object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-get?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -121,13 +124,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
             return command;
         }
         /// <summary>
-        /// Update the navigation property complianceChanges in admin
+        /// Update the properties of a complianceChange object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property complianceChanges in admin";
+            command.Description = "Update the properties of a complianceChange object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-update?view=graph-rest-beta";
             var updatePolicyIdOption = new Option<string>("--update-policy-id", description: "The unique identifier of updatePolicy") {
             };
             updatePolicyIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
         {
         }
         /// <summary>
-        /// Delete navigation property complianceChanges for admin
+        /// Delete a complianceChange object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Read the properties and relationships of a complianceChange object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property complianceChanges in admin
+        /// Update the properties of a complianceChange object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.ComplianceChanges.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+        /// Read the properties and relationships of a complianceChange object.
         /// </summary>
         public class ComplianceChangeItemRequestBuilderGetQueryParameters 
         {

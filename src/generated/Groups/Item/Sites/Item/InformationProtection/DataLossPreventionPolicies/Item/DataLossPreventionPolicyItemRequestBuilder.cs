@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.DataLossPreventionPolicies.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.DataLossPreventionPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
     /// </summary>
-    public class DataLossPreventionPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class DataLossPreventionPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dataLossPreventionPolicies for groups

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CustomerPayments.Item.Customer.Picture.Count {
+namespace ApiSdk.Financials.Companies.Item.CustomerPayments.Item.Customer.Picture.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPayments.Item.Customer.Pictur
         {
             var command = new Command("get");
             command.Description = "Get the number of the resource";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentIdOption = new Option<string>("--customer-payment-id", description: "The unique identifier of customerPayment") {
+            var customerPaymentIdOption = new Option<Guid?>("--customer-payment-id", description: "The unique identifier of customerPayment") {
             };
             customerPaymentIdOption.IsRequired = true;
             command.AddOption(customerPaymentIdOption);

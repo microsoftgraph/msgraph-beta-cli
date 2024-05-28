@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.InboundFlows.Item {
+namespace ApiSdk.External.IndustryData.InboundFlows.Item
+{
     /// <summary>
     /// Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class InboundFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class InboundFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dataConnector property of the microsoft.graph.industryData.inboundFlow entity.
@@ -40,13 +41,14 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property inboundFlows for external
+        /// Delete an inboundFileFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property inboundFlows for external";
+            command.Description = "Delete an inboundFileFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-delete?view=graph-rest-beta";
             var inboundFlowIdOption = new Option<string>("--inbound-flow-id", description: "The unique identifier of inboundFlow") {
             };
             inboundFlowIdOption.IsRequired = true;
@@ -75,13 +77,14 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return command;
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Read the properties and relationships of an inboundFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-inboundflow-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of data import flow activities to bring data into the canonical store via a connector.";
+            command.Description = "Read the properties and relationships of an inboundFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-inboundflow-get?view=graph-rest-beta";
             var inboundFlowIdOption = new Option<string>("--inbound-flow-id", description: "The unique identifier of inboundFlow") {
             };
             inboundFlowIdOption.IsRequired = true;
@@ -127,13 +130,14 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property inboundFlows in external
+        /// Update the properties of an inboundFileFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property inboundFlows in external";
+            command.Description = "Update the properties of an inboundFileFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-update?view=graph-rest-beta";
             var inboundFlowIdOption = new Option<string>("--inbound-flow-id", description: "The unique identifier of inboundFlow") {
             };
             inboundFlowIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property inboundFlows for external
+        /// Delete an inboundFileFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Read the properties and relationships of an inboundFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property inboundFlows in external
+        /// Update the properties of an inboundFileFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Read the properties and relationships of an inboundFlow object.
         /// </summary>
         public class InboundFlowItemRequestBuilderGetQueryParameters 
         {

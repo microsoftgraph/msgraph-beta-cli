@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageTraces.Item.Recipients.Item {
+namespace ApiSdk.MessageTraces.Item.Recipients.Item
+{
     /// <summary>
     /// Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
     /// </summary>
-    public class MessageRecipientItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageRecipientItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property recipients for messageTraces

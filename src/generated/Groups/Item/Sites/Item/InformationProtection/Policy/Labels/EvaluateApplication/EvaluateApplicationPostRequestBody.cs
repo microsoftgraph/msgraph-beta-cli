@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Policy.Labels.EvaluateApplication {
+namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Policy.Labels.EvaluateApplication
+{
     #pragma warning disable CS1591
-    public class EvaluateApplicationPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluateApplicationPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.Policy.Labels.Eval
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.ContentInfo>(ApiSdk.Models.ContentInfo.CreateFromDiscriminatorValue); } },
-                {"labelingOptions", n => { LabelingOptions = n.GetObjectValue<ApiSdk.Models.LabelingOptions>(ApiSdk.Models.LabelingOptions.CreateFromDiscriminatorValue); } },
+                { "contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.ContentInfo>(ApiSdk.Models.ContentInfo.CreateFromDiscriminatorValue); } },
+                { "labelingOptions", n => { LabelingOptions = n.GetObjectValue<ApiSdk.Models.LabelingOptions>(ApiSdk.Models.LabelingOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

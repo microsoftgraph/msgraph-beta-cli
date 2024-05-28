@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators {
+namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
+{
     #pragma warning disable CS1591
-    public class UpdateTiIndicatorsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class UpdateTiIndicatorsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<TiIndicator>(TiIndicator.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<TiIndicator>(TiIndicator.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

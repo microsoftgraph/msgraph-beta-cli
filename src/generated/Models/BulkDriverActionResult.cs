@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A complex type to represent the result of bulk driver action.
     /// </summary>
-    public class BulkDriverActionResult : IAdditionalDataHolder, IParsable 
+    public class BulkDriverActionResult : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,10 +70,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"failedDriverIds", n => { FailedDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"notFoundDriverIds", n => { NotFoundDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"successfulDriverIds", n => { SuccessfulDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "failedDriverIds", n => { FailedDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "notFoundDriverIds", n => { NotFoundDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "successfulDriverIds", n => { SuccessfulDriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

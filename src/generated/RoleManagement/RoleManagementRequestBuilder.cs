@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement {
+namespace ApiSdk.RoleManagement
+{
     /// <summary>
     /// Provides operations to manage the roleManagement singleton.
     /// </summary>
-    public class RoleManagementRequestBuilder : BaseCliRequestBuilder 
+    public class RoleManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the cloudPC property of the microsoft.graph.roleManagement entity.

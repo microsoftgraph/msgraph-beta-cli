@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item {
+namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
+{
     /// <summary>
     /// Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
     /// </summary>
-    public class TenantReferenceTenantItemRequestBuilder : BaseCliRequestBuilder 
+    public class TenantReferenceTenantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenants for directory
@@ -63,13 +64,13 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
             return command;
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.";
+            command.Description = "The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.";
             var outboundSharedUserProfileUserIdOption = new Option<string>("--outbound-shared-user-profile-user-id", description: "The unique identifier of outboundSharedUserProfile") {
             };
             outboundSharedUserProfileUserIdOption.IsRequired = true;
@@ -228,7 +229,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
             return requestInfo;
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +269,7 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
             return requestInfo;
         }
         /// <summary>
-        /// The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+        /// The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
         /// </summary>
         public class TenantReferenceTenantItemRequestBuilderGetQueryParameters 
         {

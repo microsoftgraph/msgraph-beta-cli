@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsQualityUpdateProfiles.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.WindowsQualityUpdateProfiles.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
     /// </summary>
-    public class WindowsQualityUpdateProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsQualityUpdateProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

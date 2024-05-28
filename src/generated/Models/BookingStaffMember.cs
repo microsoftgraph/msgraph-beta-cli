@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a staff member who provides services in a business.
     /// </summary>
-    public class BookingStaffMember : BookingPerson, IParsable 
+    public class BookingStaffMember : BookingPerson, IParsable
     {
         /// <summary>True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member&apos;s availability in their personal calendar in Microsoft 365, before making a booking.</summary>
         public bool? AvailabilityIsAffectedByPersonalCalendar { get; set; }
@@ -60,16 +61,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"availabilityIsAffectedByPersonalCalendar", n => { AvailabilityIsAffectedByPersonalCalendar = n.GetBoolValue(); } },
-                {"colorIndex", n => { ColorIndex = n.GetIntValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isEmailNotificationEnabled", n => { IsEmailNotificationEnabled = n.GetBoolValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"membershipStatus", n => { MembershipStatus = n.GetEnumValue<BookingStaffMembershipStatus>(); } },
-                {"role", n => { Role = n.GetEnumValue<BookingStaffRole>(); } },
-                {"timeZone", n => { TimeZone = n.GetStringValue(); } },
-                {"useBusinessHours", n => { UseBusinessHours = n.GetBoolValue(); } },
-                {"workingHours", n => { WorkingHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "availabilityIsAffectedByPersonalCalendar", n => { AvailabilityIsAffectedByPersonalCalendar = n.GetBoolValue(); } },
+                { "colorIndex", n => { ColorIndex = n.GetIntValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isEmailNotificationEnabled", n => { IsEmailNotificationEnabled = n.GetBoolValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "membershipStatus", n => { MembershipStatus = n.GetEnumValue<BookingStaffMembershipStatus>(); } },
+                { "role", n => { Role = n.GetEnumValue<BookingStaffRole>(); } },
+                { "timeZone", n => { TimeZone = n.GetStringValue(); } },
+                { "useBusinessHours", n => { UseBusinessHours = n.GetBoolValue(); } },
+                { "workingHours", n => { WorkingHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

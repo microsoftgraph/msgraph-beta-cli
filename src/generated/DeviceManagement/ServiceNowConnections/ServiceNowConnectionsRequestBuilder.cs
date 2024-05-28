@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ServiceNowConnections {
+namespace ApiSdk.DeviceManagement.ServiceNowConnections
+{
     /// <summary>
     /// Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ServiceNowConnectionsRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceNowConnectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
@@ -180,7 +181,9 @@ namespace ApiSdk.DeviceManagement.ServiceNowConnections {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

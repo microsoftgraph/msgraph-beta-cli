@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item {
+namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item
+{
     /// <summary>
     /// Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
     /// </summary>
-    public class DelegatedAdminCustomerItemRequestBuilder : BaseCliRequestBuilder 
+    public class DelegatedAdminCustomerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property delegatedAdminCustomers for tenantRelationships
@@ -57,13 +58,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item {
             return command;
         }
         /// <summary>
-        /// The customer who has a delegated admin relationship with a Microsoft partner.
+        /// Read the properties of a delegatedAdminCustomer object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The customer who has a delegated admin relationship with a Microsoft partner.";
+            command.Description = "Read the properties of a delegatedAdminCustomer object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-beta";
             var delegatedAdminCustomerIdOption = new Option<string>("--delegated-admin-customer-id", description: "The unique identifier of delegatedAdminCustomer") {
             };
             delegatedAdminCustomerIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The customer who has a delegated admin relationship with a Microsoft partner.
+        /// Read the properties of a delegatedAdminCustomer object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The customer who has a delegated admin relationship with a Microsoft partner.
+        /// Read the properties of a delegatedAdminCustomer object.
         /// </summary>
         public class DelegatedAdminCustomerItemRequestBuilderGetQueryParameters 
         {

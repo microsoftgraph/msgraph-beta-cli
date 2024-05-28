@@ -24,11 +24,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the depOnboardingSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DepOnboardingSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class DepOnboardingSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the defaultIosEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.Disable {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.Disable
+{
     /// <summary>
     /// Provides operations to call the disable method.
     /// </summary>
-    public class DisableRequestBuilder : BaseCliRequestBuilder 
+    public class DisableRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action disable

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Members.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Members.Item
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.channel entity.
     /// </summary>
-    public class ConversationMemberItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConversationMemberItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property members for teamTemplateDefinition

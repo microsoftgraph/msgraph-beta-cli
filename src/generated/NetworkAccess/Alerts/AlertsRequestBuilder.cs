@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Alerts {
+namespace ApiSdk.NetworkAccess.Alerts
+{
     /// <summary>
     /// Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class AlertsRequestBuilder : BaseCliRequestBuilder 
+    public class AlertsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.
@@ -29,11 +30,13 @@ namespace ApiSdk.NetworkAccess.Alerts {
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
+            var commands = new List<Command>();
             var builder = new AlertItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
-            return new(executables, new(0));
+            commands.Add(builder.BuildPolicyNavCommand());
+            return new(executables, commands);
         }
         /// <summary>
         /// Provides operations to count the resources in the collection.
@@ -180,7 +183,9 @@ namespace ApiSdk.NetworkAccess.Alerts {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

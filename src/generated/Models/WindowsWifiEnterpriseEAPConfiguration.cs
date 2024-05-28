@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This entity provides descriptions of the declared methods, properties and relationships exposed by the Wifi CSP.
     /// </summary>
-    public class WindowsWifiEnterpriseEAPConfiguration : WindowsWifiConfiguration, IParsable 
+    public class WindowsWifiEnterpriseEAPConfiguration : WindowsWifiConfiguration, IParsable
     {
         /// <summary>Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.</summary>
         public WiFiAuthenticationMethod? AuthenticationMethod { get; set; }
@@ -119,33 +120,33 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<WiFiAuthenticationMethod>(); } },
-                {"authenticationPeriodInSeconds", n => { AuthenticationPeriodInSeconds = n.GetIntValue(); } },
-                {"authenticationRetryDelayPeriodInSeconds", n => { AuthenticationRetryDelayPeriodInSeconds = n.GetIntValue(); } },
-                {"authenticationType", n => { AuthenticationType = n.GetEnumValue<WifiAuthenticationType>(); } },
-                {"cacheCredentials", n => { CacheCredentials = n.GetBoolValue(); } },
-                {"disableUserPromptForServerValidation", n => { DisableUserPromptForServerValidation = n.GetBoolValue(); } },
-                {"eapType", n => { EapType = n.GetEnumValue<EapType>(); } },
-                {"eapolStartPeriodInSeconds", n => { EapolStartPeriodInSeconds = n.GetIntValue(); } },
-                {"enablePairwiseMasterKeyCaching", n => { EnablePairwiseMasterKeyCaching = n.GetBoolValue(); } },
-                {"enablePreAuthentication", n => { EnablePreAuthentication = n.GetBoolValue(); } },
-                {"identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<WindowsCertificateProfileBase>(WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"innerAuthenticationProtocolForEAPTTLS", n => { InnerAuthenticationProtocolForEAPTTLS = n.GetEnumValue<NonEapAuthenticationMethodForEapTtlsType>(); } },
-                {"maximumAuthenticationFailures", n => { MaximumAuthenticationFailures = n.GetIntValue(); } },
-                {"maximumAuthenticationTimeoutInSeconds", n => { MaximumAuthenticationTimeoutInSeconds = n.GetIntValue(); } },
-                {"maximumEAPOLStartMessages", n => { MaximumEAPOLStartMessages = n.GetIntValue(); } },
-                {"maximumNumberOfPairwiseMasterKeysInCache", n => { MaximumNumberOfPairwiseMasterKeysInCache = n.GetIntValue(); } },
-                {"maximumPairwiseMasterKeyCacheTimeInMinutes", n => { MaximumPairwiseMasterKeyCacheTimeInMinutes = n.GetIntValue(); } },
-                {"maximumPreAuthenticationAttempts", n => { MaximumPreAuthenticationAttempts = n.GetIntValue(); } },
-                {"networkSingleSignOn", n => { NetworkSingleSignOn = n.GetEnumValue<NetworkSingleSignOnType>(); } },
-                {"outerIdentityPrivacyTemporaryValue", n => { OuterIdentityPrivacyTemporaryValue = n.GetStringValue(); } },
-                {"performServerValidation", n => { PerformServerValidation = n.GetBoolValue(); } },
-                {"promptForAdditionalAuthenticationCredentials", n => { PromptForAdditionalAuthenticationCredentials = n.GetBoolValue(); } },
-                {"requireCryptographicBinding", n => { RequireCryptographicBinding = n.GetBoolValue(); } },
-                {"rootCertificateForClientValidation", n => { RootCertificateForClientValidation = n.GetObjectValue<Windows81TrustedRootCertificate>(Windows81TrustedRootCertificate.CreateFromDiscriminatorValue); } },
-                {"rootCertificatesForServerValidation", n => { RootCertificatesForServerValidation = n.GetCollectionOfObjectValues<Windows81TrustedRootCertificate>(Windows81TrustedRootCertificate.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"trustedServerCertificateNames", n => { TrustedServerCertificateNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"userBasedVirtualLan", n => { UserBasedVirtualLan = n.GetBoolValue(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<WiFiAuthenticationMethod>(); } },
+                { "authenticationPeriodInSeconds", n => { AuthenticationPeriodInSeconds = n.GetIntValue(); } },
+                { "authenticationRetryDelayPeriodInSeconds", n => { AuthenticationRetryDelayPeriodInSeconds = n.GetIntValue(); } },
+                { "authenticationType", n => { AuthenticationType = n.GetEnumValue<WifiAuthenticationType>(); } },
+                { "cacheCredentials", n => { CacheCredentials = n.GetBoolValue(); } },
+                { "disableUserPromptForServerValidation", n => { DisableUserPromptForServerValidation = n.GetBoolValue(); } },
+                { "eapType", n => { EapType = n.GetEnumValue<EapType>(); } },
+                { "eapolStartPeriodInSeconds", n => { EapolStartPeriodInSeconds = n.GetIntValue(); } },
+                { "enablePairwiseMasterKeyCaching", n => { EnablePairwiseMasterKeyCaching = n.GetBoolValue(); } },
+                { "enablePreAuthentication", n => { EnablePreAuthentication = n.GetBoolValue(); } },
+                { "identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<WindowsCertificateProfileBase>(WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "innerAuthenticationProtocolForEAPTTLS", n => { InnerAuthenticationProtocolForEAPTTLS = n.GetEnumValue<NonEapAuthenticationMethodForEapTtlsType>(); } },
+                { "maximumAuthenticationFailures", n => { MaximumAuthenticationFailures = n.GetIntValue(); } },
+                { "maximumAuthenticationTimeoutInSeconds", n => { MaximumAuthenticationTimeoutInSeconds = n.GetIntValue(); } },
+                { "maximumEAPOLStartMessages", n => { MaximumEAPOLStartMessages = n.GetIntValue(); } },
+                { "maximumNumberOfPairwiseMasterKeysInCache", n => { MaximumNumberOfPairwiseMasterKeysInCache = n.GetIntValue(); } },
+                { "maximumPairwiseMasterKeyCacheTimeInMinutes", n => { MaximumPairwiseMasterKeyCacheTimeInMinutes = n.GetIntValue(); } },
+                { "maximumPreAuthenticationAttempts", n => { MaximumPreAuthenticationAttempts = n.GetIntValue(); } },
+                { "networkSingleSignOn", n => { NetworkSingleSignOn = n.GetEnumValue<NetworkSingleSignOnType>(); } },
+                { "outerIdentityPrivacyTemporaryValue", n => { OuterIdentityPrivacyTemporaryValue = n.GetStringValue(); } },
+                { "performServerValidation", n => { PerformServerValidation = n.GetBoolValue(); } },
+                { "promptForAdditionalAuthenticationCredentials", n => { PromptForAdditionalAuthenticationCredentials = n.GetBoolValue(); } },
+                { "requireCryptographicBinding", n => { RequireCryptographicBinding = n.GetBoolValue(); } },
+                { "rootCertificateForClientValidation", n => { RootCertificateForClientValidation = n.GetObjectValue<Windows81TrustedRootCertificate>(Windows81TrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "rootCertificatesForServerValidation", n => { RootCertificatesForServerValidation = n.GetCollectionOfObjectValues<Windows81TrustedRootCertificate>(Windows81TrustedRootCertificate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trustedServerCertificateNames", n => { TrustedServerCertificateNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "userBasedVirtualLan", n => { UserBasedVirtualLan = n.GetBoolValue(); } },
             };
         }
         /// <summary>

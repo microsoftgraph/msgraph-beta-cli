@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity {
+namespace ApiSdk.Identity
+{
     /// <summary>
     /// Provides operations to manage the identityContainer singleton.
     /// </summary>
-    public class IdentityRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.

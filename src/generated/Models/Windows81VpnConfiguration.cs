@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Windows 8.1 (and later) devices to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class Windows81VpnConfiguration : WindowsVpnConfiguration, IParsable 
+    public class Windows81VpnConfiguration : WindowsVpnConfiguration, IParsable
     {
         /// <summary>Value indicating whether this policy only applies to Windows 8.1. This property is read-only.</summary>
         public bool? ApplyOnlyToWindows81 { get; private set; }
@@ -62,11 +63,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applyOnlyToWindows81", n => { ApplyOnlyToWindows81 = n.GetBoolValue(); } },
-                {"connectionType", n => { ConnectionType = n.GetEnumValue<WindowsVpnConnectionType>(); } },
-                {"enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
-                {"loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
-                {"proxyServer", n => { ProxyServer = n.GetObjectValue<Windows81VpnProxyServer>(Windows81VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "applyOnlyToWindows81", n => { ApplyOnlyToWindows81 = n.GetBoolValue(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<WindowsVpnConnectionType>(); } },
+                { "enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
+                { "loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<Windows81VpnProxyServer>(Windows81VpnProxyServer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a user rights setting.
     /// </summary>
-    public class DeviceManagementUserRightsSetting : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementUserRightsSetting : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"localUsersOrGroups", n => { LocalUsersOrGroups = n.GetCollectionOfObjectValues<DeviceManagementUserRightsLocalUserOrGroup>(DeviceManagementUserRightsLocalUserOrGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<StateManagementSetting>(); } },
+                { "localUsersOrGroups", n => { LocalUsersOrGroups = n.GetCollectionOfObjectValues<DeviceManagementUserRightsLocalUserOrGroup>(DeviceManagementUserRightsLocalUserOrGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<StateManagementSetting>(); } },
             };
         }
         /// <summary>

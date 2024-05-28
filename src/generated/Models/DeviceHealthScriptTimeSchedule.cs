@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base type of Device health script time schedule.
     /// </summary>
-    public class DeviceHealthScriptTimeSchedule : DeviceHealthScriptRunSchedule, IParsable 
+    public class DeviceHealthScriptTimeSchedule : DeviceHealthScriptRunSchedule, IParsable
     {
         /// <summary>At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.</summary>
         public Time? Time { get; set; }
@@ -46,8 +47,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"time", n => { Time = n.GetTimeValue(); } },
-                {"useUtc", n => { UseUtc = n.GetBoolValue(); } },
+                { "time", n => { Time = n.GetTimeValue(); } },
+                { "useUtc", n => { UseUtc = n.GetBoolValue(); } },
             };
         }
         /// <summary>

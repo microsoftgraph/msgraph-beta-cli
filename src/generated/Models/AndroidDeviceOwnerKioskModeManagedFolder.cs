@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A folder containing pages of apps and weblinks on the Managed Home Screen
     /// </summary>
-    public class AndroidDeviceOwnerKioskModeManagedFolder : IAdditionalDataHolder, IParsable 
+    public class AndroidDeviceOwnerKioskModeManagedFolder : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -69,10 +70,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"folderIdentifier", n => { FolderIdentifier = n.GetStringValue(); } },
-                {"folderName", n => { FolderName = n.GetStringValue(); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<AndroidDeviceOwnerKioskModeFolderItem>(AndroidDeviceOwnerKioskModeFolderItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "folderIdentifier", n => { FolderIdentifier = n.GetStringValue(); } },
+                { "folderName", n => { FolderName = n.GetStringValue(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<AndroidDeviceOwnerKioskModeFolderItem>(AndroidDeviceOwnerKioskModeFolderItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

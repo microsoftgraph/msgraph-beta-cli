@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.GetSourceImages {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.GetSourceImages
+{
     /// <summary>
     /// Provides operations to call the getSourceImages method.
     /// </summary>
-    public class GetSourceImagesRequestBuilder : BaseCliRequestBuilder 
+    public class GetSourceImagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
@@ -82,7 +83,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.GetSourceImages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationMethodsRegistrationCampaign : IAdditionalDataHolder, IParsable 
+    public class AuthenticationMethodsRegistrationCampaign : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -66,12 +67,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"enforceRegistrationAfterAllowedSnoozes", n => { EnforceRegistrationAfterAllowedSnoozes = n.GetBoolValue(); } },
-                {"excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ExcludeTarget>(ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>(AuthenticationMethodsRegistrationCampaignIncludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"snoozeDurationInDays", n => { SnoozeDurationInDays = n.GetIntValue(); } },
-                {"state", n => { State = n.GetEnumValue<AdvancedConfigState>(); } },
+                { "enforceRegistrationAfterAllowedSnoozes", n => { EnforceRegistrationAfterAllowedSnoozes = n.GetBoolValue(); } },
+                { "excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ExcludeTarget>(ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>(AuthenticationMethodsRegistrationCampaignIncludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "snoozeDurationInDays", n => { SnoozeDurationInDays = n.GetIntValue(); } },
+                { "state", n => { State = n.GetEnumValue<AdvancedConfigState>(); } },
             };
         }
         /// <summary>

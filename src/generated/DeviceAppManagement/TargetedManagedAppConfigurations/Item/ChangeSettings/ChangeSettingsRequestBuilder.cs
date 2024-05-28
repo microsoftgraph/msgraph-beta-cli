@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.ChangeSettings {
+namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.ChangeSettings
+{
     /// <summary>
     /// Provides operations to call the changeSettings method.
     /// </summary>
-    public class ChangeSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ChangeSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action changeSettings

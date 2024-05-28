@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents
+{
     /// <summary>
     /// Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class AuditEventsRequestBuilder : BaseCliRequestBuilder 
+    public class AuditEventsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
@@ -116,13 +117,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
             return command;
         }
         /// <summary>
-        /// Cloud PC audit event.
+        /// List all the cloudPcAuditEvent objects for the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Cloud PC audit event.";
+            command.Description = "List all the cloudPcAuditEvent objects for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -198,7 +200,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +228,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
         {
         }
         /// <summary>
-        /// Cloud PC audit event.
+        /// List all the cloudPcAuditEvent objects for the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +268,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC audit event.
+        /// List all the cloudPcAuditEvent objects for the tenant.
         /// </summary>
         public class AuditEventsRequestBuilderGetQueryParameters 
         {

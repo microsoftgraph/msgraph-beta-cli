@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CloudPCConnectivityIssues.Item {
+namespace ApiSdk.DeviceManagement.CloudPCConnectivityIssues.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class CloudPCConnectivityIssueItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPCConnectivityIssueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cloudPCConnectivityIssues for deviceManagement

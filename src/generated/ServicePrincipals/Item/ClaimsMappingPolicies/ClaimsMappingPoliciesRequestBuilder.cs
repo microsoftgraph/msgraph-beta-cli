@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies {
+namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies
+{
     /// <summary>
     /// Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class ClaimsMappingPoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class ClaimsMappingPoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.servicePrincipals.item.claimsMappingPolicies.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies {
             return command;
         }
         /// <summary>
-        /// The claimsMappingPolicies assigned to this service principal. Supports $expand.
+        /// List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-claimsmappingpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The claimsMappingPolicies assigned to this service principal. Supports $expand.";
+            command.Description = "List the claimsMappingPolicy objects that are assigned to a servicePrincipal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-claimsmappingpolicies?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies {
         {
         }
         /// <summary>
-        /// The claimsMappingPolicies assigned to this service principal. Supports $expand.
+        /// List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The claimsMappingPolicies assigned to this service principal. Supports $expand.
+        /// List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
         /// </summary>
         public class ClaimsMappingPoliciesRequestBuilderGetQueryParameters 
         {

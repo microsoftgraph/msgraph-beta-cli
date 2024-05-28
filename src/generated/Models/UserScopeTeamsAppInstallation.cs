@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserScopeTeamsAppInstallation : TeamsAppInstallation, IParsable 
+    public class UserScopeTeamsAppInstallation : TeamsAppInstallation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The chat between the user and Teams app.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"chat", n => { Chat = n.GetObjectValue<ApiSdk.Models.Chat>(ApiSdk.Models.Chat.CreateFromDiscriminatorValue); } },
+                { "chat", n => { Chat = n.GetObjectValue<ApiSdk.Models.Chat>(ApiSdk.Models.Chat.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

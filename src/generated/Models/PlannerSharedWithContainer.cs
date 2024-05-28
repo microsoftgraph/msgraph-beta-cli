@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerSharedWithContainer : PlannerPlanContainer, IParsable 
+    public class PlannerSharedWithContainer : PlannerPlanContainer, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessLevel property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessLevel", n => { AccessLevel = n.GetEnumValue<PlannerPlanAccessLevel>(); } },
+                { "accessLevel", n => { AccessLevel = n.GetEnumValue<PlannerPlanAccessLevel>(); } },
             };
         }
         /// <summary>

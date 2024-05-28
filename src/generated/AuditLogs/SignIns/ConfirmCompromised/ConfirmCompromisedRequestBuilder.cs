@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised {
+namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised
+{
     /// <summary>
     /// Provides operations to call the confirmCompromised method.
     /// </summary>
-    public class ConfirmCompromisedRequestBuilder : BaseCliRequestBuilder 
+    public class ConfirmCompromisedRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Allow admins to mark an event in the Microsoft Entra sign-in logs as risky. Events marked as risky by an admin are immediately flagged as high risk in Microsoft Entra ID Protection, overriding previous risk states. Admins can confirm that events flagged as risky by Microsoft Entra ID Protection are in fact risky. For details about investigating Identity Protection risks, see How to investigate risk.

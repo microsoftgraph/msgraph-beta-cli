@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe {
+namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe
+{
     #pragma warning disable CS1591
-    public class ConfirmSafePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ConfirmSafePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"requestIds", n => { RequestIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "requestIds", n => { RequestIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

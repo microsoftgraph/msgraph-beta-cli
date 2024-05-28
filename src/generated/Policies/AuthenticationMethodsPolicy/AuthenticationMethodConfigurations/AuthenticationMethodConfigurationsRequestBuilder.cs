@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfigurations {
+namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfigurations
+{
     /// <summary>
     /// Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
     /// </summary>
-    public class AuthenticationMethodConfigurationsRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationMethodConfigurationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfig
             return command;
         }
         /// <summary>
-        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+        /// Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.";
+            command.Description = "Read the properties and relationships of an externalAuthenticationMethodConfiguration object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfig
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfig
         {
         }
         /// <summary>
-        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+        /// Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.Policies.AuthenticationMethodsPolicy.AuthenticationMethodConfig
             return requestInfo;
         }
         /// <summary>
-        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+        /// Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
         /// </summary>
         public class AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters 
         {

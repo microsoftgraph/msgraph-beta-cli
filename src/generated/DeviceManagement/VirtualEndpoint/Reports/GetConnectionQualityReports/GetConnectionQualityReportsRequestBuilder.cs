@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports
+{
     /// <summary>
     /// Provides operations to call the getConnectionQualityReports method.
     /// </summary>
-    public class GetConnectionQualityReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetConnectionQualityReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the overall connection quality reports for all devices within a current tenant during a given time period, including metrics like the average round trip time (P50), average available bandwidth, and UDP connection percentage. Get also other real-time metrics such as last connection round trip time, last connection client IP, last connection gateway, and last connection protocol.

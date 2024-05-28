@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans
+{
     /// <summary>
     /// Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class ServicePlansRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePlansRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
             return command;
         }
         /// <summary>
-        /// Cloud PC service plans.
+        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-serviceplans?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Cloud PC service plans.";
+            command.Description = "List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-serviceplans?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
         {
         }
         /// <summary>
-        /// Cloud PC service plans.
+        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC service plans.
+        /// List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
         /// </summary>
         public class ServicePlansRequestBuilderGetQueryParameters 
         {

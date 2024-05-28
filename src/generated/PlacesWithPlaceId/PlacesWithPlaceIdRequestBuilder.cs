@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PlacesWithPlaceId {
+namespace ApiSdk.PlacesWithPlaceId
+{
     /// <summary>
     /// Provides operations to manage the collection of place entities.
     /// </summary>
-    public class PlacesWithPlaceIdRequestBuilder : BaseCliRequestBuilder 
+    public class PlacesWithPlaceIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from places by placeId

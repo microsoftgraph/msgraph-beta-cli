@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class RemoteNetwork : ApiSdk.Models.Entity, IParsable 
+    public class RemoteNetwork : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the connectivity details of all device links associated with a remote network.</summary>
@@ -71,13 +72,13 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<RemoteNetworkConnectivityConfiguration>(RemoteNetworkConnectivityConfiguration.CreateFromDiscriminatorValue); } },
-                {"deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"region", n => { Region = n.GetEnumValue<Region>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<RemoteNetworkConnectivityConfiguration>(RemoteNetworkConnectivityConfiguration.CreateFromDiscriminatorValue); } },
+                { "deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetEnumValue<Region>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

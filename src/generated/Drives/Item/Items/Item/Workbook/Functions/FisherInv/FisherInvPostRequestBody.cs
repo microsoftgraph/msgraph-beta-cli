@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.FisherInv {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.FisherInv
+{
     #pragma warning disable CS1591
-    public class FisherInvPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class FisherInvPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.FisherInv {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"y", n => { Y = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "y", n => { Y = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Employee : IAdditionalDataHolder, IParsable 
+    public class Employee : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -167,26 +168,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"birthDate", n => { BirthDate = n.GetDateValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"employmentDate", n => { EmploymentDate = n.GetDateValue(); } },
-                {"givenName", n => { GivenName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"middleName", n => { MiddleName = n.GetStringValue(); } },
-                {"mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"personalEmail", n => { PersonalEmail = n.GetStringValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"statisticsGroupCode", n => { StatisticsGroupCode = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"surname", n => { Surname = n.GetStringValue(); } },
-                {"terminationDate", n => { TerminationDate = n.GetDateValue(); } },
+                { "address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "birthDate", n => { BirthDate = n.GetDateValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "employmentDate", n => { EmploymentDate = n.GetDateValue(); } },
+                { "givenName", n => { GivenName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "middleName", n => { MiddleName = n.GetStringValue(); } },
+                { "mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "personalEmail", n => { PersonalEmail = n.GetStringValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "statisticsGroupCode", n => { StatisticsGroupCode = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "surname", n => { Surname = n.GetStringValue(); } },
+                { "terminationDate", n => { TerminationDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

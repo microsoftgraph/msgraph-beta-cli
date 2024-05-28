@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InsightSummary : Entity, IParsable 
+    public class InsightSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Daily active users.</summary>
@@ -60,16 +61,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeUsers", n => { ActiveUsers = n.GetLongValue(); } },
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"authenticationCompletions", n => { AuthenticationCompletions = n.GetLongValue(); } },
-                {"authenticationRequests", n => { AuthenticationRequests = n.GetLongValue(); } },
-                {"factDate", n => { FactDate = n.GetDateValue(); } },
-                {"os", n => { Os = n.GetStringValue(); } },
-                {"securityTextCompletions", n => { SecurityTextCompletions = n.GetLongValue(); } },
-                {"securityTextRequests", n => { SecurityTextRequests = n.GetLongValue(); } },
-                {"securityVoiceCompletions", n => { SecurityVoiceCompletions = n.GetLongValue(); } },
-                {"securityVoiceRequests", n => { SecurityVoiceRequests = n.GetLongValue(); } },
+                { "activeUsers", n => { ActiveUsers = n.GetLongValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "authenticationCompletions", n => { AuthenticationCompletions = n.GetLongValue(); } },
+                { "authenticationRequests", n => { AuthenticationRequests = n.GetLongValue(); } },
+                { "factDate", n => { FactDate = n.GetDateValue(); } },
+                { "os", n => { Os = n.GetStringValue(); } },
+                { "securityTextCompletions", n => { SecurityTextCompletions = n.GetLongValue(); } },
+                { "securityTextRequests", n => { SecurityTextRequests = n.GetLongValue(); } },
+                { "securityVoiceCompletions", n => { SecurityVoiceCompletions = n.GetLongValue(); } },
+                { "securityVoiceRequests", n => { SecurityVoiceRequests = n.GetLongValue(); } },
             };
         }
         /// <summary>

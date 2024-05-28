@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventRegistrationCustomQuestion : VirtualEventRegistrationQuestionBase, IParsable 
+    public class VirtualEventRegistrationCustomQuestion : VirtualEventRegistrationQuestionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The answerChoices property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"answerChoices", n => { AnswerChoices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"answerInputType", n => { AnswerInputType = n.GetEnumValue<VirtualEventRegistrationQuestionAnswerInputType>(); } },
+                { "answerChoices", n => { AnswerChoices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "answerInputType", n => { AnswerInputType = n.GetEnumValue<VirtualEventRegistrationQuestionAnswerInputType>(); } },
             };
         }
         /// <summary>

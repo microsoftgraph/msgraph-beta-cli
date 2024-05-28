@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions.Item.Resources.Item {
+namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions.Item.Resources.Item
+{
     /// <summary>
     /// Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
     /// </summary>
-    public class EducationSubmissionResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationSubmissionResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resources for education

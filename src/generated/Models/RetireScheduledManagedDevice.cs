@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// ManagedDevices that are scheduled for retire
     /// </summary>
-    public class RetireScheduledManagedDevice : IAdditionalDataHolder, IParsable 
+    public class RetireScheduledManagedDevice : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -103,18 +104,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"complianceState", n => { ComplianceState = n.GetEnumValue<ComplianceStatus>(); } },
-                {"deviceCompliancePolicyId", n => { DeviceCompliancePolicyId = n.GetStringValue(); } },
-                {"deviceCompliancePolicyName", n => { DeviceCompliancePolicyName = n.GetStringValue(); } },
-                {"deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
-                {"managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"ownerType", n => { OwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
-                {"retireAfterDateTime", n => { RetireAfterDateTime = n.GetDateTimeOffsetValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "complianceState", n => { ComplianceState = n.GetEnumValue<ComplianceStatus>(); } },
+                { "deviceCompliancePolicyId", n => { DeviceCompliancePolicyId = n.GetStringValue(); } },
+                { "deviceCompliancePolicyName", n => { DeviceCompliancePolicyName = n.GetStringValue(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
+                { "managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
+                { "retireAfterDateTime", n => { RetireAfterDateTime = n.GetDateTimeOffsetValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

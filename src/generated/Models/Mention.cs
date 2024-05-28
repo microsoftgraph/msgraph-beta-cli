@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Mention : Entity, IParsable 
+    public class Mention : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the application where the mention is created. Optional. Not used and defaulted as null for message.</summary>
@@ -79,14 +80,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"application", n => { Application = n.GetStringValue(); } },
-                {"clientReference", n => { ClientReference = n.GetStringValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deepLink", n => { DeepLink = n.GetStringValue(); } },
-                {"mentionText", n => { MentionText = n.GetStringValue(); } },
-                {"mentioned", n => { Mentioned = n.GetObjectValue<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue); } },
-                {"serverCreatedDateTime", n => { ServerCreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "application", n => { Application = n.GetStringValue(); } },
+                { "clientReference", n => { ClientReference = n.GetStringValue(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deepLink", n => { DeepLink = n.GetStringValue(); } },
+                { "mentionText", n => { MentionText = n.GetStringValue(); } },
+                { "mentioned", n => { Mentioned = n.GetObjectValue<EmailAddress>(EmailAddress.CreateFromDiscriminatorValue); } },
+                { "serverCreatedDateTime", n => { ServerCreatedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

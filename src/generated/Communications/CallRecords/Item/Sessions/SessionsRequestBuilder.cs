@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.Item.Sessions {
+namespace ApiSdk.Communications.CallRecords.Item.Sessions
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
     /// </summary>
-    public class SessionsRequestBuilder : BaseCliRequestBuilder 
+    public class SessionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.Communications.CallRecords.Item.Sessions {
             return command;
         }
         /// <summary>
-        /// List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
+        /// Retrieve the list of sessions associated with a callRecord object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callrecords-callrecord-list-sessions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.";
+            command.Description = "Retrieve the list of sessions associated with a callRecord object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/callrecords-callrecord-list-sessions?view=graph-rest-beta";
             var callRecordIdOption = new Option<string>("--call-record-id", description: "The unique identifier of callRecord") {
             };
             callRecordIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.Communications.CallRecords.Item.Sessions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.Communications.CallRecords.Item.Sessions {
         {
         }
         /// <summary>
-        /// List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
+        /// Retrieve the list of sessions associated with a callRecord object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.Communications.CallRecords.Item.Sessions {
             return requestInfo;
         }
         /// <summary>
-        /// List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
+        /// Retrieve the list of sessions associated with a callRecord object.
         /// </summary>
         public class SessionsRequestBuilderGetQueryParameters 
         {

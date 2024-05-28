@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics tenant level information for all the device scope configurations
     /// </summary>
-    public class UserExperienceAnalyticsDeviceScopeSummary : IAdditionalDataHolder, IParsable 
+    public class UserExperienceAnalyticsDeviceScopeSummary : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -65,11 +66,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"completedDeviceScopeIds", n => { CompletedDeviceScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"insufficientDataDeviceScopeIds", n => { InsufficientDataDeviceScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"totalDeviceScopes", n => { TotalDeviceScopes = n.GetIntValue(); } },
-                {"totalDeviceScopesEnabled", n => { TotalDeviceScopesEnabled = n.GetIntValue(); } },
+                { "completedDeviceScopeIds", n => { CompletedDeviceScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "insufficientDataDeviceScopeIds", n => { InsufficientDataDeviceScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "totalDeviceScopes", n => { TotalDeviceScopes = n.GetIntValue(); } },
+                { "totalDeviceScopesEnabled", n => { TotalDeviceScopesEnabled = n.GetIntValue(); } },
             };
         }
         /// <summary>

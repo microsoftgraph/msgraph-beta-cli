@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
+namespace ApiSdk.Security.Labels.FilePlanReferences.Item
+{
     /// <summary>
     /// Provides operations to manage the filePlanReferences property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class FilePlanReferenceTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class FilePlanReferenceTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property filePlanReferences for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
             return command;
         }
         /// <summary>
-        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+        /// Read the properties and relationships of a filePlanReferenceTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Specifies a unique alpha-numeric identifier for an organization’s retention schedule.";
+            command.Description = "Read the properties and relationships of a filePlanReferenceTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-beta";
             var filePlanReferenceTemplateIdOption = new Option<string>("--file-plan-reference-template-id", description: "The unique identifier of filePlanReferenceTemplate") {
             };
             filePlanReferenceTemplateIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+        /// Read the properties and relationships of a filePlanReferenceTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.Labels.FilePlanReferences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+        /// Read the properties and relationships of a filePlanReferenceTemplate object.
         /// </summary>
         public class FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing configurations in this profile you can instruct the native email client on Windows Phone to communicate with an Exchange server and get email, contacts, calendar, and tasks. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class WindowsPhoneEASEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable 
+    public class WindowsPhoneEASEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable
     {
         /// <summary>Account name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,16 +68,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountName", n => { AccountName = n.GetStringValue(); } },
-                {"applyOnlyToWindowsPhone81", n => { ApplyOnlyToWindowsPhone81 = n.GetBoolValue(); } },
-                {"durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                {"emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                {"emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<EmailSyncSchedule>(); } },
-                {"hostName", n => { HostName = n.GetStringValue(); } },
-                {"requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                {"syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
-                {"syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
-                {"syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
+                { "accountName", n => { AccountName = n.GetStringValue(); } },
+                { "applyOnlyToWindowsPhone81", n => { ApplyOnlyToWindowsPhone81 = n.GetBoolValue(); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<EmailSyncSchedule>(); } },
+                { "hostName", n => { HostName = n.GetStringValue(); } },
+                { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
+                { "syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
+                { "syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
+                { "syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
             };
         }
         /// <summary>

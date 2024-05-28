@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Group Setting Collection Instance Template
     /// </summary>
-    public class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate : DeviceManagementConfigurationSettingInstanceTemplate, IParsable 
+    public class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate : DeviceManagementConfigurationSettingInstanceTemplate, IParsable
     {
         /// <summary>Linked policy may append values which are not present in the template.</summary>
         public bool? AllowUnmanagedValues { get; set; }
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowUnmanagedValues", n => { AllowUnmanagedValues = n.GetBoolValue(); } },
-                {"groupSettingCollectionValueTemplate", n => { GroupSettingCollectionValueTemplate = n.GetCollectionOfObjectValues<DeviceManagementConfigurationGroupSettingValueTemplate>(DeviceManagementConfigurationGroupSettingValueTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowUnmanagedValues", n => { AllowUnmanagedValues = n.GetBoolValue(); } },
+                { "groupSettingCollectionValueTemplate", n => { GroupSettingCollectionValueTemplate = n.GetCollectionOfObjectValues<DeviceManagementConfigurationGroupSettingValueTemplate>(DeviceManagementConfigurationGroupSettingValueTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect {
+namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect
+{
     #pragma warning disable CS1591
-    public class ConnectPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ConnectPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"ownerAccessToken", n => { OwnerAccessToken = n.GetStringValue(); } },
-                {"ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
+                { "ownerAccessToken", n => { OwnerAccessToken = n.GetStringValue(); } },
+                { "ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class B2cIdentityUserFlow : IdentityUserFlow, IParsable 
+    public class B2cIdentityUserFlow : IdentityUserFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Configuration for enabling an API connector for use as part of the user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.</summary>
@@ -25,7 +26,7 @@ namespace ApiSdk.Models {
 #else
         public string DefaultLanguageTag { get; set; }
 #endif
-        /// <summary>The identityProviders property</summary>
+        /// <summary>The identity providers included in the user flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<IdentityProvider>? IdentityProviders { get; set; }
@@ -51,7 +52,7 @@ namespace ApiSdk.Models {
 #else
         public List<IdentityUserFlowAttributeAssignment> UserAttributeAssignments { get; set; }
 #endif
-        /// <summary>The userFlowIdentityProviders property</summary>
+        /// <summary>The identity providers included in the user flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<IdentityProviderBase>? UserFlowIdentityProviders { get; set; }
@@ -77,13 +78,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"apiConnectorConfiguration", n => { ApiConnectorConfiguration = n.GetObjectValue<UserFlowApiConnectorConfiguration>(UserFlowApiConnectorConfiguration.CreateFromDiscriminatorValue); } },
-                {"defaultLanguageTag", n => { DefaultLanguageTag = n.GetStringValue(); } },
-                {"identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProvider>(IdentityProvider.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isLanguageCustomizationEnabled", n => { IsLanguageCustomizationEnabled = n.GetBoolValue(); } },
-                {"languages", n => { Languages = n.GetCollectionOfObjectValues<UserFlowLanguageConfiguration>(UserFlowLanguageConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userAttributeAssignments", n => { UserAttributeAssignments = n.GetCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>(IdentityUserFlowAttributeAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userFlowIdentityProviders", n => { UserFlowIdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "apiConnectorConfiguration", n => { ApiConnectorConfiguration = n.GetObjectValue<UserFlowApiConnectorConfiguration>(UserFlowApiConnectorConfiguration.CreateFromDiscriminatorValue); } },
+                { "defaultLanguageTag", n => { DefaultLanguageTag = n.GetStringValue(); } },
+                { "identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProvider>(IdentityProvider.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isLanguageCustomizationEnabled", n => { IsLanguageCustomizationEnabled = n.GetBoolValue(); } },
+                { "languages", n => { Languages = n.GetCollectionOfObjectValues<UserFlowLanguageConfiguration>(UserFlowLanguageConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userAttributeAssignments", n => { UserAttributeAssignments = n.GetCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>(IdentityUserFlowAttributeAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userFlowIdentityProviders", n => { UserFlowIdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

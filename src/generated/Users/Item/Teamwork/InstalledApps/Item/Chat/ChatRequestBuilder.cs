@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item.Chat {
+namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item.Chat
+{
     /// <summary>
     /// Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity.
     /// </summary>
-    public class ChatRequestBuilder : BaseCliRequestBuilder 
+    public class ChatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// The chat between the user and Teams app.
+        /// Retrieve the chat of the specified user and Teams app.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The chat between the user and Teams app.";
+            command.Description = "Retrieve the chat of the specified user and Teams app.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -93,7 +95,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item.Chat {
         {
         }
         /// <summary>
-        /// The chat between the user and Teams app.
+        /// Retrieve the chat of the specified user and Teams app.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +114,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item.Chat {
             return requestInfo;
         }
         /// <summary>
-        /// The chat between the user and Teams app.
+        /// Retrieve the chat of the specified user and Teams app.
         /// </summary>
         public class ChatRequestBuilderGetQueryParameters 
         {

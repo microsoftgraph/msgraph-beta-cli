@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GetComanagementEligibleDevicesSummary {
+namespace ApiSdk.DeviceManagement.GetComanagementEligibleDevicesSummary
+{
     /// <summary>
     /// Provides operations to call the getComanagementEligibleDevicesSummary method.
     /// </summary>
-    public class GetComanagementEligibleDevicesSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class GetComanagementEligibleDevicesSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getComanagementEligibleDevicesSummary

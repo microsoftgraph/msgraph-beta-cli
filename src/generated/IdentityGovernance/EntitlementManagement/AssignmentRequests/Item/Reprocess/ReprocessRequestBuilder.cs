@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Reprocess {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Reprocess
+{
     /// <summary>
     /// Provides operations to call the reprocess method.
     /// </summary>
-    public class ReprocessRequestBuilder : BaseCliRequestBuilder 
+    public class ReprocessRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action reprocess

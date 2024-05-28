@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin {
+namespace ApiSdk.Admin
+{
     /// <summary>
     /// Provides operations to manage the admin singleton.
     /// </summary>
-    public class AdminRequestBuilder : BaseCliRequestBuilder 
+    public class AdminRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appsAndServices property of the microsoft.graph.admin entity.

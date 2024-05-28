@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.MfaCompletions.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.MfaCompletions.Item
+{
     /// <summary>
     /// Provides operations to manage the mfaCompletions property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class MfaCompletionMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class MfaCompletionMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Insights for MFA usage on apps registered in the tenant for a specified period.

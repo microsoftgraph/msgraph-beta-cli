@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization {
+namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization
+{
     /// <summary>
     /// Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
     /// </summary>
-    public class OnPremisesSynchronizationRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesSynchronizationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization {
             return command;
         }
         /// <summary>
-        /// A container for on-premises directory synchronization functionalities that are available for the organization.
+        /// Read the properties and relationships of an onPremisesDirectorySynchronization object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A container for on-premises directory synchronization functionalities that are available for the organization.";
+            command.Description = "Read the properties and relationships of an onPremisesDirectorySynchronization object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization {
         {
         }
         /// <summary>
-        /// A container for on-premises directory synchronization functionalities that are available for the organization.
+        /// Read the properties and relationships of an onPremisesDirectorySynchronization object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.DirectoryNamespace.OnPremisesSynchronization {
             return requestInfo;
         }
         /// <summary>
-        /// A container for on-premises directory synchronization functionalities that are available for the organization.
+        /// Read the properties and relationships of an onPremisesDirectorySynchronization object.
         /// </summary>
         public class OnPremisesSynchronizationRequestBuilderGetQueryParameters 
         {

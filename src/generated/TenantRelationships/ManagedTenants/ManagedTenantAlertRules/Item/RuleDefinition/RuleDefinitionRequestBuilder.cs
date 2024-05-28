@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.RuleDefinition {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.RuleDefinition
+{
     /// <summary>
     /// Provides operations to manage the ruleDefinition property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.
     /// </summary>
-    public class RuleDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class RuleDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get ruleDefinition from tenantRelationships

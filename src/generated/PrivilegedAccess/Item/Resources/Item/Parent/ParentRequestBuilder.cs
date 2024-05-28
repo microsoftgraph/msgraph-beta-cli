@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.Parent {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.Parent
+{
     /// <summary>
     /// Provides operations to manage the parent property of the microsoft.graph.governanceResource entity.
     /// </summary>
-    public class ParentRequestBuilder : BaseCliRequestBuilder 
+    public class ParentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.

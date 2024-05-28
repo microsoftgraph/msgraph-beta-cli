@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateApplication {
+namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateApplication
+{
     /// <summary>
     /// Provides operations to call the evaluateApplication method.
     /// </summary>
-    public class MicrosoftGraphSecurityEvaluateApplicationRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphSecurityEvaluateApplicationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set manually or explicitly by a user or service, rather than automatically based on file contents. Given contentInfo, which includes existing content metadata key-value pairs, and labelingOptions as an input, the API returns an informationProtectionAction object that contains one of more of the following: 
@@ -71,7 +72,9 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.Mic
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

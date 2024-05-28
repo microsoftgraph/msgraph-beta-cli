@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Definitions.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Definitions.Item
+{
     /// <summary>
     /// Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
     /// </summary>
-    public class GroupPolicyDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The group policy definitions associated with the file.

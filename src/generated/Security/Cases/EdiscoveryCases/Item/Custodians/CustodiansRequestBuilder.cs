@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians
+{
     /// <summary>
     /// Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class CustodiansRequestBuilder : BaseCliRequestBuilder 
+    public class CustodiansRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
@@ -66,13 +67,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to custodians for security
+        /// Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian&apos;s userSource to reference their mailbox and OneDrive for Business site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to custodians for security";
+            command.Description = "Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -117,13 +119,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
             return command;
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Get a list of the custodian objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of case ediscoveryCustodian objects for this case.";
+            command.Description = "Get a list of the custodian objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -205,7 +208,9 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -282,7 +287,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
         {
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Get a list of the custodian objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -301,7 +306,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to custodians for security
+        /// Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian&apos;s userSource to reference their mailbox and OneDrive for Business site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -322,7 +327,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of case ediscoveryCustodian objects for this case.
+        /// Get a list of the custodian objects and their properties.
         /// </summary>
         public class CustodiansRequestBuilderGetQueryParameters 
         {

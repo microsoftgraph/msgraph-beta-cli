@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ClassificationInnerError : IAdditionalDataHolder, IParsable 
+    public class ClassificationInnerError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityId property</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activityId", n => { ActivityId = n.GetStringValue(); } },
-                {"clientRequestId", n => { ClientRequestId = n.GetStringValue(); } },
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"errorDateTime", n => { ErrorDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "activityId", n => { ActivityId = n.GetStringValue(); } },
+                { "clientRequestId", n => { ClientRequestId = n.GetStringValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "errorDateTime", n => { ErrorDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

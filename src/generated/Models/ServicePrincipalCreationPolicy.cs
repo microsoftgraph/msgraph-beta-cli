@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServicePrincipalCreationPolicy : PolicyBase, IParsable 
+    public class ServicePrincipalCreationPolicy : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The excludes property</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"excludes", n => { Excludes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"includes", n => { Includes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
+                { "excludes", n => { Excludes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includes", n => { Includes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Experimental profile to increase the rate of device check-ins per day of iOS/macOS devices. This profile type is deprecated.
     /// </summary>
-    public class AppleExpeditedCheckinConfigurationBase : DeviceConfiguration, IParsable 
+    public class AppleExpeditedCheckinConfigurationBase : DeviceConfiguration, IParsable
     {
         /// <summary>Gets or sets whether to enable expedited device check-ins.</summary>
         public bool? EnableExpeditedCheckin { get; set; }
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enableExpeditedCheckin", n => { EnableExpeditedCheckin = n.GetBoolValue(); } },
+                { "enableExpeditedCheckin", n => { EnableExpeditedCheckin = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Initiator : Identity, IParsable 
+    public class Initiator : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Type of initiator. Possible values are: user, application, system, unknownFutureValue.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"initiatorType", n => { InitiatorType = n.GetEnumValue<InitiatorType>(); } },
+                { "initiatorType", n => { InitiatorType = n.GetEnumValue<InitiatorType>(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan
+{
     #pragma warning disable CS1591
-    public class GetPlanPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetPlanPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"target", n => { Target = n.GetObjectValue<BusinessScenarioTaskTargetBase>(BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<BusinessScenarioTaskTargetBase>(BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

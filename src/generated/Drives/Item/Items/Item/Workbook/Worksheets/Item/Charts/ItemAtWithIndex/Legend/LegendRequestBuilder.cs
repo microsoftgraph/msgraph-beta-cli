@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.Legend {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.Legend
+{
     /// <summary>
     /// Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.
     /// </summary>
-    public class LegendRequestBuilder : BaseCliRequestBuilder 
+    public class LegendRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property legend for drives

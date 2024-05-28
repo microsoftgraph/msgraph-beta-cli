@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder {
+namespace ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder
+{
     /// <summary>
     /// Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
     /// </summary>
-    public class FilesFolderRequestBuilder : BaseCliRequestBuilder 
+    public class FilesFolderRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the group entity.
@@ -32,6 +33,7 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder {
             command.Description = "Provides operations to manage the media for the group entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -50,6 +52,7 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder {
             command.Description = "Provides operations to manage the media for the group entity.";
             var builder = new ContentStreamRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

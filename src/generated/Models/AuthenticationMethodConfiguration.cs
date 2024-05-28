@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationMethodConfiguration : Entity, IParsable 
+    public class AuthenticationMethodConfiguration : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Groups of users that are excluded from a policy.</summary>
@@ -31,6 +32,7 @@ namespace ApiSdk.Models {
             return mappingValue switch
             {
                 "#microsoft.graph.emailAuthenticationMethodConfiguration" => new EmailAuthenticationMethodConfiguration(),
+                "#microsoft.graph.externalAuthenticationMethodConfiguration" => new ExternalAuthenticationMethodConfiguration(),
                 "#microsoft.graph.fido2AuthenticationMethodConfiguration" => new Fido2AuthenticationMethodConfiguration(),
                 "#microsoft.graph.hardwareOathAuthenticationMethodConfiguration" => new HardwareOathAuthenticationMethodConfiguration(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration" => new MicrosoftAuthenticatorAuthenticationMethodConfiguration(),
@@ -50,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ExcludeTarget>(ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetEnumValue<AuthenticationMethodState>(); } },
+                { "excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ExcludeTarget>(ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<AuthenticationMethodState>(); } },
             };
         }
         /// <summary>

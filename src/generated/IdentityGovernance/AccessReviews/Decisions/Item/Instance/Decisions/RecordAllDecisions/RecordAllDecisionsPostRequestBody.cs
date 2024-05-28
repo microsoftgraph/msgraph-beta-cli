@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Decisions.RecordAllDecisions {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Decisions.RecordAllDecisions
+{
     #pragma warning disable CS1591
-    public class RecordAllDecisionsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RecordAllDecisionsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Decisi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"decision", n => { Decision = n.GetStringValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"principalId", n => { PrincipalId = n.GetStringValue(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "decision", n => { Decision = n.GetStringValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "principalId", n => { PrincipalId = n.GetStringValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

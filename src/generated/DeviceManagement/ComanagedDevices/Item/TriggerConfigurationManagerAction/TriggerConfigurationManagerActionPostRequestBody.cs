@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.TriggerConfigurationManagerAction {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.TriggerConfigurationManagerAction
+{
     #pragma warning disable CS1591
-    public class TriggerConfigurationManagerActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class TriggerConfigurationManagerActionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.TriggerConfigurationMana
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"configurationManagerAction", n => { ConfigurationManagerAction = n.GetObjectValue<ApiSdk.Models.ConfigurationManagerAction>(ApiSdk.Models.ConfigurationManagerAction.CreateFromDiscriminatorValue); } },
+                { "configurationManagerAction", n => { ConfigurationManagerAction = n.GetObjectValue<ApiSdk.Models.ConfigurationManagerAction>(ApiSdk.Models.ConfigurationManagerAction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

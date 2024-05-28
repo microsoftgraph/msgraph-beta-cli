@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveApprovableOperations {
+namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveApprovableOperations
+{
     #pragma warning disable CS1591
-    public class RetrieveApprovableOperationsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class RetrieveApprovableOperationsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveApprovableOp
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

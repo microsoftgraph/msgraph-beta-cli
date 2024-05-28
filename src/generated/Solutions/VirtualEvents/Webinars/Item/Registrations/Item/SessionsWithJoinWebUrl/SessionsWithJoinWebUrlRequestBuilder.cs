@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations.Item.SessionsWithJoinWebUrl {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations.Item.SessionsWithJoinWebUrl
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEventRegistration entity.
     /// </summary>
-    public class SessionsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder 
+    public class SessionsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get sessions from solutions

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DeploymentSettings : IAdditionalDataHolder, IParsable 
+    public class DeploymentSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -84,12 +85,12 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentApplicability", n => { ContentApplicability = n.GetObjectValue<ContentApplicabilitySettings>(ContentApplicabilitySettings.CreateFromDiscriminatorValue); } },
-                {"expedite", n => { Expedite = n.GetObjectValue<ExpediteSettings>(ExpediteSettings.CreateFromDiscriminatorValue); } },
-                {"monitoring", n => { Monitoring = n.GetObjectValue<MonitoringSettings>(MonitoringSettings.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<ScheduleSettings>(ScheduleSettings.CreateFromDiscriminatorValue); } },
-                {"userExperience", n => { UserExperience = n.GetObjectValue<UserExperienceSettings>(UserExperienceSettings.CreateFromDiscriminatorValue); } },
+                { "contentApplicability", n => { ContentApplicability = n.GetObjectValue<ContentApplicabilitySettings>(ContentApplicabilitySettings.CreateFromDiscriminatorValue); } },
+                { "expedite", n => { Expedite = n.GetObjectValue<ExpediteSettings>(ExpediteSettings.CreateFromDiscriminatorValue); } },
+                { "monitoring", n => { Monitoring = n.GetObjectValue<MonitoringSettings>(MonitoringSettings.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<ScheduleSettings>(ScheduleSettings.CreateFromDiscriminatorValue); } },
+                { "userExperience", n => { UserExperience = n.GetObjectValue<UserExperienceSettings>(UserExperienceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item.CategorySummaries.Item.UpdateStateSummaries.Item {
+namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item.CategorySummaries.Item.UpdateStateSummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
     /// </summary>
-    public class MacOSSoftwareUpdateStateSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class MacOSSoftwareUpdateStateSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property updateStateSummaries for deviceManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeOffReasons.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.TimeOffReasons.Item
+{
     /// <summary>
     /// Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffReasonItemRequestBuilder : BaseCliRequestBuilder 
+    public class TimeOffReasonItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property timeOffReasons for teamwork

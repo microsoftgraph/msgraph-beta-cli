@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
+namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of print entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property allowedGroups for print
+        /// Revoke the specified group&apos;s access to submit print jobs to the associated printerShare.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-delete-allowedgroup?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property allowedGroups for print";
+            command.Description = "Revoke the specified group's access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-delete-allowedgroup?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
             return command;
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The groups whose users have access to print using the printer.";
+            command.Description = "Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -136,7 +139,9 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +153,14 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to allowedGroups for print
+        /// Grant the specified group access to submit print jobs to the associated printerShare.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-post-allowedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to allowedGroups for print";
+            command.Description = "Grant the specified group access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-post-allowedgroups?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -203,7 +209,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property allowedGroups for print
+        /// Revoke the specified group&apos;s access to submit print jobs to the associated printerShare.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +228,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +247,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to allowedGroups for print
+        /// Grant the specified group access to submit print jobs to the associated printerShare.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +268,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property allowedGroups for print
+        /// Revoke the specified group&apos;s access to submit print jobs to the associated printerShare.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -278,7 +284,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups.Ref {
 #endif
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

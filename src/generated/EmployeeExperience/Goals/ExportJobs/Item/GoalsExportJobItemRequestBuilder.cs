@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item {
+namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
+{
     /// <summary>
     /// Provides operations to manage the exportJobs property of the microsoft.graph.goals entity.
     /// </summary>
-    public class GoalsExportJobItemRequestBuilder : BaseCliRequestBuilder 
+    public class GoalsExportJobItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the employeeExperience entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item {
             command.Description = "Provides operations to manage the media for the employeeExperience entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript
+{
     #pragma warning disable CS1591
-    public class ValidateComplianceScriptPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ValidateComplianceScriptPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScr
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceCompliancePolicyScript", n => { DeviceCompliancePolicyScript = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>(ApiSdk.Models.DeviceCompliancePolicyScript.CreateFromDiscriminatorValue); } },
+                { "deviceCompliancePolicyScript", n => { DeviceCompliancePolicyScript = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>(ApiSdk.Models.DeviceCompliancePolicyScript.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

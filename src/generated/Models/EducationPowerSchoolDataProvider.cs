@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationPowerSchoolDataProvider : EducationSynchronizationDataProvider, IParsable 
+    public class EducationPowerSchoolDataProvider : EducationSynchronizationDataProvider, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether the source has multiple identifiers for a single student or teacher.</summary>
@@ -84,13 +85,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowTeachersInMultipleSchools", n => { AllowTeachersInMultipleSchools = n.GetBoolValue(); } },
-                {"clientId", n => { ClientId = n.GetStringValue(); } },
-                {"clientSecret", n => { ClientSecret = n.GetStringValue(); } },
-                {"connectionUrl", n => { ConnectionUrl = n.GetStringValue(); } },
-                {"customizations", n => { Customizations = n.GetObjectValue<EducationSynchronizationCustomizations>(EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
-                {"schoolYear", n => { SchoolYear = n.GetStringValue(); } },
-                {"schoolsIds", n => { SchoolsIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowTeachersInMultipleSchools", n => { AllowTeachersInMultipleSchools = n.GetBoolValue(); } },
+                { "clientId", n => { ClientId = n.GetStringValue(); } },
+                { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
+                { "connectionUrl", n => { ConnectionUrl = n.GetStringValue(); } },
+                { "customizations", n => { Customizations = n.GetObjectValue<EducationSynchronizationCustomizations>(EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
+                { "schoolYear", n => { SchoolYear = n.GetStringValue(); } },
+                { "schoolsIds", n => { SchoolsIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

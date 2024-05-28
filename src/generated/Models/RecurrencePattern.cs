@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RecurrencePattern : IAdditionalDataHolder, IParsable 
+    public class RecurrencePattern : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -64,14 +65,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dayOfMonth", n => { DayOfMonth = n.GetIntValue(); } },
-                {"daysOfWeek", n => { DaysOfWeek = n.GetCollectionOfEnumValues<DayOfWeekObject>()?.ToList(); } },
-                {"firstDayOfWeek", n => { FirstDayOfWeek = n.GetEnumValue<DayOfWeekObject>(); } },
-                {"index", n => { Index = n.GetEnumValue<WeekIndex>(); } },
-                {"interval", n => { Interval = n.GetIntValue(); } },
-                {"month", n => { Month = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<RecurrencePatternType>(); } },
+                { "dayOfMonth", n => { DayOfMonth = n.GetIntValue(); } },
+                { "daysOfWeek", n => { DaysOfWeek = n.GetCollectionOfEnumValues<DayOfWeekObject>()?.ToList(); } },
+                { "firstDayOfWeek", n => { FirstDayOfWeek = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "index", n => { Index = n.GetEnumValue<WeekIndex>(); } },
+                { "interval", n => { Interval = n.GetIntValue(); } },
+                { "month", n => { Month = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<RecurrencePatternType>(); } },
             };
         }
         /// <summary>

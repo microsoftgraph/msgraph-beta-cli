@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WebApplicationSegment : ApplicationSegment, IParsable 
+    public class WebApplicationSegment : ApplicationSegment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If you&apos;re configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
-                {"corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<CorsConfiguration_v2>(CorsConfiguration_v2.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
-                {"internalUrl", n => { InternalUrl = n.GetStringValue(); } },
+                { "alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
+                { "corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<CorsConfiguration_v2>(CorsConfiguration_v2.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
+                { "internalUrl", n => { InternalUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

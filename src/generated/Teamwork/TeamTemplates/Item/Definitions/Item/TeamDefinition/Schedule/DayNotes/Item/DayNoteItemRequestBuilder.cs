@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.DayNotes.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Schedule.DayNotes.Item
+{
     /// <summary>
     /// Provides operations to manage the dayNotes property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class DayNoteItemRequestBuilder : BaseCliRequestBuilder 
+    public class DayNoteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dayNotes for teamwork

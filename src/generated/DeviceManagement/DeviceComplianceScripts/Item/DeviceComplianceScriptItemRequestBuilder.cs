@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item {
+namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceComplianceScripts property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceComplianceScriptItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceComplianceScriptItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceComplianceScript entity.

@@ -33,11 +33,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile {
+namespace ApiSdk.Users.Item.Profile
+{
     /// <summary>
     /// Provides operations to manage the profile property of the microsoft.graph.user entity.
     /// </summary>
-    public class ProfileRequestBuilder : BaseCliRequestBuilder 
+    public class ProfileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.profile entity.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OpenIdConnectIdentityProvider : IdentityProviderBase, IParsable 
+    public class OpenIdConnectIdentityProvider : IdentityProviderBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>After the OIDC provider sends an ID token back to Microsoft Entra ID, Microsoft Entra ID needs to be able to map the claims from the received token to the claims that Microsoft Entra ID recognizes and uses. This complex type captures that mapping. Required.</summary>
@@ -86,14 +87,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"claimsMapping", n => { ClaimsMapping = n.GetObjectValue<ApiSdk.Models.ClaimsMapping>(ApiSdk.Models.ClaimsMapping.CreateFromDiscriminatorValue); } },
-                {"clientId", n => { ClientId = n.GetStringValue(); } },
-                {"clientSecret", n => { ClientSecret = n.GetStringValue(); } },
-                {"domainHint", n => { DomainHint = n.GetStringValue(); } },
-                {"metadataUrl", n => { MetadataUrl = n.GetStringValue(); } },
-                {"responseMode", n => { ResponseMode = n.GetEnumValue<OpenIdConnectResponseMode>(); } },
-                {"responseType", n => { ResponseType = n.GetEnumValue<OpenIdConnectResponseTypes>(); } },
-                {"scope", n => { Scope = n.GetStringValue(); } },
+                { "claimsMapping", n => { ClaimsMapping = n.GetObjectValue<ApiSdk.Models.ClaimsMapping>(ApiSdk.Models.ClaimsMapping.CreateFromDiscriminatorValue); } },
+                { "clientId", n => { ClientId = n.GetStringValue(); } },
+                { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
+                { "domainHint", n => { DomainHint = n.GetStringValue(); } },
+                { "metadataUrl", n => { MetadataUrl = n.GetStringValue(); } },
+                { "responseMode", n => { ResponseMode = n.GetEnumValue<OpenIdConnectResponseMode>(); } },
+                { "responseType", n => { ResponseType = n.GetEnumValue<OpenIdConnectResponseTypes>(); } },
+                { "scope", n => { Scope = n.GetStringValue(); } },
             };
         }
         /// <summary>

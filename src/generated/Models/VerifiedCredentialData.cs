@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VerifiedCredentialData : IAdditionalDataHolder, IParsable 
+    public class VerifiedCredentialData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authority", n => { Authority = n.GetStringValue(); } },
-                {"claims", n => { Claims = n.GetObjectValue<VerifiedCredentialClaims>(VerifiedCredentialClaims.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "authority", n => { Authority = n.GetStringValue(); } },
+                { "claims", n => { Claims = n.GetObjectValue<VerifiedCredentialClaims>(VerifiedCredentialClaims.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

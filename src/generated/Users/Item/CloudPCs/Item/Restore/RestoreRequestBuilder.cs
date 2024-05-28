@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item.Restore {
+namespace ApiSdk.Users.Item.CloudPCs.Item.Restore
+{
     /// <summary>
     /// Provides operations to call the restore method.
     /// </summary>
-    public class RestoreRequestBuilder : BaseCliRequestBuilder 
+    public class RestoreRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.

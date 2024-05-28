@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SingleResourceGcpPermissionsDefinition : PermissionsDefinition, IParsable 
+    public class SingleResourceGcpPermissionsDefinition : PermissionsDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionInfo property</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionInfo", n => { ActionInfo = n.GetObjectValue<GcpPermissionsDefinitionAction>(GcpPermissionsDefinitionAction.CreateFromDiscriminatorValue); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "actionInfo", n => { ActionInfo = n.GetObjectValue<GcpPermissionsDefinitionAction>(GcpPermissionsDefinitionAction.CreateFromDiscriminatorValue); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

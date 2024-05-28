@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.PermissionGrants {
+namespace ApiSdk.Groups.Item.PermissionGrants
+{
     /// <summary>
     /// Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
     /// </summary>
-    public class PermissionGrantsRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionGrantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Groups.Item.PermissionGrants {
             return command;
         }
         /// <summary>
-        /// The permissions granted for a group to a specific application. Supports $expand.
+        /// List all resource-specific permission grants on the group. This list specifies the Microsoft Entra apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-permissiongrants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The permissions granted for a group to a specific application. Supports $expand.";
+            command.Description = "List all resource-specific permission grants on the group. This list specifies the Microsoft Entra apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list-permissiongrants?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Groups.Item.PermissionGrants {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Groups.Item.PermissionGrants {
         {
         }
         /// <summary>
-        /// The permissions granted for a group to a specific application. Supports $expand.
+        /// List all resource-specific permission grants on the group. This list specifies the Microsoft Entra apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Groups.Item.PermissionGrants {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions granted for a group to a specific application. Supports $expand.
+        /// List all resource-specific permission grants on the group. This list specifies the Microsoft Entra apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
         /// </summary>
         public class PermissionGrantsRequestBuilderGetQueryParameters 
         {

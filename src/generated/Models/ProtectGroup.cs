@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProtectGroup : LabelActionBase, IParsable 
+    public class ProtectGroup : LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allowEmailFromGuestUsers property</summary>
@@ -40,9 +41,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowEmailFromGuestUsers", n => { AllowEmailFromGuestUsers = n.GetBoolValue(); } },
-                {"allowGuestUsers", n => { AllowGuestUsers = n.GetBoolValue(); } },
-                {"privacy", n => { Privacy = n.GetEnumValue<GroupPrivacy>(); } },
+                { "allowEmailFromGuestUsers", n => { AllowEmailFromGuestUsers = n.GetBoolValue(); } },
+                { "allowGuestUsers", n => { AllowGuestUsers = n.GetBoolValue(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<GroupPrivacy>(); } },
             };
         }
         /// <summary>

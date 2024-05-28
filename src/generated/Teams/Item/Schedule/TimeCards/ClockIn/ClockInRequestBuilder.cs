@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeCards.ClockIn {
+namespace ApiSdk.Teams.Item.Schedule.TimeCards.ClockIn
+{
     /// <summary>
     /// Provides operations to call the clockIn method.
     /// </summary>
-    public class ClockInRequestBuilder : BaseCliRequestBuilder 
+    public class ClockInRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Clock in to start a timeCard.

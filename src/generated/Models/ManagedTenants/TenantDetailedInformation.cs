@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class TenantDetailedInformation : ApiSdk.Models.Entity, IParsable 
+    public class TenantDetailedInformation : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The city where the managed tenant is located. Optional. Read-only.</summary>
@@ -107,16 +108,16 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"city", n => { City = n.GetStringValue(); } },
-                {"countryCode", n => { CountryCode = n.GetStringValue(); } },
-                {"countryName", n => { CountryName = n.GetStringValue(); } },
-                {"defaultDomainName", n => { DefaultDomainName = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"industryName", n => { IndustryName = n.GetStringValue(); } },
-                {"region", n => { Region = n.GetStringValue(); } },
-                {"segmentName", n => { SegmentName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"verticalName", n => { VerticalName = n.GetStringValue(); } },
+                { "city", n => { City = n.GetStringValue(); } },
+                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "countryName", n => { CountryName = n.GetStringValue(); } },
+                { "defaultDomainName", n => { DefaultDomainName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "industryName", n => { IndustryName = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetStringValue(); } },
+                { "segmentName", n => { SegmentName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "verticalName", n => { VerticalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

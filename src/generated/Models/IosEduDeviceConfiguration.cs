@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// iOS Education device configuration
     /// </summary>
-    public class IosEduDeviceConfiguration : DeviceConfiguration, IParsable 
+    public class IosEduDeviceConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>The Trusted Root and PFX certificates for Device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceCertificateSettings", n => { DeviceCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
-                {"studentCertificateSettings", n => { StudentCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
-                {"teacherCertificateSettings", n => { TeacherCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "deviceCertificateSettings", n => { DeviceCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "studentCertificateSettings", n => { StudentCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "teacherCertificateSettings", n => { TeacherCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.VppTokens.SyncLicenseCounts {
+namespace ApiSdk.DeviceAppManagement.VppTokens.SyncLicenseCounts
+{
     /// <summary>
     /// Provides operations to call the syncLicenseCounts method.
     /// </summary>
-    public class SyncLicenseCountsRequestBuilder : BaseCliRequestBuilder 
+    public class SyncLicenseCountsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action syncLicenseCounts

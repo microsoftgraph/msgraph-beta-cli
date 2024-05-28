@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcDeviceImageItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcDeviceImageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property deviceImages for deviceManagement
+        /// Delete a cloudPcDeviceImage object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcdeviceimage-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property deviceImages for deviceManagement";
+            command.Description = "Delete a cloudPcDeviceImage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcdeviceimage-delete?view=graph-rest-beta";
             var cloudPcDeviceImageIdOption = new Option<string>("--cloud-pc-device-image-id", description: "The unique identifier of cloudPcDeviceImage") {
             };
             cloudPcDeviceImageIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item {
             return command;
         }
         /// <summary>
-        /// The image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcDeviceImage object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcdeviceimage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The image resource on Cloud PC.";
+            command.Description = "Read the properties and relationships of a specific cloudPcDeviceImage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcdeviceimage-get?view=graph-rest-beta";
             var cloudPcDeviceImageIdOption = new Option<string>("--cloud-pc-device-image-id", description: "The unique identifier of cloudPcDeviceImage") {
             };
             cloudPcDeviceImageIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property deviceImages for deviceManagement
+        /// Delete a cloudPcDeviceImage object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcDeviceImage object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +253,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcDeviceImage object.
         /// </summary>
         public class CloudPcDeviceImageItemRequestBuilderGetQueryParameters 
         {

@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
+{
     /// <summary>
     /// Provides operations to manage the androidManagedStoreAccountEnterpriseSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addApps method.

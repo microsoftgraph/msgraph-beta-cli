@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// MacOS endpoint protection configuration profile.
     /// </summary>
-    public class MacOSEndpointProtectionConfiguration : DeviceConfiguration, IParsable 
+    public class MacOSEndpointProtectionConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
         public Enablement? AdvancedThreatProtectionAutomaticSampleSubmission { get; set; }
@@ -131,30 +132,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedThreatProtectionAutomaticSampleSubmission", n => { AdvancedThreatProtectionAutomaticSampleSubmission = n.GetEnumValue<Enablement>(); } },
-                {"advancedThreatProtectionCloudDelivered", n => { AdvancedThreatProtectionCloudDelivered = n.GetEnumValue<Enablement>(); } },
-                {"advancedThreatProtectionDiagnosticDataCollection", n => { AdvancedThreatProtectionDiagnosticDataCollection = n.GetEnumValue<Enablement>(); } },
-                {"advancedThreatProtectionExcludedExtensions", n => { AdvancedThreatProtectionExcludedExtensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"advancedThreatProtectionExcludedFiles", n => { AdvancedThreatProtectionExcludedFiles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"advancedThreatProtectionExcludedFolders", n => { AdvancedThreatProtectionExcludedFolders = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"advancedThreatProtectionExcludedProcesses", n => { AdvancedThreatProtectionExcludedProcesses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"advancedThreatProtectionRealTime", n => { AdvancedThreatProtectionRealTime = n.GetEnumValue<Enablement>(); } },
-                {"fileVaultAllowDeferralUntilSignOut", n => { FileVaultAllowDeferralUntilSignOut = n.GetBoolValue(); } },
-                {"fileVaultDisablePromptAtSignOut", n => { FileVaultDisablePromptAtSignOut = n.GetBoolValue(); } },
-                {"fileVaultEnabled", n => { FileVaultEnabled = n.GetBoolValue(); } },
-                {"fileVaultHidePersonalRecoveryKey", n => { FileVaultHidePersonalRecoveryKey = n.GetBoolValue(); } },
-                {"fileVaultInstitutionalRecoveryKeyCertificate", n => { FileVaultInstitutionalRecoveryKeyCertificate = n.GetByteArrayValue(); } },
-                {"fileVaultInstitutionalRecoveryKeyCertificateFileName", n => { FileVaultInstitutionalRecoveryKeyCertificateFileName = n.GetStringValue(); } },
-                {"fileVaultNumberOfTimesUserCanIgnore", n => { FileVaultNumberOfTimesUserCanIgnore = n.GetIntValue(); } },
-                {"fileVaultPersonalRecoveryKeyHelpMessage", n => { FileVaultPersonalRecoveryKeyHelpMessage = n.GetStringValue(); } },
-                {"fileVaultPersonalRecoveryKeyRotationInMonths", n => { FileVaultPersonalRecoveryKeyRotationInMonths = n.GetIntValue(); } },
-                {"fileVaultSelectedRecoveryKeyTypes", n => { FileVaultSelectedRecoveryKeyTypes = n.GetEnumValue<MacOSFileVaultRecoveryKeyTypes>(); } },
-                {"firewallApplications", n => { FirewallApplications = n.GetCollectionOfObjectValues<MacOSFirewallApplication>(MacOSFirewallApplication.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"firewallBlockAllIncoming", n => { FirewallBlockAllIncoming = n.GetBoolValue(); } },
-                {"firewallEnableStealthMode", n => { FirewallEnableStealthMode = n.GetBoolValue(); } },
-                {"firewallEnabled", n => { FirewallEnabled = n.GetBoolValue(); } },
-                {"gatekeeperAllowedAppSource", n => { GatekeeperAllowedAppSource = n.GetEnumValue<MacOSGatekeeperAppSources>(); } },
-                {"gatekeeperBlockOverride", n => { GatekeeperBlockOverride = n.GetBoolValue(); } },
+                { "advancedThreatProtectionAutomaticSampleSubmission", n => { AdvancedThreatProtectionAutomaticSampleSubmission = n.GetEnumValue<Enablement>(); } },
+                { "advancedThreatProtectionCloudDelivered", n => { AdvancedThreatProtectionCloudDelivered = n.GetEnumValue<Enablement>(); } },
+                { "advancedThreatProtectionDiagnosticDataCollection", n => { AdvancedThreatProtectionDiagnosticDataCollection = n.GetEnumValue<Enablement>(); } },
+                { "advancedThreatProtectionExcludedExtensions", n => { AdvancedThreatProtectionExcludedExtensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "advancedThreatProtectionExcludedFiles", n => { AdvancedThreatProtectionExcludedFiles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "advancedThreatProtectionExcludedFolders", n => { AdvancedThreatProtectionExcludedFolders = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "advancedThreatProtectionExcludedProcesses", n => { AdvancedThreatProtectionExcludedProcesses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "advancedThreatProtectionRealTime", n => { AdvancedThreatProtectionRealTime = n.GetEnumValue<Enablement>(); } },
+                { "fileVaultAllowDeferralUntilSignOut", n => { FileVaultAllowDeferralUntilSignOut = n.GetBoolValue(); } },
+                { "fileVaultDisablePromptAtSignOut", n => { FileVaultDisablePromptAtSignOut = n.GetBoolValue(); } },
+                { "fileVaultEnabled", n => { FileVaultEnabled = n.GetBoolValue(); } },
+                { "fileVaultHidePersonalRecoveryKey", n => { FileVaultHidePersonalRecoveryKey = n.GetBoolValue(); } },
+                { "fileVaultInstitutionalRecoveryKeyCertificate", n => { FileVaultInstitutionalRecoveryKeyCertificate = n.GetByteArrayValue(); } },
+                { "fileVaultInstitutionalRecoveryKeyCertificateFileName", n => { FileVaultInstitutionalRecoveryKeyCertificateFileName = n.GetStringValue(); } },
+                { "fileVaultNumberOfTimesUserCanIgnore", n => { FileVaultNumberOfTimesUserCanIgnore = n.GetIntValue(); } },
+                { "fileVaultPersonalRecoveryKeyHelpMessage", n => { FileVaultPersonalRecoveryKeyHelpMessage = n.GetStringValue(); } },
+                { "fileVaultPersonalRecoveryKeyRotationInMonths", n => { FileVaultPersonalRecoveryKeyRotationInMonths = n.GetIntValue(); } },
+                { "fileVaultSelectedRecoveryKeyTypes", n => { FileVaultSelectedRecoveryKeyTypes = n.GetEnumValue<MacOSFileVaultRecoveryKeyTypes>(); } },
+                { "firewallApplications", n => { FirewallApplications = n.GetCollectionOfObjectValues<MacOSFirewallApplication>(MacOSFirewallApplication.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "firewallBlockAllIncoming", n => { FirewallBlockAllIncoming = n.GetBoolValue(); } },
+                { "firewallEnableStealthMode", n => { FirewallEnableStealthMode = n.GetBoolValue(); } },
+                { "firewallEnabled", n => { FirewallEnabled = n.GetBoolValue(); } },
+                { "gatekeeperAllowedAppSource", n => { GatekeeperAllowedAppSource = n.GetEnumValue<MacOSGatekeeperAppSources>(); } },
+                { "gatekeeperBlockOverride", n => { GatekeeperBlockOverride = n.GetBoolValue(); } },
             };
         }
         /// <summary>

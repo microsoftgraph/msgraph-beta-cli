@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.List.Items.Item.Versions.Item.RestoreVersion {
+namespace ApiSdk.Drives.Item.List.Items.Item.Versions.Item.RestoreVersion
+{
     /// <summary>
     /// Provides operations to call the restoreVersion method.
     /// </summary>
-    public class RestoreVersionRequestBuilder : BaseCliRequestBuilder 
+    public class RestoreVersionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action restoreVersion

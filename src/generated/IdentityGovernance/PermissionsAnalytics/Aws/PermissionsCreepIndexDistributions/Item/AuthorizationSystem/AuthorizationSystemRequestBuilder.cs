@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.PermissionsCreepIndexDistributions.Item.AuthorizationSystem {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.PermissionsCreepIndexDistributions.Item.AuthorizationSystem
+{
     /// <summary>
     /// Provides operations to manage the authorizationSystem property of the microsoft.graph.permissionsCreepIndexDistribution entity.
     /// </summary>
-    public class AuthorizationSystemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorizationSystemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Represents an authorization system onboarded to Permissions Management.

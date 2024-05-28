@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Bandwidth limits in kilobytes per second.
     /// </summary>
-    public class DeliveryOptimizationBandwidthAbsolute : DeliveryOptimizationBandwidth, IParsable 
+    public class DeliveryOptimizationBandwidthAbsolute : DeliveryOptimizationBandwidth, IParsable
     {
         /// <summary>Specifies the maximum download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization. Valid values 0 to 4294967295</summary>
         public long? MaximumDownloadBandwidthInKilobytesPerSecond { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumDownloadBandwidthInKilobytesPerSecond", n => { MaximumDownloadBandwidthInKilobytesPerSecond = n.GetLongValue(); } },
-                {"maximumUploadBandwidthInKilobytesPerSecond", n => { MaximumUploadBandwidthInKilobytesPerSecond = n.GetLongValue(); } },
+                { "maximumDownloadBandwidthInKilobytesPerSecond", n => { MaximumDownloadBandwidthInKilobytesPerSecond = n.GetLongValue(); } },
+                { "maximumUploadBandwidthInKilobytesPerSecond", n => { MaximumUploadBandwidthInKilobytesPerSecond = n.GetLongValue(); } },
             };
         }
         /// <summary>

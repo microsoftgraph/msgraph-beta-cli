@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The importedAppleDeviceIdentityResult resource represents the result of attempting to import Apple devices identities.
     /// </summary>
-    public class ImportedAppleDeviceIdentityResult : ImportedAppleDeviceIdentity, IParsable 
+    public class ImportedAppleDeviceIdentityResult : ImportedAppleDeviceIdentity, IParsable
     {
         /// <summary>Status of imported device identity</summary>
         public bool? Status { get; set; }
@@ -30,7 +31,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"status", n => { Status = n.GetBoolValue(); } },
+                { "status", n => { Status = n.GetBoolValue(); } },
             };
         }
         /// <summary>

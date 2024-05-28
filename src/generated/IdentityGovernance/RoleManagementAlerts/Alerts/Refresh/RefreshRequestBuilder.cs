@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh
+{
     /// <summary>
     /// Provides operations to call the refresh method.
     /// </summary>
-    public class RefreshRequestBuilder : BaseCliRequestBuilder 
+    public class RefreshRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Refresh incidents on all security alerts or on a single security alert in Privileged Identity Management (PIM) for Microsoft Entra roles. This task is a long-running operation and the unifiedRoleManagementAlert object will be updated only when the operation completes.

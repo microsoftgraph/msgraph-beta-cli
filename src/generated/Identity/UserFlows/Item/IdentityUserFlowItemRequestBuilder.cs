@@ -14,21 +14,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.UserFlows.Item {
+namespace ApiSdk.Identity.UserFlows.Item
+{
     /// <summary>
     /// Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class IdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityUserFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property userFlows for identity
+        /// Delete an existing userFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property userFlows for identity";
+            command.Description = "Delete an existing userFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-beta";
             var identityUserFlowIdOption = new Option<string>("--identity-user-flow-id", description: "The unique identifier of identityUserFlow") {
             };
             identityUserFlowIdOption.IsRequired = true;
@@ -57,14 +59,15 @@ namespace ApiSdk.Identity.UserFlows.Item {
             return command;
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve the properties and associations for an userFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identity/userflows API is deprecated and will stop returning data on January 2022. Please use the new b2cUserflows or b2xUserflows APIs. as of 2021-05/identityProvider")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get userFlows from identity";
+            command.Description = "Retrieve the properties and associations for an userFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-beta";
             var identityUserFlowIdOption = new Option<string>("--identity-user-flow-id", description: "The unique identifier of identityUserFlow") {
             };
             identityUserFlowIdOption.IsRequired = true;
@@ -176,7 +179,7 @@ namespace ApiSdk.Identity.UserFlows.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property userFlows for identity
+        /// Delete an existing userFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -196,7 +199,7 @@ namespace ApiSdk.Identity.UserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve the properties and associations for an userFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +241,7 @@ namespace ApiSdk.Identity.UserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get userFlows from identity
+        /// Retrieve the properties and associations for an userFlow object.
         /// </summary>
         public class IdentityUserFlowItemRequestBuilderGetQueryParameters 
         {

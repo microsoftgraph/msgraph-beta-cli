@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentPolicies.Item.CustomExtensionHandlers.Item.CustomExtension {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentPolicies.Item.CustomExtensionHandlers.Item.CustomExtension
+{
     /// <summary>
     /// Provides operations to manage the customExtension property of the microsoft.graph.customExtensionHandler entity.
     /// </summary>
-    public class CustomExtensionRequestBuilder : BaseCliRequestBuilder 
+    public class CustomExtensionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.

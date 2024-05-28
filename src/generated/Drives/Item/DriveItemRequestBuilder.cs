@@ -26,11 +26,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item {
+namespace ApiSdk.Drives.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of drive entities.
     /// </summary>
-    public class DriveItemRequestBuilder : BaseCliRequestBuilder 
+    public class DriveItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.drive entity.

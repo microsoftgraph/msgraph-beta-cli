@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectorySettingTemplates.Item.CheckMemberObjects {
+namespace ApiSdk.DirectorySettingTemplates.Item.CheckMemberObjects
+{
     #pragma warning disable CS1591
-    public class CheckMemberObjectsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class CheckMemberObjectsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DirectorySettingTemplates.Item.CheckMemberObjects {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

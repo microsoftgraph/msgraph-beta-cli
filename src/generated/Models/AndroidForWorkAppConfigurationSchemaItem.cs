@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Single configuration item inside an Android for Work application&apos;s custom configuration schema.
     /// </summary>
-    public class AndroidForWorkAppConfigurationSchemaItem : IAdditionalDataHolder, IParsable 
+    public class AndroidForWorkAppConfigurationSchemaItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -99,16 +100,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dataType", n => { DataType = n.GetEnumValue<AndroidForWorkAppConfigurationSchemaItemDataType>(); } },
-                {"defaultBoolValue", n => { DefaultBoolValue = n.GetBoolValue(); } },
-                {"defaultIntValue", n => { DefaultIntValue = n.GetIntValue(); } },
-                {"defaultStringArrayValue", n => { DefaultStringArrayValue = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"defaultStringValue", n => { DefaultStringValue = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"schemaItemKey", n => { SchemaItemKey = n.GetStringValue(); } },
-                {"selections", n => { Selections = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dataType", n => { DataType = n.GetEnumValue<AndroidForWorkAppConfigurationSchemaItemDataType>(); } },
+                { "defaultBoolValue", n => { DefaultBoolValue = n.GetBoolValue(); } },
+                { "defaultIntValue", n => { DefaultIntValue = n.GetIntValue(); } },
+                { "defaultStringArrayValue", n => { DefaultStringArrayValue = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "defaultStringValue", n => { DefaultStringValue = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "schemaItemKey", n => { SchemaItemKey = n.GetStringValue(); } },
+                { "selections", n => { Selections = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

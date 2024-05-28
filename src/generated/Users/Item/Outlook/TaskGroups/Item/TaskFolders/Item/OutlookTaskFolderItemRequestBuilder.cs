@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item {
+namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item
+{
     /// <summary>
     /// Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
     /// </summary>
-    public class OutlookTaskFolderItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutlookTaskFolderItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property taskFolders for users

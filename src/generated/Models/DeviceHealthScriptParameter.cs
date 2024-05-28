@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base properties of the script parameter.
     /// </summary>
-    public class DeviceHealthScriptParameter : IAdditionalDataHolder, IParsable 
+    public class DeviceHealthScriptParameter : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -72,11 +73,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applyDefaultValueWhenNotAssigned", n => { ApplyDefaultValueWhenNotAssigned = n.GetBoolValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"isRequired", n => { IsRequired = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "applyDefaultValueWhenNotAssigned", n => { ApplyDefaultValueWhenNotAssigned = n.GetBoolValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "isRequired", n => { IsRequired = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

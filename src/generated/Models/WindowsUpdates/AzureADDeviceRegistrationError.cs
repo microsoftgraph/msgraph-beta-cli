@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class AzureADDeviceRegistrationError : UpdatableAssetError, IParsable 
+    public class AzureADDeviceRegistrationError : UpdatableAssetError, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The reason property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"reason", n => { Reason = n.GetEnumValue<AzureADDeviceRegistrationErrorReason>(); } },
+                { "reason", n => { Reason = n.GetEnumValue<AzureADDeviceRegistrationErrorReason>(); } },
             };
         }
         /// <summary>

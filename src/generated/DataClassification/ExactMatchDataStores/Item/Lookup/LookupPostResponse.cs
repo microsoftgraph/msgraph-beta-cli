@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
+{
     #pragma warning disable CS1591
-    public class LookupPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class LookupPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

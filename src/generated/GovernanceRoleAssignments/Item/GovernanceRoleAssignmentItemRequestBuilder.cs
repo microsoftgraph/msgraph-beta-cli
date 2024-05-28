@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceRoleAssignments.Item {
+namespace ApiSdk.GovernanceRoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of governanceRoleAssignment entities.
     /// </summary>
-    public class GovernanceRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from governanceRoleAssignments

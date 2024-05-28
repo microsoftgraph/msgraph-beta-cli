@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Tags {
+namespace ApiSdk.Teams.Item.Tags
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.team entity.
     /// </summary>
-    public class TagsRequestBuilder : BaseCliRequestBuilder 
+    public class TagsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Teams.Item.Tags {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to tags for teams
+        /// Create a standard tag for members in the team. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to tags for teams";
+            command.Description = "Create a standard tag for members in the team. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-post?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -106,13 +108,14 @@ namespace ApiSdk.Teams.Item.Tags {
             return command;
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Get a list of the tag objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworktag-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The tags associated with the team.";
+            command.Description = "Get a list of the tag objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworktag-list?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.Teams.Item.Tags {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.Teams.Item.Tags {
         {
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Get a list of the tag objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Teams.Item.Tags {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tags for teams
+        /// Create a standard tag for members in the team. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Teams.Item.Tags {
             return requestInfo;
         }
         /// <summary>
-        /// The tags associated with the team.
+        /// Get a list of the tag objects and their properties.
         /// </summary>
         public class TagsRequestBuilderGetQueryParameters 
         {

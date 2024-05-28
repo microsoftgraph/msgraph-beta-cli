@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PartnerInformation : IAdditionalDataHolder, IParsable 
+    public class PartnerInformation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -102,15 +103,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"commerceUrl", n => { CommerceUrl = n.GetStringValue(); } },
-                {"companyName", n => { CompanyName = n.GetStringValue(); } },
-                {"companyType", n => { CompanyType = n.GetEnumValue<PartnerTenantType>(); } },
-                {"helpUrl", n => { HelpUrl = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"partnerTenantId", n => { PartnerTenantId = n.GetStringValue(); } },
-                {"supportEmails", n => { SupportEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportTelephones", n => { SupportTelephones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportUrl", n => { SupportUrl = n.GetStringValue(); } },
+                { "commerceUrl", n => { CommerceUrl = n.GetStringValue(); } },
+                { "companyName", n => { CompanyName = n.GetStringValue(); } },
+                { "companyType", n => { CompanyType = n.GetEnumValue<PartnerTenantType>(); } },
+                { "helpUrl", n => { HelpUrl = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "partnerTenantId", n => { PartnerTenantId = n.GetStringValue(); } },
+                { "supportEmails", n => { SupportEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportTelephones", n => { SupportTelephones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportUrl", n => { SupportUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

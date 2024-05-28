@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.TemplateInsights.Item {
+namespace ApiSdk.DeviceManagement.TemplateInsights.Item
+{
     /// <summary>
     /// Provides operations to manage the templateInsights property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property templateInsights for deviceManagement

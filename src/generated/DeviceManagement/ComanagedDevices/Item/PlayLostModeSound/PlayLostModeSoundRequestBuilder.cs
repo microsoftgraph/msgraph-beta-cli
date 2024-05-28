@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.PlayLostModeSound {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.PlayLostModeSound
+{
     /// <summary>
     /// Provides operations to call the playLostModeSound method.
     /// </summary>
-    public class PlayLostModeSoundRequestBuilder : BaseCliRequestBuilder 
+    public class PlayLostModeSoundRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Play lost mode sound

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item.AppScopes.Item {
+namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item.AppScopes.Item
+{
     /// <summary>
     /// Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     /// </summary>
-    public class AppScopeItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppScopeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property appScopes for roleManagement

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A rule controlling traffic through the Windows Firewall.
     /// </summary>
-    public class WindowsFirewallRule : IAdditionalDataHolder, IParsable 
+    public class WindowsFirewallRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>State Management Setting.</summary>
         public StateManagementSetting? Action { get; set; }
@@ -137,23 +138,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<StateManagementSetting>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"edgeTraversal", n => { EdgeTraversal = n.GetEnumValue<StateManagementSetting>(); } },
-                {"filePath", n => { FilePath = n.GetStringValue(); } },
-                {"interfaceTypes", n => { InterfaceTypes = n.GetEnumValue<WindowsFirewallRuleInterfaceTypes>(); } },
-                {"localAddressRanges", n => { LocalAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"localPortRanges", n => { LocalPortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"localUserAuthorizations", n => { LocalUserAuthorizations = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
-                {"profileTypes", n => { ProfileTypes = n.GetEnumValue<WindowsFirewallRuleNetworkProfileTypes>(); } },
-                {"protocol", n => { Protocol = n.GetIntValue(); } },
-                {"remoteAddressRanges", n => { RemoteAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"remotePortRanges", n => { RemotePortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"serviceName", n => { ServiceName = n.GetStringValue(); } },
-                {"trafficDirection", n => { TrafficDirection = n.GetEnumValue<WindowsFirewallRuleTrafficDirectionType>(); } },
+                { "action", n => { Action = n.GetEnumValue<StateManagementSetting>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "edgeTraversal", n => { EdgeTraversal = n.GetEnumValue<StateManagementSetting>(); } },
+                { "filePath", n => { FilePath = n.GetStringValue(); } },
+                { "interfaceTypes", n => { InterfaceTypes = n.GetEnumValue<WindowsFirewallRuleInterfaceTypes>(); } },
+                { "localAddressRanges", n => { LocalAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "localPortRanges", n => { LocalPortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "localUserAuthorizations", n => { LocalUserAuthorizations = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
+                { "profileTypes", n => { ProfileTypes = n.GetEnumValue<WindowsFirewallRuleNetworkProfileTypes>(); } },
+                { "protocol", n => { Protocol = n.GetIntValue(); } },
+                { "remoteAddressRanges", n => { RemoteAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "remotePortRanges", n => { RemotePortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
+                { "trafficDirection", n => { TrafficDirection = n.GetEnumValue<WindowsFirewallRuleTrafficDirectionType>(); } },
             };
         }
         /// <summary>

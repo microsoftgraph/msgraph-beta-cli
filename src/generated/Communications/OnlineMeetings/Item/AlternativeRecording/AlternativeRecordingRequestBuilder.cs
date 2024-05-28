@@ -13,20 +13,56 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording {
+namespace ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording
+{
     /// <summary>
     /// Provides operations to manage the media for the cloudCommunications entity.
     /// </summary>
-    public class AlternativeRecordingRequestBuilder : BaseCliRequestBuilder 
+    public class AlternativeRecordingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get alternativeRecording for the navigation property onlineMeetings from communications
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "The content stream of the alternative recording of a Microsoft Teams live event. Read-only.";
+            var onlineMeetingIdOption = new Option<string>("--online-meeting-id", description: "The unique identifier of onlineMeeting") {
+            };
+            onlineMeetingIdOption.IsRequired = true;
+            command.AddOption(onlineMeetingIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var onlineMeetingId = invocationContext.ParseResult.GetValueForOption(onlineMeetingIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (onlineMeetingId is not null) requestInfo.PathParameters.Add("onlineMeeting%2Did", onlineMeetingId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
+        /// <summary>
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get alternativeRecording for the navigation property onlineMeetings from communications";
+            command.Description = "The content stream of the alternative recording of a Microsoft Teams live event. Read-only.";
             var onlineMeetingIdOption = new Option<string>("--online-meeting-id", description: "The unique identifier of onlineMeeting") {
             };
             onlineMeetingIdOption.IsRequired = true;
@@ -60,13 +96,13 @@ namespace ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording {
             return command;
         }
         /// <summary>
-        /// Update alternativeRecording for the navigation property onlineMeetings in communications
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update alternativeRecording for the navigation property onlineMeetings in communications";
+            command.Description = "The content stream of the alternative recording of a Microsoft Teams live event. Read-only.";
             var onlineMeetingIdOption = new Option<string>("--online-meeting-id", description: "The unique identifier of onlineMeeting") {
             };
             onlineMeetingIdOption.IsRequired = true;
@@ -124,7 +160,26 @@ namespace ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording {
         {
         }
         /// <summary>
-        /// Get alternativeRecording for the navigation property onlineMeetings from communications
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +198,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording {
             return requestInfo;
         }
         /// <summary>
-        /// Update alternativeRecording for the navigation property onlineMeetings in communications
+        /// The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>

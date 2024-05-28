@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LogonUser : IAdditionalDataHolder, IParsable 
+    public class LogonUser : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Domain of user account used to logon.</summary>
@@ -82,14 +83,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accountDomain", n => { AccountDomain = n.GetStringValue(); } },
-                {"accountName", n => { AccountName = n.GetStringValue(); } },
-                {"accountType", n => { AccountType = n.GetEnumValue<UserAccountSecurityType>(); } },
-                {"firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"logonId", n => { LogonId = n.GetStringValue(); } },
-                {"logonTypes", n => { LogonTypes = n.GetCollectionOfEnumValues<LogonType>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "accountDomain", n => { AccountDomain = n.GetStringValue(); } },
+                { "accountName", n => { AccountName = n.GetStringValue(); } },
+                { "accountType", n => { AccountType = n.GetEnumValue<UserAccountSecurityType>(); } },
+                { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "logonId", n => { LogonId = n.GetStringValue(); } },
+                { "logonTypes", n => { LogonTypes = n.GetCollectionOfEnumValues<LogonType>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

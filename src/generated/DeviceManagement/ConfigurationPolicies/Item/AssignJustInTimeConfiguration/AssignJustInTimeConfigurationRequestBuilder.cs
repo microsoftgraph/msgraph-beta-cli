@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration {
+namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration
+{
     /// <summary>
     /// Provides operations to call the assignJustInTimeConfiguration method.
     /// </summary>
-    public class AssignJustInTimeConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class AssignJustInTimeConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action assignJustInTimeConfiguration

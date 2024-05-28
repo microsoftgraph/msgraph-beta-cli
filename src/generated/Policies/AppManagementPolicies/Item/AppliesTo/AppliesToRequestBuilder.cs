@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
+namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo
+{
     /// <summary>
     /// Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
     /// </summary>
-    public class AppliesToRequestBuilder : BaseCliRequestBuilder 
+    public class AppliesToRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
             return command;
         }
         /// <summary>
-        /// Collection of application and service principals to which a policy is applied.
+        /// List application and service principal objects assigned an appManagementPolicy policy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Collection of application and service principals to which a policy is applied.";
+            command.Description = "List application and service principal objects assigned an appManagementPolicy policy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-beta";
             var appManagementPolicyIdOption = new Option<string>("--app-management-policy-id", description: "The unique identifier of appManagementPolicy") {
             };
             appManagementPolicyIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
         {
         }
         /// <summary>
-        /// Collection of application and service principals to which a policy is applied.
+        /// List application and service principal objects assigned an appManagementPolicy policy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item.AppliesTo {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of application and service principals to which a policy is applied.
+        /// List application and service principal objects assigned an appManagementPolicy policy object.
         /// </summary>
         public class AppliesToRequestBuilderGetQueryParameters 
         {

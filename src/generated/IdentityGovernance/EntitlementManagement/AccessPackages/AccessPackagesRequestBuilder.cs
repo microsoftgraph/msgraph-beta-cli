@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages
+{
     /// <summary>
     /// Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackagesRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -64,13 +65,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to accessPackages for identityGovernance
+        /// Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. After the access package is created, you can then create accessPackageAssignmentPolicies which specify how users are assigned to the access package.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to accessPackages for identityGovernance";
+            command.Description = "Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. After the access package is created, you can then create accessPackageAssignmentPolicies which specify how users are assigned to the access package.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -126,13 +128,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return command;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents access package objects.";
+            command.Description = "Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +211,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -251,7 +256,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
         {
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -270,7 +275,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to accessPackages for identityGovernance
+        /// Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. After the access package is created, you can then create accessPackageAssignmentPolicies which specify how users are assigned to the access package.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -291,7 +296,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return requestInfo;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
         /// </summary>
         public class AccessPackagesRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Summary data for co managed devices
     /// </summary>
-    public class ComanagedDevicesSummary : IAdditionalDataHolder, IParsable 
+    public class ComanagedDevicesSummary : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -63,16 +64,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"compliancePolicyCount", n => { CompliancePolicyCount = n.GetIntValue(); } },
-                {"configurationSettingsCount", n => { ConfigurationSettingsCount = n.GetIntValue(); } },
-                {"endpointProtectionCount", n => { EndpointProtectionCount = n.GetIntValue(); } },
-                {"inventoryCount", n => { InventoryCount = n.GetIntValue(); } },
-                {"modernAppsCount", n => { ModernAppsCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"officeAppsCount", n => { OfficeAppsCount = n.GetIntValue(); } },
-                {"resourceAccessCount", n => { ResourceAccessCount = n.GetIntValue(); } },
-                {"totalComanagedCount", n => { TotalComanagedCount = n.GetIntValue(); } },
-                {"windowsUpdateForBusinessCount", n => { WindowsUpdateForBusinessCount = n.GetIntValue(); } },
+                { "compliancePolicyCount", n => { CompliancePolicyCount = n.GetIntValue(); } },
+                { "configurationSettingsCount", n => { ConfigurationSettingsCount = n.GetIntValue(); } },
+                { "endpointProtectionCount", n => { EndpointProtectionCount = n.GetIntValue(); } },
+                { "inventoryCount", n => { InventoryCount = n.GetIntValue(); } },
+                { "modernAppsCount", n => { ModernAppsCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "officeAppsCount", n => { OfficeAppsCount = n.GetIntValue(); } },
+                { "resourceAccessCount", n => { ResourceAccessCount = n.GetIntValue(); } },
+                { "totalComanagedCount", n => { TotalComanagedCount = n.GetIntValue(); } },
+                { "windowsUpdateForBusinessCount", n => { WindowsUpdateForBusinessCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RemoveDeviceFirmwareConfigurationInterfaceManagement {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RemoveDeviceFirmwareConfigurationInterfaceManagement
+{
     /// <summary>
     /// Provides operations to call the removeDeviceFirmwareConfigurationInterfaceManagement method.
     /// </summary>
-    public class RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder : BaseCliRequestBuilder 
+    public class RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Remove device from Device Firmware Configuration Interface management

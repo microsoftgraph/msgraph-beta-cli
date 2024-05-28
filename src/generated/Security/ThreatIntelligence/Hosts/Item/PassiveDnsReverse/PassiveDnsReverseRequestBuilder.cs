@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse
+{
     /// <summary>
     /// Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
     /// </summary>
-    public class PassiveDnsReverseRequestBuilder : BaseCliRequestBuilder 
+    public class PassiveDnsReverseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse {
             return command;
         }
         /// <summary>
-        /// Reverse passive DNS retrieval about this host.
+        /// Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-host-list-passivednsreverse?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Reverse passive DNS retrieval about this host.";
+            command.Description = "Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-host-list-passivednsreverse?view=graph-rest-beta";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse {
         {
         }
         /// <summary>
-        /// Reverse passive DNS retrieval about this host.
+        /// Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.PassiveDnsReverse {
             return requestInfo;
         }
         /// <summary>
-        /// Reverse passive DNS retrieval about this host.
+        /// Get a collection of passiveDnsRecord resources from a reverse passive DNS retrieval.  A reverse DNS lookup queries the hostname of a host using an IP address.
         /// </summary>
         public class PassiveDnsReverseRequestBuilderGetQueryParameters 
         {

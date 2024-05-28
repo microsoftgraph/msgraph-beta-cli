@@ -11,11 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item.IncludedGroups.Item {
+namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item.IncludedGroups.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \policies\mobileDeviceManagementPolicies\{mobilityManagementPolicy-id}\includedGroups\{group-id}
     /// </summary>
-    public class GroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of policyRoot entities.

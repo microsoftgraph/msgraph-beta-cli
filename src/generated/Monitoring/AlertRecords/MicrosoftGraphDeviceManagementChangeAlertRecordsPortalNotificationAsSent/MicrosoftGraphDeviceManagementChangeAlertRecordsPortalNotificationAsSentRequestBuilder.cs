@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent {
+namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent
+{
     /// <summary>
     /// Provides operations to call the changeAlertRecordsPortalNotificationAsSent method.
     /// </summary>
-    public class MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action changeAlertRecordsPortalNotificationAsSent

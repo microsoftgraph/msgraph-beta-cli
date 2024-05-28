@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Encryption report per device
     /// </summary>
-    public class ManagedDeviceEncryptionState : Entity, IParsable 
+    public class ManagedDeviceEncryptionState : Entity, IParsable
     {
         /// <summary>Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.</summary>
         public AdvancedBitLockerState? AdvancedBitLockerStates { get; set; }
@@ -80,17 +81,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedBitLockerStates", n => { AdvancedBitLockerStates = n.GetEnumValue<AdvancedBitLockerState>(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceType", n => { DeviceType = n.GetEnumValue<DeviceTypes>(); } },
-                {"encryptionPolicySettingState", n => { EncryptionPolicySettingState = n.GetEnumValue<ComplianceStatus>(); } },
-                {"encryptionReadinessState", n => { EncryptionReadinessState = n.GetEnumValue<EncryptionReadinessState>(); } },
-                {"encryptionState", n => { EncryptionState = n.GetEnumValue<EncryptionState>(); } },
-                {"fileVaultStates", n => { FileVaultStates = n.GetEnumValue<FileVaultState>(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"policyDetails", n => { PolicyDetails = n.GetCollectionOfObjectValues<EncryptionReportPolicyDetails>(EncryptionReportPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tpmSpecificationVersion", n => { TpmSpecificationVersion = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "advancedBitLockerStates", n => { AdvancedBitLockerStates = n.GetEnumValue<AdvancedBitLockerState>(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceTypes>(); } },
+                { "encryptionPolicySettingState", n => { EncryptionPolicySettingState = n.GetEnumValue<ComplianceStatus>(); } },
+                { "encryptionReadinessState", n => { EncryptionReadinessState = n.GetEnumValue<EncryptionReadinessState>(); } },
+                { "encryptionState", n => { EncryptionState = n.GetEnumValue<EncryptionState>(); } },
+                { "fileVaultStates", n => { FileVaultStates = n.GetEnumValue<FileVaultState>(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "policyDetails", n => { PolicyDetails = n.GetCollectionOfObjectValues<EncryptionReportPolicyDetails>(EncryptionReportPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tpmSpecificationVersion", n => { TpmSpecificationVersion = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

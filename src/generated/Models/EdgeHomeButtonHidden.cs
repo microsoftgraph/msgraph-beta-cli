@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Hide the home button.
     /// </summary>
-    public class EdgeHomeButtonHidden : EdgeHomeButtonConfiguration, IParsable 
+    public class EdgeHomeButtonHidden : EdgeHomeButtonConfiguration, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="EdgeHomeButtonHidden"/> and sets the default values.

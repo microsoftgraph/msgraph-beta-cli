@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateMobileDeviceManagementKeyRecovery {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateMobileDeviceManagementKeyRecovery
+{
     /// <summary>
     /// Provides operations to call the initiateMobileDeviceManagementKeyRecovery method.
     /// </summary>
-    public class InitiateMobileDeviceManagementKeyRecoveryRequestBuilder : BaseCliRequestBuilder 
+    public class InitiateMobileDeviceManagementKeyRecoveryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Perform MDM key recovery and TPM attestation

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Presenters.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Presenters.Item
+{
     /// <summary>
     /// Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class VirtualEventPresenterItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventPresenterItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property presenters for solutions
@@ -122,13 +123,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Presenters.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property presenters in solutions
+        /// Update the properties of a virtualEventPresenter object. Currently the supported virtual event type is virtualEventWebinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventpresenter-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property presenters in solutions";
+            command.Description = "Update the properties of a virtualEventPresenter object. Currently the supported virtual event type is virtualEventWebinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventpresenter-update?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -274,7 +276,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Presenters.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property presenters in solutions
+        /// Update the properties of a virtualEventPresenter object. Currently the supported virtual event type is virtualEventWebinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Windows Phone 8.1 AppX Line Of Business apps. Inherits from graph.mobileLobApp. Will be deprecated in February 2023.
     /// </summary>
-    public class WindowsPhone81AppX : MobileLobApp, IParsable 
+    public class WindowsPhone81AppX : MobileLobApp, IParsable
     {
         /// <summary>Contains properties for Windows architecture.</summary>
         public WindowsArchitecture? ApplicableArchitectures { get; set; }
@@ -98,14 +99,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
-                {"identityName", n => { IdentityName = n.GetStringValue(); } },
-                {"identityPublisherHash", n => { IdentityPublisherHash = n.GetStringValue(); } },
-                {"identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
-                {"identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                {"minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
-                {"phoneProductIdentifier", n => { PhoneProductIdentifier = n.GetStringValue(); } },
-                {"phonePublisherId", n => { PhonePublisherId = n.GetStringValue(); } },
+                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "identityName", n => { IdentityName = n.GetStringValue(); } },
+                { "identityPublisherHash", n => { IdentityPublisherHash = n.GetStringValue(); } },
+                { "identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
+                { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "phoneProductIdentifier", n => { PhoneProductIdentifier = n.GetStringValue(); } },
+                { "phonePublisherId", n => { PhonePublisherId = n.GetStringValue(); } },
             };
         }
         /// <summary>

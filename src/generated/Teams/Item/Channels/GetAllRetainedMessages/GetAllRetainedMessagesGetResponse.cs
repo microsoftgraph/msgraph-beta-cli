@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages {
+namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages
+{
     #pragma warning disable CS1591
-    public class GetAllRetainedMessagesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetAllRetainedMessagesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Teams.Item.Channels.GetAllRetainedMessages {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

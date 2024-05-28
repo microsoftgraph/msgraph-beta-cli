@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserSettings : Entity, IParsable 
+    public class UserSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user&apos;s settings for the visibility of merge suggestion for the duplicate contacts in the user&apos;s contact list.</summary>
@@ -79,14 +80,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contactMergeSuggestions", n => { ContactMergeSuggestions = n.GetObjectValue<ApiSdk.Models.ContactMergeSuggestions>(ApiSdk.Models.ContactMergeSuggestions.CreateFromDiscriminatorValue); } },
-                {"contributionToContentDiscoveryAsOrganizationDisabled", n => { ContributionToContentDiscoveryAsOrganizationDisabled = n.GetBoolValue(); } },
-                {"contributionToContentDiscoveryDisabled", n => { ContributionToContentDiscoveryDisabled = n.GetBoolValue(); } },
-                {"itemInsights", n => { ItemInsights = n.GetObjectValue<UserInsightsSettings>(UserInsightsSettings.CreateFromDiscriminatorValue); } },
-                {"regionalAndLanguageSettings", n => { RegionalAndLanguageSettings = n.GetObjectValue<ApiSdk.Models.RegionalAndLanguageSettings>(ApiSdk.Models.RegionalAndLanguageSettings.CreateFromDiscriminatorValue); } },
-                {"shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<ApiSdk.Models.ShiftPreferences>(ApiSdk.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
-                {"storage", n => { Storage = n.GetObjectValue<UserStorage>(UserStorage.CreateFromDiscriminatorValue); } },
-                {"windows", n => { Windows = n.GetCollectionOfObjectValues<WindowsSetting>(WindowsSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contactMergeSuggestions", n => { ContactMergeSuggestions = n.GetObjectValue<ApiSdk.Models.ContactMergeSuggestions>(ApiSdk.Models.ContactMergeSuggestions.CreateFromDiscriminatorValue); } },
+                { "contributionToContentDiscoveryAsOrganizationDisabled", n => { ContributionToContentDiscoveryAsOrganizationDisabled = n.GetBoolValue(); } },
+                { "contributionToContentDiscoveryDisabled", n => { ContributionToContentDiscoveryDisabled = n.GetBoolValue(); } },
+                { "itemInsights", n => { ItemInsights = n.GetObjectValue<UserInsightsSettings>(UserInsightsSettings.CreateFromDiscriminatorValue); } },
+                { "regionalAndLanguageSettings", n => { RegionalAndLanguageSettings = n.GetObjectValue<ApiSdk.Models.RegionalAndLanguageSettings>(ApiSdk.Models.RegionalAndLanguageSettings.CreateFromDiscriminatorValue); } },
+                { "shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<ApiSdk.Models.ShiftPreferences>(ApiSdk.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
+                { "storage", n => { Storage = n.GetObjectValue<UserStorage>(UserStorage.CreateFromDiscriminatorValue); } },
+                { "windows", n => { Windows = n.GetCollectionOfObjectValues<WindowsSetting>(WindowsSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.Assignments.Item.Rubric.Ref {
+namespace ApiSdk.Education.Me.Assignments.Item.Rubric.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of educationRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property rubric for education

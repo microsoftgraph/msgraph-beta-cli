@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryRoles.Item.ScopedMembers {
+namespace ApiSdk.DirectoryRoles.Item.ScopedMembers
+{
     /// <summary>
     /// Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
     /// </summary>
-    public class ScopedMembersRequestBuilder : BaseCliRequestBuilder 
+    public class ScopedMembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.DirectoryRoles.Item.ScopedMembers {
             return command;
         }
         /// <summary>
-        /// Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+        /// Retrieve a list of scopedRoleMembership objects for a directory role.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Members of this directory role that are scoped to administrative units. Read-only. Nullable.";
+            command.Description = "Retrieve a list of scopedRoleMembership objects for a directory role.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-beta";
             var directoryRoleIdOption = new Option<string>("--directory-role-id", description: "The unique identifier of directoryRole") {
             };
             directoryRoleIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.DirectoryRoles.Item.ScopedMembers {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.DirectoryRoles.Item.ScopedMembers {
         {
         }
         /// <summary>
-        /// Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+        /// Retrieve a list of scopedRoleMembership objects for a directory role.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.DirectoryRoles.Item.ScopedMembers {
             return requestInfo;
         }
         /// <summary>
-        /// Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+        /// Retrieve a list of scopedRoleMembership objects for a directory role.
         /// </summary>
         public class ScopedMembersRequestBuilderGetQueryParameters 
         {

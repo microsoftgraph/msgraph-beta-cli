@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.IncompatibleGroups {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.IncompatibleGroups
+{
     /// <summary>
     /// Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
     /// </summary>
-    public class IncompatibleGroupsRequestBuilder : BaseCliRequestBuilder 
+    public class IncompatibleGroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.identityGovernance.entitlementManagement.accessPackages.item.incompatibleGroups.item collection
@@ -53,13 +54,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.In
             return command;
         }
         /// <summary>
-        /// The groups whose members are ineligible to be assigned this access package.
+        /// Retrieve a list of the group objects marked as incompatible on an accessPackage.  
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The groups whose members are ineligible to be assigned this access package.";
+            command.Description = "Retrieve a list of the group objects marked as incompatible on an accessPackage.  \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-beta";
             var accessPackageIdOption = new Option<string>("--access-package-id", description: "The unique identifier of accessPackage") {
             };
             accessPackageIdOption.IsRequired = true;
@@ -141,7 +143,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.In
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -186,7 +190,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.In
         {
         }
         /// <summary>
-        /// The groups whose members are ineligible to be assigned this access package.
+        /// Retrieve a list of the group objects marked as incompatible on an accessPackage.  
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +209,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.In
             return requestInfo;
         }
         /// <summary>
-        /// The groups whose members are ineligible to be assigned this access package.
+        /// Retrieve a list of the group objects marked as incompatible on an accessPackage.  
         /// </summary>
         public class IncompatibleGroupsRequestBuilderGetQueryParameters 
         {

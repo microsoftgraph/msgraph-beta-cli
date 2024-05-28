@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This entity represents a single payload with requested assignment filter Id
     /// </summary>
-    public class PayloadByFilter : IAdditionalDataHolder, IParsable 
+    public class PayloadByFilter : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -65,11 +66,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<DeviceAndAppManagementAssignmentFilterType>(); } },
-                {"groupId", n => { GroupId = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"payloadId", n => { PayloadId = n.GetStringValue(); } },
-                {"payloadType", n => { PayloadType = n.GetEnumValue<AssociatedAssignmentPayloadType>(); } },
+                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<DeviceAndAppManagementAssignmentFilterType>(); } },
+                { "groupId", n => { GroupId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "payloadId", n => { PayloadId = n.GetStringValue(); } },
+                { "payloadType", n => { PayloadType = n.GetEnumValue<AssociatedAssignmentPayloadType>(); } },
             };
         }
         /// <summary>

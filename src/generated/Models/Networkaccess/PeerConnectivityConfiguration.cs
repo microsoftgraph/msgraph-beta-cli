@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class PeerConnectivityConfiguration : IAdditionalDataHolder, IParsable 
+    public class PeerConnectivityConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"asn", n => { Asn = n.GetIntValue(); } },
-                {"bgpAddress", n => { BgpAddress = n.GetStringValue(); } },
-                {"endpoint", n => { Endpoint = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "asn", n => { Asn = n.GetIntValue(); } },
+                { "bgpAddress", n => { BgpAddress = n.GetStringValue(); } },
+                { "endpoint", n => { Endpoint = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

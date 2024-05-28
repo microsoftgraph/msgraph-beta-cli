@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.ValidatePassword {
+namespace ApiSdk.Users.ValidatePassword
+{
     /// <summary>
     /// Provides operations to call the validatePassword method.
     /// </summary>
-    public class ValidatePasswordRequestBuilder : BaseCliRequestBuilder 
+    public class ValidatePasswordRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Check a user&apos;s password against the organization&apos;s password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.

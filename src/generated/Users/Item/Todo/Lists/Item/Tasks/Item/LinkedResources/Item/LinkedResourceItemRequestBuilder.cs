@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.LinkedResources.Item {
+namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.LinkedResources.Item
+{
     /// <summary>
     /// Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
     /// </summary>
-    public class LinkedResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class LinkedResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property linkedResources for users

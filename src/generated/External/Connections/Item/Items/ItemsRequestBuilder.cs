@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.Connections.Item.Items {
+namespace ApiSdk.External.Connections.Item.Items
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class ItemsRequestBuilder : BaseCliRequestBuilder 
+    public class ItemsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -107,13 +108,13 @@ namespace ApiSdk.External.Connections.Item.Items {
             return command;
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get items from external";
+            command.Description = "Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -195,7 +196,9 @@ namespace ApiSdk.External.Connections.Item.Items {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +224,7 @@ namespace ApiSdk.External.Connections.Item.Items {
         {
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +264,7 @@ namespace ApiSdk.External.Connections.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters 
         {

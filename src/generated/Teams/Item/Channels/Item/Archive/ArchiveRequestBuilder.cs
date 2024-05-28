@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Channels.Item.Archive {
+namespace ApiSdk.Teams.Item.Channels.Item.Archive
+{
     /// <summary>
     /// Provides operations to call the archive method.
     /// </summary>
-    public class ArchiveRequestBuilder : BaseCliRequestBuilder 
+    public class ArchiveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Archive a channel in a team. When a channel is archived, users can&apos;t send new messages or react to existing messages in the channel, edit the channel settings, or make other changes to the channel. You can delete an archived channel, or add and remove members from it. If you archive a team, its channels are archived for you. Archiving is asynchronous; a channel is archived after the asynchronous archiving operation completes successfully, which might occur after the response returns. A channel without an owner, or that belongs to a group that has no owner, can&apos;t be archived. To restore a channel from its archived state, use the unarchive method. A channel can’t be archived or unarchived if its team is archived.

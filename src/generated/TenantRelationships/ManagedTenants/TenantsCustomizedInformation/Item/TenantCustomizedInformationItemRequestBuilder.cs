@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation.Item
+{
     /// <summary>
     /// Provides operations to manage the tenantsCustomizedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class TenantCustomizedInformationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TenantCustomizedInformationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenantsCustomizedInformation for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation
             return command;
         }
         /// <summary>
-        /// The collection of tenant level customized information across managed tenants.
+        /// Read the properties and relationships of a tenantCustomizedInformation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of tenant level customized information across managed tenants.";
+            command.Description = "Read the properties and relationships of a tenantCustomizedInformation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-get?view=graph-rest-beta";
             var tenantCustomizedInformationIdOption = new Option<string>("--tenant-customized-information-id", description: "The unique identifier of tenantCustomizedInformation") {
             };
             tenantCustomizedInformationIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation
             return command;
         }
         /// <summary>
-        /// Update the navigation property tenantsCustomizedInformation in tenantRelationships
+        /// Update the properties of a tenantCustomizedInformation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property tenantsCustomizedInformation in tenantRelationships";
+            command.Description = "Update the properties of a tenantCustomizedInformation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-update?view=graph-rest-beta";
             var tenantCustomizedInformationIdOption = new Option<string>("--tenant-customized-information-id", description: "The unique identifier of tenantCustomizedInformation") {
             };
             tenantCustomizedInformationIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation
             return requestInfo;
         }
         /// <summary>
-        /// The collection of tenant level customized information across managed tenants.
+        /// Read the properties and relationships of a tenantCustomizedInformation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tenantsCustomizedInformation in tenantRelationships
+        /// Update the properties of a tenantCustomizedInformation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation
             return requestInfo;
         }
         /// <summary>
-        /// The collection of tenant level customized information across managed tenants.
+        /// Read the properties and relationships of a tenantCustomizedInformation object.
         /// </summary>
         public class TenantCustomizedInformationItemRequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DerivedCredentials.Item {
+namespace ApiSdk.DeviceManagement.DerivedCredentials.Item
+{
     /// <summary>
     /// Provides operations to manage the derivedCredentials property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementDerivedCredentialSettingsItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementDerivedCredentialSettingsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property derivedCredentials for deviceManagement

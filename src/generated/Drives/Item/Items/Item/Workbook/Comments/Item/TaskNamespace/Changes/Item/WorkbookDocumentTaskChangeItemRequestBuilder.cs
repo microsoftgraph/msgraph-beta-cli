@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.TaskNamespace.Changes.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.TaskNamespace.Changes.Item
+{
     /// <summary>
     /// Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.
     /// </summary>
-    public class WorkbookDocumentTaskChangeItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookDocumentTaskChangeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property changes for drives

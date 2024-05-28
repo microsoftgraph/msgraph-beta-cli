@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes the features of a device that are shared between all devices in a correlation group.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyCorrelationGroupFeature : IAdditionalDataHolder, IParsable 
+    public class UserExperienceAnalyticsAnomalyCorrelationGroupFeature : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceFeatureType", n => { DeviceFeatureType = n.GetEnumValue<UserExperienceAnalyticsAnomalyDeviceFeatureType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deviceFeatureType", n => { DeviceFeatureType = n.GetEnumValue<UserExperienceAnalyticsAnomalyDeviceFeatureType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

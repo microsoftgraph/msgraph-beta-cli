@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions.Item.AuthenticationContext {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions.Item.AuthenticationContext
+{
     /// <summary>
     /// Provides operations to manage the authenticationContext property of the microsoft.graph.unifiedRbacResourceAction entity.
     /// </summary>
-    public class AuthenticationContextRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationContextRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get authenticationContext from roleManagement

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
+namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item
+{
     /// <summary>
     /// Provides operations to manage the policies property of the microsoft.graph.networkaccess.profile entity.
     /// </summary>
-    public class PolicyLinkItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyLinkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policies for networkAccess
@@ -63,13 +64,14 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
             return command;
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve information about a specific link between a forwarding policy and a forwarding profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Traffic forwarding policies associated with this profile.";
+            command.Description = "Retrieve information about a specific link between a forwarding policy and a forwarding profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-get?view=graph-rest-beta";
             var forwardingProfileIdOption = new Option<string>("--forwarding-profile-id", description: "The unique identifier of forwardingProfile") {
             };
             forwardingProfileIdOption.IsRequired = true;
@@ -121,13 +123,14 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property policies in networkAccess
+        /// Update an existing forwarding policy link to modify the association between a forwarding policy and a forwarding profile. This operation allows for linking or unlinking them as needed.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property policies in networkAccess";
+            command.Description = "Update an existing forwarding policy link to modify the association between a forwarding policy and a forwarding profile. This operation allows for linking or unlinking them as needed.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-update?view=graph-rest-beta";
             var forwardingProfileIdOption = new Option<string>("--forwarding-profile-id", description: "The unique identifier of forwardingProfile") {
             };
             forwardingProfileIdOption.IsRequired = true;
@@ -228,7 +231,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve information about a specific link between a forwarding policy and a forwarding profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +250,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property policies in networkAccess
+        /// Update an existing forwarding policy link to modify the association between a forwarding policy and a forwarding profile. This operation allows for linking or unlinking them as needed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +271,7 @@ namespace ApiSdk.NetworkAccess.ForwardingProfiles.Item.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Traffic forwarding policies associated with this profile.
+        /// Retrieve information about a specific link between a forwarding policy and a forwarding profile.
         /// </summary>
         public class PolicyLinkItemRequestBuilderGetQueryParameters 
         {

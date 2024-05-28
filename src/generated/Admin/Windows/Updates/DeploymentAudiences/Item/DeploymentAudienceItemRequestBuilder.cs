@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
+{
     /// <summary>
     /// Provides operations to manage the deploymentAudiences property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class DeploymentAudienceItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeploymentAudienceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the applicableContent property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property deploymentAudiences for admin
+        /// Delete a deploymentAudience object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property deploymentAudiences for admin";
+            command.Description = "Delete a deploymentAudience object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-delete?view=graph-rest-beta";
             var deploymentAudienceIdOption = new Option<string>("--deployment-audience-id", description: "The unique identifier of deploymentAudience") {
             };
             deploymentAudienceIdOption.IsRequired = true;
@@ -119,13 +121,14 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
             return command;
         }
         /// <summary>
-        /// The set of updatableAsset resources to which a deployment can apply.
+        /// Read the properties and relationships of a deploymentAudience object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The set of updatableAsset resources to which a deployment can apply.";
+            command.Description = "Read the properties and relationships of a deploymentAudience object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-beta";
             var deploymentAudienceIdOption = new Option<string>("--deployment-audience-id", description: "The unique identifier of deploymentAudience") {
             };
             deploymentAudienceIdOption.IsRequired = true;
@@ -301,7 +304,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property deploymentAudiences for admin
+        /// Delete a deploymentAudience object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -320,7 +323,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The set of updatableAsset resources to which a deployment can apply.
+        /// Read the properties and relationships of a deploymentAudience object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -360,7 +363,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The set of updatableAsset resources to which a deployment can apply.
+        /// Read the properties and relationships of a deploymentAudience object.
         /// </summary>
         public class DeploymentAudienceItemRequestBuilderGetQueryParameters 
         {

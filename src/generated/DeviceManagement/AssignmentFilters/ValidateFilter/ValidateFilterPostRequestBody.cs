@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter {
+namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
+{
     #pragma warning disable CS1591
-    public class ValidateFilterPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ValidateFilterPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceAndAppManagementAssignmentFilter", n => { DeviceAndAppManagementAssignmentFilter = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilter>(ApiSdk.Models.DeviceAndAppManagementAssignmentFilter.CreateFromDiscriminatorValue); } },
+                { "deviceAndAppManagementAssignmentFilter", n => { DeviceAndAppManagementAssignmentFilter = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilter>(ApiSdk.Models.DeviceAndAppManagementAssignmentFilter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

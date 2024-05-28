@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkaccessUpdatePolicyRules {
+namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkaccessUpdatePolicyRules
+{
     #pragma warning disable CS1591
-    public class UpdatePolicyRulesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdatePolicyRulesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkacce
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"rules", n => { Rules = n.GetCollectionOfObjectValues<PolicyRuleDelta>(PolicyRuleDelta.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<PolicyRuleDelta>(PolicyRuleDelta.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

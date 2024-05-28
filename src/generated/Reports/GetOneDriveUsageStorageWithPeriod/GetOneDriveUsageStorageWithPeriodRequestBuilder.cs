@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetOneDriveUsageStorageWithPeriod {
+namespace ApiSdk.Reports.GetOneDriveUsageStorageWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getOneDriveUsageStorage method.
     /// </summary>
-    public class GetOneDriveUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetOneDriveUsageStorageWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getOneDriveUsageStorage

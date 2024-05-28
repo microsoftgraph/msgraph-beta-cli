@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.GroupLifecyclePolicies.RenewGroup {
+namespace ApiSdk.GroupLifecyclePolicies.RenewGroup
+{
     #pragma warning disable CS1591
-    public class RenewGroupPostResponse : IAdditionalDataHolder, IParsable 
+    public class RenewGroupPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.GroupLifecyclePolicies.RenewGroup {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>

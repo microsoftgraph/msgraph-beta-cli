@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceRunStates.Item.ManagedDevice {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceRunStates.Item.ManagedDevice
+{
     /// <summary>
     /// Provides operations to manage the managedDevice property of the microsoft.graph.deviceHealthScriptDeviceState entity.
     /// </summary>
-    public class ManagedDeviceRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The managed device on which the device health script executed

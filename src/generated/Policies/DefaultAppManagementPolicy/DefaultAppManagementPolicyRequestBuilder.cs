@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.DefaultAppManagementPolicy {
+namespace ApiSdk.Policies.DefaultAppManagementPolicy
+{
     /// <summary>
     /// Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class DefaultAppManagementPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultAppManagementPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property defaultAppManagementPolicy for policies
@@ -50,13 +51,14 @@ namespace ApiSdk.Policies.DefaultAppManagementPolicy {
             return command;
         }
         /// <summary>
-        /// The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+        /// Read the properties of a tenantAppManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The tenant-wide policy that enforces app management restrictions for all applications and service principals.";
+            command.Description = "Read the properties of a tenantAppManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Policies.DefaultAppManagementPolicy {
             return command;
         }
         /// <summary>
-        /// Update the navigation property defaultAppManagementPolicy in policies
+        /// Update the properties of a tenantAppManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property defaultAppManagementPolicy in policies";
+            command.Description = "Update the properties of a tenantAppManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Policies.DefaultAppManagementPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+        /// Read the properties of a tenantAppManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Policies.DefaultAppManagementPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property defaultAppManagementPolicy in policies
+        /// Update the properties of a tenantAppManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Policies.DefaultAppManagementPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+        /// Read the properties of a tenantAppManagementPolicy object.
         /// </summary>
         public class DefaultAppManagementPolicyRequestBuilderGetQueryParameters 
         {

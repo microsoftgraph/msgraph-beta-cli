@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
+namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item
+{
     /// <summary>
     /// Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
     /// </summary>
-    public class DelegatedAdminRelationshipItemRequestBuilder : BaseCliRequestBuilder 
+    public class DelegatedAdminRelationshipItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property delegatedAdminRelationships for tenantRelationships
+        /// Delete a delegatedAdminRelationship object. A relationship can only be deleted if it&apos;s in the &apos;created&apos; status. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property delegatedAdminRelationships for tenantRelationships";
+            command.Description = "Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -86,13 +88,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return command;
         }
         /// <summary>
-        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+        /// Read the properties of a delegatedAdminRelationship object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.";
+            command.Description = "Read the properties of a delegatedAdminRelationship object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -165,13 +168,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property delegatedAdminRelationships in tenantRelationships
+        /// Update the properties of a delegatedAdminRelationship object.  The following restrictions apply:- You can update this relationship when its status property is created.- You can update the autoExtendDuration property when status is either created or active.- You can only remove the Microsoft Entra Global Administrator role when the status property is active, which indicates a long-running operation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property delegatedAdminRelationships in tenantRelationships";
+            command.Description = "Update the properties of a delegatedAdminRelationship object.  The following restrictions apply:- You can update this relationship when its status property is created.- You can update the autoExtendDuration property when status is either created or active.- You can only remove the Microsoft Entra Global Administrator role when the status property is active, which indicates a long-running operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -257,7 +261,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property delegatedAdminRelationships for tenantRelationships
+        /// Delete a delegatedAdminRelationship object. A relationship can only be deleted if it&apos;s in the &apos;created&apos; status. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -276,7 +280,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+        /// Read the properties of a delegatedAdminRelationship object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -295,7 +299,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property delegatedAdminRelationships in tenantRelationships
+        /// Update the properties of a delegatedAdminRelationship object.  The following restrictions apply:- You can update this relationship when its status property is created.- You can update the autoExtendDuration property when status is either created or active.- You can only remove the Microsoft Entra Global Administrator role when the status property is active, which indicates a long-running operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -316,7 +320,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+        /// Read the properties of a delegatedAdminRelationship object.
         /// </summary>
         public class DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters 
         {

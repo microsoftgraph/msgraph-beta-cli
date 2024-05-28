@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig
+{
     #pragma warning disable CS1591
-    public class ApplyConfigPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ApplyConfigPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"policySettings", n => { PolicySettings = n.GetEnumValue<CloudPcPolicySettingType>(); } },
+                { "cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "policySettings", n => { PolicySettings = n.GetEnumValue<CloudPcPolicySettingType>(); } },
             };
         }
         /// <summary>

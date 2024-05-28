@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EmailAuthenticationMethod : AuthenticationMethod, IParsable 
+    public class EmailAuthenticationMethod : AuthenticationMethod, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The email address registered to this user.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.HardwarePasswordInfo.Item {
+namespace ApiSdk.DeviceManagement.HardwarePasswordInfo.Item
+{
     /// <summary>
     /// Provides operations to manage the hardwarePasswordInfo property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class HardwarePasswordInfoItemRequestBuilder : BaseCliRequestBuilder 
+    public class HardwarePasswordInfoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property hardwarePasswordInfo for deviceManagement

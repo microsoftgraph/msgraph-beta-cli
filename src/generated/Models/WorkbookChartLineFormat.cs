@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookChartLineFormat : Entity, IParsable 
+    public class WorkbookChartLineFormat : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>HTML color code representing the color of lines in the chart.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"color", n => { Color = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetStringValue(); } },
             };
         }
         /// <summary>

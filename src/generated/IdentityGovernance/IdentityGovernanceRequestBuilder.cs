@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance {
+namespace ApiSdk.IdentityGovernance
+{
     /// <summary>
     /// Provides operations to manage the identityGovernance singleton.
     /// </summary>
-    public class IdentityGovernanceRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityGovernanceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
@@ -183,6 +184,7 @@ namespace ApiSdk.IdentityGovernance {
             execCommands.Add(builder.BuildDeleteCommand());
             nonExecCommands.Add(builder.BuildDeletedItemsNavCommand());
             execCommands.Add(builder.BuildGetCommand());
+            nonExecCommands.Add(builder.BuildInsightsNavCommand());
             execCommands.Add(builder.BuildPatchCommand());
             nonExecCommands.Add(builder.BuildSettingsNavCommand());
             nonExecCommands.Add(builder.BuildTaskDefinitionsNavCommand());

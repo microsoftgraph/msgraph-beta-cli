@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item.Excludes.Item {
+namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item.Excludes.Item
+{
     /// <summary>
     /// Provides operations to manage the excludes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
     /// </summary>
-    public class ServicePrincipalCreationConditionSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalCreationConditionSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property excludes for policies

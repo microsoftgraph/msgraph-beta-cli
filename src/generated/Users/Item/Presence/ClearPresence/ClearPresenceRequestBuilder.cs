@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Presence.ClearPresence {
+namespace ApiSdk.Users.Item.Presence.ClearPresence
+{
     /// <summary>
     /// Provides operations to call the clearPresence method.
     /// </summary>
-    public class ClearPresenceRequestBuilder : BaseCliRequestBuilder 
+    public class ClearPresenceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Clear a presence session of an application for a user. If it is the user&apos;s only presence session, a successful clearPresence changes the user&apos;s presence to Offline/Offline. Read more about presence sessions and their time-out and expiration. 

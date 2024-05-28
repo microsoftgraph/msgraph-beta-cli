@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Citations.Item {
+namespace ApiSdk.Security.Labels.Citations.Item
+{
     /// <summary>
     /// Provides operations to manage the citations property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class CitationTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class CitationTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property citations for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Labels.Citations.Item {
             return command;
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Read the properties and relationships of a citationTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.";
+            command.Description = "Read the properties and relationships of a citationTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-beta";
             var citationTemplateIdOption = new Option<string>("--citation-template-id", description: "The unique identifier of citationTemplate") {
             };
             citationTemplateIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.Labels.Citations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Read the properties and relationships of a citationTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.Labels.Citations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Read the properties and relationships of a citationTemplate object.
         /// </summary>
         public class CitationTemplateItemRequestBuilderGetQueryParameters 
         {

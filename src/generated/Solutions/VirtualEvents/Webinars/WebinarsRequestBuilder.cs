@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars
+{
     /// <summary>
     /// Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
     /// </summary>
-    public class WebinarsRequestBuilder : BaseCliRequestBuilder 
+    public class WebinarsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
@@ -63,13 +64,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to webinars for solutions
+        /// Create a new virtualEventWebinar object in draft mode.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventsroot-post-webinars?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to webinars for solutions";
+            command.Description = "Create a new virtualEventWebinar object in draft mode.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventsroot-post-webinars?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -142,13 +144,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
             return command;
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Get the list of all virtualEventWebinar objects created in the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventsroot-list-webinars?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get webinars from solutions";
+            command.Description = "Get the list of all virtualEventWebinar objects created in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventsroot-list-webinars?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -224,7 +227,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -250,7 +255,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
         {
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Get the list of all virtualEventWebinar objects created in the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -269,7 +274,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to webinars for solutions
+        /// Create a new virtualEventWebinar object in draft mode.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -290,7 +295,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars {
             return requestInfo;
         }
         /// <summary>
-        /// Get webinars from solutions
+        /// Get the list of all virtualEventWebinar objects created in the tenant.
         /// </summary>
         public class WebinarsRequestBuilderGetQueryParameters 
         {

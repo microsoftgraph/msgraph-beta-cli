@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.TenantStatus {
+namespace ApiSdk.NetworkAccess.TenantStatus
+{
     /// <summary>
     /// Provides operations to manage the tenantStatus property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class TenantStatusRequestBuilder : BaseCliRequestBuilder 
+    public class TenantStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenantStatus for networkAccess
@@ -50,13 +51,14 @@ namespace ApiSdk.NetworkAccess.TenantStatus {
             return command;
         }
         /// <summary>
-        /// Represents the status of the Global Secure Access services for the tenant.
+        /// Retrieve the onboarding status of a specific tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-tenantstatus-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the status of the Global Secure Access services for the tenant.";
+            command.Description = "Retrieve the onboarding status of a specific tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-tenantstatus-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -174,7 +176,7 @@ namespace ApiSdk.NetworkAccess.TenantStatus {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the status of the Global Secure Access services for the tenant.
+        /// Retrieve the onboarding status of a specific tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +216,7 @@ namespace ApiSdk.NetworkAccess.TenantStatus {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the status of the Global Secure Access services for the tenant.
+        /// Retrieve the onboarding status of a specific tenant.
         /// </summary>
         public class TenantStatusRequestBuilderGetQueryParameters 
         {

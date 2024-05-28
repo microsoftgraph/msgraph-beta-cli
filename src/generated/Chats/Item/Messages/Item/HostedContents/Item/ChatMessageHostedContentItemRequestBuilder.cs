@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item {
+namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item
+{
     /// <summary>
     /// Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
     /// </summary>
-    public class ChatMessageHostedContentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChatMessageHostedContentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the chat entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item {
             command.Description = "Provides operations to manage the media for the chat entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -87,13 +89,14 @@ namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item {
             return command;
         }
         /// <summary>
-        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
+        /// Retrieve the properties and relationships of chatMessageHostedContent object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Content in a message hosted by Microsoft Teams - for example, images or code snippets.";
+            command.Description = "Retrieve the properties and relationships of chatMessageHostedContent object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -247,7 +250,7 @@ namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
+        /// Retrieve the properties and relationships of chatMessageHostedContent object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -287,7 +290,7 @@ namespace ApiSdk.Chats.Item.Messages.Item.HostedContents.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Content in a message hosted by Microsoft Teams - for example, images or code snippets.
+        /// Retrieve the properties and relationships of chatMessageHostedContent object.
         /// </summary>
         public class ChatMessageHostedContentItemRequestBuilderGetQueryParameters 
         {

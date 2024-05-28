@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsSecurityToolAdministrationFinding : Finding, IParsable 
+    public class AwsSecurityToolAdministrationFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity property</summary>
@@ -61,10 +62,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
-                {"identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                {"securityTools", n => { SecurityTools = n.GetEnumValue<AwsSecurityToolWebServices>(); } },
+                { "identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "securityTools", n => { SecurityTools = n.GetEnumValue<AwsSecurityToolWebServices>(); } },
             };
         }
         /// <summary>

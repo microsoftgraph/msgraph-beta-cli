@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EntitlementManagementSettings : Entity, IParsable 
+    public class EntitlementManagementSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If externalUserLifecycleAction is BlockSignInAndDelete, the number of days after an external user is blocked from sign in before their account is deleted.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"daysUntilExternalUserDeletedAfterBlocked", n => { DaysUntilExternalUserDeletedAfterBlocked = n.GetIntValue(); } },
-                {"externalUserLifecycleAction", n => { ExternalUserLifecycleAction = n.GetStringValue(); } },
+                { "daysUntilExternalUserDeletedAfterBlocked", n => { DaysUntilExternalUserDeletedAfterBlocked = n.GetIntValue(); } },
+                { "externalUserLifecycleAction", n => { ExternalUserLifecycleAction = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ManagedDeviceCertificateState : Entity, IParsable 
+    public class ManagedDeviceCertificateState : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Extended key usage</summary>
@@ -129,30 +130,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateEnhancedKeyUsage", n => { CertificateEnhancedKeyUsage = n.GetStringValue(); } },
-                {"certificateErrorCode", n => { CertificateErrorCode = n.GetIntValue(); } },
-                {"certificateExpirationDateTime", n => { CertificateExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateIssuanceState", n => { CertificateIssuanceState = n.GetEnumValue<CertificateIssuanceStates>(); } },
-                {"certificateIssuer", n => { CertificateIssuer = n.GetStringValue(); } },
-                {"certificateKeyLength", n => { CertificateKeyLength = n.GetIntValue(); } },
-                {"certificateKeyStorageProvider", n => { CertificateKeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
-                {"certificateKeyUsage", n => { CertificateKeyUsage = n.GetEnumValue<KeyUsages>(); } },
-                {"certificateLastIssuanceStateChangedDateTime", n => { CertificateLastIssuanceStateChangedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateProfileDisplayName", n => { CertificateProfileDisplayName = n.GetStringValue(); } },
-                {"certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
-                {"certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
-                {"certificateSubjectAlternativeNameFormat", n => { CertificateSubjectAlternativeNameFormat = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                {"certificateSubjectAlternativeNameFormatString", n => { CertificateSubjectAlternativeNameFormatString = n.GetStringValue(); } },
-                {"certificateSubjectNameFormat", n => { CertificateSubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
-                {"certificateSubjectNameFormatString", n => { CertificateSubjectNameFormatString = n.GetStringValue(); } },
-                {"certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
-                {"certificateValidityPeriod", n => { CertificateValidityPeriod = n.GetIntValue(); } },
-                {"certificateValidityPeriodUnits", n => { CertificateValidityPeriodUnits = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
-                {"deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
-                {"devicePlatform", n => { DevicePlatform = n.GetEnumValue<DevicePlatformType>(); } },
-                {"lastCertificateStateChangeDateTime", n => { LastCertificateStateChangeDateTime = n.GetDateTimeOffsetValue(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "certificateEnhancedKeyUsage", n => { CertificateEnhancedKeyUsage = n.GetStringValue(); } },
+                { "certificateErrorCode", n => { CertificateErrorCode = n.GetIntValue(); } },
+                { "certificateExpirationDateTime", n => { CertificateExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateIssuanceState", n => { CertificateIssuanceState = n.GetEnumValue<CertificateIssuanceStates>(); } },
+                { "certificateIssuer", n => { CertificateIssuer = n.GetStringValue(); } },
+                { "certificateKeyLength", n => { CertificateKeyLength = n.GetIntValue(); } },
+                { "certificateKeyStorageProvider", n => { CertificateKeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
+                { "certificateKeyUsage", n => { CertificateKeyUsage = n.GetEnumValue<KeyUsages>(); } },
+                { "certificateLastIssuanceStateChangedDateTime", n => { CertificateLastIssuanceStateChangedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateProfileDisplayName", n => { CertificateProfileDisplayName = n.GetStringValue(); } },
+                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
+                { "certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
+                { "certificateSubjectAlternativeNameFormat", n => { CertificateSubjectAlternativeNameFormat = n.GetEnumValue<SubjectAlternativeNameType>(); } },
+                { "certificateSubjectAlternativeNameFormatString", n => { CertificateSubjectAlternativeNameFormatString = n.GetStringValue(); } },
+                { "certificateSubjectNameFormat", n => { CertificateSubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "certificateSubjectNameFormatString", n => { CertificateSubjectNameFormatString = n.GetStringValue(); } },
+                { "certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
+                { "certificateValidityPeriod", n => { CertificateValidityPeriod = n.GetIntValue(); } },
+                { "certificateValidityPeriodUnits", n => { CertificateValidityPeriodUnits = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
+                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "lastCertificateStateChangeDateTime", n => { LastCertificateStateChangeDateTime = n.GetDateTimeOffsetValue(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.AccessPackagesIncompatibleWith.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.AccessPackagesIncompatibleWith.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
     /// </summary>
-    public class AccessPackageItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The access packages that are incompatible with this package. Read-only.

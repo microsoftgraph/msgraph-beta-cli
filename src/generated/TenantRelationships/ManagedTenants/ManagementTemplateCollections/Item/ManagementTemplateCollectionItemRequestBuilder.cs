@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollections.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollections.Item
+{
     /// <summary>
     /// Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementTemplateCollectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateCollectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementTemplateCollections for tenantRelationships

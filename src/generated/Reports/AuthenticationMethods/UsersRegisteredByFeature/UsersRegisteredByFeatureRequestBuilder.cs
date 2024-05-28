@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByFeature {
+namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByFeature
+{
     /// <summary>
     /// Provides operations to call the usersRegisteredByFeature method.
     /// </summary>
-    public class UsersRegisteredByFeatureRequestBuilder : BaseCliRequestBuilder 
+    public class UsersRegisteredByFeatureRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of users capable of multi-factor authentication, self-service password reset, and passwordless authentication.

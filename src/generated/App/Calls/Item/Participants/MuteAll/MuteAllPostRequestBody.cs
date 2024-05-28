@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.App.Calls.Item.Participants.MuteAll {
+namespace ApiSdk.App.Calls.Item.Participants.MuteAll
+{
     #pragma warning disable CS1591
-    public class MuteAllPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MuteAllPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.App.Calls.Item.Participants.MuteAll {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"clientContext", n => { ClientContext = n.GetStringValue(); } },
-                {"participants", n => { Participants = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "clientContext", n => { ClientContext = n.GetStringValue(); } },
+                { "participants", n => { Participants = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

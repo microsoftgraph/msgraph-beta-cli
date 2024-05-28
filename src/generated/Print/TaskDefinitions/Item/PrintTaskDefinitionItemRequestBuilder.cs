@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.TaskDefinitions.Item {
+namespace ApiSdk.Print.TaskDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
     /// </summary>
-    public class PrintTaskDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrintTaskDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property taskDefinitions for print
+        /// Delete a taskDefinition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/print-delete-taskdefinition?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property taskDefinitions for print";
+            command.Description = "Delete a taskDefinition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/print-delete-taskdefinition?view=graph-rest-beta";
             var printTaskDefinitionIdOption = new Option<string>("--print-task-definition-id", description: "The unique identifier of printTaskDefinition") {
             };
             printTaskDefinitionIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Get taskDefinitions from print
+        /// Get details about a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printtaskdefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get taskDefinitions from print";
+            command.Description = "Get details about a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printtaskdefinition-get?view=graph-rest-beta";
             var printTaskDefinitionIdOption = new Option<string>("--print-task-definition-id", description: "The unique identifier of printTaskDefinition") {
             };
             printTaskDefinitionIdOption.IsRequired = true;
@@ -109,13 +112,14 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property taskDefinitions in print
+        /// Update a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/print-update-taskdefinition?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property taskDefinitions in print";
+            command.Description = "Update a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/print-update-taskdefinition?view=graph-rest-beta";
             var printTaskDefinitionIdOption = new Option<string>("--print-task-definition-id", description: "The unique identifier of printTaskDefinition") {
             };
             printTaskDefinitionIdOption.IsRequired = true;
@@ -201,7 +205,7 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property taskDefinitions for print
+        /// Delete a taskDefinition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +224,7 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get taskDefinitions from print
+        /// Get details about a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +243,7 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property taskDefinitions in print
+        /// Update a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.Print.TaskDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get taskDefinitions from print
+        /// Get details about a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         public class PrintTaskDefinitionItemRequestBuilderGetQueryParameters 
         {

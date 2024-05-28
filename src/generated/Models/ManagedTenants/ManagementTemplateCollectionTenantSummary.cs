@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementTemplateCollectionTenantSummary : ApiSdk.Models.Entity, IParsable 
+    public class ManagementTemplateCollectionTenantSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The completeStepsCount property</summary>
@@ -95,25 +96,25 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"completeStepsCount", n => { CompleteStepsCount = n.GetIntValue(); } },
-                {"completeUsersCount", n => { CompleteUsersCount = n.GetIntValue(); } },
-                {"createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dismissedStepsCount", n => { DismissedStepsCount = n.GetIntValue(); } },
-                {"excludedUsersCount", n => { ExcludedUsersCount = n.GetIntValue(); } },
-                {"excludedUsersDistinctCount", n => { ExcludedUsersDistinctCount = n.GetIntValue(); } },
-                {"incompleteStepsCount", n => { IncompleteStepsCount = n.GetIntValue(); } },
-                {"incompleteUsersCount", n => { IncompleteUsersCount = n.GetIntValue(); } },
-                {"ineligibleStepsCount", n => { IneligibleStepsCount = n.GetIntValue(); } },
-                {"isComplete", n => { IsComplete = n.GetBoolValue(); } },
-                {"lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
-                {"lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managementTemplateCollectionDisplayName", n => { ManagementTemplateCollectionDisplayName = n.GetStringValue(); } },
-                {"managementTemplateCollectionId", n => { ManagementTemplateCollectionId = n.GetStringValue(); } },
-                {"regressedStepsCount", n => { RegressedStepsCount = n.GetIntValue(); } },
-                {"regressedUsersCount", n => { RegressedUsersCount = n.GetIntValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"unlicensedUsersCount", n => { UnlicensedUsersCount = n.GetIntValue(); } },
+                { "completeStepsCount", n => { CompleteStepsCount = n.GetIntValue(); } },
+                { "completeUsersCount", n => { CompleteUsersCount = n.GetIntValue(); } },
+                { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dismissedStepsCount", n => { DismissedStepsCount = n.GetIntValue(); } },
+                { "excludedUsersCount", n => { ExcludedUsersCount = n.GetIntValue(); } },
+                { "excludedUsersDistinctCount", n => { ExcludedUsersDistinctCount = n.GetIntValue(); } },
+                { "incompleteStepsCount", n => { IncompleteStepsCount = n.GetIntValue(); } },
+                { "incompleteUsersCount", n => { IncompleteUsersCount = n.GetIntValue(); } },
+                { "ineligibleStepsCount", n => { IneligibleStepsCount = n.GetIntValue(); } },
+                { "isComplete", n => { IsComplete = n.GetBoolValue(); } },
+                { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
+                { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managementTemplateCollectionDisplayName", n => { ManagementTemplateCollectionDisplayName = n.GetStringValue(); } },
+                { "managementTemplateCollectionId", n => { ManagementTemplateCollectionId = n.GetStringValue(); } },
+                { "regressedStepsCount", n => { RegressedStepsCount = n.GetIntValue(); } },
+                { "regressedUsersCount", n => { RegressedUsersCount = n.GetIntValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "unlicensedUsersCount", n => { UnlicensedUsersCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

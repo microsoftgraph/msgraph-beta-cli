@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceHealthScriptItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceHealthScriptItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.

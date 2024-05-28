@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
+namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item
+{
     /// <summary>
     /// Provides operations to manage the hostSslCertificates property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostSslCertificateItemRequestBuilder : BaseCliRequestBuilder 
+    public class HostSslCertificateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property hostSslCertificates for security
@@ -58,13 +59,14 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get the properties and relationships of a hostSslCertificate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostsslcertificate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.";
+            command.Description = "Get the properties and relationships of a hostSslCertificate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostsslcertificate-get?view=graph-rest-beta";
             var hostSslCertificateIdOption = new Option<string>("--host-ssl-certificate-id", description: "The unique identifier of hostSslCertificate") {
             };
             hostSslCertificateIdOption.IsRequired = true;
@@ -228,7 +230,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get the properties and relationships of a hostSslCertificate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +270,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostSslCertificates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get the properties and relationships of a hostSslCertificate object.
         /// </summary>
         public class HostSslCertificateItemRequestBuilderGetQueryParameters 
         {

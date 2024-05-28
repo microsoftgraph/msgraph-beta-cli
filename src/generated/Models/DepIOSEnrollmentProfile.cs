@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The DepIOSEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile specific to iOS configuration. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
     /// </summary>
-    public class DepIOSEnrollmentProfile : DepEnrollmentBaseProfile, IParsable 
+    public class DepIOSEnrollmentProfile : DepEnrollmentBaseProfile, IParsable
     {
         /// <summary>Indicates if Apperance screen is disabled</summary>
         public bool? AppearanceScreenDisabled { get; set; }
@@ -111,35 +112,35 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appearanceScreenDisabled", n => { AppearanceScreenDisabled = n.GetBoolValue(); } },
-                {"awaitDeviceConfiguredConfirmation", n => { AwaitDeviceConfiguredConfirmation = n.GetBoolValue(); } },
-                {"carrierActivationUrl", n => { CarrierActivationUrl = n.GetStringValue(); } },
-                {"companyPortalVppTokenId", n => { CompanyPortalVppTokenId = n.GetStringValue(); } },
-                {"deviceToDeviceMigrationDisabled", n => { DeviceToDeviceMigrationDisabled = n.GetBoolValue(); } },
-                {"enableSharedIPad", n => { EnableSharedIPad = n.GetBoolValue(); } },
-                {"enableSingleAppEnrollmentMode", n => { EnableSingleAppEnrollmentMode = n.GetBoolValue(); } },
-                {"expressLanguageScreenDisabled", n => { ExpressLanguageScreenDisabled = n.GetBoolValue(); } },
-                {"forceTemporarySession", n => { ForceTemporarySession = n.GetBoolValue(); } },
-                {"homeButtonScreenDisabled", n => { HomeButtonScreenDisabled = n.GetBoolValue(); } },
-                {"iMessageAndFaceTimeScreenDisabled", n => { IMessageAndFaceTimeScreenDisabled = n.GetBoolValue(); } },
-                {"iTunesPairingMode", n => { ITunesPairingMode = n.GetEnumValue<ITunesPairingMode>(); } },
-                {"managementCertificates", n => { ManagementCertificates = n.GetCollectionOfObjectValues<ManagementCertificateWithThumbprint>(ManagementCertificateWithThumbprint.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"onBoardingScreenDisabled", n => { OnBoardingScreenDisabled = n.GetBoolValue(); } },
-                {"passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
-                {"passcodeLockGracePeriodInSeconds", n => { PasscodeLockGracePeriodInSeconds = n.GetIntValue(); } },
-                {"preferredLanguageScreenDisabled", n => { PreferredLanguageScreenDisabled = n.GetBoolValue(); } },
-                {"restoreCompletedScreenDisabled", n => { RestoreCompletedScreenDisabled = n.GetBoolValue(); } },
-                {"restoreFromAndroidDisabled", n => { RestoreFromAndroidDisabled = n.GetBoolValue(); } },
-                {"sharedIPadMaximumUserCount", n => { SharedIPadMaximumUserCount = n.GetIntValue(); } },
-                {"simSetupScreenDisabled", n => { SimSetupScreenDisabled = n.GetBoolValue(); } },
-                {"softwareUpdateScreenDisabled", n => { SoftwareUpdateScreenDisabled = n.GetBoolValue(); } },
-                {"temporarySessionTimeoutInSeconds", n => { TemporarySessionTimeoutInSeconds = n.GetIntValue(); } },
-                {"updateCompleteScreenDisabled", n => { UpdateCompleteScreenDisabled = n.GetBoolValue(); } },
-                {"userSessionTimeoutInSeconds", n => { UserSessionTimeoutInSeconds = n.GetIntValue(); } },
-                {"userlessSharedAadModeEnabled", n => { UserlessSharedAadModeEnabled = n.GetBoolValue(); } },
-                {"watchMigrationScreenDisabled", n => { WatchMigrationScreenDisabled = n.GetBoolValue(); } },
-                {"welcomeScreenDisabled", n => { WelcomeScreenDisabled = n.GetBoolValue(); } },
-                {"zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
+                { "appearanceScreenDisabled", n => { AppearanceScreenDisabled = n.GetBoolValue(); } },
+                { "awaitDeviceConfiguredConfirmation", n => { AwaitDeviceConfiguredConfirmation = n.GetBoolValue(); } },
+                { "carrierActivationUrl", n => { CarrierActivationUrl = n.GetStringValue(); } },
+                { "companyPortalVppTokenId", n => { CompanyPortalVppTokenId = n.GetStringValue(); } },
+                { "deviceToDeviceMigrationDisabled", n => { DeviceToDeviceMigrationDisabled = n.GetBoolValue(); } },
+                { "enableSharedIPad", n => { EnableSharedIPad = n.GetBoolValue(); } },
+                { "enableSingleAppEnrollmentMode", n => { EnableSingleAppEnrollmentMode = n.GetBoolValue(); } },
+                { "expressLanguageScreenDisabled", n => { ExpressLanguageScreenDisabled = n.GetBoolValue(); } },
+                { "forceTemporarySession", n => { ForceTemporarySession = n.GetBoolValue(); } },
+                { "homeButtonScreenDisabled", n => { HomeButtonScreenDisabled = n.GetBoolValue(); } },
+                { "iMessageAndFaceTimeScreenDisabled", n => { IMessageAndFaceTimeScreenDisabled = n.GetBoolValue(); } },
+                { "iTunesPairingMode", n => { ITunesPairingMode = n.GetEnumValue<ITunesPairingMode>(); } },
+                { "managementCertificates", n => { ManagementCertificates = n.GetCollectionOfObjectValues<ManagementCertificateWithThumbprint>(ManagementCertificateWithThumbprint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "onBoardingScreenDisabled", n => { OnBoardingScreenDisabled = n.GetBoolValue(); } },
+                { "passCodeDisabled", n => { PassCodeDisabled = n.GetBoolValue(); } },
+                { "passcodeLockGracePeriodInSeconds", n => { PasscodeLockGracePeriodInSeconds = n.GetIntValue(); } },
+                { "preferredLanguageScreenDisabled", n => { PreferredLanguageScreenDisabled = n.GetBoolValue(); } },
+                { "restoreCompletedScreenDisabled", n => { RestoreCompletedScreenDisabled = n.GetBoolValue(); } },
+                { "restoreFromAndroidDisabled", n => { RestoreFromAndroidDisabled = n.GetBoolValue(); } },
+                { "sharedIPadMaximumUserCount", n => { SharedIPadMaximumUserCount = n.GetIntValue(); } },
+                { "simSetupScreenDisabled", n => { SimSetupScreenDisabled = n.GetBoolValue(); } },
+                { "softwareUpdateScreenDisabled", n => { SoftwareUpdateScreenDisabled = n.GetBoolValue(); } },
+                { "temporarySessionTimeoutInSeconds", n => { TemporarySessionTimeoutInSeconds = n.GetIntValue(); } },
+                { "updateCompleteScreenDisabled", n => { UpdateCompleteScreenDisabled = n.GetBoolValue(); } },
+                { "userSessionTimeoutInSeconds", n => { UserSessionTimeoutInSeconds = n.GetIntValue(); } },
+                { "userlessSharedAadModeEnabled", n => { UserlessSharedAadModeEnabled = n.GetBoolValue(); } },
+                { "watchMigrationScreenDisabled", n => { WatchMigrationScreenDisabled = n.GetBoolValue(); } },
+                { "welcomeScreenDisabled", n => { WelcomeScreenDisabled = n.GetBoolValue(); } },
+                { "zoomDisabled", n => { ZoomDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

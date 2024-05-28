@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows VPN configuration profile.
     /// </summary>
-    public class WindowsVpnConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsVpnConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Connection name displayed to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,9 +67,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                {"customXml", n => { CustomXml = n.GetByteArrayValue(); } },
-                {"servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
+                { "customXml", n => { CustomXml = n.GetByteArrayValue(); } },
+                { "servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

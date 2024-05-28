@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseActivityId {
+namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseActivityId
+{
     /// <summary>
     /// Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder : BaseCliRequestBuilder 
+    public class LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property learningCourseActivities for employeeExperience
@@ -56,13 +57,14 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
             return command;
         }
         /// <summary>
-        /// Get learningCourseActivities from employeeExperience
+        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get learningCourseActivities from employeeExperience";
+            command.Description = "Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-beta";
             var externalcourseActivityIdOption = new Option<string>("--externalcourse-activity-id", description: "Alternate key of learningCourseActivity") {
             };
             externalcourseActivityIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
             return requestInfo;
         }
         /// <summary>
-        /// Get learningCourseActivities from employeeExperience
+        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.EmployeeExperience.LearningCourseActivitiesWithExternalcourseAc
             return requestInfo;
         }
         /// <summary>
-        /// Get learningCourseActivities from employeeExperience
+        /// Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
         /// </summary>
         public class LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParameters 
         {

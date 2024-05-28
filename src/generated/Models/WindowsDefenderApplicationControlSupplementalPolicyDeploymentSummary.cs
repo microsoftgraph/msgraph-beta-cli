@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the deployment summary of a WindowsDefenderApplicationControl supplemental policy.
     /// </summary>
-    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary : Entity, IParsable 
+    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary : Entity, IParsable
     {
         /// <summary>Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.</summary>
         public int? DeployedDeviceCount { get; set; }
@@ -32,8 +33,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deployedDeviceCount", n => { DeployedDeviceCount = n.GetIntValue(); } },
-                {"failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
+                { "deployedDeviceCount", n => { DeployedDeviceCount = n.GetIntValue(); } },
+                { "failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

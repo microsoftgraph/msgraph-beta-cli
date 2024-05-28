@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RichLongRunningOperation : LongRunningOperation, IParsable 
+    public class RichLongRunningOperation : LongRunningOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Error due to which the operation failed.</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
-                {"percentageComplete", n => { PercentageComplete = n.GetIntValue(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
+                { "percentageComplete", n => { PercentageComplete = n.GetIntValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

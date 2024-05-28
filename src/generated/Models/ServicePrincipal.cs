@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServicePrincipal : DirectoryObject, IParsable 
+    public class ServicePrincipal : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users are able to sign in to this app, even if they&apos;re assigned to it. Supports $filter (eq, ne, not, in).</summary>
@@ -102,6 +103,14 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<ClaimsMappingPolicy> ClaimsMappingPolicies { get; set; }
+#endif
+        /// <summary>A claims policy that allows application admins to customize the claims that will be emitted in tokens affected by this policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CustomClaimsPolicy? ClaimsPolicy { get; set; }
+#nullable restore
+#else
+        public CustomClaimsPolicy ClaimsPolicy { get; set; }
 #endif
         /// <summary>Directory objects created by this service principal. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -460,63 +469,64 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
-                {"addIns", n => { AddIns = n.GetCollectionOfObjectValues<AddIn>(AddIn.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alternativeNames", n => { AlternativeNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"appDescription", n => { AppDescription = n.GetStringValue(); } },
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<AppManagementPolicy>(AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetGuidValue(); } },
-                {"appRoleAssignedTo", n => { AppRoleAssignedTo = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"appRoleAssignmentRequired", n => { AppRoleAssignmentRequired = n.GetBoolValue(); } },
-                {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"appRoles", n => { AppRoles = n.GetCollectionOfObjectValues<AppRole>(AppRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
-                {"claimsMappingPolicies", n => { ClaimsMappingPolicies = n.GetCollectionOfObjectValues<ClaimsMappingPolicy>(ClaimsMappingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdObjects", n => { CreatedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customSecurityAttributes", n => { CustomSecurityAttributes = n.GetObjectValue<CustomSecurityAttributeValue>(CustomSecurityAttributeValue.CreateFromDiscriminatorValue); } },
-                {"delegatedPermissionClassifications", n => { DelegatedPermissionClassifications = n.GetCollectionOfObjectValues<DelegatedPermissionClassification>(DelegatedPermissionClassification.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"disabledByMicrosoftStatus", n => { DisabledByMicrosoftStatus = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"errorUrl", n => { ErrorUrl = n.GetStringValue(); } },
-                {"federatedIdentityCredentials", n => { FederatedIdentityCredentials = n.GetCollectionOfObjectValues<FederatedIdentityCredential>(FederatedIdentityCredential.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"homepage", n => { Homepage = n.GetStringValue(); } },
-                {"info", n => { Info = n.GetObjectValue<InformationalUrl>(InformationalUrl.CreateFromDiscriminatorValue); } },
-                {"keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.LicenseDetails>(ApiSdk.Models.LicenseDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"loginUrl", n => { LoginUrl = n.GetStringValue(); } },
-                {"logoutUrl", n => { LogoutUrl = n.GetStringValue(); } },
-                {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"notes", n => { Notes = n.GetStringValue(); } },
-                {"notificationEmailAddresses", n => { NotificationEmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"oauth2PermissionGrants", n => { Oauth2PermissionGrants = n.GetCollectionOfObjectValues<OAuth2PermissionGrant>(OAuth2PermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"ownedObjects", n => { OwnedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"passwordCredentials", n => { PasswordCredentials = n.GetCollectionOfObjectValues<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"passwordSingleSignOnSettings", n => { PasswordSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.PasswordSingleSignOnSettings>(ApiSdk.Models.PasswordSingleSignOnSettings.CreateFromDiscriminatorValue); } },
-                {"preferredSingleSignOnMode", n => { PreferredSingleSignOnMode = n.GetStringValue(); } },
-                {"preferredTokenSigningKeyEndDateTime", n => { PreferredTokenSigningKeyEndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"preferredTokenSigningKeyThumbprint", n => { PreferredTokenSigningKeyThumbprint = n.GetStringValue(); } },
-                {"publishedPermissionScopes", n => { PublishedPermissionScopes = n.GetCollectionOfObjectValues<PermissionScope>(PermissionScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"publisherName", n => { PublisherName = n.GetStringValue(); } },
-                {"remoteDesktopSecurityConfiguration", n => { RemoteDesktopSecurityConfiguration = n.GetObjectValue<ApiSdk.Models.RemoteDesktopSecurityConfiguration>(ApiSdk.Models.RemoteDesktopSecurityConfiguration.CreateFromDiscriminatorValue); } },
-                {"replyUrls", n => { ReplyUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"samlMetadataUrl", n => { SamlMetadataUrl = n.GetStringValue(); } },
-                {"samlSingleSignOnSettings", n => { SamlSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.SamlSingleSignOnSettings>(ApiSdk.Models.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
-                {"servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
-                {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
-                {"synchronization", n => { Synchronization = n.GetObjectValue<ApiSdk.Models.Synchronization>(ApiSdk.Models.Synchronization.CreateFromDiscriminatorValue); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
-                {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<ApiSdk.Models.VerifiedPublisher>(ApiSdk.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
+                { "accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
+                { "addIns", n => { AddIns = n.GetCollectionOfObjectValues<AddIn>(AddIn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alternativeNames", n => { AlternativeNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "appDescription", n => { AppDescription = n.GetStringValue(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<AppManagementPolicy>(AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetGuidValue(); } },
+                { "appRoleAssignedTo", n => { AppRoleAssignedTo = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appRoleAssignmentRequired", n => { AppRoleAssignmentRequired = n.GetBoolValue(); } },
+                { "appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appRoles", n => { AppRoles = n.GetCollectionOfObjectValues<AppRole>(AppRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
+                { "claimsMappingPolicies", n => { ClaimsMappingPolicies = n.GetCollectionOfObjectValues<ClaimsMappingPolicy>(ClaimsMappingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "claimsPolicy", n => { ClaimsPolicy = n.GetObjectValue<CustomClaimsPolicy>(CustomClaimsPolicy.CreateFromDiscriminatorValue); } },
+                { "createdObjects", n => { CreatedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customSecurityAttributes", n => { CustomSecurityAttributes = n.GetObjectValue<CustomSecurityAttributeValue>(CustomSecurityAttributeValue.CreateFromDiscriminatorValue); } },
+                { "delegatedPermissionClassifications", n => { DelegatedPermissionClassifications = n.GetCollectionOfObjectValues<DelegatedPermissionClassification>(DelegatedPermissionClassification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "disabledByMicrosoftStatus", n => { DisabledByMicrosoftStatus = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<Endpoint>(Endpoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errorUrl", n => { ErrorUrl = n.GetStringValue(); } },
+                { "federatedIdentityCredentials", n => { FederatedIdentityCredentials = n.GetCollectionOfObjectValues<FederatedIdentityCredential>(FederatedIdentityCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "homepage", n => { Homepage = n.GetStringValue(); } },
+                { "info", n => { Info = n.GetObjectValue<InformationalUrl>(InformationalUrl.CreateFromDiscriminatorValue); } },
+                { "keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.LicenseDetails>(ApiSdk.Models.LicenseDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "loginUrl", n => { LoginUrl = n.GetStringValue(); } },
+                { "logoutUrl", n => { LogoutUrl = n.GetStringValue(); } },
+                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "notes", n => { Notes = n.GetStringValue(); } },
+                { "notificationEmailAddresses", n => { NotificationEmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "oauth2PermissionGrants", n => { Oauth2PermissionGrants = n.GetCollectionOfObjectValues<OAuth2PermissionGrant>(OAuth2PermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ownedObjects", n => { OwnedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "passwordCredentials", n => { PasswordCredentials = n.GetCollectionOfObjectValues<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "passwordSingleSignOnSettings", n => { PasswordSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.PasswordSingleSignOnSettings>(ApiSdk.Models.PasswordSingleSignOnSettings.CreateFromDiscriminatorValue); } },
+                { "preferredSingleSignOnMode", n => { PreferredSingleSignOnMode = n.GetStringValue(); } },
+                { "preferredTokenSigningKeyEndDateTime", n => { PreferredTokenSigningKeyEndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "preferredTokenSigningKeyThumbprint", n => { PreferredTokenSigningKeyThumbprint = n.GetStringValue(); } },
+                { "publishedPermissionScopes", n => { PublishedPermissionScopes = n.GetCollectionOfObjectValues<PermissionScope>(PermissionScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publisherName", n => { PublisherName = n.GetStringValue(); } },
+                { "remoteDesktopSecurityConfiguration", n => { RemoteDesktopSecurityConfiguration = n.GetObjectValue<ApiSdk.Models.RemoteDesktopSecurityConfiguration>(ApiSdk.Models.RemoteDesktopSecurityConfiguration.CreateFromDiscriminatorValue); } },
+                { "replyUrls", n => { ReplyUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "samlMetadataUrl", n => { SamlMetadataUrl = n.GetStringValue(); } },
+                { "samlSingleSignOnSettings", n => { SamlSingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.SamlSingleSignOnSettings>(ApiSdk.Models.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
+                { "servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
+                { "signInAudience", n => { SignInAudience = n.GetStringValue(); } },
+                { "synchronization", n => { Synchronization = n.GetObjectValue<ApiSdk.Models.Synchronization>(ApiSdk.Models.Synchronization.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
+                { "tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<ApiSdk.Models.VerifiedPublisher>(ApiSdk.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -541,6 +551,7 @@ namespace ApiSdk.Models {
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", AppRoleAssignments);
             writer.WriteCollectionOfObjectValues<AppRole>("appRoles", AppRoles);
             writer.WriteCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", ClaimsMappingPolicies);
+            writer.WriteObjectValue<CustomClaimsPolicy>("claimsPolicy", ClaimsPolicy);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("createdObjects", CreatedObjects);
             writer.WriteObjectValue<CustomSecurityAttributeValue>("customSecurityAttributes", CustomSecurityAttributes);
             writer.WriteCollectionOfObjectValues<DelegatedPermissionClassification>("delegatedPermissionClassifications", DelegatedPermissionClassifications);

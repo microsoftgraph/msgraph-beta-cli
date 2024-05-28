@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Plans.Item.Unarchive {
+namespace ApiSdk.Planner.Plans.Item.Unarchive
+{
     /// <summary>
     /// Provides operations to call the unarchive method.
     /// </summary>
-    public class UnarchiveRequestBuilder : BaseCliRequestBuilder 
+    public class UnarchiveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action unarchive

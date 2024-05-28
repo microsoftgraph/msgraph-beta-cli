@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs {
+namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs
+{
     /// <summary>
     /// Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
     /// </summary>
-    public class RunsRequestBuilder : BaseCliRequestBuilder 
+    public class RunsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs {
             return command;
         }
         /// <summary>
-        /// A collection of simulation automation runs.
+        /// Get a list of the attack simulation automation runs for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/simulationautomation-list-runs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of simulation automation runs.";
+            command.Description = "Get a list of the attack simulation automation runs for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/simulationautomation-list-runs?view=graph-rest-beta";
             var simulationAutomationIdOption = new Option<string>("--simulation-automation-id", description: "The unique identifier of simulationAutomation") {
             };
             simulationAutomationIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs {
         {
         }
         /// <summary>
-        /// A collection of simulation automation runs.
+        /// Get a list of the attack simulation automation runs for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item.Runs {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of simulation automation runs.
+        /// Get a list of the attack simulation automation runs for a tenant.
         /// </summary>
         public class RunsRequestBuilderGetQueryParameters 
         {

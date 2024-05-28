@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UnassignResourceAccountFromDevice {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UnassignResourceAccountFromDevice
+{
     /// <summary>
     /// Provides operations to call the unassignResourceAccountFromDevice method.
     /// </summary>
-    public class UnassignResourceAccountFromDeviceRequestBuilder : BaseCliRequestBuilder 
+    public class UnassignResourceAccountFromDeviceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Unassigns the resource account from an Autopilot device.

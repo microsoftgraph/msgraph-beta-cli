@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles
+{
     /// <summary>
     /// Provides operations to call the assignedAccessMultiModeProfiles method.
     /// </summary>
-    public class AssignedAccessMultiModeProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class AssignedAccessMultiModeProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action assignedAccessMultiModeProfiles

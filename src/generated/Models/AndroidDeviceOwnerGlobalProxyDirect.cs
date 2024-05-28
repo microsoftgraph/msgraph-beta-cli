@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Android Device Owner Global Proxy Direct.
     /// </summary>
-    public class AndroidDeviceOwnerGlobalProxyDirect : AndroidDeviceOwnerGlobalProxy, IParsable 
+    public class AndroidDeviceOwnerGlobalProxyDirect : AndroidDeviceOwnerGlobalProxy, IParsable
     {
         /// <summary>The excluded hosts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"excludedHosts", n => { ExcludedHosts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"host", n => { Host = n.GetStringValue(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
+                { "excludedHosts", n => { ExcludedHosts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "host", n => { Host = n.GetStringValue(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
             };
         }
         /// <summary>

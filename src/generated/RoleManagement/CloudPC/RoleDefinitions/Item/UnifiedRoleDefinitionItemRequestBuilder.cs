@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
+namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
     /// </summary>
-    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignedPrincipals method.
@@ -40,13 +41,14 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property roleDefinitions for roleManagement
+        /// Delete a unifiedRoleDefinition object for an RBAC provider. You cannot delete built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroledefinition-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property roleDefinitions for roleManagement";
+            command.Description = "Delete a unifiedRoleDefinition object for an RBAC provider. You cannot delete built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroledefinition-delete?view=graph-rest-beta";
             var unifiedRoleDefinitionIdOption = new Option<string>("--unified-role-definition-id", description: "The unique identifier of unifiedRoleDefinition") {
             };
             unifiedRoleDefinitionIdOption.IsRequired = true;
@@ -75,13 +77,14 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get roleDefinitions from roleManagement";
+            command.Description = "Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-beta";
             var unifiedRoleDefinitionIdOption = new Option<string>("--unified-role-definition-id", description: "The unique identifier of unifiedRoleDefinition") {
             };
             unifiedRoleDefinitionIdOption.IsRequired = true;
@@ -154,13 +157,14 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property roleDefinitions in roleManagement
+        /// Update the properties of a unifiedRoleDefinition object for an RBAC provider. You cannot update built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroledefinition-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property roleDefinitions in roleManagement";
+            command.Description = "Update the properties of a unifiedRoleDefinition object for an RBAC provider. You cannot update built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroledefinition-update?view=graph-rest-beta";
             var unifiedRoleDefinitionIdOption = new Option<string>("--unified-role-definition-id", description: "The unique identifier of unifiedRoleDefinition") {
             };
             unifiedRoleDefinitionIdOption.IsRequired = true;
@@ -219,7 +223,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property roleDefinitions for roleManagement
+        /// Delete a unifiedRoleDefinition object for an RBAC provider. You cannot delete built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,7 +261,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property roleDefinitions in roleManagement
+        /// Update the properties of a unifiedRoleDefinition object for an RBAC provider. You cannot update built-in roles. This feature requires a Microsoft Entra ID P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Microsoft Entra ID) 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -278,7 +282,7 @@ namespace ApiSdk.RoleManagement.CloudPC.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleDefinitions from roleManagement
+        /// Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Microsoft Entra directory roles)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
         /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters 
         {

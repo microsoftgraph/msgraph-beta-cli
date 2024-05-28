@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.Plans.Item.Buckets.Item.Tasks.Item.BucketTaskBoardFormat {
+namespace ApiSdk.Users.Item.Planner.Plans.Item.Buckets.Item.Tasks.Item.BucketTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class BucketTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class BucketTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property bucketTaskBoardFormat for users

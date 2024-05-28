@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookOperation : Entity, IParsable 
+    public class WorkbookOperation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The error returned by the operation.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"error", n => { Error = n.GetObjectValue<WorkbookOperationError>(WorkbookOperationError.CreateFromDiscriminatorValue); } },
-                {"resourceLocation", n => { ResourceLocation = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<WorkbookOperationStatus>(); } },
+                { "error", n => { Error = n.GetObjectValue<WorkbookOperationError>(WorkbookOperationError.CreateFromDiscriminatorValue); } },
+                { "resourceLocation", n => { ResourceLocation = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<WorkbookOperationStatus>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomAppScope : AppScope, IParsable 
+    public class CustomAppScope : AppScope, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The customAttributes property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customAttributes", n => { CustomAttributes = n.GetObjectValue<CustomAppScopeAttributesDictionary>(CustomAppScopeAttributesDictionary.CreateFromDiscriminatorValue); } },
+                { "customAttributes", n => { CustomAttributes = n.GetObjectValue<CustomAppScopeAttributesDictionary>(CustomAppScopeAttributesDictionary.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

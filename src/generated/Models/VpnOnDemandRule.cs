@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN On-Demand Rule definition.
     /// </summary>
-    public class VpnOnDemandRule : IAdditionalDataHolder, IParsable 
+    public class VpnOnDemandRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>VPN On-Demand Rule Connection Action.</summary>
         public VpnOnDemandRuleConnectionAction? Action { get; set; }
@@ -99,16 +100,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<VpnOnDemandRuleConnectionAction>(); } },
-                {"dnsSearchDomains", n => { DnsSearchDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"dnsServerAddressMatch", n => { DnsServerAddressMatch = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"domainAction", n => { DomainAction = n.GetEnumValue<VpnOnDemandRuleConnectionDomainAction>(); } },
-                {"domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"interfaceTypeMatch", n => { InterfaceTypeMatch = n.GetEnumValue<VpnOnDemandRuleInterfaceTypeMatch>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"probeRequiredUrl", n => { ProbeRequiredUrl = n.GetStringValue(); } },
-                {"probeUrl", n => { ProbeUrl = n.GetStringValue(); } },
-                {"ssids", n => { Ssids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "action", n => { Action = n.GetEnumValue<VpnOnDemandRuleConnectionAction>(); } },
+                { "dnsSearchDomains", n => { DnsSearchDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "dnsServerAddressMatch", n => { DnsServerAddressMatch = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "domainAction", n => { DomainAction = n.GetEnumValue<VpnOnDemandRuleConnectionDomainAction>(); } },
+                { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "interfaceTypeMatch", n => { InterfaceTypeMatch = n.GetEnumValue<VpnOnDemandRuleInterfaceTypeMatch>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "probeRequiredUrl", n => { ProbeRequiredUrl = n.GetStringValue(); } },
+                { "probeUrl", n => { ProbeUrl = n.GetStringValue(); } },
+                { "ssids", n => { Ssids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

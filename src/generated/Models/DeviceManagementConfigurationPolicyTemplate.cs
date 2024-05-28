@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device Management Configuration Policy Template
     /// </summary>
-    public class DeviceManagementConfigurationPolicyTemplate : Entity, IParsable 
+    public class DeviceManagementConfigurationPolicyTemplate : Entity, IParsable
     {
         /// <summary>Allow unmanaged setting templates</summary>
         public bool? AllowUnmanagedSettings { get; set; }
@@ -82,18 +83,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowUnmanagedSettings", n => { AllowUnmanagedSettings = n.GetBoolValue(); } },
-                {"baseId", n => { BaseId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
-                {"lifecycleState", n => { LifecycleState = n.GetEnumValue<DeviceManagementTemplateLifecycleState>(); } },
-                {"platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
-                {"settingTemplateCount", n => { SettingTemplateCount = n.GetIntValue(); } },
-                {"settingTemplates", n => { SettingTemplates = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingTemplate>(DeviceManagementConfigurationSettingTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
-                {"templateFamily", n => { TemplateFamily = n.GetEnumValue<DeviceManagementConfigurationTemplateFamily>(); } },
-                {"version", n => { Version = n.GetIntValue(); } },
+                { "allowUnmanagedSettings", n => { AllowUnmanagedSettings = n.GetBoolValue(); } },
+                { "baseId", n => { BaseId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
+                { "lifecycleState", n => { LifecycleState = n.GetEnumValue<DeviceManagementTemplateLifecycleState>(); } },
+                { "platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
+                { "settingTemplateCount", n => { SettingTemplateCount = n.GetIntValue(); } },
+                { "settingTemplates", n => { SettingTemplates = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingTemplate>(DeviceManagementConfigurationSettingTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
+                { "templateFamily", n => { TemplateFamily = n.GetEnumValue<DeviceManagementConfigurationTemplateFamily>(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

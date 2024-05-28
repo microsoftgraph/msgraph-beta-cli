@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.Errors.Item {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.Errors.Item
+{
     /// <summary>
     /// Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
     /// </summary>
-    public class EducationSynchronizationErrorItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationSynchronizationErrorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property errors for education

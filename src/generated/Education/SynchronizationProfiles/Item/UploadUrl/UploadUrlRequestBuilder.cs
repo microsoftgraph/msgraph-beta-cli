@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl
+{
     /// <summary>
     /// Provides operations to call the uploadUrl method.
     /// </summary>
-    public class UploadUrlRequestBuilder : BaseCliRequestBuilder 
+    public class UploadUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieve a shared access signature (SAS) for uploading source files to Azure blob storage for a specific school data synchronization profile in the tenant. The SAS token has a validity of one hour. The upload URL is provided only for the CSV data provider.

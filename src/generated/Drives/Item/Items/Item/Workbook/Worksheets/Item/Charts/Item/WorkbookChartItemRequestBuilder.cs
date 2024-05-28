@@ -27,11 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item
+{
     /// <summary>
     /// Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
-    public class WorkbookChartItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookChartItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.RoleDefinitions.Item {
+namespace ApiSdk.RoleManagement.DeviceManagement.RoleDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
     /// </summary>
-    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the assignedPrincipals method.

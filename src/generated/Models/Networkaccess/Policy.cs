@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Policy : ApiSdk.Models.Entity, IParsable 
+    public class Policy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Description.</summary>
@@ -65,10 +66,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"policyRules", n => { PolicyRules = n.GetCollectionOfObjectValues<PolicyRule>(PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "policyRules", n => { PolicyRules = n.GetCollectionOfObjectValues<PolicyRule>(PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

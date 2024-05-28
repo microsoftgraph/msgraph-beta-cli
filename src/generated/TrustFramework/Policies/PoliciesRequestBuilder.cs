@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.Policies {
+namespace ApiSdk.TrustFramework.Policies
+{
     /// <summary>
     /// Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
     /// </summary>
-    public class PoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class PoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.TrustFramework.Policies {
             return command;
         }
         /// <summary>
-        /// Get policies from trustFramework
+        /// Retrieve a list of trustFrameworkPolicies in the tenant/directory.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get policies from trustFramework";
+            command.Description = "Retrieve a list of trustFrameworkPolicies in the tenant/directory.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.TrustFramework.Policies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.TrustFramework.Policies {
         {
         }
         /// <summary>
-        /// Get policies from trustFramework
+        /// Retrieve a list of trustFrameworkPolicies in the tenant/directory.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.TrustFramework.Policies {
             return requestInfo;
         }
         /// <summary>
-        /// Get policies from trustFramework
+        /// Retrieve a list of trustFrameworkPolicies in the tenant/directory.
         /// </summary>
         public class PoliciesRequestBuilderGetQueryParameters 
         {

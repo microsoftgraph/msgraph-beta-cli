@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.accessPackage entity.
@@ -126,13 +127,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property accessPackages for identityGovernance
+        /// Delete an accessPackage object. You can&apos;t delete an access package if it has any accessPackageAssignment. To delete the access package, first query if there are any assignments with a filter to indicate the specific access package, such as: $filter=accessPackage/id eq &apos;a914b616-e04e-476b-aa37-91038f0b165b&apos;. For more information on how to remove assignments that are still in the delivered state, see Remove an assignment.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property accessPackages for identityGovernance";
+            command.Description = "Delete an accessPackage object. You can't delete an access package if it has any accessPackageAssignment. To delete the access package, first query if there are any assignments with a filter to indicate the specific access package, such as: $filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'. For more information on how to remove assignments that are still in the delivered state, see Remove an assignment.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-beta";
             var accessPackageIdOption = new Option<string>("--access-package-id", description: "The unique identifier of accessPackage") {
             };
             accessPackageIdOption.IsRequired = true;
@@ -178,13 +180,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return command;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve the properties and relationships of an accessPackage object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents access package objects.";
+            command.Description = "Retrieve the properties and relationships of an accessPackage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-beta";
             var accessPackageIdOption = new Option<string>("--access-package-id", description: "The unique identifier of accessPackage") {
             };
             accessPackageIdOption.IsRequired = true;
@@ -301,13 +304,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property accessPackages in identityGovernance
+        /// Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property accessPackages in identityGovernance";
+            command.Description = "Update an existing accessPackage object to change one or more of its properties, such as the display name or description.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-beta";
             var accessPackageIdOption = new Option<string>("--access-package-id", description: "The unique identifier of accessPackage") {
             };
             accessPackageIdOption.IsRequired = true;
@@ -366,7 +370,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property accessPackages for identityGovernance
+        /// Delete an accessPackage object. You can&apos;t delete an access package if it has any accessPackageAssignment. To delete the access package, first query if there are any assignments with a filter to indicate the specific access package, such as: $filter=accessPackage/id eq &apos;a914b616-e04e-476b-aa37-91038f0b165b&apos;. For more information on how to remove assignments that are still in the delivered state, see Remove an assignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -385,7 +389,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve the properties and relationships of an accessPackage object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -404,7 +408,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property accessPackages in identityGovernance
+        /// Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -425,7 +429,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Retrieve the properties and relationships of an accessPackage object.
         /// </summary>
         public class AccessPackageItemRequestBuilderGetQueryParameters 
         {

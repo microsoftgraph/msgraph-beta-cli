@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
+namespace ApiSdk.Users.Item.Authentication.SignInPreferences
+{
     /// <summary>
     /// Builds and executes requests for operations under \users\{user-id}\authentication\signInPreferences
     /// </summary>
-    public class SignInPreferencesRequestBuilder : BaseCliRequestBuilder 
+    public class SignInPreferencesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// The settings and preferences for to the sign-in experience of a user. Use this property to configure the user&apos;s default multifactor authentication (MFA) method.
+        /// Read the properties of a user&apos;s authentication method states. Use this API to retrieve the following information:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authentication-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.";
+            command.Description = "Read the properties of a user's authentication method states. Use this API to retrieve the following information:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authentication-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -73,13 +75,14 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
             return command;
         }
         /// <summary>
-        /// Update property signInPreferences value.
+        /// Update the properties of a user&apos;s authentication method states. Use this API to update the following information:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authentication-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update property signInPreferences value.";
+            command.Description = "Update the properties of a user's authentication method states. Use this API to update the following information:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authentication-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -138,7 +141,7 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
         {
         }
         /// <summary>
-        /// The settings and preferences for to the sign-in experience of a user. Use this property to configure the user&apos;s default multifactor authentication (MFA) method.
+        /// Read the properties of a user&apos;s authentication method states. Use this API to retrieve the following information:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -157,7 +160,7 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
             return requestInfo;
         }
         /// <summary>
-        /// Update property signInPreferences value.
+        /// Update the properties of a user&apos;s authentication method states. Use this API to update the following information:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -178,7 +181,7 @@ namespace ApiSdk.Users.Item.Authentication.SignInPreferences {
             return requestInfo;
         }
         /// <summary>
-        /// The settings and preferences for to the sign-in experience of a user. Use this property to configure the user&apos;s default multifactor authentication (MFA) method.
+        /// Read the properties of a user&apos;s authentication method states. Use this API to retrieve the following information:
         /// </summary>
         public class SignInPreferencesRequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.Assignments.Item {
+namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
     /// </summary>
-    public class PrivilegedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get assignments from privilegedApproval

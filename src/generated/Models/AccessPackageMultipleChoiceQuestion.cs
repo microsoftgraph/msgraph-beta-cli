@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageMultipleChoiceQuestion : AccessPackageQuestion, IParsable 
+    public class AccessPackageMultipleChoiceQuestion : AccessPackageQuestion, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether requestor can select multiple choices as their answer.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowsMultipleSelection", n => { AllowsMultipleSelection = n.GetBoolValue(); } },
-                {"choices", n => { Choices = n.GetCollectionOfObjectValues<AccessPackageAnswerChoice>(AccessPackageAnswerChoice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowsMultipleSelection", n => { AllowsMultipleSelection = n.GetBoolValue(); } },
+                { "choices", n => { Choices = n.GetCollectionOfObjectValues<AccessPackageAnswerChoice>(AccessPackageAnswerChoice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

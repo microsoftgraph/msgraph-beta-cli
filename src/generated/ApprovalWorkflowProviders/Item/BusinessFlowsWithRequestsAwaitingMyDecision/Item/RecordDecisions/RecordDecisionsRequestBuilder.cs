@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item.RecordDecisions {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item.RecordDecisions
+{
     /// <summary>
     /// Provides operations to call the recordDecisions method.
     /// </summary>
-    public class RecordDecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class RecordDecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action recordDecisions

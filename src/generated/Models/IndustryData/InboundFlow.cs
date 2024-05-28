@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class InboundFlow : IndustryDataActivity, IParsable 
+    public class InboundFlow : IndustryDataActivity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dataConnector property</summary>
@@ -61,11 +62,11 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dataConnector", n => { DataConnector = n.GetObjectValue<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue); } },
-                {"dataDomain", n => { DataDomain = n.GetEnumValue<InboundDomain>(); } },
-                {"effectiveDateTime", n => { EffectiveDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"year", n => { Year = n.GetObjectValue<YearTimePeriodDefinition>(YearTimePeriodDefinition.CreateFromDiscriminatorValue); } },
+                { "dataConnector", n => { DataConnector = n.GetObjectValue<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue); } },
+                { "dataDomain", n => { DataDomain = n.GetEnumValue<InboundDomain>(); } },
+                { "effectiveDateTime", n => { EffectiveDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "year", n => { Year = n.GetObjectValue<YearTimePeriodDefinition>(YearTimePeriodDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.AuthenticationMethodModes {
+namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.AuthenticationMethodModes
+{
     /// <summary>
     /// Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
     /// </summary>
-    public class AuthenticationMethodModesRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationMethodModesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.Authenticatio
             return command;
         }
         /// <summary>
-        /// Names and descriptions of all valid authentication method modes in the system.
+        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Names and descriptions of all valid authentication method modes in the system.";
+            command.Description = "Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.Authenticatio
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.Authenticatio
         {
         }
         /// <summary>
-        /// Names and descriptions of all valid authentication method modes in the system.
+        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.Authenticatio
             return requestInfo;
         }
         /// <summary>
-        /// Names and descriptions of all valid authentication method modes in the system.
+        /// Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
         /// </summary>
         public class AuthenticationMethodModesRequestBuilderGetQueryParameters 
         {

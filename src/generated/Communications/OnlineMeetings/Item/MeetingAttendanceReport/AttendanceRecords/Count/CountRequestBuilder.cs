@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.OnlineMeetings.Item.MeetingAttendanceReport.AttendanceRecords.Count {
+namespace ApiSdk.Communications.OnlineMeetings.Item.MeetingAttendanceReport.AttendanceRecords.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource

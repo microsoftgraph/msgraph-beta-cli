@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
+namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class MobilityManagementPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobilityManagementPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property mobileDeviceManagementPolicies for policies
+        /// Delete a mobilityManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property mobileDeviceManagementPolicies for policies";
+            command.Description = "Delete a mobilityManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-delete?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Get mobileDeviceManagementPolicies from policies
+        /// Read the properties and relationships of a mobilityManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get mobileDeviceManagementPolicies from policies";
+            command.Description = "Read the properties and relationships of a mobilityManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-get?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -136,13 +139,14 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property mobileDeviceManagementPolicies in policies
+        /// Update the properties of a mobilityManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property mobileDeviceManagementPolicies in policies";
+            command.Description = "Update the properties of a mobilityManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-update?view=graph-rest-beta";
             var mobilityManagementPolicyIdOption = new Option<string>("--mobility-management-policy-id", description: "The unique identifier of mobilityManagementPolicy") {
             };
             mobilityManagementPolicyIdOption.IsRequired = true;
@@ -201,7 +205,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property mobileDeviceManagementPolicies for policies
+        /// Delete a mobilityManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +224,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get mobileDeviceManagementPolicies from policies
+        /// Read the properties and relationships of a mobilityManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +243,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property mobileDeviceManagementPolicies in policies
+        /// Update the properties of a mobilityManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.Policies.MobileDeviceManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get mobileDeviceManagementPolicies from policies
+        /// Read the properties and relationships of a mobilityManagementPolicy object.
         /// </summary>
         public class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
         {

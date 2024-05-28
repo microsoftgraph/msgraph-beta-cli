@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerPlanConfigurationLocalization : Entity, IParsable 
+    public class PlannerPlanConfigurationLocalization : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Localized names for configured buckets in the plan configuration.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"buckets", n => { Buckets = n.GetCollectionOfObjectValues<PlannerPlanConfigurationBucketLocalization>(PlannerPlanConfigurationBucketLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
-                {"planTitle", n => { PlanTitle = n.GetStringValue(); } },
+                { "buckets", n => { Buckets = n.GetCollectionOfObjectValues<PlannerPlanConfigurationBucketLocalization>(PlannerPlanConfigurationBucketLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                { "planTitle", n => { PlanTitle = n.GetStringValue(); } },
             };
         }
         /// <summary>

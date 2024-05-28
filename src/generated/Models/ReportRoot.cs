@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
-    #pragma warning disable CS1591
-    public class ReportRoot : Entity, IParsable 
-    #pragma warning restore CS1591
+namespace ApiSdk.Models
+{
+    /// <summary>
+    /// The resource that represents an instance of Enrollment Failure Reports.
+    /// </summary>
+    public class ReportRoot : Entity, IParsable
     {
         /// <summary>Represents a collection of sign-in activities of application credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -188,26 +190,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appCredentialSignInActivities", n => { AppCredentialSignInActivities = n.GetCollectionOfObjectValues<AppCredentialSignInActivity>(AppCredentialSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"applicationSignInDetailedSummary", n => { ApplicationSignInDetailedSummary = n.GetCollectionOfObjectValues<ApiSdk.Models.ApplicationSignInDetailedSummary>(ApiSdk.Models.ApplicationSignInDetailedSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationMethods", n => { AuthenticationMethods = n.GetObjectValue<AuthenticationMethodsRoot>(AuthenticationMethodsRoot.CreateFromDiscriminatorValue); } },
-                {"credentialUserRegistrationDetails", n => { CredentialUserRegistrationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationDetails>(ApiSdk.Models.CredentialUserRegistrationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dailyPrintUsage", n => { DailyPrintUsage = n.GetCollectionOfObjectValues<PrintUsage>(PrintUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dailyPrintUsageByPrinter", n => { DailyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dailyPrintUsageByUser", n => { DailyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dailyPrintUsageSummariesByPrinter", n => { DailyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"dailyPrintUsageSummariesByUser", n => { DailyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"monthlyPrintUsageByPrinter", n => { MonthlyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"monthlyPrintUsageByUser", n => { MonthlyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"monthlyPrintUsageSummariesByPrinter", n => { MonthlyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"monthlyPrintUsageSummariesByUser", n => { MonthlyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"partners", n => { Partners = n.GetObjectValue<ApiSdk.Models.Partners.Partners>(ApiSdk.Models.Partners.Partners.CreateFromDiscriminatorValue); } },
-                {"security", n => { Security = n.GetObjectValue<SecurityReportsRoot>(SecurityReportsRoot.CreateFromDiscriminatorValue); } },
-                {"serviceActivity", n => { ServiceActivity = n.GetObjectValue<ApiSdk.Models.ServiceActivity>(ApiSdk.Models.ServiceActivity.CreateFromDiscriminatorValue); } },
-                {"servicePrincipalSignInActivities", n => { ServicePrincipalSignInActivities = n.GetCollectionOfObjectValues<ServicePrincipalSignInActivity>(ServicePrincipalSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sla", n => { Sla = n.GetObjectValue<ServiceLevelAgreementRoot>(ServiceLevelAgreementRoot.CreateFromDiscriminatorValue); } },
-                {"userCredentialUsageDetails", n => { UserCredentialUsageDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.UserCredentialUsageDetails>(ApiSdk.Models.UserCredentialUsageDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userInsights", n => { UserInsights = n.GetObjectValue<UserInsightsRoot>(UserInsightsRoot.CreateFromDiscriminatorValue); } },
+                { "appCredentialSignInActivities", n => { AppCredentialSignInActivities = n.GetCollectionOfObjectValues<AppCredentialSignInActivity>(AppCredentialSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationSignInDetailedSummary", n => { ApplicationSignInDetailedSummary = n.GetCollectionOfObjectValues<ApiSdk.Models.ApplicationSignInDetailedSummary>(ApiSdk.Models.ApplicationSignInDetailedSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationMethods", n => { AuthenticationMethods = n.GetObjectValue<AuthenticationMethodsRoot>(AuthenticationMethodsRoot.CreateFromDiscriminatorValue); } },
+                { "credentialUserRegistrationDetails", n => { CredentialUserRegistrationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationDetails>(ApiSdk.Models.CredentialUserRegistrationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsage", n => { DailyPrintUsage = n.GetCollectionOfObjectValues<PrintUsage>(PrintUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageByPrinter", n => { DailyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageByUser", n => { DailyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageSummariesByPrinter", n => { DailyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageSummariesByUser", n => { DailyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageByPrinter", n => { MonthlyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageByUser", n => { MonthlyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageSummariesByPrinter", n => { MonthlyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageSummariesByUser", n => { MonthlyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "partners", n => { Partners = n.GetObjectValue<ApiSdk.Models.Partners.Partners>(ApiSdk.Models.Partners.Partners.CreateFromDiscriminatorValue); } },
+                { "security", n => { Security = n.GetObjectValue<SecurityReportsRoot>(SecurityReportsRoot.CreateFromDiscriminatorValue); } },
+                { "serviceActivity", n => { ServiceActivity = n.GetObjectValue<ApiSdk.Models.ServiceActivity>(ApiSdk.Models.ServiceActivity.CreateFromDiscriminatorValue); } },
+                { "servicePrincipalSignInActivities", n => { ServicePrincipalSignInActivities = n.GetCollectionOfObjectValues<ServicePrincipalSignInActivity>(ServicePrincipalSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sla", n => { Sla = n.GetObjectValue<ServiceLevelAgreementRoot>(ServiceLevelAgreementRoot.CreateFromDiscriminatorValue); } },
+                { "userCredentialUsageDetails", n => { UserCredentialUsageDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.UserCredentialUsageDetails>(ApiSdk.Models.UserCredentialUsageDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userInsights", n => { UserInsights = n.GetObjectValue<UserInsightsRoot>(UserInsightsRoot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

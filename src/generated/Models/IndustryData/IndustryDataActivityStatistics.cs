@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataActivityStatistics : IAdditionalDataHolder, IParsable 
+    public class IndustryDataActivityStatistics : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier for the activity that is being reported on.</summary>
@@ -67,10 +68,10 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activityId", n => { ActivityId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
+                { "activityId", n => { ActivityId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
             };
         }
         /// <summary>

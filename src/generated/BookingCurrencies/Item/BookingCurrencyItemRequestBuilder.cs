@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.BookingCurrencies.Item {
+namespace ApiSdk.BookingCurrencies.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of bookingCurrency entities.
     /// </summary>
-    public class BookingCurrencyItemRequestBuilder : BaseCliRequestBuilder 
+    public class BookingCurrencyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from bookingCurrencies

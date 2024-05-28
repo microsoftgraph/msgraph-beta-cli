@@ -49,11 +49,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item {
+namespace ApiSdk.Financials.Companies.Item
+{
     /// <summary>
     /// Provides operations to manage the companies property of the microsoft.graph.financials entity.
     /// </summary>
-    public class CompanyItemRequestBuilder : BaseCliRequestBuilder 
+    public class CompanyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accounts property of the microsoft.graph.company entity.
@@ -407,7 +408,7 @@ namespace ApiSdk.Financials.Companies.Item {
         {
             var command = new Command("get");
             command.Description = "Get companies from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);

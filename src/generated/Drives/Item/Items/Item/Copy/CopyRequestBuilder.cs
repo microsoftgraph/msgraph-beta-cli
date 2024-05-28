@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Copy {
+namespace ApiSdk.Drives.Item.Items.Item.Copy
+{
     /// <summary>
     /// Provides operations to call the copy method.
     /// </summary>
-    public class CopyRequestBuilder : BaseCliRequestBuilder 
+    public class CopyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Asynchronously creates a copy of an driveItem (including any children), under a new parent item or with a new name.

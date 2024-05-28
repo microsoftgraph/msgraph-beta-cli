@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetUserInstallStatusReport {
+namespace ApiSdk.DeviceManagement.Reports.GetUserInstallStatusReport
+{
     /// <summary>
     /// Provides operations to call the getUserInstallStatusReport method.
     /// </summary>
-    public class GetUserInstallStatusReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetUserInstallStatusReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getUserInstallStatusReport

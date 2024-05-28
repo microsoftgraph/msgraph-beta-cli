@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The base class for a type of apps
     /// </summary>
-    public class WindowsKioskAppBase : IAdditionalDataHolder, IParsable 
+    public class WindowsKioskAppBase : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -66,11 +67,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appType", n => { AppType = n.GetEnumValue<WindowsKioskAppType>(); } },
-                {"autoLaunch", n => { AutoLaunch = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startLayoutTileSize", n => { StartLayoutTileSize = n.GetEnumValue<WindowsAppStartLayoutTileSize>(); } },
+                { "appType", n => { AppType = n.GetEnumValue<WindowsKioskAppType>(); } },
+                { "autoLaunch", n => { AutoLaunch = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startLayoutTileSize", n => { StartLayoutTileSize = n.GetEnumValue<WindowsAppStartLayoutTileSize>(); } },
             };
         }
         /// <summary>

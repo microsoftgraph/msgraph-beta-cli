@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AzureCommunicationServicesUserIdentity : Identity, IParsable 
+    public class AzureCommunicationServicesUserIdentity : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The Azure Communication Services resource ID associated with the user.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureCommunicationServicesResourceId", n => { AzureCommunicationServicesResourceId = n.GetStringValue(); } },
+                { "azureCommunicationServicesResourceId", n => { AzureCommunicationServicesResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

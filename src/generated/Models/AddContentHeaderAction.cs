@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AddContentHeaderAction : InformationProtectionAction, IParsable 
+    public class AddContentHeaderAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The alignment property</summary>
@@ -72,13 +73,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alignment", n => { Alignment = n.GetEnumValue<ContentAlignment>(); } },
-                {"fontColor", n => { FontColor = n.GetStringValue(); } },
-                {"fontName", n => { FontName = n.GetStringValue(); } },
-                {"fontSize", n => { FontSize = n.GetIntValue(); } },
-                {"margin", n => { Margin = n.GetIntValue(); } },
-                {"text", n => { Text = n.GetStringValue(); } },
-                {"uiElementName", n => { UiElementName = n.GetStringValue(); } },
+                { "alignment", n => { Alignment = n.GetEnumValue<ContentAlignment>(); } },
+                { "fontColor", n => { FontColor = n.GetStringValue(); } },
+                { "fontName", n => { FontName = n.GetStringValue(); } },
+                { "fontSize", n => { FontSize = n.GetIntValue(); } },
+                { "margin", n => { Margin = n.GetIntValue(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "uiElementName", n => { UiElementName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Members {
+namespace ApiSdk.Education.Classes.Item.Members
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class MembersRequestBuilder : BaseCliRequestBuilder 
+    public class MembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.education.classes.item.members.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return command;
         }
         /// <summary>
-        /// All users in the class. Nullable.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "All users in the class. Nullable.";
+            command.Description = "Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.Education.Classes.Item.Members {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.Education.Classes.Item.Members {
         {
         }
         /// <summary>
-        /// All users in the class. Nullable.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.Education.Classes.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// All users in the class. Nullable.
+        /// Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item.TaskNamespace.Changes.Count {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item.TaskNamespace.Changes.Count
+{
     /// <summary>
     /// Provides operations to call the count method.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function count

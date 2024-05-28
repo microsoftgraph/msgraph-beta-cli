@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InvokeUserFlowListener : AuthenticationListener, IParsable 
+    public class InvokeUserFlowListener : AuthenticationListener, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user flow that is invoked when this action executes.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userFlow", n => { UserFlow = n.GetObjectValue<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue); } },
+                { "userFlow", n => { UserFlow = n.GetObjectValue<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

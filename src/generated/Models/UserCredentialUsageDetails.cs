@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserCredentialUsageDetails : Entity, IParsable 
+    public class UserCredentialUsageDetails : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authMethod property</summary>
@@ -59,13 +60,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"failureReason", n => { FailureReason = n.GetStringValue(); } },
-                {"feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
-                {"isSuccess", n => { IsSuccess = n.GetBoolValue(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "failureReason", n => { FailureReason = n.GetStringValue(); } },
+                { "feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
+                { "isSuccess", n => { IsSuccess = n.GetBoolValue(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

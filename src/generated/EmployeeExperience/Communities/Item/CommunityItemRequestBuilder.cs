@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Communities.Item {
+namespace ApiSdk.EmployeeExperience.Communities.Item
+{
     /// <summary>
     /// Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
     /// </summary>
-    public class CommunityItemRequestBuilder : BaseCliRequestBuilder 
+    public class CommunityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property communities for employeeExperience
@@ -58,13 +59,14 @@ namespace ApiSdk.EmployeeExperience.Communities.Item {
             return command;
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/community-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of communities in Viva Engage.";
+            command.Description = "Read the properties and relationships of a community object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/community-get?view=graph-rest-beta";
             var communityIdOption = new Option<string>("--community-id", description: "The unique identifier of community") {
             };
             communityIdOption.IsRequired = true;
@@ -243,7 +245,7 @@ namespace ApiSdk.EmployeeExperience.Communities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,7 +285,7 @@ namespace ApiSdk.EmployeeExperience.Communities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of communities in Viva Engage.
+        /// Read the properties and relationships of a community object.
         /// </summary>
         public class CommunityItemRequestBuilderGetQueryParameters 
         {

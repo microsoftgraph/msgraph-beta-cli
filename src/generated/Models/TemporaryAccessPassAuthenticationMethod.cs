@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TemporaryAccessPassAuthenticationMethod : AuthenticationMethod, IParsable 
+    public class TemporaryAccessPassAuthenticationMethod : AuthenticationMethod, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the Temporary Access Pass was created.</summary>
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isUsableOnce", n => { IsUsableOnce = n.GetBoolValue(); } },
-                {"lifetimeInMinutes", n => { LifetimeInMinutes = n.GetIntValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"temporaryAccessPass", n => { TemporaryAccessPass = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isUsableOnce", n => { IsUsableOnce = n.GetBoolValue(); } },
+                { "lifetimeInMinutes", n => { LifetimeInMinutes = n.GetIntValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "temporaryAccessPass", n => { TemporaryAccessPass = n.GetStringValue(); } },
             };
         }
         /// <summary>

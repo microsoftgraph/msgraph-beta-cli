@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.IntuneBrandingProfiles.Item {
+namespace ApiSdk.DeviceManagement.IntuneBrandingProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the intuneBrandingProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class IntuneBrandingProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class IntuneBrandingProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.intuneBrandingProfile entity.

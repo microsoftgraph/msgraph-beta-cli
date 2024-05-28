@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
+namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item
+{
     /// <summary>
     /// Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
     /// </summary>
-    public class PrintTaskTriggerItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrintTaskTriggerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definition property of the microsoft.graph.printTaskTrigger entity.
@@ -39,13 +40,14 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property taskTriggers for print
+        /// Delete a printer&apos;s task trigger to prevent related print events from triggering tasks on the specified printer.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property taskTriggers for print";
+            command.Description = "Delete a printer's task trigger to prevent related print events from triggering tasks on the specified printer.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;
@@ -80,13 +82,14 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
             return command;
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A list of task triggers that are associated with the printer.";
+            command.Description = "Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-beta";
             var printerIdOption = new Option<string>("--printer-id", description: "The unique identifier of printer") {
             };
             printerIdOption.IsRequired = true;
@@ -209,7 +212,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property taskTriggers for print
+        /// Delete a printer&apos;s task trigger to prevent related print events from triggering tasks on the specified printer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +231,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +271,7 @@ namespace ApiSdk.Print.Printers.Item.TaskTriggers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of task triggers that are associated with the printer.
+        /// Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
         /// </summary>
         public class PrintTaskTriggerItemRequestBuilderGetQueryParameters 
         {

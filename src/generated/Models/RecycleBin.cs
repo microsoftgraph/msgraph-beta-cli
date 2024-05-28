@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RecycleBin : BaseItem, IParsable 
+    public class RecycleBin : BaseItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of the recycleBinItems deleted by a user.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"items", n => { Items = n.GetCollectionOfObjectValues<RecycleBinItem>(RecycleBinItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<RecycleBinItem>(RecycleBinItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

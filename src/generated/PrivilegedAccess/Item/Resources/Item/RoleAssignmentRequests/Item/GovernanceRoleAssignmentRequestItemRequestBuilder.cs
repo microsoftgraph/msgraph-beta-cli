@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignmentRequests.Item {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignmentRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
     /// </summary>
-    public class GovernanceRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

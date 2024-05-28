@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised {
+namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised
+{
     #pragma warning disable CS1591
-    public class ConfirmCompromisedPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ConfirmCompromisedPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"requestIds", n => { RequestIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "requestIds", n => { RequestIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

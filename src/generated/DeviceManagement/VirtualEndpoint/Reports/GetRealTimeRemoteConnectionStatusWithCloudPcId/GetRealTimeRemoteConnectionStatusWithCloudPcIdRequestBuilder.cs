@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionStatusWithCloudPcId {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionStatusWithCloudPcId
+{
     /// <summary>
     /// Provides operations to call the getRealTimeRemoteConnectionStatus method.
     /// </summary>
-    public class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder : BaseCliRequestBuilder 
+    public class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.

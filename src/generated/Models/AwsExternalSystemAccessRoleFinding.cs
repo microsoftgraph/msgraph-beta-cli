@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsExternalSystemAccessRoleFinding : Finding, IParsable 
+    public class AwsExternalSystemAccessRoleFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The IDs of the accounts that this role is able to access.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessibleSystemIds", n => { AccessibleSystemIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                {"role", n => { Role = n.GetObjectValue<AwsRole>(AwsRole.CreateFromDiscriminatorValue); } },
+                { "accessibleSystemIds", n => { AccessibleSystemIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<AwsRole>(AwsRole.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

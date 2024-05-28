@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity that represents a Microsoft Tunnel site
     /// </summary>
-    public class MicrosoftTunnelSite : Entity, IParsable 
+    public class MicrosoftTunnelSite : Entity, IParsable
     {
         /// <summary>The site&apos;s description (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,18 +96,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"internalNetworkProbeUrl", n => { InternalNetworkProbeUrl = n.GetStringValue(); } },
-                {"microsoftTunnelConfiguration", n => { MicrosoftTunnelConfiguration = n.GetObjectValue<ApiSdk.Models.MicrosoftTunnelConfiguration>(ApiSdk.Models.MicrosoftTunnelConfiguration.CreateFromDiscriminatorValue); } },
-                {"microsoftTunnelServers", n => { MicrosoftTunnelServers = n.GetCollectionOfObjectValues<MicrosoftTunnelServer>(MicrosoftTunnelServer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"publicAddress", n => { PublicAddress = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"upgradeAutomatically", n => { UpgradeAutomatically = n.GetBoolValue(); } },
-                {"upgradeAvailable", n => { UpgradeAvailable = n.GetBoolValue(); } },
-                {"upgradeWindowEndTime", n => { UpgradeWindowEndTime = n.GetTimeValue(); } },
-                {"upgradeWindowStartTime", n => { UpgradeWindowStartTime = n.GetTimeValue(); } },
-                {"upgradeWindowUtcOffsetInMinutes", n => { UpgradeWindowUtcOffsetInMinutes = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "internalNetworkProbeUrl", n => { InternalNetworkProbeUrl = n.GetStringValue(); } },
+                { "microsoftTunnelConfiguration", n => { MicrosoftTunnelConfiguration = n.GetObjectValue<ApiSdk.Models.MicrosoftTunnelConfiguration>(ApiSdk.Models.MicrosoftTunnelConfiguration.CreateFromDiscriminatorValue); } },
+                { "microsoftTunnelServers", n => { MicrosoftTunnelServers = n.GetCollectionOfObjectValues<MicrosoftTunnelServer>(MicrosoftTunnelServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publicAddress", n => { PublicAddress = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "upgradeAutomatically", n => { UpgradeAutomatically = n.GetBoolValue(); } },
+                { "upgradeAvailable", n => { UpgradeAvailable = n.GetBoolValue(); } },
+                { "upgradeWindowEndTime", n => { UpgradeWindowEndTime = n.GetTimeValue(); } },
+                { "upgradeWindowStartTime", n => { UpgradeWindowStartTime = n.GetTimeValue(); } },
+                { "upgradeWindowUtcOffsetInMinutes", n => { UpgradeWindowUtcOffsetInMinutes = n.GetIntValue(); } },
             };
         }
         /// <summary>

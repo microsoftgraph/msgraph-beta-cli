@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.OnlineMeetings.Item.Registration.CustomQuestions.Item {
+namespace ApiSdk.App.OnlineMeetings.Item.Registration.CustomQuestions.Item
+{
     /// <summary>
     /// Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
     /// </summary>
-    public class MeetingRegistrationQuestionItemRequestBuilder : BaseCliRequestBuilder 
+    public class MeetingRegistrationQuestionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property customQuestions for app

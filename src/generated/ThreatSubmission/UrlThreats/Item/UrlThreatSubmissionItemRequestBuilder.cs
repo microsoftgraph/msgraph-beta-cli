@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ThreatSubmission.UrlThreats.Item {
+namespace ApiSdk.ThreatSubmission.UrlThreats.Item
+{
     /// <summary>
     /// Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class UrlThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UrlThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property urlThreats for threatSubmission

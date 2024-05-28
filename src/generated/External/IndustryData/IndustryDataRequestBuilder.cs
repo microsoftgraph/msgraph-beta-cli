@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData {
+namespace ApiSdk.External.IndustryData
+{
     /// <summary>
     /// Provides operations to manage the industryData property of the microsoft.graph.externalConnectors.external entity.
     /// </summary>
-    public class IndustryDataRequestBuilder : BaseCliRequestBuilder 
+    public class IndustryDataRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.

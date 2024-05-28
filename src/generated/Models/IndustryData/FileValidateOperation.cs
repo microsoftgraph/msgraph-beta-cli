@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class FileValidateOperation : ValidateOperation, IParsable 
+    public class FileValidateOperation : ValidateOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Set of files validated by the validate operation.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"validatedFiles", n => { ValidatedFiles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "validatedFiles", n => { ValidatedFiles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

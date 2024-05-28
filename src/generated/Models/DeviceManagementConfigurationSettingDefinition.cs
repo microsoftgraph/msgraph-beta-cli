@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSettingDefinition : Entity, IParsable 
+    public class DeviceManagementConfigurationSettingDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessTypes property</summary>
         public DeviceManagementConfigurationSettingAccessTypes? AccessTypes { get; set; }
-        /// <summary>Details which device setting is applicable on</summary>
+        /// <summary>Details which device setting is applicable on. Supports: $filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DeviceManagementConfigurationSettingApplicability? Applicability { get; set; }
@@ -27,7 +28,7 @@ namespace ApiSdk.Models {
 #else
         public string BaseUri { get; set; }
 #endif
-        /// <summary>Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)</summary>
+        /// <summary>Specify category in which the setting is under. Support $filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CategoryId { get; set; }
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
 #else
         public string CategoryId { get; set; }
 #endif
-        /// <summary>Description of the item</summary>
+        /// <summary>Description of the setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Display name of the item</summary>
+        /// <summary>Name of the setting. For example: Allow Toast.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -51,7 +52,7 @@ namespace ApiSdk.Models {
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Help text of the item</summary>
+        /// <summary>Help text of the setting. Give more details of the setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HelpText { get; set; }
@@ -59,7 +60,7 @@ namespace ApiSdk.Models {
 #else
         public string HelpText { get; set; }
 #endif
-        /// <summary>List of links more info for the setting can be found at</summary>
+        /// <summary>List of links more info for the setting can be found at.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? InfoUrls { get; set; }
@@ -107,7 +108,7 @@ namespace ApiSdk.Models {
 #else
         public List<DeviceManagementConfigurationReferredSettingInformation> ReferredSettingInformationList { get; set; }
 #endif
-        /// <summary>Root setting definition if the setting is a child setting.</summary>
+        /// <summary>Root setting definition id if the setting is a child setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RootDefinitionId { get; set; }
@@ -158,24 +159,24 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessTypes", n => { AccessTypes = n.GetEnumValue<DeviceManagementConfigurationSettingAccessTypes>(); } },
-                {"applicability", n => { Applicability = n.GetObjectValue<DeviceManagementConfigurationSettingApplicability>(DeviceManagementConfigurationSettingApplicability.CreateFromDiscriminatorValue); } },
-                {"baseUri", n => { BaseUri = n.GetStringValue(); } },
-                {"categoryId", n => { CategoryId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"helpText", n => { HelpText = n.GetStringValue(); } },
-                {"infoUrls", n => { InfoUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"occurrence", n => { Occurrence = n.GetObjectValue<DeviceManagementConfigurationSettingOccurrence>(DeviceManagementConfigurationSettingOccurrence.CreateFromDiscriminatorValue); } },
-                {"offsetUri", n => { OffsetUri = n.GetStringValue(); } },
-                {"referredSettingInformationList", n => { ReferredSettingInformationList = n.GetCollectionOfObjectValues<DeviceManagementConfigurationReferredSettingInformation>(DeviceManagementConfigurationReferredSettingInformation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"rootDefinitionId", n => { RootDefinitionId = n.GetStringValue(); } },
-                {"settingUsage", n => { SettingUsage = n.GetEnumValue<DeviceManagementConfigurationSettingUsage>(); } },
-                {"uxBehavior", n => { UxBehavior = n.GetEnumValue<DeviceManagementConfigurationControlType>(); } },
-                {"version", n => { Version = n.GetStringValue(); } },
-                {"visibility", n => { Visibility = n.GetEnumValue<DeviceManagementConfigurationSettingVisibility>(); } },
+                { "accessTypes", n => { AccessTypes = n.GetEnumValue<DeviceManagementConfigurationSettingAccessTypes>(); } },
+                { "applicability", n => { Applicability = n.GetObjectValue<DeviceManagementConfigurationSettingApplicability>(DeviceManagementConfigurationSettingApplicability.CreateFromDiscriminatorValue); } },
+                { "baseUri", n => { BaseUri = n.GetStringValue(); } },
+                { "categoryId", n => { CategoryId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "helpText", n => { HelpText = n.GetStringValue(); } },
+                { "infoUrls", n => { InfoUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "occurrence", n => { Occurrence = n.GetObjectValue<DeviceManagementConfigurationSettingOccurrence>(DeviceManagementConfigurationSettingOccurrence.CreateFromDiscriminatorValue); } },
+                { "offsetUri", n => { OffsetUri = n.GetStringValue(); } },
+                { "referredSettingInformationList", n => { ReferredSettingInformationList = n.GetCollectionOfObjectValues<DeviceManagementConfigurationReferredSettingInformation>(DeviceManagementConfigurationReferredSettingInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rootDefinitionId", n => { RootDefinitionId = n.GetStringValue(); } },
+                { "settingUsage", n => { SettingUsage = n.GetEnumValue<DeviceManagementConfigurationSettingUsage>(); } },
+                { "uxBehavior", n => { UxBehavior = n.GetEnumValue<DeviceManagementConfigurationControlType>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<DeviceManagementConfigurationSettingVisibility>(); } },
             };
         }
         /// <summary>

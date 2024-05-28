@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Renew {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Renew
+{
     /// <summary>
     /// Provides operations to call the renew method.
     /// </summary>
-    public class RenewRequestBuilder : BaseCliRequestBuilder 
+    public class RenewRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action renew

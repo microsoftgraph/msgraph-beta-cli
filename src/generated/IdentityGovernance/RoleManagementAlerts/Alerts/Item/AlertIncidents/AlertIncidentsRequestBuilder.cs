@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents
+{
     /// <summary>
     /// Provides operations to manage the alertIncidents property of the microsoft.graph.unifiedRoleManagementAlert entity.
     /// </summary>
-    public class AlertIncidentsRequestBuilder : BaseCliRequestBuilder 
+    public class AlertIncidentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alertIncidents property of the microsoft.graph.unifiedRoleManagementAlert entity.
@@ -194,7 +195,9 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncide
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

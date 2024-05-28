@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Delivery Optimization configuration
     /// </summary>
-    public class WindowsDeliveryOptimizationConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsDeliveryOptimizationConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295</summary>
         public long? BackgroundDownloadFromHttpDelayInSeconds { get; set; }
@@ -99,23 +100,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"backgroundDownloadFromHttpDelayInSeconds", n => { BackgroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
-                {"bandwidthMode", n => { BandwidthMode = n.GetObjectValue<DeliveryOptimizationBandwidth>(DeliveryOptimizationBandwidth.CreateFromDiscriminatorValue); } },
-                {"cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerBackgroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
-                {"cacheServerForegroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerForegroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
-                {"cacheServerHostNames", n => { CacheServerHostNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"deliveryOptimizationMode", n => { DeliveryOptimizationMode = n.GetEnumValue<WindowsDeliveryOptimizationMode>(); } },
-                {"foregroundDownloadFromHttpDelayInSeconds", n => { ForegroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
-                {"groupIdSource", n => { GroupIdSource = n.GetObjectValue<DeliveryOptimizationGroupIdSource>(DeliveryOptimizationGroupIdSource.CreateFromDiscriminatorValue); } },
-                {"maximumCacheAgeInDays", n => { MaximumCacheAgeInDays = n.GetIntValue(); } },
-                {"maximumCacheSize", n => { MaximumCacheSize = n.GetObjectValue<DeliveryOptimizationMaxCacheSize>(DeliveryOptimizationMaxCacheSize.CreateFromDiscriminatorValue); } },
-                {"minimumBatteryPercentageAllowedToUpload", n => { MinimumBatteryPercentageAllowedToUpload = n.GetIntValue(); } },
-                {"minimumDiskSizeAllowedToPeerInGigabytes", n => { MinimumDiskSizeAllowedToPeerInGigabytes = n.GetIntValue(); } },
-                {"minimumFileSizeToCacheInMegabytes", n => { MinimumFileSizeToCacheInMegabytes = n.GetIntValue(); } },
-                {"minimumRamAllowedToPeerInGigabytes", n => { MinimumRamAllowedToPeerInGigabytes = n.GetIntValue(); } },
-                {"modifyCacheLocation", n => { ModifyCacheLocation = n.GetStringValue(); } },
-                {"restrictPeerSelectionBy", n => { RestrictPeerSelectionBy = n.GetEnumValue<DeliveryOptimizationRestrictPeerSelectionByOptions>(); } },
-                {"vpnPeerCaching", n => { VpnPeerCaching = n.GetEnumValue<Enablement>(); } },
+                { "backgroundDownloadFromHttpDelayInSeconds", n => { BackgroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
+                { "bandwidthMode", n => { BandwidthMode = n.GetObjectValue<DeliveryOptimizationBandwidth>(DeliveryOptimizationBandwidth.CreateFromDiscriminatorValue); } },
+                { "cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerBackgroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
+                { "cacheServerForegroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerForegroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
+                { "cacheServerHostNames", n => { CacheServerHostNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deliveryOptimizationMode", n => { DeliveryOptimizationMode = n.GetEnumValue<WindowsDeliveryOptimizationMode>(); } },
+                { "foregroundDownloadFromHttpDelayInSeconds", n => { ForegroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
+                { "groupIdSource", n => { GroupIdSource = n.GetObjectValue<DeliveryOptimizationGroupIdSource>(DeliveryOptimizationGroupIdSource.CreateFromDiscriminatorValue); } },
+                { "maximumCacheAgeInDays", n => { MaximumCacheAgeInDays = n.GetIntValue(); } },
+                { "maximumCacheSize", n => { MaximumCacheSize = n.GetObjectValue<DeliveryOptimizationMaxCacheSize>(DeliveryOptimizationMaxCacheSize.CreateFromDiscriminatorValue); } },
+                { "minimumBatteryPercentageAllowedToUpload", n => { MinimumBatteryPercentageAllowedToUpload = n.GetIntValue(); } },
+                { "minimumDiskSizeAllowedToPeerInGigabytes", n => { MinimumDiskSizeAllowedToPeerInGigabytes = n.GetIntValue(); } },
+                { "minimumFileSizeToCacheInMegabytes", n => { MinimumFileSizeToCacheInMegabytes = n.GetIntValue(); } },
+                { "minimumRamAllowedToPeerInGigabytes", n => { MinimumRamAllowedToPeerInGigabytes = n.GetIntValue(); } },
+                { "modifyCacheLocation", n => { ModifyCacheLocation = n.GetStringValue(); } },
+                { "restrictPeerSelectionBy", n => { RestrictPeerSelectionBy = n.GetEnumValue<DeliveryOptimizationRestrictPeerSelectionByOptions>(); } },
+                { "vpnPeerCaching", n => { VpnPeerCaching = n.GetEnumValue<Enablement>(); } },
             };
         }
         /// <summary>

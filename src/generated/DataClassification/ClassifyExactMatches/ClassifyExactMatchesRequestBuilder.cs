@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ClassifyExactMatches {
+namespace ApiSdk.DataClassification.ClassifyExactMatches
+{
     /// <summary>
     /// Provides operations to call the classifyExactMatches method.
     /// </summary>
-    public class ClassifyExactMatchesRequestBuilder : BaseCliRequestBuilder 
+    public class ClassifyExactMatchesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action classifyExactMatches

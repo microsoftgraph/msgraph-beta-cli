@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes a single artifact for a specific device model.
     /// </summary>
-    public class ZebraFotaArtifact : Entity, IParsable 
+    public class ZebraFotaArtifact : Entity, IParsable
     {
         /// <summary>The version of the Board Support Package (BSP. E.g.: 01.18.02.00)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,12 +77,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"boardSupportPackageVersion", n => { BoardSupportPackageVersion = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"patchVersion", n => { PatchVersion = n.GetStringValue(); } },
-                {"releaseNotesUrl", n => { ReleaseNotesUrl = n.GetStringValue(); } },
+                { "boardSupportPackageVersion", n => { BoardSupportPackageVersion = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "patchVersion", n => { PatchVersion = n.GetStringValue(); } },
+                { "releaseNotesUrl", n => { ReleaseNotesUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

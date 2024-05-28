@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate {
+namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
+{
     /// <summary>
     /// Provides operations to call the migrateToTemplate method.
     /// </summary>
-    public class MigrateToTemplateRequestBuilder : BaseCliRequestBuilder 
+    public class MigrateToTemplateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action migrateToTemplate

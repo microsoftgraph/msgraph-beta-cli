@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetBrowserUserDetailWithPeriod {
+namespace ApiSdk.Reports.GetBrowserUserDetailWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getBrowserUserDetail method.
     /// </summary>
-    public class GetBrowserUserDetailWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetBrowserUserDetailWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getBrowserUserDetail

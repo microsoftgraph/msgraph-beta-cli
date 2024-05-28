@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AutopilotEvents.Item {
+namespace ApiSdk.DeviceManagement.AutopilotEvents.Item
+{
     /// <summary>
     /// Provides operations to manage the autopilotEvents property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementAutopilotEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementAutopilotEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property autopilotEvents for deviceManagement

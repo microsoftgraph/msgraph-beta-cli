@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.RefreshDeviceComplianceReportSummarization {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.RefreshDeviceComplianceReportSummarization
+{
     /// <summary>
     /// Provides operations to call the refreshDeviceComplianceReportSummarization method.
     /// </summary>
-    public class RefreshDeviceComplianceReportSummarizationRequestBuilder : BaseCliRequestBuilder 
+    public class RefreshDeviceComplianceReportSummarizationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action refreshDeviceComplianceReportSummarization

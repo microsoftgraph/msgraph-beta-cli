@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item
+{
     /// <summary>
     /// Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class EdiscoverySearchItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoverySearchItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property searches for security
+        /// Delete an ediscoverySearch object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property searches for security";
+            command.Description = "Delete an ediscoverySearch object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -141,13 +143,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of eDiscoverySearch objects associated with this case.
+        /// Read the properties and relationships of an ediscoverySearch object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of eDiscoverySearch objects associated with this case.";
+            command.Description = "Read the properties and relationships of an ediscoverySearch object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -310,13 +313,14 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property searches in security
+        /// Update the properties of an ediscoverySearch object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property searches in security";
+            command.Description = "Update the properties of an ediscoverySearch object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-beta";
             var ediscoveryCaseIdOption = new Option<string>("--ediscovery-case-id", description: "The unique identifier of ediscoveryCase") {
             };
             ediscoveryCaseIdOption.IsRequired = true;
@@ -381,7 +385,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property searches for security
+        /// Delete an ediscoverySearch object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -400,7 +404,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of eDiscoverySearch objects associated with this case.
+        /// Read the properties and relationships of an ediscoverySearch object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -419,7 +423,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property searches in security
+        /// Update the properties of an ediscoverySearch object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -440,7 +444,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of eDiscoverySearch objects associated with this case.
+        /// Read the properties and relationships of an ediscoverySearch object.
         /// </summary>
         public class EdiscoverySearchItemRequestBuilderGetQueryParameters 
         {

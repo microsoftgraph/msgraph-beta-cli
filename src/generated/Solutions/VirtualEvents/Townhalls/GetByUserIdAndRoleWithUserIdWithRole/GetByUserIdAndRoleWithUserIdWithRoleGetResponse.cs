@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls.GetByUserIdAndRoleWithUserIdWithRole {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls.GetByUserIdAndRoleWithUserIdWithRole
+{
     #pragma warning disable CS1591
-    public class GetByUserIdAndRoleWithUserIdWithRoleGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetByUserIdAndRoleWithUserIdWithRoleGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.GetByUserIdAndRoleWithUserIdW
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<VirtualEventTownhall>(VirtualEventTownhall.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<VirtualEventTownhall>(VirtualEventTownhall.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.RecycleBin.Items {
+namespace ApiSdk.Sites.Item.RecycleBin.Items
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
     /// </summary>
-    public class ItemsRequestBuilder : BaseCliRequestBuilder 
+    public class ItemsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
@@ -107,13 +108,14 @@ namespace ApiSdk.Sites.Item.RecycleBin.Items {
             return command;
         }
         /// <summary>
-        /// List of the recycleBinItems deleted by a user.
+        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recyclebin-list-items?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List of the recycleBinItems deleted by a user.";
+            command.Description = "Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recyclebin-list-items?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -195,7 +197,9 @@ namespace ApiSdk.Sites.Item.RecycleBin.Items {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +225,7 @@ namespace ApiSdk.Sites.Item.RecycleBin.Items {
         {
         }
         /// <summary>
-        /// List of the recycleBinItems deleted by a user.
+        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.Sites.Item.RecycleBin.Items {
             return requestInfo;
         }
         /// <summary>
-        /// List of the recycleBinItems deleted by a user.
+        /// Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters 
         {

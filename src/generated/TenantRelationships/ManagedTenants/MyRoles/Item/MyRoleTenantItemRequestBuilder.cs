@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.MyRoles.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.MyRoles.Item
+{
     /// <summary>
     /// Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class MyRoleTenantItemRequestBuilder : BaseCliRequestBuilder 
+    public class MyRoleTenantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property myRoles for tenantRelationships

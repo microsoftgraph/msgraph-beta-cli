@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments {
+namespace ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments
+{
     /// <summary>
     /// Provides operations to call the hasActiveDeployments method.
     /// </summary>
-    public class HasActiveDeploymentsRequestBuilder : BaseCliRequestBuilder 
+    public class HasActiveDeploymentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action hasActiveDeployments

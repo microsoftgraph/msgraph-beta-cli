@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceScope.AccessPackageResource.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceScope.AccessPackageResource.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageResource entity.
     /// </summary>
-    public class AccessPackageResourceScopeItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceScopeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property accessPackageResourceScopes for identityGovernance

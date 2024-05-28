@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365ActiveUserDetail : Entity, IParsable 
+    public class Office365ActiveUserDetail : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>All the products assigned for the user.</summary>
@@ -94,30 +95,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignedProducts", n => { AssignedProducts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"deletedDate", n => { DeletedDate = n.GetDateValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"exchangeLastActivityDate", n => { ExchangeLastActivityDate = n.GetDateValue(); } },
-                {"exchangeLicenseAssignDate", n => { ExchangeLicenseAssignDate = n.GetDateValue(); } },
-                {"hasExchangeLicense", n => { HasExchangeLicense = n.GetBoolValue(); } },
-                {"hasOneDriveLicense", n => { HasOneDriveLicense = n.GetBoolValue(); } },
-                {"hasSharePointLicense", n => { HasSharePointLicense = n.GetBoolValue(); } },
-                {"hasSkypeForBusinessLicense", n => { HasSkypeForBusinessLicense = n.GetBoolValue(); } },
-                {"hasTeamsLicense", n => { HasTeamsLicense = n.GetBoolValue(); } },
-                {"hasYammerLicense", n => { HasYammerLicense = n.GetBoolValue(); } },
-                {"isDeleted", n => { IsDeleted = n.GetBoolValue(); } },
-                {"oneDriveLastActivityDate", n => { OneDriveLastActivityDate = n.GetDateValue(); } },
-                {"oneDriveLicenseAssignDate", n => { OneDriveLicenseAssignDate = n.GetDateValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"sharePointLastActivityDate", n => { SharePointLastActivityDate = n.GetDateValue(); } },
-                {"sharePointLicenseAssignDate", n => { SharePointLicenseAssignDate = n.GetDateValue(); } },
-                {"skypeForBusinessLastActivityDate", n => { SkypeForBusinessLastActivityDate = n.GetDateValue(); } },
-                {"skypeForBusinessLicenseAssignDate", n => { SkypeForBusinessLicenseAssignDate = n.GetDateValue(); } },
-                {"teamsLastActivityDate", n => { TeamsLastActivityDate = n.GetDateValue(); } },
-                {"teamsLicenseAssignDate", n => { TeamsLicenseAssignDate = n.GetDateValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"yammerLastActivityDate", n => { YammerLastActivityDate = n.GetDateValue(); } },
-                {"yammerLicenseAssignDate", n => { YammerLicenseAssignDate = n.GetDateValue(); } },
+                { "assignedProducts", n => { AssignedProducts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deletedDate", n => { DeletedDate = n.GetDateValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "exchangeLastActivityDate", n => { ExchangeLastActivityDate = n.GetDateValue(); } },
+                { "exchangeLicenseAssignDate", n => { ExchangeLicenseAssignDate = n.GetDateValue(); } },
+                { "hasExchangeLicense", n => { HasExchangeLicense = n.GetBoolValue(); } },
+                { "hasOneDriveLicense", n => { HasOneDriveLicense = n.GetBoolValue(); } },
+                { "hasSharePointLicense", n => { HasSharePointLicense = n.GetBoolValue(); } },
+                { "hasSkypeForBusinessLicense", n => { HasSkypeForBusinessLicense = n.GetBoolValue(); } },
+                { "hasTeamsLicense", n => { HasTeamsLicense = n.GetBoolValue(); } },
+                { "hasYammerLicense", n => { HasYammerLicense = n.GetBoolValue(); } },
+                { "isDeleted", n => { IsDeleted = n.GetBoolValue(); } },
+                { "oneDriveLastActivityDate", n => { OneDriveLastActivityDate = n.GetDateValue(); } },
+                { "oneDriveLicenseAssignDate", n => { OneDriveLicenseAssignDate = n.GetDateValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "sharePointLastActivityDate", n => { SharePointLastActivityDate = n.GetDateValue(); } },
+                { "sharePointLicenseAssignDate", n => { SharePointLicenseAssignDate = n.GetDateValue(); } },
+                { "skypeForBusinessLastActivityDate", n => { SkypeForBusinessLastActivityDate = n.GetDateValue(); } },
+                { "skypeForBusinessLicenseAssignDate", n => { SkypeForBusinessLicenseAssignDate = n.GetDateValue(); } },
+                { "teamsLastActivityDate", n => { TeamsLastActivityDate = n.GetDateValue(); } },
+                { "teamsLicenseAssignDate", n => { TeamsLicenseAssignDate = n.GetDateValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "yammerLastActivityDate", n => { YammerLastActivityDate = n.GetDateValue(); } },
+                { "yammerLicenseAssignDate", n => { YammerLicenseAssignDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

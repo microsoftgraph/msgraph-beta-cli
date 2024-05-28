@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Security.InformationProtection {
+namespace ApiSdk.Users.Item.Security.InformationProtection
+{
     /// <summary>
     /// Provides operations to manage the informationProtection property of the microsoft.graph.security.security entity.
     /// </summary>
-    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder 
+    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property informationProtection for users

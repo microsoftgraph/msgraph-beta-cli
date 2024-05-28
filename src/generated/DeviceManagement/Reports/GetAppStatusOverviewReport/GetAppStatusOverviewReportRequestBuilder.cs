@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetAppStatusOverviewReport {
+namespace ApiSdk.DeviceManagement.Reports.GetAppStatusOverviewReport
+{
     /// <summary>
     /// Provides operations to call the getAppStatusOverviewReport method.
     /// </summary>
-    public class GetAppStatusOverviewReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetAppStatusOverviewReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getAppStatusOverviewReport

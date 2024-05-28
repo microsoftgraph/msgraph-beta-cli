@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.Authentications.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.Authentications.Item
+{
     /// <summary>
     /// Provides operations to manage the authentications property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class AuthenticationsMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationsMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Insights for authentications on apps registered in the tenant for a specified period.

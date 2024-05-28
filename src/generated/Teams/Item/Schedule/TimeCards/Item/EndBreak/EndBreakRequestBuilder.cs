@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item.EndBreak {
+namespace ApiSdk.Teams.Item.Schedule.TimeCards.Item.EndBreak
+{
     /// <summary>
     /// Provides operations to call the endBreak method.
     /// </summary>
-    public class EndBreakRequestBuilder : BaseCliRequestBuilder 
+    public class EndBreakRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// End the open break in a specific timeCard.

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.People {
+namespace ApiSdk.Admin.People
+{
     /// <summary>
     /// Provides operations to manage the people property of the microsoft.graph.admin entity.
     /// </summary>
-    public class PeopleRequestBuilder : BaseCliRequestBuilder 
+    public class PeopleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property people for admin
@@ -53,13 +54,14 @@ namespace ApiSdk.Admin.People {
             return command;
         }
         /// <summary>
-        /// Represents a setting to control people-related admin settings in the tenant.
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a setting to control people-related admin settings in the tenant.";
+            command.Description = "Retrieve the properties and relationships of a peopleAdminSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -242,7 +244,7 @@ namespace ApiSdk.Admin.People {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a setting to control people-related admin settings in the tenant.
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -282,7 +284,7 @@ namespace ApiSdk.Admin.People {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a setting to control people-related admin settings in the tenant.
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
         /// </summary>
         public class PeopleRequestBuilderGetQueryParameters 
         {

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Planner.Plans {
+namespace ApiSdk.Groups.Item.Planner.Plans
+{
     /// <summary>
     /// Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
     /// </summary>
-    public class PlansRequestBuilder : BaseCliRequestBuilder 
+    public class PlansRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
@@ -129,13 +130,14 @@ namespace ApiSdk.Groups.Item.Planner.Plans {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans owned by the group.
+        /// Retrieve a list of plannerPlan objects owned by a group object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannergroup-list-plans?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns the plannerPlans owned by the group.";
+            command.Description = "Retrieve a list of plannerPlan objects owned by a group object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannergroup-list-plans?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -217,7 +219,9 @@ namespace ApiSdk.Groups.Item.Planner.Plans {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -243,7 +247,7 @@ namespace ApiSdk.Groups.Item.Planner.Plans {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans owned by the group.
+        /// Retrieve a list of plannerPlan objects owned by a group object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -283,7 +287,7 @@ namespace ApiSdk.Groups.Item.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans owned by the group.
+        /// Retrieve a list of plannerPlan objects owned by a group object.
         /// </summary>
         public class PlansRequestBuilderGetQueryParameters 
         {

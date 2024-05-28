@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.GovernanceResources.Register {
+namespace ApiSdk.GovernanceResources.Register
+{
     #pragma warning disable CS1591
-    public class RegisterPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RegisterPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.GovernanceResources.Register {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
             };
         }
         /// <summary>

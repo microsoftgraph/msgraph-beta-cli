@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DailyUserInsightMetricsRoot : Entity, IParsable 
+    public class DailyUserInsightMetricsRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Insights for active users on apps registered in the tenant for a specified period.</summary>
@@ -16,14 +17,6 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public List<ActiveUsersMetric> ActiveUsers { get; set; }
-#endif
-        /// <summary>The activeUsersBreakdown property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<ActiveUsersBreakdownMetric>? ActiveUsersBreakdown { get; set; }
-#nullable restore
-#else
-        public List<ActiveUsersBreakdownMetric> ActiveUsersBreakdown { get; set; }
 #endif
         /// <summary>Insights for authentications on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,15 +92,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeUsers", n => { ActiveUsers = n.GetCollectionOfObjectValues<ActiveUsersMetric>(ActiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"activeUsersBreakdown", n => { ActiveUsersBreakdown = n.GetCollectionOfObjectValues<ActiveUsersBreakdownMetric>(ActiveUsersBreakdownMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authentications", n => { Authentications = n.GetCollectionOfObjectValues<AuthenticationsMetric>(AuthenticationsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"inactiveUsers", n => { InactiveUsers = n.GetCollectionOfObjectValues<DailyInactiveUsersMetric>(DailyInactiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"inactiveUsersByApplication", n => { InactiveUsersByApplication = n.GetCollectionOfObjectValues<DailyInactiveUsersByApplicationMetric>(DailyInactiveUsersByApplicationMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"mfaCompletions", n => { MfaCompletions = n.GetCollectionOfObjectValues<MfaCompletionMetric>(MfaCompletionMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"signUps", n => { SignUps = n.GetCollectionOfObjectValues<UserSignUpMetric>(UserSignUpMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"summary", n => { Summary = n.GetCollectionOfObjectValues<InsightSummary>(InsightSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userCount", n => { UserCount = n.GetCollectionOfObjectValues<UserCountMetric>(UserCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activeUsers", n => { ActiveUsers = n.GetCollectionOfObjectValues<ActiveUsersMetric>(ActiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authentications", n => { Authentications = n.GetCollectionOfObjectValues<AuthenticationsMetric>(AuthenticationsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inactiveUsers", n => { InactiveUsers = n.GetCollectionOfObjectValues<DailyInactiveUsersMetric>(DailyInactiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inactiveUsersByApplication", n => { InactiveUsersByApplication = n.GetCollectionOfObjectValues<DailyInactiveUsersByApplicationMetric>(DailyInactiveUsersByApplicationMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mfaCompletions", n => { MfaCompletions = n.GetCollectionOfObjectValues<MfaCompletionMetric>(MfaCompletionMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "signUps", n => { SignUps = n.GetCollectionOfObjectValues<UserSignUpMetric>(UserSignUpMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "summary", n => { Summary = n.GetCollectionOfObjectValues<InsightSummary>(InsightSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userCount", n => { UserCount = n.GetCollectionOfObjectValues<UserCountMetric>(UserCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -119,7 +111,6 @@ namespace ApiSdk.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<ActiveUsersMetric>("activeUsers", ActiveUsers);
-            writer.WriteCollectionOfObjectValues<ActiveUsersBreakdownMetric>("activeUsersBreakdown", ActiveUsersBreakdown);
             writer.WriteCollectionOfObjectValues<AuthenticationsMetric>("authentications", Authentications);
             writer.WriteCollectionOfObjectValues<DailyInactiveUsersMetric>("inactiveUsers", InactiveUsers);
             writer.WriteCollectionOfObjectValues<DailyInactiveUsersByApplicationMetric>("inactiveUsersByApplication", InactiveUsersByApplication);

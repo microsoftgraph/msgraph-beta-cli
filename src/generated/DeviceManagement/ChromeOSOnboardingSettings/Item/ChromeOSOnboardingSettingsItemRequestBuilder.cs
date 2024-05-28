@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Item {
+namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the chromeOSOnboardingSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ChromeOSOnboardingSettingsItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChromeOSOnboardingSettingsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property chromeOSOnboardingSettings for deviceManagement

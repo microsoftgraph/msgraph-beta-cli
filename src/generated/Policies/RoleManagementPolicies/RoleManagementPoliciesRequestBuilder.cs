@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.RoleManagementPolicies {
+namespace ApiSdk.Policies.RoleManagementPolicies
+{
     /// <summary>
     /// Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class RoleManagementPoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class RoleManagementPoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -101,13 +102,14 @@ namespace ApiSdk.Policies.RoleManagementPolicies {
             return command;
         }
         /// <summary>
-        /// Represents the role management policies.
+        /// Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the role management policies.";
+            command.Description = "Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +185,9 @@ namespace ApiSdk.Policies.RoleManagementPolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +213,7 @@ namespace ApiSdk.Policies.RoleManagementPolicies {
         {
         }
         /// <summary>
-        /// Represents the role management policies.
+        /// Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -249,7 +253,7 @@ namespace ApiSdk.Policies.RoleManagementPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the role management policies.
+        /// Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
         /// </summary>
         public class RoleManagementPoliciesRequestBuilderGetQueryParameters 
         {

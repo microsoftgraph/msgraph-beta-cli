@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
+namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments
+{
     /// <summary>
     /// Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
     /// </summary>
-    public class RoleAssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class RoleAssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
@@ -58,13 +59,14 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to roleAssignments for roleManagement
+        /// Create a new unifiedRoleAssignmentMultiple object for an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/rbacapplicationmultiple-post-roleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to roleAssignments for roleManagement";
+            command.Description = "Create a new unifiedRoleAssignmentMultiple object for an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/rbacapplicationmultiple-post-roleassignments?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -103,13 +105,14 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
             return command;
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get roleAssignments from roleManagement";
+            command.Description = "Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -185,7 +188,9 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -211,7 +216,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
         {
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -230,7 +235,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to roleAssignments for roleManagement
+        /// Create a new unifiedRoleAssignmentMultiple object for an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -251,7 +256,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
         /// </summary>
         public class RoleAssignmentsRequestBuilderGetQueryParameters 
         {

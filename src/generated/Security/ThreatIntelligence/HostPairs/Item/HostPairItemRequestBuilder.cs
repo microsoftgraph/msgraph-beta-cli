@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.HostPairs.Item {
+namespace ApiSdk.Security.ThreatIntelligence.HostPairs.Item
+{
     /// <summary>
     /// Provides operations to manage the hostPairs property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostPairItemRequestBuilder : BaseCliRequestBuilder 
+    public class HostPairItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the childHost property of the microsoft.graph.security.hostPair entity.
@@ -75,13 +76,14 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostpair-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a hostPair object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostpair-get?view=graph-rest-beta";
             var hostPairIdOption = new Option<string>("--host-pair-id", description: "The unique identifier of hostPair") {
             };
             hostPairIdOption.IsRequired = true;
@@ -228,7 +230,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +270,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
         /// </summary>
         public class HostPairItemRequestBuilderGetQueryParameters 
         {

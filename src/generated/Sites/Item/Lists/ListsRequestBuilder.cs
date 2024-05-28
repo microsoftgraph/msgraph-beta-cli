@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Lists {
+namespace ApiSdk.Sites.Item.Lists
+{
     /// <summary>
     /// Provides operations to manage the lists property of the microsoft.graph.site entity.
     /// </summary>
-    public class ListsRequestBuilder : BaseCliRequestBuilder 
+    public class ListsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the lists property of the microsoft.graph.site entity.
@@ -63,13 +64,14 @@ namespace ApiSdk.Sites.Item.Lists {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to lists for sites
+        /// Create a new list in a site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-create?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to lists for sites";
+            command.Description = "Create a new list in a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-create?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -114,13 +116,14 @@ namespace ApiSdk.Sites.Item.Lists {
             return command;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the collection of lists for a site. Lists with the system facet are hidden by default.To list them, include system in your $select statement.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of lists under this site.";
+            command.Description = "Get the collection of lists for a site. Lists with the system facet are hidden by default.To list them, include system in your $select statement.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-list?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -202,7 +205,9 @@ namespace ApiSdk.Sites.Item.Lists {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -228,7 +233,7 @@ namespace ApiSdk.Sites.Item.Lists {
         {
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the collection of lists for a site. Lists with the system facet are hidden by default.To list them, include system in your $select statement.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +252,7 @@ namespace ApiSdk.Sites.Item.Lists {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to lists for sites
+        /// Create a new list in a site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +273,7 @@ namespace ApiSdk.Sites.Item.Lists {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get the collection of lists for a site. Lists with the system facet are hidden by default.To list them, include system in your $select statement.
         /// </summary>
         public class ListsRequestBuilderGetQueryParameters 
         {

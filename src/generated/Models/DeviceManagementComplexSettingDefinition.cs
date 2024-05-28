@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Entity representing the defintion for a complex setting
     /// </summary>
-    public class DeviceManagementComplexSettingDefinition : DeviceManagementSettingDefinition, IParsable 
+    public class DeviceManagementComplexSettingDefinition : DeviceManagementSettingDefinition, IParsable
     {
         /// <summary>The definitions of each property of the complex setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"propertyDefinitionIds", n => { PropertyDefinitionIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "propertyDefinitionIds", n => { PropertyDefinitionIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

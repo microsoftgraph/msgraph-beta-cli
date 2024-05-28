@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsUpdateCatalogItems.Item {
+namespace ApiSdk.DeviceManagement.WindowsUpdateCatalogItems.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsUpdateCatalogItems property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsUpdateCatalogItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsUpdateCatalogItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsUpdateCatalogItems for deviceManagement

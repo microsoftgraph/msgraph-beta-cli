@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Members.Item.Ref {
+namespace ApiSdk.Education.Classes.Item.Members.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of educationRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property members for education
+        /// Remove an educationUser from an educationClass.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-delete-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property members for education";
+            command.Description = "Remove an educationUser from an educationClass.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-delete-members?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.Education.Classes.Item.Members.Item.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property members for education
+        /// Remove an educationUser from an educationClass.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

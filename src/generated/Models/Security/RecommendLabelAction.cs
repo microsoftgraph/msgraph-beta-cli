@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class RecommendLabelAction : InformationProtectionAction, IParsable 
+    public class RecommendLabelAction : InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Actions to take if the label is accepted by the user.</summary>
@@ -60,10 +61,10 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionSource", n => { ActionSource = n.GetEnumValue<ActionSource>(); } },
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<InformationProtectionAction>(InformationProtectionAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"responsibleSensitiveTypeIds", n => { ResponsibleSensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"sensitivityLabelId", n => { SensitivityLabelId = n.GetStringValue(); } },
+                { "actionSource", n => { ActionSource = n.GetEnumValue<ActionSource>(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<InformationProtectionAction>(InformationProtectionAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "responsibleSensitiveTypeIds", n => { ResponsibleSensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "sensitivityLabelId", n => { SensitivityLabelId = n.GetStringValue(); } },
             };
         }
         /// <summary>

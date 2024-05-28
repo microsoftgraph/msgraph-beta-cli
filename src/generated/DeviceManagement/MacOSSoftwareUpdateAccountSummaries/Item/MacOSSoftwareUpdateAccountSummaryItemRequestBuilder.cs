@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item {
+namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the macOSSoftwareUpdateAccountSummaries property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MacOSSoftwareUpdateAccountSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class MacOSSoftwareUpdateAccountSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.

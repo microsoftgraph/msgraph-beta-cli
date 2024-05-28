@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationMethodsPolicy : Entity, IParsable 
+    public class AuthenticationMethodsPolicy : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
@@ -89,16 +90,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationMethodConfigurations", n => { AuthenticationMethodConfigurations = n.GetCollectionOfObjectValues<AuthenticationMethodConfiguration>(AuthenticationMethodConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"policyMigrationState", n => { PolicyMigrationState = n.GetEnumValue<AuthenticationMethodsPolicyMigrationState>(); } },
-                {"policyVersion", n => { PolicyVersion = n.GetStringValue(); } },
-                {"reconfirmationInDays", n => { ReconfirmationInDays = n.GetIntValue(); } },
-                {"registrationEnforcement", n => { RegistrationEnforcement = n.GetObjectValue<ApiSdk.Models.RegistrationEnforcement>(ApiSdk.Models.RegistrationEnforcement.CreateFromDiscriminatorValue); } },
-                {"reportSuspiciousActivitySettings", n => { ReportSuspiciousActivitySettings = n.GetObjectValue<ApiSdk.Models.ReportSuspiciousActivitySettings>(ApiSdk.Models.ReportSuspiciousActivitySettings.CreateFromDiscriminatorValue); } },
-                {"systemCredentialPreferences", n => { SystemCredentialPreferences = n.GetObjectValue<ApiSdk.Models.SystemCredentialPreferences>(ApiSdk.Models.SystemCredentialPreferences.CreateFromDiscriminatorValue); } },
+                { "authenticationMethodConfigurations", n => { AuthenticationMethodConfigurations = n.GetCollectionOfObjectValues<AuthenticationMethodConfiguration>(AuthenticationMethodConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "policyMigrationState", n => { PolicyMigrationState = n.GetEnumValue<AuthenticationMethodsPolicyMigrationState>(); } },
+                { "policyVersion", n => { PolicyVersion = n.GetStringValue(); } },
+                { "reconfirmationInDays", n => { ReconfirmationInDays = n.GetIntValue(); } },
+                { "registrationEnforcement", n => { RegistrationEnforcement = n.GetObjectValue<ApiSdk.Models.RegistrationEnforcement>(ApiSdk.Models.RegistrationEnforcement.CreateFromDiscriminatorValue); } },
+                { "reportSuspiciousActivitySettings", n => { ReportSuspiciousActivitySettings = n.GetObjectValue<ApiSdk.Models.ReportSuspiciousActivitySettings>(ApiSdk.Models.ReportSuspiciousActivitySettings.CreateFromDiscriminatorValue); } },
+                { "systemCredentialPreferences", n => { SystemCredentialPreferences = n.GetObjectValue<ApiSdk.Models.SystemCredentialPreferences>(ApiSdk.Models.SystemCredentialPreferences.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

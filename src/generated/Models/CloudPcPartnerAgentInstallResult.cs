@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcPartnerAgentInstallResult : IAdditionalDataHolder, IParsable 
+    public class CloudPcPartnerAgentInstallResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,12 +61,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
-                {"installStatus", n => { InstallStatus = n.GetEnumValue<CloudPcPartnerAgentInstallStatus>(); } },
-                {"isThirdPartyPartner", n => { IsThirdPartyPartner = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"partnerAgentName", n => { PartnerAgentName = n.GetEnumValue<CloudPcPartnerAgentName>(); } },
-                {"retriable", n => { Retriable = n.GetBoolValue(); } },
+                { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
+                { "installStatus", n => { InstallStatus = n.GetEnumValue<CloudPcPartnerAgentInstallStatus>(); } },
+                { "isThirdPartyPartner", n => { IsThirdPartyPartner = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "partnerAgentName", n => { PartnerAgentName = n.GetEnumValue<CloudPcPartnerAgentName>(); } },
+                { "retriable", n => { Retriable = n.GetBoolValue(); } },
             };
         }
         /// <summary>

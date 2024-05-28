@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Communities.Item.Owners.Item {
+namespace ApiSdk.EmployeeExperience.Communities.Item.Owners.Item
+{
     /// <summary>
     /// Provides operations to manage the owners property of the microsoft.graph.community entity.
     /// </summary>
-    public class UserItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The admins of the community. Limited to 100 users. If this property isn&apos;t specified when you create the community, the calling user is automatically assigned as the community owner.

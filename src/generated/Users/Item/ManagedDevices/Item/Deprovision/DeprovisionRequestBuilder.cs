@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.Deprovision {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.Deprovision
+{
     /// <summary>
     /// Provides operations to call the deprovision method.
     /// </summary>
-    public class DeprovisionRequestBuilder : BaseCliRequestBuilder 
+    public class DeprovisionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action deprovision

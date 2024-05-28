@@ -51,11 +51,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants {
+namespace ApiSdk.TenantRelationships.ManagedTenants
+{
     /// <summary>
     /// Provides operations to manage the managedTenants property of the microsoft.graph.tenantRelationship entity.
     /// </summary>
-    public class ManagedTenantsRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedTenantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.

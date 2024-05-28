@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.Plans.Item.Archive {
+namespace ApiSdk.Users.Item.Planner.Plans.Item.Archive
+{
     /// <summary>
     /// Provides operations to call the archive method.
     /// </summary>
-    public class ArchiveRequestBuilder : BaseCliRequestBuilder 
+    public class ArchiveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action archive

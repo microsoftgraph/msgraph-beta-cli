@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.TenantAttachRBAC {
+namespace ApiSdk.DeviceManagement.TenantAttachRBAC
+{
     /// <summary>
     /// Provides operations to manage the tenantAttachRBAC property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class TenantAttachRBACRequestBuilder : BaseCliRequestBuilder 
+    public class TenantAttachRBACRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenantAttachRBAC for deviceManagement

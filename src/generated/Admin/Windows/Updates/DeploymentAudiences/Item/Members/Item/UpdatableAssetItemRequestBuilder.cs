@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Item {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Item
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     /// </summary>
-    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property members for admin

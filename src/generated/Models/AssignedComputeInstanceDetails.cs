@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AssignedComputeInstanceDetails : Entity, IParsable 
+    public class AssignedComputeInstanceDetails : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a set of S3 buckets accessed by this EC2 instance.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessedStorageBuckets", n => { AccessedStorageBuckets = n.GetCollectionOfObjectValues<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignedComputeInstance", n => { AssignedComputeInstance = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessedStorageBuckets", n => { AccessedStorageBuckets = n.GetCollectionOfObjectValues<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedComputeInstance", n => { AssignedComputeInstance = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Onenote.Notebooks.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.Onenote.Notebooks.Item
+{
     /// <summary>
     /// Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class NotebookItemRequestBuilder : BaseCliRequestBuilder 
+    public class NotebookItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the copyNotebook method.

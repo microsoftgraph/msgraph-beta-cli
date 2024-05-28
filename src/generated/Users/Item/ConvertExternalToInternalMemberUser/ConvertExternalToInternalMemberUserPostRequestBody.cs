@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser {
+namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser
+{
     #pragma warning disable CS1591
-    public class ConvertExternalToInternalMemberUserPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ConvertExternalToInternalMemberUserPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"mail", n => { Mail = n.GetStringValue(); } },
-                {"passwordProfile", n => { PasswordProfile = n.GetObjectValue<ApiSdk.Models.PasswordProfile>(ApiSdk.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "mail", n => { Mail = n.GetStringValue(); } },
+                { "passwordProfile", n => { PasswordProfile = n.GetObjectValue<ApiSdk.Models.PasswordProfile>(ApiSdk.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Departments.Item {
+namespace ApiSdk.Security.Labels.Departments.Item
+{
     /// <summary>
     /// Provides operations to manage the departments property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class DepartmentTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DepartmentTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property departments for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Labels.Departments.Item {
             return command;
         }
         /// <summary>
-        /// Specifies the department or business unit of an organization to which a label belongs.
+        /// Read the properties and relationships of a departmentTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-departmenttemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Specifies the department or business unit of an organization to which a label belongs.";
+            command.Description = "Read the properties and relationships of a departmentTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-departmenttemplate-get?view=graph-rest-beta";
             var departmentTemplateIdOption = new Option<string>("--department-template-id", description: "The unique identifier of departmentTemplate") {
             };
             departmentTemplateIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.Labels.Departments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the department or business unit of an organization to which a label belongs.
+        /// Read the properties and relationships of a departmentTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.Labels.Departments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the department or business unit of an organization to which a label belongs.
+        /// Read the properties and relationships of a departmentTemplate object.
         /// </summary>
         public class DepartmentTemplateItemRequestBuilderGetQueryParameters 
         {

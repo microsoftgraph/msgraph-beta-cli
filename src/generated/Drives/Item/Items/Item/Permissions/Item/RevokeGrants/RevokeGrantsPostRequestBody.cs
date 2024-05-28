@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Permissions.Item.RevokeGrants {
+namespace ApiSdk.Drives.Item.Items.Item.Permissions.Item.RevokeGrants
+{
     #pragma warning disable CS1591
-    public class RevokeGrantsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RevokeGrantsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Permissions.Item.RevokeGrants {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"grantees", n => { Grantees = n.GetCollectionOfObjectValues<DriveRecipient>(DriveRecipient.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "grantees", n => { Grantees = n.GetCollectionOfObjectValues<DriveRecipient>(DriveRecipient.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

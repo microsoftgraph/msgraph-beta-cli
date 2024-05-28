@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RiskyUsers.Item {
+namespace ApiSdk.RiskyUsers.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of riskyUser entities.
     /// </summary>
-    public class RiskyUserItemRequestBuilder : BaseCliRequestBuilder 
+    public class RiskyUserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from riskyUsers

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataRun : ApiSdk.Models.Entity, IParsable 
+    public class IndustryDataRun : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The set of activities performed during the run.</summary>
@@ -57,12 +58,12 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activities", n => { Activities = n.GetCollectionOfObjectValues<IndustryDataRunActivity>(IndustryDataRunActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"blockingError", n => { BlockingError = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"status", n => { Status = n.GetEnumValue<IndustryDataRunStatus>(); } },
+                { "activities", n => { Activities = n.GetCollectionOfObjectValues<IndustryDataRunActivity>(IndustryDataRunActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "blockingError", n => { BlockingError = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetEnumValue<IndustryDataRunStatus>(); } },
             };
         }
         /// <summary>

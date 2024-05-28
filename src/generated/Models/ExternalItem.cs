@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternalItem : Entity, IParsable 
+    public class ExternalItem : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acl property</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"acl", n => { Acl = n.GetCollectionOfObjectValues<ApiSdk.Models.Acl>(ApiSdk.Models.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
-                {"properties", n => { Properties = n.GetObjectValue<ApiSdk.Models.Properties>(ApiSdk.Models.Properties.CreateFromDiscriminatorValue); } },
+                { "acl", n => { Acl = n.GetCollectionOfObjectValues<ApiSdk.Models.Acl>(ApiSdk.Models.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetObjectValue<ApiSdk.Models.Properties>(ApiSdk.Models.Properties.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

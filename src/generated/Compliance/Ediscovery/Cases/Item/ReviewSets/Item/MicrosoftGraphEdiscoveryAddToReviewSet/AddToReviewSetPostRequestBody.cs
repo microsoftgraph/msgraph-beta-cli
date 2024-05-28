@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet
+{
     #pragma warning disable CS1591
-    public class AddToReviewSetPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AddToReviewSetPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"additionalDataOptions", n => { AdditionalDataOptions = n.GetEnumValue<AdditionalDataOptions>(); } },
-                {"sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
+                { "additionalDataOptions", n => { AdditionalDataOptions = n.GetEnumValue<AdditionalDataOptions>(); } },
+                { "sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

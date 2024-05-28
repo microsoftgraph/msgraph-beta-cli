@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.ExportPersonalData {
+namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.ExportPersonalData
+{
     /// <summary>
     /// Provides operations to call the exportPersonalData method.
     /// </summary>
-    public class ExportPersonalDataRequestBuilder : BaseCliRequestBuilder 
+    public class ExportPersonalDataRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Create a request to export the personal data for an inboundSharedUserProfile.

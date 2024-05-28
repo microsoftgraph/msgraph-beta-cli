@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BasicAuthentication : ApiAuthenticationConfigurationBase, IParsable 
+    public class BasicAuthentication : ApiAuthenticationConfigurationBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The password. It isn&apos;t returned in the responses.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"password", n => { Password = n.GetStringValue(); } },
-                {"username", n => { Username = n.GetStringValue(); } },
+                { "password", n => { Password = n.GetStringValue(); } },
+                { "username", n => { Username = n.GetStringValue(); } },
             };
         }
         /// <summary>

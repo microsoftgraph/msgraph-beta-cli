@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.InitiateDeviceAttestation {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.InitiateDeviceAttestation
+{
     /// <summary>
     /// Provides operations to call the initiateDeviceAttestation method.
     /// </summary>
-    public class InitiateDeviceAttestationRequestBuilder : BaseCliRequestBuilder 
+    public class InitiateDeviceAttestationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Perform Device Attestation

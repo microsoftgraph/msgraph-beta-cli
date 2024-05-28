@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices
+{
     #pragma warning disable CS1591
-    public class GetTargetedUsersAndDevicesPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetTargetedUsersAndDevicesPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DeviceConfigurationTargetedUserAndDevice>(DeviceConfigurationTargetedUserAndDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceConfigurationTargetedUserAndDevice>(DeviceConfigurationTargetedUserAndDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

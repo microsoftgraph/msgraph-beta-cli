@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class DiscoveredApplicationSegmentReport : IAdditionalDataHolder, IParsable 
+    public class DiscoveredApplicationSegmentReport : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessType property</summary>
@@ -88,20 +89,20 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
-                {"deviceCount", n => { DeviceCount = n.GetIntValue(); } },
-                {"discoveredApplicationSegmentId", n => { DiscoveredApplicationSegmentId = n.GetStringValue(); } },
-                {"firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fqdn", n => { Fqdn = n.GetStringValue(); } },
-                {"ip", n => { Ip = n.GetStringValue(); } },
-                {"lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
-                {"totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
-                {"totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
-                {"transactionCount", n => { TransactionCount = n.GetIntValue(); } },
-                {"transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
-                {"userCount", n => { UserCount = n.GetIntValue(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
+                { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
+                { "discoveredApplicationSegmentId", n => { DiscoveredApplicationSegmentId = n.GetStringValue(); } },
+                { "firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fqdn", n => { Fqdn = n.GetStringValue(); } },
+                { "ip", n => { Ip = n.GetStringValue(); } },
+                { "lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
+                { "totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
+                { "totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
+                { "transactionCount", n => { TransactionCount = n.GetIntValue(); } },
+                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "userCount", n => { UserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

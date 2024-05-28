@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringProfiles.Item.ConditionalAccessPolicies.Item {
+namespace ApiSdk.NetworkAccess.FilteringProfiles.Item.ConditionalAccessPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.networkaccess.filteringProfile entity.
     /// </summary>
-    public class ConditionalAccessPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionalAccessPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// A set of associated policies defined to regulate access to resources or systems based on specific conditions. Automatically expanded.

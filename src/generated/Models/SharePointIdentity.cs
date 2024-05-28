@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharePointIdentity : Identity, IParsable 
+    public class SharePointIdentity : Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The sign in name of the SharePoint identity.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"loginName", n => { LoginName = n.GetStringValue(); } },
+                { "loginName", n => { LoginName = n.GetStringValue(); } },
             };
         }
         /// <summary>

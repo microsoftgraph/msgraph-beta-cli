@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Apple VPN configuration profile.
     /// </summary>
-    public class AppleVpnConfiguration : DeviceConfiguration, IParsable 
+    public class AppleVpnConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Associated Domains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,28 +165,28 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"associatedDomains", n => { AssociatedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
-                {"connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                {"connectionType", n => { ConnectionType = n.GetEnumValue<AppleVpnConnectionType>(); } },
-                {"customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"disableOnDemandUserOverride", n => { DisableOnDemandUserOverride = n.GetBoolValue(); } },
-                {"disconnectOnIdle", n => { DisconnectOnIdle = n.GetBoolValue(); } },
-                {"disconnectOnIdleTimerInSeconds", n => { DisconnectOnIdleTimerInSeconds = n.GetIntValue(); } },
-                {"enablePerApp", n => { EnablePerApp = n.GetBoolValue(); } },
-                {"enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
-                {"excludedDomains", n => { ExcludedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"identifier", n => { Identifier = n.GetStringValue(); } },
-                {"loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
-                {"onDemandRules", n => { OnDemandRules = n.GetCollectionOfObjectValues<VpnOnDemandRule>(VpnOnDemandRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"optInToDeviceIdSharing", n => { OptInToDeviceIdSharing = n.GetBoolValue(); } },
-                {"providerType", n => { ProviderType = n.GetEnumValue<VpnProviderType>(); } },
-                {"proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
-                {"realm", n => { Realm = n.GetStringValue(); } },
-                {"role", n => { Role = n.GetStringValue(); } },
-                {"safariDomains", n => { SafariDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"server", n => { Server = n.GetObjectValue<VpnServer>(VpnServer.CreateFromDiscriminatorValue); } },
+                { "associatedDomains", n => { AssociatedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<AppleVpnConnectionType>(); } },
+                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "disableOnDemandUserOverride", n => { DisableOnDemandUserOverride = n.GetBoolValue(); } },
+                { "disconnectOnIdle", n => { DisconnectOnIdle = n.GetBoolValue(); } },
+                { "disconnectOnIdleTimerInSeconds", n => { DisconnectOnIdleTimerInSeconds = n.GetIntValue(); } },
+                { "enablePerApp", n => { EnablePerApp = n.GetBoolValue(); } },
+                { "enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
+                { "excludedDomains", n => { ExcludedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "identifier", n => { Identifier = n.GetStringValue(); } },
+                { "loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
+                { "onDemandRules", n => { OnDemandRules = n.GetCollectionOfObjectValues<VpnOnDemandRule>(VpnOnDemandRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "optInToDeviceIdSharing", n => { OptInToDeviceIdSharing = n.GetBoolValue(); } },
+                { "providerType", n => { ProviderType = n.GetEnumValue<VpnProviderType>(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "realm", n => { Realm = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "safariDomains", n => { SafariDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "server", n => { Server = n.GetObjectValue<VpnServer>(VpnServer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

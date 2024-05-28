@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.DataConnectors.Item.SourceSystem {
+namespace ApiSdk.External.IndustryData.DataConnectors.Item.SourceSystem
+{
     /// <summary>
     /// Provides operations to manage the sourceSystem property of the microsoft.graph.industryData.industryDataConnector entity.
     /// </summary>
-    public class SourceSystemRequestBuilder : BaseCliRequestBuilder 
+    public class SourceSystemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The sourceSystemDefinition this connector is connected to.

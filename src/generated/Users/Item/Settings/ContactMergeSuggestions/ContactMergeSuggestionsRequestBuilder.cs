@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.ContactMergeSuggestions {
+namespace ApiSdk.Users.Item.Settings.ContactMergeSuggestions
+{
     /// <summary>
     /// Provides operations to manage the contactMergeSuggestions property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class ContactMergeSuggestionsRequestBuilder : BaseCliRequestBuilder 
+    public class ContactMergeSuggestionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property contactMergeSuggestions for users

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizationMapping {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizationMapping
+{
     /// <summary>
     /// Provides operations to manage the crossCloudGovernmentOrganizationMapping property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CrossCloudGovernmentOrganizationMappingRequestBuilder : BaseCliRequestBuilder 
+    public class CrossCloudGovernmentOrganizationMappingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property crossCloudGovernmentOrganizationMapping for deviceManagement
@@ -50,13 +51,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
             return command;
         }
         /// <summary>
-        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.";
+            command.Description = "Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -174,7 +176,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +216,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizati
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+        /// Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
         /// </summary>
         public class CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters 
         {

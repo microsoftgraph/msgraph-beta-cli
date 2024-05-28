@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignments.Item {
+namespace ApiSdk.PrivilegedRoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedRoleAssignment entities.
     /// </summary>
-    public class PrivilegedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from privilegedRoleAssignments

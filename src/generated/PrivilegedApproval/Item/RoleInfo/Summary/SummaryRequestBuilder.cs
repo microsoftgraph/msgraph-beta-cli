@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.Summary {
+namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.Summary
+{
     /// <summary>
     /// Provides operations to manage the summary property of the microsoft.graph.privilegedRole entity.
     /// </summary>
-    public class SummaryRequestBuilder : BaseCliRequestBuilder 
+    public class SummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property summary for privilegedApproval

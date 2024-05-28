@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.InformationProtection.DecryptBuffer {
+namespace ApiSdk.InformationProtection.DecryptBuffer
+{
     #pragma warning disable CS1591
-    public class DecryptBufferPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DecryptBufferPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.InformationProtection.DecryptBuffer {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"encryptedBuffer", n => { EncryptedBuffer = n.GetByteArrayValue(); } },
-                {"publishingLicense", n => { PublishingLicense = n.GetByteArrayValue(); } },
+                { "encryptedBuffer", n => { EncryptedBuffer = n.GetByteArrayValue(); } },
+                { "publishingLicense", n => { PublishingLicense = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

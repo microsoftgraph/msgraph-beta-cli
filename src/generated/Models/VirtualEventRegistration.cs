@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventRegistration : Entity, IParsable 
+    public class VirtualEventRegistration : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date and time when the registrant cancels their registration for the virtual event. Only appears when applicable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -34,6 +35,22 @@ namespace ApiSdk.Models {
 #nullable restore
 #else
         public string LastName { get; set; }
+#endif
+        /// <summary>The preferredLanguage property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PreferredLanguage { get; set; }
+#nullable restore
+#else
+        public string PreferredLanguage { get; set; }
+#endif
+        /// <summary>The preferredTimezone property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PreferredTimezone { get; set; }
+#nullable restore
+#else
+        public string PreferredTimezone { get; set; }
 #endif
         /// <summary>Date and time when the registrant registers for the virtual event. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? RegistrationDateTime { get; set; }
@@ -81,15 +98,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cancelationDateTime", n => { CancelationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"firstName", n => { FirstName = n.GetStringValue(); } },
-                {"lastName", n => { LastName = n.GetStringValue(); } },
-                {"registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"registrationQuestionAnswers", n => { RegistrationQuestionAnswers = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>(VirtualEventRegistrationQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"status", n => { Status = n.GetEnumValue<VirtualEventAttendeeRegistrationStatus>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "cancelationDateTime", n => { CancelationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "firstName", n => { FirstName = n.GetStringValue(); } },
+                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
+                { "preferredTimezone", n => { PreferredTimezone = n.GetStringValue(); } },
+                { "registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "registrationQuestionAnswers", n => { RegistrationQuestionAnswers = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>(VirtualEventRegistrationQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<VirtualEventAttendeeRegistrationStatus>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -104,6 +123,8 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("lastName", LastName);
+            writer.WriteStringValue("preferredLanguage", PreferredLanguage);
+            writer.WriteStringValue("preferredTimezone", PreferredTimezone);
             writer.WriteDateTimeOffsetValue("registrationDateTime", RegistrationDateTime);
             writer.WriteCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>("registrationQuestionAnswers", RegistrationQuestionAnswers);
             writer.WriteCollectionOfObjectValues<VirtualEventSession>("sessions", Sessions);

@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Devices.Item {
+namespace ApiSdk.Users.Item.Devices.Item
+{
     /// <summary>
     /// Provides operations to manage the devices property of the microsoft.graph.user entity.
     /// </summary>
-    public class DeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the commands property of the microsoft.graph.device entity.

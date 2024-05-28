@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item
+{
     /// <summary>
     /// Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class WorkbookTableRowItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookTableRowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property rows for drives

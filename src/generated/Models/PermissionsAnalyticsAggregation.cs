@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionsAnalyticsAggregation : Entity, IParsable 
+    public class PermissionsAnalyticsAggregation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The aws property</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"aws", n => { Aws = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
-                {"azure", n => { Azure = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
-                {"gcp", n => { Gcp = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
+                { "aws", n => { Aws = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
+                { "azure", n => { Azure = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
+                { "gcp", n => { Gcp = n.GetObjectValue<PermissionsAnalytics>(PermissionsAnalytics.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

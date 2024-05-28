@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analyte remote connection entity.
     /// </summary>
-    public class UserExperienceAnalyticsRemoteConnection : Entity, IParsable 
+    public class UserExperienceAnalyticsRemoteConnection : Entity, IParsable
     {
         /// <summary>The sign in failure percentage of Cloud PC Device. Valid values 0 to 100</summary>
         public double? CloudPcFailurePercentage { get; set; }
@@ -90,19 +91,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cloudPcFailurePercentage", n => { CloudPcFailurePercentage = n.GetDoubleValue(); } },
-                {"cloudPcRoundTripTime", n => { CloudPcRoundTripTime = n.GetDoubleValue(); } },
-                {"cloudPcSignInTime", n => { CloudPcSignInTime = n.GetDoubleValue(); } },
-                {"coreBootTime", n => { CoreBootTime = n.GetDoubleValue(); } },
-                {"coreSignInTime", n => { CoreSignInTime = n.GetDoubleValue(); } },
-                {"deviceCount", n => { DeviceCount = n.GetIntValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"remoteSignInTime", n => { RemoteSignInTime = n.GetDoubleValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"virtualNetwork", n => { VirtualNetwork = n.GetStringValue(); } },
+                { "cloudPcFailurePercentage", n => { CloudPcFailurePercentage = n.GetDoubleValue(); } },
+                { "cloudPcRoundTripTime", n => { CloudPcRoundTripTime = n.GetDoubleValue(); } },
+                { "cloudPcSignInTime", n => { CloudPcSignInTime = n.GetDoubleValue(); } },
+                { "coreBootTime", n => { CoreBootTime = n.GetDoubleValue(); } },
+                { "coreSignInTime", n => { CoreSignInTime = n.GetDoubleValue(); } },
+                { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "remoteSignInTime", n => { RemoteSignInTime = n.GetDoubleValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "virtualNetwork", n => { VirtualNetwork = n.GetStringValue(); } },
             };
         }
         /// <summary>

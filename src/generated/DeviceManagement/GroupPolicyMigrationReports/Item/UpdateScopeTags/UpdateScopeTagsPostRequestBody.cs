@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags
+{
     #pragma warning disable CS1591
-    public class UpdateScopeTagsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateScopeTagsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTa
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

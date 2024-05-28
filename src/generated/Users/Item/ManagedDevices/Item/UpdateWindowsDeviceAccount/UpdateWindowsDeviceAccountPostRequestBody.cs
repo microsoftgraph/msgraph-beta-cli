@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.UpdateWindowsDeviceAccount {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.UpdateWindowsDeviceAccount
+{
     #pragma warning disable CS1591
-    public class UpdateWindowsDeviceAccountPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateWindowsDeviceAccountPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.UpdateWindowsDeviceAccount {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"updateWindowsDeviceAccountActionParameter", n => { UpdateWindowsDeviceAccountActionParameter = n.GetObjectValue<ApiSdk.Models.UpdateWindowsDeviceAccountActionParameter>(ApiSdk.Models.UpdateWindowsDeviceAccountActionParameter.CreateFromDiscriminatorValue); } },
+                { "updateWindowsDeviceAccountActionParameter", n => { UpdateWindowsDeviceAccountActionParameter = n.GetObjectValue<ApiSdk.Models.UpdateWindowsDeviceAccountActionParameter>(ApiSdk.Models.UpdateWindowsDeviceAccountActionParameter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

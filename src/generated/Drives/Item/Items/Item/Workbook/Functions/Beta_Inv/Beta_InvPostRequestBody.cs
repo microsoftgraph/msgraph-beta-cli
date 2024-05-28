@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Beta_Inv {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Beta_Inv
+{
     #pragma warning disable CS1591
-    public class Beta_InvPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class Beta_InvPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The A property</summary>
@@ -77,11 +78,11 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Beta_Inv {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"A", n => { A = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"alpha", n => { Alpha = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"B", n => { B = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"beta", n => { Beta = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"probability", n => { Probability = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "A", n => { A = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "alpha", n => { Alpha = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "B", n => { B = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "beta", n => { Beta = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "probability", n => { Probability = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

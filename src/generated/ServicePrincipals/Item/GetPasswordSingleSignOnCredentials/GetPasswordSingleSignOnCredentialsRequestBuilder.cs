@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.GetPasswordSingleSignOnCredentials {
+namespace ApiSdk.ServicePrincipals.Item.GetPasswordSingleSignOnCredentials
+{
     /// <summary>
     /// Provides operations to call the getPasswordSingleSignOnCredentials method.
     /// </summary>
-    public class GetPasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder 
+    public class GetPasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a list of single sign-on credentials using a password for a user or group.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.BulkSetCloudPcReviewStatus {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.BulkSetCloudPcReviewStatus
+{
     /// <summary>
     /// Provides operations to call the bulkSetCloudPcReviewStatus method.
     /// </summary>
-    public class BulkSetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder 
+    public class BulkSetCloudPcReviewStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class ContentApprovalRule : ComplianceChangeRule, IParsable 
+    public class ContentApprovalRule : ComplianceChangeRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A filter to determine which content matches the rule on an ongoing basis.</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentFilter", n => { ContentFilter = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.ContentFilter>(ApiSdk.Models.WindowsUpdates.ContentFilter.CreateFromDiscriminatorValue); } },
-                {"durationBeforeDeploymentStart", n => { DurationBeforeDeploymentStart = n.GetTimeSpanValue(); } },
+                { "contentFilter", n => { ContentFilter = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.ContentFilter>(ApiSdk.Models.WindowsUpdates.ContentFilter.CreateFromDiscriminatorValue); } },
+                { "durationBeforeDeploymentStart", n => { DurationBeforeDeploymentStart = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

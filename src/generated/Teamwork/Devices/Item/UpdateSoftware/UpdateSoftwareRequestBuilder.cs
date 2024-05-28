@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware {
+namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware
+{
     /// <summary>
     /// Provides operations to call the updateSoftware method.
     /// </summary>
-    public class UpdateSoftwareRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateSoftwareRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the software for a Microsoft Teams-enabled device. This API triggers a long-running operation.

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.GetApplicablePolicyRequirements {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.GetApplicablePolicyRequirements
+{
     #pragma warning disable CS1591
-    public class GetApplicablePolicyRequirementsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetApplicablePolicyRequirementsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmen
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>(AccessPackageAssignmentRequestRequirements.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>(AccessPackageAssignmentRequestRequirements.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

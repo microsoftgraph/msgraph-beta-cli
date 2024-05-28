@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Channels {
+namespace ApiSdk.Teams.Item.Channels
+{
     /// <summary>
     /// Provides operations to manage the channels property of the microsoft.graph.team entity.
     /// </summary>
-    public class ChannelsRequestBuilder : BaseCliRequestBuilder 
+    public class ChannelsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the allMessages method.
@@ -85,13 +86,14 @@ namespace ApiSdk.Teams.Item.Channels {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to channels for teams
+        /// Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel&apos;s displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to channels for teams";
+            command.Description = "Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel's displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-post?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -170,13 +172,14 @@ namespace ApiSdk.Teams.Item.Channels {
             return command;
         }
         /// <summary>
-        /// The collection of channels and messages associated with the team.
+        /// Retrieve the list of channels in this team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The collection of channels and messages associated with the team.";
+            command.Description = "Retrieve the list of channels in this team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -258,7 +261,9 @@ namespace ApiSdk.Teams.Item.Channels {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -284,7 +289,7 @@ namespace ApiSdk.Teams.Item.Channels {
         {
         }
         /// <summary>
-        /// The collection of channels and messages associated with the team.
+        /// Retrieve the list of channels in this team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -303,7 +308,7 @@ namespace ApiSdk.Teams.Item.Channels {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to channels for teams
+        /// Create a new channel in a team, as specified in the request body. When you create a channel, the maximum length of the channel&apos;s displayName is 50 characters. This display name appears to the user in Microsoft Teams. You can add a maximum of 200 members when you create a private channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -324,7 +329,7 @@ namespace ApiSdk.Teams.Item.Channels {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of channels and messages associated with the team.
+        /// Retrieve the list of channels in this team.
         /// </summary>
         public class ChannelsRequestBuilderGetQueryParameters 
         {

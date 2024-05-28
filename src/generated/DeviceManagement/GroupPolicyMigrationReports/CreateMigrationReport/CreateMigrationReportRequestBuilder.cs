@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport
+{
     /// <summary>
     /// Provides operations to call the createMigrationReport method.
     /// </summary>
-    public class CreateMigrationReportRequestBuilder : BaseCliRequestBuilder 
+    public class CreateMigrationReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createMigrationReport

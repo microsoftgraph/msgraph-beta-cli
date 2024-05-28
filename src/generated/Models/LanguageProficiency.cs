@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class LanguageProficiency : ItemFacet, IParsable 
+    public class LanguageProficiency : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the long-form name for the language.</summary>
@@ -66,13 +67,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"proficiency", n => { Proficiency = n.GetEnumValue<LanguageProficiencyLevel>(); } },
-                {"reading", n => { Reading = n.GetEnumValue<LanguageProficiencyLevel>(); } },
-                {"spoken", n => { Spoken = n.GetEnumValue<LanguageProficiencyLevel>(); } },
-                {"tag", n => { Tag = n.GetStringValue(); } },
-                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                {"written", n => { Written = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "proficiency", n => { Proficiency = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "reading", n => { Reading = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "spoken", n => { Spoken = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "tag", n => { Tag = n.GetStringValue(); } },
+                { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
+                { "written", n => { Written = n.GetEnumValue<LanguageProficiencyLevel>(); } },
             };
         }
         /// <summary>

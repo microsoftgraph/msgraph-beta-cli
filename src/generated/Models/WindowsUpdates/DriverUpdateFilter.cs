@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DriverUpdateFilter : WindowsUpdateFilter, IParsable 
+    public class DriverUpdateFilter : WindowsUpdateFilter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

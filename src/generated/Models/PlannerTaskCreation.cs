@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTaskCreation : IAdditionalDataHolder, IParsable 
+    public class PlannerTaskCreation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<PlannerCreationSourceKind>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"teamsPublicationInfo", n => { TeamsPublicationInfo = n.GetObjectValue<PlannerTeamsPublicationInfo>(PlannerTeamsPublicationInfo.CreateFromDiscriminatorValue); } },
+                { "creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<PlannerCreationSourceKind>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "teamsPublicationInfo", n => { TeamsPublicationInfo = n.GetObjectValue<PlannerTeamsPublicationInfo>(PlannerTeamsPublicationInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

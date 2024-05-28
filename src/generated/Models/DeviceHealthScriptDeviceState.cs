@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for device run state of the device health script.
     /// </summary>
-    public class DeviceHealthScriptDeviceState : Entity, IParsable 
+    public class DeviceHealthScriptDeviceState : Entity, IParsable
     {
         /// <summary>A list of the assignment filter ids used for health script applicability evaluation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,18 +95,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
-                {"expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
-                {"postRemediationDetectionScriptError", n => { PostRemediationDetectionScriptError = n.GetStringValue(); } },
-                {"postRemediationDetectionScriptOutput", n => { PostRemediationDetectionScriptOutput = n.GetStringValue(); } },
-                {"preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
-                {"preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
-                {"remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
-                {"remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
+                { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
+                { "postRemediationDetectionScriptError", n => { PostRemediationDetectionScriptError = n.GetStringValue(); } },
+                { "postRemediationDetectionScriptOutput", n => { PostRemediationDetectionScriptOutput = n.GetStringValue(); } },
+                { "preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
+                { "preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
+                { "remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// iOS Kerberos authentication settings for single sign-on
     /// </summary>
-    public class IosSingleSignOnSettings : IAdditionalDataHolder, IParsable 
+    public class IosSingleSignOnSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -85,12 +86,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowedAppsList", n => { AllowedAppsList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"allowedUrls", n => { AllowedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"kerberosPrincipalName", n => { KerberosPrincipalName = n.GetStringValue(); } },
-                {"kerberosRealm", n => { KerberosRealm = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowedAppsList", n => { AllowedAppsList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowedUrls", n => { AllowedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "kerberosPrincipalName", n => { KerberosPrincipalName = n.GetStringValue(); } },
+                { "kerberosRealm", n => { KerberosRealm = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Reports.GetAttackSimulationSimulationUserCoverage {
+namespace ApiSdk.Reports.GetAttackSimulationSimulationUserCoverage
+{
     #pragma warning disable CS1591
-    public class GetAttackSimulationSimulationUserCoverageGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetAttackSimulationSimulationUserCoverageGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Reports.GetAttackSimulationSimulationUserCoverage {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>(AttackSimulationSimulationUserCoverage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>(AttackSimulationSimulationUserCoverage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

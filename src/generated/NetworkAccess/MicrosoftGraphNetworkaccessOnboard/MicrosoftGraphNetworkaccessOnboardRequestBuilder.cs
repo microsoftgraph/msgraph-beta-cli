@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard {
+namespace ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard
+{
     /// <summary>
     /// Provides operations to call the onboard method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessOnboardRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessOnboardRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action onboard

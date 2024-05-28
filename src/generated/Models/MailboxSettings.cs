@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MailboxSettings : IAdditionalDataHolder, IParsable 
+    public class MailboxSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -106,17 +107,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"archiveFolder", n => { ArchiveFolder = n.GetStringValue(); } },
-                {"automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<ApiSdk.Models.AutomaticRepliesSetting>(ApiSdk.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
-                {"dateFormat", n => { DateFormat = n.GetStringValue(); } },
-                {"delegateMeetingMessageDeliveryOptions", n => { DelegateMeetingMessageDeliveryOptions = n.GetEnumValue<DelegateMeetingMessageDeliveryOptions>(); } },
-                {"language", n => { Language = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"timeFormat", n => { TimeFormat = n.GetStringValue(); } },
-                {"timeZone", n => { TimeZone = n.GetStringValue(); } },
-                {"userPurpose", n => { UserPurpose = n.GetEnumValue<UserPurpose>(); } },
-                {"userPurposeV2", n => { UserPurposeV2 = n.GetEnumValue<MailboxRecipientType>(); } },
-                {"workingHours", n => { WorkingHours = n.GetObjectValue<ApiSdk.Models.WorkingHours>(ApiSdk.Models.WorkingHours.CreateFromDiscriminatorValue); } },
+                { "archiveFolder", n => { ArchiveFolder = n.GetStringValue(); } },
+                { "automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<ApiSdk.Models.AutomaticRepliesSetting>(ApiSdk.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
+                { "dateFormat", n => { DateFormat = n.GetStringValue(); } },
+                { "delegateMeetingMessageDeliveryOptions", n => { DelegateMeetingMessageDeliveryOptions = n.GetEnumValue<DelegateMeetingMessageDeliveryOptions>(); } },
+                { "language", n => { Language = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "timeFormat", n => { TimeFormat = n.GetStringValue(); } },
+                { "timeZone", n => { TimeZone = n.GetStringValue(); } },
+                { "userPurpose", n => { UserPurpose = n.GetEnumValue<UserPurpose>(); } },
+                { "userPurposeV2", n => { UserPurposeV2 = n.GetEnumValue<MailboxRecipientType>(); } },
+                { "workingHours", n => { WorkingHours = n.GetObjectValue<ApiSdk.Models.WorkingHours>(ApiSdk.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class DirectRoutingLogRow : CallLogRow, IParsable 
+    public class DirectRoutingLogRow : CallLogRow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of the user or bot who received the call (E.164 format, but might include more data).</summary>
@@ -125,25 +126,25 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"callEndSubReason", n => { CallEndSubReason = n.GetIntValue(); } },
-                {"callType", n => { CallType = n.GetStringValue(); } },
-                {"calleeNumber", n => { CalleeNumber = n.GetStringValue(); } },
-                {"callerNumber", n => { CallerNumber = n.GetStringValue(); } },
-                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                {"duration", n => { Duration = n.GetIntValue(); } },
-                {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"failureDateTime", n => { FailureDateTime = n.GetDateTimeOffsetValue(); } },
-                {"finalSipCode", n => { FinalSipCode = n.GetIntValue(); } },
-                {"finalSipCodePhrase", n => { FinalSipCodePhrase = n.GetStringValue(); } },
-                {"inviteDateTime", n => { InviteDateTime = n.GetDateTimeOffsetValue(); } },
-                {"mediaBypassEnabled", n => { MediaBypassEnabled = n.GetBoolValue(); } },
-                {"mediaPathLocation", n => { MediaPathLocation = n.GetStringValue(); } },
-                {"signalingLocation", n => { SignalingLocation = n.GetStringValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"successfulCall", n => { SuccessfulCall = n.GetBoolValue(); } },
-                {"transferorCorrelationId", n => { TransferorCorrelationId = n.GetStringValue(); } },
-                {"trunkFullyQualifiedDomainName", n => { TrunkFullyQualifiedDomainName = n.GetStringValue(); } },
-                {"userCountryCode", n => { UserCountryCode = n.GetStringValue(); } },
+                { "callEndSubReason", n => { CallEndSubReason = n.GetIntValue(); } },
+                { "callType", n => { CallType = n.GetStringValue(); } },
+                { "calleeNumber", n => { CalleeNumber = n.GetStringValue(); } },
+                { "callerNumber", n => { CallerNumber = n.GetStringValue(); } },
+                { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetIntValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "failureDateTime", n => { FailureDateTime = n.GetDateTimeOffsetValue(); } },
+                { "finalSipCode", n => { FinalSipCode = n.GetIntValue(); } },
+                { "finalSipCodePhrase", n => { FinalSipCodePhrase = n.GetStringValue(); } },
+                { "inviteDateTime", n => { InviteDateTime = n.GetDateTimeOffsetValue(); } },
+                { "mediaBypassEnabled", n => { MediaBypassEnabled = n.GetBoolValue(); } },
+                { "mediaPathLocation", n => { MediaPathLocation = n.GetStringValue(); } },
+                { "signalingLocation", n => { SignalingLocation = n.GetStringValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "successfulCall", n => { SuccessfulCall = n.GetBoolValue(); } },
+                { "transferorCorrelationId", n => { TransferorCorrelationId = n.GetStringValue(); } },
+                { "trunkFullyQualifiedDomainName", n => { TrunkFullyQualifiedDomainName = n.GetStringValue(); } },
+                { "userCountryCode", n => { UserCountryCode = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.CreateCopy {
+namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.CreateCopy
+{
     /// <summary>
     /// Provides operations to call the createCopy method.
     /// </summary>
-    public class CreateCopyRequestBuilder : BaseCliRequestBuilder 
+    public class CreateCopyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createCopy

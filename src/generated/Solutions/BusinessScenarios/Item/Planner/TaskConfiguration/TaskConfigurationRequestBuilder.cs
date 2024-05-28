@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.TaskConfiguration {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.TaskConfiguration
+{
     /// <summary>
     /// Provides operations to manage the taskConfiguration property of the microsoft.graph.businessScenarioPlanner entity.
     /// </summary>
-    public class TaskConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class TaskConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property taskConfiguration for solutions

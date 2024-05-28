@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcOnPremisesConnection : Entity, IParsable 
+    public class CloudPcOnPremisesConnection : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.</summary>
@@ -121,7 +122,7 @@ namespace ApiSdk.Models {
 #else
         public string SubscriptionName { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Goind forward, use the connectionType property.</summary>
         public CloudPcOnPremisesConnectionType? Type { get; set; }
         /// <summary>The ID of the target virtual network. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,26 +158,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"adDomainName", n => { AdDomainName = n.GetStringValue(); } },
-                {"adDomainPassword", n => { AdDomainPassword = n.GetStringValue(); } },
-                {"adDomainUsername", n => { AdDomainUsername = n.GetStringValue(); } },
-                {"alternateResourceUrl", n => { AlternateResourceUrl = n.GetStringValue(); } },
-                {"connectionType", n => { ConnectionType = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"healthCheckStatus", n => { HealthCheckStatus = n.GetEnumValue<CloudPcOnPremisesConnectionStatus>(); } },
-                {"healthCheckStatusDetail", n => { HealthCheckStatusDetail = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetail>(CloudPcOnPremisesConnectionStatusDetail.CreateFromDiscriminatorValue); } },
-                {"healthCheckStatusDetails", n => { HealthCheckStatusDetails = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetails>(CloudPcOnPremisesConnectionStatusDetails.CreateFromDiscriminatorValue); } },
-                {"inUse", n => { InUse = n.GetBoolValue(); } },
-                {"managedBy", n => { ManagedBy = n.GetEnumValue<CloudPcManagementService>(); } },
-                {"organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
-                {"resourceGroupId", n => { ResourceGroupId = n.GetStringValue(); } },
-                {"scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"subnetId", n => { SubnetId = n.GetStringValue(); } },
-                {"subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
-                {"subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
-                {"virtualNetworkId", n => { VirtualNetworkId = n.GetStringValue(); } },
-                {"virtualNetworkLocation", n => { VirtualNetworkLocation = n.GetStringValue(); } },
+                { "adDomainName", n => { AdDomainName = n.GetStringValue(); } },
+                { "adDomainPassword", n => { AdDomainPassword = n.GetStringValue(); } },
+                { "adDomainUsername", n => { AdDomainUsername = n.GetStringValue(); } },
+                { "alternateResourceUrl", n => { AlternateResourceUrl = n.GetStringValue(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "healthCheckStatus", n => { HealthCheckStatus = n.GetEnumValue<CloudPcOnPremisesConnectionStatus>(); } },
+                { "healthCheckStatusDetail", n => { HealthCheckStatusDetail = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetail>(CloudPcOnPremisesConnectionStatusDetail.CreateFromDiscriminatorValue); } },
+                { "healthCheckStatusDetails", n => { HealthCheckStatusDetails = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetails>(CloudPcOnPremisesConnectionStatusDetails.CreateFromDiscriminatorValue); } },
+                { "inUse", n => { InUse = n.GetBoolValue(); } },
+                { "managedBy", n => { ManagedBy = n.GetEnumValue<CloudPcManagementService>(); } },
+                { "organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
+                { "resourceGroupId", n => { ResourceGroupId = n.GetStringValue(); } },
+                { "scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "subnetId", n => { SubnetId = n.GetStringValue(); } },
+                { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
+                { "subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
+                { "virtualNetworkId", n => { VirtualNetworkId = n.GetStringValue(); } },
+                { "virtualNetworkLocation", n => { VirtualNetworkLocation = n.GetStringValue(); } },
             };
         }
         /// <summary>

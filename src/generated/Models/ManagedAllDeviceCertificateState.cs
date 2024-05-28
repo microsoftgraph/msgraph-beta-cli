@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ManagedAllDeviceCertificateState : Entity, IParsable 
+    public class ManagedAllDeviceCertificateState : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Certificate expiry date</summary>
@@ -93,18 +94,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateExpirationDateTime", n => { CertificateExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateExtendedKeyUsages", n => { CertificateExtendedKeyUsages = n.GetStringValue(); } },
-                {"certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateIssuerName", n => { CertificateIssuerName = n.GetStringValue(); } },
-                {"certificateKeyUsages", n => { CertificateKeyUsages = n.GetIntValue(); } },
-                {"certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
-                {"certificateRevokeStatusLastChangeDateTime", n => { CertificateRevokeStatusLastChangeDateTime = n.GetDateTimeOffsetValue(); } },
-                {"certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
-                {"certificateSubjectName", n => { CertificateSubjectName = n.GetStringValue(); } },
-                {"certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
-                {"managedDeviceDisplayName", n => { ManagedDeviceDisplayName = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "certificateExpirationDateTime", n => { CertificateExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateExtendedKeyUsages", n => { CertificateExtendedKeyUsages = n.GetStringValue(); } },
+                { "certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateIssuerName", n => { CertificateIssuerName = n.GetStringValue(); } },
+                { "certificateKeyUsages", n => { CertificateKeyUsages = n.GetIntValue(); } },
+                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
+                { "certificateRevokeStatusLastChangeDateTime", n => { CertificateRevokeStatusLastChangeDateTime = n.GetDateTimeOffsetValue(); } },
+                { "certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
+                { "certificateSubjectName", n => { CertificateSubjectName = n.GetStringValue(); } },
+                { "certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
+                { "managedDeviceDisplayName", n => { ManagedDeviceDisplayName = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.DeletePasswordSingleSignOnCredentials {
+namespace ApiSdk.Groups.Item.DeletePasswordSingleSignOnCredentials
+{
     /// <summary>
     /// Provides operations to call the deletePasswordSingleSignOnCredentials method.
     /// </summary>
-    public class DeletePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder 
+    public class DeletePasswordSingleSignOnCredentialsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action deletePasswordSingleSignOnCredentials

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.RecordResponse {
+namespace ApiSdk.Communications.Calls.Item.RecordResponse
+{
     /// <summary>
     /// Provides operations to call the recordResponse method.
     /// </summary>
-    public class RecordResponseRequestBuilder : BaseCliRequestBuilder 
+    public class RecordResponseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Record a short audio response from the caller. A bot can use this API to capture a voice response from a caller after they&apos;re prompted for a response. For more information about how to handle operations, see commsOperation. This action isn&apos;t intended to record the entire call. The maximum length of recording is 2 minutes.The Cloud Communications Platform doesn&apos;t save the recording permanently and discards it shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value provided in the completed notification.

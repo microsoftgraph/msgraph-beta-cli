@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
+namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property appManagementPolicies for applications
+        /// Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-delete-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property appManagementPolicies for applications";
+            command.Description = "Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-delete-appliesto?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -136,7 +138,9 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +152,14 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to appManagementPolicies for applications
+        /// Assign an appManagementPolicy policy object to an application or service principal object. The application or service principal adopts this policy over the tenant-wide tenantAppManagementPolicy setting. Only one policy object can be assigned to an application or service principal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-post-appliesto?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to appManagementPolicies for applications";
+            command.Description = "Assign an appManagementPolicy policy object to an application or service principal object. The application or service principal adopts this policy over the tenant-wide tenantAppManagementPolicy setting. Only one policy object can be assigned to an application or service principal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-post-appliesto?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -203,7 +208,7 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property appManagementPolicies for applications
+        /// Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +246,7 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to appManagementPolicies for applications
+        /// Assign an appManagementPolicy policy object to an application or service principal object. The application or service principal adopts this policy over the tenant-wide tenantAppManagementPolicy setting. Only one policy object can be assigned to an application or service principal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +267,7 @@ namespace ApiSdk.Applications.Item.AppManagementPolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property appManagementPolicies for applications
+        /// Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {

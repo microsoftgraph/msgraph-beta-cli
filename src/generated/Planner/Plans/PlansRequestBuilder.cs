@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Plans {
+namespace ApiSdk.Planner.Plans
+{
     /// <summary>
     /// Provides operations to manage the plans property of the microsoft.graph.planner entity.
     /// </summary>
-    public class PlansRequestBuilder : BaseCliRequestBuilder 
+    public class PlansRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the plans property of the microsoft.graph.planner entity.
@@ -61,13 +62,14 @@ namespace ApiSdk.Planner.Plans {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to plans for planner
+        /// Create a new plannerPlan object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-post-plans?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to plans for planner";
+            command.Description = "Create a new plannerPlan object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planner-post-plans?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -123,13 +125,14 @@ namespace ApiSdk.Planner.Plans {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified plans
+        /// Get a list of plannerPlan objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-list-plans?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified plans";
+            command.Description = "Get a list of plannerPlan objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planner-list-plans?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -205,7 +208,9 @@ namespace ApiSdk.Planner.Plans {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -231,7 +236,7 @@ namespace ApiSdk.Planner.Plans {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified plans
+        /// Get a list of plannerPlan objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +255,7 @@ namespace ApiSdk.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to plans for planner
+        /// Create a new plannerPlan object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -271,7 +276,7 @@ namespace ApiSdk.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified plans
+        /// Get a list of plannerPlan objects.
         /// </summary>
         public class PlansRequestBuilderGetQueryParameters 
         {

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Contacts.Item.TransitiveReports {
+namespace ApiSdk.Contacts.Item.TransitiveReports
+{
     /// <summary>
     /// Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
     /// </summary>
-    public class TransitiveReportsRequestBuilder : BaseCliRequestBuilder 
+    public class TransitiveReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Contacts.Item.TransitiveReports {
             return command;
         }
         /// <summary>
-        /// The transitive reports for a contact. Read-only.
+        /// Retrieve a count of transitive reports for an organizational contact.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/orgcontact-get-transitivereports?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The transitive reports for a contact. Read-only.";
+            command.Description = "Retrieve a count of transitive reports for an organizational contact.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/orgcontact-get-transitivereports?view=graph-rest-beta";
             var orgContactIdOption = new Option<string>("--org-contact-id", description: "The unique identifier of orgContact") {
             };
             orgContactIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.Contacts.Item.TransitiveReports {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.Contacts.Item.TransitiveReports {
         {
         }
         /// <summary>
-        /// The transitive reports for a contact. Read-only.
+        /// Retrieve a count of transitive reports for an organizational contact.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.Contacts.Item.TransitiveReports {
             return requestInfo;
         }
         /// <summary>
-        /// The transitive reports for a contact. Read-only.
+        /// Retrieve a count of transitive reports for an organizational contact.
         /// </summary>
         public class TransitiveReportsRequestBuilderGetQueryParameters 
         {

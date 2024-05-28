@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters
+{
     /// <summary>
     /// Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class PresentersRequestBuilder : BaseCliRequestBuilder 
+    public class PresentersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to presenters for solutions
+        /// Create a new virtualEventPresenter object on a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualevent-post-presenters?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to presenters for solutions";
+            command.Description = "Create a new virtualEventPresenter object on a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualevent-post-presenters?view=graph-rest-beta";
             var virtualEventTownhallIdOption = new Option<string>("--virtual-event-townhall-id", description: "The unique identifier of virtualEventTownhall") {
             };
             virtualEventTownhallIdOption.IsRequired = true;
@@ -107,13 +109,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
             return command;
         }
         /// <summary>
-        /// The virtual event presenters.
+        /// Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualevent-list-presenters?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The virtual event presenters.";
+            command.Description = "Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualevent-list-presenters?view=graph-rest-beta";
             var virtualEventTownhallIdOption = new Option<string>("--virtual-event-townhall-id", description: "The unique identifier of virtualEventTownhall") {
             };
             virtualEventTownhallIdOption.IsRequired = true;
@@ -195,7 +198,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +226,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
         {
         }
         /// <summary>
-        /// The virtual event presenters.
+        /// Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,7 +245,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to presenters for solutions
+        /// Create a new virtualEventPresenter object on a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -261,7 +266,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Presenters {
             return requestInfo;
         }
         /// <summary>
-        /// The virtual event presenters.
+        /// Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
         /// </summary>
         public class PresentersRequestBuilderGetQueryParameters 
         {

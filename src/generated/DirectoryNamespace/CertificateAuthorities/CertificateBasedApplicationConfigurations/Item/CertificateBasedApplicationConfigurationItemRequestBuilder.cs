@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations.Item {
+namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the certificateBasedApplicationConfigurations property of the microsoft.graph.certificateAuthorityPath entity.
     /// </summary>
-    public class CertificateBasedApplicationConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateBasedApplicationConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property certificateBasedApplicationConfigurations for directory
+        /// Delete the properties and relationships of a certificateBasedApplicationConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property certificateBasedApplicationConfigurations for directory";
+            command.Description = "Delete the properties and relationships of a certificateBasedApplicationConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-delete?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -57,13 +59,14 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Read the properties and relationships of a certificateBasedApplicationConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.";
+            command.Description = "Read the properties and relationships of a certificateBasedApplicationConfiguration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-get?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -109,13 +112,14 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Update the navigation property certificateBasedApplicationConfigurations in directory
+        /// Update the properties of a certificateBasedApplicationConfiguration object. To update the trustedCertificateAuthorities within a certificateBasedApplicationConfiguration object, use the Update certificateAuthorityAsEntity operation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property certificateBasedApplicationConfigurations in directory";
+            command.Description = "Update the properties of a certificateBasedApplicationConfiguration object. To update the trustedCertificateAuthorities within a certificateBasedApplicationConfiguration object, use the Update certificateAuthorityAsEntity operation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-update?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -201,7 +205,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
         {
         }
         /// <summary>
-        /// Delete navigation property certificateBasedApplicationConfigurations for directory
+        /// Delete the properties and relationships of a certificateBasedApplicationConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +224,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Read the properties and relationships of a certificateBasedApplicationConfiguration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +243,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property certificateBasedApplicationConfigurations in directory
+        /// Update the properties of a certificateBasedApplicationConfiguration object. To update the trustedCertificateAuthorities within a certificateBasedApplicationConfiguration object, use the Update certificateAuthorityAsEntity operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+        /// Read the properties and relationships of a certificateBasedApplicationConfiguration object.
         /// </summary>
         public class CertificateBasedApplicationConfigurationItemRequestBuilderGetQueryParameters 
         {

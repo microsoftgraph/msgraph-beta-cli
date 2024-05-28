@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Notes.Item {
+namespace ApiSdk.Users.Item.Profile.Notes.Item
+{
     /// <summary>
     /// Provides operations to manage the notes property of the microsoft.graph.profile entity.
     /// </summary>
-    public class PersonAnnotationItemRequestBuilder : BaseCliRequestBuilder 
+    public class PersonAnnotationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property notes for users
+        /// Deletes a personAnnotation object from a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/personannotation-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property notes for users";
+            command.Description = "Deletes a personAnnotation object from a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personannotation-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Users.Item.Profile.Notes.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property notes in users
+        /// Update the properties of a personAnnotation object in a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/personannotation-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property notes in users";
+            command.Description = "Update the properties of a personAnnotation object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/personannotation-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Users.Item.Profile.Notes.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property notes for users
+        /// Deletes a personAnnotation object from a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.Users.Item.Profile.Notes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property notes in users
+        /// Update the properties of a personAnnotation object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

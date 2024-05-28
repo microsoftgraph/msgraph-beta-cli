@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class RelatedResource : IAdditionalDataHolder, IParsable 
+    public class RelatedResource : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,6 +40,7 @@ namespace ApiSdk.Models.Networkaccess {
             {
                 "#microsoft.graph.networkaccess.relatedDestination" => new RelatedDestination(),
                 "#microsoft.graph.networkaccess.relatedDevice" => new RelatedDevice(),
+                "#microsoft.graph.networkaccess.relatedMalware" => new RelatedMalware(),
                 "#microsoft.graph.networkaccess.relatedProcess" => new RelatedProcess(),
                 "#microsoft.graph.networkaccess.relatedRemoteNetwork" => new RelatedRemoteNetwork(),
                 "#microsoft.graph.networkaccess.relatedTenant" => new RelatedTenant(),
@@ -55,7 +57,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

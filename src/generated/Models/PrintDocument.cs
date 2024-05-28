@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrintDocument : Entity, IParsable 
+    public class PrintDocument : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration property</summary>
@@ -57,12 +58,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configuration", n => { Configuration = n.GetObjectValue<PrinterDocumentConfiguration>(PrinterDocumentConfiguration.CreateFromDiscriminatorValue); } },
-                {"contentType", n => { ContentType = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"downloadedDateTime", n => { DownloadedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"size", n => { Size = n.GetLongValue(); } },
-                {"uploadedDateTime", n => { UploadedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<PrinterDocumentConfiguration>(PrinterDocumentConfiguration.CreateFromDiscriminatorValue); } },
+                { "contentType", n => { ContentType = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "downloadedDateTime", n => { DownloadedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "size", n => { Size = n.GetLongValue(); } },
+                { "uploadedDateTime", n => { UploadedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

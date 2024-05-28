@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WindowsUpdateState : Entity, IParsable 
+    public class WindowsUpdateState : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Device display name.</summary>
@@ -81,15 +82,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"featureUpdateVersion", n => { FeatureUpdateVersion = n.GetStringValue(); } },
-                {"lastScanDateTime", n => { LastScanDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"qualityUpdateVersion", n => { QualityUpdateVersion = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<WindowsUpdateStatus>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "featureUpdateVersion", n => { FeatureUpdateVersion = n.GetStringValue(); } },
+                { "lastScanDateTime", n => { LastScanDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "qualityUpdateVersion", n => { QualityUpdateVersion = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<WindowsUpdateStatus>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

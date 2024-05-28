@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TimeRange : IAdditionalDataHolder, IParsable 
+    public class TimeRange : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -49,9 +50,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"endTime", n => { EndTime = n.GetTimeValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startTime", n => { StartTime = n.GetTimeValue(); } },
+                { "endTime", n => { EndTime = n.GetTimeValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startTime", n => { StartTime = n.GetTimeValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// An application on the Android Device Owner Managed Home Screen
     /// </summary>
-    public class AndroidDeviceOwnerKioskModeApp : AndroidDeviceOwnerKioskModeFolderItem, IParsable 
+    public class AndroidDeviceOwnerKioskModeApp : AndroidDeviceOwnerKioskModeFolderItem, IParsable
     {
         /// <summary>Class name of application</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"className", n => { ClassName = n.GetStringValue(); } },
-                {"package", n => { Package = n.GetStringValue(); } },
+                { "className", n => { ClassName = n.GetStringValue(); } },
+                { "package", n => { Package = n.GetStringValue(); } },
             };
         }
         /// <summary>

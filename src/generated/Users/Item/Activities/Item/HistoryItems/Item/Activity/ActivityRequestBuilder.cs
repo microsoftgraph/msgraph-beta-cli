@@ -14,20 +14,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item.Activity {
+namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item.Activity
+{
     /// <summary>
     /// Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity.
     /// </summary>
-    public class ActivityRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get activity from users
+        /// Optional. NavigationProperty/Containment; navigation property to the associated activity.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get activity from users";
+            command.Description = "Optional. NavigationProperty/Containment; navigation property to the associated activity.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -99,7 +100,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item.Activity {
         {
         }
         /// <summary>
-        /// Get activity from users
+        /// Optional. NavigationProperty/Containment; navigation property to the associated activity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +119,7 @@ namespace ApiSdk.Users.Item.Activities.Item.HistoryItems.Item.Activity {
             return requestInfo;
         }
         /// <summary>
-        /// Get activity from users
+        /// Optional. NavigationProperty/Containment; navigation property to the associated activity.
         /// </summary>
         public class ActivityRequestBuilderGetQueryParameters 
         {

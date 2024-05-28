@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookDocumentTaskChange : Entity, IParsable 
+    public class WorkbookDocumentTaskChange : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user identity the task is assigned to. Only present when the type property is assign. Nullable.</summary>
@@ -85,17 +86,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignee", n => { Assignee = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
-                {"changedBy", n => { ChangedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
-                {"commentId", n => { CommentId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
-                {"percentComplete", n => { PercentComplete = n.GetIntValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"undoChangeId", n => { UndoChangeId = n.GetStringValue(); } },
+                { "assignee", n => { Assignee = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "changedBy", n => { ChangedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "commentId", n => { CommentId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
+                { "percentComplete", n => { PercentComplete = n.GetIntValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "undoChangeId", n => { UndoChangeId = n.GetStringValue(); } },
             };
         }
         /// <summary>

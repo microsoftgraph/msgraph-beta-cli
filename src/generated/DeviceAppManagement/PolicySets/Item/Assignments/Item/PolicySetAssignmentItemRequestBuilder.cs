@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Assignments.Item {
+namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
     /// </summary>
-    public class PolicySetAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicySetAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceAppManagement

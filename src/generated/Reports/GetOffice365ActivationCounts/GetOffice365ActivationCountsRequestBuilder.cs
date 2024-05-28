@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetOffice365ActivationCounts {
+namespace ApiSdk.Reports.GetOffice365ActivationCounts
+{
     /// <summary>
     /// Provides operations to call the getOffice365ActivationCounts method.
     /// </summary>
-    public class GetOffice365ActivationCountsRequestBuilder : BaseCliRequestBuilder 
+    public class GetOffice365ActivationCountsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getOffice365ActivationCounts

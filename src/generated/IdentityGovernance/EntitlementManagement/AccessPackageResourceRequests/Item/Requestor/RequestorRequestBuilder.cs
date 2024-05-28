@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests.Item.Requestor {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests.Item.Requestor
+{
     /// <summary>
     /// Provides operations to manage the requestor property of the microsoft.graph.accessPackageResourceRequest entity.
     /// </summary>
-    public class RequestorRequestBuilder : BaseCliRequestBuilder 
+    public class RequestorRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the connectedOrganization property of the microsoft.graph.accessPackageSubject entity.

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
+namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class ResourceConnectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceConnectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property resourceConnections for admin
+        /// Delete an operationalInsightsConnection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property resourceConnections for admin";
+            command.Description = "Delete an operationalInsightsConnection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-delete?view=graph-rest-beta";
             var resourceConnectionIdOption = new Option<string>("--resource-connection-id", description: "The unique identifier of resourceConnection") {
             };
             resourceConnectionIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
             return command;
         }
         /// <summary>
-        /// Service connections to external resources such as analytics workspaces.
+        /// Read the properties and relationships of an operationalInsightsConnection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Service connections to external resources such as analytics workspaces.";
+            command.Description = "Read the properties and relationships of an operationalInsightsConnection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-get?view=graph-rest-beta";
             var resourceConnectionIdOption = new Option<string>("--resource-connection-id", description: "The unique identifier of resourceConnection") {
             };
             resourceConnectionIdOption.IsRequired = true;
@@ -173,7 +176,7 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property resourceConnections for admin
+        /// Delete an operationalInsightsConnection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +195,7 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Service connections to external resources such as analytics workspaces.
+        /// Read the properties and relationships of an operationalInsightsConnection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Admin.Windows.Updates.ResourceConnections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Service connections to external resources such as analytics workspaces.
+        /// Read the properties and relationships of an operationalInsightsConnection object.
         /// </summary>
         public class ResourceConnectionItemRequestBuilderGetQueryParameters 
         {

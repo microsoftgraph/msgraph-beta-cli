@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Versions.Item {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Versions.Item
+{
     /// <summary>
     /// Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
     /// </summary>
-    public class WorkflowVersionVersionNumberItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkflowVersionVersionNumberItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.workflowBase entity.
@@ -48,13 +49,14 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Versions.I
             return command;
         }
         /// <summary>
-        /// The workflow versions that are available.
+        /// Read the properties and relationships of a workflowVersion object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The workflow versions that are available.";
+            command.Description = "Read the properties and relationships of a workflowVersion object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-beta";
             var workflowIdOption = new Option<string>("--workflow-id", description: "The unique identifier of workflow") {
             };
             workflowIdOption.IsRequired = true;
@@ -171,7 +173,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Versions.I
         {
         }
         /// <summary>
-        /// The workflow versions that are available.
+        /// Read the properties and relationships of a workflowVersion object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -190,7 +192,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Workflows.Item.Versions.I
             return requestInfo;
         }
         /// <summary>
-        /// The workflow versions that are available.
+        /// Read the properties and relationships of a workflowVersion object.
         /// </summary>
         public class WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters 
         {

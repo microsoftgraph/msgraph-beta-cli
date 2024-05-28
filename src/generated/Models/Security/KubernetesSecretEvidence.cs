@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class KubernetesSecretEvidence : AlertEvidence, IParsable 
+    public class KubernetesSecretEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The secret name.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"namespace", n => { Namespace = n.GetObjectValue<KubernetesNamespaceEvidence>(KubernetesNamespaceEvidence.CreateFromDiscriminatorValue); } },
-                {"secretType", n => { SecretType = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "namespace", n => { Namespace = n.GetObjectValue<KubernetesNamespaceEvidence>(KubernetesNamespaceEvidence.CreateFromDiscriminatorValue); } },
+                { "secretType", n => { SecretType = n.GetStringValue(); } },
             };
         }
         /// <summary>

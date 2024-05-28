@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions
+{
     /// <summary>
     /// Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
     /// </summary>
-    public class AppDefinitionsRequestBuilder : BaseCliRequestBuilder 
+    public class AppDefinitionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
@@ -58,13 +59,14 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to appDefinitions for appCatalogs
+        /// Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization&apos;s app catalog (the tenant app catalog).  
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to appDefinitions for appCatalogs";
+            command.Description = "Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).  \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-beta";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -197,7 +199,9 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -242,7 +246,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to appDefinitions for appCatalogs
+        /// Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization&apos;s app catalog (the tenant app catalog).  
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

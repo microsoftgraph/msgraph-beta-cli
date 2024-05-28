@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint enforcing a given profile metadata
     /// </summary>
-    public class DeviceManagementSettingProfileConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingProfileConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>The source of the entity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"source", n => { Source = n.GetStringValue(); } },
-                {"types", n => { Types = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
+                { "types", n => { Types = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

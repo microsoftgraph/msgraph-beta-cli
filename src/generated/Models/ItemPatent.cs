@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ItemPatent : ItemFacet, IParsable 
+    public class ItemPatent : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Descpription of the patent or filing.</summary>
@@ -79,13 +80,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"isPending", n => { IsPending = n.GetBoolValue(); } },
-                {"issuedDate", n => { IssuedDate = n.GetDateValue(); } },
-                {"issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "isPending", n => { IsPending = n.GetBoolValue(); } },
+                { "issuedDate", n => { IssuedDate = n.GetDateValue(); } },
+                { "issuingAuthority", n => { IssuingAuthority = n.GetStringValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

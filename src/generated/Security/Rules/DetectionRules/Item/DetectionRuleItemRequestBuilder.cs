@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Rules.DetectionRules.Item {
+namespace ApiSdk.Security.Rules.DetectionRules.Item
+{
     /// <summary>
     /// Provides operations to manage the detectionRules property of the microsoft.graph.security.rulesRoot entity.
     /// </summary>
-    public class DetectionRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class DetectionRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property detectionRules for security

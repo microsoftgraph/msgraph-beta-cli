@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
     /// </summary>
-    public class EnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class EnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property enrollmentProfiles for deviceManagement

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
+namespace ApiSdk.Teamwork.WorkforceIntegrations.Item
+{
     /// <summary>
     /// Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class WorkforceIntegrationItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkforceIntegrationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property workforceIntegrations for teamwork
+        /// Delete an instance of a workforceIntegration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property workforceIntegrations for teamwork";
+            command.Description = "Delete an instance of a workforceIntegration.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-beta";
             var workforceIntegrationIdOption = new Option<string>("--workforce-integration-id", description: "The unique identifier of workforceIntegration") {
             };
             workforceIntegrationIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
             return command;
         }
         /// <summary>
-        /// A workforce integration with shifts.
+        /// Retrieve the properties and relationships of a workforceintegration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A workforce integration with shifts.";
+            command.Description = "Retrieve the properties and relationships of a workforceintegration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-beta";
             var workforceIntegrationIdOption = new Option<string>("--workforce-integration-id", description: "The unique identifier of workforceIntegration") {
             };
             workforceIntegrationIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property workforceIntegrations in teamwork
+        /// Update the properties of a workforceintegration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property workforceIntegrations in teamwork";
+            command.Description = "Update the properties of a workforceintegration object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-beta";
             var workforceIntegrationIdOption = new Option<string>("--workforce-integration-id", description: "The unique identifier of workforceIntegration") {
             };
             workforceIntegrationIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property workforceIntegrations for teamwork
+        /// Delete an instance of a workforceIntegration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A workforce integration with shifts.
+        /// Retrieve the properties and relationships of a workforceintegration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property workforceIntegrations in teamwork
+        /// Update the properties of a workforceintegration object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Teamwork.WorkforceIntegrations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A workforce integration with shifts.
+        /// Retrieve the properties and relationships of a workforceintegration object.
         /// </summary>
         public class WorkforceIntegrationItemRequestBuilderGetQueryParameters 
         {

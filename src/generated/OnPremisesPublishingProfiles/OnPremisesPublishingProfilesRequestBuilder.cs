@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles {
+namespace ApiSdk.OnPremisesPublishingProfiles
+{
     /// <summary>
     /// Provides operations to manage the collection of onPremisesPublishingProfile entities.
     /// </summary>
-    public class OnPremisesPublishingProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class OnPremisesPublishingProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of onPremisesPublishingProfile entities.
@@ -33,6 +34,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles {
             var builder = new OnPremisesPublishingProfileItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAgentGroupsNavCommand());
             commands.Add(builder.BuildAgentsNavCommand());
+            commands.Add(builder.BuildApplicationSegmentsNavCommand());
             commands.Add(builder.BuildConnectorGroupsNavCommand());
             commands.Add(builder.BuildConnectorsNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -186,7 +188,9 @@ namespace ApiSdk.OnPremisesPublishingProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

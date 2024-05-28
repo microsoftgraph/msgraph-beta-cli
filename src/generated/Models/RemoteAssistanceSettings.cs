@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Remote assistance settings for the account
     /// </summary>
-    public class RemoteAssistanceSettings : Entity, IParsable 
+    public class RemoteAssistanceSettings : Entity, IParsable
     {
         /// <summary>Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.</summary>
         public bool? AllowSessionsToUnenrolledDevices { get; set; }
@@ -34,9 +35,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowSessionsToUnenrolledDevices", n => { AllowSessionsToUnenrolledDevices = n.GetBoolValue(); } },
-                {"blockChat", n => { BlockChat = n.GetBoolValue(); } },
-                {"remoteAssistanceState", n => { RemoteAssistanceState = n.GetEnumValue<RemoteAssistanceState>(); } },
+                { "allowSessionsToUnenrolledDevices", n => { AllowSessionsToUnenrolledDevices = n.GetBoolValue(); } },
+                { "blockChat", n => { BlockChat = n.GetBoolValue(); } },
+                { "remoteAssistanceState", n => { RemoteAssistanceState = n.GetEnumValue<RemoteAssistanceState>(); } },
             };
         }
         /// <summary>

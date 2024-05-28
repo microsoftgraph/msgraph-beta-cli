@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkPeripheral : Entity, IParsable 
+    public class TeamworkPeripheral : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Display name for the peripheral.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"productId", n => { ProductId = n.GetStringValue(); } },
-                {"vendorId", n => { VendorId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "productId", n => { ProductId = n.GetStringValue(); } },
+                { "vendorId", n => { VendorId = n.GetStringValue(); } },
             };
         }
         /// <summary>

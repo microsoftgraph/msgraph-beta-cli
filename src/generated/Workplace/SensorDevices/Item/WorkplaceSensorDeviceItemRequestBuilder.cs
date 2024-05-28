@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Workplace.SensorDevices.Item {
+namespace ApiSdk.Workplace.SensorDevices.Item
+{
     /// <summary>
     /// Provides operations to manage the sensorDevices property of the microsoft.graph.workplace entity.
     /// </summary>
-    public class WorkplaceSensorDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkplaceSensorDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property sensorDevices for workplace
+        /// Delete a workplace sensor device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property sensorDevices for workplace";
+            command.Description = "Delete a workplace sensor device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-beta";
             var workplaceSensorDeviceIdOption = new Option<string>("--workplace-sensor-device-id", description: "The unique identifier of workplaceSensorDevice") {
             };
             workplaceSensorDeviceIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
             return command;
         }
         /// <summary>
-        /// A collection of sensor devices.
+        /// Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workplacesensordevice-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of sensor devices.";
+            command.Description = "Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workplacesensordevice-get?view=graph-rest-beta";
             var workplaceSensorDeviceIdOption = new Option<string>("--workplace-sensor-device-id", description: "The unique identifier of workplaceSensorDevice") {
             };
             workplaceSensorDeviceIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property sensorDevices in workplace
+        /// Update the properties of a workplace sensor device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workplacesensordevice-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property sensorDevices in workplace";
+            command.Description = "Update the properties of a workplace sensor device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/workplacesensordevice-update?view=graph-rest-beta";
             var workplaceSensorDeviceIdOption = new Option<string>("--workplace-sensor-device-id", description: "The unique identifier of workplaceSensorDevice") {
             };
             workplaceSensorDeviceIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property sensorDevices for workplace
+        /// Delete a workplace sensor device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of sensor devices.
+        /// Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property sensorDevices in workplace
+        /// Update the properties of a workplace sensor device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Workplace.SensorDevices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of sensor devices.
+        /// Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
         /// </summary>
         public class WorkplaceSensorDeviceItemRequestBuilderGetQueryParameters 
         {

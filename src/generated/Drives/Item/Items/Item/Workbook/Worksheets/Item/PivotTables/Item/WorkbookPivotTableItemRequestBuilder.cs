@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables.Item
+{
     /// <summary>
     /// Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
-    public class WorkbookPivotTableItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookPivotTableItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property pivotTables for drives

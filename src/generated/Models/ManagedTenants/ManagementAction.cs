@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementAction : ApiSdk.Models.Entity, IParsable 
+    public class ManagementAction : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The category property</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"referenceTemplateId", n => { ReferenceTemplateId = n.GetStringValue(); } },
-                {"referenceTemplateVersion", n => { ReferenceTemplateVersion = n.GetIntValue(); } },
-                {"workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "referenceTemplateId", n => { ReferenceTemplateId = n.GetStringValue(); } },
+                { "referenceTemplateVersion", n => { ReferenceTemplateVersion = n.GetIntValue(); } },
+                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

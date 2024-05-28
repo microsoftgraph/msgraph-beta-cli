@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResourceRoleScope : Entity, IParsable 
+    public class AccessPackageResourceRoleScope : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Read-only. Nullable. Supports $expand.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageResourceRole", n => { AccessPackageResourceRole = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue); } },
-                {"accessPackageResourceScope", n => { AccessPackageResourceScope = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue); } },
-                {"createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"modifiedBy", n => { ModifiedBy = n.GetStringValue(); } },
-                {"modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "accessPackageResourceRole", n => { AccessPackageResourceRole = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue); } },
+                { "accessPackageResourceScope", n => { AccessPackageResourceScope = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "modifiedBy", n => { ModifiedBy = n.GetStringValue(); } },
+                { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

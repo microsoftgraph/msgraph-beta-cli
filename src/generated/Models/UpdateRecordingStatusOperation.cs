@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UpdateRecordingStatusOperation : CommsOperation, IParsable 
+    public class UpdateRecordingStatusOperation : CommsOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

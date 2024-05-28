@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Channels.Item.Members {
+namespace ApiSdk.Teams.Item.Channels.Item.Members
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.channel entity.
     /// </summary>
-    public class MembersRequestBuilder : BaseCliRequestBuilder 
+    public class MembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the add method.
@@ -71,13 +72,14 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to members for teams
+        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to members for teams";
+            command.Description = "Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -128,13 +130,14 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
             return command;
         }
         /// <summary>
-        /// A collection of membership records associated with the channel.
+        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-list-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of membership records associated with the channel.";
+            command.Description = "Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/channel-list-members?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -222,7 +225,9 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -248,7 +253,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
         {
         }
         /// <summary>
-        /// A collection of membership records associated with the channel.
+        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -267,7 +272,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to members for teams
+        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -288,7 +293,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of membership records associated with the channel.
+        /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters 
         {

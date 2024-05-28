@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnUserCreateStartExternalUsersSelfServiceSignUp : OnUserCreateStartHandler, IParsable 
+    public class OnUserCreateStartExternalUsersSelfServiceSignUp : OnUserCreateStartHandler, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type of user object to create. The possible values are: member, guest, unknownFutureValue.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userTypeToCreate", n => { UserTypeToCreate = n.GetEnumValue<UserType>(); } },
+                { "userTypeToCreate", n => { UserTypeToCreate = n.GetEnumValue<UserType>(); } },
             };
         }
         /// <summary>

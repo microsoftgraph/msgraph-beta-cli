@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint that enforces a particular required setting that is not null/undefined/empty string/not configured
     /// </summary>
-    public class DeviceManagementSettingRequiredConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingRequiredConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>List of value which means not configured for the setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"notConfiguredValue", n => { NotConfiguredValue = n.GetStringValue(); } },
+                { "notConfiguredValue", n => { NotConfiguredValue = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigManagerCollections.Item {
+namespace ApiSdk.DeviceManagement.ConfigManagerCollections.Item
+{
     /// <summary>
     /// Provides operations to manage the configManagerCollections property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ConfigManagerCollectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConfigManagerCollectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property configManagerCollections for deviceManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class CloudPcDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cloudPcDevices for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.Item {
             return command;
         }
         /// <summary>
-        /// The collection of cloud PC devices across managed tenants.
+        /// Read the properties and relationships of a cloudPcDevice object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-cloudpcdevice-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of cloud PC devices across managed tenants.";
+            command.Description = "Read the properties and relationships of a cloudPcDevice object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-cloudpcdevice-get?view=graph-rest-beta";
             var cloudPcDeviceIdOption = new Option<string>("--cloud-pc-device-id", description: "The unique identifier of cloudPcDevice") {
             };
             cloudPcDeviceIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of cloud PC devices across managed tenants.
+        /// Read the properties and relationships of a cloudPcDevice object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of cloud PC devices across managed tenants.
+        /// Read the properties and relationships of a cloudPcDevice object.
         /// </summary>
         public class CloudPcDeviceItemRequestBuilderGetQueryParameters 
         {

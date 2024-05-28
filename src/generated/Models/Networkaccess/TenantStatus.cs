@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class TenantStatus : ApiSdk.Models.Entity, IParsable 
+    public class TenantStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Reflects a message to the user if there&apos;s an error.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"onboardingErrorMessage", n => { OnboardingErrorMessage = n.GetStringValue(); } },
-                {"onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<OnboardingStatus>(); } },
+                { "onboardingErrorMessage", n => { OnboardingErrorMessage = n.GetStringValue(); } },
+                { "onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<OnboardingStatus>(); } },
             };
         }
         /// <summary>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs
+{
     /// <summary>
     /// Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
     /// </summary>
-    public class JobsRequestBuilder : BaseCliRequestBuilder 
+    public class JobsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -62,13 +63,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to jobs for servicePrincipals
+        /// Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to jobs for servicePrincipals";
+            command.Description = "Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -113,13 +115,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
             return command;
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// List existing jobs for a given application instance (service principal).
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.";
+            command.Description = "List existing jobs for a given application instance (service principal).\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -201,7 +204,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -244,7 +249,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
         {
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// List existing jobs for a given application instance (service principal).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,7 +268,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to jobs for servicePrincipals
+        /// Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -284,7 +289,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs {
             return requestInfo;
         }
         /// <summary>
-        /// Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+        /// List existing jobs for a given application instance (service principal).
         /// </summary>
         public class JobsRequestBuilderGetQueryParameters 
         {

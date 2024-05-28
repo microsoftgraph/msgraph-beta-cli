@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WebSegmentConfiguration : SegmentConfiguration, IParsable 
+    public class WebSegmentConfiguration : SegmentConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicationSegments property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<WebApplicationSegment>(WebApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<WebApplicationSegment>(WebApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

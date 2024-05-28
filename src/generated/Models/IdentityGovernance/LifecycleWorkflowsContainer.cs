@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class LifecycleWorkflowsContainer : ApiSdk.Models.Entity, IParsable 
+    public class LifecycleWorkflowsContainer : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The customTaskExtension instance.</summary>
@@ -24,6 +25,14 @@ namespace ApiSdk.Models.IdentityGovernance {
 #nullable restore
 #else
         public ApiSdk.Models.DeletedItemContainer DeletedItems { get; set; }
+#endif
+        /// <summary>The insight container holding workflow insight summaries for a tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiSdk.Models.IdentityGovernance.Insights? Insights { get; set; }
+#nullable restore
+#else
+        public ApiSdk.Models.IdentityGovernance.Insights Insights { get; set; }
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,12 +84,13 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customTaskExtensions", n => { CustomTaskExtensions = n.GetCollectionOfObjectValues<CustomTaskExtension>(CustomTaskExtension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deletedItems", n => { DeletedItems = n.GetObjectValue<ApiSdk.Models.DeletedItemContainer>(ApiSdk.Models.DeletedItemContainer.CreateFromDiscriminatorValue); } },
-                {"settings", n => { Settings = n.GetObjectValue<LifecycleManagementSettings>(LifecycleManagementSettings.CreateFromDiscriminatorValue); } },
-                {"taskDefinitions", n => { TaskDefinitions = n.GetCollectionOfObjectValues<TaskDefinition>(TaskDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"workflowTemplates", n => { WorkflowTemplates = n.GetCollectionOfObjectValues<WorkflowTemplate>(WorkflowTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"workflows", n => { Workflows = n.GetCollectionOfObjectValues<Workflow>(Workflow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customTaskExtensions", n => { CustomTaskExtensions = n.GetCollectionOfObjectValues<CustomTaskExtension>(CustomTaskExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedItems", n => { DeletedItems = n.GetObjectValue<ApiSdk.Models.DeletedItemContainer>(ApiSdk.Models.DeletedItemContainer.CreateFromDiscriminatorValue); } },
+                { "insights", n => { Insights = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.Insights>(ApiSdk.Models.IdentityGovernance.Insights.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<LifecycleManagementSettings>(LifecycleManagementSettings.CreateFromDiscriminatorValue); } },
+                { "taskDefinitions", n => { TaskDefinitions = n.GetCollectionOfObjectValues<TaskDefinition>(TaskDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workflowTemplates", n => { WorkflowTemplates = n.GetCollectionOfObjectValues<WorkflowTemplate>(WorkflowTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workflows", n => { Workflows = n.GetCollectionOfObjectValues<Workflow>(Workflow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -93,6 +103,7 @@ namespace ApiSdk.Models.IdentityGovernance {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<CustomTaskExtension>("customTaskExtensions", CustomTaskExtensions);
             writer.WriteObjectValue<ApiSdk.Models.DeletedItemContainer>("deletedItems", DeletedItems);
+            writer.WriteObjectValue<ApiSdk.Models.IdentityGovernance.Insights>("insights", Insights);
             writer.WriteObjectValue<LifecycleManagementSettings>("settings", Settings);
             writer.WriteCollectionOfObjectValues<TaskDefinition>("taskDefinitions", TaskDefinitions);
             writer.WriteCollectionOfObjectValues<Workflow>("workflows", Workflows);

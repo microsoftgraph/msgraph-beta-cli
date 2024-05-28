@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
+namespace ApiSdk.Communications.CallRecords.Item.Participants_v2
+{
     /// <summary>
     /// Provides operations to manage the participants_v2 property of the microsoft.graph.callRecords.callRecord entity.
     /// </summary>
-    public class Participants_v2RequestBuilder : BaseCliRequestBuilder 
+    public class Participants_v2RequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the participants_v2 property of the microsoft.graph.callRecords.callRecord entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
             return command;
         }
         /// <summary>
-        /// List of distinct participants in the call.
+        /// Get the list of participant objects associated with a callRecord.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callrecords-callrecord-list-participants_v2?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List of distinct participants in the call.";
+            command.Description = "Get the list of participant objects associated with a callRecord.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/callrecords-callrecord-list-participants_v2?view=graph-rest-beta";
             var callRecordIdOption = new Option<string>("--call-record-id", description: "The unique identifier of callRecord") {
             };
             callRecordIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
         {
         }
         /// <summary>
-        /// List of distinct participants in the call.
+        /// Get the list of participant objects associated with a callRecord.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Communications.CallRecords.Item.Participants_v2 {
             return requestInfo;
         }
         /// <summary>
-        /// List of distinct participants in the call.
+        /// Get the list of participant objects associated with a callRecord.
         /// </summary>
         public class Participants_v2RequestBuilderGetQueryParameters 
         {

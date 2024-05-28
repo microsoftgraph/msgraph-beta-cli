@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.BusinessFlowTemplates.Item {
+namespace ApiSdk.BusinessFlowTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of businessFlowTemplate entities.
     /// </summary>
-    public class BusinessFlowTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class BusinessFlowTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from businessFlowTemplates

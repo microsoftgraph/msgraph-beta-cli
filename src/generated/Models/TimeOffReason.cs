@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TimeOffReason : ChangeTrackedEntity, IParsable 
+    public class TimeOffReason : ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The code of the timeOffReason to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters.</summary>
@@ -54,10 +55,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"iconType", n => { IconType = n.GetEnumValue<TimeOffReasonIconType>(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "iconType", n => { IconType = n.GetEnumValue<TimeOffReasonIconType>(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
             };
         }
         /// <summary>

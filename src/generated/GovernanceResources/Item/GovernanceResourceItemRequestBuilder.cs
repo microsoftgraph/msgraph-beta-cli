@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item {
+namespace ApiSdk.GovernanceResources.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of governanceResource entities.
     /// </summary>
-    public class GovernanceResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from governanceResources

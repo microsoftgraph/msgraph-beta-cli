@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewInstanceDecisionItemServicePrincipalResource : AccessReviewInstanceDecisionItemResource, IParsable 
+    public class AccessReviewInstanceDecisionItemServicePrincipalResource : AccessReviewInstanceDecisionItemResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The globally unique identifier of the application to which access has been granted.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
             };
         }
         /// <summary>

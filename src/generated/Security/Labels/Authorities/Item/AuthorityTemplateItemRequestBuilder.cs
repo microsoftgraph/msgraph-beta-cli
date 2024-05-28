@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Authorities.Item {
+namespace ApiSdk.Security.Labels.Authorities.Item
+{
     /// <summary>
     /// Provides operations to manage the authorities property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class AuthorityTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorityTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property authorities for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Labels.Authorities.Item {
             return command;
         }
         /// <summary>
-        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+        /// Read the properties and relationships of a authorityTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Specifies the underlying authority that describes the type of content to be retained and its retention schedule.";
+            command.Description = "Read the properties and relationships of a authorityTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-beta";
             var authorityTemplateIdOption = new Option<string>("--authority-template-id", description: "The unique identifier of authorityTemplate") {
             };
             authorityTemplateIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.Labels.Authorities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+        /// Read the properties and relationships of a authorityTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.Labels.Authorities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+        /// Read the properties and relationships of a authorityTemplate object.
         /// </summary>
         public class AuthorityTemplateItemRequestBuilderGetQueryParameters 
         {

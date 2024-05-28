@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RestoreCloudPc {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RestoreCloudPc
+{
     /// <summary>
     /// Provides operations to call the restoreCloudPc method.
     /// </summary>
-    public class RestoreCloudPcRequestBuilder : BaseCliRequestBuilder 
+    public class RestoreCloudPcRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restore a Cloud PC device to a previous state with an Intune managed device ID.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProfileCardProperty : Entity, IParsable 
+    public class ProfileCardProperty : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"annotations", n => { Annotations = n.GetCollectionOfObjectValues<ProfileCardAnnotation>(ProfileCardAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"directoryPropertyName", n => { DirectoryPropertyName = n.GetStringValue(); } },
+                { "annotations", n => { Annotations = n.GetCollectionOfObjectValues<ProfileCardAnnotation>(ProfileCardAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "directoryPropertyName", n => { DirectoryPropertyName = n.GetStringValue(); } },
             };
         }
         /// <summary>

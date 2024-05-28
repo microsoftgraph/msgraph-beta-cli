@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AdminWindowsUpdates : Entity, IParsable 
+    public class AdminWindowsUpdates : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Catalog of content that can be approved for deployment by the deployment service. Read-only.</summary>
@@ -84,13 +85,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"catalog", n => { Catalog = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>(ApiSdk.Models.WindowsUpdates.Catalog.CreateFromDiscriminatorValue); } },
-                {"deploymentAudiences", n => { DeploymentAudiences = n.GetCollectionOfObjectValues<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"products", n => { Products = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"resourceConnections", n => { ResourceConnections = n.GetCollectionOfObjectValues<ResourceConnection>(ResourceConnection.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"updatableAssets", n => { UpdatableAssets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"updatePolicies", n => { UpdatePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "catalog", n => { Catalog = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>(ApiSdk.Models.WindowsUpdates.Catalog.CreateFromDiscriminatorValue); } },
+                { "deploymentAudiences", n => { DeploymentAudiences = n.GetCollectionOfObjectValues<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "products", n => { Products = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resourceConnections", n => { ResourceConnections = n.GetCollectionOfObjectValues<ResourceConnection>(ResourceConnection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updatableAssets", n => { UpdatableAssets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updatePolicies", n => { UpdatePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

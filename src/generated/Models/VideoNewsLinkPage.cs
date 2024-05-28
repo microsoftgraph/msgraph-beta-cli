@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VideoNewsLinkPage : BaseSitePage, IParsable 
+    public class VideoNewsLinkPage : BaseSitePage, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The bannerImageWebUrl property</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bannerImageWebUrl", n => { BannerImageWebUrl = n.GetStringValue(); } },
-                {"newsSharepointIds", n => { NewsSharepointIds = n.GetObjectValue<SharepointIds>(SharepointIds.CreateFromDiscriminatorValue); } },
-                {"newsWebUrl", n => { NewsWebUrl = n.GetStringValue(); } },
-                {"videoDuration", n => { VideoDuration = n.GetTimeSpanValue(); } },
+                { "bannerImageWebUrl", n => { BannerImageWebUrl = n.GetStringValue(); } },
+                { "newsSharepointIds", n => { NewsSharepointIds = n.GetObjectValue<SharepointIds>(SharepointIds.CreateFromDiscriminatorValue); } },
+                { "newsWebUrl", n => { NewsWebUrl = n.GetStringValue(); } },
+                { "videoDuration", n => { VideoDuration = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

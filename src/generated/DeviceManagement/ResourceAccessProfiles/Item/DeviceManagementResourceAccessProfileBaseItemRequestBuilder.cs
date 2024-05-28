@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.Item {
+namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceAccessProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementResourceAccessProfileBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementResourceAccessProfileBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceManagementResourceAccessProfileBase entity.

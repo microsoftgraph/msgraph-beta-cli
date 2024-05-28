@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.Links.Item {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.Links.Item
+{
     /// <summary>
     /// Provides operations to manage the links property of the microsoft.graph.networkaccess.branchConnectivityConfiguration entity.
     /// </summary>
-    public class ConnectivityConfigurationLinkItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectivityConfigurationLinkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property links for networkAccess

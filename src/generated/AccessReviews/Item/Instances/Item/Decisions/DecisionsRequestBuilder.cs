@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions {
+namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions
+{
     /// <summary>
     /// Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class DecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class DecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
@@ -204,7 +205,9 @@ namespace ApiSdk.AccessReviews.Item.Instances.Item.Decisions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

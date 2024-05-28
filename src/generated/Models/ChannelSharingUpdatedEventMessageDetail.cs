@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ChannelSharingUpdatedEventMessageDetail : EventMessageDetail, IParsable 
+    public class ChannelSharingUpdatedEventMessageDetail : EventMessageDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Initiator of the event.</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"ownerTeamId", n => { OwnerTeamId = n.GetStringValue(); } },
-                {"ownerTenantId", n => { OwnerTenantId = n.GetStringValue(); } },
-                {"sharedChannelId", n => { SharedChannelId = n.GetStringValue(); } },
+                { "initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "ownerTeamId", n => { OwnerTeamId = n.GetStringValue(); } },
+                { "ownerTenantId", n => { OwnerTenantId = n.GetStringValue(); } },
+                { "sharedChannelId", n => { SharedChannelId = n.GetStringValue(); } },
             };
         }
         /// <summary>

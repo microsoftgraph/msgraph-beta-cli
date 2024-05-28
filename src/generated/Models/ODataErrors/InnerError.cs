@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ODataErrors {
+namespace ApiSdk.Models.ODataErrors
+{
     #pragma warning disable CS1591
-    public class InnerError : IAdditionalDataHolder, IParsable 
+    public class InnerError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models.ODataErrors {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"client-request-id", n => { ClientRequestId = n.GetStringValue(); } },
-                {"date", n => { Date = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"request-id", n => { RequestId = n.GetStringValue(); } },
+                { "client-request-id", n => { ClientRequestId = n.GetStringValue(); } },
+                { "date", n => { Date = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "request-id", n => { RequestId = n.GetStringValue(); } },
             };
         }
         /// <summary>

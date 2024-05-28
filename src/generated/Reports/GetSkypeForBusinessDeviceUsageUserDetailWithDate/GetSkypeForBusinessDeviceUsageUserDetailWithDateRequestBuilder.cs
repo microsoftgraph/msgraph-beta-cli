@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate {
+namespace ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate
+{
     /// <summary>
     /// Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.
     /// </summary>
-    public class GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    public class GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSkypeForBusinessDeviceUsageUserDetail
@@ -27,7 +28,7 @@ namespace ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate {
         {
             var command = new Command("get");
             command.Description = "Invoke function getSkypeForBusinessDeviceUsageUserDetail";
-            var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
+            var dateOption = new Option<Date?>("--date", description: "Usage: date={date}") {
             };
             dateOption.IsRequired = true;
             command.AddOption(dateOption);

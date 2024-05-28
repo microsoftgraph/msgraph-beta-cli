@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Bandwidth business hours and percentages type
     /// </summary>
-    public class DeliveryOptimizationBandwidthBusinessHoursLimit : IAdditionalDataHolder, IParsable 
+    public class DeliveryOptimizationBandwidthBusinessHoursLimit : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -53,11 +54,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"bandwidthBeginBusinessHours", n => { BandwidthBeginBusinessHours = n.GetIntValue(); } },
-                {"bandwidthEndBusinessHours", n => { BandwidthEndBusinessHours = n.GetIntValue(); } },
-                {"bandwidthPercentageDuringBusinessHours", n => { BandwidthPercentageDuringBusinessHours = n.GetIntValue(); } },
-                {"bandwidthPercentageOutsideBusinessHours", n => { BandwidthPercentageOutsideBusinessHours = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "bandwidthBeginBusinessHours", n => { BandwidthBeginBusinessHours = n.GetIntValue(); } },
+                { "bandwidthEndBusinessHours", n => { BandwidthEndBusinessHours = n.GetIntValue(); } },
+                { "bandwidthPercentageDuringBusinessHours", n => { BandwidthPercentageDuringBusinessHours = n.GetIntValue(); } },
+                { "bandwidthPercentageOutsideBusinessHours", n => { BandwidthPercentageOutsideBusinessHours = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

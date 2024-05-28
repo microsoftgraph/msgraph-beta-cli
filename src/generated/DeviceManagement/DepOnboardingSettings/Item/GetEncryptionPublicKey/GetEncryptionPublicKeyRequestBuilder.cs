@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey
+{
     /// <summary>
     /// Provides operations to call the getEncryptionPublicKey method.
     /// </summary>
-    public class GetEncryptionPublicKeyRequestBuilder : BaseCliRequestBuilder 
+    public class GetEncryptionPublicKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a public key to use to encrypt the Apple device enrollment program token

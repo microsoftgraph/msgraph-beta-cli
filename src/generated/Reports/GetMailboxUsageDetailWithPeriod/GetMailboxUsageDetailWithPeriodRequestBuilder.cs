@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetMailboxUsageDetailWithPeriod {
+namespace ApiSdk.Reports.GetMailboxUsageDetailWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getMailboxUsageDetail method.
     /// </summary>
-    public class GetMailboxUsageDetailWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetMailboxUsageDetailWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getMailboxUsageDetail

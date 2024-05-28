@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.DashboardCards.Item {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.DashboardCards.Item
+{
     /// <summary>
     /// Provides operations to manage the dashboardCards property of the microsoft.graph.teamsAppDefinition entity.
     /// </summary>
-    public class TeamsAppDashboardCardDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppDashboardCardDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dashboardCards for appCatalogs

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EnumeratedAccountsWithAccess : AccountsWithAccess, IParsable 
+    public class EnumeratedAccountsWithAccess : AccountsWithAccess, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accounts property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accounts", n => { Accounts = n.GetCollectionOfObjectValues<AuthorizationSystem>(AuthorizationSystem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<AuthorizationSystem>(AuthorizationSystem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

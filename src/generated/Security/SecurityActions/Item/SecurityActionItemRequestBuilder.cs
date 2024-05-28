@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.SecurityActions.Item {
+namespace ApiSdk.Security.SecurityActions.Item
+{
     /// <summary>
     /// Provides operations to manage the securityActions property of the microsoft.graph.security entity.
     /// </summary>
-    public class SecurityActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class SecurityActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancelSecurityAction method.
@@ -42,6 +43,7 @@ namespace ApiSdk.Security.SecurityActions.Item {
         /// Delete navigation property securityActions for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
@@ -74,13 +76,15 @@ namespace ApiSdk.Security.SecurityActions.Item {
             return command;
         }
         /// <summary>
-        /// Get securityActions from security
+        /// Retrieve the properties and relationships of a securityAction object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securityaction-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get securityActions from security";
+            command.Description = "Retrieve the properties and relationships of a securityAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securityaction-get?view=graph-rest-beta";
             var securityActionIdOption = new Option<string>("--security-action-id", description: "The unique identifier of securityAction") {
             };
             securityActionIdOption.IsRequired = true;
@@ -129,6 +133,7 @@ namespace ApiSdk.Security.SecurityActions.Item {
         /// Update the navigation property securityActions in security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
@@ -195,6 +200,7 @@ namespace ApiSdk.Security.SecurityActions.Item {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -210,10 +216,11 @@ namespace ApiSdk.Security.SecurityActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get securityActions from security
+        /// Retrieve the properties and relationships of a securityAction object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SecurityActionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -234,6 +241,7 @@ namespace ApiSdk.Security.SecurityActions.Item {
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(SecurityAction body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -250,7 +258,7 @@ namespace ApiSdk.Security.SecurityActions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get securityActions from security
+        /// Retrieve the properties and relationships of a securityAction object.
         /// </summary>
         public class SecurityActionItemRequestBuilderGetQueryParameters 
         {

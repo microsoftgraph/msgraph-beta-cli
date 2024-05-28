@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for the run summary of a device management script.
     /// </summary>
-    public class DeviceManagementScriptRunSummary : Entity, IParsable 
+    public class DeviceManagementScriptRunSummary : Entity, IParsable
     {
         /// <summary>Error device count.</summary>
         public int? ErrorDeviceCount { get; set; }
@@ -36,10 +37,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
-                {"errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
-                {"successDeviceCount", n => { SuccessDeviceCount = n.GetIntValue(); } },
-                {"successUserCount", n => { SuccessUserCount = n.GetIntValue(); } },
+                { "errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
+                { "errorUserCount", n => { ErrorUserCount = n.GetIntValue(); } },
+                { "successDeviceCount", n => { SuccessDeviceCount = n.GetIntValue(); } },
+                { "successUserCount", n => { SuccessUserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

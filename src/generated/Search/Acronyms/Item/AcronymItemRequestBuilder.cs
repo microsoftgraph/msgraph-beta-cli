@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Search.Acronyms.Item {
+namespace ApiSdk.Search.Acronyms.Item
+{
     /// <summary>
     /// Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
     /// </summary>
-    public class AcronymItemRequestBuilder : BaseCliRequestBuilder 
+    public class AcronymItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property acronyms for search
+        /// Delete an acronym object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-acronym-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property acronyms for search";
+            command.Description = "Delete an acronym object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-acronym-delete?view=graph-rest-beta";
             var acronymIdOption = new Option<string>("--acronym-id", description: "The unique identifier of acronym") {
             };
             acronymIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.Search.Acronyms.Item {
             return command;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results to define common acronyms in an organization.
+        /// Read the properties and relationships of an acronym object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-acronym-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Administrative answer in Microsoft Search results to define common acronyms in an organization.";
+            command.Description = "Read the properties and relationships of an acronym object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-acronym-get?view=graph-rest-beta";
             var acronymIdOption = new Option<string>("--acronym-id", description: "The unique identifier of acronym") {
             };
             acronymIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.Search.Acronyms.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property acronyms in search
+        /// Update the properties of an acronym object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/search-acronym-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property acronyms in search";
+            command.Description = "Update the properties of an acronym object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/search-acronym-update?view=graph-rest-beta";
             var acronymIdOption = new Option<string>("--acronym-id", description: "The unique identifier of acronym") {
             };
             acronymIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.Search.Acronyms.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property acronyms for search
+        /// Delete an acronym object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.Search.Acronyms.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results to define common acronyms in an organization.
+        /// Read the properties and relationships of an acronym object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.Search.Acronyms.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property acronyms in search
+        /// Update the properties of an acronym object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.Search.Acronyms.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Administrative answer in Microsoft Search results to define common acronyms in an organization.
+        /// Read the properties and relationships of an acronym object.
         /// </summary>
         public class AcronymItemRequestBuilderGetQueryParameters 
         {

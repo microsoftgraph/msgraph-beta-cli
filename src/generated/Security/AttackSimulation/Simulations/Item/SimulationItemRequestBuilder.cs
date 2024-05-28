@@ -17,20 +17,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
+namespace ApiSdk.Security.AttackSimulation.Simulations.Item
+{
     /// <summary>
     /// Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
     /// </summary>
-    public class SimulationItemRequestBuilder : BaseCliRequestBuilder 
+    public class SimulationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property simulations for security
+        /// Delete an attack simulation campaign for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/simulation-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property simulations for security";
+            command.Description = "Delete an attack simulation campaign for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/simulation-delete?view=graph-rest-beta";
             var simulationIdOption = new Option<string>("--simulation-id", description: "The unique identifier of simulation") {
             };
             simulationIdOption.IsRequired = true;
@@ -59,13 +61,14 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
             return command;
         }
         /// <summary>
-        /// Represents an attack simulation training campaign in a tenant.
+        /// Get an attack simulation campaign for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/simulation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents an attack simulation training campaign in a tenant.";
+            command.Description = "Get an attack simulation campaign for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/simulation-get?view=graph-rest-beta";
             var simulationIdOption = new Option<string>("--simulation-id", description: "The unique identifier of simulation") {
             };
             simulationIdOption.IsRequired = true;
@@ -145,13 +148,14 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property simulations in security
+        /// Update an attack simulation campaign for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/simulation-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property simulations in security";
+            command.Description = "Update an attack simulation campaign for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/simulation-update?view=graph-rest-beta";
             var simulationIdOption = new Option<string>("--simulation-id", description: "The unique identifier of simulation") {
             };
             simulationIdOption.IsRequired = true;
@@ -227,7 +231,7 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property simulations for security
+        /// Delete an attack simulation campaign for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an attack simulation training campaign in a tenant.
+        /// Get an attack simulation campaign for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +269,7 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property simulations in security
+        /// Update an attack simulation campaign for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -286,7 +290,7 @@ namespace ApiSdk.Security.AttackSimulation.Simulations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an attack simulation training campaign in a tenant.
+        /// Get an attack simulation campaign for a tenant.
         /// </summary>
         public class SimulationItemRequestBuilderGetQueryParameters 
         {

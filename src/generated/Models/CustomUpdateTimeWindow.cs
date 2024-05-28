@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Custom update time window
     /// </summary>
-    public class CustomUpdateTimeWindow : IAdditionalDataHolder, IParsable 
+    public class CustomUpdateTimeWindow : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -54,11 +55,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"endDay", n => { EndDay = n.GetEnumValue<DayOfWeekObject>(); } },
-                {"endTime", n => { EndTime = n.GetTimeValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startDay", n => { StartDay = n.GetEnumValue<DayOfWeekObject>(); } },
-                {"startTime", n => { StartTime = n.GetTimeValue(); } },
+                { "endDay", n => { EndDay = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "endTime", n => { EndTime = n.GetTimeValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startDay", n => { StartDay = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "startTime", n => { StartTime = n.GetTimeValue(); } },
             };
         }
         /// <summary>

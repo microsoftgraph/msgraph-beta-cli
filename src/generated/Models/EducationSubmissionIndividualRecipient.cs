@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationSubmissionIndividualRecipient : EducationSubmissionRecipient, IParsable 
+    public class EducationSubmissionIndividualRecipient : EducationSubmissionRecipient, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>User ID of the user to whom the submission is assigned.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

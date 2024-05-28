@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAppConfigurationSchemas.Item {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAppConfigurationSchemas.Item
+{
     /// <summary>
     /// Provides operations to manage the androidManagedStoreAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder : BaseCliRequestBuilder 
+    public class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property androidManagedStoreAppConfigurationSchemas for deviceManagement

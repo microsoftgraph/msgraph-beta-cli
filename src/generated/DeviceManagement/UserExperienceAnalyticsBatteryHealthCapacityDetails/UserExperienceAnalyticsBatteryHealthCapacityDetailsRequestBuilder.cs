@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsBatteryHealthCapacityDetails {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsBatteryHealthCapacityDetails
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsBatteryHealthCapacityDetails property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsBatteryHealthCapacityDetails for deviceManagement

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class Tenant : ApiSdk.Models.Entity, IParsable 
+    public class Tenant : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The relationship details for the tenant with the managing entity.</summary>
@@ -63,12 +64,12 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contract", n => { Contract = n.GetObjectValue<TenantContract>(TenantContract.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"tenantStatusInformation", n => { TenantStatusInformation = n.GetObjectValue<ApiSdk.Models.ManagedTenants.TenantStatusInformation>(ApiSdk.Models.ManagedTenants.TenantStatusInformation.CreateFromDiscriminatorValue); } },
+                { "contract", n => { Contract = n.GetObjectValue<TenantContract>(TenantContract.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "tenantStatusInformation", n => { TenantStatusInformation = n.GetObjectValue<ApiSdk.Models.ManagedTenants.TenantStatusInformation>(ApiSdk.Models.ManagedTenants.TenantStatusInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

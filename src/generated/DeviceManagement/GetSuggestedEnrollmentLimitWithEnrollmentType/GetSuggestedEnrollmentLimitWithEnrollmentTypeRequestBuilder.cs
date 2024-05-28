@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GetSuggestedEnrollmentLimitWithEnrollmentType {
+namespace ApiSdk.DeviceManagement.GetSuggestedEnrollmentLimitWithEnrollmentType
+{
     /// <summary>
     /// Provides operations to call the getSuggestedEnrollmentLimit method.
     /// </summary>
-    public class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder : BaseCliRequestBuilder 
+    public class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSuggestedEnrollmentLimit

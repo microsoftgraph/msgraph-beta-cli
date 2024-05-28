@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationOrganization : Entity, IParsable 
+    public class EducationOrganization : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Organization description.</summary>
@@ -58,10 +59,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalSource", n => { ExternalSource = n.GetEnumValue<EducationExternalSource>(); } },
-                {"externalSourceDetail", n => { ExternalSourceDetail = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalSource", n => { ExternalSource = n.GetEnumValue<EducationExternalSource>(); } },
+                { "externalSourceDetail", n => { ExternalSourceDetail = n.GetStringValue(); } },
             };
         }
         /// <summary>

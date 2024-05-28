@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Axes.ValueAxis {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Axes.ValueAxis
+{
     /// <summary>
     /// Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
     /// </summary>
-    public class ValueAxisRequestBuilder : BaseCliRequestBuilder 
+    public class ValueAxisRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property valueAxis for drives

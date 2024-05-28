@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.IdentityProviders.Ref {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAuthenticationMethodLoadStart.GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.IdentityProviders.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of identityContainer entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property identityProviders for identity
@@ -62,13 +63,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return command;
         }
         /// <summary>
-        /// Get ref of identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get ref of identityProviders from identity";
+            command.Description = "Get the identity providers that are defined for an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -136,7 +138,9 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +152,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to identityProviders for identity
+        /// Add an identity provider to an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type. The identity provider must first be configured in the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to identityProviders for identity";
+            command.Description = "Add an identity provider to an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type. The identity provider must first be configured in the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -222,7 +227,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return requestInfo;
         }
         /// <summary>
-        /// Get ref of identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +246,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to identityProviders for identity
+        /// Add an identity provider to an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type. The identity provider must first be configured in the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -278,7 +283,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfS
 #endif
         }
         /// <summary>
-        /// Get ref of identityProviders from identity
+        /// Get the identity providers that are defined for an external identities self-service sign up user flow that&apos;s represented by an externalUsersSelfServiceSignupEventsFlow object type.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

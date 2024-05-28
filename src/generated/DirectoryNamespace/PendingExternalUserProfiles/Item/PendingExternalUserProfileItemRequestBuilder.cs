@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
+namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the pendingExternalUserProfiles property of the microsoft.graph.directory entity.
     /// </summary>
-    public class PendingExternalUserProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class PendingExternalUserProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property pendingExternalUserProfiles for directory
+        /// Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-delete-pendingexternaluserprofiles?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property pendingExternalUserProfiles for directory";
+            command.Description = "Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-delete-pendingexternaluserprofiles?view=graph-rest-beta";
             var pendingExternalUserProfileIdOption = new Option<string>("--pending-external-user-profile-id", description: "The unique identifier of pendingExternalUserProfile") {
             };
             pendingExternalUserProfileIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+        /// Retrieve the properties of a specific pendingExternalUserProfile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/pendingexternaluserprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of pending external user profiles representing collaborators in the directory that are unredeemed.";
+            command.Description = "Retrieve the properties of a specific pendingExternalUserProfile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/pendingexternaluserprofile-get?view=graph-rest-beta";
             var pendingExternalUserProfileIdOption = new Option<string>("--pending-external-user-profile-id", description: "The unique identifier of pendingExternalUserProfile") {
             };
             pendingExternalUserProfileIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property pendingExternalUserProfiles in directory
+        /// Update the properties of a pendingExternalUserProfile object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/pendingexternaluserprofile-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property pendingExternalUserProfiles in directory";
+            command.Description = "Update the properties of a pendingExternalUserProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/pendingexternaluserprofile-update?view=graph-rest-beta";
             var pendingExternalUserProfileIdOption = new Option<string>("--pending-external-user-profile-id", description: "The unique identifier of pendingExternalUserProfile") {
             };
             pendingExternalUserProfileIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property pendingExternalUserProfiles for directory
+        /// Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+        /// Retrieve the properties of a specific pendingExternalUserProfile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property pendingExternalUserProfiles in directory
+        /// Update the properties of a pendingExternalUserProfile object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.DirectoryNamespace.PendingExternalUserProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+        /// Retrieve the properties of a specific pendingExternalUserProfile.
         /// </summary>
         public class PendingExternalUserProfileItemRequestBuilderGetQueryParameters 
         {

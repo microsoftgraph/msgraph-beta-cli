@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Templates.Item.Schema.Functions {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Templates.Item.Schema.Functions
+{
     /// <summary>
     /// Provides operations to call the functions method.
     /// </summary>
-    public class FunctionsRequestBuilder : BaseCliRequestBuilder 
+    public class FunctionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// List all the functions currently supported in the attributeMappingSource.
@@ -115,7 +116,9 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Templates.Item.Schema.Fu
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A mobileApp that is based on a referenced application in a Win32CatalogApp repository
     /// </summary>
-    public class Win32CatalogApp : Win32LobApp, IParsable 
+    public class Win32CatalogApp : Win32LobApp, IParsable
     {
         /// <summary>The latest available catalog package the app is upgradeable to. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"latestUpgradeCatalogPackage", n => { LatestUpgradeCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
-                {"mobileAppCatalogPackageId", n => { MobileAppCatalogPackageId = n.GetStringValue(); } },
-                {"referencedCatalogPackage", n => { ReferencedCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
+                { "latestUpgradeCatalogPackage", n => { LatestUpgradeCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
+                { "mobileAppCatalogPackageId", n => { MobileAppCatalogPackageId = n.GetStringValue(); } },
+                { "referencedCatalogPackage", n => { ReferencedCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

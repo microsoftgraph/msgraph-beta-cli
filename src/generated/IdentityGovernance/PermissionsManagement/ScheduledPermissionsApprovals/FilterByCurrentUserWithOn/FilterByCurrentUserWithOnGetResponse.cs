@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsApprovals.FilterByCurrentUserWithOn {
+namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsApprovals.FilterByCurrentUserWithOn
+{
     #pragma warning disable CS1591
-    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FilterByCurrentUserWithOnGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsAp
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Approval>(ApiSdk.Models.Approval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Approval>(ApiSdk.Models.Approval.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

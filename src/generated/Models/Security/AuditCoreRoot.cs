@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AuditCoreRoot : ApiSdk.Models.Entity, IParsable 
+    public class AuditCoreRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The queries property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"queries", n => { Queries = n.GetCollectionOfObjectValues<AuditLogQuery>(AuditLogQuery.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "queries", n => { Queries = n.GetCollectionOfObjectValues<AuditLogQuery>(AuditLogQuery.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

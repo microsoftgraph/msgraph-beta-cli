@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item {
+namespace ApiSdk.ApprovalWorkflowProviders.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of approvalWorkflowProvider entities.
     /// </summary>
-    public class ApprovalWorkflowProviderItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalWorkflowProviderItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.

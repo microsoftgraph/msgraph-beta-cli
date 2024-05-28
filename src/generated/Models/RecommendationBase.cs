@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RecommendationBase : Entity, IParsable 
+    public class RecommendationBase : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions to take to complete a recommendation.</summary>
@@ -109,6 +110,8 @@ namespace ApiSdk.Models {
 #else
         public string RemediationImpact { get; set; }
 #endif
+        /// <summary>The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue.</summary>
+        public ApiSdk.Models.RequiredLicenses? RequiredLicenses { get; set; }
         /// <summary>The status property</summary>
         public RecommendationStatus? Status { get; set; }
         /// <summary>
@@ -134,27 +137,28 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionSteps", n => { ActionSteps = n.GetCollectionOfObjectValues<ActionStep>(ActionStep.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"benefits", n => { Benefits = n.GetStringValue(); } },
-                {"category", n => { Category = n.GetEnumValue<RecommendationCategory>(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"currentScore", n => { CurrentScore = n.GetDoubleValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"featureAreas", n => { FeatureAreas = n.GetCollectionOfEnumValues<RecommendationFeatureAreas>()?.ToList(); } },
-                {"impactStartDateTime", n => { ImpactStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"impactType", n => { ImpactType = n.GetStringValue(); } },
-                {"impactedResources", n => { ImpactedResources = n.GetCollectionOfObjectValues<ImpactedResource>(ImpactedResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"insights", n => { Insights = n.GetStringValue(); } },
-                {"lastCheckedDateTime", n => { LastCheckedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"maxScore", n => { MaxScore = n.GetDoubleValue(); } },
-                {"postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
-                {"priority", n => { Priority = n.GetEnumValue<RecommendationPriority>(); } },
-                {"recommendationType", n => { RecommendationType = n.GetEnumValue<RecommendationType>(); } },
-                {"releaseType", n => { ReleaseType = n.GetStringValue(); } },
-                {"remediationImpact", n => { RemediationImpact = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<RecommendationStatus>(); } },
+                { "actionSteps", n => { ActionSteps = n.GetCollectionOfObjectValues<ActionStep>(ActionStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "benefits", n => { Benefits = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetEnumValue<RecommendationCategory>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "currentScore", n => { CurrentScore = n.GetDoubleValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "featureAreas", n => { FeatureAreas = n.GetCollectionOfEnumValues<RecommendationFeatureAreas>()?.ToList(); } },
+                { "impactStartDateTime", n => { ImpactStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "impactType", n => { ImpactType = n.GetStringValue(); } },
+                { "impactedResources", n => { ImpactedResources = n.GetCollectionOfObjectValues<ImpactedResource>(ImpactedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "insights", n => { Insights = n.GetStringValue(); } },
+                { "lastCheckedDateTime", n => { LastCheckedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "maxScore", n => { MaxScore = n.GetDoubleValue(); } },
+                { "postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
+                { "priority", n => { Priority = n.GetEnumValue<RecommendationPriority>(); } },
+                { "recommendationType", n => { RecommendationType = n.GetEnumValue<RecommendationType>(); } },
+                { "releaseType", n => { ReleaseType = n.GetStringValue(); } },
+                { "remediationImpact", n => { RemediationImpact = n.GetStringValue(); } },
+                { "requiredLicenses", n => { RequiredLicenses = n.GetEnumValue<RequiredLicenses>(); } },
+                { "status", n => { Status = n.GetEnumValue<RecommendationStatus>(); } },
             };
         }
         /// <summary>
@@ -185,6 +189,7 @@ namespace ApiSdk.Models {
             writer.WriteEnumValue<RecommendationType>("recommendationType", RecommendationType);
             writer.WriteStringValue("releaseType", ReleaseType);
             writer.WriteStringValue("remediationImpact", RemediationImpact);
+            writer.WriteEnumValue<RequiredLicenses>("requiredLicenses", RequiredLicenses);
             writer.WriteEnumValue<RecommendationStatus>("status", Status);
         }
     }

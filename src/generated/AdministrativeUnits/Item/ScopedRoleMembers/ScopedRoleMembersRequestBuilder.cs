@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
+namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers
+{
     /// <summary>
     /// Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
     /// </summary>
-    public class ScopedRoleMembersRequestBuilder : BaseCliRequestBuilder 
+    public class ScopedRoleMembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to scopedRoleMembers for administrativeUnits
+        /// Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-post-scopedrolemembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to scopedRoleMembers for administrativeUnits";
+            command.Description = "Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-post-scopedrolemembers?view=graph-rest-beta";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
             return command;
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// List Microsoft Entra role assignments with administrative unit scope.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-list-scopedrolemembers?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Scoped-role members of this administrative unit.";
+            command.Description = "List Microsoft Entra role assignments with administrative unit scope.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-list-scopedrolemembers?view=graph-rest-beta";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
         {
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// List Microsoft Entra role assignments with administrative unit scope.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to scopedRoleMembers for administrativeUnits
+        /// Assign a Microsoft Entra role with administrative unit scope. For a list of roles that can be assigned with administrative unit scope, see Assign Microsoft Entra roles with administrative unit scope.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.AdministrativeUnits.Item.ScopedRoleMembers {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this administrative unit.
+        /// List Microsoft Entra role assignments with administrative unit scope.
         /// </summary>
         public class ScopedRoleMembersRequestBuilderGetQueryParameters 
         {

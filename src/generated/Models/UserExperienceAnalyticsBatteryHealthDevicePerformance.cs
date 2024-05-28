@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics battery health device performance entity contains device level battery information.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthDevicePerformance : Entity, IParsable 
+    public class UserExperienceAnalyticsBatteryHealthDevicePerformance : Entity, IParsable
     {
         /// <summary>Estimated battery age. Unit in days. Valid values 0 to 2147483647</summary>
         public int? BatteryAgeInDays { get; set; }
@@ -90,19 +91,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"batteryAgeInDays", n => { BatteryAgeInDays = n.GetIntValue(); } },
-                {"deviceBatteriesDetails", n => { DeviceBatteriesDetails = n.GetCollectionOfObjectValues<UserExperienceAnalyticsDeviceBatteryDetail>(UserExperienceAnalyticsDeviceBatteryDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deviceBatteryCount", n => { DeviceBatteryCount = n.GetIntValue(); } },
-                {"deviceBatteryHealthScore", n => { DeviceBatteryHealthScore = n.GetIntValue(); } },
-                {"deviceBatteryTags", n => { DeviceBatteryTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"estimatedRuntimeInMinutes", n => { EstimatedRuntimeInMinutes = n.GetIntValue(); } },
-                {"fullBatteryDrainCount", n => { FullBatteryDrainCount = n.GetIntValue(); } },
-                {"healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"maxCapacityPercentage", n => { MaxCapacityPercentage = n.GetIntValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
+                { "batteryAgeInDays", n => { BatteryAgeInDays = n.GetIntValue(); } },
+                { "deviceBatteriesDetails", n => { DeviceBatteriesDetails = n.GetCollectionOfObjectValues<UserExperienceAnalyticsDeviceBatteryDetail>(UserExperienceAnalyticsDeviceBatteryDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceBatteryCount", n => { DeviceBatteryCount = n.GetIntValue(); } },
+                { "deviceBatteryHealthScore", n => { DeviceBatteryHealthScore = n.GetIntValue(); } },
+                { "deviceBatteryTags", n => { DeviceBatteryTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "estimatedRuntimeInMinutes", n => { EstimatedRuntimeInMinutes = n.GetIntValue(); } },
+                { "fullBatteryDrainCount", n => { FullBatteryDrainCount = n.GetIntValue(); } },
+                { "healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "maxCapacityPercentage", n => { MaxCapacityPercentage = n.GetIntValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Fixed {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Fixed
+{
     #pragma warning disable CS1591
-    public class FixedPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class FixedPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Fixed {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"decimals", n => { Decimals = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"noCommas", n => { NoCommas = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"number", n => { Number = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "decimals", n => { Decimals = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "noCommas", n => { NoCommas = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "number", n => { Number = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

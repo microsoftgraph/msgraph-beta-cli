@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item {
+namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item
+{
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.outlookTaskFolder entity.
     /// </summary>
-    public class OutlookTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutlookTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attachments property of the microsoft.graph.outlookTask entity.

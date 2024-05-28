@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.AccessPackageAssignmentPolicies.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.AccessPackage.AccessPackageAssignmentPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.accessPackage entity.
     /// </summary>
-    public class AccessPackageAssignmentPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageAssignmentPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageCatalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.

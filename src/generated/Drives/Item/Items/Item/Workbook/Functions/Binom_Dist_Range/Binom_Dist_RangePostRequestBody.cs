@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Binom_Dist_Range {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Binom_Dist_Range
+{
     #pragma warning disable CS1591
-    public class Binom_Dist_RangePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class Binom_Dist_RangePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -69,10 +70,10 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Binom_Dist_Range {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"numberS", n => { NumberS = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"numberS2", n => { NumberS2 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"probabilityS", n => { ProbabilityS = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"trials", n => { Trials = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "numberS", n => { NumberS = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "numberS2", n => { NumberS2 = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "probabilityS", n => { ProbabilityS = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "trials", n => { Trials = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

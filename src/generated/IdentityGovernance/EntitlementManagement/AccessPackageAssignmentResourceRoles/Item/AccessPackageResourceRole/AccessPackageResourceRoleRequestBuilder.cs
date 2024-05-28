@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceRole {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.Item.AccessPackageResourceRole
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceRole property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     /// </summary>
-    public class AccessPackageResourceRoleRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceRoleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResource property of the microsoft.graph.accessPackageResourceRole entity.

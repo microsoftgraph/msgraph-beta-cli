@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.LicenseDetails.GetTeamsLicensingDetails {
+namespace ApiSdk.Users.Item.LicenseDetails.GetTeamsLicensingDetails
+{
     /// <summary>
     /// Provides operations to call the getTeamsLicensingDetails method.
     /// </summary>
-    public class GetTeamsLicensingDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class GetTeamsLicensingDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the license status of a user in Microsoft Teams.

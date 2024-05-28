@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.SourceSystems.Item {
+namespace ApiSdk.External.IndustryData.SourceSystems.Item
+{
     /// <summary>
     /// Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class SourceSystemDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class SourceSystemDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property sourceSystems for external
+        /// Delete a sourceSystemDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property sourceSystems for external";
+            command.Description = "Delete a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-beta";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -56,13 +58,14 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return command;
         }
         /// <summary>
-        /// Set of source definitions that represents real-world external systems.
+        /// Read the properties and relationships of a sourceSystemDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of source definitions that represents real-world external systems.";
+            command.Description = "Read the properties and relationships of a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-beta";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -108,13 +111,14 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property sourceSystems in external
+        /// Update the properties of a sourceSystemDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property sourceSystems in external";
+            command.Description = "Update the properties of a sourceSystemDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-beta";
             var sourceSystemDefinitionIdOption = new Option<string>("--source-system-definition-id", description: "The unique identifier of sourceSystemDefinition") {
             };
             sourceSystemDefinitionIdOption.IsRequired = true;
@@ -173,7 +177,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property sourceSystems for external
+        /// Delete a sourceSystemDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +196,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of source definitions that represents real-world external systems.
+        /// Read the properties and relationships of a sourceSystemDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +215,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property sourceSystems in external
+        /// Update the properties of a sourceSystemDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +236,7 @@ namespace ApiSdk.External.IndustryData.SourceSystems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of source definitions that represents real-world external systems.
+        /// Read the properties and relationships of a sourceSystemDefinition object.
         /// </summary>
         public class SourceSystemDefinitionItemRequestBuilderGetQueryParameters 
         {

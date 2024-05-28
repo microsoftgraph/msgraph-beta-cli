@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationFeedbackOutcome : EducationOutcome, IParsable 
+    public class EducationFeedbackOutcome : EducationOutcome, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Teacher&apos;s written feedback to the student.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"feedback", n => { Feedback = n.GetObjectValue<EducationFeedback>(EducationFeedback.CreateFromDiscriminatorValue); } },
-                {"publishedFeedback", n => { PublishedFeedback = n.GetObjectValue<EducationFeedback>(EducationFeedback.CreateFromDiscriminatorValue); } },
+                { "feedback", n => { Feedback = n.GetObjectValue<EducationFeedback>(EducationFeedback.CreateFromDiscriminatorValue); } },
+                { "publishedFeedback", n => { PublishedFeedback = n.GetObjectValue<EducationFeedback>(EducationFeedback.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

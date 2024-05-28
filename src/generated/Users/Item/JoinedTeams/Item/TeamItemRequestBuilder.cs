@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.JoinedTeams.Item {
+namespace ApiSdk.Users.Item.JoinedTeams.Item
+{
     /// <summary>
     /// Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
     /// </summary>
-    public class TeamItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The Microsoft Teams teams the user is a member of. Read-only. Nullable.

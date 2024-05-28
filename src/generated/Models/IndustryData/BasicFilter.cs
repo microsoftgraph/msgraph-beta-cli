@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class BasicFilter : Filter, IParsable 
+    public class BasicFilter : Filter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The attribute property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"attribute", n => { Attribute = n.GetEnumValue<FilterOptions>(); } },
-                {"in", n => { In = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "attribute", n => { Attribute = n.GetEnumValue<FilterOptions>(); } },
+                { "in", n => { In = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

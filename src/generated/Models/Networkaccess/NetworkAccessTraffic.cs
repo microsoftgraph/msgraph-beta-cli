@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class NetworkAccessTraffic : IAdditionalDataHolder, IParsable 
+    public class NetworkAccessTraffic : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The action property</summary>
+        /// <summary>Indicates what action to take based on filtering policies. The possible values are: block, allow.</summary>
         public FilteringPolicyAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -263,6 +264,14 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string UserPrincipalName { get; set; }
 #endif
+        /// <summary>The vendorNames property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? VendorNames { get; set; }
+#nullable restore
+#else
+        public List<string> VendorNames { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="NetworkAccessTraffic"/> and sets the default values.
         /// </summary>
@@ -288,45 +297,46 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
-                {"agentVersion", n => { AgentVersion = n.GetStringValue(); } },
-                {"applicationSnapshot", n => { ApplicationSnapshot = n.GetObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>(ApiSdk.Models.Networkaccess.ApplicationSnapshot.CreateFromDiscriminatorValue); } },
-                {"connectionId", n => { ConnectionId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"destinationFQDN", n => { DestinationFQDN = n.GetStringValue(); } },
-                {"destinationIp", n => { DestinationIp = n.GetStringValue(); } },
-                {"destinationPort", n => { DestinationPort = n.GetIntValue(); } },
-                {"destinationUrl", n => { DestinationUrl = n.GetStringValue(); } },
-                {"destinationWebCategory", n => { DestinationWebCategory = n.GetObjectValue<WebCategory>(WebCategory.CreateFromDiscriminatorValue); } },
-                {"deviceCategory", n => { DeviceCategory = n.GetEnumValue<DeviceCategory>(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceOperatingSystem", n => { DeviceOperatingSystem = n.GetStringValue(); } },
-                {"deviceOperatingSystemVersion", n => { DeviceOperatingSystemVersion = n.GetStringValue(); } },
-                {"filteringProfileId", n => { FilteringProfileId = n.GetStringValue(); } },
-                {"filteringProfileName", n => { FilteringProfileName = n.GetStringValue(); } },
-                {"headers", n => { Headers = n.GetObjectValue<ApiSdk.Models.Networkaccess.Headers>(ApiSdk.Models.Networkaccess.Headers.CreateFromDiscriminatorValue); } },
-                {"initiatingProcessName", n => { InitiatingProcessName = n.GetStringValue(); } },
-                {"networkProtocol", n => { NetworkProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"policyId", n => { PolicyId = n.GetStringValue(); } },
-                {"policyName", n => { PolicyName = n.GetStringValue(); } },
-                {"policyRuleId", n => { PolicyRuleId = n.GetStringValue(); } },
-                {"policyRuleName", n => { PolicyRuleName = n.GetStringValue(); } },
-                {"privateAccessDetails", n => { PrivateAccessDetails = n.GetObjectValue<ApiSdk.Models.Networkaccess.PrivateAccessDetails>(ApiSdk.Models.Networkaccess.PrivateAccessDetails.CreateFromDiscriminatorValue); } },
-                {"receivedBytes", n => { ReceivedBytes = n.GetLongValue(); } },
-                {"resourceTenantId", n => { ResourceTenantId = n.GetStringValue(); } },
-                {"sentBytes", n => { SentBytes = n.GetLongValue(); } },
-                {"sessionId", n => { SessionId = n.GetStringValue(); } },
-                {"sourceIp", n => { SourceIp = n.GetStringValue(); } },
-                {"sourcePort", n => { SourcePort = n.GetIntValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"threatType", n => { ThreatType = n.GetStringValue(); } },
-                {"trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
-                {"transactionId", n => { TransactionId = n.GetStringValue(); } },
-                {"transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
+                { "agentVersion", n => { AgentVersion = n.GetStringValue(); } },
+                { "applicationSnapshot", n => { ApplicationSnapshot = n.GetObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>(ApiSdk.Models.Networkaccess.ApplicationSnapshot.CreateFromDiscriminatorValue); } },
+                { "connectionId", n => { ConnectionId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "destinationFQDN", n => { DestinationFQDN = n.GetStringValue(); } },
+                { "destinationIp", n => { DestinationIp = n.GetStringValue(); } },
+                { "destinationPort", n => { DestinationPort = n.GetIntValue(); } },
+                { "destinationUrl", n => { DestinationUrl = n.GetStringValue(); } },
+                { "destinationWebCategory", n => { DestinationWebCategory = n.GetObjectValue<WebCategory>(WebCategory.CreateFromDiscriminatorValue); } },
+                { "deviceCategory", n => { DeviceCategory = n.GetEnumValue<DeviceCategory>(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceOperatingSystem", n => { DeviceOperatingSystem = n.GetStringValue(); } },
+                { "deviceOperatingSystemVersion", n => { DeviceOperatingSystemVersion = n.GetStringValue(); } },
+                { "filteringProfileId", n => { FilteringProfileId = n.GetStringValue(); } },
+                { "filteringProfileName", n => { FilteringProfileName = n.GetStringValue(); } },
+                { "headers", n => { Headers = n.GetObjectValue<ApiSdk.Models.Networkaccess.Headers>(ApiSdk.Models.Networkaccess.Headers.CreateFromDiscriminatorValue); } },
+                { "initiatingProcessName", n => { InitiatingProcessName = n.GetStringValue(); } },
+                { "networkProtocol", n => { NetworkProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "policyName", n => { PolicyName = n.GetStringValue(); } },
+                { "policyRuleId", n => { PolicyRuleId = n.GetStringValue(); } },
+                { "policyRuleName", n => { PolicyRuleName = n.GetStringValue(); } },
+                { "privateAccessDetails", n => { PrivateAccessDetails = n.GetObjectValue<ApiSdk.Models.Networkaccess.PrivateAccessDetails>(ApiSdk.Models.Networkaccess.PrivateAccessDetails.CreateFromDiscriminatorValue); } },
+                { "receivedBytes", n => { ReceivedBytes = n.GetLongValue(); } },
+                { "resourceTenantId", n => { ResourceTenantId = n.GetStringValue(); } },
+                { "sentBytes", n => { SentBytes = n.GetLongValue(); } },
+                { "sessionId", n => { SessionId = n.GetStringValue(); } },
+                { "sourceIp", n => { SourceIp = n.GetStringValue(); } },
+                { "sourcePort", n => { SourcePort = n.GetIntValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "threatType", n => { ThreatType = n.GetStringValue(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "transactionId", n => { TransactionId = n.GetStringValue(); } },
+                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "vendorNames", n => { VendorNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -375,6 +385,7 @@ namespace ApiSdk.Models.Networkaccess {
             writer.WriteEnumValue<NetworkingProtocol>("transportProtocol", TransportProtocol);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
+            writer.WriteCollectionOfPrimitiveValues<string>("vendorNames", VendorNames);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

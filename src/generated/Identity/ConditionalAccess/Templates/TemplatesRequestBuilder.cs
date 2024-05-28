@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.Templates {
+namespace ApiSdk.Identity.ConditionalAccess.Templates
+{
     /// <summary>
     /// Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
     /// </summary>
-    public class TemplatesRequestBuilder : BaseCliRequestBuilder 
+    public class TemplatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Get a list of the conditionalAccessTemplate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccessroot-list-templates?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified Conditional Access templates.";
+            command.Description = "Get a list of the conditionalAccessTemplate objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccessroot-list-templates?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -133,7 +135,9 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -159,7 +163,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Get a list of the conditionalAccessTemplate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -178,7 +182,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Get a list of the conditionalAccessTemplate objects and their properties.
         /// </summary>
         public class TemplatesRequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.DeploymentProfile {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.DeploymentProfile
+{
     /// <summary>
     /// Provides operations to manage the deploymentProfile property of the microsoft.graph.windowsAutopilotDeviceIdentity entity.
     /// </summary>
-    public class DeploymentProfileRequestBuilder : BaseCliRequestBuilder 
+    public class DeploymentProfileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Deployment profile currently assigned to the Windows autopilot device.

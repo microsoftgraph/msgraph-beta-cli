@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MultiTenantOrganizationMember : DirectoryObject, IParsable 
+    public class MultiTenantOrganizationMember : DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Tenant ID of the tenant that added the tenant to the multitenant organization. Read-only.</summary>
@@ -68,14 +69,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"addedByTenantId", n => { AddedByTenantId = n.GetGuidValue(); } },
-                {"addedDateTime", n => { AddedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"joinedDateTime", n => { JoinedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"role", n => { Role = n.GetEnumValue<MultiTenantOrganizationMemberRole>(); } },
-                {"state", n => { State = n.GetEnumValue<MultiTenantOrganizationMemberState>(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"transitionDetails", n => { TransitionDetails = n.GetObjectValue<MultiTenantOrganizationMemberTransitionDetails>(MultiTenantOrganizationMemberTransitionDetails.CreateFromDiscriminatorValue); } },
+                { "addedByTenantId", n => { AddedByTenantId = n.GetGuidValue(); } },
+                { "addedDateTime", n => { AddedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "joinedDateTime", n => { JoinedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "role", n => { Role = n.GetEnumValue<MultiTenantOrganizationMemberRole>(); } },
+                { "state", n => { State = n.GetEnumValue<MultiTenantOrganizationMemberState>(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "transitionDetails", n => { TransitionDetails = n.GetObjectValue<MultiTenantOrganizationMemberTransitionDetails>(MultiTenantOrganizationMemberTransitionDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

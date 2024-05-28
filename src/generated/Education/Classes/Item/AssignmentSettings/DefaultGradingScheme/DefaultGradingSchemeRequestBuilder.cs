@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.AssignmentSettings.DefaultGradingScheme {
+namespace ApiSdk.Education.Classes.Item.AssignmentSettings.DefaultGradingScheme
+{
     /// <summary>
     /// Provides operations to manage the defaultGradingScheme property of the microsoft.graph.educationAssignmentSettings entity.
     /// </summary>
-    public class DefaultGradingSchemeRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultGradingSchemeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get defaultGradingScheme from education

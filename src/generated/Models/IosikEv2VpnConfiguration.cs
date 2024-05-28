@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the iOS device to connect to desired IKEv2 VPN endpoint.
     /// </summary>
-    public class IosikEv2VpnConfiguration : IosVpnConfiguration, IParsable 
+    public class IosikEv2VpnConfiguration : IosVpnConfiguration, IParsable
     {
         /// <summary>Allows the use of child security association parameters by setting all parameters to the device&apos;s default unless explicitly specified.</summary>
         public bool? AllowDefaultChildSecurityAssociationParameters { get; set; }
@@ -135,29 +136,29 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowDefaultChildSecurityAssociationParameters", n => { AllowDefaultChildSecurityAssociationParameters = n.GetBoolValue(); } },
-                {"allowDefaultSecurityAssociationParameters", n => { AllowDefaultSecurityAssociationParameters = n.GetBoolValue(); } },
-                {"alwaysOnConfiguration", n => { AlwaysOnConfiguration = n.GetObjectValue<AppleVpnAlwaysOnConfiguration>(AppleVpnAlwaysOnConfiguration.CreateFromDiscriminatorValue); } },
-                {"childSecurityAssociationParameters", n => { ChildSecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
-                {"clientAuthenticationType", n => { ClientAuthenticationType = n.GetEnumValue<VpnClientAuthenticationType>(); } },
-                {"deadPeerDetectionRate", n => { DeadPeerDetectionRate = n.GetEnumValue<VpnDeadPeerDetectionRate>(); } },
-                {"disableMobilityAndMultihoming", n => { DisableMobilityAndMultihoming = n.GetBoolValue(); } },
-                {"disableRedirect", n => { DisableRedirect = n.GetBoolValue(); } },
-                {"enableAlwaysOnConfiguration", n => { EnableAlwaysOnConfiguration = n.GetBoolValue(); } },
-                {"enableCertificateRevocationCheck", n => { EnableCertificateRevocationCheck = n.GetBoolValue(); } },
-                {"enableEAP", n => { EnableEAP = n.GetBoolValue(); } },
-                {"enablePerfectForwardSecrecy", n => { EnablePerfectForwardSecrecy = n.GetBoolValue(); } },
-                {"enableUseInternalSubnetAttributes", n => { EnableUseInternalSubnetAttributes = n.GetBoolValue(); } },
-                {"localIdentifier", n => { LocalIdentifier = n.GetEnumValue<VpnLocalIdentifier>(); } },
-                {"mtuSizeInBytes", n => { MtuSizeInBytes = n.GetIntValue(); } },
-                {"remoteIdentifier", n => { RemoteIdentifier = n.GetStringValue(); } },
-                {"securityAssociationParameters", n => { SecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
-                {"serverCertificateCommonName", n => { ServerCertificateCommonName = n.GetStringValue(); } },
-                {"serverCertificateIssuerCommonName", n => { ServerCertificateIssuerCommonName = n.GetStringValue(); } },
-                {"serverCertificateType", n => { ServerCertificateType = n.GetEnumValue<VpnServerCertificateType>(); } },
-                {"sharedSecret", n => { SharedSecret = n.GetStringValue(); } },
-                {"tlsMaximumVersion", n => { TlsMaximumVersion = n.GetStringValue(); } },
-                {"tlsMinimumVersion", n => { TlsMinimumVersion = n.GetStringValue(); } },
+                { "allowDefaultChildSecurityAssociationParameters", n => { AllowDefaultChildSecurityAssociationParameters = n.GetBoolValue(); } },
+                { "allowDefaultSecurityAssociationParameters", n => { AllowDefaultSecurityAssociationParameters = n.GetBoolValue(); } },
+                { "alwaysOnConfiguration", n => { AlwaysOnConfiguration = n.GetObjectValue<AppleVpnAlwaysOnConfiguration>(AppleVpnAlwaysOnConfiguration.CreateFromDiscriminatorValue); } },
+                { "childSecurityAssociationParameters", n => { ChildSecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
+                { "clientAuthenticationType", n => { ClientAuthenticationType = n.GetEnumValue<VpnClientAuthenticationType>(); } },
+                { "deadPeerDetectionRate", n => { DeadPeerDetectionRate = n.GetEnumValue<VpnDeadPeerDetectionRate>(); } },
+                { "disableMobilityAndMultihoming", n => { DisableMobilityAndMultihoming = n.GetBoolValue(); } },
+                { "disableRedirect", n => { DisableRedirect = n.GetBoolValue(); } },
+                { "enableAlwaysOnConfiguration", n => { EnableAlwaysOnConfiguration = n.GetBoolValue(); } },
+                { "enableCertificateRevocationCheck", n => { EnableCertificateRevocationCheck = n.GetBoolValue(); } },
+                { "enableEAP", n => { EnableEAP = n.GetBoolValue(); } },
+                { "enablePerfectForwardSecrecy", n => { EnablePerfectForwardSecrecy = n.GetBoolValue(); } },
+                { "enableUseInternalSubnetAttributes", n => { EnableUseInternalSubnetAttributes = n.GetBoolValue(); } },
+                { "localIdentifier", n => { LocalIdentifier = n.GetEnumValue<VpnLocalIdentifier>(); } },
+                { "mtuSizeInBytes", n => { MtuSizeInBytes = n.GetIntValue(); } },
+                { "remoteIdentifier", n => { RemoteIdentifier = n.GetStringValue(); } },
+                { "securityAssociationParameters", n => { SecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
+                { "serverCertificateCommonName", n => { ServerCertificateCommonName = n.GetStringValue(); } },
+                { "serverCertificateIssuerCommonName", n => { ServerCertificateIssuerCommonName = n.GetStringValue(); } },
+                { "serverCertificateType", n => { ServerCertificateType = n.GetEnumValue<VpnServerCertificateType>(); } },
+                { "sharedSecret", n => { SharedSecret = n.GetStringValue(); } },
+                { "tlsMaximumVersion", n => { TlsMaximumVersion = n.GetStringValue(); } },
+                { "tlsMinimumVersion", n => { TlsMinimumVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

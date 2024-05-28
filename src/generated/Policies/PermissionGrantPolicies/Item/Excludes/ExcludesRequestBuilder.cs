@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
+namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes
+{
     /// <summary>
     /// Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
     /// </summary>
-    public class ExcludesRequestBuilder : BaseCliRequestBuilder 
+    public class ExcludesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to excludes for policies
+        /// Add conditions under which a permission grant event is *excluded* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the excludes collection of a  permissionGrantPolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-excludes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to excludes for policies";
+            command.Description = "Add conditions under which a permission grant event is *excluded* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the excludes collection of a  permissionGrantPolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-excludes?view=graph-rest-beta";
             var permissionGrantPolicyIdOption = new Option<string>("--permission-grant-policy-id", description: "The unique identifier of permissionGrantPolicy") {
             };
             permissionGrantPolicyIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
             return command;
         }
         /// <summary>
-        /// Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.
+        /// Retrieve the condition sets that are *excluded* in a permissionGrantPolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-excludes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.";
+            command.Description = "Retrieve the condition sets that are *excluded* in a permissionGrantPolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-excludes?view=graph-rest-beta";
             var permissionGrantPolicyIdOption = new Option<string>("--permission-grant-policy-id", description: "The unique identifier of permissionGrantPolicy") {
             };
             permissionGrantPolicyIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
         {
         }
         /// <summary>
-        /// Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.
+        /// Retrieve the condition sets that are *excluded* in a permissionGrantPolicy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to excludes for policies
+        /// Add conditions under which a permission grant event is *excluded* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the excludes collection of a  permissionGrantPolicy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes {
             return requestInfo;
         }
         /// <summary>
-        /// Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.
+        /// Retrieve the condition sets that are *excluded* in a permissionGrantPolicy.
         /// </summary>
         public class ExcludesRequestBuilderGetQueryParameters 
         {

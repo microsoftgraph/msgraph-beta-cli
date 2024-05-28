@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AuthorizationPolicy.Item {
+namespace ApiSdk.Policies.AuthorizationPolicy.Item
+{
     /// <summary>
     /// Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class AuthorizationPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorizationPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.

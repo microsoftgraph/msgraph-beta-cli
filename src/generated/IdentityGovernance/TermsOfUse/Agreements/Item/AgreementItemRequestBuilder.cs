@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
+namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item
+{
     /// <summary>
     /// Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
     /// </summary>
-    public class AgreementItemRequestBuilder : BaseCliRequestBuilder 
+    public class AgreementItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property agreements for identityGovernance
+        /// Delete an agreement object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property agreements for identityGovernance";
+            command.Description = "Delete an agreement object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-beta";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
             };
             agreementIdOption.IsRequired = true;
@@ -138,13 +140,14 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return command;
         }
         /// <summary>
-        /// Represents a tenant&apos;s customizable terms of use agreement that&apos;s created and managed with Microsoft Entra ID.
+        /// Retrieve all files related to an agreement. This includes the default file and all localized files.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID.";
+            command.Description = "Retrieve all files related to an agreement. This includes the default file and all localized files.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-beta";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
             };
             agreementIdOption.IsRequired = true;
@@ -190,13 +193,14 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property agreements in identityGovernance
+        /// Update the properties of an agreement object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property agreements in identityGovernance";
+            command.Description = "Update the properties of an agreement object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-update?view=graph-rest-beta";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
             };
             agreementIdOption.IsRequired = true;
@@ -255,7 +259,7 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property agreements for identityGovernance
+        /// Delete an agreement object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -274,7 +278,7 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a tenant&apos;s customizable terms of use agreement that&apos;s created and managed with Microsoft Entra ID.
+        /// Retrieve all files related to an agreement. This includes the default file and all localized files.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -293,7 +297,7 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property agreements in identityGovernance
+        /// Update the properties of an agreement object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -314,7 +318,7 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a tenant&apos;s customizable terms of use agreement that&apos;s created and managed with Microsoft Entra ID.
+        /// Retrieve all files related to an agreement. This includes the default file and all localized files.
         /// </summary>
         public class AgreementItemRequestBuilderGetQueryParameters 
         {

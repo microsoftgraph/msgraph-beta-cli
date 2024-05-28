@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates
+{
     /// <summary>
     /// Provides operations to manage the templates property of the microsoft.graph.crossTenantAccessPolicy entity.
     /// </summary>
-    public class TemplatesRequestBuilder : BaseCliRequestBuilder 
+    public class TemplatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property templates for policies

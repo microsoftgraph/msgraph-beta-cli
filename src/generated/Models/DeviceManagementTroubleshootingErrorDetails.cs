@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Object containing detailed information about the error and its remediation.
     /// </summary>
-    public class DeviceManagementTroubleshootingErrorDetails : IAdditionalDataHolder, IParsable 
+    public class DeviceManagementTroubleshootingErrorDetails : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -85,12 +86,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"context", n => { Context = n.GetStringValue(); } },
-                {"failure", n => { Failure = n.GetStringValue(); } },
-                {"failureDetails", n => { FailureDetails = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"remediation", n => { Remediation = n.GetStringValue(); } },
-                {"resources", n => { Resources = n.GetCollectionOfObjectValues<DeviceManagementTroubleshootingErrorResource>(DeviceManagementTroubleshootingErrorResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "context", n => { Context = n.GetStringValue(); } },
+                { "failure", n => { Failure = n.GetStringValue(); } },
+                { "failureDetails", n => { FailureDetails = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "remediation", n => { Remediation = n.GetStringValue(); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<DeviceManagementTroubleshootingErrorResource>(DeviceManagementTroubleshootingErrorResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

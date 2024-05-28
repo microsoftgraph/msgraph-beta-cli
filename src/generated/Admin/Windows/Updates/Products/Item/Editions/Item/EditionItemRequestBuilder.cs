@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.Editions.Item {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.Editions.Item
+{
     /// <summary>
     /// Provides operations to manage the editions property of the microsoft.graph.windowsUpdates.product entity.
     /// </summary>
-    public class EditionItemRequestBuilder : BaseCliRequestBuilder 
+    public class EditionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property editions for admin

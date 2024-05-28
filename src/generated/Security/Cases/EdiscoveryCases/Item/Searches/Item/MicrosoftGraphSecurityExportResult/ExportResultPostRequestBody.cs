@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult
+{
     #pragma warning disable CS1591
-    public class ExportResultPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExportResultPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -63,13 +64,13 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
-                {"exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
-                {"exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
-                {"exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
+                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
+                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
+                { "exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
             };
         }
         /// <summary>

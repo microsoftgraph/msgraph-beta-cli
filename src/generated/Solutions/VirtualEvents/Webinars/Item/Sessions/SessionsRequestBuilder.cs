@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class SessionsRequestBuilder : BaseCliRequestBuilder 
+    public class SessionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
@@ -110,13 +111,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions {
             return command;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Get a list of all virtualEventSession objects under a virtual event. Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualevent-list-sessions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Sessions for the virtual event.";
+            command.Description = "Get a list of all virtualEventSession objects under a virtual event. Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualevent-list-sessions?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -198,7 +200,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -224,7 +228,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions {
         {
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Get a list of all virtualEventSession objects under a virtual event. Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +268,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Sessions {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// Get a list of all virtualEventSession objects under a virtual event. Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
         /// </summary>
         public class SessionsRequestBuilderGetQueryParameters 
         {

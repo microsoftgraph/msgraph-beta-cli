@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsManagement {
+namespace ApiSdk.IdentityGovernance.PermissionsManagement
+{
     /// <summary>
     /// Provides operations to manage the permissionsManagement property of the microsoft.graph.identityGovernance entity.
     /// </summary>
-    public class PermissionsManagementRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionsManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property permissionsManagement for identityGovernance

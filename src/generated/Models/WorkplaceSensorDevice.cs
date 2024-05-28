@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkplaceSensorDevice : Entity, IParsable 
+    public class WorkplaceSensorDevice : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the device.</summary>
@@ -107,16 +108,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"ipV4Address", n => { IpV4Address = n.GetStringValue(); } },
-                {"ipV6Address", n => { IpV6Address = n.GetStringValue(); } },
-                {"macAddress", n => { MacAddress = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"placeId", n => { PlaceId = n.GetStringValue(); } },
-                {"sensors", n => { Sensors = n.GetCollectionOfObjectValues<WorkplaceSensor>(WorkplaceSensor.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "ipV4Address", n => { IpV4Address = n.GetStringValue(); } },
+                { "ipV6Address", n => { IpV6Address = n.GetStringValue(); } },
+                { "macAddress", n => { MacAddress = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "placeId", n => { PlaceId = n.GetStringValue(); } },
+                { "sensors", n => { Sensors = n.GetCollectionOfObjectValues<WorkplaceSensor>(WorkplaceSensor.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Applications.Item.SetVerifiedPublisher {
+namespace ApiSdk.Applications.Item.SetVerifiedPublisher
+{
     #pragma warning disable CS1591
-    public class SetVerifiedPublisherPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetVerifiedPublisherPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Applications.Item.SetVerifiedPublisher {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"verifiedPublisherId", n => { VerifiedPublisherId = n.GetStringValue(); } },
+                { "verifiedPublisherId", n => { VerifiedPublisherId = n.GetStringValue(); } },
             };
         }
         /// <summary>

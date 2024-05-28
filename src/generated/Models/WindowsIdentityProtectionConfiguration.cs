@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This entity provides descriptions of the declared methods, properties and relationships exposed by Windows Hello for Business.
     /// </summary>
-    public class WindowsIdentityProtectionConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsIdentityProtectionConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Boolean value used to enable enhanced anti-spoofing for facial feature recognition on Windows Hello face authentication.</summary>
         public bool? EnhancedAntiSpoofingForFacialFeaturesEnabled { get; set; }
@@ -63,20 +64,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enhancedAntiSpoofingForFacialFeaturesEnabled", n => { EnhancedAntiSpoofingForFacialFeaturesEnabled = n.GetBoolValue(); } },
-                {"pinExpirationInDays", n => { PinExpirationInDays = n.GetIntValue(); } },
-                {"pinLowercaseCharactersUsage", n => { PinLowercaseCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"pinMaximumLength", n => { PinMaximumLength = n.GetIntValue(); } },
-                {"pinMinimumLength", n => { PinMinimumLength = n.GetIntValue(); } },
-                {"pinPreviousBlockCount", n => { PinPreviousBlockCount = n.GetIntValue(); } },
-                {"pinRecoveryEnabled", n => { PinRecoveryEnabled = n.GetBoolValue(); } },
-                {"pinSpecialCharactersUsage", n => { PinSpecialCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"pinUppercaseCharactersUsage", n => { PinUppercaseCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"securityDeviceRequired", n => { SecurityDeviceRequired = n.GetBoolValue(); } },
-                {"unlockWithBiometricsEnabled", n => { UnlockWithBiometricsEnabled = n.GetBoolValue(); } },
-                {"useCertificatesForOnPremisesAuthEnabled", n => { UseCertificatesForOnPremisesAuthEnabled = n.GetBoolValue(); } },
-                {"useSecurityKeyForSignin", n => { UseSecurityKeyForSignin = n.GetBoolValue(); } },
-                {"windowsHelloForBusinessBlocked", n => { WindowsHelloForBusinessBlocked = n.GetBoolValue(); } },
+                { "enhancedAntiSpoofingForFacialFeaturesEnabled", n => { EnhancedAntiSpoofingForFacialFeaturesEnabled = n.GetBoolValue(); } },
+                { "pinExpirationInDays", n => { PinExpirationInDays = n.GetIntValue(); } },
+                { "pinLowercaseCharactersUsage", n => { PinLowercaseCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "pinMaximumLength", n => { PinMaximumLength = n.GetIntValue(); } },
+                { "pinMinimumLength", n => { PinMinimumLength = n.GetIntValue(); } },
+                { "pinPreviousBlockCount", n => { PinPreviousBlockCount = n.GetIntValue(); } },
+                { "pinRecoveryEnabled", n => { PinRecoveryEnabled = n.GetBoolValue(); } },
+                { "pinSpecialCharactersUsage", n => { PinSpecialCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "pinUppercaseCharactersUsage", n => { PinUppercaseCharactersUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "securityDeviceRequired", n => { SecurityDeviceRequired = n.GetBoolValue(); } },
+                { "unlockWithBiometricsEnabled", n => { UnlockWithBiometricsEnabled = n.GetBoolValue(); } },
+                { "useCertificatesForOnPremisesAuthEnabled", n => { UseCertificatesForOnPremisesAuthEnabled = n.GetBoolValue(); } },
+                { "useSecurityKeyForSignin", n => { UseSecurityKeyForSignin = n.GetBoolValue(); } },
+                { "windowsHelloForBusinessBlocked", n => { WindowsHelloForBusinessBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

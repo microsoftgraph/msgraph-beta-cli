@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.InformationProtection.SensitivityLabels.Item {
+namespace ApiSdk.Security.InformationProtection.SensitivityLabels.Item
+{
     /// <summary>
     /// Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
     /// </summary>
-    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder 
+    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sensitivityLabels for security

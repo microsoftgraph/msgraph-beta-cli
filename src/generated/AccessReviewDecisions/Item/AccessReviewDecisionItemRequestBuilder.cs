@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviewDecisions.Item {
+namespace ApiSdk.AccessReviewDecisions.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of accessReviewDecision entities.
     /// </summary>
-    public class AccessReviewDecisionItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewDecisionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from accessReviewDecisions

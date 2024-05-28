@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses {
+namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
+{
     #pragma warning disable CS1591
-    public class RevokeLicensesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RevokeLicensesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,8 +41,8 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"notifyManagedDevices", n => { NotifyManagedDevices = n.GetBoolValue(); } },
-                {"revokeUntrackedLicenses", n => { RevokeUntrackedLicenses = n.GetBoolValue(); } },
+                { "notifyManagedDevices", n => { NotifyManagedDevices = n.GetBoolValue(); } },
+                { "revokeUntrackedLicenses", n => { RevokeUntrackedLicenses = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SensitivityPolicySettings : Entity, IParsable 
+    public class SensitivityPolicySettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicableTo property</summary>
@@ -41,10 +42,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
-                {"downgradeSensitivityRequiresJustification", n => { DowngradeSensitivityRequiresJustification = n.GetBoolValue(); } },
-                {"helpWebUrl", n => { HelpWebUrl = n.GetStringValue(); } },
-                {"isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
+                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
+                { "downgradeSensitivityRequiresJustification", n => { DowngradeSensitivityRequiresJustification = n.GetBoolValue(); } },
+                { "helpWebUrl", n => { HelpWebUrl = n.GetStringValue(); } },
+                { "isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
             };
         }
         /// <summary>

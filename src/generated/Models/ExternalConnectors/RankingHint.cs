@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class RankingHint : IAdditionalDataHolder, IParsable 
+    public class RankingHint : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,8 +47,8 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"importanceScore", n => { ImportanceScore = n.GetEnumValue<ImportanceScore>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "importanceScore", n => { ImportanceScore = n.GetEnumValue<ImportanceScore>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

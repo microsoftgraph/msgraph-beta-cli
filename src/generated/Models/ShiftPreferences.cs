@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ShiftPreferences : ChangeTrackedEntity, IParsable 
+    public class ShiftPreferences : ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Availability of the user to be scheduled for work and its recurrence pattern.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"availability", n => { Availability = n.GetCollectionOfObjectValues<ShiftAvailability>(ShiftAvailability.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "availability", n => { Availability = n.GetCollectionOfObjectValues<ShiftAvailability>(ShiftAvailability.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

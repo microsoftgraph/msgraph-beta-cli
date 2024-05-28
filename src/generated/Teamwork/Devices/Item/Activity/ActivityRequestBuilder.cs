@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.Activity {
+namespace ApiSdk.Teamwork.Devices.Item.Activity
+{
     /// <summary>
     /// Provides operations to manage the activity property of the microsoft.graph.teamworkDevice entity.
     /// </summary>
-    public class ActivityRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property activity for teamwork
@@ -56,13 +57,14 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
             return command;
         }
         /// <summary>
-        /// The activity properties that change based on the device usage.
+        /// Get the activity status of a Microsoft Teams-enabled device. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The activity properties that change based on the device usage.";
+            command.Description = "Get the activity status of a Microsoft Teams-enabled device. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceactivity-get?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
             return requestInfo;
         }
         /// <summary>
-        /// The activity properties that change based on the device usage.
+        /// Get the activity status of a Microsoft Teams-enabled device. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Activity {
             return requestInfo;
         }
         /// <summary>
-        /// The activity properties that change based on the device usage.
+        /// Get the activity status of a Microsoft Teams-enabled device. 
         /// </summary>
         public class ActivityRequestBuilderGetQueryParameters 
         {

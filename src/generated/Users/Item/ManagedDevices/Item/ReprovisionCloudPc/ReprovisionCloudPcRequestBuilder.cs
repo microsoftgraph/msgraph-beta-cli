@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.ReprovisionCloudPc {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.ReprovisionCloudPc
+{
     /// <summary>
     /// Provides operations to call the reprovisionCloudPc method.
     /// </summary>
-    public class ReprovisionCloudPcRequestBuilder : BaseCliRequestBuilder 
+    public class ReprovisionCloudPcRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reprovision a Cloud PC with an Intune managed device ID.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExactMatchLookupJob : ExactMatchJobBase, IParsable 
+    public class ExactMatchLookupJob : ExactMatchJobBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The matchingRows property</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"matchingRows", n => { MatchingRows = n.GetCollectionOfObjectValues<LookupResultRow>(LookupResultRow.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetStringValue(); } },
+                { "matchingRows", n => { MatchingRows = n.GetCollectionOfObjectValues<LookupResultRow>(LookupResultRow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetStringValue(); } },
             };
         }
         /// <summary>

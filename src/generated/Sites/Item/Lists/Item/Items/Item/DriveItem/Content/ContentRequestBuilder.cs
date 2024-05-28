@@ -14,20 +14,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content {
+namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content
+{
     /// <summary>
     /// Provides operations to manage the media for the site entity.
     /// </summary>
-    public class ContentRequestBuilder : BaseCliRequestBuilder 
+    public class ContentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get content for the navigation property driveItem from sites
+        /// The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get content for the navigation property driveItem from sites";
+            command.Description = "The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -79,13 +80,13 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content {
             return command;
         }
         /// <summary>
-        /// Update content for the navigation property driveItem in sites
+        /// The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update content for the navigation property driveItem in sites";
+            command.Description = "The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -153,7 +154,7 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content {
         {
         }
         /// <summary>
-        /// Get content for the navigation property driveItem from sites
+        /// The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -172,7 +173,7 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content {
             return requestInfo;
         }
         /// <summary>
-        /// Update content for the navigation property driveItem in sites
+        /// The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
@@ -194,7 +195,7 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.Content {
             return requestInfo;
         }
         /// <summary>
-        /// Get content for the navigation property driveItem from sites
+        /// The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
         /// </summary>
         public class ContentRequestBuilderGetQueryParameters 
         {

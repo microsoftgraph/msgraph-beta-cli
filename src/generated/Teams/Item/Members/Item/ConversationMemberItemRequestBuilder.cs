@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teams.Item.Members.Item {
+namespace ApiSdk.Teams.Item.Members.Item
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.team entity.
     /// </summary>
-    public class ConversationMemberItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConversationMemberItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property members for teams
+        /// Remove a conversationMember from a team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-delete-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property members for teams";
+            command.Description = "Remove a conversationMember from a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-delete-members?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Teams.Item.Members.Item {
             return command;
         }
         /// <summary>
-        /// Members and owners of the team.
+        /// Get a conversationMember from a team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Members and owners of the team.";
+            command.Description = "Get a conversationMember from a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-get-members?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.Teams.Item.Members.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property members in teams
+        /// Update the role of a conversationMember in a team.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-update-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property members in teams";
+            command.Description = "Update the role of a conversationMember in a team.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/team-update-members?view=graph-rest-beta";
             var teamIdOption = new Option<string>("--team-id", description: "The unique identifier of team") {
             };
             teamIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.Teams.Item.Members.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property members for teams
+        /// Remove a conversationMember from a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.Teams.Item.Members.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Members and owners of the team.
+        /// Get a conversationMember from a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.Teams.Item.Members.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property members in teams
+        /// Update the role of a conversationMember in a team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.Teams.Item.Members.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Members and owners of the team.
+        /// Get a conversationMember from a team.
         /// </summary>
         public class ConversationMemberItemRequestBuilderGetQueryParameters 
         {

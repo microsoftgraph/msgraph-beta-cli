@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an Autopilot flow event.
     /// </summary>
-    public class DeviceManagementAutopilotEvent : Entity, IParsable 
+    public class DeviceManagementAutopilotEvent : Entity, IParsable
     {
         /// <summary>Time spent in user ESP.</summary>
         public TimeSpan? AccountSetupDuration { get; set; }
@@ -142,33 +143,33 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountSetupDuration", n => { AccountSetupDuration = n.GetTimeSpanValue(); } },
-                {"accountSetupStatus", n => { AccountSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
-                {"deploymentDuration", n => { DeploymentDuration = n.GetTimeSpanValue(); } },
-                {"deploymentEndDateTime", n => { DeploymentEndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deploymentStartDateTime", n => { DeploymentStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deploymentState", n => { DeploymentState = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
-                {"deploymentTotalDuration", n => { DeploymentTotalDuration = n.GetTimeSpanValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"devicePreparationDuration", n => { DevicePreparationDuration = n.GetTimeSpanValue(); } },
-                {"deviceRegisteredDateTime", n => { DeviceRegisteredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceSerialNumber", n => { DeviceSerialNumber = n.GetStringValue(); } },
-                {"deviceSetupDuration", n => { DeviceSetupDuration = n.GetTimeSpanValue(); } },
-                {"deviceSetupStatus", n => { DeviceSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
-                {"enrollmentFailureDetails", n => { EnrollmentFailureDetails = n.GetStringValue(); } },
-                {"enrollmentStartDateTime", n => { EnrollmentStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
-                {"enrollmentType", n => { EnrollmentType = n.GetEnumValue<WindowsAutopilotEnrollmentType>(); } },
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"policyStatusDetails", n => { PolicyStatusDetails = n.GetCollectionOfObjectValues<DeviceManagementAutopilotPolicyStatusDetail>(DeviceManagementAutopilotPolicyStatusDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"targetedAppCount", n => { TargetedAppCount = n.GetIntValue(); } },
-                {"targetedPolicyCount", n => { TargetedPolicyCount = n.GetIntValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"windows10EnrollmentCompletionPageConfigurationDisplayName", n => { Windows10EnrollmentCompletionPageConfigurationDisplayName = n.GetStringValue(); } },
-                {"windows10EnrollmentCompletionPageConfigurationId", n => { Windows10EnrollmentCompletionPageConfigurationId = n.GetStringValue(); } },
-                {"windowsAutopilotDeploymentProfileDisplayName", n => { WindowsAutopilotDeploymentProfileDisplayName = n.GetStringValue(); } },
+                { "accountSetupDuration", n => { AccountSetupDuration = n.GetTimeSpanValue(); } },
+                { "accountSetupStatus", n => { AccountSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "deploymentDuration", n => { DeploymentDuration = n.GetTimeSpanValue(); } },
+                { "deploymentEndDateTime", n => { DeploymentEndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deploymentStartDateTime", n => { DeploymentStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deploymentState", n => { DeploymentState = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "deploymentTotalDuration", n => { DeploymentTotalDuration = n.GetTimeSpanValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "devicePreparationDuration", n => { DevicePreparationDuration = n.GetTimeSpanValue(); } },
+                { "deviceRegisteredDateTime", n => { DeviceRegisteredDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deviceSerialNumber", n => { DeviceSerialNumber = n.GetStringValue(); } },
+                { "deviceSetupDuration", n => { DeviceSetupDuration = n.GetTimeSpanValue(); } },
+                { "deviceSetupStatus", n => { DeviceSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "enrollmentFailureDetails", n => { EnrollmentFailureDetails = n.GetStringValue(); } },
+                { "enrollmentStartDateTime", n => { EnrollmentStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                { "enrollmentType", n => { EnrollmentType = n.GetEnumValue<WindowsAutopilotEnrollmentType>(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "policyStatusDetails", n => { PolicyStatusDetails = n.GetCollectionOfObjectValues<DeviceManagementAutopilotPolicyStatusDetail>(DeviceManagementAutopilotPolicyStatusDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "targetedAppCount", n => { TargetedAppCount = n.GetIntValue(); } },
+                { "targetedPolicyCount", n => { TargetedPolicyCount = n.GetIntValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "windows10EnrollmentCompletionPageConfigurationDisplayName", n => { Windows10EnrollmentCompletionPageConfigurationDisplayName = n.GetStringValue(); } },
+                { "windows10EnrollmentCompletionPageConfigurationId", n => { Windows10EnrollmentCompletionPageConfigurationId = n.GetStringValue(); } },
+                { "windowsAutopilotDeploymentProfileDisplayName", n => { WindowsAutopilotDeploymentProfileDisplayName = n.GetStringValue(); } },
             };
         }
         /// <summary>

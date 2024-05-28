@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The class used to identify the MultiMode app configuration for the kiosk configuration
     /// </summary>
-    public class WindowsKioskMultipleApps : WindowsKioskAppConfiguration, IParsable 
+    public class WindowsKioskMultipleApps : WindowsKioskAppConfiguration, IParsable
     {
         /// <summary>This setting allows access to Downloads folder in file explorer.</summary>
         public bool? AllowAccessToDownloadsFolder { get; set; }
@@ -57,11 +58,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowAccessToDownloadsFolder", n => { AllowAccessToDownloadsFolder = n.GetBoolValue(); } },
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<WindowsKioskAppBase>(WindowsKioskAppBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"disallowDesktopApps", n => { DisallowDesktopApps = n.GetBoolValue(); } },
-                {"showTaskBar", n => { ShowTaskBar = n.GetBoolValue(); } },
-                {"startMenuLayoutXml", n => { StartMenuLayoutXml = n.GetByteArrayValue(); } },
+                { "allowAccessToDownloadsFolder", n => { AllowAccessToDownloadsFolder = n.GetBoolValue(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<WindowsKioskAppBase>(WindowsKioskAppBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "disallowDesktopApps", n => { DisallowDesktopApps = n.GetBoolValue(); } },
+                { "showTaskBar", n => { ShowTaskBar = n.GetBoolValue(); } },
+                { "startMenuLayoutXml", n => { StartMenuLayoutXml = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyDefinitions property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the category property of the microsoft.graph.groupPolicyDefinition entity.

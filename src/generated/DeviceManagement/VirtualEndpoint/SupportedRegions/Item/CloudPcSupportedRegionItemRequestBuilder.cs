@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions.Item
+{
     /// <summary>
     /// Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcSupportedRegionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcSupportedRegionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property supportedRegions for deviceManagement

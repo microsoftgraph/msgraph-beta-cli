@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CanvasLayout : Entity, IParsable 
+    public class CanvasLayout : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Collection of horizontal sections on the SharePoint page.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"horizontalSections", n => { HorizontalSections = n.GetCollectionOfObjectValues<HorizontalSection>(HorizontalSection.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"verticalSection", n => { VerticalSection = n.GetObjectValue<ApiSdk.Models.VerticalSection>(ApiSdk.Models.VerticalSection.CreateFromDiscriminatorValue); } },
+                { "horizontalSections", n => { HorizontalSections = n.GetCollectionOfObjectValues<HorizontalSection>(HorizontalSection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "verticalSection", n => { VerticalSection = n.GetObjectValue<ApiSdk.Models.VerticalSection>(ApiSdk.Models.VerticalSection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

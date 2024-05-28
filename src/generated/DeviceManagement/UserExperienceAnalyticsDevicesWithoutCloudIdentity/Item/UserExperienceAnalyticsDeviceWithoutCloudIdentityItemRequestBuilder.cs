@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDevicesWithoutCloudIdentity.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDevicesWithoutCloudIdentity.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsDevicesWithoutCloudIdentity for deviceManagement

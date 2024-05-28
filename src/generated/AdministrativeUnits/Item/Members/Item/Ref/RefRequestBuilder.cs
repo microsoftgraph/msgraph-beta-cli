@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.Members.Item.Ref {
+namespace ApiSdk.AdministrativeUnits.Item.Members.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of administrativeUnit entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property members for administrativeUnits

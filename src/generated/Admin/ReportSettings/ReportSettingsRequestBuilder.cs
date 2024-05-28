@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ReportSettings {
+namespace ApiSdk.Admin.ReportSettings
+{
     /// <summary>
     /// Provides operations to manage the reportSettings property of the microsoft.graph.admin entity.
     /// </summary>
-    public class ReportSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class ReportSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reportSettings for admin
@@ -50,13 +51,14 @@ namespace ApiSdk.Admin.ReportSettings {
             return command;
         }
         /// <summary>
-        /// A container for administrative resources to manage reports.
+        /// Get the tenant-level settings for Microsoft 365 reports.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminreportsettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A container for administrative resources to manage reports.";
+            command.Description = "Get the tenant-level settings for Microsoft 365 reports.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminreportsettings-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Admin.ReportSettings {
             return command;
         }
         /// <summary>
-        /// Update the navigation property reportSettings in admin
+        /// Update tenant-level settings for Microsoft 365 reports.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminreportsettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property reportSettings in admin";
+            command.Description = "Update tenant-level settings for Microsoft 365 reports.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminreportsettings-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Admin.ReportSettings {
             return requestInfo;
         }
         /// <summary>
-        /// A container for administrative resources to manage reports.
+        /// Get the tenant-level settings for Microsoft 365 reports.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Admin.ReportSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property reportSettings in admin
+        /// Update tenant-level settings for Microsoft 365 reports.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Admin.ReportSettings {
             return requestInfo;
         }
         /// <summary>
-        /// A container for administrative resources to manage reports.
+        /// Get the tenant-level settings for Microsoft 365 reports.
         /// </summary>
         public class ReportSettingsRequestBuilderGetQueryParameters 
         {

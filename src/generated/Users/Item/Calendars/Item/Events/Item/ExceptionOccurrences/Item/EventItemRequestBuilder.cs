@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Calendars.Item.Events.Item.ExceptionOccurrences.Item {
+namespace ApiSdk.Users.Item.Calendars.Item.Events.Item.ExceptionOccurrences.Item
+{
     /// <summary>
     /// Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
     /// </summary>
-    public class EventItemRequestBuilder : BaseCliRequestBuilder 
+    public class EventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the accept method.

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult
+{
     /// <summary>
     /// Provides operations to call the exportResult method.
     /// </summary>
-    public class MicrosoftGraphSecurityExportResultRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphSecurityExportResultRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action exportResult

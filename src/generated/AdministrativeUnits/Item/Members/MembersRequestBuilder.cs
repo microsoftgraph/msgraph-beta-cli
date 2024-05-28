@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AdministrativeUnits.Item.Members {
+namespace ApiSdk.AdministrativeUnits.Item.Members
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity.
     /// </summary>
-    public class MembersRequestBuilder : BaseCliRequestBuilder 
+    public class MembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.administrativeUnits.item.members.item collection
@@ -64,13 +65,14 @@ namespace ApiSdk.AdministrativeUnits.Item.Members {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to members for administrativeUnits
+        /// Use this API to add a member (user, group, or device) to an administrative unit or to create a new group within an administrative unit. All group types can be created within an administrative unit. Note: Currently, it&apos;s only possible to add one member at a time to an administrative unit.`
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to members for administrativeUnits";
+            command.Description = "Use this API to add a member (user, group, or device) to an administrative unit or to create a new group within an administrative unit. All group types can be created within an administrative unit. Note: Currently, it's only possible to add one member at a time to an administrative unit.`\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-beta";
             var administrativeUnitIdOption = new Option<string>("--administrative-unit-id", description: "The unique identifier of administrativeUnit") {
             };
             administrativeUnitIdOption.IsRequired = true;
@@ -348,7 +350,9 @@ namespace ApiSdk.AdministrativeUnits.Item.Members {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -412,7 +416,7 @@ namespace ApiSdk.AdministrativeUnits.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to members for administrativeUnits
+        /// Use this API to add a member (user, group, or device) to an administrative unit or to create a new group within an administrative unit. All group types can be created within an administrative unit. Note: Currently, it&apos;s only possible to add one member at a time to an administrative unit.`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

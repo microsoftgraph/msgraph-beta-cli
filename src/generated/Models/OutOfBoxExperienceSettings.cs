@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Windows Autopilot Deployment Profile settings used by the Autopilot device for out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. Read-Only. Starting from May 2024 this property will no longer be supported and will be marked as deprecated. Use outOfBoxExperienceSetting instead.
     /// </summary>
-    public class OutOfBoxExperienceSettings : IAdditionalDataHolder, IParsable 
+    public class OutOfBoxExperienceSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -57,13 +58,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<WindowsDeviceUsageType>(); } },
-                {"hideEULA", n => { HideEULA = n.GetBoolValue(); } },
-                {"hideEscapeLink", n => { HideEscapeLink = n.GetBoolValue(); } },
-                {"hidePrivacySettings", n => { HidePrivacySettings = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"skipKeyboardSelectionPage", n => { SkipKeyboardSelectionPage = n.GetBoolValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<WindowsUserType>(); } },
+                { "deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<WindowsDeviceUsageType>(); } },
+                { "hideEULA", n => { HideEULA = n.GetBoolValue(); } },
+                { "hideEscapeLink", n => { HideEscapeLink = n.GetBoolValue(); } },
+                { "hidePrivacySettings", n => { HidePrivacySettings = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "skipKeyboardSelectionPage", n => { SkipKeyboardSelectionPage = n.GetBoolValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<WindowsUserType>(); } },
             };
         }
         /// <summary>

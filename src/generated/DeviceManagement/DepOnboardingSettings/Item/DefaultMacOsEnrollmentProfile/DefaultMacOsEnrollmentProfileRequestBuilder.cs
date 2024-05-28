@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultMacOsEnrollmentProfile {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultMacOsEnrollmentProfile
+{
     /// <summary>
     /// Provides operations to manage the defaultMacOsEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
     /// </summary>
-    public class DefaultMacOsEnrollmentProfileRequestBuilder : BaseCliRequestBuilder 
+    public class DefaultMacOsEnrollmentProfileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Default MacOs Enrollment Profile

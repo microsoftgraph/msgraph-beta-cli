@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.Tabs {
+namespace ApiSdk.Chats.Item.Tabs
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.chat entity.
     /// </summary>
-    public class TabsRequestBuilder : BaseCliRequestBuilder 
+    public class TabsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tabs property of the microsoft.graph.chat entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Chats.Item.Tabs {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to tabs for chats
+        /// Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to tabs for chats";
+            command.Description = "Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -106,13 +108,14 @@ namespace ApiSdk.Chats.Item.Tabs {
             return command;
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the list of tabs in the specified chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of all the tabs in the chat. Nullable.";
+            command.Description = "Retrieve the list of tabs in the specified chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.Chats.Item.Tabs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.Chats.Item.Tabs {
         {
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the list of tabs in the specified chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +244,7 @@ namespace ApiSdk.Chats.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tabs for chats
+        /// Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +265,7 @@ namespace ApiSdk.Chats.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the tabs in the chat. Nullable.
+        /// Retrieve the list of tabs in the specified chat.
         /// </summary>
         public class TabsRequestBuilderGetQueryParameters 
         {

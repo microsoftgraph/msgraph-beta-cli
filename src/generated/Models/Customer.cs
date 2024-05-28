@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Customer : IAdditionalDataHolder, IParsable 
+    public class Customer : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -188,31 +189,31 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
-                {"blocked", n => { Blocked = n.GetStringValue(); } },
-                {"currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
-                {"currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
-                {"currencyId", n => { CurrencyId = n.GetGuidValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"email", n => { Email = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"paymentMethod", n => { PaymentMethod = n.GetObjectValue<ApiSdk.Models.PaymentMethod>(ApiSdk.Models.PaymentMethod.CreateFromDiscriminatorValue); } },
-                {"paymentMethodId", n => { PaymentMethodId = n.GetGuidValue(); } },
-                {"paymentTerm", n => { PaymentTerm = n.GetObjectValue<ApiSdk.Models.PaymentTerm>(ApiSdk.Models.PaymentTerm.CreateFromDiscriminatorValue); } },
-                {"paymentTermsId", n => { PaymentTermsId = n.GetGuidValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                {"picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"shipmentMethod", n => { ShipmentMethod = n.GetObjectValue<ApiSdk.Models.ShipmentMethod>(ApiSdk.Models.ShipmentMethod.CreateFromDiscriminatorValue); } },
-                {"shipmentMethodId", n => { ShipmentMethodId = n.GetGuidValue(); } },
-                {"taxAreaDisplayName", n => { TaxAreaDisplayName = n.GetStringValue(); } },
-                {"taxAreaId", n => { TaxAreaId = n.GetGuidValue(); } },
-                {"taxLiable", n => { TaxLiable = n.GetBoolValue(); } },
-                {"taxRegistrationNumber", n => { TaxRegistrationNumber = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"website", n => { Website = n.GetStringValue(); } },
+                { "address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "blocked", n => { Blocked = n.GetStringValue(); } },
+                { "currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
+                { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
+                { "currencyId", n => { CurrencyId = n.GetGuidValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "paymentMethod", n => { PaymentMethod = n.GetObjectValue<ApiSdk.Models.PaymentMethod>(ApiSdk.Models.PaymentMethod.CreateFromDiscriminatorValue); } },
+                { "paymentMethodId", n => { PaymentMethodId = n.GetGuidValue(); } },
+                { "paymentTerm", n => { PaymentTerm = n.GetObjectValue<ApiSdk.Models.PaymentTerm>(ApiSdk.Models.PaymentTerm.CreateFromDiscriminatorValue); } },
+                { "paymentTermsId", n => { PaymentTermsId = n.GetGuidValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "shipmentMethod", n => { ShipmentMethod = n.GetObjectValue<ApiSdk.Models.ShipmentMethod>(ApiSdk.Models.ShipmentMethod.CreateFromDiscriminatorValue); } },
+                { "shipmentMethodId", n => { ShipmentMethodId = n.GetGuidValue(); } },
+                { "taxAreaDisplayName", n => { TaxAreaDisplayName = n.GetStringValue(); } },
+                { "taxAreaId", n => { TaxAreaId = n.GetGuidValue(); } },
+                { "taxLiable", n => { TaxLiable = n.GetBoolValue(); } },
+                { "taxRegistrationNumber", n => { TaxRegistrationNumber = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "website", n => { Website = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InferenceClassification.Overrides.Item {
+namespace ApiSdk.Users.Item.InferenceClassification.Overrides.Item
+{
     /// <summary>
     /// Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
     /// </summary>
-    public class InferenceClassificationOverrideItemRequestBuilder : BaseCliRequestBuilder 
+    public class InferenceClassificationOverrideItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property overrides for users

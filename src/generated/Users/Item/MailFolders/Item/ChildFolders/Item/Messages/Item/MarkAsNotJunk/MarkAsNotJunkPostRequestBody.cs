@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.MarkAsNotJunk {
+namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.MarkAsNotJunk
+{
     #pragma warning disable CS1591
-    public class MarkAsNotJunkPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MarkAsNotJunkPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mar
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"MoveToInbox", n => { MoveToInbox = n.GetBoolValue(); } },
+                { "MoveToInbox", n => { MoveToInbox = n.GetBoolValue(); } },
             };
         }
         /// <summary>

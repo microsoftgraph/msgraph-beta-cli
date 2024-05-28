@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item {
+namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
+{
     /// <summary>
     /// Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     /// </summary>
-    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property exclusions for admin

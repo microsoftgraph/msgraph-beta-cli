@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item {
+namespace ApiSdk.AccessReviews.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of accessReview entities.
     /// </summary>
-    public class AccessReviewItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the applyDecisions method.

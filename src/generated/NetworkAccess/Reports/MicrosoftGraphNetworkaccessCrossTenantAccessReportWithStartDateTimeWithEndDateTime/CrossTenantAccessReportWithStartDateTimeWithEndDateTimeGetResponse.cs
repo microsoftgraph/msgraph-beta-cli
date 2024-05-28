@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime
+{
     #pragma warning disable CS1591
-    public class CrossTenantAccessReportWithStartDateTimeWithEndDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class CrossTenantAccessReportWithStartDateTimeWithEndDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessCrossTenantAcc
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.CrossTenantAccess>(ApiSdk.Models.Networkaccess.CrossTenantAccess.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.CrossTenantAccess>(ApiSdk.Models.Networkaccess.CrossTenantAccess.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

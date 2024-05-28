@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Connections.Item.Groups.Item.Members.Item {
+namespace ApiSdk.Connections.Item.Groups.Item.Members.Item
+{
     /// <summary>
     /// Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
     /// </summary>
-    public class IdentityItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property members for connections

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Items.Item.DocumentSetVersions.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Items.Item.DocumentSetVersions.Item
+{
     /// <summary>
     /// Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
     /// </summary>
-    public class DocumentSetVersionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DocumentSetVersionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property documentSetVersions for groups

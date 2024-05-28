@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AssignmentFilters.Enable {
+namespace ApiSdk.DeviceManagement.AssignmentFilters.Enable
+{
     /// <summary>
     /// Provides operations to call the enable method.
     /// </summary>
-    public class EnableRequestBuilder : BaseCliRequestBuilder 
+    public class EnableRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enable

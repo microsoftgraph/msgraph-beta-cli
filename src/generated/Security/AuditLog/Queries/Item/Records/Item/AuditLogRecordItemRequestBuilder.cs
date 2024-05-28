@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AuditLog.Queries.Item.Records.Item {
+namespace ApiSdk.Security.AuditLog.Queries.Item.Records.Item
+{
     /// <summary>
     /// Provides operations to manage the records property of the microsoft.graph.security.auditLogQuery entity.
     /// </summary>
-    public class AuditLogRecordItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuditLogRecordItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property records for security

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringPolicies.Item.PolicyRules.Item {
+namespace ApiSdk.NetworkAccess.FilteringPolicies.Item.PolicyRules.Item
+{
     /// <summary>
     /// Provides operations to manage the policyRules property of the microsoft.graph.networkaccess.policy entity.
     /// </summary>
-    public class PolicyRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policyRules for networkAccess

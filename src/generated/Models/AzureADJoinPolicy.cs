@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AzureADJoinPolicy : IAdditionalDataHolder, IParsable 
+    public class AzureADJoinPolicy : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowedToJoin", n => { AllowedToJoin = n.GetObjectValue<DeviceRegistrationMembership>(DeviceRegistrationMembership.CreateFromDiscriminatorValue); } },
-                {"isAdminConfigurable", n => { IsAdminConfigurable = n.GetBoolValue(); } },
-                {"localAdmins", n => { LocalAdmins = n.GetObjectValue<LocalAdminSettings>(LocalAdminSettings.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowedToJoin", n => { AllowedToJoin = n.GetObjectValue<DeviceRegistrationMembership>(DeviceRegistrationMembership.CreateFromDiscriminatorValue); } },
+                { "isAdminConfigurable", n => { IsAdminConfigurable = n.GetBoolValue(); } },
+                { "localAdmins", n => { LocalAdmins = n.GetObjectValue<LocalAdminSettings>(LocalAdminSettings.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

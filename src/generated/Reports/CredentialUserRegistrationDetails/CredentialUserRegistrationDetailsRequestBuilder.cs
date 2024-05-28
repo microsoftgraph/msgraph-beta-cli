@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
+namespace ApiSdk.Reports.CredentialUserRegistrationDetails
+{
     /// <summary>
     /// Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class CredentialUserRegistrationDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class CredentialUserRegistrationDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
@@ -99,14 +100,15 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
             return command;
         }
         /// <summary>
-        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
+        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Reporting credentialUserRegistrationDetails API is deprecated and will stop returning data on June 30, 2024. Please use the new userRegistrationDetails API. as of 2023-06/credentialUserRegistrationDetails")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.";
+            command.Description = "Get a list of credentialUserRegistrationDetails objects for a given tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
         {
         }
         /// <summary>
-        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
+        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails {
             return requestInfo;
         }
         /// <summary>
-        /// Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
+        /// Get a list of credentialUserRegistrationDetails objects for a given tenant.
         /// </summary>
         public class CredentialUserRegistrationDetailsRequestBuilderGetQueryParameters 
         {

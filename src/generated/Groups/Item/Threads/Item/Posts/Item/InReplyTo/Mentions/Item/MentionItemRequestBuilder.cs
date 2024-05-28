@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Mentions.Item {
+namespace ApiSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Mentions.Item
+{
     /// <summary>
     /// Provides operations to manage the mentions property of the microsoft.graph.post entity.
     /// </summary>
-    public class MentionItemRequestBuilder : BaseCliRequestBuilder 
+    public class MentionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property mentions for groups

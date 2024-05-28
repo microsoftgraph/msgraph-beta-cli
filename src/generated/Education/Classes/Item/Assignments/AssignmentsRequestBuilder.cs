@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Assignments {
+namespace ApiSdk.Education.Classes.Item.Assignments
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class AssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class AssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
@@ -66,13 +67,14 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to assignments for education
+        /// Create a new assignment. Only teachers in a class can create an assignment. Assignments start in draft status, which means that students can&apos;t see the assignment until it&apos;s published.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-post-assignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to assignments for education";
+            command.Description = "Create a new assignment. Only teachers in a class can create an assignment. Assignments start in draft status, which means that students can't see the assignment until it's published.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-post-assignments?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -134,13 +136,14 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
             return command;
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Retrieve a list of educationAssignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationclass-list-assignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "All assignments associated with this class. Nullable.";
+            command.Description = "Retrieve a list of educationAssignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationclass-list-assignments?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -222,7 +225,9 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -248,7 +253,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
         {
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Retrieve a list of educationAssignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -267,7 +272,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to assignments for education
+        /// Create a new assignment. Only teachers in a class can create an assignment. Assignments start in draft status, which means that students can&apos;t see the assignment until it&apos;s published.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -288,7 +293,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Retrieve a list of educationAssignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
         /// </summary>
         public class AssignmentsRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The base class for a type of apps
     /// </summary>
-    public class WindowsKioskUWPApp : WindowsKioskAppBase, IParsable 
+    public class WindowsKioskUWPApp : WindowsKioskAppBase, IParsable
     {
         /// <summary>This references an Intune App that will be target to the same assignments as Kiosk configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appUserModelId", n => { AppUserModelId = n.GetStringValue(); } },
-                {"containedAppId", n => { ContainedAppId = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "appUserModelId", n => { AppUserModelId = n.GetStringValue(); } },
+                { "containedAppId", n => { ContainedAppId = n.GetStringValue(); } },
             };
         }
         /// <summary>

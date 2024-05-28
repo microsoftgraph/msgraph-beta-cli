@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Settings.Item {
+namespace ApiSdk.Settings.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of directorySetting entities.
     /// </summary>
-    public class DirectorySettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectorySettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete a directory setting.

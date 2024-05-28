@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MessageRecipient : Entity, IParsable 
+    public class MessageRecipient : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The deliveryStatus property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deliveryStatus", n => { DeliveryStatus = n.GetEnumValue<MessageStatus>(); } },
-                {"events", n => { Events = n.GetCollectionOfObjectValues<MessageEvent>(MessageEvent.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"recipientEmail", n => { RecipientEmail = n.GetStringValue(); } },
+                { "deliveryStatus", n => { DeliveryStatus = n.GetEnumValue<MessageStatus>(); } },
+                { "events", n => { Events = n.GetCollectionOfObjectValues<MessageEvent>(MessageEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recipientEmail", n => { RecipientEmail = n.GetStringValue(); } },
             };
         }
         /// <summary>

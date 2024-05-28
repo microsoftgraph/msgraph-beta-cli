@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps.Item.TransitiveRoleAssignments.Item.AppScope {
+namespace ApiSdk.RoleManagement.EnterpriseApps.Item.TransitiveRoleAssignments.Item.AppScope
+{
     /// <summary>
     /// Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity.
     /// </summary>
-    public class AppScopeRequestBuilder : BaseCliRequestBuilder 
+    public class AppScopeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property appScope for roleManagement
@@ -62,13 +63,13 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.TransitiveRoleAssignments.It
             return command;
         }
         /// <summary>
-        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Details of the app specific scope when the assignment scope is app specific. Containment entity.";
+            command.Description = "Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.";
             var rbacApplicationIdOption = new Option<string>("--rbac-application-id", description: "The unique identifier of rbacApplication") {
             };
             rbacApplicationIdOption.IsRequired = true;
@@ -210,7 +211,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.TransitiveRoleAssignments.It
             return requestInfo;
         }
         /// <summary>
-        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +251,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.TransitiveRoleAssignments.It
             return requestInfo;
         }
         /// <summary>
-        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
         /// </summary>
         public class AppScopeRequestBuilderGetQueryParameters 
         {

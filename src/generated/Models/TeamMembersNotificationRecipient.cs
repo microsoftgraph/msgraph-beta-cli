@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamMembersNotificationRecipient : TeamworkNotificationRecipient, IParsable 
+    public class TeamMembersNotificationRecipient : TeamworkNotificationRecipient, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the team whose members should receive the notification.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"teamId", n => { TeamId = n.GetStringValue(); } },
+                { "teamId", n => { TeamId = n.GetStringValue(); } },
             };
         }
         /// <summary>

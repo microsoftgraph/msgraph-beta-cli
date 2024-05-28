@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// This task derived type represents a list of unmanaged devices discovered in the network.
     /// </summary>
-    public class UnmanagedDeviceDiscoveryTask : DeviceAppManagementTask, IParsable 
+    public class UnmanagedDeviceDiscoveryTask : DeviceAppManagementTask, IParsable
     {
         /// <summary>Unmanaged devices discovered in the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"unmanagedDevices", n => { UnmanagedDevices = n.GetCollectionOfObjectValues<UnmanagedDevice>(UnmanagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "unmanagedDevices", n => { UnmanagedDevices = n.GetCollectionOfObjectValues<UnmanagedDevice>(UnmanagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

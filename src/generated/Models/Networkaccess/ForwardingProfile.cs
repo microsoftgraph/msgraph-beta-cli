@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class ForwardingProfile : Profile, IParsable 
+    public class ForwardingProfile : Profile, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the users, groups, devices, and remote networks whose traffic is associated with the given traffic forwarding profile.</summary>
@@ -54,10 +55,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"associations", n => { Associations = n.GetCollectionOfObjectValues<Association>(Association.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ApiSdk.Models.ServicePrincipal>(ApiSdk.Models.ServicePrincipal.CreateFromDiscriminatorValue); } },
-                {"trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<TrafficForwardingType>(); } },
+                { "associations", n => { Associations = n.GetCollectionOfObjectValues<Association>(Association.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ApiSdk.Models.ServicePrincipal>(ApiSdk.Models.ServicePrincipal.CreateFromDiscriminatorValue); } },
+                { "trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<TrafficForwardingType>(); } },
             };
         }
         /// <summary>

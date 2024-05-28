@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudClipboardRoot : Entity, IParsable 
+    public class CloudClipboardRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a collection of Cloud Clipboard items.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"items", n => { Items = n.GetCollectionOfObjectValues<CloudClipboardItem>(CloudClipboardItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<CloudClipboardItem>(CloudClipboardItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringProfiles {
+namespace ApiSdk.NetworkAccess.FilteringProfiles
+{
     /// <summary>
     /// Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class FilteringProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class FilteringProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
@@ -101,13 +102,14 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
             return command;
         }
         /// <summary>
-        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+        /// Get a list of the filteringProfile objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.";
+            command.Description = "Get a list of the filteringProfile objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +185,9 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +213,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
         {
         }
         /// <summary>
-        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+        /// Get a list of the filteringProfile objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -249,7 +253,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+        /// Get a list of the filteringProfile objects and their properties.
         /// </summary>
         public class FilteringProfilesRequestBuilderGetQueryParameters 
         {

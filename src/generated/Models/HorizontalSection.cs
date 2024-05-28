@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class HorizontalSection : Entity, IParsable 
+    public class HorizontalSection : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The set of vertical columns in this section.</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"columns", n => { Columns = n.GetCollectionOfObjectValues<HorizontalSectionColumn>(HorizontalSectionColumn.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"emphasis", n => { Emphasis = n.GetEnumValue<SectionEmphasisType>(); } },
-                {"layout", n => { Layout = n.GetEnumValue<HorizontalSectionLayoutType>(); } },
+                { "columns", n => { Columns = n.GetCollectionOfObjectValues<HorizontalSectionColumn>(HorizontalSectionColumn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emphasis", n => { Emphasis = n.GetEnumValue<SectionEmphasisType>(); } },
+                { "layout", n => { Layout = n.GetEnumValue<HorizontalSectionLayoutType>(); } },
             };
         }
         /// <summary>

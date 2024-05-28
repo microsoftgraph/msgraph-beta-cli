@@ -13,20 +13,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.TokenLifetimePolicies.Item.Ref {
+namespace ApiSdk.Applications.Item.TokenLifetimePolicies.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property tokenLifetimePolicies for applications
+        /// Remove a tokenLifetimePolicy from an application or servicePrincipal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-delete-tokenlifetimepolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property tokenLifetimePolicies for applications";
+            command.Description = "Remove a tokenLifetimePolicy from an application or servicePrincipal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-delete-tokenlifetimepolicies?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -75,7 +77,7 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies.Item.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property tokenLifetimePolicies for applications
+        /// Remove a tokenLifetimePolicy from an application or servicePrincipal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

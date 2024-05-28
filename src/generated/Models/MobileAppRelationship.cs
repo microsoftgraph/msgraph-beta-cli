@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes a relationship between two mobile apps.
     /// </summary>
-    public class MobileAppRelationship : Entity, IParsable 
+    public class MobileAppRelationship : Entity, IParsable
     {
         /// <summary>The target mobile app&apos;s display name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,11 +69,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"targetDisplayName", n => { TargetDisplayName = n.GetStringValue(); } },
-                {"targetDisplayVersion", n => { TargetDisplayVersion = n.GetStringValue(); } },
-                {"targetId", n => { TargetId = n.GetStringValue(); } },
-                {"targetPublisher", n => { TargetPublisher = n.GetStringValue(); } },
-                {"targetType", n => { TargetType = n.GetEnumValue<MobileAppRelationshipType>(); } },
+                { "targetDisplayName", n => { TargetDisplayName = n.GetStringValue(); } },
+                { "targetDisplayVersion", n => { TargetDisplayVersion = n.GetStringValue(); } },
+                { "targetId", n => { TargetId = n.GetStringValue(); } },
+                { "targetPublisher", n => { TargetPublisher = n.GetStringValue(); } },
+                { "targetType", n => { TargetType = n.GetEnumValue<MobileAppRelationshipType>(); } },
             };
         }
         /// <summary>

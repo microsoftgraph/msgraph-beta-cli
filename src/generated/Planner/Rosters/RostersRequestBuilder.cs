@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Rosters {
+namespace ApiSdk.Planner.Rosters
+{
     /// <summary>
     /// Provides operations to manage the rosters property of the microsoft.graph.planner entity.
     /// </summary>
-    public class RostersRequestBuilder : BaseCliRequestBuilder 
+    public class RostersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the rosters property of the microsoft.graph.planner entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.Planner.Rosters {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new PlannerRosterItemRequestBuilder(PathParameters);
+            commands.Add(builder.BuildAssignSensitivityLabelNavCommand());
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildMembersNavCommand());
@@ -56,13 +58,14 @@ namespace ApiSdk.Planner.Rosters {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to rosters for planner
+        /// Create a new plannerRoster object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-post-rosters?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to rosters for planner";
+            command.Description = "Create a new plannerRoster object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/planner-post-rosters?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +104,13 @@ namespace ApiSdk.Planner.Rosters {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified rosters
+        /// Read the properties and relationships of a plannerRoster object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified rosters";
+            command.Description = "Read the properties and relationships of a plannerRoster object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.Planner.Rosters {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.Planner.Rosters {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified rosters
+        /// Read the properties and relationships of a plannerRoster object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.Planner.Rosters {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to rosters for planner
+        /// Create a new plannerRoster object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.Planner.Rosters {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified rosters
+        /// Read the properties and relationships of a plannerRoster object.
         /// </summary>
         public class RostersRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class EmailThreatSubmission : ThreatSubmission, IParsable 
+    public class EmailThreatSubmission : ThreatSubmission, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If the email is phishing simulation, this field won&apos;t be null.</summary>
@@ -100,15 +101,15 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"attackSimulationInfo", n => { AttackSimulationInfo = n.GetObjectValue<ApiSdk.Models.Security.AttackSimulationInfo>(ApiSdk.Models.Security.AttackSimulationInfo.CreateFromDiscriminatorValue); } },
-                {"internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
-                {"originalCategory", n => { OriginalCategory = n.GetEnumValue<SubmissionCategory>(); } },
-                {"receivedDateTime", n => { ReceivedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"recipientEmailAddress", n => { RecipientEmailAddress = n.GetStringValue(); } },
-                {"sender", n => { Sender = n.GetStringValue(); } },
-                {"senderIP", n => { SenderIP = n.GetStringValue(); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"tenantAllowOrBlockListAction", n => { TenantAllowOrBlockListAction = n.GetObjectValue<ApiSdk.Models.Security.TenantAllowOrBlockListAction>(ApiSdk.Models.Security.TenantAllowOrBlockListAction.CreateFromDiscriminatorValue); } },
+                { "attackSimulationInfo", n => { AttackSimulationInfo = n.GetObjectValue<ApiSdk.Models.Security.AttackSimulationInfo>(ApiSdk.Models.Security.AttackSimulationInfo.CreateFromDiscriminatorValue); } },
+                { "internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
+                { "originalCategory", n => { OriginalCategory = n.GetEnumValue<SubmissionCategory>(); } },
+                { "receivedDateTime", n => { ReceivedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "recipientEmailAddress", n => { RecipientEmailAddress = n.GetStringValue(); } },
+                { "sender", n => { Sender = n.GetStringValue(); } },
+                { "senderIP", n => { SenderIP = n.GetStringValue(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "tenantAllowOrBlockListAction", n => { TenantAllowOrBlockListAction = n.GetObjectValue<ApiSdk.Models.Security.TenantAllowOrBlockListAction>(ApiSdk.Models.Security.TenantAllowOrBlockListAction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.InboundFlows {
+namespace ApiSdk.External.IndustryData.InboundFlows
+{
     /// <summary>
     /// Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class InboundFlowsRequestBuilder : BaseCliRequestBuilder 
+    public class InboundFlowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to inboundFlows for external
+        /// Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to inboundFlows for external";
+            command.Description = "Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
             return command;
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Get a list of the inboundFileFlow objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Set of data import flow activities to bring data into the canonical store via a connector.";
+            command.Description = "Get a list of the inboundFileFlow objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
         {
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Get a list of the inboundFileFlow objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to inboundFlows for external
+        /// Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.External.IndustryData.InboundFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Set of data import flow activities to bring data into the canonical store via a connector.
+        /// Get a list of the inboundFileFlow objects and their properties.
         /// </summary>
         public class InboundFlowsRequestBuilderGetQueryParameters 
         {

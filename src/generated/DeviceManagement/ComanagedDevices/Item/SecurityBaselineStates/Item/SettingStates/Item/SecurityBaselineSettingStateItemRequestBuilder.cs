@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SecurityBaselineStates.Item.SettingStates.Item {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SecurityBaselineStates.Item.SettingStates.Item
+{
     /// <summary>
     /// Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
     /// </summary>
-    public class SecurityBaselineSettingStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class SecurityBaselineSettingStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settingStates for deviceManagement

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PasswordSingleSignOnSettings : IAdditionalDataHolder, IParsable 
+    public class PasswordSingleSignOnSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The fields property</summary>
+        /// <summary>The fields to capture to fill the user credentials for password-based single sign-on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PasswordSingleSignOnField>? Fields { get; set; }
@@ -52,8 +53,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"fields", n => { Fields = n.GetCollectionOfObjectValues<PasswordSingleSignOnField>(PasswordSingleSignOnField.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "fields", n => { Fields = n.GetCollectionOfObjectValues<PasswordSingleSignOnField>(PasswordSingleSignOnField.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

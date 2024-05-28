@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.ShipmentMethod {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.ShipmentMethod
+{
     /// <summary>
     /// Provides operations to manage the shipmentMethod property of the microsoft.graph.customer entity.
     /// </summary>
-    public class ShipmentMethodRequestBuilder : BaseCliRequestBuilder 
+    public class ShipmentMethodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property shipmentMethod for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.ShipmentM
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property shipmentMethod for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.ShipmentM
         {
             var command = new Command("get");
             command.Description = "Get shipmentMethod from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.ShipmentM
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property shipmentMethod in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);

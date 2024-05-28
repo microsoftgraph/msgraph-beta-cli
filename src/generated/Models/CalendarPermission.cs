@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CalendarPermission : Entity, IParsable 
+    public class CalendarPermission : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.</summary>
@@ -49,11 +50,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedRoles", n => { AllowedRoles = n.GetCollectionOfEnumValues<CalendarRoleType>()?.ToList(); } },
-                {"emailAddress", n => { EmailAddress = n.GetObjectValue<ApiSdk.Models.EmailAddress>(ApiSdk.Models.EmailAddress.CreateFromDiscriminatorValue); } },
-                {"isInsideOrganization", n => { IsInsideOrganization = n.GetBoolValue(); } },
-                {"isRemovable", n => { IsRemovable = n.GetBoolValue(); } },
-                {"role", n => { Role = n.GetEnumValue<CalendarRoleType>(); } },
+                { "allowedRoles", n => { AllowedRoles = n.GetCollectionOfEnumValues<CalendarRoleType>()?.ToList(); } },
+                { "emailAddress", n => { EmailAddress = n.GetObjectValue<ApiSdk.Models.EmailAddress>(ApiSdk.Models.EmailAddress.CreateFromDiscriminatorValue); } },
+                { "isInsideOrganization", n => { IsInsideOrganization = n.GetBoolValue(); } },
+                { "isRemovable", n => { IsRemovable = n.GetBoolValue(); } },
+                { "role", n => { Role = n.GetEnumValue<CalendarRoleType>(); } },
             };
         }
         /// <summary>

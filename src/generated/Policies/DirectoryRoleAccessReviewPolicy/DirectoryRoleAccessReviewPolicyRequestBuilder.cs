@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.DirectoryRoleAccessReviewPolicy {
+namespace ApiSdk.Policies.DirectoryRoleAccessReviewPolicy
+{
     /// <summary>
     /// Provides operations to manage the directoryRoleAccessReviewPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class DirectoryRoleAccessReviewPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryRoleAccessReviewPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property directoryRoleAccessReviewPolicy for policies

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.AppRoleAssignedResources.Item {
+namespace ApiSdk.Users.Item.AppRoleAssignedResources.Item
+{
     /// <summary>
     /// Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
     /// </summary>
-    public class ServicePrincipalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get appRoleAssignedResources from users

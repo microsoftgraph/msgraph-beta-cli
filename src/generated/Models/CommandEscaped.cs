@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CommandEscaped : Entity, IParsable 
+    public class CommandEscaped : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appServiceName property</summary>
@@ -99,15 +100,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appServiceName", n => { AppServiceName = n.GetStringValue(); } },
-                {"error", n => { Error = n.GetStringValue(); } },
-                {"packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
-                {"payload", n => { Payload = n.GetObjectValue<PayloadRequest>(PayloadRequest.CreateFromDiscriminatorValue); } },
-                {"permissionTicket", n => { PermissionTicket = n.GetStringValue(); } },
-                {"postBackUri", n => { PostBackUri = n.GetStringValue(); } },
-                {"responsepayload", n => { Responsepayload = n.GetObjectValue<PayloadResponse>(PayloadResponse.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
+                { "appServiceName", n => { AppServiceName = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetStringValue(); } },
+                { "packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
+                { "payload", n => { Payload = n.GetObjectValue<PayloadRequest>(PayloadRequest.CreateFromDiscriminatorValue); } },
+                { "permissionTicket", n => { PermissionTicket = n.GetStringValue(); } },
+                { "postBackUri", n => { PostBackUri = n.GetStringValue(); } },
+                { "responsepayload", n => { Responsepayload = n.GetObjectValue<PayloadResponse>(PayloadResponse.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

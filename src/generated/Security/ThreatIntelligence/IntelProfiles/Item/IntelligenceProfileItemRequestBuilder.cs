@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item {
+namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class IntelligenceProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class IntelligenceProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property intelProfiles for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item {
             return command;
         }
         /// <summary>
-        /// A list of intelligenceProfile objects.
+        /// Read the properties and relationships of a intelligenceProfile object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-intelligenceprofile-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A list of intelligenceProfile objects.";
+            command.Description = "Read the properties and relationships of a intelligenceProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-intelligenceprofile-get?view=graph-rest-beta";
             var intelligenceProfileIdOption = new Option<string>("--intelligence-profile-id", description: "The unique identifier of intelligenceProfile") {
             };
             intelligenceProfileIdOption.IsRequired = true;
@@ -219,7 +221,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of intelligenceProfile objects.
+        /// Read the properties and relationships of a intelligenceProfile object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -259,7 +261,7 @@ namespace ApiSdk.Security.ThreatIntelligence.IntelProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A list of intelligenceProfile objects.
+        /// Read the properties and relationships of a intelligenceProfile object.
         /// </summary>
         public class IntelligenceProfileItemRequestBuilderGetQueryParameters 
         {

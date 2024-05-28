@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.Wipe {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.Wipe
+{
     #pragma warning disable CS1591
-    public class WipePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class WipePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,12 +56,12 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.Wipe {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
-                {"keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
-                {"macOsUnlockCode", n => { MacOsUnlockCode = n.GetStringValue(); } },
-                {"obliterationBehavior", n => { ObliterationBehavior = n.GetEnumValue<ObliterationBehavior>(); } },
-                {"persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
-                {"useProtectedWipe", n => { UseProtectedWipe = n.GetBoolValue(); } },
+                { "keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
+                { "keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
+                { "macOsUnlockCode", n => { MacOsUnlockCode = n.GetStringValue(); } },
+                { "obliterationBehavior", n => { ObliterationBehavior = n.GetEnumValue<ObliterationBehavior>(); } },
+                { "persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
+                { "useProtectedWipe", n => { UseProtectedWipe = n.GetBoolValue(); } },
             };
         }
         /// <summary>

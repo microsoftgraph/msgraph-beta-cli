@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class AdditionalClassGroupOptions : IAdditionalDataHolder, IParsable 
+    public class AdditionalClassGroupOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -48,9 +49,9 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"createTeam", n => { CreateTeam = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"writeDisplayNameOnCreateOnly", n => { WriteDisplayNameOnCreateOnly = n.GetBoolValue(); } },
+                { "createTeam", n => { CreateTeam = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "writeDisplayNameOnCreateOnly", n => { WriteDisplayNameOnCreateOnly = n.GetBoolValue(); } },
             };
         }
         /// <summary>

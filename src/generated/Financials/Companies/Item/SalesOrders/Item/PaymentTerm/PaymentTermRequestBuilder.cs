@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm {
+namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm
+{
     /// <summary>
     /// Provides operations to manage the paymentTerm property of the microsoft.graph.salesOrder entity.
     /// </summary>
-    public class PaymentTermRequestBuilder : BaseCliRequestBuilder 
+    public class PaymentTermRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property paymentTerm for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property paymentTerm for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm {
         {
             var command = new Command("get");
             command.Description = "Get paymentTerm from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property paymentTerm in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates.Item {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
     /// </summary>
-    public class GovernancePolicyTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernancePolicyTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policyTemplates for approvalWorkflowProviders

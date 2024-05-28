@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
+namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class HomeRealmDiscoveryPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class HomeRealmDiscoveryPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.stsPolicy entity.
@@ -48,13 +49,14 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property homeRealmDiscoveryPolicies for policies
+        /// Delete a homeRealmDiscoveryPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property homeRealmDiscoveryPolicies for policies";
+            command.Description = "Delete a homeRealmDiscoveryPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-delete?view=graph-rest-beta";
             var homeRealmDiscoveryPolicyIdOption = new Option<string>("--home-realm-discovery-policy-id", description: "The unique identifier of homeRealmDiscoveryPolicy") {
             };
             homeRealmDiscoveryPolicyIdOption.IsRequired = true;
@@ -83,13 +85,14 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The policy to control Microsoft Entra authentication behavior for federated users.";
+            command.Description = "Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-get?view=graph-rest-beta";
             var homeRealmDiscoveryPolicyIdOption = new Option<string>("--home-realm-discovery-policy-id", description: "The unique identifier of homeRealmDiscoveryPolicy") {
             };
             homeRealmDiscoveryPolicyIdOption.IsRequired = true;
@@ -135,13 +138,14 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property homeRealmDiscoveryPolicies in policies
+        /// Update the properties of a homeRealmDiscoveryPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property homeRealmDiscoveryPolicies in policies";
+            command.Description = "Update the properties of a homeRealmDiscoveryPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-update?view=graph-rest-beta";
             var homeRealmDiscoveryPolicyIdOption = new Option<string>("--home-realm-discovery-policy-id", description: "The unique identifier of homeRealmDiscoveryPolicy") {
             };
             homeRealmDiscoveryPolicyIdOption.IsRequired = true;
@@ -200,7 +204,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property homeRealmDiscoveryPolicies for policies
+        /// Delete a homeRealmDiscoveryPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -219,7 +223,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property homeRealmDiscoveryPolicies in policies
+        /// Update the properties of a homeRealmDiscoveryPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +263,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
         /// </summary>
         public class HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters 
         {

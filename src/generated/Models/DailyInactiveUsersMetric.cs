@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DailyInactiveUsersMetric : InactiveUsersMetricBase, IParsable 
+    public class DailyInactiveUsersMetric : InactiveUsersMetricBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The inactive1DayCount property</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"inactive1DayCount", n => { Inactive1DayCount = n.GetLongValue(); } },
+                { "inactive1DayCount", n => { Inactive1DayCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

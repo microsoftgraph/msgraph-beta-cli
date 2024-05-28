@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AppleUserInitiatedEnrollmentProfiles.Item {
+namespace ApiSdk.DeviceManagement.AppleUserInitiatedEnrollmentProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the appleUserInitiatedEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AppleUserInitiatedEnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppleUserInitiatedEnrollmentProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.appleUserInitiatedEnrollmentProfile entity.

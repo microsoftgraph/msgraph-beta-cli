@@ -128,11 +128,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item {
+namespace ApiSdk.Users.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of user entities.
     /// </summary>
-    public class UserItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.user entity.
@@ -1994,8 +1995,8 @@ namespace ApiSdk.Users.Item {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             nonExecCommands.Add(builder.BuildCreateOrGetNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllRecordingsNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllTranscriptsNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);

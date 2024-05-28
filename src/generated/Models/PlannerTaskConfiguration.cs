@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTaskConfiguration : Entity, IParsable 
+    public class PlannerTaskConfiguration : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Policy configuration for tasks created for the businessScenario when they&apos;re being changed outside of the scenario.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"editPolicy", n => { EditPolicy = n.GetObjectValue<PlannerTaskPolicy>(PlannerTaskPolicy.CreateFromDiscriminatorValue); } },
+                { "editPolicy", n => { EditPolicy = n.GetObjectValue<PlannerTaskPolicy>(PlannerTaskPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementAlertDefinition : Entity, IParsable 
+    public class UnifiedRoleManagementAlertDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the alert.</summary>
@@ -89,16 +90,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"howToPrevent", n => { HowToPrevent = n.GetStringValue(); } },
-                {"isConfigurable", n => { IsConfigurable = n.GetBoolValue(); } },
-                {"isRemediatable", n => { IsRemediatable = n.GetBoolValue(); } },
-                {"mitigationSteps", n => { MitigationSteps = n.GetStringValue(); } },
-                {"scopeId", n => { ScopeId = n.GetStringValue(); } },
-                {"scopeType", n => { ScopeType = n.GetStringValue(); } },
-                {"securityImpact", n => { SecurityImpact = n.GetStringValue(); } },
-                {"severityLevel", n => { SeverityLevel = n.GetEnumValue<AlertSeverity>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "howToPrevent", n => { HowToPrevent = n.GetStringValue(); } },
+                { "isConfigurable", n => { IsConfigurable = n.GetBoolValue(); } },
+                { "isRemediatable", n => { IsRemediatable = n.GetBoolValue(); } },
+                { "mitigationSteps", n => { MitigationSteps = n.GetStringValue(); } },
+                { "scopeId", n => { ScopeId = n.GetStringValue(); } },
+                { "scopeType", n => { ScopeType = n.GetStringValue(); } },
+                { "securityImpact", n => { SecurityImpact = n.GetStringValue(); } },
+                { "severityLevel", n => { SeverityLevel = n.GetEnumValue<AlertSeverity>(); } },
             };
         }
         /// <summary>

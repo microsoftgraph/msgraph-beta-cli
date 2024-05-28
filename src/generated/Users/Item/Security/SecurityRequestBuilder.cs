@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Security {
+namespace ApiSdk.Users.Item.Security
+{
     /// <summary>
     /// Provides operations to manage the security property of the microsoft.graph.user entity.
     /// </summary>
-    public class SecurityRequestBuilder : BaseCliRequestBuilder 
+    public class SecurityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property security for users

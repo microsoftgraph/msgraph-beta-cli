@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Alert : ApiSdk.Models.Entity, IParsable 
+    public class Alert : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actions property</summary>
@@ -29,6 +30,30 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The detectionTechnology property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DetectionTechnology { get; set; }
+#nullable restore
+#else
+        public string DetectionTechnology { get; set; }
+#endif
+        /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
+        /// <summary>The policy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FilteringPolicy? Policy { get; set; }
+#nullable restore
+#else
+        public FilteringPolicy Policy { get; set; }
+#endif
         /// <summary>The relatedResources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +61,16 @@ namespace ApiSdk.Models.Networkaccess {
 #nullable restore
 #else
         public List<RelatedResource> RelatedResources { get; set; }
+#endif
+        /// <summary>The severity property</summary>
+        public ThreatSeverity? Severity { get; set; }
+        /// <summary>The vendorName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VendorName { get; set; }
+#nullable restore
+#else
+        public string VendorName { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,11 +90,16 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<AlertAction>(AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alertType", n => { AlertType = n.GetEnumValue<AlertType>(); } },
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<RelatedResource>(RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AlertAction>(AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertType", n => { AlertType = n.GetEnumValue<AlertType>(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "detectionTechnology", n => { DetectionTechnology = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "policy", n => { Policy = n.GetObjectValue<FilteringPolicy>(FilteringPolicy.CreateFromDiscriminatorValue); } },
+                { "relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<RelatedResource>(RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ThreatSeverity>(); } },
+                { "vendorName", n => { VendorName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -74,7 +114,12 @@ namespace ApiSdk.Models.Networkaccess {
             writer.WriteEnumValue<AlertType>("alertType", AlertType);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("detectionTechnology", DetectionTechnology);
+            writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteObjectValue<FilteringPolicy>("policy", Policy);
             writer.WriteCollectionOfObjectValues<RelatedResource>("relatedResources", RelatedResources);
+            writer.WriteEnumValue<ThreatSeverity>("severity", Severity);
+            writer.WriteStringValue("vendorName", VendorName);
         }
     }
 }

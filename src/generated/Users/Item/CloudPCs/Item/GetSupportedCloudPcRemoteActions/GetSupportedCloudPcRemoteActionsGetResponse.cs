@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions {
+namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions
+{
     #pragma warning disable CS1591
-    public class GetSupportedCloudPcRemoteActionsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetSupportedCloudPcRemoteActionsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<CloudPcRemoteActionCapability>(CloudPcRemoteActionCapability.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcRemoteActionCapability>(CloudPcRemoteActionCapability.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

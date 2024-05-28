@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class AggregatedInboundStatistics : IAdditionalDataHolder, IParsable 
+    public class AggregatedInboundStatistics : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,15 +73,15 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"errors", n => { Errors = n.GetIntValue(); } },
-                {"groups", n => { Groups = n.GetIntValue(); } },
-                {"matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"memberships", n => { Memberships = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"organizations", n => { Organizations = n.GetIntValue(); } },
-                {"people", n => { People = n.GetIntValue(); } },
-                {"unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"warnings", n => { Warnings = n.GetIntValue(); } },
+                { "errors", n => { Errors = n.GetIntValue(); } },
+                { "groups", n => { Groups = n.GetIntValue(); } },
+                { "matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "memberships", n => { Memberships = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "organizations", n => { Organizations = n.GetIntValue(); } },
+                { "people", n => { People = n.GetIntValue(); } },
+                { "unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "warnings", n => { Warnings = n.GetIntValue(); } },
             };
         }
         /// <summary>

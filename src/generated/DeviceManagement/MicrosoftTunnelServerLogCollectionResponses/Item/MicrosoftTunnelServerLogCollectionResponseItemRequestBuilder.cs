@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item
+{
     /// <summary>
     /// Provides operations to manage the microsoftTunnelServerLogCollectionResponses property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the createDownloadUrl method.

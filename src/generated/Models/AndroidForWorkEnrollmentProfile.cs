@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Enrollment Profile used to enroll COSU devices using Google&apos;s Cloud Management.
     /// </summary>
-    public class AndroidForWorkEnrollmentProfile : Entity, IParsable 
+    public class AndroidForWorkEnrollmentProfile : Entity, IParsable
     {
         /// <summary>Tenant GUID the enrollment profile belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,16 +85,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountId", n => { AccountId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
-                {"qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"tokenValue", n => { TokenValue = n.GetStringValue(); } },
+                { "accountId", n => { AccountId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
+                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "tokenValue", n => { TokenValue = n.GetStringValue(); } },
             };
         }
         /// <summary>

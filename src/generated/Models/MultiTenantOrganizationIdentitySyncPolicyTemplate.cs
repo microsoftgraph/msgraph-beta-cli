@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MultiTenantOrganizationIdentitySyncPolicyTemplate : Entity, IParsable 
+    public class MultiTenantOrganizationIdentitySyncPolicyTemplate : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The templateApplicationLevel property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"templateApplicationLevel", n => { TemplateApplicationLevel = n.GetEnumValue<TemplateApplicationLevel>(); } },
-                {"userSyncInbound", n => { UserSyncInbound = n.GetObjectValue<CrossTenantUserSyncInbound>(CrossTenantUserSyncInbound.CreateFromDiscriminatorValue); } },
+                { "templateApplicationLevel", n => { TemplateApplicationLevel = n.GetEnumValue<TemplateApplicationLevel>(); } },
+                { "userSyncInbound", n => { UserSyncInbound = n.GetObjectValue<CrossTenantUserSyncInbound>(CrossTenantUserSyncInbound.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

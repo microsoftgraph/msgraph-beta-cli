@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharedWithChannelTeamInfo : TeamInfo, IParsable 
+    public class SharedWithChannelTeamInfo : TeamInfo, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of team members who have access to the shared channel.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedMembers", n => { AllowedMembers = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isHostTeam", n => { IsHostTeam = n.GetBoolValue(); } },
+                { "allowedMembers", n => { AllowedMembers = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isHostTeam", n => { IsHostTeam = n.GetBoolValue(); } },
             };
         }
         /// <summary>

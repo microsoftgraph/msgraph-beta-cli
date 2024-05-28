@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics device event entity contains NRT device event details.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceTimelineEvent : Entity, IParsable 
+    public class UserExperienceAnalyticsDeviceTimelineEvent : Entity, IParsable
     {
         /// <summary>The id of the device where the event occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,12 +65,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"eventDetails", n => { EventDetails = n.GetStringValue(); } },
-                {"eventLevel", n => { EventLevel = n.GetEnumValue<DeviceEventLevel>(); } },
-                {"eventName", n => { EventName = n.GetStringValue(); } },
-                {"eventSource", n => { EventSource = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "eventDetails", n => { EventDetails = n.GetStringValue(); } },
+                { "eventLevel", n => { EventLevel = n.GetEnumValue<DeviceEventLevel>(); } },
+                { "eventName", n => { EventName = n.GetStringValue(); } },
+                { "eventSource", n => { EventSource = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item
+{
     /// <summary>
     /// Provides operations to manage the alertIncidents property of the microsoft.graph.unifiedRoleManagementAlert entity.
     /// </summary>
-    public class UnifiedRoleManagementAlertIncidentItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleManagementAlertIncidentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertIncidents for identityGovernance

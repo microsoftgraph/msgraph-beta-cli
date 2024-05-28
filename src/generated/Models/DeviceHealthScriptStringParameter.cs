@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Properties of the  String script parameter.
     /// </summary>
-    public class DeviceHealthScriptStringParameter : DeviceHealthScriptParameter, IParsable 
+    public class DeviceHealthScriptStringParameter : DeviceHealthScriptParameter, IParsable
     {
         /// <summary>The default value of string param</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetStringValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetStringValue(); } },
             };
         }
         /// <summary>

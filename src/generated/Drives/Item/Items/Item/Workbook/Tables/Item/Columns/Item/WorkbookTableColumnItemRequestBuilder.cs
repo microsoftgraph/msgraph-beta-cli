@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Columns.Item
+{
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class WorkbookTableColumnItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookTableColumnItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the dataBodyRange method.

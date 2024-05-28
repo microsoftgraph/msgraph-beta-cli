@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaDeployments.Item {
+namespace ApiSdk.DeviceManagement.ZebraFotaDeployments.Item
+{
     /// <summary>
     /// Provides operations to manage the zebraFotaDeployments property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ZebraFotaDeploymentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ZebraFotaDeploymentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

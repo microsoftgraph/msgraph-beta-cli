@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Atan2 {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Atan2
+{
     #pragma warning disable CS1591
-    public class Atan2PostRequestBody : IAdditionalDataHolder, IParsable 
+    public class Atan2PostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Atan2 {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"xNum", n => { XNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"yNum", n => { YNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "xNum", n => { XNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "yNum", n => { YNum = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.PublishedResources.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.PublishedResources.Item
+{
     /// <summary>
     /// Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
     /// </summary>
-    public class PublishedResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class PublishedResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the agentGroups property of the microsoft.graph.publishedResource entity.

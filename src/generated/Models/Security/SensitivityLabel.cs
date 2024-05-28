@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class SensitivityLabel : ApiSdk.Models.Entity, IParsable 
+    public class SensitivityLabel : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The color that the UI should display for the label, if configured.</summary>
@@ -83,16 +84,16 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"color", n => { Color = n.GetStringValue(); } },
-                {"contentFormats", n => { ContentFormats = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"hasProtection", n => { HasProtection = n.GetBoolValue(); } },
-                {"isActive", n => { IsActive = n.GetBoolValue(); } },
-                {"isAppliable", n => { IsAppliable = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"parent", n => { Parent = n.GetObjectValue<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue); } },
-                {"sensitivity", n => { Sensitivity = n.GetIntValue(); } },
-                {"tooltip", n => { Tooltip = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetStringValue(); } },
+                { "contentFormats", n => { ContentFormats = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "hasProtection", n => { HasProtection = n.GetBoolValue(); } },
+                { "isActive", n => { IsActive = n.GetBoolValue(); } },
+                { "isAppliable", n => { IsAppliable = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "parent", n => { Parent = n.GetObjectValue<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue); } },
+                { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
+                { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
         }
         /// <summary>

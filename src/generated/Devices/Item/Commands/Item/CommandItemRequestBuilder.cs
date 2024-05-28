@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Devices.Item.Commands.Item {
+namespace ApiSdk.Devices.Item.Commands.Item
+{
     /// <summary>
     /// Provides operations to manage the commands property of the microsoft.graph.device entity.
     /// </summary>
-    public class CommandItemRequestBuilder : BaseCliRequestBuilder 
+    public class CommandItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property commands for devices

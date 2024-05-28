@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserRegistrationFeatureSummary : IAdditionalDataHolder, IParsable 
+    public class UserRegistrationFeatureSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,11 +59,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"totalUserCount", n => { TotalUserCount = n.GetLongValue(); } },
-                {"userRegistrationFeatureCounts", n => { UserRegistrationFeatureCounts = n.GetCollectionOfObjectValues<UserRegistrationFeatureCount>(UserRegistrationFeatureCount.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"userRoles", n => { UserRoles = n.GetEnumValue<IncludedUserRoles>(); } },
-                {"userTypes", n => { UserTypes = n.GetEnumValue<IncludedUserTypes>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "totalUserCount", n => { TotalUserCount = n.GetLongValue(); } },
+                { "userRegistrationFeatureCounts", n => { UserRegistrationFeatureCounts = n.GetCollectionOfObjectValues<UserRegistrationFeatureCount>(UserRegistrationFeatureCount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userRoles", n => { UserRoles = n.GetEnumValue<IncludedUserRoles>(); } },
+                { "userTypes", n => { UserTypes = n.GetEnumValue<IncludedUserTypes>(); } },
             };
         }
         /// <summary>

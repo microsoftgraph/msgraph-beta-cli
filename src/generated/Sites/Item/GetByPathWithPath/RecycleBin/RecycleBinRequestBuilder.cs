@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.GetByPathWithPath.RecycleBin {
+namespace ApiSdk.Sites.Item.GetByPathWithPath.RecycleBin
+{
     /// <summary>
     /// Provides operations to manage the recycleBin property of the microsoft.graph.site entity.
     /// </summary>
-    public class RecycleBinRequestBuilder : BaseCliRequestBuilder 
+    public class RecycleBinRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property recycleBin for sites

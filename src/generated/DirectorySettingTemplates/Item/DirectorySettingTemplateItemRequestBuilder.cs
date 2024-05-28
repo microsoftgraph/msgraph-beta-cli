@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectorySettingTemplates.Item {
+namespace ApiSdk.DirectorySettingTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of directorySettingTemplate entities.
     /// </summary>
-    public class DirectorySettingTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectorySettingTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the checkMemberGroups method.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class OutboundProvisioningFlowSet : ApiSdk.Models.Entity, IParsable 
+    public class OutboundProvisioningFlowSet : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the flowSet was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -55,11 +56,11 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"filter", n => { Filter = n.GetObjectValue<ApiSdk.Models.IndustryData.Filter>(ApiSdk.Models.IndustryData.Filter.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"provisioningFlows", n => { ProvisioningFlows = n.GetCollectionOfObjectValues<ProvisioningFlow>(ProvisioningFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "filter", n => { Filter = n.GetObjectValue<ApiSdk.Models.IndustryData.Filter>(ApiSdk.Models.IndustryData.Filter.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "provisioningFlows", n => { ProvisioningFlows = n.GetCollectionOfObjectValues<ProvisioningFlow>(ProvisioningFlow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl {
+namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
+{
     /// <summary>
     /// Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
     /// </summary>
-    public class OnlineMeetingsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder 
+    public class OnlineMeetingsWithJoinWebUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property onlineMeetings for users

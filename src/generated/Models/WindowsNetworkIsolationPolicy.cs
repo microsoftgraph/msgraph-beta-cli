@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Network Isolation Policy
     /// </summary>
-    public class WindowsNetworkIsolationPolicy : IAdditionalDataHolder, IParsable 
+    public class WindowsNetworkIsolationPolicy : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -97,15 +98,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"enterpriseCloudResources", n => { EnterpriseCloudResources = n.GetCollectionOfObjectValues<ProxiedDomain>(ProxiedDomain.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"enterpriseIPRanges", n => { EnterpriseIPRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"enterpriseIPRangesAreAuthoritative", n => { EnterpriseIPRangesAreAuthoritative = n.GetBoolValue(); } },
-                {"enterpriseInternalProxyServers", n => { EnterpriseInternalProxyServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"enterpriseNetworkDomainNames", n => { EnterpriseNetworkDomainNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"enterpriseProxyServers", n => { EnterpriseProxyServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"enterpriseProxyServersAreAuthoritative", n => { EnterpriseProxyServersAreAuthoritative = n.GetBoolValue(); } },
-                {"neutralDomainResources", n => { NeutralDomainResources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "enterpriseCloudResources", n => { EnterpriseCloudResources = n.GetCollectionOfObjectValues<ProxiedDomain>(ProxiedDomain.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "enterpriseIPRanges", n => { EnterpriseIPRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "enterpriseIPRangesAreAuthoritative", n => { EnterpriseIPRangesAreAuthoritative = n.GetBoolValue(); } },
+                { "enterpriseInternalProxyServers", n => { EnterpriseInternalProxyServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enterpriseNetworkDomainNames", n => { EnterpriseNetworkDomainNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enterpriseProxyServers", n => { EnterpriseProxyServers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enterpriseProxyServersAreAuthoritative", n => { EnterpriseProxyServersAreAuthoritative = n.GetBoolValue(); } },
+                { "neutralDomainResources", n => { NeutralDomainResources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

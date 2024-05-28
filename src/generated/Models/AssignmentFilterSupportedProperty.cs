@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents the information about the property which is supported in crafting the rule of AssignmentFilter.
     /// </summary>
-    public class AssignmentFilterSupportedProperty : IAdditionalDataHolder, IParsable 
+    public class AssignmentFilterSupportedProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -87,13 +88,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dataType", n => { DataType = n.GetStringValue(); } },
-                {"isCollection", n => { IsCollection = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"propertyRegexConstraint", n => { PropertyRegexConstraint = n.GetStringValue(); } },
-                {"supportedOperators", n => { SupportedOperators = n.GetCollectionOfEnumValues<AssignmentFilterOperator>()?.ToList(); } },
-                {"supportedValues", n => { SupportedValues = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "dataType", n => { DataType = n.GetStringValue(); } },
+                { "isCollection", n => { IsCollection = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "propertyRegexConstraint", n => { PropertyRegexConstraint = n.GetStringValue(); } },
+                { "supportedOperators", n => { SupportedOperators = n.GetCollectionOfEnumValues<AssignmentFilterOperator>()?.ToList(); } },
+                { "supportedValues", n => { SupportedValues = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Restart {
+namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Restart
+{
     #pragma warning disable CS1591
-    public class RestartPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RestartPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Jobs.Item.Restart {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"criteria", n => { Criteria = n.GetObjectValue<SynchronizationJobRestartCriteria>(SynchronizationJobRestartCriteria.CreateFromDiscriminatorValue); } },
+                { "criteria", n => { Criteria = n.GetObjectValue<SynchronizationJobRestartCriteria>(SynchronizationJobRestartCriteria.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

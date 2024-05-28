@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
+{
     /// <summary>
     /// Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class ConnectedOrganizationsRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectedOrganizationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return command;
         }
         /// <summary>
-        /// Create new navigation property to connectedOrganizations for identityGovernance
+        /// Create a new connectedOrganization object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to connectedOrganizations for identityGovernance";
+            command.Description = "Create a new connectedOrganization object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return command;
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// Retrieve a list of connectedOrganization objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents references to a directory or domain of another organization whose users can request access.";
+            command.Description = "Retrieve a list of connectedOrganization objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +214,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
         {
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// Retrieve a list of connectedOrganization objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +233,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to connectedOrganizations for identityGovernance
+        /// Create a new connectedOrganization object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -249,7 +254,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations
             return requestInfo;
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// Retrieve a list of connectedOrganization objects.
         /// </summary>
         public class ConnectedOrganizationsRequestBuilderGetQueryParameters 
         {

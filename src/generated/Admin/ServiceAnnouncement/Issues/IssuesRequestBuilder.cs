@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
+namespace ApiSdk.Admin.ServiceAnnouncement.Issues
+{
     /// <summary>
     /// Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
     /// </summary>
-    public class IssuesRequestBuilder : BaseCliRequestBuilder 
+    public class IssuesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
             return command;
         }
         /// <summary>
-        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.";
+            command.Description = "Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
         {
         }
         /// <summary>
-        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Issues {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
         /// </summary>
         public class IssuesRequestBuilderGetQueryParameters 
         {

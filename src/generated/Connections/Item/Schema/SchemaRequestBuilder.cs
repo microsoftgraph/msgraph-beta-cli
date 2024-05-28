@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Connections.Item.Schema {
+namespace ApiSdk.Connections.Item.Schema
+{
     /// <summary>
     /// Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class SchemaRequestBuilder : BaseCliRequestBuilder 
+    public class SchemaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get schema from connections

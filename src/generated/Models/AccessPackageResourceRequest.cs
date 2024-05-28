@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageResourceRequest : Entity, IParsable 
+    public class AccessPackageResourceRequest : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessPackageResource property</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models {
         public bool? ExecuteImmediately { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
-        /// <summary>If set, does not add the resource.</summary>
+        /// <summary>If set, doesn&apos;t add the resource.</summary>
         public bool? IsValidationOnly { get; set; }
         /// <summary>The requestor&apos;s justification for adding or removing the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +48,7 @@ namespace ApiSdk.Models {
 #else
         public AccessPackageSubject Requestor { get; set; }
 #endif
-        /// <summary>The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.</summary>
+        /// <summary>The outcome of whether the service was able to add the resource to the catalog. The value is Delivered if the resource was added or removed. Read-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequestState { get; set; }
@@ -89,16 +90,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
-                {"catalogId", n => { CatalogId = n.GetStringValue(); } },
-                {"executeImmediately", n => { ExecuteImmediately = n.GetBoolValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"requestState", n => { RequestState = n.GetStringValue(); } },
-                {"requestStatus", n => { RequestStatus = n.GetStringValue(); } },
-                {"requestType", n => { RequestType = n.GetStringValue(); } },
-                {"requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
+                { "accessPackageResource", n => { AccessPackageResource = n.GetObjectValue<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue); } },
+                { "catalogId", n => { CatalogId = n.GetStringValue(); } },
+                { "executeImmediately", n => { ExecuteImmediately = n.GetBoolValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "requestState", n => { RequestState = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetStringValue(); } },
+                { "requestType", n => { RequestType = n.GetStringValue(); } },
+                { "requestor", n => { Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

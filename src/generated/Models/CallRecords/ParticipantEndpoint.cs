@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.CallRecords {
+namespace ApiSdk.Models.CallRecords
+{
     #pragma warning disable CS1591
-    public class ParticipantEndpoint : Endpoint, IParsable 
+    public class ParticipantEndpoint : Endpoint, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Identity associated with the endpoint.</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Models.CallRecords {
 #else
         public UserFeedback Feedback { get; set; }
 #endif
-        /// <summary>The identity property</summary>
+        /// <summary>Identity associated with the endpoint. The identity property is deprecated and will stop returning data on June 30, 2026. Going forward, use the associatedIdentity property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.IdentitySet? Identity { get; set; }
@@ -78,13 +79,13 @@ namespace ApiSdk.Models.CallRecords {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"associatedIdentity", n => { AssociatedIdentity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
-                {"cpuCoresCount", n => { CpuCoresCount = n.GetIntValue(); } },
-                {"cpuName", n => { CpuName = n.GetStringValue(); } },
-                {"cpuProcessorSpeedInMhz", n => { CpuProcessorSpeedInMhz = n.GetIntValue(); } },
-                {"feedback", n => { Feedback = n.GetObjectValue<UserFeedback>(UserFeedback.CreateFromDiscriminatorValue); } },
-                {"identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
-                {"name", n => { Name = n.GetStringValue(); } },
+                { "associatedIdentity", n => { AssociatedIdentity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
+                { "cpuCoresCount", n => { CpuCoresCount = n.GetIntValue(); } },
+                { "cpuName", n => { CpuName = n.GetStringValue(); } },
+                { "cpuProcessorSpeedInMhz", n => { CpuProcessorSpeedInMhz = n.GetIntValue(); } },
+                { "feedback", n => { Feedback = n.GetObjectValue<UserFeedback>(UserFeedback.CreateFromDiscriminatorValue); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item {
+namespace ApiSdk.PrivilegedRoleAssignmentRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedRoleAssignmentRequest entities.
     /// </summary>
-    public class PrivilegedRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedRoleAssignmentRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

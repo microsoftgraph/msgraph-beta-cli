@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationIntegerSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable 
+    public class DeviceManagementConfigurationIntegerSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Maximum allowed value of the integer</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumValue", n => { MaximumValue = n.GetLongValue(); } },
-                {"minimumValue", n => { MinimumValue = n.GetLongValue(); } },
+                { "maximumValue", n => { MaximumValue = n.GetLongValue(); } },
+                { "minimumValue", n => { MinimumValue = n.GetLongValue(); } },
             };
         }
         /// <summary>

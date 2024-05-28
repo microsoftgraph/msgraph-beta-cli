@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Applications.Item.RemoveKey {
+namespace ApiSdk.Applications.Item.RemoveKey
+{
     #pragma warning disable CS1591
-    public class RemoveKeyPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RemoveKeyPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,8 +47,8 @@ namespace ApiSdk.Applications.Item.RemoveKey {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"keyId", n => { KeyId = n.GetGuidValue(); } },
-                {"proof", n => { Proof = n.GetStringValue(); } },
+                { "keyId", n => { KeyId = n.GetGuidValue(); } },
+                { "proof", n => { Proof = n.GetStringValue(); } },
             };
         }
         /// <summary>

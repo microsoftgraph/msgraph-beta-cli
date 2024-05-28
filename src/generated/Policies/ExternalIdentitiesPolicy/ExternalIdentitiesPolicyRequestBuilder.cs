@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
+namespace ApiSdk.Policies.ExternalIdentitiesPolicy
+{
     /// <summary>
     /// Provides operations to manage the externalIdentitiesPolicy property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class ExternalIdentitiesPolicyRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalIdentitiesPolicyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property externalIdentitiesPolicy for policies
@@ -50,13 +51,14 @@ namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
             return command;
         }
         /// <summary>
-        /// Represents the tenant-wide policy that controls whether guests can leave a Microsoft Entra tenant via self-service controls.
+        /// Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalidentitiespolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the tenant-wide policy that controls whether guests can leave a Microsoft Entra tenant via self-service controls.";
+            command.Description = "Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalidentitiespolicy-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
             return command;
         }
         /// <summary>
-        /// Update the navigation property externalIdentitiesPolicy in policies
+        /// Update the settings of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalidentitiespolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property externalIdentitiesPolicy in policies";
+            command.Description = "Update the settings of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalidentitiespolicy-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the tenant-wide policy that controls whether guests can leave a Microsoft Entra tenant via self-service controls.
+        /// Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property externalIdentitiesPolicy in policies
+        /// Update the settings of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Policies.ExternalIdentitiesPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the tenant-wide policy that controls whether guests can leave a Microsoft Entra tenant via self-service controls.
+        /// Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave a Microsoft Entra tenant via self-service controls.
         /// </summary>
         public class ExternalIdentitiesPolicyRequestBuilderGetQueryParameters 
         {

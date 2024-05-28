@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class MailboxEvidence : AlertEvidence, IParsable 
+    public class MailboxEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name associated with the mailbox.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"primaryAddress", n => { PrimaryAddress = n.GetStringValue(); } },
-                {"userAccount", n => { UserAccount = n.GetObjectValue<ApiSdk.Models.Security.UserAccount>(ApiSdk.Models.Security.UserAccount.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "primaryAddress", n => { PrimaryAddress = n.GetStringValue(); } },
+                { "userAccount", n => { UserAccount = n.GetObjectValue<ApiSdk.Models.Security.UserAccount>(ApiSdk.Models.Security.UserAccount.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

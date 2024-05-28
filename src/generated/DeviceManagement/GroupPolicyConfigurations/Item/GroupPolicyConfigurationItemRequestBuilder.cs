@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyConfigurations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyConfigurationItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyConfigurationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.

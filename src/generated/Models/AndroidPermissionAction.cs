@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Mapping between an Android app permission and the action Android should take when that permission is requested.
     /// </summary>
-    public class AndroidPermissionAction : IAdditionalDataHolder, IParsable 
+    public class AndroidPermissionAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Android action taken when an app requests a dangerous permission.</summary>
         public AndroidPermissionActionType? Action { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<AndroidPermissionActionType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"permission", n => { Permission = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<AndroidPermissionActionType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "permission", n => { Permission = n.GetStringValue(); } },
             };
         }
         /// <summary>

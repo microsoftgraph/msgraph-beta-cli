@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServicePrincipalSignInActivity : Entity, IParsable 
+    public class ServicePrincipalSignInActivity : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The application ID of the resource.</summary>
@@ -75,12 +76,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"applicationAuthenticationClientSignInActivity", n => { ApplicationAuthenticationClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                {"applicationAuthenticationResourceSignInActivity", n => { ApplicationAuthenticationResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                {"delegatedClientSignInActivity", n => { DelegatedClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                {"delegatedResourceSignInActivity", n => { DelegatedResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                {"lastSignInActivity", n => { LastSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "applicationAuthenticationClientSignInActivity", n => { ApplicationAuthenticationClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "applicationAuthenticationResourceSignInActivity", n => { ApplicationAuthenticationResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "delegatedClientSignInActivity", n => { DelegatedClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "delegatedResourceSignInActivity", n => { DelegatedResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "lastSignInActivity", n => { LastSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

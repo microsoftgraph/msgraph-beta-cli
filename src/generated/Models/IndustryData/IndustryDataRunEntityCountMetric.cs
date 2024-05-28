@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class IndustryDataRunEntityCountMetric : IAdditionalDataHolder, IParsable 
+    public class IndustryDataRunEntityCountMetric : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The count of entries for the entity marked as Active.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"active", n => { Active = n.GetIntValue(); } },
-                {"inactive", n => { Inactive = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"total", n => { Total = n.GetIntValue(); } },
+                { "active", n => { Active = n.GetIntValue(); } },
+                { "inactive", n => { Inactive = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "total", n => { Total = n.GetIntValue(); } },
             };
         }
         /// <summary>

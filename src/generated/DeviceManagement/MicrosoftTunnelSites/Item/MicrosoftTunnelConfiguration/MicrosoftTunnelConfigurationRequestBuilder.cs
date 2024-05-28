@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelConfiguration {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelConfiguration
+{
     /// <summary>
     /// Provides operations to manage the microsoftTunnelConfiguration property of the microsoft.graph.microsoftTunnelSite entity.
     /// </summary>
-    public class MicrosoftTunnelConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftTunnelConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property microsoftTunnelConfiguration for deviceManagement

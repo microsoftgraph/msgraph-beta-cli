@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceLocalCredentialInfo : Entity, IParsable 
+    public class DeviceLocalCredentialInfo : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The credentials of the device&apos;s local administrator account backed up to Azure Active Directory.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"credentials", n => { Credentials = n.GetCollectionOfObjectValues<DeviceLocalCredential>(DeviceLocalCredential.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"lastBackupDateTime", n => { LastBackupDateTime = n.GetDateTimeOffsetValue(); } },
-                {"refreshDateTime", n => { RefreshDateTime = n.GetDateTimeOffsetValue(); } },
+                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<DeviceLocalCredential>(DeviceLocalCredential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "lastBackupDateTime", n => { LastBackupDateTime = n.GetDateTimeOffsetValue(); } },
+                { "refreshDateTime", n => { RefreshDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
